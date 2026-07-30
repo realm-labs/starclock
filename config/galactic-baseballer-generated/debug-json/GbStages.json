@@ -1,0 +1,1355 @@
+{
+  "table": {
+    "name": "GbStages",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_weapon_ids": {
+            "String": "[]"
+          },
+          "intro_id": {
+            "String": "8340"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Initial Planet"
+          },
+          "name_zh_cn": {
+            "String": "初始星球"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424001\"],[\"424002\"],[],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "14828109482724934485"
+          },
+          "source_numeric_id": {
+            "String": "424000"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.7bf279a53a71d8d6\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424000"
+          },
+          "stage_role": {
+            "String": "Origin"
+          },
+          "summary_en": {
+            "String": "Demon King origin stage 424000 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇初始关卡 424000，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"origin-stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113607"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "5287587947546140338"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231406\",\"1048001\",\"1048002\",\"3231306\",\"3231222\"]"
+          },
+          "unlock_quest_id": "Null",
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[\"6070245\"]"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3113003\"]"
+          },
+          "intro_id": {
+            "String": "8341"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "V612 - Volcanic Planet"
+          },
+          "name_zh_cn": {
+            "String": "V612-火山星球"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424011\"],[\"424012\"],[\"424013\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3113012\",\"3113009\",\"3113007\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":2,\"ordinal\":0,\"weapon_id\":\"3113805\"},{\"level\":1,\"ordinal\":1,\"weapon_id\":\"3113808\"},{\"level\":1,\"ordinal\":2,\"weapon_id\":\"3113804\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "1754845076014534583"
+          },
+          "source_numeric_id": {
+            "String": "424001"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.b73bb56751a0c20e\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424001"
+          },
+          "stage_role": {
+            "String": "Challenge"
+          },
+          "summary_en": {
+            "String": "Demon King challenge stage 424001 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇挑战关卡 424001，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113602"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "11711600900612697482"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231402\",\"3231313\",\"3231217\",\"3231101\",\"3238007\",\"3238008\"]"
+          },
+          "unlock_quest_id": "Null",
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[\"6070246\"]"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3113009\"]"
+          },
+          "intro_id": {
+            "String": "8342"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "C996 - Cogwheel Planet"
+          },
+          "name_zh_cn": {
+            "String": "C996-齿轮星球"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424021\"],[\"424022\"],[\"424023\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3113008\",\"3113006\",\"3113005\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":1,\"ordinal\":0,\"weapon_id\":\"3113808\"},{\"level\":1,\"ordinal\":1,\"weapon_id\":\"3113806\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3113805\"},{\"level\":1,\"ordinal\":3,\"weapon_id\":\"3113810\"},{\"level\":1,\"ordinal\":4,\"weapon_id\":\"3113812\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "11431062380728312233"
+          },
+          "source_numeric_id": {
+            "String": "424002"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e0d008a88738fe5f\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424002"
+          },
+          "stage_role": {
+            "String": "Challenge"
+          },
+          "summary_en": {
+            "String": "Demon King challenge stage 424002 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇挑战关卡 424002，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113601"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "13609631575910613349"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231401\",\"3321403\",\"3231405\",\"3231314\",\"3231217\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070210"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[\"6070247\"]"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3113004\"]"
+          },
+          "intro_id": {
+            "String": "8343"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0003\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "F233 - Sugarfrost Planet"
+          },
+          "name_zh_cn": {
+            "String": "F233-糖霜星球"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424031\"],[\"424032\"],[\"424033\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3113010\",\"3113011\",\"3113009\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":2,\"ordinal\":0,\"weapon_id\":\"3113803\"},{\"level\":1,\"ordinal\":1,\"weapon_id\":\"3113804\"},{\"level\":1,\"ordinal\":2,\"weapon_id\":\"3113805\"},{\"level\":2,\"ordinal\":3,\"weapon_id\":\"3113813\"},{\"level\":1,\"ordinal\":4,\"weapon_id\":\"3113808\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "4729319614463936291"
+          },
+          "source_numeric_id": {
+            "String": "424003"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e15d4b0c993d6542\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424003"
+          },
+          "stage_role": {
+            "String": "Challenge"
+          },
+          "summary_en": {
+            "String": "Demon King challenge stage 424003 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇挑战关卡 424003，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113603"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "13643516030540431393"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231407\",\"3321403\",\"3231409\",\"3231404\",\"3238007\",\"3238008\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070211"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "2"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[\"6070248\"]"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3113002\"]"
+          },
+          "intro_id": {
+            "String": "8344"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0004\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "M078 - Miniature Planet"
+          },
+          "name_zh_cn": {
+            "String": "M078-微缩星球"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424041\"],[\"424042\"],[\"424043\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3113001\",\"3113015\",\"3113011\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":2,\"ordinal\":0,\"weapon_id\":\"3113802\"},{\"level\":2,\"ordinal\":1,\"weapon_id\":\"3113810\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3113808\"},{\"level\":2,\"ordinal\":3,\"weapon_id\":\"3113809\"},{\"level\":1,\"ordinal\":4,\"weapon_id\":\"3113814\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "15096074463406548550"
+          },
+          "source_numeric_id": {
+            "String": "424004"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.cb05d86146189789\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424004"
+          },
+          "stage_role": {
+            "String": "Challenge"
+          },
+          "summary_en": {
+            "String": "Demon King challenge stage 424004 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇挑战关卡 424004，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113604"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "3031204465518054650"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231310\",\"3231225\",\"3231222\",\"3231303\",\"3231301\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070212"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "2"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[\"6070249\"]"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3113013\"]"
+          },
+          "intro_id": {
+            "String": "8345"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "D007 - Blissdream Planet"
+          },
+          "name_zh_cn": {
+            "String": "D007-甜梦星球"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424051\"],[\"424052\"],[\"424053\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3113012\",\"3113015\",\"3113001\",\"3113014\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":3,\"ordinal\":0,\"weapon_id\":\"3113809\"},{\"level\":3,\"ordinal\":1,\"weapon_id\":\"3113807\"},{\"level\":4,\"ordinal\":2,\"weapon_id\":\"3113810\"},{\"level\":3,\"ordinal\":3,\"weapon_id\":\"3113802\"},{\"level\":3,\"ordinal\":4,\"weapon_id\":\"3113805\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "9331031647835741955"
+          },
+          "source_numeric_id": {
+            "String": "424005"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e340d097c9b66d3c\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424005"
+          },
+          "stage_role": {
+            "String": "Challenge"
+          },
+          "summary_en": {
+            "String": "Demon King challenge stage 424005 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇挑战关卡 424005，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113605"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "5528082948660319492"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231220\",\"3231406\",\"3231304\",\"3231309\",\"3231112\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070213"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "3"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": {
+            "String": "[\"6070250\"]"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "initial_weapon_ids": {
+            "String": "[]"
+          },
+          "intro_id": {
+            "String": "8340"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King's Den"
+          },
+          "name_zh_cn": {
+            "String": "魔王巢穴"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"424101\",\"424102\",\"424103\",\"424104\",\"424105\",\"424106\",\"424107\",\"424108\",\"424109\",\"424110\",\"424111\",\"424112\",\"424113\",\"424114\",\"424115\"],[\"424201\",\"424202\",\"424203\",\"424204\",\"424205\",\"424206\",\"424207\",\"424208\",\"424209\",\"424210\",\"424211\",\"424212\",\"424213\",\"424214\"],[\"424301\",\"424302\",\"424303\",\"424304\",\"424305\",\"424306\",\"424307\",\"424308\",\"424309\"],[\"424999\"]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":1,\"ordinal\":0,\"weapon_id\":\"3113815\"},{\"level\":3,\"ordinal\":1,\"weapon_id\":\"3113805\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3113806\"},{\"level\":1,\"ordinal\":3,\"weapon_id\":\"3113808\"},{\"level\":1,\"ordinal\":4,\"weapon_id\":\"3113803\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "SecondChapter"
+          },
+          "source_name_hash": {
+            "String": "1227624459749866252"
+          },
+          "source_numeric_id": {
+            "String": "424006"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.38c0d9833f70f455\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.stage.424006"
+          },
+          "stage_role": {
+            "String": "Challenge"
+          },
+          "summary_en": {
+            "String": "Demon King challenge stage 424006 with exact loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇挑战关卡 424006，保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3113606"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "3670002700670905499"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231401\",\"3231405\",\"3231314\",\"3231217\",\"3231402\",\"3231313\",\"3231101\",\"3231407\",\"3321403\",\"3231409\",\"3231404\",\"3238007\",\"3238008\",\"3231310\",\"3231225\",\"3231222\",\"3231303\",\"3231301\",\"3231220\",\"3231406\",\"3231304\",\"3231309\",\"3231112\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070214"
+          },
+          "weapon_selectable": {
+            "String": "true"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": "Null",
+          "id": {
+            "Integer": 8
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3106002\"]"
+          },
+          "intro_id": {
+            "String": "8141"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Volcanic Planet"
+          },
+          "name_zh_cn": {
+            "String": "火山星球"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"414011\"],[\"414012\"],[\"414013\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3106013\",\"3106011\",\"3106010\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":1,\"ordinal\":0,\"weapon_id\":\"3106807\"},{\"level\":2,\"ordinal\":1,\"weapon_id\":\"3106804\"},{\"level\":1,\"ordinal\":2,\"weapon_id\":\"3106805\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "EarlyAccess"
+          },
+          "source_name_hash": {
+            "String": "9257932061750773546"
+          },
+          "source_numeric_id": {
+            "String": "414001"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.db3bdbdd502393d4\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.stage.414001"
+          },
+          "stage_role": "Null",
+          "summary_en": {
+            "String": "Departure stage 414001, difficulty 1, with exact initial loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇关卡 414001，难度 1；保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3106601"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "14336167067068109421"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"1021003\",\"1031013\",\"3231110\"]"
+          },
+          "unlock_quest_id": "Null",
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": "Null",
+          "id": {
+            "Integer": 9
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3106004\"]"
+          },
+          "intro_id": {
+            "String": "8142"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Cogwheel Planet"
+          },
+          "name_zh_cn": {
+            "String": "齿轮星球"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"414021\"],[\"414022\"],[\"414023\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3106003\",\"3106011\",\"3106005\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":2,\"ordinal\":0,\"weapon_id\":\"3106801\"},{\"level\":1,\"ordinal\":1,\"weapon_id\":\"3106805\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3106804\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "EarlyAccess"
+          },
+          "source_name_hash": {
+            "String": "10795403886364513351"
+          },
+          "source_numeric_id": {
+            "String": "414002"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.f9fd5c2082a41260\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.stage.414002"
+          },
+          "stage_role": "Null",
+          "summary_en": {
+            "String": "Departure stage 414002, difficulty 1, with exact initial loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇关卡 414002，难度 1；保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3106602"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "14764379924007239001"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"1031307\",\"1031005\",\"1031217\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070100"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "1"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": "Null",
+          "id": {
+            "Integer": 10
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3106005\"]"
+          },
+          "intro_id": {
+            "String": "8143"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Sugarfrost Planet"
+          },
+          "name_zh_cn": {
+            "String": "糖霜星球"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"414031\"],[\"414032\"],[\"414033\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3106001\",\"3106011\",\"3106008\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":1,\"ordinal\":0,\"weapon_id\":\"3106811\"},{\"level\":1,\"ordinal\":1,\"weapon_id\":\"3106806\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3106802\"},{\"level\":2,\"ordinal\":3,\"weapon_id\":\"3106804\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "EarlyAccess"
+          },
+          "source_name_hash": {
+            "String": "408230706246897740"
+          },
+          "source_numeric_id": {
+            "String": "414003"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.af44aa9a95d65b72\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.stage.414003"
+          },
+          "stage_role": "Null",
+          "summary_en": {
+            "String": "Departure stage 414003, difficulty 1, with exact initial loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇关卡 414003，难度 1；保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3106603"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "3625978097081324340"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"1031315\",\"1038005\",\"1038006\",\"3231301\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070101"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "2"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": "Null",
+          "id": {
+            "Integer": 11
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3106007\"]"
+          },
+          "intro_id": {
+            "String": "8144"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0003\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Miniature Planet"
+          },
+          "name_zh_cn": {
+            "String": "微缩星球"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"414041\"],[\"414042\"],[\"414043\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3106009\",\"3106001\",\"3106002\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":2,\"ordinal\":0,\"weapon_id\":\"3106805\"},{\"level\":2,\"ordinal\":1,\"weapon_id\":\"3106801\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3106812\"},{\"level\":2,\"ordinal\":3,\"weapon_id\":\"3106809\"},{\"level\":1,\"ordinal\":4,\"weapon_id\":\"3106813\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "EarlyAccess"
+          },
+          "source_name_hash": {
+            "String": "11660257350447558579"
+          },
+          "source_numeric_id": {
+            "String": "414004"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e3badf26d265793c\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.stage.414004"
+          },
+          "stage_role": "Null",
+          "summary_en": {
+            "String": "Departure stage 414004, difficulty 2, with exact initial loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇关卡 414004，难度 2；保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3106605"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "14786541339805178605"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231305\",\"3231112\",\"1031309\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070102"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "2"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": "Null",
+          "id": {
+            "Integer": 12
+          },
+          "initial_weapon_ids": {
+            "String": "[\"3106012\"]"
+          },
+          "intro_id": {
+            "String": "8146"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0004\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Blissdream Planet"
+          },
+          "name_zh_cn": {
+            "String": "甜梦星球"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"414061\"],[\"414062\"],[\"414063\"],[]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[\"3106010\",\"3106009\",\"3106003\"]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":2,\"ordinal\":0,\"weapon_id\":\"3106808\"},{\"level\":3,\"ordinal\":1,\"weapon_id\":\"3106802\"},{\"level\":2,\"ordinal\":2,\"weapon_id\":\"3106811\"},{\"level\":2,\"ordinal\":3,\"weapon_id\":\"3106812\"},{\"level\":3,\"ordinal\":4,\"weapon_id\":\"3106804\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "EarlyAccess"
+          },
+          "source_name_hash": {
+            "String": "11351957689659610707"
+          },
+          "source_numeric_id": {
+            "String": "414006"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4e7a642fec9bd991\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.stage.414006"
+          },
+          "stage_role": "Null",
+          "summary_en": {
+            "String": "Departure stage 414006, difficulty 2, with exact initial loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇关卡 414006，难度 2；保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3106606"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "6856358679217141938"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"3231308\",\"3231106\",\"3231304\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070103"
+          },
+          "weapon_selectable": {
+            "String": "false"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "difficulty": {
+            "String": "3"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "first_win_quest_ids": "Null",
+          "id": {
+            "Integer": 13
+          },
+          "initial_weapon_ids": {
+            "String": "[]"
+          },
+          "intro_id": {
+            "String": "8140"
+          },
+          "kind": {
+            "String": "Stage"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Eternal Black Hole"
+          },
+          "name_zh_cn": {
+            "String": "永恒黑洞"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "period_ids_by_phase": {
+            "String": "[[\"414101\",\"414102\",\"414103\",\"414104\",\"414105\",\"414106\",\"414107\",\"414108\",\"414109\",\"414110\",\"414111\",\"414112\"],[\"414201\",\"414202\",\"414203\",\"414204\",\"414205\",\"414206\",\"414207\",\"414208\",\"414209\",\"414210\",\"414211\",\"414212\"],[\"414301\",\"414302\",\"414303\",\"414304\",\"414305\",\"414306\"],[\"414999\"]]"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "recommended_accessory_ids": {
+            "String": "[]"
+          },
+          "recommended_weapon_levels": {
+            "String": "[{\"level\":1,\"ordinal\":0,\"weapon_id\":\"3106814\"},{\"level\":4,\"ordinal\":1,\"weapon_id\":\"3106804\"},{\"level\":3,\"ordinal\":2,\"weapon_id\":\"3106809\"},{\"level\":2,\"ordinal\":3,\"weapon_id\":\"3106812\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "season": {
+            "String": "EarlyAccess"
+          },
+          "source_name_hash": {
+            "String": "5254692243005458607"
+          },
+          "source_numeric_id": {
+            "String": "414007"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.1a2321951ce5c7b9\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.stage.414007"
+          },
+          "stage_role": "Null",
+          "summary_en": {
+            "String": "Departure stage 414007, difficulty 3, with exact initial loadout, team bonus, recommendations and rating thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "启程篇关卡 414007，难度 3；保留精确初始配置、队伍加成、推荐组合与评级阈值。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"stage\"]"
+          },
+          "team_bonus_format_hash": {
+            "String": "5466090491709284181"
+          },
+          "team_bonus_maze_buff_id": {
+            "String": "3106607"
+          },
+          "team_bonus_short_desc_hash": {
+            "String": "11468319368737061146"
+          },
+          "trial_avatar_ids": {
+            "String": "[\"1021003\",\"1031013\",\"3231110\",\"1031307\",\"1031005\",\"1031217\",\"1031315\",\"1038005\",\"1038006\",\"3231301\",\"3231305\",\"3231112\",\"1031309\",\"3231308\",\"3231106\",\"3231304\"]"
+          },
+          "unlock_quest_id": {
+            "String": "6070105"
+          },
+          "weapon_selectable": {
+            "String": "true"
+          }
+        }
+      }
+    ]
+  }
+}

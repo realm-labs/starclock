@@ -1,0 +1,917 @@
+{
+  "table": {
+    "name": "GbSettlementRules",
+    "rows": [
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Initial Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "初始星球结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "0"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.7bf279a53a71d8d6\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424000"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424000"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "V612 - Volcanic Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "V612-火山星球结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.b73bb56751a0c20e\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424001"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424001"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "C996 - Cogwheel Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "C996-齿轮星球结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "2"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e0d008a88738fe5f\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424002"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424002"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0003\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "F233 - Sugarfrost Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "F233-糖霜星球结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "3"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e15d4b0c993d6542\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424003"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424003"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0004\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "M078 - Miniature Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "M078-微缩星球结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "4"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.cb05d86146189789\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424004"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424004"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "D007 - Blissdream Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "D007-甜梦星球结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "5"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e340d097c9b66d3c\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424005"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424005"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King's Den settlement"
+          },
+          "name_zh_cn": {
+            "String": "魔王巢穴结算"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "6"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.38c0d9833f70f455\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.settlement.424006"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.demon-king.stage.424006"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Volcanic Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "火山星球结算"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "0"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.db3bdbdd502393d4\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.settlement.414001"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.departure.stage.414001"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Cogwheel Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "齿轮星球结算"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.f9fd5c2082a41260\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.settlement.414002"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.departure.stage.414002"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Sugarfrost Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "糖霜星球结算"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "2"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.af44aa9a95d65b72\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.settlement.414003"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.departure.stage.414003"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0003\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Miniature Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "微缩星球结算"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "3"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e3badf26d265793c\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.settlement.414004"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.departure.stage.414004"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0004\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Blissdream Planet settlement"
+          },
+          "name_zh_cn": {
+            "String": "甜梦星球结算"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "4"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4e7a642fec9bd991\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.settlement.414006"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.departure.stage.414006"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"rating\",\"settlement\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "clear_condition": {
+            "String": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SettlementRule"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Eternal Black Hole settlement"
+          },
+          "name_zh_cn": {
+            "String": "永恒黑洞结算"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rating_thresholds": {
+            "String": "[{\"minimum_score\":0,\"ordinal\":0,\"rating\":\"C\"},{\"minimum_score\":20000,\"ordinal\":1,\"rating\":\"B\"},{\"minimum_score\":40000,\"ordinal\":2,\"rating\":\"A\"},{\"minimum_score\":60000,\"ordinal\":3,\"rating\":\"S\"},{\"minimum_score\":80000,\"ordinal\":4,\"rating\":\"SS\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "score_cap": {
+            "String": "200000"
+          },
+          "settlement_order": {
+            "String": "5"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.1a2321951ce5c7b9\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.settlement.414007"
+          },
+          "stage_id": {
+            "String": "galactic-baseballer.departure.stage.414007"
+          },
+          "summary_en": {
+            "String": "Exact ordered rating thresholds and stage clear/settlement boundary."
+          },
+          "summary_zh_cn": {
+            "String": "精确有序评级阈值与关卡通关/结算边界。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"rating\",\"settlement\"]"
+          }
+        }
+      }
+    ]
+  }
+}

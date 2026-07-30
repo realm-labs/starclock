@@ -1,0 +1,1926 @@
+{
+  "table": {
+    "name": "GbSynthesisRecipes",
+    "rows": [
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113005\",\"ordinal\":0},{\"input_source_numeric_id\":\"3113006\",\"ordinal\":1}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Crest of Sol and Lune"
+          },
+          "name_zh_cn": {
+            "String": "合成日月同徽"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113201"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.84017fb7aff1fd18\",\"source.goal16.7023023663a206cf\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113201"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Twin synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的双重合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"synthesis\",\"twin\"]"
+          },
+          "tier": {
+            "String": "Twin"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113901\",\"ordinal\":0},{\"input_source_numeric_id\":\"3113014\",\"ordinal\":1}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Supreme All-Color Home Run"
+          },
+          "name_zh_cn": {
+            "String": "合成至尊幻彩全垒打"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113301"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ed2fe1bd209243c4\",\"source.goal16.cf44d9274b1e3751\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113301"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Supreme synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的至尊合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"supreme\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Supreme"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113001\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Rainbow Pitcher"
+          },
+          "name_zh_cn": {
+            "String": "合成彩虹投手"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113901"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.af7903a5c4064195\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113901"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113002\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Cosmic RuinBot"
+          },
+          "name_zh_cn": {
+            "String": "合成宇宙歼灭机器人"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113902"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.9a5040983f4b248a\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113902"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113003\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0002\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Hero's Summon"
+          },
+          "name_zh_cn": {
+            "String": "合成英雄诏令"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113903"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.9a78ad8c1399d73d\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113903"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113004\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0003\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Brilliant Scepter"
+          },
+          "name_zh_cn": {
+            "String": "合成光焰权杖"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113904"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.5dc88a6ad9e705d7\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113904"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113007\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Shadowed Assassin"
+          },
+          "name_zh_cn": {
+            "String": "合成阴影暗杀者"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113907"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e2492da9889968f3\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113907"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113008\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Cryo Wheel Chakram"
+          },
+          "name_zh_cn": {
+            "String": "合成冰轮环刃"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113908"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ac53fb9b6fcb907c\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113908"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113009\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0007\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Invincible Formation"
+          },
+          "name_zh_cn": {
+            "String": "合成所向披靡之阵"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113909"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ef398a6a16073cbb\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113909"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113010\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0008\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Happy Drink Combo"
+          },
+          "name_zh_cn": {
+            "String": "合成欢乐畅饮套餐"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113910"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.379fc75666b0aa63\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113910"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113011\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0009\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Lucky One's Gamble"
+          },
+          "name_zh_cn": {
+            "String": "合成幸运儿的赌局"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113911"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.8177aab740d68c91\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113911"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113012\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0010\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Thunderstorm's Hammer"
+          },
+          "name_zh_cn": {
+            "String": "合成暴风雷霆之锤"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113912"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.0547820dc797e704\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113912"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113013\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0011\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Earth-Shattering Fan"
+          },
+          "name_zh_cn": {
+            "String": "合成破山振海之扇"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113913"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.35c3f89cad68c83a\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113913"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": {
+            "String": "ProjectPolicy: Supreme, Twin, Legendary, then stable recipe ID; synthesis before ordinary duplicate upgrade"
+          },
+          "consumption_order": {
+            "String": "[{\"input_source_numeric_id\":\"3113015\",\"ordinal\":0}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: reject without inventory mutation or resource consumption"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0012\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Kindest Benediction"
+          },
+          "name_zh_cn": {
+            "String": "合成至善赐福"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.demon-king.weapon.3113915"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.cb9bfca78b52d0d3\",\"source.goal16.5064dafe55fd5fa7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.recipe.3113915"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Legendary synthesis recipe with explicit prerequisites and source consumption order."
+          },
+          "summary_zh_cn": {
+            "String": "精确无环的传说合成配方，含显式前置条件与源消耗顺序。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "input stable ID ascending"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Morningstar Bat"
+          },
+          "name_zh_cn": {
+            "String": "合成晨星球棒"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106901"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.5f029e211f76a368\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106901"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Musketeer's Resolve"
+          },
+          "name_zh_cn": {
+            "String": "合成火枪手的决心"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106902"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.1ff9942bdf93b074\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106902"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0002\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Headwind Bow"
+          },
+          "name_zh_cn": {
+            "String": "合成戗风之弩"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106903"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.053502dbcbb1f7df\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106903"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0003\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Shockbolt Crown"
+          },
+          "name_zh_cn": {
+            "String": "合成惊雷冠冕"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106904"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.20cbd922ecbb24a6\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106904"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0004\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Surprise in a Box"
+          },
+          "name_zh_cn": {
+            "String": "合成盒中惊喜"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106905"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4d8ee76da30b6885\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106905"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Eternal Fortress"
+          },
+          "name_zh_cn": {
+            "String": "合成不朽堡垒"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106906"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ebf9bcbe4d1cc342\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106906"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0006\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Flaming Greatsword"
+          },
+          "name_zh_cn": {
+            "String": "合成炽焰大剑"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106907"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.887bc2ab61033184\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106907"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0007\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Gambit in the Game"
+          },
+          "name_zh_cn": {
+            "String": "合成局中博弈"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106908"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.754dcf16af3d65cf\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106908"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0008\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Kindest Benediction"
+          },
+          "name_zh_cn": {
+            "String": "合成至善赐福"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106909"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4f548e95e32b480a\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106909"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0009\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Cryoflame Thrower"
+          },
+          "name_zh_cn": {
+            "String": "合成冰焰喷射器"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106910"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.d93d6f77e47fa223\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106910"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0010\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Prison-Shatter Hammer"
+          },
+          "name_zh_cn": {
+            "String": "合成碎牢重锤"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106911"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.384a4b339a15e10b\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106911"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0011\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Time's Eternity"
+          },
+          "name_zh_cn": {
+            "String": "合成光阴的永恒"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106912"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.f3a413d4839fbce8\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106912"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_precedence": "Null",
+          "consumption_order": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "failure_behavior": {
+            "String": "ProjectPolicy: no mutation; covered by the approximation register"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "input_count": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "SynthesisRecipe"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0012\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Synthesize Pretentious Visage"
+          },
+          "name_zh_cn": {
+            "String": "合成岸然道貌之相"
+          },
+          "output_weapon_id": {
+            "String": "galactic-baseballer.departure.weapon.3106913"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.24b6bb28e2d3ff8c\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.recipe.3106913"
+          },
+          "summary_en": {
+            "String": "Exact acyclic Standard-weapon plus accessory recipe for one Legendary weapon."
+          },
+          "summary_zh_cn": {
+            "String": "普通武器加指定配饰合成一件传说武器的精确无环配方。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary\",\"synthesis\"]"
+          },
+          "tier": {
+            "String": "Legendary"
+          },
+          "validation_order": {
+            "String": "all-prerequisites-before-consumption"
+          }
+        }
+      }
+    ]
+  }
+}

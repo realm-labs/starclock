@@ -15,7 +15,7 @@ authoring surface; normalized JSON remains research/debug staging, and Sora
 | Authored rows | 10,615 |
 | Normalized-file ownership | every one of 40 files maps to exactly one sheet |
 | Sora metadata | rows 1–7 on every sheet; authored rows begin at row 8 |
-| Semantic digest | `a75898e2681dd5144f2f6107e88ccbfc8b423f95b7667bf758fe66ef8529b889` |
+| Semantic digest | `86c723bb3e80d67073da208c4ecaf96790038676a3a068bcec1e88ca713e2149` |
 | Existing-target behavior | generation refuses to overwrite any workbook |
 | Formula/error scan | no formula cells or Excel error cells |
 | Round trip | every cell reconstructs the canonical normalized value |
@@ -24,10 +24,10 @@ The canonical workbook digests are:
 
 | Workbook | SHA-256 |
 |---|---|
-| `GalacticBaseballerProfiles.xlsx` | `bfbc30f547ad4a8bc7119d30ce1c2ce59ba88df12bc6fd93edb3b5da04f00379` |
-| `GalacticBaseballerArsenal.xlsx` | `1f78ef940ee9bb210df1d9b3ed3c860948c345f5efa6429ad74f7ccec9ff09b2` |
-| `GalacticBaseballerEncounters.xlsx` | `3f019e30a8216171f510839eb8c798d7a5c85957c357845e915abca3aac51b56` |
-| `GalacticBaseballerReview.xlsx` | `cb2af908fbab277999ca466909fb8d86496b840a57adbb52729ee9a20f624b46` |
+| `GalacticBaseballerProfiles.xlsx` | `e9171296c9c4ea5bff87abba77842f9c5d5ab70c1f8885b40b401c0448ccbb39` |
+| `GalacticBaseballerArsenal.xlsx` | `55e0d806e4311c0ef5c2dae314f8122a92f511faa4c65bada3e14d009f44d526` |
+| `GalacticBaseballerEncounters.xlsx` | `1e71e8300357ef8710c0b4171dcbde4c50db70db2015927cb1f9a77b9462fff5` |
+| `GalacticBaseballerReview.xlsx` | `874aa08a4861b9e3b133f392ca62e9d78141343a2678c837b65baefdb53827d8` |
 
 Two clean output directories were generated independently. All four byte
 digests and the semantic digest matched each other and the committed target.
@@ -43,6 +43,12 @@ The current digests above supersede the pre-schema fingerprints. Double
 generation, round-trip verification and the complete visual review were rerun
 after that synchronization.
 
+`G16-P3-B4` additionally corrected the Sora row-layout boundary exposed by the
+first binary export: metadata sentinels occupy column A, so authored table
+fields begin at column B. The full workbook set was again regenerated twice,
+exported successfully, round-trip checked and visually reinspected. The
+normalized payload and 10,615-row denominator remain unchanged.
+
 ## Structural and visual review
 
 Each sheet freezes at `A8`, provides field descriptions and constraints,
@@ -53,7 +59,7 @@ was rendered, including columns beyond the first viewport.
 | Review field | Result |
 |---|---|
 | Rendered sheets | 40 / 40 |
-| Rendered column bands | 141 |
+| Rendered column bands | 147 |
 | Schema columns covered | all, with contiguous ordinal proof |
 | Contact sheets inspected | 4 / 4 |
 | Visible severe defects | 0 |

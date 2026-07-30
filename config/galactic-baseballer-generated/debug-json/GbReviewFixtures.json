@@ -1,0 +1,2877 @@
+{
+  "table": {
+    "name": "GbReviewFixtures",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.d7deb197165cb33a\",\"source.goal16.d7b7e658d445accd\",\"source.goal16.hoyolab-version-3.4-update.b315b9fac59c\"]"
+          },
+          "expected_facts": {
+            "String": "{\"correction_id\":\"galactic-baseballer.correction.v3_4.ruinbot-level-7-8\",\"maze_buff_id\":\"3113002\",\"parameter_values\":[\"0\",\"9\",\"70\",\"14\",\"0.75\",\"30\",\"0.3\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"pre_fix_values_modeled\":false}"
+          },
+          "family_id": {
+            "String": "weapon-automatic-action"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input": {
+            "String": "{\"resolve_binding_key\":\"StageAbility_VS_Weapon_S2_002\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearConfig:0015\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0015\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "RuinBot corrected level 7"
+          },
+          "name_zh_cn": {
+            "String": "歼灭机器人修正后等级 7"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact GearConfig row\",\"operation_order\":0},{\"operation\":\"resolve exact MazeBuff level row\",\"operation_order\":1},{\"operation\":\"retain post-correction parameter vector without reconstructing pre-fix values\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"level\":7,\"weapon_id\":\"galactic-baseballer.demon-king.weapon.3113002\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.weapon.3113002.level.7\",\"galactic-baseballer.correction.v3_4.ruinbot-level-7-8\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.d7deb197165cb33a\",\"source.goal16.d7b7e658d445accd\",\"source.goal16.hoyolab-version-3.4-update.b315b9fac59c\"]"
+          },
+          "stable_key": {
+            "String": "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-7"
+          },
+          "state_owner": {
+            "String": "immutable weapon-level definition"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review of the retained Version 4.4 post-correction parameter vector."
+          },
+          "summary_zh_cn": {
+            "String": "具体审查 Version 4.4 保留的修正后参数向量，仅供资料使用。"
+          },
+          "tags": {
+            "String": "[\"correction\",\"demon-king\",\"ruinbot\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "load retained Version 4.4 weapon level"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.dfe5b62b4992d34c\",\"source.goal16.24ca27fdcd4086e6\",\"source.goal16.hoyolab-version-3.4-update.b315b9fac59c\"]"
+          },
+          "expected_facts": {
+            "String": "{\"correction_id\":\"galactic-baseballer.correction.v3_4.ruinbot-level-7-8\",\"maze_buff_id\":\"3113002\",\"parameter_values\":[\"0\",\"12\",\"70\",\"14\",\"0.75\",\"30\",\"0.3\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"],\"pre_fix_values_modeled\":false}"
+          },
+          "family_id": {
+            "String": "weapon-automatic-action"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input": {
+            "String": "{\"resolve_binding_key\":\"StageAbility_VS_Weapon_S2_002\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearConfig:0016\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0016\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "RuinBot corrected level 8"
+          },
+          "name_zh_cn": {
+            "String": "歼灭机器人修正后等级 8"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact GearConfig row\",\"operation_order\":0},{\"operation\":\"resolve exact MazeBuff level row\",\"operation_order\":1},{\"operation\":\"retain post-correction parameter vector without reconstructing pre-fix values\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"level\":8,\"weapon_id\":\"galactic-baseballer.demon-king.weapon.3113002\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.weapon.3113002.level.8\",\"galactic-baseballer.correction.v3_4.ruinbot-level-7-8\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.dfe5b62b4992d34c\",\"source.goal16.24ca27fdcd4086e6\",\"source.goal16.hoyolab-version-3.4-update.b315b9fac59c\"]"
+          },
+          "stable_key": {
+            "String": "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-8"
+          },
+          "state_owner": {
+            "String": "immutable weapon-level definition"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review of the retained Version 4.4 post-correction parameter vector."
+          },
+          "summary_zh_cn": {
+            "String": "具体审查 Version 4.4 保留的修正后参数向量，仅供资料使用。"
+          },
+          "tags": {
+            "String": "[\"correction\",\"demon-king\",\"ruinbot\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "load retained Version 4.4 weapon level"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.9bbd21ba30aa4709\",\"source.goal16.5cdf15c96c3ca543\",\"source.goal16.a7b820412b0e41bf\",\"source.goal16.a41ec0cfe3b24249\",\"source.goal16.wiki.452747.00270ff165\",\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\"]"
+          },
+          "expected_facts": {
+            "String": "{\"balance\":2100,\"currency_delta\":2000,\"strategy_installed\":true}"
+          },
+          "family_id": {
+            "String": "adventure-strategy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input": {
+            "String": "{\"strategy_id\":\"galactic-baseballer.demon-king.strategy.3113703\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card_SC.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0000\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardType:0001\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0198\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Surprise Windfall strategy"
+          },
+          "name_zh_cn": {
+            "String": "意外之财策略"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact strategy and parameter\",\"operation_order\":0},{\"operation\":\"install strategy\",\"operation_order\":1},{\"operation\":\"credit 2000 Raccoon Gold\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"balance\":100,\"strategy_absent\":true}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.strategy.3113703\",\"galactic-baseballer.demon-king.currency.raccoon-gold\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.9bbd21ba30aa4709\",\"source.goal16.5cdf15c96c3ca543\",\"source.goal16.a7b820412b0e41bf\",\"source.goal16.a41ec0cfe3b24249\",\"source.goal16.wiki.452747.00270ff165\",\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.adventure-strategy"
+          },
+          "state_owner": {
+            "String": "battle-local strategy set and profile Raccoon Gold balance"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly progression review case."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料使用进度审查案例。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"demon-king\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "accepted Adventure Strategy candidate"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.38c0d9833f70f455\",\"source.goal16.215ac0aad13b714d\",\"source.goal16.eaa8773eadd06b74\",\"source.goal16.fbb6257233fed6ca\",\"source.goal16.e9ef367a1e30c072\",\"source.goal16.08911342f2cb0b42\",\"source.goal16.3cf267aaeac669b0\",\"source.goal16.9b4d287daba2a09f\",\"source.goal16.1f158d4fd7d692a9\",\"source.goal16.3e0da9e45cf00980\",\"source.goal16.e6853abaf6f8459b\",\"source.goal16.7ae57698d8c4c863\",\"source.goal16.e58253e09e207875\",\"source.goal16.7e45e3b2bd78b602\",\"source.goal16.7b3ef005995f3a88\",\"source.goal16.cbd50d3e8666f57d\",\"source.goal16.cd2cfe5b807f2c4b\",\"source.goal16.d2a967117644f3e5\",\"source.goal16.779d7b596b8363ad\",\"source.goal16.19dbc92269bfdd7c\",\"source.goal16.1dd445bdfc1950fb\",\"source.goal16.c479ea090c8c8786\",\"source.goal16.9d260c37bf99e43a\",\"source.goal16.0cc30731b3b207f4\",\"source.goal16.b076827815db4d5a\",\"source.goal16.8014a8ebfc6b9de2\",\"source.goal16.0e9d3c08389d1cf7\",\"source.goal16.c7553e5e3e4504ee\",\"source.goal16.cb36cc7438644cf8\",\"source.goal16.545996af563da523\",\"source.goal16.6622aeeb8282141c\",\"source.goal16.9d1e758d4155db49\",\"source.goal16.32dd86b1d0d3c987\",\"source.goal16.f0b0915e31ac3f78\",\"source.goal16.8e3fa948cb4979ba\",\"source.goal16.02507ca008ca4c9a\",\"source.goal16.fd665b5de44b803d\",\"source.goal16.c34d9ab6cf6b7080\",\"source.goal16.57f158f8ca924255\",\"source.goal16.9b3d57a8faeb74a6\",\"source.goal16.5d8d704c38e143b5\",\"source.goal16.aa4f16ca1c7020dd\",\"source.goal16.e1e8d1644a31e23d\",\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\"]"
+          },
+          "expected_facts": {
+            "String": "{\"devil_card_id\":\"3113799\",\"duplicate_projection\":false,\"final_stage_extra_bonus\":5000,\"ordered_period_count\":39,\"program_sha256\":\"e1e8d1644a31e23d9943f3e18c24384a11dbc3efa7d4844ec9753e7682fb076f\",\"runtime_executable\":false}"
+          },
+          "family_id": {
+            "String": "boss-phase-final-settlement"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input": {
+            "String": "{\"devil_card_id\":\"3113799\",\"terminal_evaluation\":true}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuildSC_11_Devil.json\",\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCCardConfig:0055\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0071\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0017\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0018\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0030\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0031\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0032\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0033\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0034\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0035\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0037\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0042\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0043\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0044\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0049\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0050\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0051\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0052\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0053\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0054\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0055\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King fixture: boss-phase-final-settlement"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇语义夹具：boss-phase-final-settlement"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"preserve authored period order\",\"operation_order\":0},{\"operation\":\"bind the exact Devil card and structural program\",\"operation_order\":1},{\"operation\":\"finalize boss-HP contribution\",\"operation_order\":2},{\"operation\":\"apply final-stage bonus once\",\"operation_order\":3},{\"operation\":\"cap score, evaluate rating and project result once\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"ordered_period_count\":39,\"stage_id\":\"galactic-baseballer.demon-king.stage.424006\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.boss-phase.devil\",\"galactic-baseballer.demon-king.scoring.source-parameters\",\"galactic-baseballer.demon-king.settlement.424006\",\"galactic-baseballer.demon-king.stage.424006\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.38c0d9833f70f455\",\"source.goal16.215ac0aad13b714d\",\"source.goal16.eaa8773eadd06b74\",\"source.goal16.fbb6257233fed6ca\",\"source.goal16.e9ef367a1e30c072\",\"source.goal16.08911342f2cb0b42\",\"source.goal16.3cf267aaeac669b0\",\"source.goal16.9b4d287daba2a09f\",\"source.goal16.1f158d4fd7d692a9\",\"source.goal16.3e0da9e45cf00980\",\"source.goal16.e6853abaf6f8459b\",\"source.goal16.7ae57698d8c4c863\",\"source.goal16.e58253e09e207875\",\"source.goal16.7e45e3b2bd78b602\",\"source.goal16.7b3ef005995f3a88\",\"source.goal16.cbd50d3e8666f57d\",\"source.goal16.cd2cfe5b807f2c4b\",\"source.goal16.d2a967117644f3e5\",\"source.goal16.779d7b596b8363ad\",\"source.goal16.19dbc92269bfdd7c\",\"source.goal16.1dd445bdfc1950fb\",\"source.goal16.c479ea090c8c8786\",\"source.goal16.9d260c37bf99e43a\",\"source.goal16.0cc30731b3b207f4\",\"source.goal16.b076827815db4d5a\",\"source.goal16.8014a8ebfc6b9de2\",\"source.goal16.0e9d3c08389d1cf7\",\"source.goal16.c7553e5e3e4504ee\",\"source.goal16.cb36cc7438644cf8\",\"source.goal16.545996af563da523\",\"source.goal16.6622aeeb8282141c\",\"source.goal16.9d1e758d4155db49\",\"source.goal16.32dd86b1d0d3c987\",\"source.goal16.f0b0915e31ac3f78\",\"source.goal16.8e3fa948cb4979ba\",\"source.goal16.02507ca008ca4c9a\",\"source.goal16.fd665b5de44b803d\",\"source.goal16.c34d9ab6cf6b7080\",\"source.goal16.57f158f8ca924255\",\"source.goal16.9b3d57a8faeb74a6\",\"source.goal16.5d8d704c38e143b5\",\"source.goal16.aa4f16ca1c7020dd\",\"source.goal16.e1e8d1644a31e23d\",\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.boss-phase-final-settlement"
+          },
+          "state_owner": {
+            "String": "battle-local Devil state and activity-local settlement result"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not run gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行玩法。"
+          },
+          "tags": {
+            "String": "[\"boss-phase-final-settlement\",\"demon-king\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "Demon King's Den boss phase and terminal settlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.approximation.626fa841d8d7c14c\"]"
+          },
+          "expected_facts": {
+            "String": "{\"probability_values\":[\"0.6\",\"0.3\",\"0.1\"],\"semantic_ordinal_names_assigned\":false,\"step_values\":[\"-0.15\",\"0\",\"0.15\"]}"
+          },
+          "family_id": {
+            "String": "random-upgrade-candidates"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input": {
+            "String": "{\"inspect_vectors\":true}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Chest probability ordinal preservation"
+          },
+          "name_zh_cn": {
+            "String": "宝箱概率序号保留"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"read exact vectors\",\"operation_order\":0},{\"operation\":\"retain source ordinal\",\"operation_order\":1},{\"operation\":\"assign no semantic tier name\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.currency.raccoon-gold\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.approximation.626fa841d8d7c14c\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.chest-probability-vector"
+          },
+          "state_owner": {
+            "String": "immutable Raccoon Gold definition"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly progression review case."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料使用进度审查案例。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"random-upgrade-candidates\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "reference currency audit"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.a17e05fd212d90ad\",\"source.goal16.8f34fc6c5b37ef6b\",\"source.goal16.wiki.324128.18abff09af\",\"source.goal16.a17e05fd212d90ad\",\"source.goal16.8f34fc6c5b37ef6b\",\"source.goal16.wiki.324128.18abff09af\",\"source.goal16.approximation.26006ceeb578ae1d\"]"
+          },
+          "expected_facts": {
+            "String": "{\"account_reward_payload_imported\":false,\"cumulative_cost\":97500,\"incremental_cost\":6000}"
+          },
+          "family_id": {
+            "String": "galactic-store-progression"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input": {
+            "String": "{\"inspect_rank\":20}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Cosmic Reputation rank 20 cost"
+          },
+          "name_zh_cn": {
+            "String": "银河声望等级 20 费用"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"read pinned rank row\",\"operation_order\":0},{\"operation\":\"verify incremental and cumulative cost\",\"operation_order\":1},{\"operation\":\"leave account reward payload excluded\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"prior_rank\":19}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.currency.cosmic-reputation\",\"galactic-baseballer.demon-king.progression.reputation.20\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.a17e05fd212d90ad\",\"source.goal16.8f34fc6c5b37ef6b\",\"source.goal16.wiki.324128.18abff09af\",\"source.goal16.a17e05fd212d90ad\",\"source.goal16.8f34fc6c5b37ef6b\",\"source.goal16.wiki.324128.18abff09af\",\"source.goal16.approximation.26006ceeb578ae1d\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.cosmic-reputation-rank-20"
+          },
+          "state_owner": {
+            "String": "profile-persistent account progression"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly progression review case."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料使用进度审查案例。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"galactic-store-progression\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "reference progression audit"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.e192b7a21c108cd7\",\"source.goal16.e340d097c9b66d3c\",\"source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb\"]"
+          },
+          "expected_facts": {
+            "String": "{\"obsolete_abnormal_path_modeled\":false,\"period_score\":45000,\"score_cap\":200000,\"special_monster_score\":3000,\"stage_score\":4500}"
+          },
+          "family_id": {
+            "String": "score-rating-clear"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input": {
+            "String": "{\"period_id\":\"galactic-baseballer.demon-king.stage-period.424053\",\"special_monster_id\":\"403202302\",\"terminal_evaluation\":true}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.demon-king.v3_3\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "D007 retained Version 4.4 score correction fixture"
+          },
+          "name_zh_cn": {
+            "String": "D007 Version 4.4 保留分数修正夹具"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"use only pinned post-correction Version 4.4 rows\",\"operation_order\":0},{\"operation\":\"apply exact special-monster and stage-score facts\",\"operation_order\":1},{\"operation\":\"sum explicit integer contributions\",\"operation_order\":2},{\"operation\":\"apply the declared rounding boundary and score cap\",\"operation_order\":3},{\"operation\":\"select the highest satisfied ordered rating\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"retained_version\":\"4.4\",\"stage_id\":\"galactic-baseballer.demon-king.stage.424005\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.correction.v3_4.d007-adventure-score\",\"galactic-baseballer.demon-king.scoring.source-parameters\",\"galactic-baseballer.demon-king.settlement.424005\",\"galactic-baseballer.demon-king.stage-period.424053\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.e192b7a21c108cd7\",\"source.goal16.e340d097c9b66d3c\",\"source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.d007-score-correction"
+          },
+          "state_owner": {
+            "String": "battle-local score accumulator then activity-local result projection"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not run gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行玩法。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"score-rating-clear\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "D007 score contribution and terminal evaluation"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.bd98e735f457b7a8\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.approximation.edb310cedcff171d\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":false,\"balance\":5999,\"current_level\":0,\"state_byte_identical\":true}"
+          },
+          "family_id": {
+            "String": "galactic-store-progression"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "input": {
+            "String": "{\"shop_upgrade_id\":\"galactic-baseballer.demon-king.shop.3113815.level.1\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCShopConfig:0014\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Cosmic Store insufficient balance"
+          },
+          "name_zh_cn": {
+            "String": "银河商店余额不足"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate exact current level\",\"operation_order\":0},{\"operation\":\"detect insufficient balance\",\"operation_order\":1},{\"operation\":\"reject before deduction or effect\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"balance\":5999,\"current_level\":0}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.shop.3113815.level.1\",\"galactic-baseballer.demon-king.currency.raccoon-gold\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.bd98e735f457b7a8\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.approximation.edb310cedcff171d\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.galactic-store-progression.rejected"
+          },
+          "state_owner": {
+            "String": "profile-persistent Demon King progression"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly progression review case."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料使用进度审查案例。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"galactic-store-progression\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "rejected persistent Cosmic Store purchase"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.bd98e735f457b7a8\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.approximation.edb310cedcff171d\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":true,\"accessory_slot_delta_for_future_battles\":1,\"balance\":0,\"current_level\":1}"
+          },
+          "family_id": {
+            "String": "galactic-store-progression"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "input": {
+            "String": "{\"shop_upgrade_id\":\"galactic-baseballer.demon-king.shop.3113815.level.1\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCShopConfig:0014\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Cosmic Store accessory slot purchase"
+          },
+          "name_zh_cn": {
+            "String": "银河商店配饰槽位购买"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate exact current level and maximum\",\"operation_order\":0},{\"operation\":\"validate Raccoon Gold balance\",\"operation_order\":1},{\"operation\":\"deduct exact price\",\"operation_order\":2},{\"operation\":\"advance persistent upgrade level\",\"operation_order\":3},{\"operation\":\"project the accessory-slot effect into future battle assembly\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"balance\":6000,\"current_level\":0}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.shop.3113815.level.1\",\"galactic-baseballer.demon-king.currency.raccoon-gold\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.bd98e735f457b7a8\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\",\"source.goal16.approximation.edb310cedcff171d\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.galactic-store-progression.success"
+          },
+          "state_owner": {
+            "String": "profile-persistent Demon King progression"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly progression review case."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料使用进度审查案例。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"galactic-store-progression\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "accepted persistent Cosmic Store purchase"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.e192b7a21c108cd7\",\"source.goal16.e340d097c9b66d3c\",\"source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb\"]"
+          },
+          "expected_facts": {
+            "String": "{\"obsolete_abnormal_path_modeled\":false,\"period_score\":45000,\"score_cap\":200000,\"special_monster_score\":3000,\"stage_score\":4500}"
+          },
+          "family_id": {
+            "String": "score-rating-clear"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "input": {
+            "String": "{\"period_id\":\"galactic-baseballer.demon-king.stage-period.424053\",\"special_monster_id\":\"403202302\",\"terminal_evaluation\":true}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.demon-king.v3_3\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King fixture: score-rating-clear"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇语义夹具：score-rating-clear"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"use only pinned post-correction Version 4.4 rows\",\"operation_order\":0},{\"operation\":\"apply exact special-monster and stage-score facts\",\"operation_order\":1},{\"operation\":\"sum explicit integer contributions\",\"operation_order\":2},{\"operation\":\"apply the declared rounding boundary and score cap\",\"operation_order\":3},{\"operation\":\"select the highest satisfied ordered rating\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"retained_version\":\"4.4\",\"stage_id\":\"galactic-baseballer.demon-king.stage.424005\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.correction.v3_4.d007-adventure-score\",\"galactic-baseballer.demon-king.scoring.source-parameters\",\"galactic-baseballer.demon-king.settlement.424005\",\"galactic-baseballer.demon-king.stage-period.424053\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.444d009808dc1a19\",\"source.goal16.6d6f601f1adac846\",\"source.goal16.b278545bc633d436\",\"source.goal16.4a3176684ecfadf9\",\"source.goal16.74f2efab04c112b8\",\"source.goal16.2a5b8bcf6f4556a6\",\"source.goal16.cd21b906c30a76ff\",\"source.goal16.79015382155118de\",\"source.goal16.c64a5c288888269a\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.e192b7a21c108cd7\",\"source.goal16.e340d097c9b66d3c\",\"source.goal16.hoyolab-version-3.4-update.2e4cbd2ae6fb\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.score-rating-clear"
+          },
+          "state_owner": {
+            "String": "battle-local score accumulator then activity-local result projection"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not run gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行玩法。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"score-rating-clear\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "D007 score contribution and terminal evaluation"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.e340d097c9b66d3c\",\"source.goal16.e192b7a21c108cd7\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":true,\"team_bonus_maze_buff_id\":\"3113605\",\"terminal_period_id\":\"galactic-baseballer.demon-king.stage-period.424053\"}"
+          },
+          "family_id": {
+            "String": "stage-difficulty-selection"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "input": {
+            "String": "{\"difficulty\":2,\"stage_id\":\"galactic-baseballer.demon-king.stage.424005\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King fixture: stage-difficulty-selection"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇语义夹具：stage-difficulty-selection"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate exact Demon King stage ownership\",\"operation_order\":0},{\"operation\":\"validate the released unlock edge\",\"operation_order\":1},{\"operation\":\"project initial weapon, recommendations, team bonus and ordered periods\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"selected_profile_id\":\"galactic-baseballer.demon-king.v3_3\",\"unlocks_satisfied\":true}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.stage-period.424053\",\"galactic-baseballer.demon-king.stage.424005\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e340d097c9b66d3c\",\"source.goal16.e192b7a21c108cd7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.stage-difficulty-selection"
+          },
+          "state_owner": {
+            "String": "activity-local stage and difficulty selection"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not run gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行玩法。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"stage-difficulty-selection\"]"
+          },
+          "trigger_point": {
+            "String": "after Demon King profile selection and before battle assembly"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.ed2fe1bd209243c4\",\"source.goal16.cf44d9274b1e3751\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":false,\"consumed_input_ids\":[],\"inventory_byte_identical\":true,\"output_added\":false}"
+          },
+          "family_id": {
+            "String": "supreme-weapon-synthesis"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "input": {
+            "String": "{\"request_recipe_id\":\"galactic-baseballer.demon-king.recipe.3113301\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004\",\"supreme-weapon-synthesis\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Supreme synthesis rejected"
+          },
+          "name_zh_cn": {
+            "String": "至尊武器合成拒绝"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate prerequisites\",\"operation_order\":0},{\"operation\":\"detect missing exact input\",\"operation_order\":1},{\"operation\":\"reject before consumption\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"inventory\":[{\"input_id\":\"galactic-baseballer.demon-king.weapon.3113014\",\"level\":8}]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.recipe.3113301\",\"galactic-baseballer.demon-king.recipe.3113301.input.0\",\"galactic-baseballer.demon-king.recipe.3113301.input.1\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ed2fe1bd209243c4\",\"source.goal16.cf44d9274b1e3751\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.rejected"
+          },
+          "state_owner": {
+            "String": "battle-local weapon and accessory inventory"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly missing-prerequisite trace proving failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查缺少前置轨迹，证明失败不变性。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"supreme-weapon-synthesis\"]"
+          },
+          "trigger_point": {
+            "String": "accepted level-up offer resolution"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.ed2fe1bd209243c4\",\"source.goal16.cf44d9274b1e3751\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "expected_facts": {
+            "String": "{\"consumed_input_ids\":[\"galactic-baseballer.demon-king.weapon.3113901\",\"galactic-baseballer.demon-king.weapon.3113014\"],\"output_level\":1,\"output_weapon_id\":\"galactic-baseballer.demon-king.weapon.3113301\",\"retained_input_ids\":[]}"
+          },
+          "family_id": {
+            "String": "supreme-weapon-synthesis"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "input": {
+            "String": "{\"accept_recipe_id\":\"galactic-baseballer.demon-king.recipe.3113301\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004\",\"supreme-weapon-synthesis\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Supreme synthesis success"
+          },
+          "name_zh_cn": {
+            "String": "至尊武器合成成功"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate every prerequisite in input stable-ID order\",\"operation_order\":0},{\"operation\":\"emit synthesis candidate before ordinary duplicate upgrade\",\"operation_order\":1},{\"operation\":\"select candidates by Supreme, Twin, Legendary, then stable recipe ID\",\"operation_order\":2},{\"operation\":\"consume only CostGearList inputs in source order\",\"operation_order\":3},{\"operation\":\"install the level-1 output weapon\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"inventory\":[{\"input_id\":\"galactic-baseballer.demon-king.weapon.3113014\",\"level\":8},{\"input_id\":\"galactic-baseballer.demon-king.weapon.3113901\",\"level\":1}]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.recipe.3113301\",\"galactic-baseballer.demon-king.recipe.3113301.input.0\",\"galactic-baseballer.demon-king.recipe.3113301.input.1\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.ed2fe1bd209243c4\",\"source.goal16.cf44d9274b1e3751\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.success"
+          },
+          "state_owner": {
+            "String": "battle-local weapon and accessory inventory"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly advanced-synthesis success trace."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查高级合成成功轨迹。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"supreme-weapon-synthesis\"]"
+          },
+          "trigger_point": {
+            "String": "accepted level-up offer resolution"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.e340d097c9b66d3c\",\"source.goal16.2b695ae7341334c4\",\"source.goal16.3809fc99ea5ff045\"]"
+          },
+          "expected_facts": {
+            "String": "{\"binding_key\":\"StageAbility_VS_Enhance_005\",\"maze_buff_id\":\"3113605\",\"program_fragment_sha256\":\"c60eccdc587c2dfa186010f85c67990155f68b6cbd90c5840310e6a3cb2d931a\",\"runtime_executable\":false}"
+          },
+          "family_id": {
+            "String": "team-bonus"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "input": {
+            "String": "{\"install_team_bonus_id\":\"galactic-baseballer.demon-king.team-bonus.424005\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0311\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King fixture: team-bonus"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇语义夹具：team-bonus"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact stage-owned MazeBuff\",\"operation_order\":0},{\"operation\":\"validate structural program binding\",\"operation_order\":1},{\"operation\":\"install before the first wave\",\"operation_order\":2},{\"operation\":\"retain stage scope and remove at teardown\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"stage_id\":\"galactic-baseballer.demon-king.stage.424005\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.stage.424005\",\"galactic-baseballer.demon-king.team-bonus.424005\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e340d097c9b66d3c\",\"source.goal16.2b695ae7341334c4\",\"source.goal16.3809fc99ea5ff045\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.team-bonus"
+          },
+          "state_owner": {
+            "String": "stage-owned immutable bonus projected into battle-local state"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not run gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行玩法。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"team-bonus\"]"
+          },
+          "trigger_point": {
+            "String": "after D007 selection and before its first wave"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.75b4a3c2678812b0\",\"source.goal16.approximation.4269f841a01964a8\"]"
+          },
+          "expected_facts": {
+            "String": "{\"selected_ordinal\":0,\"selected_stable_id\":\"galactic-baseballer.demon-king.weapon.3113001\"}"
+          },
+          "family_id": {
+            "String": "random-upgrade-candidates"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "input": {
+            "String": "{\"labeled_integer_sampled_ordinal\":0}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Demon King's Treasure candidate ordinal"
+          },
+          "name_zh_cn": {
+            "String": "魔王宝藏候选序号"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"preserve all authored entry positions\",\"operation_order\":0},{\"operation\":\"sample an integer ordinal with the fixture label\",\"operation_order\":1},{\"operation\":\"resolve the selected stable item ID\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"source_box_item_id\":\"1\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.progression.treasure-pool.1\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.75b4a3c2678812b0\",\"source.goal16.approximation.4269f841a01964a8\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.treasure-selection"
+          },
+          "state_owner": {
+            "String": "battle-local treasure decision"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly progression review case."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料使用进度审查案例。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"random-upgrade-candidates\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "treasure candidate selection"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.84017fb7aff1fd18\",\"source.goal16.7023023663a206cf\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":false,\"consumed_input_ids\":[],\"inventory_byte_identical\":true,\"output_added\":false}"
+          },
+          "family_id": {
+            "String": "twin-weapon-synthesis"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "input": {
+            "String": "{\"request_recipe_id\":\"galactic-baseballer.demon-king.recipe.3113201\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003\",\"twin-weapon-synthesis\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Twin synthesis rejected"
+          },
+          "name_zh_cn": {
+            "String": "双重武器合成拒绝"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate prerequisites\",\"operation_order\":0},{\"operation\":\"detect missing exact input\",\"operation_order\":1},{\"operation\":\"reject before consumption\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"inventory\":[{\"input_id\":\"galactic-baseballer.demon-king.weapon.3113005\",\"level\":8}]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.recipe.3113201\",\"galactic-baseballer.demon-king.recipe.3113201.input.0\",\"galactic-baseballer.demon-king.recipe.3113201.input.1\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.84017fb7aff1fd18\",\"source.goal16.7023023663a206cf\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.rejected"
+          },
+          "state_owner": {
+            "String": "battle-local weapon and accessory inventory"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly missing-prerequisite trace proving failure invariance."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查缺少前置轨迹，证明失败不变性。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"twin-weapon-synthesis\"]"
+          },
+          "trigger_point": {
+            "String": "accepted level-up offer resolution"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.84017fb7aff1fd18\",\"source.goal16.7023023663a206cf\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "expected_facts": {
+            "String": "{\"consumed_input_ids\":[\"galactic-baseballer.demon-king.weapon.3113005\",\"galactic-baseballer.demon-king.weapon.3113006\"],\"output_level\":1,\"output_weapon_id\":\"galactic-baseballer.demon-king.weapon.3113201\",\"retained_input_ids\":[]}"
+          },
+          "family_id": {
+            "String": "twin-weapon-synthesis"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "input": {
+            "String": "{\"accept_recipe_id\":\"galactic-baseballer.demon-king.recipe.3113201\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003\",\"twin-weapon-synthesis\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Twin synthesis success"
+          },
+          "name_zh_cn": {
+            "String": "双重武器合成成功"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate every prerequisite in input stable-ID order\",\"operation_order\":0},{\"operation\":\"emit synthesis candidate before ordinary duplicate upgrade\",\"operation_order\":1},{\"operation\":\"select candidates by Supreme, Twin, Legendary, then stable recipe ID\",\"operation_order\":2},{\"operation\":\"consume only CostGearList inputs in source order\",\"operation_order\":3},{\"operation\":\"install the level-1 output weapon\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"inventory\":[{\"input_id\":\"galactic-baseballer.demon-king.weapon.3113005\",\"level\":8},{\"input_id\":\"galactic-baseballer.demon-king.weapon.3113006\",\"level\":8}]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.recipe.3113201\",\"galactic-baseballer.demon-king.recipe.3113201.input.0\",\"galactic-baseballer.demon-king.recipe.3113201.input.1\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.84017fb7aff1fd18\",\"source.goal16.7023023663a206cf\",\"source.goal16.policy.dff0110f8d33102a\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.success"
+          },
+          "state_owner": {
+            "String": "battle-local weapon and accessory inventory"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly advanced-synthesis success trace."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查高级合成成功轨迹。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"twin-weapon-synthesis\"]"
+          },
+          "trigger_point": {
+            "String": "accepted level-up offer resolution"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.e192b7a21c108cd7\",\"source.goal16.678d8b603ecf7101\",\"source.goal16.1416a533bdebfbd8\",\"source.goal16.aea382ef4844fa73\",\"source.goal16.core.8a2b7c75f4907587\",\"source.goal16.c73464811fbb8978\",\"source.goal16.3429790b370e7acd\"]"
+          },
+          "expected_facts": {
+            "String": "{\"candidate_semantics\":\"OrderedCandidateNotAssumedSimultaneousSlot\",\"candidate_zero\":\"enemy.cloud-knights-patroller.minionlv2.variant.01\",\"copied_enemy_definitions\":0,\"wave_id\":\"galactic-baseballer.demon-king.wave.42405301\"}"
+          },
+          "family_id": {
+            "String": "wave-battle-phase-progression"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "input": {
+            "String": "{\"advance_to_wave_id\":\"galactic-baseballer.demon-king.wave.42405301\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"InfiniteMonsterGroupID:42405301\",\"InfiniteWaveID:42405301\",\"MonsterID:2002010\",\"StageID:4240536\",\"StatusID:220320101\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Demon King fixture: wave-battle-phase-progression"
+          },
+          "name_zh_cn": {
+            "String": "魔王篇语义夹具：wave-battle-phase-progression"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact shared StageConfig and infinite group\",\"operation_order\":0},{\"operation\":\"resolve ordered monster-group candidate positions\",\"operation_order\":1},{\"operation\":\"reuse frozen enemy stable identities\",\"operation_order\":2},{\"operation\":\"retain reachable status locators\",\"operation_order\":3},{\"operation\":\"apply clear-previous-ability flag\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "preconditions": {
+            "String": "{\"current_wave_order\":0,\"encounter_id\":\"galactic-baseballer.demon-king.encounter.4240536\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.encounter.4240536\",\"galactic-baseballer.demon-king.enemy-candidate.42405301.000\",\"galactic-baseballer.demon-king.enemy-resolution.2002010\",\"galactic-baseballer.demon-king.enemy-status.220320101\",\"galactic-baseballer.demon-king.stage-period.424053\",\"galactic-baseballer.demon-king.wave.42405301\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.e192b7a21c108cd7\",\"source.goal16.678d8b603ecf7101\",\"source.goal16.1416a533bdebfbd8\",\"source.goal16.aea382ef4844fa73\",\"source.goal16.core.8a2b7c75f4907587\",\"source.goal16.c73464811fbb8978\",\"source.goal16.3429790b370e7acd\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.fixture.wave-battle-phase-progression"
+          },
+          "state_owner": {
+            "String": "battle-local encounter and ordered wave state"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not run gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行玩法。"
+          },
+          "tags": {
+            "String": "[\"demon-king\",\"semantic-review\",\"wave-battle-phase-progression\"]"
+          },
+          "trigger_point": {
+            "String": "declared Demon King stage-period wave boundary"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.feed8b625d0b555c\",\"source.goal16.30263e0019c63068\",\"source.goal16.f5fb87e6daf19c0a\",\"source.goal16.6941340f2cd1f544\",\"source.goal16.f591673658300c74\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accessory_id\":\"galactic-baseballer.departure.accessory.3106111\",\"level\":2,\"slot_count_delta\":0}"
+          },
+          "family_id": {
+            "String": "accessory-acquisition-duplicate-upgrade"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "input": {
+            "String": "{\"acquire_accessory_id\":\"galactic-baseballer.departure.accessory.3106111\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0026\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0117\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0118\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0117\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0118\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure fixture: accessory-acquisition-duplicate-upgrade"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：accessory-acquisition-duplicate-upgrade"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"find exact owned stable ID\",\"operation_order\":0},{\"operation\":\"verify below maximum\",\"operation_order\":1},{\"operation\":\"replace level 1 binding with level 2 binding\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"owned_accessory_id\":\"galactic-baseballer.departure.accessory.3106111\",\"owned_level\":1}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.accessory.3106111\",\"galactic-baseballer.departure.accessory.3106111.level.1\",\"galactic-baseballer.departure.accessory.3106111.level.2\",\"galactic-baseballer.departure.inventory-operation.acquire-new\",\"galactic-baseballer.departure.inventory-operation.expand-slot\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.feed8b625d0b555c\",\"source.goal16.30263e0019c63068\",\"source.goal16.f5fb87e6daf19c0a\",\"source.goal16.6941340f2cd1f544\",\"source.goal16.f591673658300c74\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.accessory-acquisition-duplicate-upgrade"
+          },
+          "state_owner": {
+            "String": "battle-local accessory inventory"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"departure\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "accepted accessory candidate"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.27b7ebcfacf28c74\",\"source.goal16.13fed997c5706f26\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "expected_facts": {
+            "String": "{\"binding_key\":\"StageAbility_VS_Card_Economy_002\",\"selected_strategy_id\":\"galactic-baseballer.departure.candidate.strategy.3106703\"}"
+          },
+          "family_id": {
+            "String": "adventure-strategy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "input": {
+            "String": "{\"select_strategy_id\":\"galactic-baseballer.departure.candidate.strategy.3106703\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: adventure-strategy"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：adventure-strategy"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate candidate\",\"operation_order\":0},{\"operation\":\"install exact MazeBuff/program binding\",\"operation_order\":1},{\"operation\":\"preserve profile scope\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"candidate_id\":\"galactic-baseballer.departure.candidate.strategy.3106703\",\"legal\":true}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.candidate.strategy.3106703\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.27b7ebcfacf28c74\",\"source.goal16.13fed997c5706f26\",\"source.goal16.0e64751477ee00b2\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.adventure-strategy"
+          },
+          "state_owner": {
+            "String": "battle-local strategy ownership and its named program binding"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"adventure-strategy\",\"departure\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "accepted Adventure Strategy candidate"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.420006727dfb92ab\",\"source.goal16.a4677ebc60abca8b\",\"source.goal16.8cd5d0a5b69ac01a\",\"source.goal16.8848d1831c074378\",\"source.goal16.6bf2c09f98e36813\",\"source.goal16.688569589f643601\",\"source.goal16.40aba8264bc868df\",\"source.goal16.28a789bbd5f07cb3\",\"source.goal16.3d5df0dc0a6beba6\",\"source.goal16.34b94ea1c57c9fd0\",\"source.goal16.4c0aff890061a258\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.db3bdbdd502393d4\",\"source.goal16.597e7e0e8760c9ee\"]"
+          },
+          "expected_facts": {
+            "String": "{\"duplicate_projection\":false,\"settlement_id\":\"galactic-baseballer.departure.settlement.414001\"}"
+          },
+          "family_id": {
+            "String": "boss-phase-final-settlement"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "input": {
+            "String": "{\"settle_stage_id\":\"galactic-baseballer.departure.stage.414001\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0015\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0036\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0037\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0038\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0039\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0040\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0041\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0045\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0046\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0047\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0048\",\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: boss-phase-final-settlement"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：boss-phase-final-settlement"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"finalize boss-HP contribution\",\"operation_order\":0},{\"operation\":\"apply final-stage bonus only when authored\",\"operation_order\":1},{\"operation\":\"cap score\",\"operation_order\":2},{\"operation\":\"evaluate rating\",\"operation_order\":3},{\"operation\":\"project result once\",\"operation_order\":4}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"boss_terminal\":true,\"period_id\":\"galactic-baseballer.departure.stage-period.414011\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.scoring.source-parameters\",\"galactic-baseballer.departure.settlement.414001\",\"galactic-baseballer.departure.stage-period.414011\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.420006727dfb92ab\",\"source.goal16.a4677ebc60abca8b\",\"source.goal16.8cd5d0a5b69ac01a\",\"source.goal16.8848d1831c074378\",\"source.goal16.6bf2c09f98e36813\",\"source.goal16.688569589f643601\",\"source.goal16.40aba8264bc868df\",\"source.goal16.28a789bbd5f07cb3\",\"source.goal16.3d5df0dc0a6beba6\",\"source.goal16.34b94ea1c57c9fd0\",\"source.goal16.4c0aff890061a258\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.db3bdbdd502393d4\",\"source.goal16.597e7e0e8760c9ee\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.boss-phase-final-settlement"
+          },
+          "state_owner": {
+            "String": "battle-local boss/score state and activity-local settlement result"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"boss-phase-final-settlement\",\"departure\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "final boss/period terminal evaluation"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.f43c4a4ea62a0799\",\"source.goal16.b5c3c9572c3b585b\"]"
+          },
+          "expected_facts": {
+            "String": "{\"binding_key\":\"StageAbility_VS_Weapon_001\",\"source_program_digest\":\"87d55a4cc4bc32d62ca50170bc4110a4e17f855030decf679bbfa5c6c4ac601c\"}"
+          },
+          "family_id": {
+            "String": "character-action-triggered-weapon"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "input": {
+            "String": "{\"action_source\":\"representative character action\",\"event\":\"OnAfterAttack\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_01_Weapon.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: character-action-triggered-weapon"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：character-action-triggered-weapon"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"preserve character action as cause\",\"operation_order\":0},{\"operation\":\"test weapon trigger\",\"operation_order\":1},{\"operation\":\"apply once-scope\",\"operation_order\":2},{\"operation\":\"emit ordered weapon operations\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"binding_key\":\"StageAbility_VS_Weapon_001\",\"source_action_accepted\":true}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.weapon.3106001.binding\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.f43c4a4ea62a0799\",\"source.goal16.b5c3c9572c3b585b\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.character-action-triggered-weapon"
+          },
+          "state_owner": {
+            "String": "battle-local weapon once-scope and character-action cause"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"character-action-triggered-weapon\",\"departure\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "accepted character action event named by the weapon program"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.baae71eec832882b\",\"source.goal16.2de9064a999e92cc\",\"source.goal16.af40f25249e686f7\",\"source.goal16.fb64fceda5af1ed6\",\"source.goal16.05613c15b4530470\",\"source.goal16.f520e6ae4f45e010\",\"source.goal16.975034360cc037f5\",\"source.goal16.e124f7f384e774fa\"]"
+          },
+          "expected_facts": {
+            "String": "{\"level_up_offers\":1,\"next_level\":2,\"remaining_exp\":\"0\"}"
+          },
+          "family_id": {
+            "String": "experience-team-level-up"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "input": {
+            "String": "{\"defeated_kind\":\"Normal1\",\"experience_award\":2}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0027\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0028\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0029\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0030\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0031\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0032\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0033\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: experience-team-level-up"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：experience-team-level-up"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"add exact experience\",\"operation_order\":0},{\"operation\":\"compare against threshold 40\",\"operation_order\":1},{\"operation\":\"subtract threshold on crossing\",\"operation_order\":2},{\"operation\":\"enqueue one level-up offer\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"current_exp\":\"38\",\"current_level\":1}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.level-threshold.shared\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.baae71eec832882b\",\"source.goal16.2de9064a999e92cc\",\"source.goal16.af40f25249e686f7\",\"source.goal16.fb64fceda5af1ed6\",\"source.goal16.05613c15b4530470\",\"source.goal16.f520e6ae4f45e010\",\"source.goal16.975034360cc037f5\",\"source.goal16.e124f7f384e774fa\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.experience-team-level-up"
+          },
+          "state_owner": {
+            "String": "battle-local team growth state"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"experience-team-level-up\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "after accepted enemy-defeat experience award"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.5f029e211f76a368\",\"source.goal16.f15ab2d48f056ed9\"]"
+          },
+          "expected_facts": {
+            "String": "{\"consumed_input_count\":1,\"output_weapon_id\":\"galactic-baseballer.departure.weapon.3106901\"}"
+          },
+          "family_id": {
+            "String": "legendary-weapon-synthesis"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "input": {
+            "String": "{\"synthesize_recipe_id\":\"galactic-baseballer.departure.recipe.3106901\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0001\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: legendary-weapon-synthesis"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：legendary-weapon-synthesis"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate all ordered prerequisites\",\"operation_order\":0},{\"operation\":\"validate output slot/replacement\",\"operation_order\":1},{\"operation\":\"consume only inputs marked consumed\",\"operation_order\":2},{\"operation\":\"insert Legendary output atomically\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"galactic-baseballer.departure.accessory.3106124\":1,\"galactic-baseballer.departure.weapon.3106001\":8}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.recipe.3106901\",\"galactic-baseballer.departure.recipe.3106901.input.0\",\"galactic-baseballer.departure.recipe.3106901.input.1\",\"galactic-baseballer.departure.weapon.3106901\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.5f029e211f76a368\",\"source.goal16.f15ab2d48f056ed9\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.legendary-weapon-synthesis"
+          },
+          "state_owner": {
+            "String": "battle-local inventory with immutable recipe graph"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"legendary-weapon-synthesis\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "accepted level-up decision after inventory prerequisites exist"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.policy.acf5e02c166ca2ab\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":false,\"inventory_digest\":\"fixture-before\",\"resource_delta\":0}"
+          },
+          "family_id": {
+            "String": "no-legal-candidate-failure-invariance"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "input": {
+            "String": "{\"attempt\":\"GenerateOffer\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0042\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0043\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0044\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0059\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0060\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0061\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0062\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0063\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0069\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure fixture: no-legal-candidate-failure-invariance"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：no-legal-candidate-failure-invariance"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"detect empty stable set\",\"operation_order\":0},{\"operation\":\"emit explicit no-candidate outcome\",\"operation_order\":1},{\"operation\":\"consume no inventory resource\",\"operation_order\":2},{\"operation\":\"continue at next declared boundary\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"inventory_digest\":\"fixture-before\",\"legal_candidate_ids\":[]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.candidate-policy.deterministic-fallback\",\"galactic-baseballer.departure.inventory-operation.acquire-new\",\"galactic-baseballer.departure.inventory-operation.expand-slot\",\"galactic-baseballer.departure.inventory-operation.reject-full-new\",\"galactic-baseballer.departure.inventory-operation.reject-max-duplicate\",\"galactic-baseballer.departure.inventory-operation.upgrade-duplicate\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.policy.acf5e02c166ca2ab\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.no-legal-candidate-failure-invariance"
+          },
+          "state_owner": {
+            "String": "battle-local candidate and inventory state"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"no-legal-candidate-failure-invariance\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "candidate generation with an empty legal set or rejected full/max operation"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.4deccdb1eda03fc6\",\"source.goal16.9d6caf6747a19fc9\",\"source.goal16.hoyolab-version-2.2-update\",\"source.goal16.hoyolab-original-event-notice\"]"
+          },
+          "expected_facts": {
+            "String": "{\"released_version\":\"2.2\",\"runtime_enabled\":false,\"selected_profile_id\":\"galactic-baseballer.departure.v2_2\"}"
+          },
+          "family_id": {
+            "String": "profile-version-selection"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "input": {
+            "String": "{\"select_profile_id\":\"galactic-baseballer.departure.v2_2\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0068\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: profile-version-selection"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：profile-version-selection"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate exact profile ID\",\"operation_order\":0},{\"operation\":\"bind Departure definition set\",\"operation_order\":1},{\"operation\":\"leave Demon King records unselected\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"available_profile_ids\":[\"galactic-baseballer.departure.v2_2\"]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.4deccdb1eda03fc6\",\"source.goal16.9d6caf6747a19fc9\",\"source.goal16.hoyolab-version-2.2-update\",\"source.goal16.hoyolab-original-event-notice\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.profile-version-selection"
+          },
+          "state_owner": {
+            "String": "immutable profile definition and activity-local selected profile"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"profile-version-selection\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "activity entry before stage selection"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.27b7ebcfacf28c74\",\"source.goal16.13fed997c5706f26\",\"source.goal16.0e64751477ee00b2\",\"source.goal16.13ea2a54aa1141a5\",\"source.goal16.955fc00b40a6b355\",\"source.goal16.83ec30eb059581b1\",\"source.goal16.80d469fc8eb1b3a6\",\"source.goal16.fb69d03f2e33f4ee\",\"source.goal16.91941295e62ee651\",\"source.goal16.a5f0a4d8c5904e4d\",\"source.goal16.1131b181be4c2f6e\",\"source.goal16.71cc2184034331df\",\"source.goal16.97af2346d446f67f\",\"source.goal16.c2dcbe02efa4f7db\",\"source.goal16.06bdf2f0842043df\",\"source.goal16.c0dc3d60ebe8ca47\",\"source.goal16.c7c1d5832a749068\",\"source.goal16.315598d63c2f44e3\",\"source.goal16.e42a5c66ae2c85db\",\"source.goal16.b13be7eabfd922cd\",\"source.goal16.e5a22cc65094b8de\",\"source.goal16.8c6e96ed0181e9ea\",\"source.goal16.e2a834946abc0af0\",\"source.goal16.policy.acf5e02c166ca2ab\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":true,\"card_reroll_budget\":0,\"selected_id\":\"galactic-baseballer.departure.candidate.strategy.3106703\"}"
+          },
+          "family_id": {
+            "String": "random-upgrade-candidates"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "input": {
+            "String": "{\"choose_id\":\"galactic-baseballer.departure.candidate.strategy.3106703\",\"rng_label\":\"galactic-baseballer/{profile-id}/{activity-instance-id}/upgrade-candidate/{decision-ordinal}\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0002\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0003\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0004\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0005\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0006\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0007\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0008\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0009\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0010\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0042\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0043\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0044\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0059\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0060\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0061\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0062\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0063\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0069\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure fixture: random-upgrade-candidates"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：random-upgrade-candidates"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"sort legal stable IDs\",\"operation_order\":0},{\"operation\":\"sample with labeled integer RNG\",\"operation_order\":1},{\"operation\":\"validate selected ID\",\"operation_order\":2},{\"operation\":\"commit selected strategy\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"decision_ordinal\":0,\"legal_candidate_ids\":[\"galactic-baseballer.departure.candidate.strategy.3106703\"]}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.candidate-policy.deterministic-fallback\",\"galactic-baseballer.departure.candidate-policy.source-parameters\",\"galactic-baseballer.departure.candidate.strategy.3106703\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.27b7ebcfacf28c74\",\"source.goal16.13fed997c5706f26\",\"source.goal16.0e64751477ee00b2\",\"source.goal16.13ea2a54aa1141a5\",\"source.goal16.955fc00b40a6b355\",\"source.goal16.83ec30eb059581b1\",\"source.goal16.80d469fc8eb1b3a6\",\"source.goal16.fb69d03f2e33f4ee\",\"source.goal16.91941295e62ee651\",\"source.goal16.a5f0a4d8c5904e4d\",\"source.goal16.1131b181be4c2f6e\",\"source.goal16.71cc2184034331df\",\"source.goal16.97af2346d446f67f\",\"source.goal16.c2dcbe02efa4f7db\",\"source.goal16.06bdf2f0842043df\",\"source.goal16.c0dc3d60ebe8ca47\",\"source.goal16.c7c1d5832a749068\",\"source.goal16.315598d63c2f44e3\",\"source.goal16.e42a5c66ae2c85db\",\"source.goal16.b13be7eabfd922cd\",\"source.goal16.e5a22cc65094b8de\",\"source.goal16.8c6e96ed0181e9ea\",\"source.goal16.e2a834946abc0af0\",\"source.goal16.policy.acf5e02c166ca2ab\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.random-upgrade-candidates"
+          },
+          "state_owner": {
+            "String": "battle-local candidate decision state"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"random-upgrade-candidates\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "after a team-level threshold crossing"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.feed8b625d0b555c\",\"source.goal16.53a2dc97e7e82b11\",\"source.goal16.5f029e211f76a368\"]"
+          },
+          "expected_facts": {
+            "String": "{\"eligible_accessory_id\":\"galactic-baseballer.departure.accessory.3106124\",\"inferred_edges\":0}"
+          },
+          "family_id": {
+            "String": "resonance-accessory-binding"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "input": {
+            "String": "{\"evaluate_recipe_id\":\"galactic-baseballer.departure.recipe.3106901\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0026\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: resonance-accessory-binding"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：resonance-accessory-binding"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact recipe inputs\",\"operation_order\":0},{\"operation\":\"bind only the authored accessory ID\",\"operation_order\":1},{\"operation\":\"reject unrelated-name similarity\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"owned_accessory_id\":\"galactic-baseballer.departure.accessory.3106124\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.accessory.3106111.binding\",\"galactic-baseballer.departure.recipe.3106901\",\"galactic-baseballer.departure.recipe.3106901.input.0\",\"galactic-baseballer.departure.recipe.3106901.input.1\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.feed8b625d0b555c\",\"source.goal16.53a2dc97e7e82b11\",\"source.goal16.5f029e211f76a368\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.resonance-accessory-binding"
+          },
+          "state_owner": {
+            "String": "immutable accessory/weapon relation plus battle-local ownership"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"resonance-accessory-binding\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "inventory or synthesis eligibility recomputation"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.420006727dfb92ab\",\"source.goal16.a4677ebc60abca8b\",\"source.goal16.8cd5d0a5b69ac01a\",\"source.goal16.8848d1831c074378\",\"source.goal16.6bf2c09f98e36813\",\"source.goal16.688569589f643601\",\"source.goal16.40aba8264bc868df\",\"source.goal16.28a789bbd5f07cb3\",\"source.goal16.3d5df0dc0a6beba6\",\"source.goal16.34b94ea1c57c9fd0\",\"source.goal16.4c0aff890061a258\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.db3bdbdd502393d4\"]"
+          },
+          "expected_facts": {
+            "String": "{\"minimum_rating\":\"A\",\"ordered_ratings\":[\"C\",\"B\",\"A\",\"S\",\"SS\"],\"score\":40000}"
+          },
+          "family_id": {
+            "String": "score-rating-clear"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "input": {
+            "String": "{\"terminal_evaluation\":true}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0015\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0036\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0037\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0038\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0039\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0040\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0041\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0045\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0046\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0047\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0048\",\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: score-rating-clear"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：score-rating-clear"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"sum exact integer contributions\",\"operation_order\":0},{\"operation\":\"apply explicit rounding boundary\",\"operation_order\":1},{\"operation\":\"cap at 200000\",\"operation_order\":2},{\"operation\":\"select highest satisfied ordered rating\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"score\":40000,\"stage_id\":\"galactic-baseballer.departure.stage.414001\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.scoring.source-parameters\",\"galactic-baseballer.departure.settlement.414001\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.420006727dfb92ab\",\"source.goal16.a4677ebc60abca8b\",\"source.goal16.8cd5d0a5b69ac01a\",\"source.goal16.8848d1831c074378\",\"source.goal16.6bf2c09f98e36813\",\"source.goal16.688569589f643601\",\"source.goal16.40aba8264bc868df\",\"source.goal16.28a789bbd5f07cb3\",\"source.goal16.3d5df0dc0a6beba6\",\"source.goal16.34b94ea1c57c9fd0\",\"source.goal16.4c0aff890061a258\",\"source.goal16.d76d80a754c5f1f0\",\"source.goal16.db3bdbdd502393d4\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.score-rating-clear"
+          },
+          "state_owner": {
+            "String": "battle-local score accumulator then activity-local result projection"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"score-rating-clear\",\"semantic-review\"]"
+          },
+          "trigger_point": {
+            "String": "score contribution and terminal stage evaluation"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.d77d7b7699389415\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "expected_facts": {
+            "String": "{\"item_replacements\":0,\"total_weapon_slots\":5,\"unlocked_weapon_slots\":5}"
+          },
+          "family_id": {
+            "String": "slot-capacity-expansion-replacement"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "input": {
+            "String": "{\"operation\":\"ExpandSlot\",\"slot_kind\":\"Weapon\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure fixture: slot-capacity-expansion-replacement"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：slot-capacity-expansion-replacement"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate below total capacity\",\"operation_order\":0},{\"operation\":\"increment unlocked capacity once\",\"operation_order\":1},{\"operation\":\"retain all owned items\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"total_weapon_slots\":5,\"unlocked_weapon_slots\":4}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.inventory-operation.acquire-new\",\"galactic-baseballer.departure.inventory-operation.expand-slot\",\"galactic-baseballer.departure.inventory-operation.reject-full-new\",\"galactic-baseballer.departure.inventory-operation.reject-max-duplicate\",\"galactic-baseballer.departure.inventory-operation.upgrade-duplicate\",\"galactic-baseballer.departure.inventory-slot.OriginStage.accessory\",\"galactic-baseballer.departure.inventory-slot.OriginStage.weapon\",\"galactic-baseballer.departure.inventory-slot.Standard.accessory\",\"galactic-baseballer.departure.inventory-slot.Standard.weapon\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.d77d7b7699389415\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.slot-capacity-expansion-replacement"
+          },
+          "state_owner": {
+            "String": "battle-local inventory capacity"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"semantic-review\",\"slot-capacity-expansion-replacement\"]"
+          },
+          "trigger_point": {
+            "String": "accepted slot expansion or full-inventory acquisition"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.db3bdbdd502393d4\",\"source.goal16.597e7e0e8760c9ee\"]"
+          },
+          "expected_facts": {
+            "String": "{\"accepted\":true,\"first_period_id\":\"galactic-baseballer.departure.stage-period.414011\",\"initial_weapon_ids\":[\"3106002\"]}"
+          },
+          "family_id": {
+            "String": "stage-difficulty-selection"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "input": {
+            "String": "{\"difficulty\":1,\"stage_id\":\"galactic-baseballer.departure.stage.414001\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: stage-difficulty-selection"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：stage-difficulty-selection"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate profile ownership\",\"operation_order\":0},{\"operation\":\"validate unlock\",\"operation_order\":1},{\"operation\":\"project initial weapon/team bonus/period order\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"selected_profile_id\":\"galactic-baseballer.departure.v2_2\",\"unlocks_satisfied\":true}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.stage-period.414011\",\"galactic-baseballer.departure.stage.414001\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.db3bdbdd502393d4\",\"source.goal16.597e7e0e8760c9ee\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.stage-difficulty-selection"
+          },
+          "state_owner": {
+            "String": "activity-local stage selection"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"semantic-review\",\"stage-difficulty-selection\"]"
+          },
+          "trigger_point": {
+            "String": "after profile selection and before battle assembly"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.db3bdbdd502393d4\",\"source.goal16.c1b8fc0252fb8728\"]"
+          },
+          "expected_facts": {
+            "String": "{\"team_bonus_maze_buff_id\":\"3106601\",\"teardown_required\":true}"
+          },
+          "family_id": {
+            "String": "team-bonus"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "input": {
+            "String": "{\"assemble_encounter_id\":\"galactic-baseballer.departure.encounter.4140016\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"StageID:4140016\",\"galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: team-bonus"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：team-bonus"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact team bonus MazeBuff\",\"operation_order\":0},{\"operation\":\"install before first wave\",\"operation_order\":1},{\"operation\":\"retain stage scope\",\"operation_order\":2},{\"operation\":\"remove at teardown\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"stage_id\":\"galactic-baseballer.departure.stage.414001\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.encounter.4140016\",\"galactic-baseballer.departure.stage.414001\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.db3bdbdd502393d4\",\"source.goal16.c1b8fc0252fb8728\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.team-bonus"
+          },
+          "state_owner": {
+            "String": "activity-selected stage definition projected into battle-local contribution"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"semantic-review\",\"team-bonus\"]"
+          },
+          "trigger_point": {
+            "String": "after stage selection and before battle start"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.c1b8fc0252fb8728\",\"source.goal16.2fd229de04496393\",\"source.goal16.3a2942e18fce5f53\",\"source.goal16.core.ef249135a06d1fdf\",\"source.goal16.597e7e0e8760c9ee\"]"
+          },
+          "expected_facts": {
+            "String": "{\"candidate_semantics\":\"OrderedCandidateNotAssumedSimultaneousSlot\",\"candidate_zero\":\"enemy.flamespawn.minion.variant.01\",\"wave_id\":\"galactic-baseballer.departure.wave.41400101\"}"
+          },
+          "family_id": {
+            "String": "wave-battle-phase-progression"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "input": {
+            "String": "{\"advance_to_wave_id\":\"galactic-baseballer.departure.wave.41400101\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"InfiniteMonsterGroupID:41400101\",\"InfiniteWaveID:41400101\",\"MonsterID:8001010\",\"StageID:4140016\",\"galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0005\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: wave-battle-phase-progression"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：wave-battle-phase-progression"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"resolve exact wave\",\"operation_order\":0},{\"operation\":\"resolve ordered monster-group candidates\",\"operation_order\":1},{\"operation\":\"preserve candidate order\",\"operation_order\":2},{\"operation\":\"apply clear_previous_ability flag\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"current_wave_order\":0,\"encounter_id\":\"galactic-baseballer.departure.encounter.4140016\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.encounter.4140016\",\"galactic-baseballer.departure.enemy-candidate.41400101.000\",\"galactic-baseballer.departure.stage-period.414011\",\"galactic-baseballer.departure.wave.41400101\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.c1b8fc0252fb8728\",\"source.goal16.2fd229de04496393\",\"source.goal16.3a2942e18fce5f53\",\"source.goal16.core.ef249135a06d1fdf\",\"source.goal16.597e7e0e8760c9ee\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.wave-battle-phase-progression"
+          },
+          "state_owner": {
+            "String": "battle-local encounter projection"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"semantic-review\",\"wave-battle-phase-progression\"]"
+          },
+          "trigger_point": {
+            "String": "declared stage-period wave boundary"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.f43c4a4ea62a0799\",\"source.goal16.b7d4b34dcc0ed966\",\"source.goal16.294c32610049caf9\",\"source.goal16.9319c2d29fd4333a\",\"source.goal16.bc8ac4625b438206\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "expected_facts": {
+            "String": "{\"level\":2,\"slot_count_delta\":0,\"weapon_id\":\"galactic-baseballer.departure.weapon.3106001\"}"
+          },
+          "family_id": {
+            "String": "weapon-acquisition-duplicate-upgrade"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "input": {
+            "String": "{\"acquire_weapon_id\":\"galactic-baseballer.departure.weapon.3106001\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"accessory-acquisition-duplicate-upgrade\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0001\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0000\",\"galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0001\",\"no-legal-candidate-failure-invariance\",\"slot-capacity-expansion-replacement\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Departure fixture: weapon-acquisition-duplicate-upgrade"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：weapon-acquisition-duplicate-upgrade"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"find exact owned stable ID\",\"operation_order\":0},{\"operation\":\"verify below maximum\",\"operation_order\":1},{\"operation\":\"replace level 1 binding with level 2 binding\",\"operation_order\":2}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"owned_level\":1,\"owned_weapon_id\":\"galactic-baseballer.departure.weapon.3106001\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.inventory-operation.acquire-new\",\"galactic-baseballer.departure.inventory-operation.expand-slot\",\"galactic-baseballer.departure.weapon.3106001\",\"galactic-baseballer.departure.weapon.3106001.level.1\",\"galactic-baseballer.departure.weapon.3106001.level.2\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.f43c4a4ea62a0799\",\"source.goal16.b7d4b34dcc0ed966\",\"source.goal16.294c32610049caf9\",\"source.goal16.9319c2d29fd4333a\",\"source.goal16.bc8ac4625b438206\",\"source.goal16.704e24df184a1460\",\"source.goal16.92a3fd5823b4ac1a\",\"source.goal16.073cebb0115dd4d0\",\"source.goal16.f4f4142427f5177f\",\"source.goal16.759bf4bd54efa77e\",\"source.goal16.d77d7b7699389415\",\"source.goal16.policy.8479ae493d9c3ee7\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.weapon-acquisition-duplicate-upgrade"
+          },
+          "state_owner": {
+            "String": "battle-local weapon inventory"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"semantic-review\",\"weapon-acquisition-duplicate-upgrade\"]"
+          },
+          "trigger_point": {
+            "String": "accepted weapon candidate"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "String": "[\"source.goal16.f43c4a4ea62a0799\",\"source.goal16.b5c3c9572c3b585b\"]"
+          },
+          "expected_facts": {
+            "String": "{\"program_fragment_sha256\":\"87d55a4cc4bc32d62ca50170bc4110a4e17f855030decf679bbfa5c6c4ac601c\",\"runtime_executable\":false}"
+          },
+          "family_id": {
+            "String": "weapon-automatic-action"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "input": {
+            "String": "{\"ready\":true,\"trigger_event\":\"OnAfterAttack\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "manifest_record_ids": {
+            "String": "[\"Config/ConfigAbility/BattleEvent/EvolveBuild_01_Weapon.json\",\"galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0000\"]"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure fixture: weapon-automatic-action"
+          },
+          "name_zh_cn": {
+            "String": "启程篇语义夹具：weapon-automatic-action"
+          },
+          "ordered_operations": {
+            "String": "[{\"operation\":\"validate trigger phase\",\"operation_order\":0},{\"operation\":\"order ready weapons by stable ID\",\"operation_order\":1},{\"operation\":\"execute normalized program operations\",\"operation_order\":2},{\"operation\":\"update weapon-owned state\",\"operation_order\":3}]"
+          },
+          "ownership": {
+            "String": "Departure"
+          },
+          "preconditions": {
+            "String": "{\"binding_key\":\"StageAbility_VS_Weapon_001\",\"weapon_id\":\"galactic-baseballer.departure.weapon.3106001\"}"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "runtime_executable": {
+            "String": "false"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_record_ids": {
+            "String": "[\"galactic-baseballer.departure.weapon.3106001\",\"galactic-baseballer.departure.weapon.3106001.binding\"]"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.f43c4a4ea62a0799\",\"source.goal16.b5c3c9572c3b585b\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.fixture.weapon-automatic-action"
+          },
+          "state_owner": {
+            "String": "battle-local weapon counter/cooldown state"
+          },
+          "summary_en": {
+            "String": "Concrete ReferenceOnly review case; it does not execute runtime gameplay."
+          },
+          "summary_zh_cn": {
+            "String": "具体的仅供资料审查案例；不执行运行时玩法。"
+          },
+          "tags": {
+            "String": "[\"departure\",\"semantic-review\",\"weapon-automatic-action\"]"
+          },
+          "trigger_point": {
+            "String": "OnAfterAttack"
+          }
+        }
+      }
+    ]
+  }
+}

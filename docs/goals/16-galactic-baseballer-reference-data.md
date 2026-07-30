@@ -140,6 +140,7 @@ config/galactic-baseballer/
 config/galactic-baseballer-generated/
 tools/galactic-baseballer-reference/
 evidence/galactic-baseballer-reference-v1/
+policy/repository-checks.json (one generated-reader exclusion only)
 ```
 
 It must not modify or regenerate:

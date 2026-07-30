@@ -67,7 +67,7 @@ function fieldCount(fileName) {
   )));
   const fields = new Set(rows.flatMap((row) => Object.keys(row)));
   fields.delete("id");
-  return { rowCount: rows.length, columnCount: fields.size + 2 };
+  return { rowCount: rows.length, columnCount: fields.size + 3 };
 }
 
 for (const target of [

@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
-| Active phase | Phase 3 — Evidence closure and isolated authoring |
-| Active batch | `G16-P3-B3` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P3-B4` |
+| Active phase | Phase 4 — Audit and Candidate freeze |
+| Active batch | `G16-P3-B4` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P4-B1` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -36,7 +36,7 @@
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
 | Phase 1 — Departure and shared base | `Complete` | Departure profile, stages, arsenal, Legendary synthesis, growth, candidates, inventory, encounters, stable enemy/skill identities, score/settlement and 17 semantic families are closed. |
 | Phase 2 — Demon King and progression | `Complete` | Independent profile/differences, arsenal/synthesis, growth, progression, 18 shared encounters, 61 waves, 1,573 ordered candidates, 77 enemies, 258 skills, 10 status locators, seven team bonuses, scoring, Devil phases and semantic fixtures are closed. |
-| Phase 3 — Evidence, Excel and Sora | `InProgress` | The 40-file normalized pack, all 2,232 exact-once reconciliation/coverage rows, 2,634 source receipts, 12 replaceable boundaries, 26 rules and 35 fixtures are closed. Four isolated workbooks cover all 40 sheets and 10,615 rows; double generation, semantic/structural verification and 141-band visual review pass. The isolated 40-table Sora 0.3.0 schema, lock and four templates regenerate without drift. P3-B4 owns readers and exports. |
+| Phase 3 — Evidence, Excel and Sora | `Complete` | The 40-file normalized pack, all 2,232 exact-once reconciliation/coverage rows, 2,634 source receipts, 12 replaceable boundaries, 26 rules and 35 fixtures are closed. Four isolated workbooks cover all 40 sheets and 10,615 rows; double generation, semantic/structural verification and 147-band visual review pass. The isolated 40-table Sora 0.3.0 schema, lock, templates, 42 Rust reader files, binary bundle and 40 debug exports regenerate without drift; the standalone reader loads all 10,615 rows. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
 
 ## Batch ledger
@@ -57,8 +57,8 @@
 | `G16-P2-B4` | `Complete` | This row's containing commit | Closed all 18 reachable shared StageConfig encounters, 61 waves and 1,573 ordered candidate positions. Resolved 77 MonsterIDs and 258 SkillIDs to existing frozen stable identities without copying definitions; retained ten exact reachable status locators. Bound all seven stage team bonuses to their remaining seven MazeBuff rows and exact program fragments, completing ownership of all 315 Demon King MazeBuff rows. Froze exact scoring/group/contribution IDs, seven settlements, 39 ordered Demon King's Den periods and the 40-ability Devil program structure. Added five ReferenceOnly rules and six fixtures, including the post-correction D007 `3000/4500/45000` score facts. |
 | `G16-P3-B1` | `Complete` | This row's containing commit | Assembled all 40 contracted normalized files and indexed the other 39 with canonical counts/digests. Closed all 2,232 frozen obligations exact-once: 2,207 DataReady rows each point to a real normalized owner, while 25 reward/presentation rows remain EvidenceOnly with no mechanical import. Aggregated 2,634 auditable sources and 12 complete non-blocking replacement boundaries. Corrected an exposed Departure gap by adding item `281019`, exact income/chest vectors, 14 store definitions/54 price levels, 20 tutorial locators, four tags and eight team-bonus definitions. Combined both profiles into 26 ReferenceOnly rules and 35 fixtures across exactly 20 families. |
 | `G16-P3-B2` | `Complete` | This row's containing commit | Authored four complete non-overwriting workbooks with the required `openpyxl==3.1.5` adapter: 40 sheets and 10,615 canonical rows. Two independent clean generations are byte-identical to each other and the committed targets; all cell values round-trip to the normalized pack, with no formulas or Excel errors. Rendered every sheet and every schema column as 141 contiguous review bands, inspected all four contact sheets and retained a zero-defect `PassedHumanInspection` record with per-band/contact PNG digests. |
-| `G16-P3-B3` | `Complete` | This row's containing commit | Generated the isolated `starclock_galactic_baseballer_reference` Sora 0.3.0 project with four schema partitions and 40 exact-once workbook sources. Two clean schema-lock/template generations and a third committed-tree regeneration are byte-identical. Synchronized all four authored workbooks to the authoritative Sora metadata rows, reran 10,615-row round-trip checks and visually reinspected all 141 column bands with zero severe defects. The generated root contains only the schema lock and four 40-sheet templates; readers and exports remain P3-B4-owned. |
-| `G16-P3-B4` | `Pending` | — | Binary/debug exports and standalone reader. |
+| `G16-P3-B3` | `Complete` | This row's containing commit | Generated the isolated `starclock_galactic_baseballer_reference` Sora 0.3.0 project with four schema partitions and 40 exact-once workbook sources. Two clean schema-lock/template generations and a third committed-tree regeneration are byte-identical. Synchronized all four authored workbooks to the authoritative Sora metadata rows, reran 10,615-row round-trip checks and visually reinspected every schema field with zero severe defects. The generated root contains only the schema lock and four 40-sheet templates; readers and exports remain P3-B4-owned. |
+| `G16-P3-B4` | `Complete` | This row's containing commit | Corrected the Sora sentinel-column boundary exposed by the first binary export, regenerated the complete workbook set twice and visually reinspected all 147 bands. Generated 42 isolated Rust reader files, a 741,203-byte Zstandard bundle and 40 debug tables containing exactly 10,615 rows. Two clean full releases plus verifier regeneration are byte-identical. Every debug row preserves its private ordinal and normalized stable key; the locked standalone loader parses the bundle and iterates every table and row. The Phase 3 source-cache full gate passed 32 generated/source checks, Clippy and 138 harnesses. No reader or bundle is imported into runtime. |
 | `G16-P4-B1` | `Pending` | — | Full semantic execution and invariance review. |
 | `G16-P4-B2` | `Pending` | — | Profile/shared identity/synthesis/isolation audit. |
 | `G16-P4-B3` | `Pending` | — | Full and clean-checkout acceptance. |
@@ -143,6 +143,18 @@ from this planning list or reduced later.
 | Full repository gate | With the fixed Sora 0.3.0 cache and bundled `openpyxl==3.1.5` Python PATH, `node tools/repository-check/run.mjs --full` passed generated drift, immutable snapshots, Sora golden, Clippy and 138 test harnesses in 122.4 seconds. Cache-dependent upstream regeneration was intentionally deferred to the required `--with-source-cache` Phase 3/4 acceptance. |
 | Protected outputs | No Standard, other-mode, production generated or Goals 01–15 immutable path changed. |
 
+## Phase 3 verification
+
+| Check | Result |
+|---|---|
+| Workbook generation | Two clean `openpyxl==3.1.5` generations are byte-identical; 40 Sora-authored sheets and 10,615 rows round-trip with no formula/error cell. |
+| Visual review | All 40 sheets and 147 contiguous column bands were rendered after the final Sora column-layout correction; four contact sheets passed human inspection with zero severe defects. |
+| Sora foundation | Sora 0.3.0 checks 40 exact-once sources; schema lock and four templates regenerate byte-identically. |
+| Readers and exports | Two clean releases plus verifier regeneration match across 42 Rust files, 40 debug tables and the 741,203-byte bundle; the standalone locked reader loads all 40 tables and 10,615 rows. |
+| Quick repository gate | `fnm exec --using 24.15.0 node tools/repository-check/run.mjs` passed after registering the narrow generated-reader exclusion. |
+| Full source-cache gate | The first `node tools/repository-check/run.mjs --full --with-source-cache` attempt stopped at `missing cache for dimbreath-turnbasedgamedata`. A temporary ignored symlink exposed the main checkout's frozen cache read-only; the identical command then passed all 32 generated/source checks, Clippy and 138 test harnesses in 124.2 seconds. Both pinned Goal 16 cache repositories and the linked source repositories remained clean. |
+| Protected outputs | No Standard, other-mode, production generated or Goals 01–15 immutable path changed. The only shared policy edit is the exact Goal 16 generated-reader exclusion required by the repository source gate. |
+
 ## Terminal checklist
 
 - [x] Exact profile/category manifests and denominators are frozen.
@@ -155,9 +167,9 @@ from this planning list or reduced later.
 - [x] Every required row has bilingual summary and row-level provenance.
 - [x] All approximations/policies include alternatives and replacement conditions.
 - [ ] All 20 mechanism families have rules and executable fixtures.
-- [ ] Isolated Sora schemas/templates/readers/exports regenerate without drift.
+- [x] Isolated Sora schemas/templates/readers/exports regenerate without drift.
 - [x] Complete openpyxl workbooks pass structural, semantic and visual QA.
-- [ ] Standalone readers load every table and every row.
+- [x] Standalone readers load every table and every row.
 - [ ] Standard, other-mode and production runtime bundle identities remain unchanged.
 - [ ] Coverage is 100% DataReady with no blocking research row.
 - [ ] Full source-cache and clean-checkout acceptance pass.

@@ -52,7 +52,11 @@ execFileSync(python, [
     "tools/galactic-baseballer-reference/normalize-sora-templates.py",
   ),
   resolve(output, "templates"),
-], { cwd: root, stdio: "inherit" });
+], {
+  cwd: root,
+  env: { ...process.env, PYTHONDONTWRITEBYTECODE: "1" },
+  stdio: "inherit",
+});
 console.log(
   `Generated Goal 16 Sora ${policy.version} schema lock and templates at `
   + `${output}.`,

@@ -1,0 +1,267 @@
+{
+  "table": {
+    "name": "GbCurrencies",
+    "rows": [
+      {
+        "values": {
+          "account_reward_payloads_imported": {
+            "String": "false"
+          },
+          "approximation_id": {
+            "String": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+          },
+          "chest_alternate_gold": "Null",
+          "chest_basic_gold": "Null",
+          "chest_income_by_authored_ordinal": "Null",
+          "chest_income_vector": "Null",
+          "chest_probability_step": "Null",
+          "chest_probability_step_vector": "Null",
+          "chest_probability_vector": "Null",
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "enemy_income": "Null",
+          "evidence_quality": {
+            "String": "ApproximateFromReleasedText"
+          },
+          "gold_max_level_vector": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Currency"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075\"]"
+          },
+          "maximum_balance": {
+            "String": "500000"
+          },
+          "maximum_balance_disposition": "Null",
+          "mechanism_quality": {
+            "String": "ContextOnly"
+          },
+          "name_en": {
+            "String": "Cosmic Reputation"
+          },
+          "name_zh_cn": {
+            "String": "银河声望"
+          },
+          "offering_type": {
+            "String": "8"
+          },
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "probability_ordinal_mapping_status": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rank_count": {
+            "String": "20"
+          },
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_item_id": "Null",
+          "source_refs": {
+            "String": "[\"source.goal16.a17e05fd212d90ad\",\"source.goal16.8f34fc6c5b37ef6b\",\"source.goal16.wiki.324128.18abff09af\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.currency.cosmic-reputation"
+          },
+          "state_owner": {
+            "String": "profile-persistent account progression"
+          },
+          "summary_en": {
+            "String": "Reference-only 20-rank progression currency; reward payloads remain excluded account locators."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的 20 级进度货币；奖励内容继续作为排除的账号定位信息。"
+          },
+          "tags": {
+            "String": "[\"currency\",\"demon-king\",\"reputation\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "account_reward_payloads_imported": "Null",
+          "approximation_id": "Null",
+          "chest_alternate_gold": "Null",
+          "chest_basic_gold": "Null",
+          "chest_income_by_authored_ordinal": {
+            "String": "[{\"ordinal\":0,\"value\":300},{\"ordinal\":1,\"value\":800},{\"ordinal\":2,\"value\":1200}]"
+          },
+          "chest_income_vector": "Null",
+          "chest_probability_step": "Null",
+          "chest_probability_step_vector": {
+            "String": "[{\"ordinal\":0,\"value\":\"-0.15\"},{\"ordinal\":1,\"value\":\"0\"},{\"ordinal\":2,\"value\":\"0.15\"}]"
+          },
+          "chest_probability_vector": {
+            "String": "[{\"ordinal\":0,\"value\":\"0.6\"},{\"ordinal\":1,\"value\":\"0.3\"},{\"ordinal\":2,\"value\":\"0.1\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "enemy_income": {
+            "String": "{\"boss\":200,\"elite\":20,\"normal_1\":5,\"normal_2\":5}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "gold_max_level_vector": "Null",
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Currency"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036\",\"galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074\"]"
+          },
+          "maximum_balance": {
+            "String": "500000"
+          },
+          "maximum_balance_disposition": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Raccoon Gold Coin"
+          },
+          "name_zh_cn": {
+            "String": "浣熊金币"
+          },
+          "offering_type": "Null",
+          "ownership": {
+            "String": "DemonKing"
+          },
+          "probability_ordinal_mapping_status": {
+            "String": "Unspecified: exact vectors retained without naming hidden ordinal meanings"
+          },
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.demon-king.v3_3\"]"
+          },
+          "rank_count": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_item_id": {
+            "String": "281027"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.39ef85912b06b440\",\"source.goal16.263fd561a7a07080\",\"source.goal16.7672f15a8479866c\",\"source.goal16.053eebe69b888d07\",\"source.goal16.c5f018d227e32d16\",\"source.goal16.54266e52a7e4aa53\",\"source.goal16.4d5d6d67e0815ecd\",\"source.goal16.9dff1a79b15b6f38\",\"source.goal16.e01a8ad04f861a29\",\"source.goal16.f2be8eb4bf8cf48b\",\"source.goal16.dc2dc2b526a16119\",\"source.goal16.8bd5c91a2bca590e\",\"source.goal16.wiki.432557.29b02a0c03\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.demon-king.currency.raccoon-gold"
+          },
+          "state_owner": {
+            "String": "profile-persistent Demon King progression"
+          },
+          "summary_en": {
+            "String": "Persistent Demon King shop currency with exact item ID, enemy/chest income vectors and maximum balance."
+          },
+          "summary_zh_cn": {
+            "String": "魔王篇持久商店货币，含精确物品 ID、敌人/宝箱收入向量与余额上限。"
+          },
+          "tags": {
+            "String": "[\"currency\",\"demon-king\",\"shop\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "account_reward_payloads_imported": "Null",
+          "approximation_id": "Null",
+          "chest_alternate_gold": {
+            "String": "[50,250,400]"
+          },
+          "chest_basic_gold": {
+            "String": "[50,250,400]"
+          },
+          "chest_income_by_authored_ordinal": "Null",
+          "chest_income_vector": {
+            "String": "[400,1500,2500]"
+          },
+          "chest_probability_step": {
+            "String": "[\"-0.1\",0,\"0.1\"]"
+          },
+          "chest_probability_step_vector": "Null",
+          "chest_probability_vector": {
+            "String": "[\"0.4\",\"0.3\",\"0.3\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "enemy_income": {
+            "String": "{\"boss\":200,\"elite\":20,\"normal_1\":5,\"normal_2\":5,\"special\":0}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "gold_max_level_vector": {
+            "String": "[100,250,500]"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "Currency"
+          },
+          "manifest_record_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0016\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0017\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0018\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0019\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0020\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0021\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0022\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0023\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0024\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0025\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0026\",\"galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0034\"]"
+          },
+          "maximum_balance": {
+            "String": "null"
+          },
+          "maximum_balance_disposition": {
+            "String": "UnspecifiedInFrozenStructuredFamily"
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Departure Raccoon Gold"
+          },
+          "name_zh_cn": {
+            "String": "启程篇浣熊硬币"
+          },
+          "offering_type": "Null",
+          "ownership": {
+            "String": "Departure"
+          },
+          "probability_ordinal_mapping_status": "Null",
+          "profile_ids": {
+            "String": "[\"galactic-baseballer.departure.v2_2\"]"
+          },
+          "rank_count": "Null",
+          "schema_revision": {
+            "String": "starclock.galactic-baseballer-row.v1"
+          },
+          "source_item_id": {
+            "String": "281019"
+          },
+          "source_refs": {
+            "String": "[\"source.goal16.3f618c9399220ea6\",\"source.goal16.0eb3a574c9eb4a29\",\"source.goal16.f24c8a6a9a052030\",\"source.goal16.ec2c3f81444f1a52\",\"source.goal16.9209107ea71fbc2a\",\"source.goal16.76d4fa280ac2340f\",\"source.goal16.6513c97f34f135ad\",\"source.goal16.2057d73286dfbffb\",\"source.goal16.2ce73d0d2f64d1b5\",\"source.goal16.c5066f12c83f1d44\",\"source.goal16.0e9666dcc62e11eb\",\"source.goal16.69321a25762ff84a\"]"
+          },
+          "stable_key": {
+            "String": "galactic-baseballer.departure.currency.raccoon-gold"
+          },
+          "state_owner": {
+            "String": "profile-persistent Departure progression"
+          },
+          "summary_en": {
+            "String": "Exact profile-owned currency identity, cap, combat income and chest vectors."
+          },
+          "summary_zh_cn": {
+            "String": "精确的 Profile 所有货币身份、上限、战斗收入与宝箱向量。"
+          },
+          "tags": {
+            "String": "[\"currency\",\"departure\",\"persistent-progression\"]"
+          }
+        }
+      }
+    ]
+  }
+}

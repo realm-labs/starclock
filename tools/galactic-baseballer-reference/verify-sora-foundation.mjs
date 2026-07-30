@@ -11,6 +11,7 @@ import {
 import { relative, resolve } from "node:path";
 
 const arguments_ = process.argv.slice(2);
+const allowRelease = arguments_.includes("--allow-release");
 const root = resolve(valueAfter("--root") ?? process.cwd());
 const python = resolve(valueAfter("--python"));
 const generated = resolve(
@@ -58,8 +59,12 @@ execFileSync(python, [
 
 assert(
   JSON.stringify(readdirSync(generated).sort())
-    === JSON.stringify(["schema.lock", "templates"]),
-  "P3-B3 generated root contains a reader or export owned by P3-B4",
+    === JSON.stringify((allowRelease
+      ? ["config.sora", "debug-json", "readers", "schema.lock", "templates"]
+      : ["schema.lock", "templates"]).sort()),
+  allowRelease
+    ? "P3-B4 generated-root file set drift"
+    : "P3-B3 generated root contains a reader or export owned by P3-B4",
 );
 const lock = json(resolve(generated, "schema.lock"));
 assert(
@@ -129,8 +134,15 @@ try {
     "--python",
     python,
   ], { cwd: root, stdio: "inherit" });
-  assert(equalTree(generated, fresh),
-    "Sora schema lock/template regeneration drift");
+  assert(
+    readFileSync(resolve(generated, "schema.lock"))
+      .equals(readFileSync(resolve(fresh, "schema.lock")))
+      && equalTree(
+        resolve(generated, "templates"),
+        resolve(fresh, "templates"),
+      ),
+    "Sora schema lock/template regeneration drift",
+  );
 } finally {
   rmSync(scratch, { recursive: true, force: true });
 }
@@ -140,7 +152,7 @@ console.log(
   + `${templates.length} templates, schema ${sha256(readFileSync(resolve(
     generated,
     "schema.lock",
-  )))} and tree ${treeDigest(generated)}.`,
+  )))} and tree ${foundationDigest(generated)}.`,
 );
 
 function valueAfter(flag) {
@@ -194,8 +206,13 @@ function equalTree(left, right) {
         .equals(readFileSync(resolve(right, file))));
 }
 
-function treeDigest(directory) {
-  return sha256(relativeFiles(directory).map((file) =>
+function foundationDigest(directory) {
+  const files = [
+    "schema.lock",
+    ...relativeFiles(resolve(directory, "templates"))
+      .map((file) => `templates/${file}`),
+  ];
+  return sha256(files.map((file) =>
     `${file}\0${sha256(readFileSync(resolve(directory, file)))}`)
   .join("\n"));
 }

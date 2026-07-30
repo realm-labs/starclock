@@ -109,6 +109,7 @@ Goal 16 owns only:
 - `config/galactic-baseballer-generated/`;
 - `tools/galactic-baseballer-reference/`;
 - `evidence/galactic-baseballer-reference-v1/`;
+- one narrow generated-reader exclusion in `policy/repository-checks.json`;
 - its four Goal/foundation documents, foundation policy and Goal index row.
 
 All existing mode partitions, production generated output and historical Goal

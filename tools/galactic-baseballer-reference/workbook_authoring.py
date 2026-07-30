@@ -364,7 +364,10 @@ def author(
                     "Sora template contains authored rows"
                 )
             for values in rows:
-                sheet.append([values[column] for column in columns])
+                sheet.append([
+                    None,
+                    *[values[column] for column in columns],
+                ])
             style_sheet(sheet, len(rows))
             counts[f"{workbook_name}/{sheet.title}"] = len(rows)
         workbook.properties.creator = "Starclock Goal 16 openpyxl authoring"
@@ -445,7 +448,7 @@ def verify(
             for offset, expected in enumerate(expected_rows, start=8):
                 values = [
                     sheet.cell(row=offset, column=column).value
-                    for column in range(1, len(columns) + 1)
+                    for column in range(2, len(columns) + 2)
                 ]
                 expected_values = [expected[column] for column in columns]
                 if values != expected_values:

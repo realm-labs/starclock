@@ -52,7 +52,7 @@ for (const [file] of expectedFiles) {
   )));
   const authoredFields = new Set(rows.flatMap((row) => Object.keys(row)));
   authoredFields.delete("id");
-  const expectedColumnCount = authoredFields.size + 2;
+  const expectedColumnCount = authoredFields.size + 3;
   const bands = bandsByFile.get(file) ?? [];
   bands.sort((left, right) =>
     left.first_column_ordinal - right.first_column_ordinal);
