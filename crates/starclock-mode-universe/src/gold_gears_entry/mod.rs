@@ -20,6 +20,7 @@ mod neural_runtime;
 mod occurrence_runtime;
 mod occurrence_types;
 mod plane_transition;
+mod profile_rule_runtime;
 mod progression_runtime;
 mod service_adventure_runtime;
 mod service_adventure_types;
@@ -81,6 +82,9 @@ pub use occurrence_types::{
     GoldAndGearsOccurrenceVariantDefinition,
 };
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
+pub use profile_rule_runtime::{
+    GOLD_AND_GEARS_PROFILE_RULE_RUNTIME_REVISION, GoldAndGearsProfileRuleExecution,
+};
 pub use progression_runtime::{
     GOLD_AND_GEARS_EXTRAPOLATION_POLICY_ACCURACY, GOLD_AND_GEARS_EXTRAPOLATION_POLICY_REVISION,
     GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION, GoldAndGearsExtrapolationContext,
@@ -127,6 +131,8 @@ mod neural_runtime_tests;
 mod occurrence_service_tests;
 #[cfg(test)]
 mod phase2_hardening_tests;
+#[cfg(test)]
+mod profile_rule_runtime_tests;
 #[cfg(test)]
 mod progression_runtime_tests;
 #[cfg(test)]

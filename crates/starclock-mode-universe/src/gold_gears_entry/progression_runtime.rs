@@ -53,6 +53,7 @@ pub enum GoldAndGearsTrailblazeOffer {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GoldAndGearsTrailblazeBonusPlan {
     source_bonus: Box<str>,
+    source_rule: Box<str>,
     event_id: u32,
     immediate: Option<ActivityProgramDefinition>,
     offers: Box<[GoldAndGearsTrailblazeOffer]>,
@@ -62,6 +63,11 @@ impl GoldAndGearsTrailblazeBonusPlan {
     #[must_use]
     pub fn source_bonus(&self) -> &str {
         &self.source_bonus
+    }
+
+    #[must_use]
+    pub fn source_rule(&self) -> &str {
+        &self.source_rule
     }
 
     #[must_use]
@@ -258,6 +264,7 @@ pub(super) struct ProgressionRuntimeCatalog {
 #[derive(Clone, Debug)]
 struct RuntimeBonus {
     key: Box<str>,
+    rule: Box<str>,
     event_id: u32,
     effect: RuntimeBonusEffect,
 }
@@ -676,6 +683,7 @@ fn decode_bonus(bonus: &TrailblazeBonus) -> Result<RuntimeBonus, GoldAndGearsEnt
     };
     Ok(RuntimeBonus {
         key: bonus.identity.stable_key.clone(),
+        rule: bonus.rule_contribution.clone(),
         event_id: bonus
             .bonus_event
             .parse()
@@ -711,6 +719,7 @@ fn compile_bonus_plan(
     };
     Ok(GoldAndGearsTrailblazeBonusPlan {
         source_bonus: bonus.key.clone(),
+        source_rule: bonus.rule.clone(),
         event_id: bonus.event_id,
         immediate,
         offers,
