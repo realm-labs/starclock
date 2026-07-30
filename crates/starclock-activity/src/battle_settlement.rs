@@ -793,7 +793,8 @@ impl crate::ActivityTransactionState {
         }
         let target = working
             .traverse_edge(edge, graph)
-            .map_err(ActivityBattleSettlementError::ActivityFault)?;
+            .map_err(ActivityBattleSettlementError::ActivityFault)?
+            .0;
         let terminal = graph.node(target).and_then(|node| node.kind().terminal());
         if let Some(terminal) = terminal {
             working.settle_terminal(terminal);

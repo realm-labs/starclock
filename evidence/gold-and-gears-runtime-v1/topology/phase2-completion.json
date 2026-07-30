@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.gold-and-gears-phase2-completion.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P2-B5",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "formal_areas": 5,
+    "authored_plane_nodes": 81,
+    "authored_plane_edges": 120,
+    "boss_choices": 6,
+    "cognition_ranges": 13,
+    "secrets": 20
+  },
+  "completed_topology": {
+    "authored_nodes": 81,
+    "synthetic_post_boss_terminals": 1,
+    "nodes": 82,
+    "authored_edges": 120,
+    "plane_transition_edges": 2,
+    "final_terminal_edges": 1,
+    "edges": 123,
+    "maximum_total_visits": 82,
+    "terminal_nodes": 1,
+    "terminal_outcome": "Completed",
+    "logical_scope_bindings": 82,
+    "authored_scope_path_depth": 3,
+    "terminal_scope_path_depth": 1,
+    "graph_digest": "4f07183a4a53189208a402a6ae69a3dbe491f678252d8a1ba04c9ba5000bca48"
+  },
+  "plane_completion": {
+    "revision": "gold-and-gears-plane-completion-policy-v1",
+    "boss_selection": "caller-explicit-released-candidate",
+    "boss_candidate_order": "ascending-source-id",
+    "boss_selection_rng_draws": 0,
+    "selected_boss_layer_bound": true,
+    "completion_order": [
+      "require-same-layer-selected-boss",
+      "mark-cognition-evaluation-layer",
+      "unlock-first-eligible-secret-or-none",
+      "mark-completed-layer",
+      "traverse-plane-or-terminal-edge",
+      "settle-final-terminal"
+    ],
+    "encounter_materialization_owner": "G14-P6-B1/G14-P6-B2"
+  },
+  "scope_lifecycle": {
+    "section_slots_reset_on_plane_transition": 5,
+    "node_slots_reset_on_every_traversal": 1,
+    "cognition_carry": "Activity-CarryExact",
+    "secret_carry": "Activity-CarryExact",
+    "reset_events": "ActivityTransactionEventKind::SlotReset"
+  },
+  "rollback_and_hash": {
+    "missing_boss_rejection_preserves_canonical_bytes": true,
+    "wrong_layer_rejection_preserves_canonical_bytes": true,
+    "unknown_boss_compile_preserves_state": true,
+    "rng_transaction_rejection_restores_all_streams": true,
+    "accepted_map_program_changes_state_hash": true,
+    "accepted_map_program_advances_only_graph_stream": true,
+    "cognition_and_completion_rng_draws": 0
+  },
+  "policy_continuity": {
+    "topology_revision": "gold-and-gears-topology-policy-v1",
+    "cognition_revision": "gold-and-gears-cognition-policy-v1",
+    "completion_revision": "gold-and-gears-plane-completion-policy-v1",
+    "topology_register": "G14-R02-VersionedExecutablePolicy",
+    "cognition_register": "G14-R03-VersionedExecutablePolicy",
+    "historical_graph_digest_retained_in_prior_batch_evidence": true,
+    "current_graph_digest_includes_post_boss_terminal": true
+  },
+  "validation": {
+    "all_plane_ends_have_one_completion_edge": true,
+    "all_boss_candidates_typed": true,
+    "final_boss_precedes_terminal": true,
+    "section_reset_policy_executes": true,
+    "activity_carry_policy_executes": true,
+    "rejected_state_byte_identity": true,
+    "rejected_rng_identity": true,
+    "graph_rng_isolated": true,
+    "runtime_json_reads": 0
+  },
+  "tests": {
+    "activity_full_suite_passed": true,
+    "entry_phase2_unit_passed": 20,
+    "phase2_hardening_unit_passed": 4,
+    "clippy_passed": true,
+    "cold_quick_attempt": "BudgetExceededDuringDownstreamCheckAfterSelectedTestsPassed",
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "97.9",
+    "quick_selected_harnesses": 67,
+    "quick_direct_packages": 2,
+    "quick_downstream_packages_checked": 7,
+    "full_gate_passed": true,
+    "full_gate_seconds": "218.8",
+    "full_workspace_harnesses": 138
+  },
+  "commands": [
+    "cargo test -p starclock-activity --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-activity -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal14/verify-phase2-b5.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

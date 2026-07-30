@@ -21,7 +21,7 @@ use crate::{
     ActivityInventoryId, ActivityModifierId, ActivityOptionDefinition, ActivityOptionId,
     ActivityProgramDefinition, ActivityProgramId, ActivityRngStreams, ActivitySlotId,
     ActivityStateDefinition, ActivityStateHash, ActivityStateVisibility, ActivityTerminalOutcome,
-    ActivityValue, LogicalScopeInstance, NodeId, ParticipantId,
+    ActivityValue, LogicalScopeInstance, NodeId, ParticipantId, SlotResetPoint,
     battle_preparation::ActivityAttemptState,
     battle_settlement::{ActivityAwaitingBattle, ActivityCarryLedger, MetricSettlementPolicy},
     codec::ActivityStateEncoder,
@@ -81,6 +81,10 @@ impl ActivityCause {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum ActivityTransactionEventKind {
     SlotChanged(ActivitySlotId),
+    SlotReset {
+        slot: ActivitySlotId,
+        point: SlotResetPoint,
+    },
     CounterChanged {
         slot: ActivitySlotId,
         key: u64,
@@ -766,7 +770,14 @@ impl ActivityTransactionState {
                 );
             }
             Op::Traverse(edge) => {
-                self.traverse_edge(*edge, graph)?;
+                let (_, resets) = self.traverse_edge(*edge, graph)?;
+                for (slot, point) in resets {
+                    push(
+                        events,
+                        cause,
+                        ActivityTransactionEventKind::SlotReset { slot, point },
+                    );
+                }
                 push(
                     events,
                     cause,
@@ -958,7 +969,7 @@ impl ActivityTransactionState {
         &mut self,
         edge: ActivityEdgeId,
         graph: &ActivityGraphDefinition,
-    ) -> Result<NodeId, ActivityFault> {
+    ) -> Result<(NodeId, Vec<(ActivitySlotId, SlotResetPoint)>), ActivityFault> {
         let edge_def = graph
             .edges()
             .iter()
@@ -1000,8 +1011,33 @@ impl ActivityTransactionState {
         self.logical_scopes
             .transition(self.definition.logical_scopes(), edge_def.to())
             .map_err(|_| ActivityFault::LogicalScopeLimitExceeded)?;
+        let current_section = graph
+            .node(self.current_node)
+            .ok_or(ActivityFault::InvalidGraphEdge(edge))?
+            .section();
+        let section_changed = current_section != next_node.section();
+        let mut resets = Vec::new();
+        for point in [
+            section_changed.then_some(SlotResetPoint::SectionStart),
+            Some(SlotResetPoint::NodeStart),
+        ]
+        .into_iter()
+        .flatten()
+        {
+            let values = self
+                .definition
+                .slots()
+                .iter()
+                .filter(|definition| definition.resets().contains(&point))
+                .map(|definition| (definition.id(), definition.initial().clone()))
+                .collect::<Vec<_>>();
+            for (slot, initial) in values {
+                self.slots.insert(slot, initial);
+                resets.push((slot, point));
+            }
+        }
         self.current_node = edge_def.to();
-        Ok(edge_def.to())
+        Ok((edge_def.to(), resets))
     }
 
     pub(crate) fn settle_terminal(&mut self, outcome: ActivityTerminalOutcome) {

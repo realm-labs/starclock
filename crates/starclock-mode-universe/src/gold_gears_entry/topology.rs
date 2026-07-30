@@ -30,6 +30,8 @@ pub(super) struct CompiledTopology {
 pub(super) struct CompiledPlaneBoard {
     pub(super) plane_key: Box<str>,
     pub(super) chessboard_key: Box<str>,
+    pub(super) start: NodeId,
+    pub(super) end: NodeId,
 }
 
 pub(super) fn compile_topology(
@@ -61,13 +63,8 @@ pub(super) fn compile_topology(
             .collect::<Vec<_>>();
         for node in board_nodes {
             let node_id = NodeId::new(node.id.0).ok_or(GoldAndGearsEntryError::InvalidTopology)?;
-            let kind = if index + 1 == selected.len() && node.id == board.end {
-                ActivityNodeKind::Terminal(ActivityTerminalOutcome::Completed)
-            } else {
-                ActivityNodeKind::Choice
-            };
             nodes.push(
-                ActivityNodeDefinition::new(node_id, section, kind, 1)
+                ActivityNodeDefinition::new(node_id, section, ActivityNodeKind::Choice, 1)
                     .map_err(|_| GoldAndGearsEntryError::InvalidTopology)?,
             );
             bindings.push(scope_binding(ordinal, board, node)?);
@@ -93,6 +90,8 @@ pub(super) fn compile_topology(
         planes.push(CompiledPlaneBoard {
             plane_key: plane.stable_key.clone(),
             chessboard_key: board.stable_key.clone(),
+            start: NodeId::new(board.start.0).ok_or(GoldAndGearsEntryError::InvalidTopology)?,
+            end: NodeId::new(board.end.0).ok_or(GoldAndGearsEntryError::InvalidTopology)?,
         });
     }
 
@@ -117,6 +116,45 @@ pub(super) fn compile_topology(
         );
     }
 
+    let terminal_node = catalog
+        .nodes
+        .iter()
+        .map(|node| node.id.0)
+        .max()
+        .and_then(|value| value.checked_add(1))
+        .and_then(NodeId::new)
+        .ok_or(GoldAndGearsEntryError::InvalidTopology)?;
+    let final_board = selected
+        .last()
+        .map(|(_, board)| *board)
+        .ok_or(GoldAndGearsEntryError::InvalidTopology)?;
+    nodes.push(
+        ActivityNodeDefinition::new(
+            terminal_node,
+            SectionId::new(3).expect("third plane section is non-zero"),
+            ActivityNodeKind::Terminal(ActivityTerminalOutcome::Completed),
+            1,
+        )
+        .map_err(|_| GoldAndGearsEntryError::InvalidTopology)?,
+    );
+    bindings.push(terminal_scope_binding(final_board, terminal_node)?);
+    let terminal_edge = u32::try_from(catalog.edges.len())
+        .ok()
+        .and_then(|count| count.checked_add(3))
+        .and_then(ActivityEdgeId::new)
+        .ok_or(GoldAndGearsEntryError::InvalidTopology)?;
+    edges.push(
+        ActivityEdgeDefinition::new(
+            terminal_edge,
+            NodeId::new(final_board.end.0).ok_or(GoldAndGearsEntryError::InvalidTopology)?,
+            terminal_node,
+            ActivityEdgeCondition::Always,
+            0,
+            1,
+        )
+        .map_err(|_| GoldAndGearsEntryError::InvalidTopology)?,
+    );
+
     let entry =
         NodeId::new(selected[0].1.start.0).ok_or(GoldAndGearsEntryError::InvalidTopology)?;
     let maximum_total_visits =
@@ -130,6 +168,24 @@ pub(super) fn compile_topology(
         scopes,
         planes: planes.into_boxed_slice(),
     })
+}
+
+fn terminal_scope_binding(
+    board: &ChessboardDefinition,
+    terminal: NodeId,
+) -> Result<LogicalScopeNodeBinding, GoldAndGearsEntryError> {
+    let plane_key = 3_u64
+        .checked_shl(32)
+        .and_then(|value| value.checked_add(u64::from(board.id.0)))
+        .ok_or(GoldAndGearsEntryError::InvalidTopology)?;
+    LogicalScopeNodeBinding::new(
+        terminal,
+        vec![
+            LogicalScopeAddress::new(scope_class(PLANE_BOARD_SCOPE_CLASS)?, plane_key)
+                .ok_or(GoldAndGearsEntryError::InvalidTopology)?,
+        ],
+    )
+    .map_err(|_| GoldAndGearsEntryError::InvalidTopology)
 }
 
 fn select_plane_board<'a>(

@@ -4,6 +4,7 @@ mod api;
 mod cognition;
 mod error;
 mod map_overlay;
+mod plane_transition;
 mod state;
 mod state_layout;
 mod topology;
@@ -15,6 +16,7 @@ pub use api::{
 };
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
 pub use error::GoldAndGearsEntryError;
+pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
@@ -23,5 +25,7 @@ const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 mod cognition_tests;
 #[cfg(test)]
 mod map_overlay_tests;
+#[cfg(test)]
+mod phase2_hardening_tests;
 #[cfg(test)]
 mod tests;

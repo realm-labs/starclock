@@ -233,6 +233,21 @@ impl ActivityRngStreams {
             .into_boxed_slice()
     }
 
+    /// Runs one RNG-dependent compilation step against a private working copy.
+    ///
+    /// Draws commit only when the closure succeeds. This lets a caller keep
+    /// command rejection and program-construction failure byte-identical
+    /// without exposing or reconstructing individual streams.
+    pub fn transact<T, E>(
+        &mut self,
+        execute: impl FnOnce(&mut Self) -> Result<T, E>,
+    ) -> Result<T, E> {
+        let mut working = self.transaction_copy();
+        let result = execute(&mut working)?;
+        *self = working;
+        Ok(result)
+    }
+
     pub(crate) fn transaction_copy(&self) -> Self {
         Self {
             streams: self

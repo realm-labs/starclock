@@ -43,6 +43,8 @@ pub enum GoldAndGearsEntryError {
     InvalidCognitionDelta,
     InvalidCognitionState,
     InvalidPlaneLayer,
+    InvalidPlaneTransition,
+    UnknownBossChoice(Box<str>),
 }
 
 impl core::fmt::Display for GoldAndGearsEntryError {

@@ -12,6 +12,7 @@ use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     cognition::CognitionRuntimeCatalog,
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
+    plane_transition::PlaneTransitionRuntimeCatalog,
     state::compile_state,
     topology::compile_topology,
     validate::{
@@ -159,6 +160,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) unique: Arc<GoldAndGearsUniqueCatalog>,
     pub(super) map: Arc<MapRuntimeCatalog>,
     pub(super) cognition: Arc<CognitionRuntimeCatalog>,
+    pub(super) transitions: Arc<PlaneTransitionRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -184,11 +186,13 @@ impl GoldAndGearsRuntimeFactory {
         }
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
         let cognition = CognitionRuntimeCatalog::compile(&unique)?;
+        let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
             map: Arc::new(map),
             cognition: Arc::new(cognition),
+            transitions: Arc::new(transitions),
         })
     }
 
@@ -288,6 +292,18 @@ impl GoldAndGearsRuntimeFactory {
                 .map(|plane| plane.plane_key.clone())
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
+            plane_starts: topology
+                .planes
+                .iter()
+                .map(|plane| plane.start)
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            plane_ends: topology
+                .planes
+                .iter()
+                .map(|plane| plane.end)
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
             chessboards: topology
                 .planes
                 .iter()
@@ -296,6 +312,7 @@ impl GoldAndGearsRuntimeFactory {
                 .into_boxed_slice(),
             map: Arc::clone(&self.map),
             cognition: Arc::clone(&self.cognition),
+            transitions: Arc::clone(&self.transitions),
         })
     }
 
@@ -332,9 +349,12 @@ pub struct GoldAndGearsRuntimeInstance {
     state: ActivityStateDefinition,
     graph: ActivityGraphDefinition,
     planes: Box<[Box<str>]>,
+    plane_starts: Box<[NodeId]>,
+    plane_ends: Box<[NodeId]>,
     chessboards: Box<[Box<str>]>,
     map: Arc<MapRuntimeCatalog>,
     cognition: Arc<CognitionRuntimeCatalog>,
+    transitions: Arc<PlaneTransitionRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeInstance {
@@ -406,6 +426,45 @@ impl GoldAndGearsRuntimeInstance {
     #[must_use]
     pub fn chessboards(&self) -> impl ExactSizeIterator<Item = &str> {
         self.chessboards.iter().map(Box::as_ref)
+    }
+
+    #[must_use]
+    pub fn plane_starts(&self) -> impl ExactSizeIterator<Item = NodeId> + '_ {
+        self.plane_starts.iter().copied()
+    }
+
+    #[must_use]
+    pub fn plane_ends(&self) -> impl ExactSizeIterator<Item = NodeId> + '_ {
+        self.plane_ends.iter().copied()
+    }
+
+    /// Returns the six released boss-display candidates in stable source order.
+    pub fn boss_choices(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.transitions.choices()
+    }
+
+    /// Records one caller-explicit released boss choice for a plane.
+    pub fn compile_boss_selection(
+        &self,
+        plane_layer: u8,
+        boss: &str,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.transitions.compile_selection(plane_layer, boss)
+    }
+
+    /// Atomically evaluates Cognition/Secrets and enters the next plane, or
+    /// enters the synthetic completed terminal after the third plane.
+    pub fn compile_plane_completion(
+        &self,
+        plane_layer: u8,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.transitions.compile_completion(
+            &self.cognition,
+            &self.area,
+            &self.graph,
+            &self.plane_ends,
+            plane_layer,
+        )
     }
 
     /// Compiles deterministic initial node/domain/beacon overlay operations for

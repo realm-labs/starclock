@@ -414,14 +414,14 @@ fn formal_entry_compiles_canonical_three_plane_activity_graph() {
             "gold-gears.chessboard.2112023",
         ]
     );
-    assert_eq!(graph.nodes().len(), 81);
-    assert_eq!(graph.edges().len(), 122);
-    assert_eq!(graph.maximum_total_visits(), 81);
+    assert_eq!(graph.nodes().len(), 82);
+    assert_eq!(graph.edges().len(), 123);
+    assert_eq!(graph.maximum_total_visits(), 82);
     assert_eq!(
         graph.digest().bytes(),
         [
-            166, 45, 206, 77, 185, 119, 81, 90, 211, 241, 86, 198, 84, 162, 99, 232, 190, 161, 110,
-            155, 11, 62, 102, 8, 48, 152, 19, 178, 131, 24, 124, 59,
+            79, 7, 24, 58, 74, 83, 24, 146, 8, 164, 2, 166, 174, 105, 163, 219, 228, 145, 246, 120,
+            37, 45, 138, 27, 160, 76, 155, 165, 0, 11, 202, 72,
         ]
     );
     assert!(
@@ -458,7 +458,7 @@ fn formal_entry_compiles_canonical_three_plane_activity_graph() {
                 .iter()
                 .filter(|node| node.section().get() == section)
                 .count(),
-            27
+            if section == 3 { 28 } else { 27 }
         );
     }
 
@@ -494,7 +494,7 @@ fn formal_entry_compiles_canonical_three_plane_activity_graph() {
             .iter()
             .filter(|edge| edge.id().get() > authored_edge_count)
             .count(),
-        2
+        3
     );
 }
 
@@ -516,7 +516,7 @@ fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
         "gold-and-gears-topology-policy-v1"
     );
     assert_eq!(scopes.classes().len(), 3);
-    assert_eq!(scopes.bindings().len(), 81);
+    assert_eq!(scopes.bindings().len(), 82);
     assert_eq!(
         scopes
             .classes()
@@ -529,11 +529,21 @@ fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
             (super::topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
         ]
     );
-    assert!(
+    assert_eq!(
         scopes
             .bindings()
             .iter()
-            .all(|binding| binding.path().len() == 3)
+            .filter(|binding| binding.path().len() == 3)
+            .count(),
+        81
+    );
+    assert_eq!(
+        scopes
+            .bindings()
+            .iter()
+            .filter(|binding| binding.path().len() == 1)
+            .count(),
+        1
     );
 }
 

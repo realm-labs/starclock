@@ -178,11 +178,23 @@ impl CognitionRuntimeCatalog {
         area: &str,
         plane_layer: u8,
     ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        program(
+            PLANE_BOSS_EVALUATION_BASE + u32::from(plane_layer),
+            self.evaluation_operations(area, plane_layer, Vec::new())?,
+        )
+    }
+
+    pub(super) fn evaluation_operations(
+        &self,
+        area: &str,
+        plane_layer: u8,
+        suffix: Vec<ActivityOperation>,
+    ) -> Result<Vec<ActivityOperation>, GoldAndGearsEntryError> {
         if !(1..=3).contains(&plane_layer) {
             return Err(GoldAndGearsEntryError::InvalidPlaneLayer);
         }
         let range = self.range(area)?;
-        let mut branch = Vec::new();
+        let mut branch = suffix.clone();
         for secret in self
             .secrets
             .iter()
@@ -191,21 +203,22 @@ impl CognitionRuntimeCatalog {
             })
             .rev()
         {
+            let mut unlock = vec![
+                ActivityOperation::InsertOrderedId {
+                    slot: slot(SECRETS_SLOT),
+                    id: secret.id,
+                },
+                set_counter(
+                    PLANE_STATE_SLOT,
+                    PLANE_SECRET_UNLOCKED_KEY,
+                    i64::try_from(secret.id)
+                        .map_err(|_| GoldAndGearsEntryError::InvalidCognitionRuntime)?,
+                ),
+            ];
+            unlock.extend(suffix.clone());
             branch = vec![ActivityOperation::Conditional {
                 condition: eligibility(secret),
-                if_true: vec![
-                    ActivityOperation::InsertOrderedId {
-                        slot: slot(SECRETS_SLOT),
-                        id: secret.id,
-                    },
-                    set_counter(
-                        PLANE_STATE_SLOT,
-                        PLANE_SECRET_UNLOCKED_KEY,
-                        i64::try_from(secret.id)
-                            .map_err(|_| GoldAndGearsEntryError::InvalidCognitionRuntime)?,
-                    ),
-                ]
-                .into_boxed_slice(),
+                if_true: unlock.into_boxed_slice(),
                 if_false: branch.into_boxed_slice(),
             }];
         }
@@ -215,10 +228,7 @@ impl CognitionRuntimeCatalog {
             i64::from(plane_layer),
         )];
         operations.extend(branch);
-        program(
-            PLANE_BOSS_EVALUATION_BASE + u32::from(plane_layer),
-            operations,
-        )
+        Ok(operations)
     }
 
     pub(super) fn frontier(
