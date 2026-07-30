@@ -1,0 +1,175 @@
+# Goal 14 Status — Gold and Gears Runtime
+
+## Goal state
+
+| Field | Value |
+|---|---|
+| Goal ID | `gold-and-gears-runtime-v1` |
+| State | `Pending` |
+| Active phase | None |
+| Active batch | None |
+| Next unblocked batch | `G14-P0-B1` |
+| Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
+| Profile | `gold-gears.profile.v1` |
+| Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
+| Normalized pack | `ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623` |
+| Runtime denominator | 7,913 source obligations / 1,224 rules / 18 fixture families |
+| Inherited policy boundaries | 16; runtime dispositions pending |
+| Content lane | Candidate reference input; target `Released` runtime component |
+| Blocking condition | None; P0 must verify all immutable prerequisites before mutation |
+
+## Phase ledger
+
+| Phase | State | Exit evidence |
+|---|---|---|
+| Phase 0 — Contract, audit and execution plan | `Pending` | None |
+| Phase 1 — Bundle and catalogs | `Pending` | None |
+| Phase 2 — Entry, topology and Cognition | `Pending` | None |
+| Phase 3 — Custom Dice and Knowledge | `Pending` | None |
+| Phase 4 — Progression, content and battle contributions | `Pending` | None |
+| Phase 5 — Mechanic partitions | `Pending` | None |
+| Phase 6 — Encounters and full-run integration | `Pending` | None |
+| Phase 7 — Replay, controllers and external surfaces | `Pending` | None |
+| Phase 8 — Hardening and release | `Pending` | None |
+
+## Batch ledger
+
+Only the earliest unblocked row may be `InProgress`. Replace `None` with exact
+commands, counts, digests and executable evidence in the completing commit.
+
+| Batch | State | Commit | Result/evidence |
+|---|---|---|---|
+| `G14-P0-B1` | `Pending` | None | Verify prerequisites, package and protected roots. |
+| `G14-P0-B2` | `Pending` | None | Freeze 7,913/1,224/18 dispositions and nine rule partitions. |
+| `G14-P0-B3` | `Pending` | None | Freeze APIs, state, identity, RNG and replay contracts. |
+| `G14-P0-B4` | `Pending` | None | Freeze matrix, slice, policies, workloads and release scaffold. |
+| `G14-P1-B1` | `Pending` | None | Integrate exact private 52-table bundle readers. |
+| `G14-P1-B2` | `Pending` | None | Compose catalog, component and registry identities. |
+| `G14-P1-B3` | `Pending` | None | Lower profile and topology catalogs. |
+| `G14-P1-B4` | `Pending` | None | Lower unique mechanic/progression catalogs. |
+| `G14-P1-B5` | `Pending` | None | Lower content, encounter, rule and cross-catalog references. |
+| `G14-P2-B1` | `Pending` | None | Compile run entry and selected inputs. |
+| `G14-P2-B2` | `Pending` | None | Compile bounded three-plane graphs. |
+| `G14-P2-B3` | `Pending` | None | Execute room/domain/beacon/map mutations. |
+| `G14-P2-B4` | `Pending` | None | Execute Cognition and Secrets. |
+| `G14-P2-B5` | `Pending` | None | Execute plane/boss/terminal transitions and topology hardening. |
+| `G14-P3-B1` | `Pending` | None | Implement dice slots, loadouts and upgrades. |
+| `G14-P3-B2` | `Pending` | None | Implement Custom Dice roll/reroll/cheat/passives. |
+| `G14-P3-B3` | `Pending` | None | Implement all dice faces and target policies. |
+| `G14-P3-B4` | `Pending` | None | Implement Knowledge lifecycle. |
+| `G14-P3-B5` | `Pending` | None | Prove simultaneous ordering and fixture parity. |
+| `G14-P4-B1` | `Pending` | None | Implement 40 Neural Network nodes. |
+| `G14-P4-B2` | `Pending` | None | Implement both Conundrum tracks and Berserk. |
+| `G14-P4-B3` | `Pending` | None | Implement bonuses, Path boosts and Resonance additions. |
+| `G14-P4-B4` | `Pending` | None | Link shared content and implement Curio copies/lifecycle. |
+| `G14-P4-B5` | `Pending` | None | Implement Occurrences, services and Adventure outcomes. |
+| `G14-P5-M01` | `Pending` | None | Execute 5 profile-entry rules. |
+| `G14-P5-M02` | `Pending` | None | Execute 6 Stats Conundrum rules. |
+| `G14-P5-M03` | `Pending` | None | Execute 6 Auxiliary Conundrum rules. |
+| `G14-P5-M04` | `Pending` | None | Execute 40 Neural Network rules. |
+| `G14-P5-M05` | `Pending` | None | Execute 160 Curio lifecycle rules. |
+| `G14-P5-M06` | `Pending` | None | Execute 384 Occurrence-choice rules. |
+| `G14-P5-M07` | `Pending` | None | Execute 38 service/Adventure rules. |
+| `G14-P5-M08` | `Pending` | None | Execute 495 Path-boost rules. |
+| `G14-P5-M09` | `Pending` | None | Execute 90 Resonance Extrapolation rules. |
+| `G14-P5-B1` | `Pending` | None | Execute all 18 production semantic fixture families. |
+| `G14-P5-B2` | `Pending` | None | Prove exact-once runtime completeness. |
+| `G14-P6-B1` | `Pending` | None | Implement encounter and difficulty selection. |
+| `G14-P6-B2` | `Pending` | None | Materialize current-state real BattleSpecs. |
+| `G14-P6-B3` | `Pending` | None | Execute and settle real nested battles. |
+| `G14-P6-B4` | `Pending` | None | Complete the frozen seeded matrix. |
+| `G14-P7-B1` | `Pending` | None | Complete component-addressed replay. |
+| `G14-P7-B2` | `Pending` | None | Complete deterministic baseline controller behavior. |
+| `G14-P7-B3` | `Pending` | None | Add CLI run/coverage/replay surfaces. |
+| `G14-P7-B4` | `Pending` | None | Add agent Activity support. |
+| `G14-P7-B5` | `Pending` | None | Add MCP Activity support. |
+| `G14-P8-B1` | `Pending` | None | Complete determinism and malformed-input hardening. |
+| `G14-P8-B2` | `Pending` | None | Enforce performance/allocation budgets. |
+| `G14-P8-B3` | `Pending` | None | Complete release audits and clean-checkout verification. |
+| `G14-P8-B4` | `Pending` | None | Freeze release evidence and completion snapshot. |
+
+## Frozen starting denominators
+
+P0 may add derived runtime counters but may not change these Goal 08 counts
+without a documented data revision and compatibility decision.
+
+| Dimension | Frozen input | Required terminal state |
+|---|---:|---|
+| Source obligations | 7,913 | 7,913 exact-once runtime dispositions |
+| Ownership | 7,199 Gold / 714 Shared | Every shared row resolves a released stable identity |
+| Normalized files | 51 | Reference-only; zero runtime reads |
+| Sora tables / workbook rows | 52 / 29,140 | 52 privately loaded; workbook rows remain authoring-only |
+| Mechanic rules | 1,224 | 1,224 terminal executable/non-executable dispositions |
+| Semantic fixture families | 18 | 18 production-executed |
+| Policy boundaries | 16 | 16 terminal, none silently exact or legally unresolved |
+| Chessboards / columns / nodes | 115 / 1,313 / 2,502 | Validated and runtime-reachable as assigned |
+| Derived map edges / events / block rules | 3,407 / 332 / 1,091 | Versioned policy or exact runtime execution |
+| Rooms | 1,224 | Runtime-disposed with bounded graph ownership |
+| Cognition ranges / Secrets / constants | 13 / 20 / 22 | Executable or validated metadata as assigned |
+| Custom Dice / categories / Path bindings | 12 / 4 / 108 | Every valid selection constructs and executes |
+| Dice slots / faces / tags / Knowledge bindings | 6 / 80 / 10 / 22 | Complete loadout and mechanic execution |
+| Neural Network nodes | 40 | Prerequisites, costs and effects executable |
+| Conundrum definitions | 12 | Six Stats and six Auxiliary levels executable |
+| Paths / Resonances / boosts / Extrapolations / Interplays | 9 / 36 / 9 / 36 / 18 | Shared identity plus Gold contributions executable |
+| Blessings / levels | 162 / 324 | Shared-integrated without duplicated semantics |
+| Curios / mode states | 80 / 80 | Reachability, copy state and lifecycle executable |
+| Occurrences / variants / choices | 62 / 65 / 257 | Atomic executable choice graphs |
+| Services / Adventure outcomes | 15 / 8 | Atomic service programs and offered outcomes |
+| Encounter groups / waves / enemy slots | 181 / 478 / 1,513 | Every reachable binding materializes or fails validation |
+| Referenced enemy variants | 90 | Resolved to exact combat definitions or terminally blocked |
+
+## Decisions
+
+| Date | Decision | Rationale |
+|---|---|---|
+| 2026-07-30 | Create Goal 14 as a runtime goal separate from immutable Goal 08 reference evidence. | Reference completeness is not executable behavior, and historical evidence must remain unchanged. |
+| 2026-07-30 | Extend `starclock-mode-universe` instead of adding a Gold and Gears state-machine crate. | The mode is a profile over the released generic Activity/Battle boundaries. |
+| 2026-07-30 | Keep the Goal 08 bundle as an independently identified consumed component. | Component-aware identity preserves Standard and unrelated mode replay compatibility. |
+| 2026-07-30 | Generate runtime dispositions before implementing mechanic partitions. | The 7,913/1,224 denominator must not be hidden, hand-counted or reduced during execution. |
+| 2026-07-30 | Treat every inherited policy as unresolved for runtime until P0 assigns a terminal owner. | Candidate reference policies do not automatically authorize a Released execution claim. |
+| 2026-07-30 | Reuse released shared content by stable identity and digest. | Shared source rows do not justify duplicated semantics or mode-owned copies. |
+| 2026-07-30 | Freeze a valid coverage matrix in P0 rather than claiming an arbitrary Cartesian product. | Difficulty, Conundrum and unlock constraints must be respected while every required axis and interaction is covered. |
+
+## Research and policy register
+
+`InheritedPolicy` means the Goal 08 policy is retained accurately but has not
+yet earned a Goal 14 runtime disposition.
+
+| ID | State | Runtime question | Owner |
+|---|---|---|---|
+| `G14-R01` | `InheritedPolicy` | Profile defaults and initial-selection policy. | P2-B1 |
+| `G14-R02` | `InheritedPolicy` | Derived chessboard edges and topology construction. | P2-B2/P2-B3 |
+| `G14-R03` | `InheritedPolicy` | Cognition adjustment, clamp, carry, reset and tie order. | P2-B4 |
+| `G14-R04` | `InheritedPolicy` | Dice numeric filter-tag to mechanical-code mapping. | P3-B1/P3-B3 |
+| `G14-R05` | `InheritedPolicy` | Dice-face candidate, priority, duration and empty-target resolution. | P3-B3 |
+| `G14-R06` | `InheritedPolicy` | Knowledge target selection. | P3-B4 |
+| `G14-R07` | `InheritedPolicy` | Simultaneous movement, Knowledge, collapse and reward order. | P3-B5 |
+| `G14-R08` | `InheritedPolicy` | Neural reroll with no alternate candidate. | P4-B1 |
+| `G14-R09` | `InheritedPolicy` | Neural slot-upgrade target among equal-rarity slots. | P4-B1 |
+| `G14-R10` | `InheritedPolicy` | Unreleased Conundrum combat numerics and Berserk values. | P4-B2 |
+| `G14-R11` | `InheritedPolicy` | Resonance Extrapolation selection, scheduling and polarity. | P4-B3 |
+| `G14-R12` | `InheritedPolicy` | Curio offer-specific eligibility and ordering. | P4-B4/P5-M05 |
+| `G14-R13` | `InheritedPolicy` | Hidden random Occurrence outcome weights/order. | P4-B5/P5-M06 |
+| `G14-R14` | `InheritedPolicy` | Adventure Fragment/reward selection. | P4-B5/P5-M07 |
+| `G14-R15` | `InheritedPolicy` | Static room/domain/encounter-group selection. | P6-B1 |
+| `G14-R16` | `InheritedPolicy` | Effective encounter difficulty by area and plane. | P6-B1 |
+
+## Terminal checklist
+
+- [ ] Goals 01–08 immutable prerequisites and merged Candidate audit pass.
+- [ ] All 52 Goal 08 Sora tables load privately and validate.
+- [ ] 7,913/7,913 source obligations have exact-once runtime dispositions.
+- [ ] 1,224/1,224 mechanic rules have terminal execution evidence/dispositions.
+- [ ] All 18 semantic fixture families execute against production values.
+- [ ] All 16 inherited policy boundaries are terminal and accurately labeled.
+- [ ] Entry, topology, Cognition, dice, Knowledge, Neural and Conundrum execute.
+- [ ] Content pools, services, Adventure outcomes and encounters execute.
+- [ ] Real nested battles use current Activity state and verified projections.
+- [ ] The frozen seeded matrix completes and freshly verifies its replays.
+- [ ] CLI, baseline AI, agent API and MCP offered-command parity passes.
+- [ ] Cross-platform determinism and RNG-isolation goldens pass.
+- [ ] Performance, dependency, architecture, security and generated-drift
+      audits pass.
+- [ ] Goals 01–08 current compatibility and immutable snapshots pass.
+- [ ] The full clean-checkout release gate passes.
+- [ ] `G14-P8-B4` is committed and the completion snapshot is registered.
