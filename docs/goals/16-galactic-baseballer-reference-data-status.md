@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `galactic-baseballer-reference-v1` |
-| State | `Active` |
-| Active phase | Phase 4 — Audit and Candidate freeze |
-| Active batch | `G16-P4-B3` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P4-B4` |
+| State | `Complete` — Candidate reference data; runtime unreleased |
+| Active phase | None |
+| Active batch | None |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -37,7 +37,7 @@
 | Phase 1 — Departure and shared base | `Complete` | Departure profile, stages, arsenal, Legendary synthesis, growth, candidates, inventory, encounters, stable enemy/skill identities, score/settlement and 17 semantic families are closed. |
 | Phase 2 — Demon King and progression | `Complete` | Independent profile/differences, arsenal/synthesis, growth, progression, 18 shared encounters, 61 waves, 1,573 ordered candidates, 77 enemies, 258 skills, 10 status locators, seven team bonuses, scoring, Devil phases and semantic fixtures are closed. |
 | Phase 3 — Evidence, Excel and Sora | `Complete` | The 40-file normalized pack, all 2,232 exact-once reconciliation/coverage rows, 2,634 source receipts, 12 replaceable boundaries, 26 rules and 35 fixtures are closed. Four isolated workbooks cover all 40 sheets and 10,615 rows; double generation, semantic/structural verification and 147-band visual review pass. The isolated 40-table Sora 0.3.0 schema, lock, templates, 42 Rust reader files, binary bundle and 40 debug exports regenerate without drift; the standalone reader loads all 10,615 rows. |
-| Phase 4 — Audit and Candidate freeze | `InProgress` | Semantic, profile, identity, synthesis, coverage and isolation audits pass. Current and detached-clean full source-cache gates, the ordered Goal verifier, workbook double generation, Sora drift and independent-reader acceptance pass. Only Candidate evidence freeze and final publication remain. |
+| Phase 4 — Audit and Candidate freeze | `Complete` | Semantic, profile, identity, synthesis, coverage and isolation audits pass. The ordered Goal verifier, workbook/Sora drift, independent reader and final detached-clean full source-cache gate pass. Candidate evidence freezes all counters, digests and 19 prerequisite batch commits; the containing terminal commit is the 20th batch. |
 
 ## Batch ledger
 
@@ -62,7 +62,7 @@
 | `G16-P4-B1` | `Complete` | This row's containing commit | Added an independent semantic review executor that excludes fixture expectations from its proof index, resolves every declared source/evidence reference, validates contiguous operations and executes all 20 families. All 26 ReferenceOnly rules and 35 fixtures pass 162 expected-fact assertions: 141 source/precondition/input-backed and 21 deterministic derivations. Four rejection traces prove store, Twin, Supreme and empty-candidate failure invariance. Runtime executability remains false. |
 | `G16-P4-B2` | `Complete` | This row's containing commit | The audit exposed and corrected Departure's missing structural `shared_system_id`; both profiles now explicitly bind the same shared base and Activity module while retaining independent `2.2`/`3.3` identity and the non-replacement edge. The complete workbook/Sora/visual chain was regenerated. Reconciled 104 enemy and 339 skill rows to 88/287 inherited stable identities with zero collision or copied definition. Proved 27 recipes/54 inputs acyclic, typed and profile-isolated. All 2,232 obligations close with zero Blocked rows; 29 protected roots retain branch-base Git trees and runtime/other-mode scans find zero leakage. |
 | `G16-P4-B3` | `Complete` | This row's containing commit | Added the terminal Goal verifier and fixed its source regeneration order after it exposed a stale-combined-pack hazard in Departure fixtures. The corrected complete chain passes fixed-source regeneration, 2,232 obligations, 20 semantic families, four byte-identical workbooks, 40 Sora tables and 10,615 independently loaded rows. The current full source-cache gate passed 32 checks, Clippy and 138 harnesses in 123.0 seconds. A detached clean worktree at pushed `ccc0c108`/tree `fad97602…71bf` independently passed the same 32 checks, Clippy and 138 harnesses in 316.1 seconds plus reference, semantic, workbook, Sora and reader checks; tracked status remained clean. |
-| `G16-P4-B4` | `Pending` | — | Candidate freeze and terminal publication. |
+| `G16-P4-B4` | `Complete` | This row's containing commit | Froze machine-verifiable Candidate evidence at `evidence/galactic-baseballer-reference-v1/release/release-evidence.json` (`703ce4ca…aeed`), pinning both profiles, their shared base, all 2,232 obligations, 10,615 normalized/Sora rows, 2,634 sources, 12 replacement boundaries, 20 semantic families, 35 fixtures, four workbooks, 147 visual bands, 40 Sora tables and zero runtime profiles. The final detached checkout at pushed `0d60989e`/tree `ea0bc915…b280` passed the ordered Candidate verifier and full source-cache repository gate: 32 generated/source checks, zero skips, Clippy and 138 harnesses in 310.6 seconds; tracked status stayed clean. All 19 prerequisite batch commits are pinned and remote-reachable. This containing commit must be pushed and verified by exact local/tracking/`git ls-remote` equality. |
 
 ## Fixed coverage categories
 
@@ -173,12 +173,24 @@ from this planning list or reduced later.
 - [x] Standard, other-mode and production runtime bundle identities remain unchanged.
 - [x] Coverage is 100% closed with 2,207 DataReady, 25 EvidenceOnly and no blocking research row.
 - [x] Full source-cache and clean-checkout acceptance pass.
-- [ ] Every batch commit is pushed and remote-verified.
-- [ ] Candidate evidence and terminal `G16-P4-B4` commit are frozen.
+- [x] Every batch commit is pushed and remote-verified.
+- [x] Candidate evidence and terminal `G16-P4-B4` commit are frozen.
 
 ## Completion record
 
-Pending `G16-P4-B4`.
+| Field | Value |
+|---|---|
+| Final state | `Complete` — Candidate reference data; runtime unreleased |
+| Completion commit | This row's containing `G16-P4-B4` commit |
+| Remote/branch verification | `origin/codex/goal16-galactic-baseballer-reference`; local, tracking and `git ls-remote` resolve to the containing commit after publication |
+| Profiles | `galactic-baseballer.departure.v2_2` and `galactic-baseballer.demon-king.v3_3` over `galactic-baseballer.shared-base.v1` |
+| Coverage | 2,232/2,232 closed: 2,207 `DataReady`, 25 `EvidenceOnly`, zero blocking gaps |
+| Normalized pack | 40 files / 10,615 rows / 2,634 source receipts / 12 replacement boundaries |
+| Semantic review | 20 families / 26 ReferenceOnly rules / 35 fixtures / 162 assertions |
+| Workbooks | Four byte-stable `openpyxl==3.1.5` workbooks; semantic SHA-256 `2c0021b5…aac`; 40 sheets and 147 visual bands passed |
+| Sora release | 40 tables / 42 reader files / 10,615 independently loaded rows; bundle SHA-256 `82e600ee…848` |
+| Release evidence | `evidence/galactic-baseballer-reference-v1/release/release-evidence.json`; SHA-256 `703ce4ca9ad3905ba6727903db9bc929c4a87cb9ba616ec1f2e3f798de95aeed` |
+| Remaining work | Runtime lowering, Activity/combat handlers, playable integration and adapter exposure belong to a later goal. |
 
 ## Phase 4 verification
 
@@ -193,4 +205,5 @@ Pending `G16-P4-B4`.
 | Isolation | All 29 protected roots retain their branch-base Git trees; no Galactic Baseballer identifier occurs in runtime, Standard or another mode partition. |
 | Ordered Goal verifier | Fixed-source regeneration, 2,232 obligations, 20 semantic families, workbook double generation, Sora drift and the 10,615-row reader pass as one dependency-ordered command. |
 | Current full gate | 32/32 generated/source checks, Clippy and 138 harnesses passed in 123.0 seconds with no cache-dependent skip. |
-| Clean checkout | Detached pushed `ccc0c108` passed the full source-cache gate in 316.1 seconds and all Goal-specific reference/workbook/Sora checks; the tracked tree remained clean. |
+| Clean checkout | Detached pushed `0d60989e`/tree `ea0bc915…b280` passed the ordered Candidate verifier and final full source-cache gate: 32 generated/source checks, zero skips, Clippy and 138 harnesses in 310.6 seconds; the tracked tree remained clean. |
+| Candidate freeze | `freeze-candidate-release.mjs --check` validates all 19 prerequisite commits, allowed-path isolation, terminal counts/digests and release evidence SHA-256 `703ce4ca…aeed`. |

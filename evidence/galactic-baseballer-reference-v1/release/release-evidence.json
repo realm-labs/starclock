@@ -1,0 +1,113 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-release-evidence.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "batch_id": "G16-P4-B4",
+  "completion_commit": "this file's containing commit",
+  "release_state": "CandidateReferenceData",
+  "runtime_profile_state": "Unreleased",
+  "snapshot": {
+    "game_version": "4.4",
+    "turnbasedgamedata_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "profiles": [
+    {
+      "id": "galactic-baseballer.departure.v2_2",
+      "released_version": "2.2"
+    },
+    {
+      "id": "galactic-baseballer.demon-king.v3_3",
+      "released_version": "3.3"
+    }
+  ],
+  "shared_system_id": "galactic-baseballer.shared-base.v1",
+  "counts": {
+    "frozen_obligations": 2232,
+    "data_ready": 2207,
+    "evidence_only": 25,
+    "normalized_files": 40,
+    "normalized_rows": 10615,
+    "source_receipts": 2634,
+    "approximation_boundaries": 12,
+    "mechanic_families": 20,
+    "reference_only_rules": 26,
+    "semantic_fixtures": 35,
+    "semantic_assertions": 162,
+    "synthesis_recipes": 27,
+    "workbook_count": 4,
+    "workbook_sheet_count": 40,
+    "visual_review_bands": 147,
+    "sora_tables": 40,
+    "generated_rust_reader_files": 42,
+    "blocking_gaps": 0,
+    "runtime_enabled_profiles": 0
+  },
+  "digests": {
+    "source_inventory_sha256": "77a8024025fb57403783aac6c2623a3518e313f20040e046beed08d890e27f28",
+    "content_manifest_sha256": "92bf516ebb2c0baec8df4bbc5ccd435d090181fb4553db0261a4ce49a5b032a4",
+    "pack_index_sha256": "71cdf069ed42e386f893453b852f5a146a0527443d2a986a00a88e77d4a7af1f",
+    "workbook_semantic_sha256": "2c0021b589e057bc398d7202ed73193eb48a2cdf97229b68cc9fd1b464091aac",
+    "workbook_profiles_sha256": "b0ab3f86c108da36734f3dc0e11d67efce290b0160d0936bd326dc2c97c89107",
+    "workbook_arsenal_sha256": "55e0d806e4311c0ef5c2dae314f8122a92f511faa4c65bada3e14d009f44d526",
+    "workbook_encounters_sha256": "1e71e8300357ef8710c0b4171dcbde4c50db70db2015927cb1f9a77b9462fff5",
+    "workbook_review_sha256": "b73198be04c28507adf284fef52afcea2b26e6d9224e9b0a7833a43374094f9b",
+    "visual_review_sha256": "9a0b4626af8f3338ef53b55890dc2d555657f1dd664cd5f28eac758964396470",
+    "sora_schema_lock_sha256": "cd0e4a3645da7d1a6e0526d506881879bd63f347549de7619aa85714e31da56b",
+    "sora_bundle_sha256": "82e600ee2b8aaaaeada82810f223d4f45e193833eb4151c939a5e51950f78848",
+    "sora_generated_tree_sha256": "fad82dc324258451c71039130f5f5043b12360efd80716d81e02ed4ffaf18e03",
+    "semantic_results_sha256": "e19b7751aaf1dee80293f1859fd48ef4f70db1519089a46d1e2517b754d726f3",
+    "boundary_results_sha256": "7541da2e505234ff566f4f8e73ab580960d7b18348962a32f40976496c3cdbd4",
+    "acceptance_results_sha256": "1e931218094eacb230cd6fdbc9ac3d49aae1d711855ab01e3149f95d9b7fd009",
+    "repository_checks_policy_sha256": "517964ddd824e0d5e9122491cf876cfa5df738f37a175863a379ea17268f6566"
+  },
+  "acceptance": {
+    "candidate_verifier": "Passed",
+    "workbook_double_generation_byte_identical": true,
+    "sora_double_generation_byte_identical": true,
+    "standalone_reader_tables": 40,
+    "standalone_reader_rows": 10615,
+    "final_clean_checkout": {
+      "audited_commit": "0d60989ea540aa2dec5bbb05789f4f57e9f6a1fe",
+      "audited_tree": "ea0bc915ce67c54d121f72043c0cbab86b4ad280",
+      "candidate_verifier": "Passed",
+      "tracked_status_after_checks": "Clean",
+      "full_source_cache_generated_checks": 32,
+      "full_source_cache_skips": 0,
+      "clippy": "Passed",
+      "workspace_test_harnesses": 138,
+      "workspace_test_seconds": "204.7",
+      "full_gate_seconds": "310.6"
+    }
+  },
+  "publication": {
+    "remote": "origin",
+    "branch": "codex/goal16-galactic-baseballer-reference",
+    "prerequisite_batch_count": 19,
+    "prerequisite_batch_commits": {
+      "G16-P0-B1": "7114b1b30e42d738a647014fff03340adf46a865",
+      "G16-P0-B2": "caeaa79b1661ab4293b23026dc42f2a023ce04cc",
+      "G16-P0-B3": "963f98a060b21a66b15436f954c45eddbb052b15",
+      "G16-P0-B4": "f9324b2b44d402301d65317e54a2b95e7c326d50",
+      "G16-P1-B1": "1f805796ad05ec948f7a893a4e962bfe54b41f76",
+      "G16-P1-B2": "4787403ad14477840ed959dfa8d4ab301efea51d",
+      "G16-P1-B3": "3bd95956a3ea6d37e5b411e4fde9f94bd7647c61",
+      "G16-P1-B4": "2353fb3d01a9d6d8228a320317856f1d2a9acf43",
+      "G16-P2-B1": "62157db5ff0f2b41af327674843b48f9969ca68f",
+      "G16-P2-B2": "d55501e80fe9713e17b558aaebeb158aff9a7dc9",
+      "G16-P2-B3": "0241ee59e97321c0357c2d13007cad9262b3784c",
+      "G16-P2-B4": "f03c200c56403c6045a3eb9411fb6e13b3fb1225",
+      "G16-P3-B1": "2a3c33e6f8a736944f3885df79be6d629be85e54",
+      "G16-P3-B2": "ef2759c1273308674981f3c06fc1ae6085129959",
+      "G16-P3-B3": "02ead2fd7d55c4fec8da49187696463e1ed69a9c",
+      "G16-P3-B4": "3faf9a504408f47af3db4608b2f9dab00bbf2b3b",
+      "G16-P4-B1": "bba91e9c645d73bb6ea7b8bca155d2ed1942ee29",
+      "G16-P4-B2": "ccc0c108f8fbdee5940dce63fb2676258c7dd613",
+      "G16-P4-B3": "0d60989ea540aa2dec5bbb05789f4f57e9f6a1fe"
+    },
+    "final_batch": "G16-P4-B4",
+    "final_batch_commit": "this file's containing commit",
+    "required_batch_count": 20
+  },
+  "exclusions": "No runtime lowering, Activity or combat handler, CLI, Agent API, MCP, playable profile, shared formula change, story, asset, UI or account-reward payload is released.",
+  "result": "Passed"
+}
