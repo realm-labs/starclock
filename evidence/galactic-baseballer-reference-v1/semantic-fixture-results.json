@@ -1,0 +1,1463 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-semantic-fixture-results.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "batch_id": "G16-P4-B1",
+  "baseline_game_version": "4.4",
+  "review_scope": "ReferenceOnly semantic execution; no runtime gameplay or parity claim",
+  "status": "Passed",
+  "required_family_count": 20,
+  "passed_family_count": 20,
+  "reference_rule_count": 26,
+  "fixture_count": 35,
+  "passed_fixture_count": 35,
+  "failed_fixture_count": 0,
+  "assertion_count": 162,
+  "source_backed_assertion_count": 141,
+  "derived_assertion_count": 21,
+  "failure_invariance_fixture_ids": [
+    "galactic-baseballer.demon-king.fixture.galactic-store-progression.rejected",
+    "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.rejected",
+    "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.rejected",
+    "galactic-baseballer.departure.fixture.no-legal-candidate-failure-invariance"
+  ],
+  "family_results": [
+    {
+      "family_id": "accessory-acquisition-duplicate-upgrade",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 3
+    },
+    {
+      "family_id": "adventure-strategy",
+      "status": "Passed",
+      "rule_count": 2,
+      "fixture_count": 2,
+      "assertion_count": 5
+    },
+    {
+      "family_id": "boss-phase-final-settlement",
+      "status": "Passed",
+      "rule_count": 2,
+      "fixture_count": 2,
+      "assertion_count": 8
+    },
+    {
+      "family_id": "character-action-triggered-weapon",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 2
+    },
+    {
+      "family_id": "experience-team-level-up",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 3
+    },
+    {
+      "family_id": "galactic-store-progression",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 3,
+      "assertion_count": 11
+    },
+    {
+      "family_id": "legendary-weapon-synthesis",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 2
+    },
+    {
+      "family_id": "no-legal-candidate-failure-invariance",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 3
+    },
+    {
+      "family_id": "profile-version-selection",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 3
+    },
+    {
+      "family_id": "random-upgrade-candidates",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 3,
+      "assertion_count": 12
+    },
+    {
+      "family_id": "resonance-accessory-binding",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 2
+    },
+    {
+      "family_id": "score-rating-clear",
+      "status": "Passed",
+      "rule_count": 2,
+      "fixture_count": 3,
+      "assertion_count": 17
+    },
+    {
+      "family_id": "slot-capacity-expansion-replacement",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 3
+    },
+    {
+      "family_id": "stage-difficulty-selection",
+      "status": "Passed",
+      "rule_count": 2,
+      "fixture_count": 2,
+      "assertion_count": 6
+    },
+    {
+      "family_id": "supreme-weapon-synthesis",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 2,
+      "assertion_count": 9
+    },
+    {
+      "family_id": "team-bonus",
+      "status": "Passed",
+      "rule_count": 2,
+      "fixture_count": 2,
+      "assertion_count": 6
+    },
+    {
+      "family_id": "twin-weapon-synthesis",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 2,
+      "assertion_count": 9
+    },
+    {
+      "family_id": "wave-battle-phase-progression",
+      "status": "Passed",
+      "rule_count": 2,
+      "fixture_count": 2,
+      "assertion_count": 7
+    },
+    {
+      "family_id": "weapon-acquisition-duplicate-upgrade",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 1,
+      "assertion_count": 3
+    },
+    {
+      "family_id": "weapon-automatic-action",
+      "status": "Passed",
+      "rule_count": 1,
+      "fixture_count": 3,
+      "assertion_count": 48
+    }
+  ],
+  "cases": [
+    {
+      "fixture_id": "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-7",
+      "family_id": "weapon-automatic-action",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.weapon-automatic-action"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.weapon.3113002.level.7",
+          "normalized_file": "weapon-levels.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.weapon.3113002.level.7",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+          "normalized_file": "fragments/demon-released-corrections.json",
+          "normalized_row_id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 3,
+      "assertion_count": 23,
+      "source_backed_assertion_count": 22,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "14d396e9a40906d90ff672e9626b78e53d4e03825c330f5bd1b85ea0fc850f68",
+      "input_sha256": "1760d8bb3074f68d316876ac2ff15413f3b66ec81d2eba28cf975176abb2ca30",
+      "expected_fact_sha256": "c1376223ff04ee222a7fb9124560f8d9e43be02bb95f7f74a541580076dd268f"
+    },
+    {
+      "fixture_id": "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-8",
+      "family_id": "weapon-automatic-action",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.weapon-automatic-action"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.weapon.3113002.level.8",
+          "normalized_file": "weapon-levels.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.weapon.3113002.level.8",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+          "normalized_file": "fragments/demon-released-corrections.json",
+          "normalized_row_id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 3,
+      "assertion_count": 23,
+      "source_backed_assertion_count": 22,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "5cd93c500733728ebb15fa3464ad6e84f4c293f6834870a48bb057694b62c9ae",
+      "input_sha256": "1760d8bb3074f68d316876ac2ff15413f3b66ec81d2eba28cf975176abb2ca30",
+      "expected_fact_sha256": "4ec32933e6f402d6d1f050e97bd430a26ae6a8d0213dc8b722016db9a9a90dc1"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.adventure-strategy",
+      "family_id": "adventure-strategy",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.adventure-strategy",
+        "galactic-baseballer.departure.rule.adventure-strategy"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.strategy.3113703",
+          "normalized_file": "adventure-strategies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.strategy.3113703",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "normalized_file": "currencies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 18,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 0,
+      "derived_assertion_count": 3,
+      "precondition_sha256": "9af7dfefae0c086bd3889569d2170c1eedafb473596d6b31347f5cb84f1cc429",
+      "input_sha256": "517aa503135e831c0cd616f987f5a190fd222e42211535046a46c5585f94a135",
+      "expected_fact_sha256": "1c4b041ad178d57082d7134bfbd38f61a7f43d203c398f0290c3f3e31affed47"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.boss-phase-final-settlement",
+      "family_id": "boss-phase-final-settlement",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.boss-phase-final-settlement",
+        "galactic-baseballer.departure.rule.boss-phase-final-settlement"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.boss-phase.devil",
+          "normalized_file": "fragments/demon-boss-phases.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.boss-phase.devil",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.scoring.source-parameters",
+          "normalized_file": "scoring-rules.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.scoring.source-parameters",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.settlement.424006",
+          "normalized_file": "settlement-rules.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.settlement.424006",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage.424006",
+          "normalized_file": "stages.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage.424006",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 53,
+      "operation_count": 5,
+      "assertion_count": 6,
+      "source_backed_assertion_count": 6,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "5938cf3f0e4b5e7e4969370eda36d85ef471eea1ff33bd3122105bfd36021adf",
+      "input_sha256": "80736cdd50eef8f28f5566858a085ab07accd03cd06bfc726037026f2e9eb0aa",
+      "expected_fact_sha256": "9bba30449c0ec836826ebdb83b45837be043685e461a544c0812688b4b83cac8"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.chest-probability-vector",
+      "family_id": "random-upgrade-candidates",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.random-upgrade-candidates"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "normalized_file": "currencies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 14,
+      "operation_count": 3,
+      "assertion_count": 7,
+      "source_backed_assertion_count": 6,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "input_sha256": "4aa5e8d9ddee6b8c7f39343a31d753681c1f7b1222db82bdc7911291157262c1",
+      "expected_fact_sha256": "d8892cd005bce936e48ccea4b2fb82b00d8e0110866004eb5126c8842c723d63"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.cosmic-reputation-rank-20",
+      "family_id": "galactic-store-progression",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.galactic-store-progression"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.currency.cosmic-reputation",
+          "normalized_file": "currencies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.currency.cosmic-reputation",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.progression.reputation.20",
+          "normalized_file": "progression.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.progression.reputation.20",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 7,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "7c6f29cd98f6b246ae32647c159ff4d69d7c80ad26c33088ea1289ed0df56ebe",
+      "input_sha256": "22f232a4c585e4eafa19d1833ab36284d067c8b15260e10817c7d65aff7f5db7",
+      "expected_fact_sha256": "66d9ee1d0cb2f98b085ad1acc99b2111d6ded2a8cae34ded5ef0676d994ca9c8"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.d007-score-correction",
+      "family_id": "score-rating-clear",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.score-rating-clear",
+        "galactic-baseballer.departure.rule.score-rating-clear"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.correction.v3_4.d007-adventure-score",
+          "normalized_file": "fragments/demon-released-corrections.json",
+          "normalized_row_id": "galactic-baseballer.correction.v3_4.d007-adventure-score",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.scoring.source-parameters",
+          "normalized_file": "scoring-rules.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.scoring.source-parameters",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.settlement.424005",
+          "normalized_file": "settlement-rules.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.settlement.424005",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 13,
+      "operation_count": 5,
+      "assertion_count": 5,
+      "source_backed_assertion_count": 5,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "4de3298999b3f2f9f6df6bfd75517c1a2191652261e158c342f76a0a9b81e906",
+      "input_sha256": "a514164310780cbb0220f2130ced1d31f9608b0d5f373e73abbea75edb019d04",
+      "expected_fact_sha256": "fde40c68edf5a850466443ea1e903dee7ace5d63d5c96db203b91abc5a3ba817"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.galactic-store-progression.rejected",
+      "family_id": "galactic-store-progression",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.galactic-store-progression"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.shop.3113815.level.1",
+          "normalized_file": "shop-upgrades.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.shop.3113815.level.1",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "normalized_file": "currencies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 16,
+      "operation_count": 3,
+      "assertion_count": 4,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 2,
+      "precondition_sha256": "8fa15a8e680c571180e794262d02a44497cee354f85f804adfa81efd921c12c5",
+      "input_sha256": "91653d68916da6ea27b6556bec45e8dcffa21c6ae986c1188d41acf429c5500b",
+      "expected_fact_sha256": "f8c3aecb72de288d85f77bc57c0afed063d4247ccc705a33172f9fabda9f9050"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.galactic-store-progression.success",
+      "family_id": "galactic-store-progression",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.galactic-store-progression"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.shop.3113815.level.1",
+          "normalized_file": "shop-upgrades.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.shop.3113815.level.1",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "normalized_file": "currencies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 16,
+      "operation_count": 5,
+      "assertion_count": 4,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "27b2dcc27fe978621c84145b5849058da6e7c1458e14bb5ccbf3cbb43af4dedc",
+      "input_sha256": "91653d68916da6ea27b6556bec45e8dcffa21c6ae986c1188d41acf429c5500b",
+      "expected_fact_sha256": "15ca77b3bc029f3763cfa6f0b2ca43cfd1bf7b16ea7c04445bbe39ae88753b36"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.score-rating-clear",
+      "family_id": "score-rating-clear",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.score-rating-clear",
+        "galactic-baseballer.departure.rule.score-rating-clear"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.correction.v3_4.d007-adventure-score",
+          "normalized_file": "fragments/demon-released-corrections.json",
+          "normalized_row_id": "galactic-baseballer.correction.v3_4.d007-adventure-score",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.scoring.source-parameters",
+          "normalized_file": "scoring-rules.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.scoring.source-parameters",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.settlement.424005",
+          "normalized_file": "settlement-rules.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.settlement.424005",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 13,
+      "operation_count": 5,
+      "assertion_count": 5,
+      "source_backed_assertion_count": 5,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "4de3298999b3f2f9f6df6bfd75517c1a2191652261e158c342f76a0a9b81e906",
+      "input_sha256": "a514164310780cbb0220f2130ced1d31f9608b0d5f373e73abbea75edb019d04",
+      "expected_fact_sha256": "fde40c68edf5a850466443ea1e903dee7ace5d63d5c96db203b91abc5a3ba817"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.stage-difficulty-selection",
+      "family_id": "stage-difficulty-selection",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.stage-difficulty-selection",
+        "galactic-baseballer.departure.rule.stage-difficulty-selection"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage.424005",
+          "normalized_file": "stages.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage.424005",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "b37f23d6d8e6e8e58242ffe358811f948ca386734f69cd0248173c600ca91aa7",
+      "input_sha256": "32fd01f30fab6d71ec02b26ab4f93846e158f94a1e665f322c9bac90b1f78650",
+      "expected_fact_sha256": "7d077bdbac7aac219fde8e3249ba4ae509bd124328ae92dd6ef4e905f4bfaf85"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.rejected",
+      "family_id": "supreme-weapon-synthesis",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.supreme-weapon-synthesis"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113301",
+          "normalized_file": "synthesis-recipes.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113301",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113301.input.0",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113301.input.0",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113301.input.1",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113301.input.1",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 3,
+      "assertion_count": 4,
+      "source_backed_assertion_count": 1,
+      "derived_assertion_count": 3,
+      "precondition_sha256": "051683223d6bbb7e25c7c08b40a0efee6bd70158cfd8d48eb4d89aa5c36560aa",
+      "input_sha256": "7232df904fdfb9c5e37274cfca31e30090e95366292a217591a693102f9d8c7e",
+      "expected_fact_sha256": "b2aee78ccf641109b1e3245045b189c02ed8e14c585ac33eafe0c89b0bd79441"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.success",
+      "family_id": "supreme-weapon-synthesis",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.supreme-weapon-synthesis"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113301",
+          "normalized_file": "synthesis-recipes.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113301",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113301.input.0",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113301.input.0",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113301.input.1",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113301.input.1",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 5,
+      "assertion_count": 5,
+      "source_backed_assertion_count": 4,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "cc1ee5f968b8b47e8d8f47ed61f121c8ad7ef3f5190ace2dddedd81662884502",
+      "input_sha256": "e4d1eade43fa862dd9037154f024af5ef4ae9936aedd1d8072a24e5407500b47",
+      "expected_fact_sha256": "6275146c334ebd5d7b04aa357836cee18e90d4c10cb4c3d4a6b64494c0c96cc3"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.team-bonus",
+      "family_id": "team-bonus",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.team-bonus",
+        "galactic-baseballer.departure.rule.team-bonus"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage.424005",
+          "normalized_file": "stages.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage.424005",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.team-bonus.424005",
+          "normalized_file": "progression.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.team-bonus.424005",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "source_backed_assertion_count": 4,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "a0e8dc01abd73616f0aadc327b6380024d5715f396e0d05bd25d986069c15cec",
+      "input_sha256": "ff27d2318a2285abbfa8ccf6b1937f206698ff7558814a04402383ca904e6457",
+      "expected_fact_sha256": "599b4b4da8bd34c2d851a2cfc8f0206a11542bc1b10d797817d586887a64057c"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.treasure-selection",
+      "family_id": "random-upgrade-candidates",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.random-upgrade-candidates"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.progression.treasure-pool.1",
+          "normalized_file": "progression.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.progression.treasure-pool.1",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "779c221a8ce583a5dbd98eaf2f74a854b2b833fdcee829049d8695e9e0061c63",
+      "input_sha256": "dc0881a2d5546eeac30ebc2a44e2a0ad854635365186902647ca2d0d5f0fd4c0",
+      "expected_fact_sha256": "70b0f90cf7d87c2b636fb7479482da06f4c6251b44e8a935539247790bf6197a"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.rejected",
+      "family_id": "twin-weapon-synthesis",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.twin-weapon-synthesis"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113201",
+          "normalized_file": "synthesis-recipes.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113201",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113201.input.0",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113201.input.0",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113201.input.1",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113201.input.1",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 3,
+      "assertion_count": 4,
+      "source_backed_assertion_count": 1,
+      "derived_assertion_count": 3,
+      "precondition_sha256": "d201580a3094814c6280318d7cbf6391363171cd42f9bdb96aaaec1ec6fe84c3",
+      "input_sha256": "f34fd1a6ad358c8e82973530c6ac301b39d288a82f548661624870c442f67efa",
+      "expected_fact_sha256": "b2aee78ccf641109b1e3245045b189c02ed8e14c585ac33eafe0c89b0bd79441"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.success",
+      "family_id": "twin-weapon-synthesis",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.twin-weapon-synthesis"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113201",
+          "normalized_file": "synthesis-recipes.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113201",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113201.input.0",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113201.input.0",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.recipe.3113201.input.1",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.recipe.3113201.input.1",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 5,
+      "assertion_count": 5,
+      "source_backed_assertion_count": 4,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "d4461c30605df85bbe551b58a4be0c1ccf570a189e6896d38324b00f016a69af",
+      "input_sha256": "df998a76f24026766e28d94e8a3082747ee64913dc9b5f437c525af943811182",
+      "expected_fact_sha256": "15d47bbf9c2d8d0ebd40efa3d0171a77e4477845cbecb47af98b18bb020a7b9b"
+    },
+    {
+      "fixture_id": "galactic-baseballer.demon-king.fixture.wave-battle-phase-progression",
+      "family_id": "wave-battle-phase-progression",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.wave-battle-phase-progression",
+        "galactic-baseballer.departure.rule.wave-battle-phase-progression"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.demon-king.encounter.4240536",
+          "normalized_file": "encounters.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.encounter.4240536",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.enemy-candidate.42405301.000",
+          "normalized_file": "enemy-slots.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.enemy-candidate.42405301.000",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.enemy-resolution.2002010",
+          "normalized_file": "enemies.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.enemy-resolution.2002010",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.enemy-status.220320101",
+          "normalized_file": "enemy-statuses.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.enemy-status.220320101",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.stage-period.424053",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.demon-king.wave.42405301",
+          "normalized_file": "waves.json",
+          "normalized_row_id": "galactic-baseballer.demon-king.wave.42405301",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 7,
+      "operation_count": 5,
+      "assertion_count": 4,
+      "source_backed_assertion_count": 4,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "38ef1a784a23af8ab0d123177400b92b21773904cdd23db05a392ea09acb8582",
+      "input_sha256": "52c06746d1aae19a8b4f54acc4aee13b8360250797472b735d47accb05b2a08e",
+      "expected_fact_sha256": "1917cd9c203d03bc8d0b91ba1272a322dc172ba4d2d0ca2381e90dbae9d1cbbe"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.accessory-acquisition-duplicate-upgrade",
+      "family_id": "accessory-acquisition-duplicate-upgrade",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.accessory-acquisition-duplicate-upgrade"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.accessory.3106111",
+          "normalized_file": "accessories.json",
+          "normalized_row_id": "galactic-baseballer.departure.accessory.3106111",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.accessory.3106111.level.1",
+          "normalized_file": "accessory-levels.json",
+          "normalized_row_id": "galactic-baseballer.departure.accessory.3106111.level.1",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.accessory.3106111.level.2",
+          "normalized_file": "accessory-levels.json",
+          "normalized_row_id": "galactic-baseballer.departure.accessory.3106111.level.2",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 12,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "62be3545478b35ee2d61ad9e6e9d02a4070b027b1a394c60e0c7fc44601c844a",
+      "input_sha256": "9448d9e0ba8a645af7b3b4b81287af50e543b59dd4f4b6412c73f86fb10a862d",
+      "expected_fact_sha256": "d4fd36db0b732323a4fc7fba4e88964fbeec5ed89423254bd85841b0e24ca516"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.adventure-strategy",
+      "family_id": "adventure-strategy",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.adventure-strategy",
+        "galactic-baseballer.departure.rule.adventure-strategy"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.candidate.strategy.3106703",
+          "normalized_file": "candidate-pools.json",
+          "normalized_row_id": "galactic-baseballer.departure.candidate.strategy.3106703",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "785f9a48c6b0756c5c4e6b1cbd00eb3c3013fd72b545e65cd4917e590fe8d44b",
+      "input_sha256": "bf943c3209768a7918057a0249d40b9e06247c57cae4158bbdf3b0d44dc954c1",
+      "expected_fact_sha256": "6674c6fe9dfde2d4718288251923dccf34ef6e95574b494a562b531f781c45bd"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.boss-phase-final-settlement",
+      "family_id": "boss-phase-final-settlement",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.boss-phase-final-settlement",
+        "galactic-baseballer.departure.rule.boss-phase-final-settlement"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.scoring.source-parameters",
+          "normalized_file": "scoring-rules.json",
+          "normalized_row_id": "galactic-baseballer.departure.scoring.source-parameters",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.settlement.414001",
+          "normalized_file": "settlement-rules.json",
+          "normalized_row_id": "galactic-baseballer.departure.settlement.414001",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.stage-period.414011",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.departure.stage-period.414011",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 14,
+      "operation_count": 5,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "dd0bd76cc021227f3037143f916d6f40265e31703c9c6180482def9f1c31f351",
+      "input_sha256": "36a09798709c86877198ab2cf6ec713d5d31b71b78e99491e5501473e393660d",
+      "expected_fact_sha256": "70cba23f5ba839fcbbdff7469609ec08de3e14c1535459e54957216a9e9eaccd"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.character-action-triggered-weapon",
+      "family_id": "character-action-triggered-weapon",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.character-action-triggered-weapon"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106001.binding",
+          "normalized_file": "weapon-triggers.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106001.binding",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "8917cfdf96d662338d191b725d79f072f3cc0b368fbe3d58a05d11d72ac23290",
+      "input_sha256": "353dc1893566a35f120a54d973874740a70a4ea48bd76ad26c5f4db680f7261d",
+      "expected_fact_sha256": "13485f782017c828cafa797f6d4139ee702155eb8191ebd97bef7c2245a16021"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.experience-team-level-up",
+      "family_id": "experience-team-level-up",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.experience-team-level-up"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.level-threshold.shared",
+          "normalized_file": "level-thresholds.json",
+          "normalized_row_id": "galactic-baseballer.departure.level-threshold.shared",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 8,
+      "operation_count": 4,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "2c983664956c5c616a3edbeed2b2ca219366c1a793d6e786f892aaec4b2cfca5",
+      "input_sha256": "f4e3c855e47654a50208219aef2c6e34d18655f8a7cf8a6ce790c889e2def5e0",
+      "expected_fact_sha256": "6609c87611872d370110691daf5cab4ad5a0fa35ef9278c7b53ef4d569399198"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.legendary-weapon-synthesis",
+      "family_id": "legendary-weapon-synthesis",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.legendary-weapon-synthesis"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.recipe.3106901",
+          "normalized_file": "synthesis-recipes.json",
+          "normalized_row_id": "galactic-baseballer.departure.recipe.3106901",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.recipe.3106901.input.0",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.departure.recipe.3106901.input.0",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.recipe.3106901.input.1",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.departure.recipe.3106901.input.1",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106901",
+          "normalized_file": "weapons.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106901",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "c3c1ba58bae11f7627fb2f1a04338547a18180f95d2ce0f896e20035ce191568",
+      "input_sha256": "c7ccb60fe1240ab99225e572338d25e45363496582ec96e76f387e73cabb5605",
+      "expected_fact_sha256": "3318522ef71eec922b07713d897227c6c4e60e3aebe2a15d220da37675ed9a6e"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.no-legal-candidate-failure-invariance",
+      "family_id": "no-legal-candidate-failure-invariance",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.no-legal-candidate-failure-invariance"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.candidate-policy.deterministic-fallback",
+          "normalized_file": "candidate-policies.json",
+          "normalized_row_id": "galactic-baseballer.departure.candidate-policy.deterministic-fallback",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.reject-full-new",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.reject-full-new",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.reject-max-duplicate",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.reject-max-duplicate",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.upgrade-duplicate",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.upgrade-duplicate",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 8,
+      "operation_count": 4,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "43f20bf5ede067fd029c30aa00cef326fb1845f573b5eb187d538897a7126dbe",
+      "input_sha256": "4e8023741f5a8232db40855f58b0cfa513cc7ea372240afc457a0f9b85aa88a0",
+      "expected_fact_sha256": "0126a737b167017761a7fad51e3c308616c4b58a8105010b996232d0f13b6e6a"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.profile-version-selection",
+      "family_id": "profile-version-selection",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.profile-version-selection"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.v2_2",
+          "normalized_file": "profiles.json",
+          "normalized_row_id": "galactic-baseballer.departure.v2_2",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "52ba0a9707a92efc034ac8b7e05cf6f51edf9d71722a23998f962927aec7d41c",
+      "input_sha256": "f69defe4f8edc336931cd2f1aed2406c15e81402f52b62a6ac5e00067e897e4a",
+      "expected_fact_sha256": "1c133a9e59579cb3319e3a485c70b0fb04f00885ca8e2cb1a27d657f715215aa"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.random-upgrade-candidates",
+      "family_id": "random-upgrade-candidates",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.random-upgrade-candidates"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.candidate-policy.deterministic-fallback",
+          "normalized_file": "candidate-policies.json",
+          "normalized_row_id": "galactic-baseballer.departure.candidate-policy.deterministic-fallback",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.candidate-policy.source-parameters",
+          "normalized_file": "candidate-policies.json",
+          "normalized_row_id": "galactic-baseballer.departure.candidate-policy.source-parameters",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.candidate.strategy.3106703",
+          "normalized_file": "candidate-pools.json",
+          "normalized_row_id": "galactic-baseballer.departure.candidate.strategy.3106703",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 24,
+      "operation_count": 4,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "23dc7e5fe7ce8bc1cba15d039a864a0fea07f557ebed4dac107cca75e60660a4",
+      "input_sha256": "2b5ee986f7aef628d03eb04c7b6a14c8e57b8214eb08cb5ae8decbbcb2bce6d0",
+      "expected_fact_sha256": "2a23edeee21265d73b9e3ae442dc1620830932138742f856cb68b8c6d921552d"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.resonance-accessory-binding",
+      "family_id": "resonance-accessory-binding",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.resonance-accessory-binding"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.accessory.3106111.binding",
+          "normalized_file": "accessory-bindings.json",
+          "normalized_row_id": "galactic-baseballer.departure.accessory.3106111.binding",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.recipe.3106901",
+          "normalized_file": "synthesis-recipes.json",
+          "normalized_row_id": "galactic-baseballer.departure.recipe.3106901",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.recipe.3106901.input.0",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.departure.recipe.3106901.input.0",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.recipe.3106901.input.1",
+          "normalized_file": "synthesis-inputs.json",
+          "normalized_row_id": "galactic-baseballer.departure.recipe.3106901.input.1",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 3,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "03b7ae9ff081d6b20e0f412fbeefebd83accecf415731e3d18f1f5cec1b2bc88",
+      "input_sha256": "293a64947af1004eb5351660411d980e55b26bf8c6fc6a76a02fc9190e25c59f",
+      "expected_fact_sha256": "da8895ec3c904d21e3d5713b2f31261c36c3d90db9c3daae7b43ef17608201bb"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.score-rating-clear",
+      "family_id": "score-rating-clear",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.score-rating-clear",
+        "galactic-baseballer.departure.rule.score-rating-clear"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.scoring.source-parameters",
+          "normalized_file": "scoring-rules.json",
+          "normalized_row_id": "galactic-baseballer.departure.scoring.source-parameters",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.settlement.414001",
+          "normalized_file": "settlement-rules.json",
+          "normalized_row_id": "galactic-baseballer.departure.settlement.414001",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 13,
+      "operation_count": 4,
+      "assertion_count": 7,
+      "source_backed_assertion_count": 7,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "6fb46c28d02272a8aadd17fbfe24ee7daef2862cf7d033ac74eb0921b9c55968",
+      "input_sha256": "e9eb9be0bd0ef35c7c911a4e347fbd90d3ed5d482da118f94a57ec5f017a96ab",
+      "expected_fact_sha256": "dc28421cf851de156c9e2f5cbc507f5a4a3194660a0ae8d1e6c961bb6641983c"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.slot-capacity-expansion-replacement",
+      "family_id": "slot-capacity-expansion-replacement",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.slot-capacity-expansion-replacement"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.reject-full-new",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.reject-full-new",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.reject-max-duplicate",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.reject-max-duplicate",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.upgrade-duplicate",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.upgrade-duplicate",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-slot.OriginStage.accessory",
+          "normalized_file": "inventory-slots.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-slot.OriginStage.accessory",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-slot.OriginStage.weapon",
+          "normalized_file": "inventory-slots.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-slot.OriginStage.weapon",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-slot.Standard.accessory",
+          "normalized_file": "inventory-slots.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-slot.Standard.accessory",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-slot.Standard.weapon",
+          "normalized_file": "inventory-slots.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-slot.Standard.weapon",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 7,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "050a6c5e642850bfdbe7c53df2b61d66a2ff91bb932fa64faed9663b8080d3f5",
+      "input_sha256": "b63083919a803e1b0b18745915bfe44ade42cb867d93d50edc592dd613a6a4f5",
+      "expected_fact_sha256": "b0c62c24cf404b95b776f20cb265bf7ad26f470de0696441fc61600eb7a1bc44"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.stage-difficulty-selection",
+      "family_id": "stage-difficulty-selection",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.stage-difficulty-selection",
+        "galactic-baseballer.departure.rule.stage-difficulty-selection"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.stage-period.414011",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.departure.stage-period.414011",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.stage.414001",
+          "normalized_file": "stages.json",
+          "normalized_row_id": "galactic-baseballer.departure.stage.414001",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "cb11b25defa0bdb71addfb4eb2f0a555a50dfcbef2a50225fe2b55ffb4b64f28",
+      "input_sha256": "41e83f434573fc2e37ab7f4aac6557ad3020cac6d4f5d6871fe1d7402f9df1a7",
+      "expected_fact_sha256": "1fe39ddb0292a407448db87f05983d2e696a10dffb679551198ecb09b3f85d45"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.team-bonus",
+      "family_id": "team-bonus",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.team-bonus",
+        "galactic-baseballer.departure.rule.team-bonus"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.encounter.4140016",
+          "normalized_file": "encounters.json",
+          "normalized_row_id": "galactic-baseballer.departure.encounter.4140016",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.stage.414001",
+          "normalized_file": "stages.json",
+          "normalized_row_id": "galactic-baseballer.departure.stage.414001",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 1,
+      "derived_assertion_count": 1,
+      "precondition_sha256": "79b14afff5f26b4c3ca95ac286f5e423b1e60b765fdaec3d30a22a78c06a67c5",
+      "input_sha256": "7f351cdd18a26de7618f95aebe119c902daa805b270a6e04a7d8d5dfeaedcd3c",
+      "expected_fact_sha256": "adb43f1eb00c5fbab2467d5509a206d9c28590dca3e077b10f51acc517036816"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.wave-battle-phase-progression",
+      "family_id": "wave-battle-phase-progression",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.demon-king.rule.wave-battle-phase-progression",
+        "galactic-baseballer.departure.rule.wave-battle-phase-progression"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.encounter.4140016",
+          "normalized_file": "encounters.json",
+          "normalized_row_id": "galactic-baseballer.departure.encounter.4140016",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.enemy-candidate.41400101.000",
+          "normalized_file": "enemy-slots.json",
+          "normalized_row_id": "galactic-baseballer.departure.enemy-candidate.41400101.000",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.stage-period.414011",
+          "normalized_file": "stage-periods.json",
+          "normalized_row_id": "galactic-baseballer.departure.stage-period.414011",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.wave.41400101",
+          "normalized_file": "waves.json",
+          "normalized_row_id": "galactic-baseballer.departure.wave.41400101",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 5,
+      "operation_count": 4,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "d0caa31358d62d2ff7e64e7f13ecc106b3a557d8bb22755a16a27b4d49df2599",
+      "input_sha256": "2cd404ffa9488934dd0dc0aafb1a8925201453e0eeddb3e4d534809b981af5c7",
+      "expected_fact_sha256": "633ea36e580a967b86284005ae6078aacc3fc5a36fb4e906d51e8d8371fcada7"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.weapon-acquisition-duplicate-upgrade",
+      "family_id": "weapon-acquisition-duplicate-upgrade",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.weapon-acquisition-duplicate-upgrade"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.acquire-new",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "normalized_file": "inventory-operations.json",
+          "normalized_row_id": "galactic-baseballer.departure.inventory-operation.expand-slot",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106001",
+          "normalized_file": "weapons.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106001",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106001.level.1",
+          "normalized_file": "weapon-levels.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106001.level.1",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106001.level.2",
+          "normalized_file": "weapon-levels.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106001.level.2",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 12,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "source_backed_assertion_count": 3,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "e159f47eaf3855fbf3b4b008b432afdef13e5f8732b484995a43c09939c03bee",
+      "input_sha256": "05f567d0f4586d20d7ba2d3428200426e7494b94fe26fb6f7fb46768707bafbf",
+      "expected_fact_sha256": "0fd90544e0b092dea843f747353ff30574a2f47eb2be47d89a9387e9741abcba"
+    },
+    {
+      "fixture_id": "galactic-baseballer.departure.fixture.weapon-automatic-action",
+      "family_id": "weapon-automatic-action",
+      "status": "Passed",
+      "runtime_executable": false,
+      "reference_rule_ids": [
+        "galactic-baseballer.departure.rule.weapon-automatic-action"
+      ],
+      "source_record_resolutions": [
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106001",
+          "normalized_file": "weapons.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106001",
+          "resolution": "ExactStableId"
+        },
+        {
+          "source_record_id": "galactic-baseballer.departure.weapon.3106001.binding",
+          "normalized_file": "weapon-triggers.json",
+          "normalized_row_id": "galactic-baseballer.departure.weapon.3106001.binding",
+          "resolution": "ExactStableId"
+        }
+      ],
+      "evidence_ref_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "source_backed_assertion_count": 2,
+      "derived_assertion_count": 0,
+      "precondition_sha256": "f9ac2272d1d4c37bb0b21708d167ee5ca1e93b79237e767a7e5c47a76581ee65",
+      "input_sha256": "e60d1f07c51f5ac03f35acf223a47dbf3c601b6ebcd15ee947cf8ce8a0c61f41",
+      "expected_fact_sha256": "c8b7e604673864b58c3457f83fc9b91cdaee7ecf8d863abe0d2b1d2781795ac9"
+    }
+  ]
+}
