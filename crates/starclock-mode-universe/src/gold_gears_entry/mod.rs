@@ -3,6 +3,7 @@
 mod api;
 mod cognition;
 mod content_link_runtime;
+mod conundrum_auxiliary_runtime;
 mod conundrum_policy;
 mod conundrum_runtime;
 mod conundrum_stats_modifier;
@@ -37,6 +38,10 @@ pub use api::{
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
 pub use content_link_runtime::{
     GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION, GoldAndGearsSharedContentDigests,
+};
+pub use conundrum_auxiliary_runtime::{
+    GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION, GoldAndGearsAuxiliaryBattleContribution,
+    GoldAndGearsAuxiliaryConundrumExecution, GoldAndGearsAuxiliaryPlaneEntryExecution,
 };
 pub use conundrum_policy::{
     GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
@@ -117,6 +122,8 @@ const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 mod cognition_tests;
 #[cfg(test)]
 mod content_runtime_tests;
+#[cfg(test)]
+mod conundrum_auxiliary_runtime_tests;
 #[cfg(test)]
 mod conundrum_runtime_tests;
 #[cfg(test)]
