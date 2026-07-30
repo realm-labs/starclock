@@ -51,10 +51,24 @@ pub(super) const CONUNDRUM_AUXILIARY_KEY: u64 = 2;
 pub(super) const CONUNDRUM_BERSERK_KEY: u64 = 3;
 
 pub(super) const PROGRESSION_TRAILBLAZE_BONUS_KEY: u64 = 1;
+pub(super) const PROGRESSION_DICE_PATH_VALUE_KEY: u64 = 2;
+pub(super) const PROGRESSION_DICE_PATH_INTERVAL_KEY: u64 = 3;
+pub(super) const PROGRESSION_DICE_PATH_SCALED_VALUE_KEY: u64 = 4;
+pub(super) const PROGRESSION_DICE_PATH_TRIGGER_PROGRESS_KEY: u64 = 5;
+pub(super) const PROGRESSION_DICE_PATH_BOOST_STACKS_KEY: u64 = 6;
 
 pub(super) const RESOURCE_COSMIC_FRAGMENTS_KEY: u64 = 1;
 pub(super) const RESOURCE_DICE_REROLLS_KEY: u64 = 2;
 pub(super) const RESOURCE_DICE_CHEATS_KEY: u64 = 3;
+
+pub(super) const DICE_RESOLUTION_FACE_KEY: u64 = 1;
+pub(super) const DICE_RESOLUTION_PREVIOUS_FACE_KEY: u64 = 2;
+pub(super) const DICE_RESOLUTION_KIND_KEY: u64 = 3;
+pub(super) const DICE_RESOLUTION_CANDIDATE_COUNT_KEY: u64 = 4;
+pub(super) const DICE_RESOLUTION_DRAW_INDEX_KEY: u64 = 5;
+
+pub(super) const DEFERRED_DICE_INITIAL_BASE: u64 = 0x4747_3000_0000_0000;
+pub(super) const DEFERRED_DICE_PASSIVE_BASE: u64 = 0x4747_3100_0000_0000;
 
 pub(super) const INITIAL_COSMIC_FRAGMENTS: i64 = 100;
 pub(super) const INITIAL_DICE_REROLLS: i64 = 1;

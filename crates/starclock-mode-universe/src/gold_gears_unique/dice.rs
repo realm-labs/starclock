@@ -48,13 +48,13 @@ pub(super) fn definition(
         &source.kind,
         "CustomDice",
     )?;
-    json_text(&source.effect_parts_json, &source.stable_key)?;
     text(&source.dice_icon_path, &source.stable_key)?;
     Ok(DiceDefinition {
         identity: identity(source.id, &source.stable_key, &source.source_id, DiceId)?,
         sort: positive_u16(source.sort, &source.stable_key)?,
         category: DiceCategoryId(positive_u32(source.category_id, &source.stable_key)?),
         category_source: text(&source.category_source_id, &source.stable_key)?,
+        effect_parts_json: json_text(&source.effect_parts_json, &source.stable_key)?,
         initial_effects: optional_texts(
             source.initial_effect_extra_ids.as_deref(),
             &source.stable_key,

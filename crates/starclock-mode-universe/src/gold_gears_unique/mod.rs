@@ -12,9 +12,9 @@ use crate::gold_gears_catalog::{
     GoldAndGearsBundleLoadError, GoldAndGearsBundleSummary, load_gold_and_gears_bundle,
 };
 pub(crate) use types::{
-    CognitionRange, ConundrumLevel, DiceCategory, DiceDefinition, DiceFace, DiceFaceTag,
-    DicePathValue, DiceSlot, Extrapolation, Interplay, KnowledgeRule, ModeConstant, NeuralNode,
-    PathBoost, PathDefinition, Resonance, Secret, TrailblazeBonus,
+    CanonicalScalar, CognitionRange, ConundrumLevel, DiceCategory, DiceDefinition, DiceFace,
+    DiceFaceTag, DicePathValue, DiceSlot, Extrapolation, Interplay, KnowledgeRule, ModeConstant,
+    NeuralNode, PathBoost, PathDefinition, Resonance, Secret, TrailblazeBonus,
 };
 
 pub(crate) const EXPECTED_UNIQUE_ROWS: usize = 462;

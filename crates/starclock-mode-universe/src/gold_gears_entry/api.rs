@@ -12,6 +12,14 @@ use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     cognition::CognitionRuntimeCatalog,
     dice_loadout::DiceLoadoutRuntimeCatalog,
+    dice_passive::{
+        GoldAndGearsDicePassiveEvent, allows_same_domain_movement, compile_passive,
+        path_boost_stacks, persists_general_buff_faces, preserves_knowledge_domains,
+    },
+    dice_resolution::{
+        CompiledDiceRuntime, DiceRuntimeCatalog, compile_cheat, compile_plane_start,
+        compile_reroll, compile_roll, resolution_face, resolution_kind,
+    },
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     plane_transition::PlaneTransitionRuntimeCatalog,
     state::compile_state,
@@ -163,6 +171,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) cognition: Arc<CognitionRuntimeCatalog>,
     pub(super) transitions: Arc<PlaneTransitionRuntimeCatalog>,
     pub(super) dice_loadouts: Arc<DiceLoadoutRuntimeCatalog>,
+    pub(super) dice_runtime: Arc<DiceRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -190,6 +199,7 @@ impl GoldAndGearsRuntimeFactory {
         let cognition = CognitionRuntimeCatalog::compile(&unique)?;
         let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
         let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
+        let dice_runtime = DiceRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -197,6 +207,7 @@ impl GoldAndGearsRuntimeFactory {
             cognition: Arc::new(cognition),
             transitions: Arc::new(transitions),
             dice_loadouts: Arc::new(dice_loadouts),
+            dice_runtime: Arc::new(dice_runtime),
         })
     }
 
@@ -238,6 +249,11 @@ impl GoldAndGearsRuntimeFactory {
             &neural,
             &unlocked_dice,
         )?;
+        let dice_runtime = self.dice_runtime.select(
+            &dice.identity.stable_key,
+            &path.identity.stable_key,
+            &neural,
+        )?;
         let completed_areas =
             canonical_completed_areas(&self.structural, &entry.completed_formal_areas)?;
         validate_conundrum(
@@ -270,6 +286,9 @@ impl GoldAndGearsRuntimeFactory {
             entry.stats_conundrum,
             entry.auxiliary_conundrum,
             trailblaze_bonus.map(|bonus| bonus.identity.id.0),
+            dice_runtime.path_value_id,
+            dice_runtime.path_trigger_interval,
+            dice_runtime.path_boost_value_scaled,
             self.cognition.initial(),
             cognition_minimum,
             cognition_maximum,
@@ -291,6 +310,13 @@ impl GoldAndGearsRuntimeFactory {
             eligible_dice_faces: loadout.eligible_faces,
             suggestive_dice_faces: loadout.suggestive_faces,
             recommended_dice_faces: loadout.recommended_faces,
+            dice_face_ids: loadout
+                .faces
+                .iter()
+                .map(|face| (face.identity.stable_key.clone(), face.identity.id.0))
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            dice_runtime,
             participants: Arc::new(entry.participants),
             neural_network: neural
                 .iter()
@@ -361,6 +387,8 @@ pub struct GoldAndGearsRuntimeInstance {
     eligible_dice_faces: Box<[Box<[Box<str>]>]>,
     suggestive_dice_faces: Box<[Box<str>]>,
     recommended_dice_faces: Box<[Box<str>]>,
+    dice_face_ids: Box<[(Box<str>, u32)]>,
+    dice_runtime: CompiledDiceRuntime,
     participants: Arc<ParticipantLock>,
     neural_network: Box<[Box<str>]>,
     stats_conundrum: u8,
@@ -429,6 +457,149 @@ impl GoldAndGearsRuntimeInstance {
     /// Returns the authored recommended pool filtered to legal unlocked faces.
     pub fn recommended_dice_faces(&self) -> impl ExactSizeIterator<Item = &str> {
         self.recommended_dice_faces.iter().map(Box::as_ref)
+    }
+
+    /// Returns exact private effect IDs attached to the selected dice's
+    /// initial lifecycle contribution.
+    pub fn dice_initial_effect_ids(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.dice_runtime.initial_effect_ids.iter().map(Box::as_ref)
+    }
+
+    /// Returns exact private effect IDs attached to the selected dice's
+    /// passive lifecycle contribution.
+    pub fn dice_passive_effect_ids(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.dice_runtime.passive_effect_ids.iter().map(Box::as_ref)
+    }
+
+    /// Returns the selected dice/path trigger stat.
+    #[must_use]
+    pub fn dice_path_boost_stat(&self) -> &str {
+        &self.dice_runtime.path_boost_stat
+    }
+
+    /// Returns the exact positive trigger interval.
+    #[must_use]
+    pub const fn dice_path_trigger_interval(&self) -> i64 {
+        self.dice_runtime.path_trigger_interval
+    }
+
+    /// Returns the exact six-decimal fixed-point boost value in millionths.
+    #[must_use]
+    pub const fn dice_path_boost_value_scaled(&self) -> i64 {
+        self.dice_runtime.path_boost_value_scaled
+    }
+
+    /// Returns the authored unit carried by the selected dice/path value.
+    #[must_use]
+    pub fn dice_path_boost_unit(&self) -> &str {
+        &self.dice_runtime.path_boost_unit
+    }
+
+    /// Returns the canonical numeric parameters for the three authored effect
+    /// parts in signed millionths.
+    pub fn dice_initial_parameters_scaled(&self) -> impl ExactSizeIterator<Item = i64> + '_ {
+        self.dice_runtime.initial_parameters_scaled.iter().copied()
+    }
+
+    pub fn dice_passive_parameters_scaled(&self) -> impl ExactSizeIterator<Item = i64> + '_ {
+        self.dice_runtime.passive_parameters_scaled.iter().copied()
+    }
+
+    pub fn dice_path_trigger_parameters_scaled(&self) -> impl ExactSizeIterator<Item = i64> + '_ {
+        self.dice_runtime
+            .path_trigger_parameters_scaled
+            .iter()
+            .copied()
+    }
+
+    /// Compiles all immediate selected-dice consequences for one validated
+    /// Activity fact and records downstream-owned contributions explicitly.
+    pub fn compile_dice_passive(
+        &self,
+        state: &ActivityTransactionState,
+        event: GoldAndGearsDicePassiveEvent,
+    ) -> Result<Option<ActivityProgramDefinition>, GoldAndGearsEntryError> {
+        compile_passive(&self.dice_runtime, state, event)
+    }
+
+    /// Returns the accumulated selected-Path boost stack count.
+    #[must_use]
+    pub fn dice_path_boost_stacks(&self, state: &ActivityTransactionState) -> Option<u32> {
+        path_boost_stacks(state)
+    }
+
+    /// Whether the selected dice permits movement to any same-domain target.
+    #[must_use]
+    pub const fn dice_allows_same_domain_movement(&self) -> bool {
+        allows_same_domain_movement(&self.dice_runtime)
+    }
+
+    /// Whether Knowledge protects a domain from collapse for this dice.
+    #[must_use]
+    pub const fn dice_preserves_knowledge_domains(&self) -> bool {
+        preserves_knowledge_domains(&self.dice_runtime)
+    }
+
+    /// Whether rolled General Buff faces persist and activate next room.
+    #[must_use]
+    pub const fn dice_persists_general_buff_faces(&self) -> bool {
+        persists_general_buff_faces(&self.dice_runtime)
+    }
+
+    /// Compiles this plane's Custom Dice initial activation. Immediate resource
+    /// changes commit now; map/Knowledge contributions are recorded as typed
+    /// deferred work for their owning runtime boundaries.
+    pub fn compile_dice_plane_start(
+        &self,
+        plane_layer: u8,
+    ) -> Result<Option<ActivityProgramDefinition>, GoldAndGearsEntryError> {
+        compile_plane_start(&self.dice_runtime, plane_layer)
+    }
+
+    /// Uniformly rolls the six selected faces in stable face-ID order using
+    /// only the Activity Spawn stream.
+    pub fn compile_dice_roll(
+        &self,
+        state: &ActivityTransactionState,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_roll(state, &self.dice_face_ids, rng)
+    }
+
+    /// Consumes one reroll and resolves through the Spawn stream. When the
+    /// selected Neural exclusion leaves no candidate, the prior face is kept,
+    /// the attempt is consumed and no draw occurs.
+    pub fn compile_dice_reroll(
+        &self,
+        state: &ActivityTransactionState,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_reroll(
+            state,
+            &self.dice_face_ids,
+            self.dice_runtime.reroll_excludes_previous,
+            rng,
+        )
+    }
+
+    /// Consumes one cheat to select an exact face from the six-slot loadout.
+    /// Cheats never draw RNG.
+    pub fn compile_dice_cheat(
+        &self,
+        state: &ActivityTransactionState,
+        selected_face: &str,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_cheat(state, &self.dice_face_ids, selected_face)
+    }
+
+    #[must_use]
+    pub fn dice_resolution_face<'a>(&'a self, state: &ActivityTransactionState) -> Option<&'a str> {
+        resolution_face(state, &self.dice_face_ids)
+    }
+
+    #[must_use]
+    pub fn dice_resolution_kind(&self, state: &ActivityTransactionState) -> Option<u8> {
+        resolution_kind(state)
     }
 
     #[must_use]

@@ -1,0 +1,98 @@
+{
+  "schema_revision": "starclock.gold-and-gears-dice-runtime.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P3-B2",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "custom_dice": 12,
+    "effect_parts": 36,
+    "initial_and_passive_effect_ids": 39,
+    "dice_path_values": 108,
+    "paths": 9
+  },
+  "lifecycle": {
+    "revision": "gold-and-gears-dice-runtime-v1",
+    "first_and_second_plane_dice": 10,
+    "first_and_third_plane_dice": 1,
+    "every_plane_dice": 1,
+    "initial_activation_marker": "ActivityDeferredEffectsCounter",
+    "immediate_initial_resource_effects": [
+      "dice-401-cosmic-fragments-100",
+      "dice-403-cheat-1"
+    ],
+    "cross_owned_initial_effects": "TypedDeferredUntilMapOrKnowledgeOwner",
+    "passive_event_vocabulary_is_typed": true,
+    "all_twelve_passive_dispatches_execute": true,
+    "immediate_passive_resource_families": 6,
+    "same_domain_movement_capability": true,
+    "knowledge_collapse_protection_capability": true,
+    "general_buff_persistence_capability": true
+  },
+  "path_accumulation": {
+    "bindings": 108,
+    "canonical_decimal_scale": 1000000,
+    "positive_trigger_intervals": true,
+    "boost_stat_and_unit_retained": true,
+    "progress_and_stack_state": "ActivityProgressionCounterMap",
+    "snapshot_events_do_not_duplicate_stacks": true,
+    "battle_contribution_materialization_owner": "G14-P4-B3"
+  },
+  "resolution": {
+    "candidate_order": "ascending-stable-dice-face-id",
+    "rng_label": "Spawn",
+    "roll_purpose": "0x4751",
+    "reroll_purpose": "0x4752",
+    "roll_draws": 1,
+    "reroll_draws": 1,
+    "cheat_draws": 0,
+    "empty_candidate_draws": 0,
+    "empty_candidate_behavior": "KeepPreviousAndConsumeAttempt",
+    "empty_candidate_policy": "neural-network-reroll-empty-candidate-v1",
+    "result_state": "ActivityDiceResolutionCounterMap",
+    "stale_or_rejected_programs_preserve_state_and_rng": true
+  },
+  "policy_continuity": {
+    "G14-R04": "InheritedPolicyUntilP3-B3MechanicalTagExecution",
+    "G14-R05": "InheritedPolicyUntilP3-B3FaceTargetExecution",
+    "knowledge_lifecycle_owner": "G14-P3-B4",
+    "path_battle_contribution_owner": "G14-P4-B3",
+    "no_dice_face_execution_claimed": true,
+    "no_knowledge_lifecycle_execution_claimed": true,
+    "no_path_battle_contribution_claimed": true,
+    "runtime_json_file_reads": 0
+  },
+  "validation": {
+    "all_authored_effect_roles_exact": true,
+    "all_authored_parameters_exact": true,
+    "all_effect_ids_numeric_and_unique_per_role": true,
+    "all_path_bindings_compile": true,
+    "all_plane_masks_compile": true,
+    "all_passive_event_inputs_fail_closed": true,
+    "roll_is_seed_reproducible": true,
+    "reroll_exclusion_is_neural_gated": true,
+    "cheat_requires_loadout_membership": true,
+    "resource_exhaustion_rejects_before_rng": true
+  },
+  "tests": {
+    "focused_dice_runtime_tests_passed": 5,
+    "entry_suite_passed": 29,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "cold_quick_attempt": "BudgetExceededAfterBuilding53SelectedHarnesses",
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "118.6",
+    "quick_selected_harnesses": 53,
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::dice_resolution_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/goal14/verify-phase3-b2.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}

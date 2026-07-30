@@ -22,10 +22,13 @@ use super::{
         ENTRY_SELECTION_SLOT, ENTRY_SELECTION_SOURCE, ENTRY_STATS_CONUNDRUM_KEY,
         INITIAL_COSMIC_FRAGMENTS, INITIAL_DICE_CHEATS, INITIAL_DICE_REROLLS, KNOWLEDGE_SLOT,
         KNOWLEDGE_SOURCE, NEURAL_NETWORK_SLOT, NEURAL_NETWORK_SOURCE, NODE_VISIT_SLOT,
-        NODE_VISIT_SOURCE, PLANE_STATE_SLOT, PLANE_STATE_SOURCE, PROGRESSION_SLOT,
-        PROGRESSION_SOURCE, PROGRESSION_TRAILBLAZE_BONUS_KEY, RESOURCE_COSMIC_FRAGMENTS_KEY,
-        RESOURCE_DICE_CHEATS_KEY, RESOURCE_DICE_REROLLS_KEY, RUN_RESOURCES_SLOT,
-        RUN_RESOURCES_SOURCE, SECRETS_SLOT, SECRETS_SOURCE,
+        NODE_VISIT_SOURCE, PLANE_STATE_SLOT, PLANE_STATE_SOURCE,
+        PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, PROGRESSION_DICE_PATH_INTERVAL_KEY,
+        PROGRESSION_DICE_PATH_SCALED_VALUE_KEY, PROGRESSION_DICE_PATH_TRIGGER_PROGRESS_KEY,
+        PROGRESSION_DICE_PATH_VALUE_KEY, PROGRESSION_SLOT, PROGRESSION_SOURCE,
+        PROGRESSION_TRAILBLAZE_BONUS_KEY, RESOURCE_COSMIC_FRAGMENTS_KEY, RESOURCE_DICE_CHEATS_KEY,
+        RESOURCE_DICE_REROLLS_KEY, RUN_RESOURCES_SLOT, RUN_RESOURCES_SOURCE, SECRETS_SLOT,
+        SECRETS_SOURCE,
     },
 };
 
@@ -40,6 +43,9 @@ pub(super) fn compile_state(
     stats: u8,
     auxiliary: u8,
     trailblaze_bonus: Option<u32>,
+    dice_path_value_id: u32,
+    dice_path_trigger_interval: i64,
+    dice_path_boost_value_scaled: i64,
     cognition_initial: i64,
     cognition_minimum: i64,
     cognition_maximum: i64,
@@ -84,9 +90,26 @@ pub(super) fn compile_state(
         (CONUNDRUM_AUXILIARY_KEY, i64::from(auxiliary)),
         (CONUNDRUM_BERSERK_KEY, 0),
     ];
-    let progression = trailblaze_bonus.map_or_else(Vec::new, |bonus| {
-        vec![(PROGRESSION_TRAILBLAZE_BONUS_KEY, i64::from(bonus))]
-    });
+    let mut progression = vec![
+        (
+            PROGRESSION_DICE_PATH_VALUE_KEY,
+            i64::from(dice_path_value_id),
+        ),
+        (
+            PROGRESSION_DICE_PATH_INTERVAL_KEY,
+            dice_path_trigger_interval,
+        ),
+        (
+            PROGRESSION_DICE_PATH_SCALED_VALUE_KEY,
+            dice_path_boost_value_scaled,
+        ),
+        (PROGRESSION_DICE_PATH_TRIGGER_PROGRESS_KEY, 0),
+        (PROGRESSION_DICE_PATH_BOOST_STACKS_KEY, 0),
+    ];
+    if let Some(bonus) = trailblaze_bonus {
+        progression.push((PROGRESSION_TRAILBLAZE_BONUS_KEY, i64::from(bonus)));
+        progression.sort_unstable_by_key(|(key, _)| *key);
+    }
     let resources = vec![
         (RESOURCE_COSMIC_FRAGMENTS_KEY, INITIAL_COSMIC_FRAGMENTS),
         (RESOURCE_DICE_REROLLS_KEY, INITIAL_DICE_REROLLS),

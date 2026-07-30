@@ -86,6 +86,7 @@ pub(crate) struct DiceDefinition {
     pub(crate) sort: u16,
     pub(crate) category: DiceCategoryId,
     pub(crate) category_source: Box<str>,
+    pub(crate) effect_parts_json: Box<str>,
     pub(crate) initial_effects: Box<[Box<str>]>,
     pub(crate) passive_effects: Box<[Box<str>]>,
     pub(crate) available_by_default: bool,
