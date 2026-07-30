@@ -5,6 +5,7 @@ use sha2::{Digest, Sha256};
 mod condition;
 mod decision;
 mod extension;
+mod ordered_id_set;
 mod participant_carry;
 mod support;
 
@@ -680,6 +681,9 @@ impl ActivityTransactionState {
             }
             Op::AddCounter { slot, key, delta } => {
                 self.add_counter(*slot, *key, integer(&self.evaluate(delta)?)?, cause, events)?
+            }
+            Op::InsertOrderedId { slot, id } => {
+                self.insert_ordered_id(*slot, *id, cause, events)?
             }
             Op::AddInventory {
                 inventory,

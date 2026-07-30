@@ -1,6 +1,7 @@
 //! Gold and Gears entry validation and generic Activity-state compilation.
 
 mod api;
+mod cognition;
 mod error;
 mod map_overlay;
 mod state;
@@ -12,11 +13,14 @@ pub use api::{
     GOLD_AND_GEARS_ENTRY_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry,
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
 };
+pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
 pub use error::GoldAndGearsEntryError;
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
+#[cfg(test)]
+mod cognition_tests;
 #[cfg(test)]
 mod map_overlay_tests;
 #[cfg(test)]

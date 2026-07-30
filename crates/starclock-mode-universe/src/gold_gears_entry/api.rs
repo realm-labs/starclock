@@ -10,12 +10,13 @@ use starclock_activity::{
 
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
+    cognition::CognitionRuntimeCatalog,
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     state::compile_state,
     topology::compile_topology,
     validate::{
         canonical_completed_areas, canonical_neural_network, canonical_unlocked_dice,
-        parse_integer, validate_conundrum, validate_loadout, validate_participants,
+        validate_conundrum, validate_loadout, validate_participants,
     },
 };
 use crate::{
@@ -157,6 +158,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) structural: Arc<GoldAndGearsStructuralCatalog>,
     pub(super) unique: Arc<GoldAndGearsUniqueCatalog>,
     pub(super) map: Arc<MapRuntimeCatalog>,
+    pub(super) cognition: Arc<CognitionRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -181,10 +183,12 @@ impl GoldAndGearsRuntimeFactory {
             return Err(GoldAndGearsEntryError::InvalidCatalog);
         }
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
+        let cognition = CognitionRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
             map: Arc::new(map),
+            cognition: Arc::new(cognition),
         })
     }
 
@@ -240,14 +244,7 @@ impl GoldAndGearsRuntimeFactory {
                     .ok_or_else(|| GoldAndGearsEntryError::UnknownTrailblazeBonus(key.into()))
             })
             .transpose()?;
-        let cognition = self
-            .unique
-            .cognition_ranges
-            .iter()
-            .find(|range| range.area_key.as_ref() == area.stable_key.as_ref())
-            .ok_or(GoldAndGearsEntryError::MissingCognitionRange)?;
-        let cognition_minimum = parse_integer(&cognition.minimum.0)?;
-        let cognition_maximum = parse_integer(&cognition.maximum.0)?;
+        let (cognition_minimum, cognition_maximum) = self.cognition.bounds(area)?;
         let topology = compile_topology(&self.structural, area)?;
         let state = compile_state(
             area,
@@ -258,6 +255,7 @@ impl GoldAndGearsRuntimeFactory {
             entry.stats_conundrum,
             entry.auxiliary_conundrum,
             trailblaze_bonus.map(|bonus| bonus.identity.id.0),
+            self.cognition.initial(),
             cognition_minimum,
             cognition_maximum,
         )?
@@ -297,6 +295,7 @@ impl GoldAndGearsRuntimeFactory {
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
             map: Arc::clone(&self.map),
+            cognition: Arc::clone(&self.cognition),
         })
     }
 
@@ -335,6 +334,7 @@ pub struct GoldAndGearsRuntimeInstance {
     planes: Box<[Box<str>]>,
     chessboards: Box<[Box<str>]>,
     map: Arc<MapRuntimeCatalog>,
+    cognition: Arc<CognitionRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeInstance {
@@ -465,6 +465,42 @@ impl GoldAndGearsRuntimeInstance {
         target: NodeId,
     ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
         self.map.compile_blank(target)
+    }
+
+    /// Compiles one checked Cognition delta followed by global and selected-area
+    /// clamping. The program consumes no RNG.
+    pub fn compile_cognition_adjustment(
+        &self,
+        delta: i64,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.cognition.compile_adjustment(&self.area, delta)
+    }
+
+    /// Reapplies the selected-area bounds to the exact carried Cognition value.
+    pub fn compile_cognition_carry(
+        &self,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.cognition.compile_carry(&self.area)
+    }
+
+    /// Compiles the deterministic Secret evaluation performed after the
+    /// current plane's boss has been defeated.
+    pub fn compile_plane_boss_cognition_evaluation(
+        &self,
+        plane_layer: u8,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.cognition
+            .compile_plane_boss_evaluation(&self.area, plane_layer)
+    }
+
+    /// Returns all currently eligible Secrets in canonical policy order. The
+    /// plane-boss evaluator unlocks the first item, or none when this is empty.
+    pub fn secret_frontier(
+        &self,
+        state: &ActivityTransactionState,
+        plane_layer: u8,
+    ) -> Result<Box<[Box<str>]>, GoldAndGearsEntryError> {
+        self.cognition.frontier(&self.area, state, plane_layer)
     }
 
     /// Returns canonical static outgoing edges whose targets are not blanked

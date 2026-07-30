@@ -13,6 +13,19 @@ impl ActivityTransactionState {
                 | (ActivityValue::FixedScalar(a), ActivityValue::FixedScalar(b)) => Ok(a < b),
                 _ => Err(ActivityFault::TypeMismatch),
             },
+            ActivityCondition::OrderedIdSetContains { slot, id } => {
+                if *id == 0 {
+                    return Err(ActivityFault::TypeMismatch);
+                }
+                match self
+                    .slots
+                    .get(slot)
+                    .ok_or(ActivityFault::MissingSlot(*slot))?
+                {
+                    ActivityValue::OrderedIdSet(values) => Ok(values.binary_search(id).is_ok()),
+                    _ => Err(ActivityFault::TypeMismatch),
+                }
+            }
             ActivityCondition::ParticipantDefeated(participant) => {
                 Ok(self.carry.participant_defeated(*participant))
             }

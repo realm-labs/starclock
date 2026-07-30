@@ -79,7 +79,7 @@ fn all_dice(factory: &GoldAndGearsRuntimeFactory) -> Vec<String> {
         .collect()
 }
 
-fn entry(
+pub(super) fn entry(
     factory: &GoldAndGearsRuntimeFactory,
     area: &str,
     path: &str,

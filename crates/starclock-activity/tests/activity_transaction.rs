@@ -98,6 +98,53 @@ fn failed_requirement_rejects_without_changing_any_state() {
 }
 
 #[test]
+fn ordered_id_insertion_is_canonical_idempotent_and_queryable() {
+    let mut state = runtime();
+    let first = ActivityProgramDefinition::new(
+        program_id(1),
+        vec![
+            ActivityOperation::InsertOrderedId {
+                slot: slot(3),
+                id: 20,
+            },
+            ActivityOperation::InsertOrderedId {
+                slot: slot(3),
+                id: 10,
+            },
+            ActivityOperation::Require(ActivityCondition::OrderedIdSetContains {
+                slot: slot(3),
+                id: 20,
+            }),
+        ],
+    )
+    .unwrap();
+    first.validate_against(&definition(), &graph()).unwrap();
+    assert!(matches!(
+        state.apply_program(&first, cause(1), &graph()),
+        ActivityTransactionOutcome::Committed(events) if events.len() == 2
+    ));
+    assert_eq!(
+        state.slot(slot(3)),
+        Some(&ActivityValue::OrderedIdSet(
+            vec![10, 20].into_boxed_slice()
+        ))
+    );
+
+    let duplicate = ActivityProgramDefinition::new(
+        program_id(2),
+        vec![ActivityOperation::InsertOrderedId {
+            slot: slot(3),
+            id: 10,
+        }],
+    )
+    .unwrap();
+    assert!(matches!(
+        state.apply_program(&duplicate, cause(2), &graph()),
+        ActivityTransactionOutcome::Committed(events) if events.is_empty()
+    ));
+}
+
+#[test]
 fn conditional_executes_one_final_branch_and_preserves_transactionality() {
     for (initial, expected, expected_node) in [(0, 3, node(1)), (1, 1, node(2))] {
         let mut state = runtime();
@@ -300,6 +347,18 @@ fn definition() -> ActivityStateDefinition {
             SlotCarryPolicy::CarryExact,
             ActivityStateVisibility::Private,
             source(2),
+        )
+        .unwrap(),
+        ActivitySlotDefinition::new_with_policy(
+            slot(3),
+            ActivityScope::Activity,
+            ActivityValue::OrderedIdSet(Vec::new().into_boxed_slice()),
+            None,
+            Some(2),
+            vec![],
+            SlotCarryPolicy::CarryExact,
+            ActivityStateVisibility::Private,
+            source(5),
         )
         .unwrap(),
     ];

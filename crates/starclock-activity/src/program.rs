@@ -47,6 +47,11 @@ pub enum ActivityCondition {
     Boolean(ActivityExpression),
     Equal(ActivityExpression, ActivityExpression),
     LessThan(ActivityExpression, ActivityExpression),
+    /// Tests membership in a canonically ordered stable-ID set.
+    OrderedIdSetContains {
+        slot: ActivitySlotId,
+        id: u64,
+    },
     /// Matches zero-HP, non-alive state in the cross-battle carry ledger.
     ParticipantDefeated(ParticipantId),
     Not(Box<ActivityCondition>),
@@ -126,6 +131,13 @@ pub enum ActivityOperation {
         slot: ActivitySlotId,
         key: u64,
         delta: ActivityExpression,
+    },
+    /// Inserts one non-zero stable ID while preserving canonical set order.
+    ///
+    /// Inserting an existing ID is an accepted no-op.
+    InsertOrderedId {
+        slot: ActivitySlotId,
+        id: u64,
     },
     AddInventory {
         inventory: ActivityInventoryId,
@@ -249,6 +261,16 @@ fn validate_bindings(
                 if definition.kind() != SlotValueKind::BoundedCounterMap
                     || expression_type(delta, state)? != ActivityValueType::Integer
                 {
+                    return Err(ActivityProgramBindingError::TypeMismatch(*slot));
+                }
+            }
+            ActivityOperation::InsertOrderedId { slot, .. } => {
+                let definition = state
+                    .slots()
+                    .iter()
+                    .find(|item| item.id() == *slot)
+                    .ok_or(ActivityProgramBindingError::MissingSlot(*slot))?;
+                if definition.kind() != SlotValueKind::OrderedIdSet {
                     return Err(ActivityProgramBindingError::TypeMismatch(*slot));
                 }
             }
@@ -427,6 +449,19 @@ pub(crate) fn condition_type(
                 return Err(ActivityProgramBindingError::ExpressionTypeMismatch);
             }
         }
+        ActivityCondition::OrderedIdSetContains { slot, id } => {
+            if *id == 0 {
+                return Err(ActivityProgramBindingError::UnsupportedExpressionType);
+            }
+            let definition = state
+                .slots()
+                .iter()
+                .find(|item| item.id() == *slot)
+                .ok_or(ActivityProgramBindingError::MissingSlot(*slot))?;
+            if definition.kind() != SlotValueKind::OrderedIdSet {
+                return Err(ActivityProgramBindingError::TypeMismatch(*slot));
+            }
+        }
         ActivityCondition::ParticipantDefeated(_) => {}
         ActivityCondition::Not(value) => {
             condition_type(value, state)?;
@@ -509,6 +544,11 @@ fn validate_operations(
             | ActivityOperation::AddModifier { stacks: value, .. } => {
                 validate_expression(value, 0)?;
             }
+            ActivityOperation::InsertOrderedId { id, .. } => {
+                if *id == 0 {
+                    return Err(ActivityProgramDefinitionError::InvalidStableId);
+                }
+            }
             ActivityOperation::RestoreParticipant { hp_ratio, .. }
             | ActivityOperation::HealParticipantMaximumHpRatio { hp_ratio, .. }
             | ActivityOperation::LoseParticipantCurrentHpRatio { hp_ratio, .. } => {
@@ -575,6 +615,11 @@ fn validate_condition(
             validate_expression(left, 0)?;
             validate_expression(right, 0)?;
         }
+        ActivityCondition::OrderedIdSetContains { id, .. } => {
+            if *id == 0 {
+                return Err(ActivityProgramDefinitionError::InvalidStableId);
+            }
+        }
         ActivityCondition::ParticipantDefeated(_) => {}
         ActivityCondition::Not(value) => validate_condition(value, depth + 1)?,
         ActivityCondition::All(values) | ActivityCondition::Any(values) => {
@@ -597,6 +642,7 @@ pub enum ActivityProgramDefinitionError {
     ConditionTooDeep,
     EmptyConditionSet,
     CollectionLiteralNotScalar,
+    InvalidStableId,
     InvalidOptionCount,
     NonCanonicalOptions,
     InvalidParticipantRestoration,

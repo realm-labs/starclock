@@ -38,6 +38,7 @@ pub(super) fn compile_state(
     stats: u8,
     auxiliary: u8,
     trailblaze_bonus: Option<u32>,
+    cognition_initial: i64,
     cognition_minimum: i64,
     cognition_maximum: i64,
 ) -> Result<ActivityStateDefinition, GoldAndGearsEntryError> {
@@ -117,7 +118,7 @@ pub(super) fn compile_state(
         )?,
         integer_slot(
             COGNITION_SLOT,
-            0,
+            cognition_initial,
             cognition_minimum,
             cognition_maximum,
             COGNITION_SOURCE,

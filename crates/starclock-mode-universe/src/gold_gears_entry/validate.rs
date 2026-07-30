@@ -179,12 +179,6 @@ pub(super) fn validate_conundrum(
     Ok(())
 }
 
-pub(super) fn parse_integer(value: &str) -> Result<i64, GoldAndGearsEntryError> {
-    value
-        .parse()
-        .map_err(|_| GoldAndGearsEntryError::InvalidCatalog)
-}
-
 fn reject_duplicate(
     values: &[Box<str>],
     error: impl FnOnce(Box<str>) -> GoldAndGearsEntryError,

@@ -39,6 +39,10 @@ pub enum GoldAndGearsEntryError {
     UnknownBeacon(Box<str>),
     MissingMapEvent,
     MapCapacityExceeded,
+    InvalidCognitionRuntime,
+    InvalidCognitionDelta,
+    InvalidCognitionState,
+    InvalidPlaneLayer,
 }
 
 impl core::fmt::Display for GoldAndGearsEntryError {
