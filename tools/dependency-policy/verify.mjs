@@ -89,6 +89,7 @@ assert(JSON.stringify(universeJsonUsers) === JSON.stringify([
   "crates/starclock-mode-universe/src/gold_gears_entry/dice_resolution.rs",
   "crates/starclock-mode-universe/src/gold_gears_entry/knowledge.rs",
   "crates/starclock-mode-universe/src/gold_gears_entry/neural_runtime.rs",
+  "crates/starclock-mode-universe/src/gold_gears_entry/progression_runtime.rs",
   "crates/starclock-mode-universe/src/lowering.rs",
   "crates/starclock-mode-universe/src/occurrence_lowering.rs",
   "crates/starclock-mode-universe/src/rule_lowering.rs"

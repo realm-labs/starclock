@@ -15,6 +15,7 @@ mod knowledge_resolution;
 mod map_overlay;
 mod neural_runtime;
 mod plane_transition;
+mod progression_runtime;
 mod state;
 mod state_layout;
 mod topology;
@@ -50,6 +51,14 @@ pub use neural_runtime::{
     GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralStatContribution,
 };
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
+pub use progression_runtime::{
+    GOLD_AND_GEARS_EXTRAPOLATION_POLICY_ACCURACY, GOLD_AND_GEARS_EXTRAPOLATION_POLICY_REVISION,
+    GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION, GoldAndGearsExtrapolationContext,
+    GoldAndGearsExtrapolationPolarity, GoldAndGearsExtrapolationSelection,
+    GoldAndGearsPathBoostContribution, GoldAndGearsPathBoostStat,
+    GoldAndGearsResonanceContribution, GoldAndGearsResonanceKind, GoldAndGearsResonanceSet,
+    GoldAndGearsTrailblazeBonusPlan, GoldAndGearsTrailblazeOffer,
+};
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
@@ -74,5 +83,7 @@ mod map_overlay_tests;
 mod neural_runtime_tests;
 #[cfg(test)]
 mod phase2_hardening_tests;
+#[cfg(test)]
+mod progression_runtime_tests;
 #[cfg(test)]
 mod tests;

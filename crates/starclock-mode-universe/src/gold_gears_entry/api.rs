@@ -34,6 +34,7 @@ use super::{
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     neural_runtime::{CompiledNeuralRuntime, NeuralRuntimeCatalog},
     plane_transition::PlaneTransitionRuntimeCatalog,
+    progression_runtime::{CompiledProgressionRuntime, ProgressionRuntimeCatalog},
     state::compile_state,
     topology::compile_topology,
     validate::{
@@ -188,6 +189,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) knowledge: Arc<KnowledgeRuntimeCatalog>,
     pub(super) neural: Arc<NeuralRuntimeCatalog>,
     pub(super) conundrum: Arc<ConundrumRuntimeCatalog>,
+    pub(super) progression: Arc<ProgressionRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -220,6 +222,7 @@ impl GoldAndGearsRuntimeFactory {
         let knowledge = KnowledgeRuntimeCatalog::compile(&unique)?;
         let neural = NeuralRuntimeCatalog::compile(&unique)?;
         let conundrum = ConundrumRuntimeCatalog::compile(&unique)?;
+        let progression = ProgressionRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -232,6 +235,7 @@ impl GoldAndGearsRuntimeFactory {
             knowledge: Arc::new(knowledge),
             neural: Arc::new(neural),
             conundrum: Arc::new(conundrum),
+            progression: Arc::new(progression),
         })
     }
 
@@ -310,6 +314,12 @@ impl GoldAndGearsRuntimeFactory {
                 bonus.identity.stable_key.clone(),
             ));
         }
+        let progression_runtime = self.progression.select(
+            &path.identity.stable_key,
+            trailblaze_bonus.map(|bonus| bonus.identity.stable_key.as_ref()),
+            dice_runtime.path_value_id,
+            dice_runtime.path_boost_value_scaled,
+        )?;
         let (cognition_minimum, cognition_maximum) = self.cognition.bounds(area)?;
         let topology = compile_topology(&self.structural, area)?;
         let initial_cosmic_fragments = conundrum_runtime
@@ -369,6 +379,7 @@ impl GoldAndGearsRuntimeFactory {
                 .into_boxed_slice(),
             neural_runtime,
             conundrum_runtime,
+            progression_runtime,
             stats_conundrum: entry.stats_conundrum,
             auxiliary_conundrum: entry.auxiliary_conundrum,
             trailblaze_bonus: trailblaze_bonus.map(|bonus| bonus.identity.stable_key.clone()),
@@ -402,6 +413,7 @@ impl GoldAndGearsRuntimeFactory {
             knowledge: Arc::clone(&self.knowledge),
             cognition: Arc::clone(&self.cognition),
             transitions: Arc::clone(&self.transitions),
+            progression_catalog: Arc::clone(&self.progression),
         })
     }
 
@@ -441,6 +453,7 @@ pub struct GoldAndGearsRuntimeInstance {
     neural_network: Box<[Box<str>]>,
     pub(super) neural_runtime: CompiledNeuralRuntime,
     pub(super) conundrum_runtime: CompiledConundrumRuntime,
+    pub(super) progression_runtime: CompiledProgressionRuntime,
     stats_conundrum: u8,
     auxiliary_conundrum: u8,
     trailblaze_bonus: Option<Box<str>>,
@@ -454,6 +467,7 @@ pub struct GoldAndGearsRuntimeInstance {
     knowledge: Arc<KnowledgeRuntimeCatalog>,
     cognition: Arc<CognitionRuntimeCatalog>,
     transitions: Arc<PlaneTransitionRuntimeCatalog>,
+    pub(super) progression_catalog: Arc<ProgressionRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeInstance {
