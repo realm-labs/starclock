@@ -1,0 +1,305 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-fixture-contract.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "fixture_role": "normalized ReferenceOnly semantic review; no runtime executability or parity claim",
+  "minimum_cases_per_family": 1,
+  "required_fields": [
+    "id",
+    "family_id",
+    "name_en",
+    "name_zh_cn",
+    "source_record_ids",
+    "trigger_point",
+    "state_owner",
+    "preconditions",
+    "input",
+    "ordered_operations",
+    "expected_facts",
+    "evidence_refs",
+    "evidence_quality",
+    "mechanism_quality"
+  ],
+  "field_contracts": {
+    "source_record_ids": "nonempty sorted stable-ID list closing manifest obligations",
+    "trigger_point": "explicit lifecycle boundary; never implied by prose",
+    "state_owner": "battle-local, activity/profile-local or immutable definition owner",
+    "preconditions": "typed canonical facts only",
+    "input": "concrete record IDs, seed/label where random, and typed decision or observation",
+    "ordered_operations": "nonempty deterministic sequence using canonical decimals and stable IDs",
+    "expected_facts": "nonempty typed assertions including rejection/invariance where applicable",
+    "evidence_refs": "nonempty ordered source references"
+  },
+  "determinism": {
+    "random_selection": {
+      "label_format": "galactic-baseballer/{profile-id}/{activity-instance-id}/{decision-kind}/{decision-ordinal}",
+      "sampling": "project integer sampling only",
+      "candidates": "stable ordered Starclock IDs",
+      "forbidden": [
+        "system RNG",
+        "thread RNG",
+        "floating probability draw",
+        "generic shuffle"
+      ]
+    },
+    "ties": "released authored order; otherwise stable Starclock ID ascending with ProjectPolicy evidence",
+    "rejected_input": "authoritative preconditions and expected facts remain byte-identical",
+    "no_legal_candidate": "explicit outcome and continuation; never silent or inferred",
+    "simultaneous_synthesis_and_upgrade": "explicit ordered fixture and approximation record until exact evidence replaces it",
+    "decimal_values": "canonical decimal strings",
+    "operation_order": "asserted in ordered_operations and expected_facts"
+  },
+  "approximation": {
+    "allowed_labels": [
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "required_fields": [
+      "field_path",
+      "unavailable_fact",
+      "known_released_facts",
+      "selected_policy",
+      "rejected_alternatives",
+      "rationale",
+      "affected_fixture_ids",
+      "confidence",
+      "replacement_condition"
+    ],
+    "minimum_rejected_alternatives": 2,
+    "exact_claim_forbidden": true
+  },
+  "required_families": [
+    {
+      "id": "profile-version-selection",
+      "minimum_cases": 1,
+      "must_cover": [
+        "two independent profiles",
+        "retained release",
+        "legal selection",
+        "invalid profile rejection"
+      ]
+    },
+    {
+      "id": "stage-difficulty-selection",
+      "minimum_cases": 1,
+      "must_cover": [
+        "profile-owned stages",
+        "unlock",
+        "difficulty",
+        "initial weapon",
+        "invalid stage rejection"
+      ]
+    },
+    {
+      "id": "wave-battle-phase-progression",
+      "minimum_cases": 1,
+      "must_cover": [
+        "stage period",
+        "ordered wave",
+        "phase transition",
+        "boss boundary",
+        "carry/reset"
+      ]
+    },
+    {
+      "id": "experience-team-level-up",
+      "minimum_cases": 1,
+      "must_cover": [
+        "enemy defeat",
+        "experience award",
+        "threshold",
+        "multi-level crossing",
+        "maximum level"
+      ]
+    },
+    {
+      "id": "random-upgrade-candidates",
+      "minimum_cases": 1,
+      "must_cover": [
+        "eligible pool",
+        "stable candidate order",
+        "labeled RNG",
+        "refresh",
+        "skip",
+        "no legal candidate"
+      ]
+    },
+    {
+      "id": "weapon-acquisition-duplicate-upgrade",
+      "minimum_cases": 1,
+      "must_cover": [
+        "empty slot",
+        "new weapon",
+        "duplicate",
+        "maximum level",
+        "failure invariance"
+      ]
+    },
+    {
+      "id": "accessory-acquisition-duplicate-upgrade",
+      "minimum_cases": 1,
+      "must_cover": [
+        "empty slot",
+        "new accessory",
+        "duplicate",
+        "maximum level",
+        "failure invariance"
+      ]
+    },
+    {
+      "id": "slot-capacity-expansion-replacement",
+      "minimum_cases": 1,
+      "must_cover": [
+        "weapon slots",
+        "accessory slots",
+        "expansion",
+        "full slots",
+        "replacement order"
+      ]
+    },
+    {
+      "id": "weapon-automatic-action",
+      "minimum_cases": 1,
+      "must_cover": [
+        "trigger point",
+        "counter/cooldown",
+        "target order",
+        "ordered operations",
+        "teardown"
+      ]
+    },
+    {
+      "id": "character-action-triggered-weapon",
+      "minimum_cases": 1,
+      "must_cover": [
+        "basic",
+        "skill",
+        "ultimate",
+        "follow-up",
+        "DoT",
+        "break",
+        "summon",
+        "once scope"
+      ]
+    },
+    {
+      "id": "resonance-accessory-binding",
+      "minimum_cases": 1,
+      "must_cover": [
+        "weapon/accessory relationship",
+        "eligibility",
+        "install",
+        "remove",
+        "unrelated accessory"
+      ]
+    },
+    {
+      "id": "legendary-weapon-synthesis",
+      "minimum_cases": 1,
+      "must_cover": [
+        "maximum weapon",
+        "required accessory",
+        "candidate",
+        "consume order",
+        "failure invariance"
+      ]
+    },
+    {
+      "id": "twin-weapon-synthesis",
+      "minimum_cases": 1,
+      "must_cover": [
+        "Demon King profile",
+        "two weapon inputs",
+        "candidate",
+        "consume order",
+        "acyclic graph"
+      ]
+    },
+    {
+      "id": "supreme-weapon-synthesis",
+      "minimum_cases": 1,
+      "must_cover": [
+        "Demon King profile",
+        "advanced prerequisites",
+        "candidate",
+        "consume order",
+        "acyclic graph"
+      ]
+    },
+    {
+      "id": "adventure-strategy",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offer",
+        "acquisition",
+        "level",
+        "effect",
+        "profile boundary"
+      ]
+    },
+    {
+      "id": "team-bonus",
+      "minimum_cases": 1,
+      "must_cover": [
+        "stage binding",
+        "install timing",
+        "battle-visible contribution",
+        "stacking",
+        "teardown"
+      ]
+    },
+    {
+      "id": "galactic-store-progression",
+      "minimum_cases": 1,
+      "must_cover": [
+        "reputation",
+        "Raccoon Coin",
+        "mechanical upgrade",
+        "cost",
+        "unlock",
+        "account reward exclusion"
+      ]
+    },
+    {
+      "id": "score-rating-clear",
+      "minimum_cases": 1,
+      "must_cover": [
+        "damage",
+        "kill",
+        "boss damage",
+        "adventure score",
+        "rating threshold",
+        "clear"
+      ]
+    },
+    {
+      "id": "boss-phase-final-settlement",
+      "minimum_cases": 1,
+      "must_cover": [
+        "boss entry",
+        "phase transition",
+        "final score",
+        "settlement",
+        "profile progression projection"
+      ]
+    },
+    {
+      "id": "no-legal-candidate-failure-invariance",
+      "minimum_cases": 1,
+      "must_cover": [
+        "empty pool",
+        "full/max inventory",
+        "invalid synthesis",
+        "ordered rejection",
+        "byte-identical state"
+      ]
+    }
+  ],
+  "coverage_rule": {
+    "family_coverage": "every required family has at least one semantic review fixture",
+    "rule_coverage": "every family has at least one ReferenceOnly MechanicRule",
+    "manifest_coverage": "all 2,207 target records become DataReady without reducing the denominator",
+    "evidence_only_coverage": "all 25 excluded locator records remain accounted for",
+    "approximation_coverage": "every approximate/policy field resolves to a complete approximation record and affected fixture",
+    "blocking_gap": "no fixture satisfies a Blocked manifest obligation"
+  }
+}

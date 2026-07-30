@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
-| Active phase | Phase 0 — Scope, versions, sources, denominator and contracts |
-| Active batch | `G16-P0-B3` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P0-B4` |
+| Active phase | Phase 0 complete; Phase 1 — Departure and shared base is next |
+| Active batch | `G16-P0-B4` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P1-B1` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -18,6 +18,8 @@
 | Public sources | 5 publisher pages and 11 revision-pinned community mechanical pages; canonical SHA-256 `8560c2be…7fa` |
 | Exact denominator | 2,232 obligations: 2,207 DataReady targets and 25 EvidenceOnly reward/presentation locators |
 | Shared reachability | 22 stages, 22 infinite-stage groups, 74 waves, 74 monster groups, 88 enemy variants, 70 templates, 287 skills and 10 statuses |
+| Authoring contract | 40 normalized file families mapped exactly once to 4 isolated workbooks; `openpyxl==3.1.5`, Sora 0.3.0 and per-sheet/per-column visual review fixed |
+| Semantic contract | 20 ReferenceOnly fixture families and 8 explicit ProjectPolicy boundaries |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl==3.1.5`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -31,8 +33,8 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Foundation, fixed inventories, two independent profile memberships and the 2,232-record exact denominator are frozen; P0-B4 owns authoring and fixture contracts. |
-| Phase 1 — Departure and shared base | `Pending` | Requires frozen P0 denominator and authoring contract. |
+| Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
+| Phase 1 — Departure and shared base | `Pending` | P1-B1 is unblocked by the complete Phase 0 contract. |
 | Phase 2 — Demon King and progression | `Pending` | Requires shared-base identity and explicit edition-difference contract. |
 | Phase 3 — Evidence, Excel and Sora | `Pending` | Requires complete normalized profile data and closed evidence owners. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
@@ -44,7 +46,7 @@
 | `G16-P0-B1` | `Complete` | This row's containing commit | Goal 15 was proven occupied and the work renumbered consistently to Goal 16. Created and dry-run-push-verified `codex/goal16-galactic-baseballer-reference`; proved separate worktree ownership, clean Version 4.4 caches at both pinned revisions, readable source trees and remote connectivity. Froze 20 atomic batches, two non-overwriting profiles, six isolated roots, protected historical/generated roots, official-release-only evidence, openpyxl/Sora authority, 20 semantic families and Candidate-only scope. |
 | `G16-P0-B2` | `Complete` | This row's containing commit | Added a copy-on-write isolated fixed-source reproducer and froze 81 exact Git-blob receipts: 64 `EvolveBuild`/`EvoBdSC` candidate files, 10 shared stage/battle/enemy/TextMap seeds and 7 StarRailRes cross-checks. The 29 dedicated tables expose 697 original/shared plus 831 Demon King rows; candidate programs bring the discovery total to 1,653 JSON rows/objects. Reconciled 1,739 exact hash owners to 3,403 CHS/EN locators without committing prose. Pinned 5 publisher pages and 11 MediaWiki revisions. All inventories regenerated without drift. |
 | `G16-P0-B3` | `Complete` | This row's containing commit | Froze 697 Departure and 831 Demon King dedicated-table rows without cross-profile name/ID inference; retained 35 reference programs, 20 semantic obligations and 25 EvidenceOnly reward/presentation locators. Exact stable-ID recursion closes 22 stages, 22 infinite groups, 74 waves, 74 monster groups, 88 enemy variants, 70 templates, 287 skills and 10 statuses. All 2,232 obligations carry source locators and digests. Three legacy stage references and nine unmatched effect IDs remain counted with explicit replacement boundaries. |
-| `G16-P0-B4` | `Pending` | — | Normalized/authoring/fixture contracts. |
+| `G16-P0-B4` | `Complete` | This row's containing commit | Froze 40 normalized file families, a canonical lossless encoding, typed row/evidence/approximation envelopes, 4 complete isolated workbooks, openpyxl 3.1.5 and Sora 0.3.0 authority, no-overwrite/double-generation requirements and per-sheet/per-column visual QA. Reconciled all 20 semantic families to explicit trigger/owner/precondition/input/operation/expected-fact fixture contracts. Registered 8 ProjectPolicy boundaries, each with two rejected alternatives, rationale, affected fixtures, confidence and replacement condition. |
 | `G16-P1-B1` | `Pending` | — | Departure profile and stages. |
 | `G16-P1-B2` | `Pending` | — | Departure weapons, accessories and synthesis. |
 | `G16-P1-B3` | `Pending` | — | Departure growth loop and inventory boundaries. |
@@ -93,6 +95,8 @@ from this planning list or reduced later.
 | 2026-07-30 | Freeze `EvolveBuild*` and `EvoBdSC*` as candidate source families, not automatic profile membership. | The dedicated families expose the correct mechanics and sequel deltas, but shared tables, retained copies and disabled rows still require selector/reachability proof in P0-B3. |
 | 2026-07-30 | Admit shared stage/wave/enemy records only through exact recursive stable-ID fields. | This closes the combat-content dependency chain without copying shared records or treating similar names and ID ranges as membership evidence. |
 | 2026-07-30 | Retain reward and presentation rows as counted `EvidenceOnly` locators. | Account rewards, story and presentation stay outside the simulation core, while exact-once accounting prevents silent denominator reduction. |
+| 2026-07-30 | Map all 40 normalized files exactly once into four isolated workbooks. | This prevents orphaned staging data, cross-workbook ambiguity and accidental loading of JSON/Excel at runtime. |
+| 2026-07-30 | Require labeled integer RNG and explicit failure traces in semantic fixtures. | Candidate selection, target ties and rejected operations must be replay-safe even while their hidden source behavior remains policy-bound. |
 
 ## Research cases
 
@@ -105,6 +109,16 @@ from this planning list or reduced later.
 | `G16-R05` | `Open` | How do stage phases, waves, elite objectives, bosses and scoring bind to StageConfig and shared enemies? | P1-B4 / P2-B4 |
 | `G16-R06` | `Open` | Which reputation/store/reward rows change mechanics and which are account-only locators? | P2-B3 |
 | `G16-R07` | `Open` | Which Version 3.4+ released corrections are part of retained Version 4.4 behavior? | P2-B1 / P3-B1 |
+
+## Phase 0 verification
+
+| Check | Result |
+|---|---|
+| Isolated source regeneration | `fetch-sources.sh` reproduced both clean fixed revisions; inventory, public-source and manifest verification passed. |
+| Contract double generation | All four generated contracts retained byte-identical SHA-256 values and passed `verify-contracts.mjs`. |
+| Quick repository gate | `fnm exec --using 24.15.0 node tools/repository-check/run.mjs` passed. |
+| Full repository gate | `fnm exec --using 24.15.0 node tools/repository-check/run.mjs --full` passed after installing checksum-bound Sora 0.3.0 in the ignored repository tool cache and supplying the bundled `openpyxl==3.1.5` Python through a temporary PATH alias; 138 test harnesses passed. |
+| Protected outputs | No Standard, other-mode or production generated root changed. |
 
 ## Terminal checklist
 
