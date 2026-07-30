@@ -1,0 +1,110 @@
+[
+  {
+    "id": "galactic-baseballer.release-boundary.departure-gameplay",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ReleaseBoundary",
+    "name_en": "Departure gameplay retention",
+    "name_zh_cn": "启程篇玩法保留",
+    "summary_en": "The released Departure mechanics remain an independently selectable reference profile at the 4.4 baseline.",
+    "summary_zh_cn": "已发布的启程篇机制在 4.4 基线上继续作为可独立选择的资料 Profile。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4deccdb1eda03fc6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "docs/goals/16-galactic-baseballer-reference-data.md",
+        "locator": "profile contract: Departure",
+        "sha256": "4deccdb1eda03fc6457c0c4cebe5cf5eff823aa4cedd2f31e86a45d657041ddb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.hoyowiki-original-entry-2508",
+        "repository_or_url": "https://wiki.hoyolab.com/pc/hsr/entry/2508?lang=en-us",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "original-released-mechanic-cross-check",
+        "locator": "publisher page identity and released-version statement",
+        "sha256": "606251bf5e99d2b9b08abe920c3e42cfe25aa4b60b3b466fd461496fea35be02",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "publisher-operated released mechanic entry cross-check"
+      }
+    ],
+    "tags": [
+      "gameplay",
+      "permanent-retention",
+      "release-boundary"
+    ],
+    "release_order": 1,
+    "surface": "MechanicalGameplay",
+    "disposition": "ReferenceOnlyPermanent",
+    "account_projection": false
+  },
+  {
+    "id": "galactic-baseballer.release-boundary.departure-limited-rewards",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ReleaseBoundary",
+    "name_en": "Departure limited account rewards",
+    "name_zh_cn": "启程篇限时账号奖励",
+    "summary_en": "Limited account rewards remain locators only and do not enter gameplay simulation data.",
+    "summary_zh_cn": "限时账号奖励仅保留定位信息，不进入玩法模拟资料。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4deccdb1eda03fc6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "docs/goals/16-galactic-baseballer-reference-data.md",
+        "locator": "profile contract: Departure",
+        "sha256": "4deccdb1eda03fc6457c0c4cebe5cf5eff823aa4cedd2f31e86a45d657041ddb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-original-event-notice",
+        "repository_or_url": "https://www.hoyolab.com/article/29125952",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "original-released-rules-and-event-window",
+        "locator": "publisher page identity and released-version statement",
+        "sha256": "bcf8afe82b4a51b1dcc082ab43245af68d7242d29bbbfbfe6ed388e8b3c6ea06",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "publisher-operated original event-window and reward-surface locator"
+      }
+    ],
+    "tags": [
+      "account-only",
+      "evidence-only",
+      "release-boundary"
+    ],
+    "release_order": 2,
+    "surface": "LimitedAccountRewards",
+    "disposition": "EvidenceOnly",
+    "account_projection": false
+  }
+]

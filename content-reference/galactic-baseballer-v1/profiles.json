@@ -1,0 +1,84 @@
+[
+  {
+    "id": "galactic-baseballer.departure.v2_2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Profile",
+    "name_en": "Legend of the Galactic Baseballer: Departure",
+    "name_zh_cn": "银河球棒侠传说：启程篇",
+    "summary_en": "Independent Version 2.2 rules profile retained at the Version 4.4 baseline over the shared Galactic Baseballer system.",
+    "summary_zh_cn": "在 Version 4.4 基线上保留的独立 Version 2.2 规则 Profile，共用银河球棒侠基础系统。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0068"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4deccdb1eda03fc6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "docs/goals/16-galactic-baseballer-reference-data.md",
+        "locator": "profile contract: Departure",
+        "sha256": "4deccdb1eda03fc6457c0c4cebe5cf5eff823aa4cedd2f31e86a45d657041ddb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.9d6caf6747a19fc9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=68;ConstValueName=EvolveBuild_EarlyAccess_UnlockQuest",
+        "sha256": "9d6caf6747a19fc9b4c2cd4fb71a920f1a9b47b72d861839d8a41a45f31d5943",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-version-2.2-update",
+        "repository_or_url": "https://www.hoyolab.com/article/28286762",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "original-release-version-entry-and-unlock",
+        "locator": "publisher page identity and released-version statement",
+        "sha256": "c3ffce9990fdca7605fdc37b144ddf750b59eebe237f39f864e24c8a4b908a72",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "publisher-operated released Version 2.2 identity and entry cross-check"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-original-event-notice",
+        "repository_or_url": "https://www.hoyolab.com/article/29125952",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "original-released-rules-and-event-window",
+        "locator": "publisher page identity and released-version statement",
+        "sha256": "bcf8afe82b4a51b1dcc082ab43245af68d7242d29bbbfbfe6ed388e8b3c6ea06",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "publisher-operated original event rules/window cross-check"
+      }
+    ],
+    "tags": [
+      "departure",
+      "profile",
+      "version-2.2"
+    ],
+    "released_version": "2.2",
+    "retained_baseline_version": "4.4",
+    "source_season": "EarlyAccess",
+    "activity_module_id": "5003501",
+    "entry_unlock_quest_id": "6070207",
+    "availability": "PermanentRetainedProfile",
+    "runtime_enabled": false
+  }
+]

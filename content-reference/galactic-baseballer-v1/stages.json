@@ -1,0 +1,764 @@
+[
+  {
+    "id": "galactic-baseballer.departure.stage.414001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Volcanic Planet",
+    "name_zh_cn": "火山星球",
+    "summary_en": "Departure stage 414001, difficulty 1, with exact initial loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "启程篇关卡 414001，难度 1；保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.db3bdbdd502393d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=0;Season=EarlyAccess;StageMergedID=414001",
+        "sha256": "db3bdbdd502393d4ad0585557439557e4f505a4944419290923444ed5e5540e6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage"
+    ],
+    "source_numeric_id": "414001",
+    "source_name_hash": "9257932061750773546",
+    "intro_id": "8141",
+    "season": "EarlyAccess",
+    "difficulty": 1,
+    "weapon_selectable": false,
+    "team_bonus_maze_buff_id": "3106601",
+    "team_bonus_short_desc_hash": "14336167067068109421",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "414011"
+      ],
+      [
+        "414012"
+      ],
+      [
+        "414013"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3106002"
+    ],
+    "trial_avatar_ids": [
+      "1021003",
+      "1031013",
+      "3231110"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3106807",
+        "level": 1
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3106804",
+        "level": 2
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3106805",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3106013",
+      "3106011",
+      "3106010"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.departure.stage.414002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Cogwheel Planet",
+    "name_zh_cn": "齿轮星球",
+    "summary_en": "Departure stage 414002, difficulty 1, with exact initial loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "启程篇关卡 414002，难度 1；保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f9fd5c2082a41260",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=1;Season=EarlyAccess;StageMergedID=414002",
+        "sha256": "f9fd5c2082a41260481a55cb5861df7976c5576eb4680a9afa7c0193d80d8d85",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage"
+    ],
+    "source_numeric_id": "414002",
+    "source_name_hash": "10795403886364513351",
+    "intro_id": "8142",
+    "season": "EarlyAccess",
+    "difficulty": 1,
+    "weapon_selectable": false,
+    "unlock_quest_id": "6070100",
+    "team_bonus_maze_buff_id": "3106602",
+    "team_bonus_short_desc_hash": "14764379924007239001",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "414021"
+      ],
+      [
+        "414022"
+      ],
+      [
+        "414023"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3106004"
+    ],
+    "trial_avatar_ids": [
+      "1031307",
+      "1031005",
+      "1031217"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3106801",
+        "level": 2
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3106805",
+        "level": 1
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3106804",
+        "level": 2
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3106003",
+      "3106011",
+      "3106005"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.departure.stage.414003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Sugarfrost Planet",
+    "name_zh_cn": "糖霜星球",
+    "summary_en": "Departure stage 414003, difficulty 1, with exact initial loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "启程篇关卡 414003，难度 1；保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.af44aa9a95d65b72",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=2;Season=EarlyAccess;StageMergedID=414003",
+        "sha256": "af44aa9a95d65b725ab17105f47fcf4317199bbb8ef98bcc3f580f3388c43115",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage"
+    ],
+    "source_numeric_id": "414003",
+    "source_name_hash": "408230706246897740",
+    "intro_id": "8143",
+    "season": "EarlyAccess",
+    "difficulty": 1,
+    "weapon_selectable": false,
+    "unlock_quest_id": "6070101",
+    "team_bonus_maze_buff_id": "3106603",
+    "team_bonus_short_desc_hash": "3625978097081324340",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "414031"
+      ],
+      [
+        "414032"
+      ],
+      [
+        "414033"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3106005"
+    ],
+    "trial_avatar_ids": [
+      "1031315",
+      "1038005",
+      "1038006",
+      "3231301"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3106811",
+        "level": 1
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3106806",
+        "level": 1
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3106802",
+        "level": 2
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3106804",
+        "level": 2
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3106001",
+      "3106011",
+      "3106008"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.departure.stage.414004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Miniature Planet",
+    "name_zh_cn": "微缩星球",
+    "summary_en": "Departure stage 414004, difficulty 2, with exact initial loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "启程篇关卡 414004，难度 2；保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e3badf26d265793c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=3;Season=EarlyAccess;StageMergedID=414004",
+        "sha256": "e3badf26d265793c6aba97fa3553b3e6bc5baa021d435ddd73f37136bf6bc40d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage"
+    ],
+    "source_numeric_id": "414004",
+    "source_name_hash": "11660257350447558579",
+    "intro_id": "8144",
+    "season": "EarlyAccess",
+    "difficulty": 2,
+    "weapon_selectable": false,
+    "unlock_quest_id": "6070102",
+    "team_bonus_maze_buff_id": "3106605",
+    "team_bonus_short_desc_hash": "14786541339805178605",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "414041"
+      ],
+      [
+        "414042"
+      ],
+      [
+        "414043"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3106007"
+    ],
+    "trial_avatar_ids": [
+      "3231305",
+      "3231112",
+      "1031309"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3106805",
+        "level": 2
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3106801",
+        "level": 2
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3106812",
+        "level": 2
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3106809",
+        "level": 2
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3106813",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3106009",
+      "3106001",
+      "3106002"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.departure.stage.414006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Blissdream Planet",
+    "name_zh_cn": "甜梦星球",
+    "summary_en": "Departure stage 414006, difficulty 2, with exact initial loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "启程篇关卡 414006，难度 2；保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4e7a642fec9bd991",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=4;Season=EarlyAccess;StageMergedID=414006",
+        "sha256": "4e7a642fec9bd99172011284c7453a86005cc5b5b0c9bb55066fa299431acb45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage"
+    ],
+    "source_numeric_id": "414006",
+    "source_name_hash": "11351957689659610707",
+    "intro_id": "8146",
+    "season": "EarlyAccess",
+    "difficulty": 2,
+    "weapon_selectable": false,
+    "unlock_quest_id": "6070103",
+    "team_bonus_maze_buff_id": "3106606",
+    "team_bonus_short_desc_hash": "6856358679217141938",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "414061"
+      ],
+      [
+        "414062"
+      ],
+      [
+        "414063"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3106012"
+    ],
+    "trial_avatar_ids": [
+      "3231308",
+      "3231106",
+      "3231304"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3106808",
+        "level": 2
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3106802",
+        "level": 3
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3106811",
+        "level": 2
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3106812",
+        "level": 2
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3106804",
+        "level": 3
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3106010",
+      "3106009",
+      "3106003"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.departure.stage.414007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Eternal Black Hole",
+    "name_zh_cn": "永恒黑洞",
+    "summary_en": "Departure stage 414007, difficulty 3, with exact initial loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "启程篇关卡 414007，难度 3；保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1a2321951ce5c7b9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=5;Season=EarlyAccess;StageMergedID=414007",
+        "sha256": "1a2321951ce5c7b9d9bf58c04a1410a9da70a38743ec46dd09d85e4f8a51016e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage"
+    ],
+    "source_numeric_id": "414007",
+    "source_name_hash": "5254692243005458607",
+    "intro_id": "8140",
+    "season": "EarlyAccess",
+    "difficulty": 3,
+    "weapon_selectable": true,
+    "unlock_quest_id": "6070105",
+    "team_bonus_maze_buff_id": "3106607",
+    "team_bonus_short_desc_hash": "11468319368737061146",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "414101",
+        "414102",
+        "414103",
+        "414104",
+        "414105",
+        "414106",
+        "414107",
+        "414108",
+        "414109",
+        "414110",
+        "414111",
+        "414112"
+      ],
+      [
+        "414201",
+        "414202",
+        "414203",
+        "414204",
+        "414205",
+        "414206",
+        "414207",
+        "414208",
+        "414209",
+        "414210",
+        "414211",
+        "414212"
+      ],
+      [
+        "414301",
+        "414302",
+        "414303",
+        "414304",
+        "414305",
+        "414306"
+      ],
+      [
+        "414999"
+      ]
+    ],
+    "initial_weapon_ids": [],
+    "trial_avatar_ids": [
+      "1021003",
+      "1031013",
+      "3231110",
+      "1031307",
+      "1031005",
+      "1031217",
+      "1031315",
+      "1038005",
+      "1038006",
+      "3231301",
+      "3231305",
+      "3231112",
+      "1031309",
+      "3231308",
+      "3231106",
+      "3231304"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3106814",
+        "level": 1
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3106804",
+        "level": 4
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3106809",
+        "level": 3
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3106812",
+        "level": 2
+      }
+    ],
+    "recommended_accessory_ids": [],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  }
+]

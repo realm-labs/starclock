@@ -1,0 +1,5551 @@
+[
+  {
+    "id": "galactic-baseballer.departure.stage-period.3097",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 3097",
+    "name_zh_cn": "启程篇关卡阶段 3097",
+    "summary_en": "Ordered Departure stage-period definition 3097 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 3097，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fccb44a3023eccfc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=0;StagePeriodID=3097;StageID=3097",
+        "sha256": "fccb44a3023eccfc81ae94cb027adf4cd4e5b38069e99a8fe93076ec587c4ad5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legacy-stage-reference"
+    ],
+    "source_numeric_id": "3097",
+    "shared_stage_config_id": "3097",
+    "battle_event_id": "414011",
+    "period_rank": "PeriodFirst",
+    "wave_count": 10,
+    "countdown_by_wave": [
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "deadline_position": "0.4",
+    "stage_score": 1500,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": true
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.3098",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 3098",
+    "name_zh_cn": "启程篇关卡阶段 3098",
+    "summary_en": "Ordered Departure stage-period definition 3098 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 3098，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.758daf25322e6598",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=1;StagePeriodID=3098;StageID=3098",
+        "sha256": "758daf25322e6598f55f212487cee3ea397a2ceb60297ee33ad0a4a629ff5e57",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legacy-stage-reference"
+    ],
+    "source_numeric_id": "3098",
+    "shared_stage_config_id": "3098",
+    "battle_event_id": "414012",
+    "period_rank": "PeriodSecond",
+    "wave_count": 10,
+    "countdown_by_wave": [
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "deadline_position": "0.6",
+    "stage_score": 3500,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": true
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.3099",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 3099",
+    "name_zh_cn": "启程篇关卡阶段 3099",
+    "summary_en": "Ordered Departure stage-period definition 3099 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 3099，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5e92e9b2507d5a11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=2;StagePeriodID=3099;StageID=3099",
+        "sha256": "5e92e9b2507d5a117d8238d600da73c5b91d6468240ce3d9d270c3161f4fea75",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "legacy-stage-reference"
+    ],
+    "source_numeric_id": "3099",
+    "shared_stage_config_id": "3099",
+    "battle_event_id": "414013",
+    "period_rank": "PeriodThird",
+    "wave_count": 10,
+    "countdown_by_wave": [
+      20,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "stage_score": 5000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": true
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414001",
+    "name_zh_cn": "启程篇关卡阶段 414001",
+    "summary_en": "Ordered Departure stage-period definition 414001 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414001，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.083cf0a1ccf3be2c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=3;StagePeriodID=414001;StageID=4140016",
+        "sha256": "083cf0a1ccf3be2c8a1b363aa9c95678ebbc32ea4a4ebd6bda3b1f92e0a1c904",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414001",
+    "shared_stage_config_id": "4140016",
+    "battle_event_id": "414001",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      99,
+      99,
+      99,
+      99
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414002",
+    "name_zh_cn": "启程篇关卡阶段 414002",
+    "summary_en": "Ordered Departure stage-period definition 414002 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414002，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.694c1eb39b0f3c84",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=4;StagePeriodID=414002;StageID=4140026",
+        "sha256": "694c1eb39b0f3c8432eb1dd66794b24086de970010bcaa08c2e06fd15ee3f6c0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414002",
+    "shared_stage_config_id": "4140026",
+    "battle_event_id": "414002",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      99,
+      99,
+      99
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414011",
+    "name_zh_cn": "启程篇关卡阶段 414011",
+    "summary_en": "Ordered Departure stage-period definition 414011 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414011，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.597e7e0e8760c9ee",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=5;StagePeriodID=414011;StageID=4140116",
+        "sha256": "597e7e0e8760c9ee13a6218efb99b4d0a638e75c33d361a757cb85ccb15ece30",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414011",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414001",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414011",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414012",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414012",
+    "name_zh_cn": "启程篇关卡阶段 414012",
+    "summary_en": "Ordered Departure stage-period definition 414012 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414012，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7bcae4f3a4405704",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=6;StagePeriodID=414012;StageID=4140126",
+        "sha256": "7bcae4f3a44057048b94f9c13ea1853a00108f2f0a9f444428684dcfb1804c6a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414012",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414001",
+    "shared_stage_config_id": "4140126",
+    "battle_event_id": "414012",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414013",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414013",
+    "name_zh_cn": "启程篇关卡阶段 414013",
+    "summary_en": "Ordered Departure stage-period definition 414013 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414013，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1617393df605d8ed",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=7;StagePeriodID=414013;StageID=4140136",
+        "sha256": "1617393df605d8edb39a86e4d3dc898bb9cdbda3b0eb4cdc1feccb3ade7cc562",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414013",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414001",
+    "shared_stage_config_id": "4140136",
+    "battle_event_id": "414013",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012101",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414021",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414021",
+    "name_zh_cn": "启程篇关卡阶段 414021",
+    "summary_en": "Ordered Departure stage-period definition 414021 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414021，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4c3b3574959e5ce2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=8;StagePeriodID=414021;StageID=4140116",
+        "sha256": "4c3b3574959e5ce221a84aa3a38887226b85d9a2b7c511bf7bc00a7c25705f3d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414021",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414002",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414021",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2013602",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414022",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414022",
+    "name_zh_cn": "启程篇关卡阶段 414022",
+    "summary_en": "Ordered Departure stage-period definition 414022 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414022，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.085e3d780ad63042",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=9;StagePeriodID=414022;StageID=4140116",
+        "sha256": "085e3d780ad63042eb0a8ec722f0b857f503f9fe5d0c7ac5900110e6340734bf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414022",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414002",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414022",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2013602",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414023",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414023",
+    "name_zh_cn": "启程篇关卡阶段 414023",
+    "summary_en": "Ordered Departure stage-period definition 414023 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414023，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d0db678e249659a0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=10;StagePeriodID=414023;StageID=4140116",
+        "sha256": "d0db678e249659a0f339923cd2a95ca37026a15bc0f2da3bbdcdb5030f5da5c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414023",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414002",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414023",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2013602",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414031",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414031",
+    "name_zh_cn": "启程篇关卡阶段 414031",
+    "summary_en": "Ordered Departure stage-period definition 414031 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414031，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.551c82ebcd6d2ad8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=11;StagePeriodID=414031;StageID=4140116",
+        "sha256": "551c82ebcd6d2ad8e13225ecaa693436ff430774112db4d51179c05d08354591",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414031",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414003",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414031",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414032",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414032",
+    "name_zh_cn": "启程篇关卡阶段 414032",
+    "summary_en": "Ordered Departure stage-period definition 414032 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414032，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a341a9ab180a018b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=12;StagePeriodID=414032;StageID=4140116",
+        "sha256": "a341a9ab180a018bfe2a2d7a3726d962c5810870fe5cb802203f4810a7c7fa4c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414032",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414003",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414032",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414033",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414033",
+    "name_zh_cn": "启程篇关卡阶段 414033",
+    "summary_en": "Ordered Departure stage-period definition 414033 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414033，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0013"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9c51d98617bae45f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=13;StagePeriodID=414033;StageID=4140116",
+        "sha256": "9c51d98617bae45f7e560703e1d16131e1e9d998e299b6e534d4d71f2d7c8e1d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414033",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414003",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414033",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414041",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414041",
+    "name_zh_cn": "启程篇关卡阶段 414041",
+    "summary_en": "Ordered Departure stage-period definition 414041 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414041，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8091370194c7c855",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=14;StagePeriodID=414041;StageID=4140116",
+        "sha256": "8091370194c7c8555fa623ea927bd1d3a262e93118d2665875a5dd3ec34cf4ea",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414041",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414004",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414041",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414042",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414042",
+    "name_zh_cn": "启程篇关卡阶段 414042",
+    "summary_en": "Ordered Departure stage-period definition 414042 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414042，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.98b9bd119a86203a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=15;StagePeriodID=414042;StageID=4140116",
+        "sha256": "98b9bd119a86203ac7543c8fa990680c950e0f7e9d879f2dcb2cd3a574362fcc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414042",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414004",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414042",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414043",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414043",
+    "name_zh_cn": "启程篇关卡阶段 414043",
+    "summary_en": "Ordered Departure stage-period definition 414043 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414043，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e418357bc2a685a0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=16;StagePeriodID=414043;StageID=4140116",
+        "sha256": "e418357bc2a685a0dc6365baad50286766d1976ffddbcce74d50f49e91b3bece",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414043",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414004",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414043",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021101",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414051",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414051",
+    "name_zh_cn": "启程篇关卡阶段 414051",
+    "summary_en": "Ordered Departure stage-period definition 414051 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414051，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0017"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.00a8d87e405049b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=17;StagePeriodID=414051;StageID=4140116",
+        "sha256": "00a8d87e405049b25062d8a14f3b47c11263d2bed50b278a5acddb02e3f2a796",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414051",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414051",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414052",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414052",
+    "name_zh_cn": "启程篇关卡阶段 414052",
+    "summary_en": "Ordered Departure stage-period definition 414052 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414052，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0018"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.611a44d264f3462d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=18;StagePeriodID=414052;StageID=4140116",
+        "sha256": "611a44d264f3462d68a6fc0f8b810107cd45216625356f6f97550ff0b7a1c0f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414052",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414052",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414053",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414053",
+    "name_zh_cn": "启程篇关卡阶段 414053",
+    "summary_en": "Ordered Departure stage-period definition 414053 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414053，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0019"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d7b4ed2d7356d195",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=19;StagePeriodID=414053;StageID=4140116",
+        "sha256": "d7b4ed2d7356d195681fd443613ba1f83750a14a8e2bfebe2f023e109fd0904a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414053",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414053",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414061",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414061",
+    "name_zh_cn": "启程篇关卡阶段 414061",
+    "summary_en": "Ordered Departure stage-period definition 414061 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414061，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0020"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7cab2e880dbc2ad9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=20;StagePeriodID=414061;StageID=4140116",
+        "sha256": "7cab2e880dbc2ad93c8bed0a10fe7b2998a5fbb0d4a59ad63e1db6ef3e079a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414061",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414061",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414062",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414062",
+    "name_zh_cn": "启程篇关卡阶段 414062",
+    "summary_en": "Ordered Departure stage-period definition 414062 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414062，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0021"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fe18a958d9808315",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=21;StagePeriodID=414062;StageID=4140116",
+        "sha256": "fe18a958d9808315049cf850ee58361ab91b54dec53977d900536af32ce3b18e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414062",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414062",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414063",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414063",
+    "name_zh_cn": "启程篇关卡阶段 414063",
+    "summary_en": "Ordered Departure stage-period definition 414063 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414063，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0022"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ff58bb768eedd64d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=22;StagePeriodID=414063;StageID=4140116",
+        "sha256": "ff58bb768eedd64d76bf1ffd70206f133d604a8966f70c69a219c89d4c19b7f2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414063",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414063",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414101",
+    "name_zh_cn": "启程篇关卡阶段 414101",
+    "summary_en": "Ordered Departure stage-period definition 414101 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414101，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0023"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f75f5778081ea6d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=23;StagePeriodID=414101;StageID=4140116",
+        "sha256": "f75f5778081ea6d47c3560d9c6832732cbb30f177d701524b0d148804718e285",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414101",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414101",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414102",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414102",
+    "name_zh_cn": "启程篇关卡阶段 414102",
+    "summary_en": "Ordered Departure stage-period definition 414102 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414102，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0024"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5ea0d63854335e5d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=24;StagePeriodID=414102;StageID=4140116",
+        "sha256": "5ea0d63854335e5df0b012c085fd20873b37f3b2421fe635563a5b39e6ed12e2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414102",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414102",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414103",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414103",
+    "name_zh_cn": "启程篇关卡阶段 414103",
+    "summary_en": "Ordered Departure stage-period definition 414103 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414103，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0025"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7551aea656515f3e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=25;StagePeriodID=414103;StageID=4140116",
+        "sha256": "7551aea656515f3eb50719926801b89ea71d601d1389b01186ee6ab6a8921def",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414103",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414103",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021201",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414104",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414104",
+    "name_zh_cn": "启程篇关卡阶段 414104",
+    "summary_en": "Ordered Departure stage-period definition 414104 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414104，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0026"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c026b949f5f5c12a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=26;StagePeriodID=414104;StageID=4140116",
+        "sha256": "c026b949f5f5c12ab9e6764a9288c4e0af15f708f98c58e2e475067ce4eb7f95",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414104",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414104",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2011101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414105",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414105",
+    "name_zh_cn": "启程篇关卡阶段 414105",
+    "summary_en": "Ordered Departure stage-period definition 414105 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414105，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0027"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b7535e7ed4c0ab7c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=27;StagePeriodID=414105;StageID=4140116",
+        "sha256": "b7535e7ed4c0ab7cc42858efda547ba3a16d99f17735e707325130fcdacdd9dc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414105",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414105",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414106",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414106",
+    "name_zh_cn": "启程篇关卡阶段 414106",
+    "summary_en": "Ordered Departure stage-period definition 414106 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414106，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0028"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.054dc4103653ff14",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=28;StagePeriodID=414106;StageID=4140116",
+        "sha256": "054dc4103653ff140b10be7b6e2277b504cd05b436236234d5523e910d8cac1f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414106",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414106",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414107",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414107",
+    "name_zh_cn": "启程篇关卡阶段 414107",
+    "summary_en": "Ordered Departure stage-period definition 414107 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414107，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0029"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1c2affa9e1a4781f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=29;StagePeriodID=414107;StageID=4140116",
+        "sha256": "1c2affa9e1a4781fc57c1847fe7edced54f5b9c255bf4e4eeb9908134d53ce4e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414107",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414107",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414108",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414108",
+    "name_zh_cn": "启程篇关卡阶段 414108",
+    "summary_en": "Ordered Departure stage-period definition 414108 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414108，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4352ae57322bd8b0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=30;StagePeriodID=414108;StageID=4140116",
+        "sha256": "4352ae57322bd8b0fddac75640903a5e08f3c0e467595ff9d1b3cf8b12dd3b11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414108",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414108",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021201",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414109",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414109",
+    "name_zh_cn": "启程篇关卡阶段 414109",
+    "summary_en": "Ordered Departure stage-period definition 414109 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414109，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0031"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.097e64aec244765e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=31;StagePeriodID=414109;StageID=4140116",
+        "sha256": "097e64aec244765e52e7d021f9d4af3fbebccba12420bcb11da27ad00b16f0dd",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414109",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414109",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414110",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414110",
+    "name_zh_cn": "启程篇关卡阶段 414110",
+    "summary_en": "Ordered Departure stage-period definition 414110 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414110，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0032"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b48399a040b8f660",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=32;StagePeriodID=414110;StageID=4140116",
+        "sha256": "b48399a040b8f6600c37910ca3bba0c4be22814717c7a6ebd66dcaabccca86a8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414110",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414110",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414111",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414111",
+    "name_zh_cn": "启程篇关卡阶段 414111",
+    "summary_en": "Ordered Departure stage-period definition 414111 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414111，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0033"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.90df8de749fdb4aa",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=33;StagePeriodID=414111;StageID=4140116",
+        "sha256": "90df8de749fdb4aa6ebc716b312372d9de86a14e192412974845cd02fbf1a2b7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414111",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414111",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414112",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414112",
+    "name_zh_cn": "启程篇关卡阶段 414112",
+    "summary_en": "Ordered Departure stage-period definition 414112 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414112，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0034"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8e7bc7b8b5cdd210",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=34;StagePeriodID=414112;StageID=4140116",
+        "sha256": "8e7bc7b8b5cdd210f8b3773144196bfef95e2cbb869fa2d04c282cda739c1853",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414112",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414112",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414201",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414201",
+    "name_zh_cn": "启程篇关卡阶段 414201",
+    "summary_en": "Ordered Departure stage-period definition 414201 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414201，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0035"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fc86df978c18ed40",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=35;StagePeriodID=414201;StageID=4140116",
+        "sha256": "fc86df978c18ed40211d6d20932f6835871139d60eb6cf52f0b912860ddcc212",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414201",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414201",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2011101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414202",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414202",
+    "name_zh_cn": "启程篇关卡阶段 414202",
+    "summary_en": "Ordered Departure stage-period definition 414202 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414202，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0036"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.95ac120a0bf67c77",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=36;StagePeriodID=414202;StageID=4140116",
+        "sha256": "95ac120a0bf67c77d1f955338c3a52fff7a5b1f03c49e023e5422fd9b009bba5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414202",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414202",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414203",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414203",
+    "name_zh_cn": "启程篇关卡阶段 414203",
+    "summary_en": "Ordered Departure stage-period definition 414203 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414203，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0037"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d3a6a6119f56ae2e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=37;StagePeriodID=414203;StageID=4140116",
+        "sha256": "d3a6a6119f56ae2e9a3ac5d2acc699c31b4065223563f05bcd1a2294c543d6c1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414203",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414203",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414204",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414204",
+    "name_zh_cn": "启程篇关卡阶段 414204",
+    "summary_en": "Ordered Departure stage-period definition 414204 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414204，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0038"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e7f3f66f75c7dbe8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=38;StagePeriodID=414204;StageID=4140116",
+        "sha256": "e7f3f66f75c7dbe81a5f6b8fdf8c108f0fea3d4f99cecf8763333c1182a3c6d3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414204",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414204",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021201",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414205",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414205",
+    "name_zh_cn": "启程篇关卡阶段 414205",
+    "summary_en": "Ordered Departure stage-period definition 414205 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414205，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0039"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6432c88194fe933d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=39;StagePeriodID=414205;StageID=4140116",
+        "sha256": "6432c88194fe933d88ac23e2c51a7cf56dea4cf40d34a1848ad992298ae7f3e8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414205",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414205",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414206",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414206",
+    "name_zh_cn": "启程篇关卡阶段 414206",
+    "summary_en": "Ordered Departure stage-period definition 414206 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414206，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0040"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.33174eab2ec575d5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=40;StagePeriodID=414206;StageID=4140116",
+        "sha256": "33174eab2ec575d586987287e6e60e433e58c86b46dcdc22a40877085f176aec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414206",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414206",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414207",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414207",
+    "name_zh_cn": "启程篇关卡阶段 414207",
+    "summary_en": "Ordered Departure stage-period definition 414207 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414207，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0041"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.dd96f7639cf6c18c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=41;StagePeriodID=414207;StageID=4140116",
+        "sha256": "dd96f7639cf6c18cec5cbb440968ea6d38c840157060868d7926ed6629b47a1a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414207",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414207",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414208",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414208",
+    "name_zh_cn": "启程篇关卡阶段 414208",
+    "summary_en": "Ordered Departure stage-period definition 414208 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414208，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0042"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.66822c4837274705",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=42;StagePeriodID=414208;StageID=4140116",
+        "sha256": "66822c483727470599b370e6b85e76b775659cf5ae7664c03f7d1c14380cf157",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414208",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414208",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414209",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414209",
+    "name_zh_cn": "启程篇关卡阶段 414209",
+    "summary_en": "Ordered Departure stage-period definition 414209 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414209，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0043"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0bb102d1836804a8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=43;StagePeriodID=414209;StageID=4140116",
+        "sha256": "0bb102d1836804a812efa58d632913f3d1d8670dd72ad6b94d39b1fe330b6f5c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414209",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414209",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414210",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414210",
+    "name_zh_cn": "启程篇关卡阶段 414210",
+    "summary_en": "Ordered Departure stage-period definition 414210 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414210，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0044"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.72a2186bca6a75ac",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=44;StagePeriodID=414210;StageID=4140116",
+        "sha256": "72a2186bca6a75ac1f47125e39dcb2d3f704a38bca9170ceb80be17689dcd3b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414210",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414210",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414211",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414211",
+    "name_zh_cn": "启程篇关卡阶段 414211",
+    "summary_en": "Ordered Departure stage-period definition 414211 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414211，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0045"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c055bdf81dd92501",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=45;StagePeriodID=414211;StageID=4140116",
+        "sha256": "c055bdf81dd92501bd075d5bbf5793610bbed44a881ad3c82e2aa75907586fa9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414211",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414211",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021101",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414212",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414212",
+    "name_zh_cn": "启程篇关卡阶段 414212",
+    "summary_en": "Ordered Departure stage-period definition 414212 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414212，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0046"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0eff5177355fba8a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=46;StagePeriodID=414212;StageID=4140116",
+        "sha256": "0eff5177355fba8a1ea175b7e372894cc562cae85ae8b68482e6caf39c1905fa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414212",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414212",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414301",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414301",
+    "name_zh_cn": "启程篇关卡阶段 414301",
+    "summary_en": "Ordered Departure stage-period definition 414301 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414301，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0047"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e5c37fc6ba2e27f3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=47;StagePeriodID=414301;StageID=4140116",
+        "sha256": "e5c37fc6ba2e27f363b178cfe2800145994b0471aee219ad05f1e6cf724371ca",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414301",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414301",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2013602",
+    "deadline_position": "1",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414302",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414302",
+    "name_zh_cn": "启程篇关卡阶段 414302",
+    "summary_en": "Ordered Departure stage-period definition 414302 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414302，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0048"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1d24eab2ea44463a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=48;StagePeriodID=414302;StageID=4140116",
+        "sha256": "1d24eab2ea44463a9b1546a62589f3c55d8c60547ffda186b2888a7c6795ae26",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414302",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414302",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012201",
+    "deadline_position": "1",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414303",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414303",
+    "name_zh_cn": "启程篇关卡阶段 414303",
+    "summary_en": "Ordered Departure stage-period definition 414303 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414303，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0049"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d6230a4d9333cb3b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=49;StagePeriodID=414303;StageID=4140116",
+        "sha256": "d6230a4d9333cb3b99111c4a8985d6ea3f28342b035932addafab9055962fdac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414303",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414303",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "1",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414304",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414304",
+    "name_zh_cn": "启程篇关卡阶段 414304",
+    "summary_en": "Ordered Departure stage-period definition 414304 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414304，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0050"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.36dcd90b653a1e45",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=50;StagePeriodID=414304;StageID=4140116",
+        "sha256": "36dcd90b653a1e4516cacc56d38a926a2b5652f715604cfb5bba7c539c458a1e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414304",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414304",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2022101",
+    "deadline_position": "1",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414305",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414305",
+    "name_zh_cn": "启程篇关卡阶段 414305",
+    "summary_en": "Ordered Departure stage-period definition 414305 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414305，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0051"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5597eb376c6a46a8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=51;StagePeriodID=414305;StageID=4140116",
+        "sha256": "5597eb376c6a46a8a7e42f30b693c9036fec599d3f76562207848ff056ead758",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414305",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414305",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "1",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414306",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414306",
+    "name_zh_cn": "启程篇关卡阶段 414306",
+    "summary_en": "Ordered Departure stage-period definition 414306 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414306，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0052"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.22fde0c4915622c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=52;StagePeriodID=414306;StageID=4140116",
+        "sha256": "22fde0c4915622c498511606a2cf5cdc4b8fe4e1e5a6cf945aec5ca3454fd8e8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414306",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414306",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031102",
+    "deadline_position": "1",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414901",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414901",
+    "name_zh_cn": "启程篇关卡阶段 414901",
+    "summary_en": "Ordered Departure stage-period definition 414901 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414901，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0053"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2b55e3b5a4eda3dc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=53;StagePeriodID=414901;StageID=4140116",
+        "sha256": "2b55e3b5a4eda3dcf8ee04233fb06704788af27c29c316a346618fc695ce7872",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414901",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414901",
+    "period_rank": "PeriodThird",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      3,
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414902",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414902",
+    "name_zh_cn": "启程篇关卡阶段 414902",
+    "summary_en": "Ordered Departure stage-period definition 414902 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414902，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0054"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ab4a456f5b6f1446",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=54;StagePeriodID=414902;StageID=4140116",
+        "sha256": "ab4a456f5b6f144610380dc0b48b09c840c8095e313412c74b65264f51bc4d22",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414902",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414902",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      3,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "deadline_position": "0.24",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414903",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414903",
+    "name_zh_cn": "启程篇关卡阶段 414903",
+    "summary_en": "Ordered Departure stage-period definition 414903 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414903，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0055"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.335d01f43747ffff",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=55;StagePeriodID=414903;StageID=4140116",
+        "sha256": "335d01f43747ffff4716dd356de4363e778cf3396cb183838405afeec268fd3e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414903",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414903",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      3,
+      1,
+      6
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.departure.stage-period.414999",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Departure stage period 414999",
+    "name_zh_cn": "启程篇关卡阶段 414999",
+    "summary_en": "Ordered Departure stage-period definition 414999 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "启程篇有序关卡阶段定义 414999，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStagePeriod:0056"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e5328ae11647aa5d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStagePeriod.json",
+        "locator": "row=56;StagePeriodID=414999;StageID=4140116",
+        "sha256": "e5328ae11647aa5dab23acda3bf78cb651ce5c4da050fc8dad34c627a5edfd01",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "stage-period"
+    ],
+    "source_numeric_id": "414999",
+    "parent_stage_id": "galactic-baseballer.departure.stage.414007",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "414999",
+    "period_rank": "PeriodExtra",
+    "wave_count": 1,
+    "countdown_by_wave": [
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 60000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031201",
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  }
+]
