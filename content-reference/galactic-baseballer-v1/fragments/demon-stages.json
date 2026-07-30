@@ -1,0 +1,930 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.stage.424000",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Initial Planet",
+    "name_zh_cn": "初始星球",
+    "summary_en": "Demon King origin stage 424000 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇初始关卡 424000，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7bf279a53a71d8d6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=0;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "7bf279a53a71d8d67ac2f66e93d4726576708a300aa73855cd6e852709742230",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "origin-stage"
+    ],
+    "source_numeric_id": "424000",
+    "source_name_hash": "14828109482724934485",
+    "stage_role": "Origin",
+    "intro_id": "8340",
+    "season": "SecondChapter",
+    "difficulty": 0,
+    "weapon_selectable": false,
+    "first_win_quest_ids": [],
+    "team_bonus_maze_buff_id": "3113607",
+    "team_bonus_short_desc_hash": "5287587947546140338",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424001"
+      ],
+      [
+        "424002"
+      ],
+      [],
+      []
+    ],
+    "initial_weapon_ids": [],
+    "trial_avatar_ids": [
+      "3231406",
+      "1048001",
+      "1048002",
+      "3231306",
+      "3231222"
+    ],
+    "recommended_weapon_levels": [],
+    "recommended_accessory_ids": [],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage.424001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "V612 - Volcanic Planet",
+    "name_zh_cn": "V612-火山星球",
+    "summary_en": "Demon King challenge stage 424001 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇挑战关卡 424001，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b73bb56751a0c20e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=1;Season=SecondChapter;StageMergedID=424001",
+        "sha256": "b73bb56751a0c20eedf90822c3628a87fe8680436b82cbc909a0aab19f298ac2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage"
+    ],
+    "source_numeric_id": "424001",
+    "source_name_hash": "1754845076014534583",
+    "stage_role": "Challenge",
+    "intro_id": "8341",
+    "season": "SecondChapter",
+    "difficulty": 1,
+    "weapon_selectable": false,
+    "first_win_quest_ids": [
+      "6070245"
+    ],
+    "team_bonus_maze_buff_id": "3113602",
+    "team_bonus_short_desc_hash": "11711600900612697482",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424011"
+      ],
+      [
+        "424012"
+      ],
+      [
+        "424013"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3113003"
+    ],
+    "trial_avatar_ids": [
+      "3231402",
+      "3231313",
+      "3231217",
+      "3231101",
+      "3238007",
+      "3238008"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3113805",
+        "level": 2
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3113808",
+        "level": 1
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3113804",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3113012",
+      "3113009",
+      "3113007"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage.424002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "C996 - Cogwheel Planet",
+    "name_zh_cn": "C996-齿轮星球",
+    "summary_en": "Demon King challenge stage 424002 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇挑战关卡 424002，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e0d008a88738fe5f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=2;Season=SecondChapter;StageMergedID=424002",
+        "sha256": "e0d008a88738fe5fbe0ef383c71a86deda1d89f14d292c4ef9da46ae43f1ccae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage"
+    ],
+    "source_numeric_id": "424002",
+    "source_name_hash": "11431062380728312233",
+    "stage_role": "Challenge",
+    "intro_id": "8342",
+    "season": "SecondChapter",
+    "difficulty": 1,
+    "weapon_selectable": false,
+    "first_win_quest_ids": [
+      "6070246"
+    ],
+    "unlock_quest_id": "6070210",
+    "team_bonus_maze_buff_id": "3113601",
+    "team_bonus_short_desc_hash": "13609631575910613349",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424021"
+      ],
+      [
+        "424022"
+      ],
+      [
+        "424023"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3113009"
+    ],
+    "trial_avatar_ids": [
+      "3231401",
+      "3321403",
+      "3231405",
+      "3231314",
+      "3231217"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3113808",
+        "level": 1
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3113806",
+        "level": 1
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3113805",
+        "level": 2
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3113810",
+        "level": 1
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3113812",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3113008",
+      "3113006",
+      "3113005"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage.424003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "F233 - Sugarfrost Planet",
+    "name_zh_cn": "F233-糖霜星球",
+    "summary_en": "Demon King challenge stage 424003 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇挑战关卡 424003，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e15d4b0c993d6542",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=3;Season=SecondChapter;StageMergedID=424003",
+        "sha256": "e15d4b0c993d65426b5f4c62e91ccb3f2627bfae1e6034ac62db911ce0cbaf7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage"
+    ],
+    "source_numeric_id": "424003",
+    "source_name_hash": "4729319614463936291",
+    "stage_role": "Challenge",
+    "intro_id": "8343",
+    "season": "SecondChapter",
+    "difficulty": 1,
+    "weapon_selectable": false,
+    "first_win_quest_ids": [
+      "6070247"
+    ],
+    "unlock_quest_id": "6070211",
+    "team_bonus_maze_buff_id": "3113603",
+    "team_bonus_short_desc_hash": "13643516030540431393",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424031"
+      ],
+      [
+        "424032"
+      ],
+      [
+        "424033"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3113004"
+    ],
+    "trial_avatar_ids": [
+      "3231407",
+      "3321403",
+      "3231409",
+      "3231404",
+      "3238007",
+      "3238008"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3113803",
+        "level": 2
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3113804",
+        "level": 1
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3113805",
+        "level": 1
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3113813",
+        "level": 2
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3113808",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3113010",
+      "3113011",
+      "3113009"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage.424004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "M078 - Miniature Planet",
+    "name_zh_cn": "M078-微缩星球",
+    "summary_en": "Demon King challenge stage 424004 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇挑战关卡 424004，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb05d86146189789",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=4;Season=SecondChapter;StageMergedID=424004",
+        "sha256": "cb05d86146189789764818a7c353a0218a7d091b1e1daa0b3dfc35da7d292fb2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage"
+    ],
+    "source_numeric_id": "424004",
+    "source_name_hash": "15096074463406548550",
+    "stage_role": "Challenge",
+    "intro_id": "8344",
+    "season": "SecondChapter",
+    "difficulty": 2,
+    "weapon_selectable": false,
+    "first_win_quest_ids": [
+      "6070248"
+    ],
+    "unlock_quest_id": "6070212",
+    "team_bonus_maze_buff_id": "3113604",
+    "team_bonus_short_desc_hash": "3031204465518054650",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424041"
+      ],
+      [
+        "424042"
+      ],
+      [
+        "424043"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3113002"
+    ],
+    "trial_avatar_ids": [
+      "3231310",
+      "3231225",
+      "3231222",
+      "3231303",
+      "3231301"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3113802",
+        "level": 2
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3113810",
+        "level": 2
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3113808",
+        "level": 2
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3113809",
+        "level": 2
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3113814",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3113001",
+      "3113015",
+      "3113011"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage.424005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "D007 - Blissdream Planet",
+    "name_zh_cn": "D007-甜梦星球",
+    "summary_en": "Demon King challenge stage 424005 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇挑战关卡 424005，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage"
+    ],
+    "source_numeric_id": "424005",
+    "source_name_hash": "9331031647835741955",
+    "stage_role": "Challenge",
+    "intro_id": "8345",
+    "season": "SecondChapter",
+    "difficulty": 2,
+    "weapon_selectable": false,
+    "first_win_quest_ids": [
+      "6070249"
+    ],
+    "unlock_quest_id": "6070213",
+    "team_bonus_maze_buff_id": "3113605",
+    "team_bonus_short_desc_hash": "5528082948660319492",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424051"
+      ],
+      [
+        "424052"
+      ],
+      [
+        "424053"
+      ],
+      []
+    ],
+    "initial_weapon_ids": [
+      "3113013"
+    ],
+    "trial_avatar_ids": [
+      "3231220",
+      "3231406",
+      "3231304",
+      "3231309",
+      "3231112"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3113809",
+        "level": 3
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3113807",
+        "level": 3
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3113810",
+        "level": 4
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3113802",
+        "level": 3
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3113805",
+        "level": 3
+      }
+    ],
+    "recommended_accessory_ids": [
+      "3113012",
+      "3113015",
+      "3113001",
+      "3113014"
+    ],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage.424006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Stage",
+    "name_en": "Demon King's Den",
+    "name_zh_cn": "魔王巢穴",
+    "summary_en": "Demon King challenge stage 424006 with exact loadout, team bonus, recommendations and rating thresholds.",
+    "summary_zh_cn": "魔王篇挑战关卡 424006，保留精确初始配置、队伍加成、推荐组合与评级阈值。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38c0d9833f70f455",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=6;Season=SecondChapter;StageMergedID=424006",
+        "sha256": "38c0d9833f70f455e546ecc05b7c80b22dd5579d09b16ad94604c884ad3c473a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage"
+    ],
+    "source_numeric_id": "424006",
+    "source_name_hash": "1227624459749866252",
+    "stage_role": "Challenge",
+    "intro_id": "8340",
+    "season": "SecondChapter",
+    "difficulty": 3,
+    "weapon_selectable": true,
+    "first_win_quest_ids": [
+      "6070250"
+    ],
+    "unlock_quest_id": "6070214",
+    "team_bonus_maze_buff_id": "3113606",
+    "team_bonus_short_desc_hash": "3670002700670905499",
+    "team_bonus_format_hash": "5466090491709284181",
+    "period_ids_by_phase": [
+      [
+        "424101",
+        "424102",
+        "424103",
+        "424104",
+        "424105",
+        "424106",
+        "424107",
+        "424108",
+        "424109",
+        "424110",
+        "424111",
+        "424112",
+        "424113",
+        "424114",
+        "424115"
+      ],
+      [
+        "424201",
+        "424202",
+        "424203",
+        "424204",
+        "424205",
+        "424206",
+        "424207",
+        "424208",
+        "424209",
+        "424210",
+        "424211",
+        "424212",
+        "424213",
+        "424214"
+      ],
+      [
+        "424301",
+        "424302",
+        "424303",
+        "424304",
+        "424305",
+        "424306",
+        "424307",
+        "424308",
+        "424309"
+      ],
+      [
+        "424999"
+      ]
+    ],
+    "initial_weapon_ids": [],
+    "trial_avatar_ids": [
+      "3231401",
+      "3231405",
+      "3231314",
+      "3231217",
+      "3231402",
+      "3231313",
+      "3231101",
+      "3231407",
+      "3321403",
+      "3231409",
+      "3231404",
+      "3238007",
+      "3238008",
+      "3231310",
+      "3231225",
+      "3231222",
+      "3231303",
+      "3231301",
+      "3231220",
+      "3231406",
+      "3231304",
+      "3231309",
+      "3231112"
+    ],
+    "recommended_weapon_levels": [
+      {
+        "ordinal": 0,
+        "weapon_id": "3113815",
+        "level": 1
+      },
+      {
+        "ordinal": 1,
+        "weapon_id": "3113805",
+        "level": 3
+      },
+      {
+        "ordinal": 2,
+        "weapon_id": "3113806",
+        "level": 2
+      },
+      {
+        "ordinal": 3,
+        "weapon_id": "3113808",
+        "level": 1
+      },
+      {
+        "ordinal": 4,
+        "weapon_id": "3113803",
+        "level": 1
+      }
+    ],
+    "recommended_accessory_ids": [],
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ]
+  }
+]
