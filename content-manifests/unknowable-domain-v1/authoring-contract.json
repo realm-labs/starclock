@@ -1,0 +1,161 @@
+{
+  "schema_revision": "starclock.unknowable-domain-authoring-contract.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "bound_content_manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+  "authority": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "editor_version": "3.1.5",
+    "schema_exporter": "sora-cli",
+    "schema_exporter_version": "0.3.0",
+    "production_artifact": "sora",
+    "json_role": "research-staging-debug-only",
+    "runtime_loading": false
+  },
+  "isolation": {
+    "project": "config/unknowable-domain/project.toml",
+    "schema_root": "config/unknowable-domain/schema/",
+    "workbook_root": "config/unknowable-domain/workbooks/",
+    "generated_root": "config/unknowable-domain-generated/",
+    "generated_reader_root": "config/unknowable-domain-generated/reader/",
+    "forbidden_outputs": [
+      "config/generated/",
+      "config/universe-generated/",
+      "config/gold-and-gears-generated/",
+      "config/swarm-disaster-generated/"
+    ]
+  },
+  "generation": {
+    "clean_target_required": true,
+    "overwrite_existing_target": false,
+    "patch_designer_workbook": false,
+    "double_generation_byte_identical": true,
+    "calculation_mode": "manual",
+    "external_links": "reject",
+    "macros": "reject",
+    "formulas": "reject unless a reviewed deterministic formula contract names the cells",
+    "excel_error_cells": "reject",
+    "unknown_columns": "reject",
+    "unknown_sheets": "reject"
+  },
+  "sheet_contract": {
+    "sora_metadata_rows": "preserve rows 1 through 7 exactly",
+    "data_start_row": 8,
+    "freeze_panes": "A8",
+    "auto_filter": true,
+    "header_style": "goal10-header-v1",
+    "alternating_rows": true,
+    "wrapped_text": true,
+    "deterministic_widths": true,
+    "data_validation": true,
+    "typed_references": true,
+    "canonical_decimal_cells": "text"
+  },
+  "workbooks": [
+    {
+      "file": "UnknowableDomain.xlsx",
+      "purpose": "entry, flow, Alignments, Scepters, Components, progression and services",
+      "normalized_files": [
+        "profiles.json",
+        "finish-conditions.json",
+        "areas.json",
+        "difficulty-compositions.json",
+        "layers.json",
+        "layer-rooms.json",
+        "rooms.json",
+        "stage-flow.json",
+        "alignments.json",
+        "scepters.json",
+        "scepter-levels.json",
+        "scepter-activation-rules.json",
+        "scepter-state-transitions.json",
+        "components.json",
+        "component-levels.json",
+        "component-slot-compatibility.json",
+        "decision-components.json",
+        "component-choice-programs.json",
+        "slot-layouts.json",
+        "loadouts.json",
+        "loadout-transition-rules.json",
+        "synthesis-rules.json",
+        "upgrade-rules.json",
+        "reforge-rules.json",
+        "workbenches.json",
+        "workbench-functions.json",
+        "gamble-groups.json",
+        "gamble-units.json",
+        "service-offer-rules.json",
+        "mode-constants.json",
+        "talents.json",
+        "unlocks.json",
+        "layer-effects.json",
+        "maze-buffs.json",
+        "score-inputs.json",
+        "progression-effects.json"
+      ]
+    },
+    {
+      "file": "UnknowableDomainBindings.xlsx",
+      "purpose": "content pools, service bindings, Adventure and encounters",
+      "normalized_files": [
+        "blessings.json",
+        "pool-membership.json",
+        "curios.json",
+        "curio-states.json",
+        "curio-groups.json",
+        "curio-rules.json",
+        "occurrences.json",
+        "occurrence-variants.json",
+        "occurrence-choices.json",
+        "mode-service-npcs.json",
+        "adventure-outcomes.json",
+        "currencies.json",
+        "service-rules.json",
+        "boss-choices.json",
+        "encounter-source-obligations.json",
+        "encounter-groups.json",
+        "encounter-waves.json",
+        "enemy-slots.json",
+        "boss-pools.json"
+      ]
+    },
+    {
+      "file": "UnknowableDomainReview.xlsx",
+      "purpose": "rules, provenance, coverage, gaps, reconciliation, fixtures and pack identity",
+      "normalized_files": [
+        "mechanic-source-files.json",
+        "mechanic-rules.json",
+        "sources.json",
+        "coverage.json",
+        "research-gaps.json",
+        "semantic-fixture-families.json",
+        "review-fixtures.json",
+        "reconciliation-receipts.json",
+        "manifest.json",
+        "pack-index.json"
+      ]
+    }
+  ],
+  "table_family_contract": {
+    "one_primary_table_per_normalized_file": true,
+    "child_tables": "allowed only for repeated typed fields; every child row carries parent stable ID and deterministic ordinal",
+    "table_names": "UnknowableDomain plus PascalCase normalized file stem; child tables append semantic role",
+    "sheet_names": "explicit in Sora schema and at most 31 characters",
+    "numeric_keys": "private workbook identities only",
+    "stable_keys": "required for every cross-workbook or inherited reference"
+  },
+  "reconciliation_sheet": {
+    "workbook": "UnknowableDomainReview.xlsx",
+    "normalized_file": "reconciliation-receipts.json",
+    "join_key": "source path plus row locator plus evidence SHA-256",
+    "conflict_behavior": "Block Goal 10 publication; do not edit Goal 08/09 workbooks or manifests"
+  },
+  "acceptance": {
+    "schema_check": "sora check --project config/unknowable-domain/project.toml",
+    "schema_build": "sora build --project config/unknowable-domain/project.toml",
+    "export": "sora export --project config/unknowable-domain/project.toml",
+    "reader_load": "every generated table and row through the isolated reader",
+    "visual_review": "render and inspect every authored sheet",
+    "semantic_digest": "canonical cell values, types, validations, sheet order and table identity"
+  }
+}

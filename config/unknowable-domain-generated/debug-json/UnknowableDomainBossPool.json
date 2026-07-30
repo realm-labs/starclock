@@ -1,0 +1,1337 @@
+{
+  "table": {
+    "name": "UnknowableDomainBossPool",
+    "rows": [
+      {
+        "values": {
+          "area_id": {
+            "Integer": 1
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.2004011"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"1\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 101 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 101 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.626"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.101"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 101 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 101 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.3003042"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"11\",\"12\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 201 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 201 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.1191"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.553"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2338"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.201"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 201 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 201 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.3024023"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"21\",\"22\",\"23\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 301 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 301 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.1373"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.491"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2123"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.301"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 301 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 301 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024012"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"31\",\"32\",\"33\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 401 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 401 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2504"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.509"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2203"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.401"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 401 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 401 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.2034012"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"41\",\"42\",\"43\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 501 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 501 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.973"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.109"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.497"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.501"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 501 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 501 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.2034012"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"51\",\"52\",\"53\",\"54\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 601 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.973"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.109"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.497"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.601"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 601 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 601 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 7
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.2034012"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"31\",\"32\",\"33\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 701 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 701 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.973"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.109"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.497"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.701"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 701 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 701 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 8
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024010"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"71\",\"72\",\"73\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 801 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 801 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.801"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 801 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 801 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 9
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024010"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"71\",\"72\",\"73\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 802 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 802 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "802"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.802"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 802 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 802 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 10
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024010"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"71\",\"72\",\"73\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 803 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 803 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "803"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.803"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 803 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 803 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 11
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024010"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"71\",\"72\",\"73\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 804 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 804 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "804"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.804"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 804 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 804 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 12
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024010"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"71\",\"72\",\"73\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 805 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 805 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "805"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.805"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 805 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 805 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 13
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.8024010"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "[\"71\",\"72\",\"73\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "FailClosedWithoutStageSelector"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "UnknowableBossPool"
+          },
+          "name_en": {
+            "String": "Area 806 Displayed Boss Pool"
+          },
+          "name_zh_cn": {
+            "String": "区域 806 展示首领池"
+          },
+          "ordering": {
+            "String": "SourceDisplayOrderThenStableEnemyId"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "806"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-pool.area.806"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Area 806 directly displays 1 boss identity candidate(s); encounter-stage selection remains unavailable and fails closed."
+          },
+          "summary_zh_cn": {
+            "String": "区域 806 直接展示 1 个首领身份候选；遭遇关卡选择仍不可用，并采用失败关闭。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area"
+              },
+              {
+                "String": "boss-pool"
+              },
+              {
+                "String": "display-identity"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

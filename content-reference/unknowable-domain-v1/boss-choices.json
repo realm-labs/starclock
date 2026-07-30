@@ -1,0 +1,1511 @@
+[
+  {
+    "id": "unknowable-domain.boss-choice.2004011",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableBossChoice",
+    "name_en": "Stellaron Hunter: Kafka (Complete)",
+    "name_zh_cn": "「星核猎手」卡芙卡（完整）",
+    "summary_en": "Released Unknowable Domain areas directly display enemy 2004011 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row.",
+    "summary_zh_cn": "已发布的不可知域区域直接展示敌人 2004011，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.626",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "626",
+        "sha256": "a98500a775efe1fdcb48df40123d7fb61ce33cf88514ea0fab9143632a1295dc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "486",
+        "sha256": "7ecffc542e9aee4740eb8554cae5c16eab47d40f688509c0accf163cef8ebe12",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2109",
+        "sha256": "9ea00d44e1ad55dd673c97d31fcc7042fbba3597344e8f7e4ed1f9a9d77305a9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "display-identity",
+      "shared-enemy"
+    ],
+    "source_id": "2004011",
+    "enemy_id": "enemy.stellaron-hunter-kafka-complete.littleboss",
+    "enemy_variant_id": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+    "display_level_bindings": [
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 1,
+        "display_level": "25",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 2,
+        "display_level": "35",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 3,
+        "display_level": "45",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 4,
+        "display_level": "55",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 5,
+        "display_level": "65",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 6,
+        "display_level": "80",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.101",
+        "display_ordinal": 7,
+        "display_level": "90",
+        "source_difficulty_selectors": [
+          "1"
+        ]
+      }
+    ],
+    "pool_id": [
+      "unknowable-domain.boss-pool.area.101"
+    ],
+    "stage_binding_state": "UnresolvedNoReleasedSelector",
+    "reverse_match_audit": {
+      "accepted_as_reachability": false,
+      "matching_stage_count": 16,
+      "matching_stage_ids_sha256": "21d91a4d1bde65577998d563a0ec8f431a03ec0195f309ba6df8ea7e13a75636",
+      "matching_rogue_monster_count": 11,
+      "matching_rogue_monster_ids_sha256": "381f6a267374096385b8d0b3c149ff7111d05fdd4ececfce14374518fac5b555",
+      "matching_group_count": 10,
+      "matching_group_ids_sha256": "787062b217938a59d3bfa4b4eeb06591fde7c1d6a3119dd24296361975ca8b7e",
+      "reason": "Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference."
+    },
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.boss-choice.2034012",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableBossChoice",
+    "name_en": "Borisin Warhead: Hoolay (Complete)",
+    "name_zh_cn": "步离战首•呼雷（完整）",
+    "summary_en": "Released Unknowable Domain areas directly display enemy 2034012 in 3 area boss pool(s); no released selector binds that identity to a StageConfig row.",
+    "summary_zh_cn": "已发布的不可知域区域直接展示敌人 2034012，并将其绑定到 3 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "4",
+        "sha256": "c52ba786a9f4d22fcb5062e5c8a92df45884976ba617799055bf695e244001f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "6",
+        "sha256": "98ff2ee2d3cd762702414841249d24f73a3453641430581b27925742fd7cb9e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.973",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "973",
+        "sha256": "31f2be7dcc32ebea8700c080110f58360a12a269f3b17119915d27e23cb7a601",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.109",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "109",
+        "sha256": "b926f4ffd81dbb1c3c131370973cf7ab404076fd2f6cae94432731a1334f13ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.497",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "497",
+        "sha256": "c072e52f127c5e912e53acbc888800bab9d0b7325a8514216a2a7bf6e9f422b7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "display-identity",
+      "shared-enemy"
+    ],
+    "source_id": "2034012",
+    "enemy_id": "enemy.borisin-warhead-hoolay-complete.littleboss",
+    "enemy_variant_id": "enemy.borisin-warhead-hoolay-complete.littleboss.variant.01",
+    "display_level_bindings": [
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.501",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "41",
+          "42",
+          "43"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.601",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "51",
+          "52",
+          "53",
+          "54"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.701",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      }
+    ],
+    "pool_id": [
+      "unknowable-domain.boss-pool.area.501",
+      "unknowable-domain.boss-pool.area.601",
+      "unknowable-domain.boss-pool.area.701"
+    ],
+    "stage_binding_state": "UnresolvedNoReleasedSelector",
+    "reverse_match_audit": {
+      "accepted_as_reachability": false,
+      "matching_stage_count": 8,
+      "matching_stage_ids_sha256": "9672dff98c8d6df9bfa676f587a5a5cf1f367bd268588eb8070e6a8fd5d78a15",
+      "matching_rogue_monster_count": 0,
+      "matching_rogue_monster_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "matching_group_count": 0,
+      "matching_group_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "reason": "Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference."
+    },
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.boss-choice.3003042",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableBossChoice",
+    "name_en": "\"Tomorrow in Harmonious Chords\" (Bug)",
+    "name_zh_cn": "「同音共律的来日」（错误）",
+    "summary_en": "Released Unknowable Domain areas directly display enemy 3003042 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row.",
+    "summary_zh_cn": "已发布的不可知域区域直接展示敌人 3003042，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "1",
+        "sha256": "4984c1b3c2551351189e72a8045f2eb496e2ddfb29573efc0164f0ea434bcbb8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.1191",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "1191",
+        "sha256": "bb4b888903b8b7962caaf6ae405255a6dae0cadbe34798dcdc451d90ef28c765",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.553",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "553",
+        "sha256": "b239f1000e43457d0db6fc46e893db643fea9b6994d61531b58a7645961a7b06",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2338",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2338",
+        "sha256": "dbf8bf323192495876031a6a6892066f04c283c9544edb63d200a488e6c301c3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "display-identity",
+      "shared-enemy"
+    ],
+    "source_id": "3003042",
+    "enemy_id": "enemy.tomorrow-in-harmonious-chords-bug.elite",
+    "enemy_variant_id": "enemy.tomorrow-in-harmonious-chords-bug.elite.variant.01",
+    "display_level_bindings": [
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.201",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "11",
+          "12"
+        ]
+      }
+    ],
+    "pool_id": [
+      "unknowable-domain.boss-pool.area.201"
+    ],
+    "stage_binding_state": "UnresolvedNoReleasedSelector",
+    "reverse_match_audit": {
+      "accepted_as_reachability": false,
+      "matching_stage_count": 13,
+      "matching_stage_ids_sha256": "2507cfb54fa816de1b0d6d9e32dcef26ff9fd2caf5c18de19bffab210c01ada0",
+      "matching_rogue_monster_count": 8,
+      "matching_rogue_monster_ids_sha256": "fbbee17266fa553f85124b54f7044e4fb8aa184b1cc13a4bb20a1ed660478cd3",
+      "matching_group_count": 13,
+      "matching_group_ids_sha256": "d731c6568c130d9fe095300afdce147bba20dc1928fa13b29ca1ae33fffb5374",
+      "reason": "Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference."
+    },
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.boss-choice.3024023",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableBossChoice",
+    "name_en": "Stellaron Hunter: Sam (Complete)",
+    "name_zh_cn": "「星核猎手」萨姆（完整）",
+    "summary_en": "Released Unknowable Domain areas directly display enemy 3024023 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row.",
+    "summary_zh_cn": "已发布的不可知域区域直接展示敌人 3024023，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "2",
+        "sha256": "8844ebbcf3a1e77c8d391b6250643d18bf5b2b5ba4ebd2afca0426fcda03f992",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.1373",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "1373",
+        "sha256": "f43dfe3a61ddf5738b8ec27bf1cd8f69d9b55c4f74b812df71c6cb0da78c2969",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.491",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "491",
+        "sha256": "9ed284b10ac1b0e02cedfdd20d7ea6123089842ac5f7e3b69af8f26cd37167f7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2123",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2123",
+        "sha256": "b386d76b98c5c1b3264cded5dbea920720ee2179b99216a001d81cb634e8eb34",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "display-identity",
+      "shared-enemy"
+    ],
+    "source_id": "3024023",
+    "enemy_id": "enemy.stellaron-hunter-sam-complete.littleboss",
+    "enemy_variant_id": "enemy.stellaron-hunter-sam-complete.littleboss.variant.01",
+    "display_level_bindings": [
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.301",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "21",
+          "22",
+          "23"
+        ]
+      }
+    ],
+    "pool_id": [
+      "unknowable-domain.boss-pool.area.301"
+    ],
+    "stage_binding_state": "UnresolvedNoReleasedSelector",
+    "reverse_match_audit": {
+      "accepted_as_reachability": false,
+      "matching_stage_count": 5,
+      "matching_stage_ids_sha256": "2978dd15526d89b2bcd1788886646f7921124949ba68d5d973b653f719ea3d69",
+      "matching_rogue_monster_count": 0,
+      "matching_rogue_monster_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "matching_group_count": 0,
+      "matching_group_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "reason": "Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference."
+    },
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.boss-choice.8024010",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableBossChoice",
+    "name_en": "Swarm: True Sting (Complete)",
+    "name_zh_cn": "虫群•真蛰虫（完整）",
+    "summary_en": "Released Unknowable Domain areas directly display enemy 8024010 in 6 area boss pool(s); no released selector binds that identity to a StageConfig row.",
+    "summary_zh_cn": "已发布的不可知域区域直接展示敌人 8024010，并将其绑定到 6 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "7",
+        "sha256": "d8a8a369b820e5158ca08d6bd7e5068d1a64c1eeef6c18cb2dc13088ec0b4bea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "8",
+        "sha256": "2fd9b79e77ce0beaf4bd4a3eef33ba7c803db858acc86f5f3e948e41b8ff36e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "9",
+        "sha256": "807cf44a630af0dcb809e1a665e5172377477f7834b41e733ad019a4dda95022",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "10",
+        "sha256": "1ea8ba19e187c08dc45ab2ee8d8b0d3b2e3642f012c68ff37b4b8199324b5cf0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "11",
+        "sha256": "580e231b5d5da4eb83499e36f18459bc493d1f43608e8640836992084f9c69ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "12",
+        "sha256": "f4ccba94ddd8ce2b3e012f241b05ce1a39fe2c4e1b1fed659c57121eff43163f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.2495",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "2495",
+        "sha256": "0dee96c02ebf1df7840a74949d734459ce76620253d0ec87aa99aed35b246fc3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "508",
+        "sha256": "3e98ba22031f0ce95492e8806a2d0192a8fa92f1538177a145d850f5c8dafb38",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2205",
+        "sha256": "0112c08ab8077b838660d9b0d96ffdfdb1af9b4f062de72cee9a5499a10dfb05",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "display-identity",
+      "shared-enemy"
+    ],
+    "source_id": "8024010",
+    "enemy_id": "enemy.swarm-true-sting-complete.littleboss",
+    "enemy_variant_id": "enemy.swarm-true-sting-complete.littleboss.variant.01",
+    "display_level_bindings": [
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.801",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.802",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.803",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.804",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.805",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.806",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "71",
+          "72",
+          "73"
+        ]
+      }
+    ],
+    "pool_id": [
+      "unknowable-domain.boss-pool.area.801",
+      "unknowable-domain.boss-pool.area.802",
+      "unknowable-domain.boss-pool.area.803",
+      "unknowable-domain.boss-pool.area.804",
+      "unknowable-domain.boss-pool.area.805",
+      "unknowable-domain.boss-pool.area.806"
+    ],
+    "stage_binding_state": "UnresolvedNoReleasedSelector",
+    "reverse_match_audit": {
+      "accepted_as_reachability": false,
+      "matching_stage_count": 1,
+      "matching_stage_ids_sha256": "47506aba96f1615707d6c013211840eb41c18c572214154d775ff6ae1f784b75",
+      "matching_rogue_monster_count": 7,
+      "matching_rogue_monster_ids_sha256": "9375babdd90f4f8a1ebd5d92e790f5c166809a56a00d95e801257c6d8e257c49",
+      "matching_group_count": 11,
+      "matching_group_ids_sha256": "f1d43829fce0900fcaf7e08c8149c1db5a647454461eda10eb3f1a1335eabd97",
+      "reason": "Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference."
+    },
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.boss-choice.8024012",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableBossChoice",
+    "name_en": "Swarm: True Sting (Complete)",
+    "name_zh_cn": "虫群•真蛰虫（完整）",
+    "summary_en": "Released Unknowable Domain areas directly display enemy 8024012 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row.",
+    "summary_zh_cn": "已发布的不可知域区域直接展示敌人 8024012，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "3",
+        "sha256": "958d728663ec7160c39cc4b796b7178af7251ae22aa9e20768c260c52aa516d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.2504",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "2504",
+        "sha256": "8fecb13e2079b5027a8c74bdabaf49733ed5c8586a43110b7df45fe033e503bc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.509",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "509",
+        "sha256": "671e7941880a7363624076b7f65b2e54b20df08c74d1c6957fa67f7af9dc06dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2203",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2203",
+        "sha256": "5a862661d0ad59a15c2c63a1c80857b1b3d563a4b00db672abc3e0885228ece2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "display-identity",
+      "shared-enemy"
+    ],
+    "source_id": "8024012",
+    "enemy_id": "enemy.swarm-true-sting-complete.littleboss.02",
+    "enemy_variant_id": "enemy.swarm-true-sting-complete.littleboss.02.variant.01",
+    "display_level_bindings": [
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 1,
+        "display_level": "30",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 2,
+        "display_level": "40",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 3,
+        "display_level": "50",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 4,
+        "display_level": "60",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 5,
+        "display_level": "70",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 6,
+        "display_level": "85",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      },
+      {
+        "area_id": "unknowable-domain.area.401",
+        "display_ordinal": 7,
+        "display_level": "95",
+        "source_difficulty_selectors": [
+          "31",
+          "32",
+          "33"
+        ]
+      }
+    ],
+    "pool_id": [
+      "unknowable-domain.boss-pool.area.401"
+    ],
+    "stage_binding_state": "UnresolvedNoReleasedSelector",
+    "reverse_match_audit": {
+      "accepted_as_reachability": false,
+      "matching_stage_count": 10,
+      "matching_stage_ids_sha256": "f2142ac4c2311b1a5111bb30acd71f6e0e4fd513dd16799b99dd6bc660fb22f8",
+      "matching_rogue_monster_count": 0,
+      "matching_rogue_monster_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "matching_group_count": 0,
+      "matching_group_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "reason": "Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference."
+    },
+    "runtime_lowered": false
+  }
+]

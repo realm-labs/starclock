@@ -1,0 +1,31 @@
+package = "starclock_unknowable_domain_reference_config"
+includes = [
+  "schema/core.toml",
+  "schema/systems.toml",
+  "schema/progression.toml",
+  "schema/mechanics.toml",
+  "schema/content.toml",
+  "schema/evidence.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "../unknowable-domain-generated/schema.lock"
+excel_templates = "../unknowable-domain-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "../unknowable-domain-generated/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "../unknowable-domain-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "../unknowable-domain-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

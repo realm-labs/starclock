@@ -1,0 +1,81 @@
+{
+  "schema_revision": "starclock.unknowable-domain-release-audit.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "audited_at": "2026-07-29",
+  "result": "pass",
+  "inputs": {
+    "content_manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+    "normalized_schema_sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+    "sora_schema_lock_sha256": "9d8bd8869bbe2b3aea3c3f2342866c4d1f028a5b866f7a177843cf7ff7edfc1a"
+  },
+  "exact_once": {
+    "manifest_categories": 43,
+    "manifest_obligations": 5377,
+    "coverage_rows": 5377,
+    "coverage_data_bindings": 6909,
+    "data_ready_obligations": 5377,
+    "coverage_percent": "100",
+    "duplicate_obligations": 0,
+    "blocking_gaps": 0
+  },
+  "normalized": {
+    "files": 65,
+    "common_rows": 17147,
+    "source_rows": 4473,
+    "mechanic_rules": 41,
+    "semantic_fixture_families": 24,
+    "semantic_review_fixtures": 24,
+    "research_gaps": 24,
+    "reconciliation_receipts": 155,
+    "ownership": {
+      "Shared": 545,
+      "UnknowableDomain": 16602
+    },
+    "evidence_quality": {
+      "ExactStructured": 16969,
+      "ProjectPolicy": 178
+    }
+  },
+  "references": {
+    "source_ref_bindings": 23167,
+    "referenced_source_rows": 4473,
+    "typed_sora_fields": 34,
+    "typed_sora_bindings": 3082,
+    "rule_owner_and_fixture_bindings": 82,
+    "family_input_bindings": 66,
+    "fixture_input_bindings": 66,
+    "fixture_evidence_bindings": 126,
+    "research_gap_affected_bindings": 66,
+    "unresolved": 0
+  },
+  "bilingual": {
+    "rows_checked": 17147,
+    "missing_english_or_chinese_fields": 0,
+    "chinese_fields_without_han_text": 0
+  },
+  "ownership_and_boundary": {
+    "allowed_ownership": [
+      "UnknowableDomain",
+      "Shared"
+    ],
+    "manifest_ownership": {
+      "Shared": 134,
+      "UnknowableDomain": 5243
+    },
+    "normalized_ownership": {
+      "Shared": 545,
+      "UnknowableDomain": 16602
+    },
+    "reconciliation_outcomes": {
+      "DivergentRepresentation": 12,
+      "MatchedShared": 143
+    },
+    "named_other_mode_exclusions": 141,
+    "presentation_account_exclusions": 27,
+    "other_mode_source_rows": 0,
+    "presentation_account_rows": 0,
+    "runtime_lowered_rules": 0,
+    "runtime_executable_fixture_families": 0,
+    "runtime_claims": 0
+  }
+}

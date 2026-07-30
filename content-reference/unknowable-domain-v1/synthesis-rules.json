@@ -1,0 +1,63 @@
+[
+  {
+    "id": "unknowable-domain.synthesis.component",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ComponentSynthesisRule",
+    "name_en": "Component Synthesis Policy",
+    "name_zh_cn": "组件合成策略",
+    "summary_en": "The released function combines Components into a new Component; exact inputs, output pool and cost remain unspecified, with deterministic nonmutation on failure.",
+    "summary_zh_cn": "已发布功能将组件合成为新组件；精确输入、输出池与费用仍未指定，失败时采用确定性不变更策略。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "2",
+        "sha256": "c736777dcabec036c7c9178efe2b7c6d403f80a1f70cdf5a04e23930ea3cf87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      }
+    ],
+    "tags": [
+      "component",
+      "synthesis",
+      "transformation"
+    ],
+    "source_id": "8",
+    "function_type": "MagicUnitCompose",
+    "input_count": "Unspecified",
+    "input_eligibility": [
+      "Component"
+    ],
+    "input_level_relation": "Unspecified",
+    "output_pool": [],
+    "output_pool_resolution": "Unspecified",
+    "output_ordering": "StableComponentIdAscending",
+    "cost": {
+      "currency_id": "Unspecified",
+      "amount": "Unspecified"
+    },
+    "fallback": "ReturnNoLegalCandidateWithoutMutation",
+    "policy_id": "component-transformation-policy-v1"
+  }
+]

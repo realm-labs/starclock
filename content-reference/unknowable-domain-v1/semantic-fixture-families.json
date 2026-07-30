@@ -1,0 +1,1385 @@
+[
+  {
+    "id": "unknowable-domain.semantic-family.alignment-selection",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "alignment-selection Semantic Fixture Family",
+    "name_zh_cn": "alignment-selection 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-alignment-selection",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews four Alignments, eligibility, offered pool, no legal selection against 4 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves four Alignments, eligibility, offered pool, no legal selection."
+      }
+    ],
+    "tags": [
+      "alignment-selection",
+      "semantic-family"
+    ],
+    "source_id": "alignment-selection",
+    "minimum_cases": 1,
+    "must_cover": [
+      "four Alignments",
+      "eligibility",
+      "offered pool",
+      "no legal selection"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.alignment.break",
+      "unknowable-domain.alignment.dot",
+      "unknowable-domain.alignment.follow",
+      "unknowable-domain.alignment.ultimate"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.area-layer-room-transition",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "area-layer-room-transition Semantic Fixture Family",
+    "name_zh_cn": "area-layer-room-transition 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-area-layer-room-transition",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews ordered transition, carry, reset, illegal transition against 5 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves ordered transition, carry, reset, illegal transition."
+      }
+    ],
+    "tags": [
+      "area-layer-room-transition",
+      "semantic-family"
+    ],
+    "source_id": "area-layer-room-transition",
+    "minimum_cases": 1,
+    "must_cover": [
+      "ordered transition",
+      "carry",
+      "reset",
+      "illegal transition"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.area.101",
+      "unknowable-domain.flow.101.entry",
+      "unknowable-domain.layer-room.101.1",
+      "unknowable-domain.layer.101",
+      "unknowable-domain.room.11001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.component-insertion-removal-replacement",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "component-insertion-removal-replacement Semantic Fixture Family",
+    "name_zh_cn": "component-insertion-removal-replacement 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-insertion-removal-replacement",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews insert, remove, replace, locked Component against 4 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves insert, remove, replace, locked Component."
+      }
+    ],
+    "tags": [
+      "component-insertion-removal-replacement",
+      "semantic-family"
+    ],
+    "source_id": "component-insertion-removal-replacement",
+    "minimum_cases": 1,
+    "must_cover": [
+      "insert",
+      "remove",
+      "replace",
+      "locked Component"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.loadout-transition.insert",
+      "unknowable-domain.loadout-transition.remove",
+      "unknowable-domain.loadout-transition.replace",
+      "unknowable-domain.scepter.2001.level.1.loadout"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.component-reforge",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "component-reforge Semantic Fixture Family",
+    "name_zh_cn": "component-reforge 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-reforge",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews candidate set, cost, replacement, empty candidate against 1 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves candidate set, cost, replacement, empty candidate."
+      }
+    ],
+    "tags": [
+      "component-reforge",
+      "semantic-family"
+    ],
+    "source_id": "component-reforge",
+    "minimum_cases": 1,
+    "must_cover": [
+      "candidate set",
+      "cost",
+      "replacement",
+      "empty candidate"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.reforge.component"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.component-slot-legality",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "component-slot-legality Semantic Fixture Family",
+    "name_zh_cn": "component-slot-legality 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-slot-legality",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews shape, range, slot type, rejected insertion against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves shape, range, slot type, rejected insertion."
+      }
+    ],
+    "tags": [
+      "component-slot-legality",
+      "semantic-family"
+    ],
+    "source_id": "component-slot-legality",
+    "minimum_cases": 1,
+    "must_cover": [
+      "shape",
+      "range",
+      "slot type",
+      "rejected insertion"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.component.4001.level.1",
+      "unknowable-domain.component.4001.level.1.compatibility.none",
+      "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.component-synthesis",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "component-synthesis Semantic Fixture Family",
+    "name_zh_cn": "component-synthesis 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-synthesis",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews input count, consumption, output pool, no legal output against 1 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves input count, consumption, output pool, no legal output."
+      }
+    ],
+    "tags": [
+      "component-synthesis",
+      "semantic-family"
+    ],
+    "source_id": "component-synthesis",
+    "minimum_cases": 1,
+    "must_cover": [
+      "input count",
+      "consumption",
+      "output pool",
+      "no legal output"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.synthesis.component"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.component-upgrade",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "component-upgrade Semantic Fixture Family",
+    "name_zh_cn": "component-upgrade 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-upgrade",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews level transition, cost, cap, ordering against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves level transition, cost, cap, ordering."
+      }
+    ],
+    "tags": [
+      "component-upgrade",
+      "semantic-family"
+    ],
+    "source_id": "component-upgrade",
+    "minimum_cases": 1,
+    "must_cover": [
+      "level transition",
+      "cost",
+      "cap",
+      "ordering"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.scepter-upgrade.1-to-2",
+      "unknowable-domain.scepter-upgrade.2-to-3"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.cross-battle-carry-reset",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "cross-battle-carry-reset Semantic Fixture Family",
+    "name_zh_cn": "cross-battle-carry-reset 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-cross-battle-carry-reset",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews state slot, carry boundary, reset boundary, finish cleanup against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves state slot, carry boundary, reset boundary, finish cleanup."
+      }
+    ],
+    "tags": [
+      "cross-battle-carry-reset",
+      "semantic-family"
+    ],
+    "source_id": "cross-battle-carry-reset",
+    "minimum_cases": 1,
+    "must_cover": [
+      "state slot",
+      "carry boundary",
+      "reset boundary",
+      "finish cleanup"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.finish.5013001",
+      "unknowable-domain.flow.101.entry",
+      "unknowable-domain.profile.v1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.curio-lifecycle",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "curio-lifecycle Semantic Fixture Family",
+    "name_zh_cn": "curio-lifecycle 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-curio-lifecycle",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews mode state, charges, repair, replacement against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves mode state, charges, repair, replacement."
+      }
+    ],
+    "tags": [
+      "curio-lifecycle",
+      "semantic-family"
+    ],
+    "source_id": "curio-lifecycle",
+    "minimum_cases": 1,
+    "must_cover": [
+      "mode state",
+      "charges",
+      "repair",
+      "replacement"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.curio-rule.group.50002",
+      "unknowable-domain.curio-state.7101",
+      "unknowable-domain.curio.4"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.decision-component-choice",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "decision-component-choice Semantic Fixture Family",
+    "name_zh_cn": "decision-component-choice 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-decision-component-choice",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews eligibility, candidate order, scope, fallback against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, candidate order, scope, fallback."
+      }
+    ],
+    "tags": [
+      "decision-component-choice",
+      "semantic-family"
+    ],
+    "source_id": "decision-component-choice",
+    "minimum_cases": 1,
+    "must_cover": [
+      "eligibility",
+      "candidate order",
+      "scope",
+      "fallback"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.decision-component.6051",
+      "unknowable-domain.decision-component.6051.choice"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.difficulty-composition",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "difficulty-composition Semantic Fixture Family",
+    "name_zh_cn": "difficulty-composition 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 3 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 3 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-difficulty-composition",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews difficulty parameters, drop binding, difficulty application boundary against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves difficulty parameters, drop binding, difficulty application boundary."
+      }
+    ],
+    "tags": [
+      "difficulty-composition",
+      "semantic-family"
+    ],
+    "source_id": "difficulty-composition",
+    "minimum_cases": 1,
+    "must_cover": [
+      "difficulty parameters",
+      "drop binding",
+      "difficulty application boundary"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.difficulty-drop.101.1",
+      "unknowable-domain.difficulty.10101"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.encounter-selection",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "encounter-selection Semantic Fixture Family",
+    "name_zh_cn": "encounter-selection 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-encounter-selection",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews room parent, candidate order, wave, enemy slots against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves room parent, candidate order, wave, enemy slots."
+      }
+    ],
+    "tags": [
+      "encounter-selection",
+      "semantic-family"
+    ],
+    "source_id": "encounter-selection",
+    "minimum_cases": 1,
+    "must_cover": [
+      "room parent",
+      "candidate order",
+      "wave",
+      "enemy slots"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.boss-pool.area.101",
+      "unknowable-domain.encounter-source.room.11101"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.gamble-offer-and-outcome",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "gamble-offer-and-outcome Semantic Fixture Family",
+    "name_zh_cn": "gamble-offer-and-outcome 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-gamble-offer-and-outcome",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews weighted candidate set, seed, outcome, failure against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves weighted candidate set, seed, outcome, failure."
+      }
+    ],
+    "tags": [
+      "gamble-offer-and-outcome",
+      "semantic-family"
+    ],
+    "source_id": "gamble-offer-and-outcome",
+    "minimum_cases": 1,
+    "must_cover": [
+      "weighted candidate set",
+      "seed",
+      "outcome",
+      "failure"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.gamble-group.100",
+      "unknowable-domain.gamble-unit.101",
+      "unknowable-domain.service-offer.gamble-group.100"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.layer-and-difficulty-effect",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "layer-and-difficulty-effect Semantic Fixture Family",
+    "name_zh_cn": "layer-and-difficulty-effect 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-layer-and-difficulty-effect",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews entry trigger, cross-battle state, battle projection, teardown against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry trigger, cross-battle state, battle projection, teardown."
+      }
+    ],
+    "tags": [
+      "layer-and-difficulty-effect",
+      "semantic-family"
+    ],
+    "source_id": "layer-and-difficulty-effect",
+    "minimum_cases": 1,
+    "must_cover": [
+      "entry trigger",
+      "cross-battle state",
+      "battle projection",
+      "teardown"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.layer-effect.401",
+      "unknowable-domain.layer-effect.401.contribution",
+      "unknowable-domain.maze-buff.682010.level.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.no-legal-candidate-fallback",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "no-legal-candidate-fallback Semantic Fixture Family",
+    "name_zh_cn": "no-legal-candidate-fallback 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-no-legal-candidate-fallback",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews empty set, explicit fallback, no hidden RNG draw, review fact against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves empty set, explicit fallback, no hidden RNG draw, review fact."
+      }
+    ],
+    "tags": [
+      "no-legal-candidate-fallback",
+      "semantic-family"
+    ],
+    "source_id": "no-legal-candidate-fallback",
+    "minimum_cases": 1,
+    "must_cover": [
+      "empty set",
+      "explicit fallback",
+      "no hidden RNG draw",
+      "review fact"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.loadout-transition.insert",
+      "unknowable-domain.service-offer.gamble-group.100",
+      "unknowable-domain.synthesis.component"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.occurrence-choice",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "occurrence-choice Semantic Fixture Family",
+    "name_zh_cn": "occurrence-choice 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-occurrence-choice",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews variant, condition, cost, ordered outcome against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves variant, condition, cost, ordered outcome."
+      }
+    ],
+    "tags": [
+      "occurrence-choice",
+      "semantic-family"
+    ],
+    "source_id": "occurrence-choice",
+    "minimum_cases": 1,
+    "must_cover": [
+      "variant",
+      "condition",
+      "cost",
+      "ordered outcome"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.occurrence-choice.510301.01.01",
+      "unknowable-domain.occurrence-variant.510301",
+      "unknowable-domain.occurrence.10"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.profile-entry-and-finish",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "profile-entry-and-finish Semantic Fixture Family",
+    "name_zh_cn": "profile-entry-and-finish 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 3 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 3 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-profile-entry-and-finish",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews entry eligibility, initial resources, finish and terminal boundary against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry eligibility, initial resources, finish and terminal boundary."
+      }
+    ],
+    "tags": [
+      "profile-entry-and-finish",
+      "semantic-family"
+    ],
+    "source_id": "profile-entry-and-finish",
+    "minimum_cases": 1,
+    "must_cover": [
+      "entry eligibility",
+      "initial resources",
+      "finish and terminal boundary"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.entry.activity.103",
+      "unknowable-domain.finish.5013001",
+      "unknowable-domain.profile.v1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.scepter-activation",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "scepter-activation Semantic Fixture Family",
+    "name_zh_cn": "scepter-activation 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-scepter-activation",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews trigger, targeting, ordered operations, single activation against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger, targeting, ordered operations, single activation."
+      }
+    ],
+    "tags": [
+      "scepter-activation",
+      "semantic-family"
+    ],
+    "source_id": "scepter-activation",
+    "minimum_cases": 1,
+    "must_cover": [
+      "trigger",
+      "targeting",
+      "ordered operations",
+      "single activation"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.scepter.2001",
+      "unknowable-domain.scepter.2001.level.1.activation",
+      "unknowable-domain.scepter.2001.level.1.state.dispatch"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.scepter-charge-and-speed",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "scepter-charge-and-speed Semantic Fixture Family",
+    "name_zh_cn": "scepter-charge-and-speed 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-scepter-charge-and-speed",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews gain, spend, action ordering, cap and teardown against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves gain, spend, action ordering, cap and teardown."
+      }
+    ],
+    "tags": [
+      "scepter-charge-and-speed",
+      "semantic-family"
+    ],
+    "source_id": "scepter-charge-and-speed",
+    "minimum_cases": 1,
+    "must_cover": [
+      "gain",
+      "spend",
+      "action ordering",
+      "cap and teardown"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.scepter.2001.level.1.state.dispatch",
+      "unknowable-domain.scepter.2001.level.1.state.finish"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.service-and-adventure",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "service-and-adventure Semantic Fixture Family",
+    "name_zh_cn": "service-and-adventure 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 3 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 3 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-service-and-adventure",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews service eligibility, price or tier, offered abstract outcome against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves service eligibility, price or tier, offered abstract outcome."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "service-and-adventure"
+    ],
+    "source_id": "service-and-adventure",
+    "minimum_cases": 1,
+    "must_cover": [
+      "service eligibility",
+      "price or tier",
+      "offered abstract outcome"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.adventure-outcome.11001",
+      "unknowable-domain.mode-service-npc.510001",
+      "unknowable-domain.service-rule.adventure-outcome.11001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.simultaneous-trigger-order",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "simultaneous-trigger-order Semantic Fixture Family",
+    "name_zh_cn": "simultaneous-trigger-order 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-simultaneous-trigger-order",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews trigger phase, priority, stable tie key, expected facts against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger phase, priority, stable tie key, expected facts."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "simultaneous-trigger-order",
+    "minimum_cases": 1,
+    "must_cover": [
+      "trigger phase",
+      "priority",
+      "stable tie key",
+      "expected facts"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.scepter.2001.level.1.state.dispatch",
+      "unknowable-domain.scepter.2001.level.1.state.finish",
+      "unknowable-domain.scepter.2001.level.1.state.initialize"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.talent-and-unlock",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "talent-and-unlock Semantic Fixture Family",
+    "name_zh_cn": "talent-and-unlock 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-talent-and-unlock",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews prerequisite, cost, unlock consequence, evaluation boundary against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves prerequisite, cost, unlock consequence, evaluation boundary."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "talent-and-unlock"
+    ],
+    "source_id": "talent-and-unlock",
+    "minimum_cases": 1,
+    "must_cover": [
+      "prerequisite",
+      "cost",
+      "unlock consequence",
+      "evaluation boundary"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.talent.1001.level.1",
+      "unknowable-domain.unlock.5013001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.wave-and-boss-binding",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "wave-and-boss-binding Semantic Fixture Family",
+    "name_zh_cn": "wave-and-boss-binding 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-wave-and-boss-binding",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews StageConfig row, wave order, boss alternative, difficulty against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves StageConfig row, wave order, boss alternative, difficulty."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "wave-and-boss-binding"
+    ],
+    "source_id": "wave-and-boss-binding",
+    "minimum_cases": 1,
+    "must_cover": [
+      "StageConfig row",
+      "wave order",
+      "boss alternative",
+      "difficulty"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.boss-choice.2004011",
+      "unknowable-domain.boss-pool.area.101",
+      "unknowable-domain.encounter-source.boss.2004011"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.semantic-family.workbench-offer-and-cost",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticFixtureFamily",
+    "name_en": "workbench-offer-and-cost Semantic Fixture Family",
+    "name_zh_cn": "workbench-offer-and-cost 语义夹具族",
+    "summary_en": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case.",
+    "summary_zh_cn": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-fixture-contract.v1",
+        "path": "content-manifests/unknowable-domain-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-workbench-offer-and-cost",
+        "sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews eligibility, price, offer ordering, refresh lifecycle against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, price, offer ordering, refresh lifecycle."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "workbench-offer-and-cost"
+    ],
+    "source_id": "workbench-offer-and-cost",
+    "minimum_cases": 1,
+    "must_cover": [
+      "eligibility",
+      "price",
+      "offer ordering",
+      "refresh lifecycle"
+    ],
+    "selected_source_record_ids": [
+      "unknowable-domain.service-offer.gamble-group.100",
+      "unknowable-domain.workbench-function.10",
+      "unknowable-domain.workbench.101"
+    ],
+    "runtime_executable": false
+  }
+]

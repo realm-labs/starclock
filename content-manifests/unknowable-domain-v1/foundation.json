@@ -1,0 +1,203 @@
+{
+  "schema_revision": "starclock.unknowable-domain-foundation.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "batch": "G10-P0-B1",
+  "planned_phases": 5,
+  "fixed_batches": 28,
+  "launch_commit": "db5268bbe46e36739f51824967458e2987d61fc5",
+  "launch_tree": "0fc28ba391129d602c2e93a6b1bc4b00e4f57b54",
+  "required_snapshot": {
+    "goal_id": "standard-universe-reference-v1",
+    "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+    "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+    "release_policy_sha256": "7b3cf717aef891af5a6c1538f6b2850ac690364b320269145eaae5ce2bbcc02d",
+    "release_evidence_sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75"
+  },
+  "source_snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "repositories": [
+      {
+        "cache_path": ".cache/content-reference/turnbasedgamedata",
+        "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+      },
+      {
+        "cache_path": ".cache/content-reference/StarRailRes",
+        "remote": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+      }
+    ],
+    "fetch_contract": "tools/unknowable-domain-reference/fetch-sources.sh"
+  },
+  "inherited_reference": {
+    "source_inventory_path": "content-manifests/standard-universe-v1/source-inventory.json",
+    "source_inventory_sha256": "1d5c7b03fb11f7cae7c7dad3086b6d4feb5cfd8a056ced60db558a4ac3599e7d",
+    "source_manifest_sha256": "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216",
+    "normalized_pack_index_sha256": "31b1ec5978fb910df65471f486feb446a754b8d1d041a6ddf93e1b1d9674e542",
+    "rogue_magic_seed_rows": 32,
+    "rogue_magic_seed_family": "other_mode",
+    "source_inventory_encoding": "accept-exact-or-lf-to-crlf-equivalent",
+    "universe_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "preserved_core_runtime_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "goal08_checkpoint": {
+    "required_for_foundation": false,
+    "remote_reachable": false,
+    "commit": "2f7b3ccf699c52c2738136b8636d140e053bb2eb",
+    "tree": "7ede07b5531dc322ecffdf0096f9855d8548fb24",
+    "source_inventory_path": "content-manifests/gold-and-gears-v1/source-inventory.json",
+    "source_inventory_sha256": "39ab554ce600fa9932efa1517978db16d51683e93f4de1be68a88b68f26bcece",
+    "content_manifest_path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+    "content_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+    "manifest_schema_revision": "starclock.gold-and-gears-content-manifest.v1",
+    "records": 7913,
+    "gold_owned": 7199,
+    "shared": 714,
+    "reachability_boundary": "local-committed-checkpoint-only"
+  },
+  "goal09_checkpoint": {
+    "required_for_foundation": true,
+    "remote": "origin",
+    "branch": "codex/goal09-swarm-disaster-reference",
+    "commit": "1f9019a2a29ed5300eeee5925f67f4ac9e495ae2",
+    "tree": "9617eb1eb6956d9c34dcee2591dc2d7c21f3bdd5",
+    "source_inventory_path": "content-manifests/swarm-disaster-v1/source-inventory.json",
+    "source_inventory_sha256": "fe52861f70081d74ff3ac8154b23035a8861e388a80237d04764797404b207dc",
+    "schema_revision": "starclock.swarm-disaster-source-inventory.v1",
+    "records": 2882,
+    "turnbasedgamedata_records": 2873,
+    "starrailres_records": 9,
+    "reachability_boundary": "remote-committed-inventory-only"
+  },
+  "source_entry_contract": {
+    "mode_table_prefix": "ExcelOutput/RogueMagic",
+    "mode_table_suffix": ".json",
+    "known_mode_tables": 32,
+    "text_maps": [
+      "TextMap/TextMapCHS.json",
+      "TextMap/TextMapEN.json"
+    ],
+    "stage_table": "ExcelOutput/StageConfig.json",
+    "required_config_entries": [
+      "Config/ConfigAdventureModifier/AdventureModifier_Rogue_RogueMagic.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+      "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.json",
+      "Config/Level/Rogue/RogueMagicPower/RogueMagicPower.json"
+    ],
+    "closure_roots": [
+      "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_",
+      "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/",
+      "Config/Level/Maze/MazeRogue/Rogue260/",
+      "Config/Level/Rogue/RogueNPC/RogueNPC_260/"
+    ],
+    "membership_rule": "explicit-selector-transitive-reference-or-inherited-stable-id-closure",
+    "seed_is_denominator": false
+  },
+  "sora_contract": {
+    "policy_path": "policy/sora-toolchain.json",
+    "policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a",
+    "required_version": "0.3.0",
+    "system_path_observation": "0.2.0",
+    "system_path_is_authority": false,
+    "pinned_local_install_is_authority": true
+  },
+  "parallel_boundary": {
+    "branch": "codex/goal10-unknowable-domain-reference",
+    "upstream": "origin/codex/goal10-unknowable-domain-reference",
+    "separate_branch_required": true,
+    "other_goal_worktrees_may_run_concurrently": true,
+    "shared_generated_output_mutation": false,
+    "owned_roots": [
+      "content-manifests/unknowable-domain-v1/",
+      "content-reference/unknowable-domain-v1/",
+      "config/unknowable-domain/",
+      "config/unknowable-domain-generated/",
+      "tools/unknowable-domain-reference/",
+      "evidence/unknowable-domain-reference-v1/"
+    ],
+    "owned_goal_documents": [
+      "docs/goals/10-unknowable-domain-reference-data.md",
+      "docs/goals/10-unknowable-domain-reference-data-status.md",
+      "docs/goals/10-unknowable-domain-reference-data-prompt.md"
+    ],
+    "protected_roots": [
+      "content-manifests/standard-universe-v1/",
+      "content-reference/standard-universe-v1/",
+      "content-manifests/gold-and-gears-v1/",
+      "content-reference/gold-and-gears-v1/",
+      "config/gold-and-gears/",
+      "config/gold-and-gears-generated/",
+      "content-manifests/swarm-disaster-v1/",
+      "content-reference/swarm-disaster-v1/",
+      "config/swarm-disaster/",
+      "config/swarm-disaster-generated/",
+      "config/universe-generated/",
+      "config/generated/",
+      "evidence/standard-universe-reference-v1/",
+      "evidence/gold-and-gears-reference-v1/",
+      "evidence/swarm-disaster-reference-v1/",
+      "tools/gold-and-gears-reference/",
+      "tools/swarm-disaster-reference/",
+      "tools/goal07/"
+    ]
+  },
+  "scope": {
+    "result": "candidate-reference-bundle",
+    "includes": [
+      "complete auditable Version 4.4 inventory and row-level provenance",
+      "Unknowable Domain unique systems, choices, state and lifecycle",
+      "reachable shared and mode-owned pools, services, events and encounters",
+      "battle-visible and cross-battle rule contributions",
+      "semantic review fixtures",
+      "isolated Sora schemas, readers, exports and openpyxl workbooks"
+    ],
+    "excludes": [
+      "runtime lowering, handlers, CLI, Agent, MCP or playable flow",
+      "starclock-combat, starclock-activity or shared runtime semantics",
+      "story prose, presentation, assets, audio and UI",
+      "account rewards",
+      "unreleased, preview, test-server or leaked content",
+      "other-mode data except ownership or exclusion evidence"
+    ]
+  },
+  "authoring_contract": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "exporter": "sora-cli-0.3.0",
+    "production_artifact": "sora",
+    "json_role": "staging-and-debug-only",
+    "workbooks": [
+      "UnknowableDomain.xlsx",
+      "UnknowableDomainBindings.xlsx",
+      "UnknowableDomainReview.xlsx"
+    ]
+  },
+  "documents": [
+    "docs/goals/10-unknowable-domain-reference-data.md",
+    "docs/goals/10-unknowable-domain-reference-data-status.md",
+    "docs/goals/10-unknowable-domain-reference-data-prompt.md",
+    "evidence/unknowable-domain-reference-v1/foundation.md"
+  ],
+  "contracts": {
+    "goal03_snapshot_is_immutable": true,
+    "goal03_source_hashes_allow_only_checkout_eol_equivalence": true,
+    "rogue_magic_seed_is_not_the_denominator": true,
+    "shared_rows_require_explicit_reachability": true,
+    "goal08_local_checkpoint_is_informational_only": true,
+    "goal09_checkpoint_is_remote_commit_backed": true,
+    "shared_rows_reconcile_by_locator_and_digest": true,
+    "ownership_is_explicit_and_fail_closed": true,
+    "source_rows_and_mechanics_require_provenance": true,
+    "exact_and_approximate_evidence_are_distinct": true,
+    "excel_is_the_only_authoritative_content_surface": true,
+    "goal10_artifacts_are_path_isolated": true,
+    "runtime_work_is_deferred": true
+  }
+}

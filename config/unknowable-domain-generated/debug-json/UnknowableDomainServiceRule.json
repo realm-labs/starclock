@@ -1,0 +1,3349 @@
+{
+  "table": {
+    "name": "UnknowableDomainServiceRule",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Outcome 11001 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "抓扑满结果 11001服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueCaptureMonster\",\"parameter_records\":[{\"source_locator\":\"2\",\"source_table\":\"RogueCaptureMonster\",\"values\":{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11001\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11001"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11001"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster Outcome 11001 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "抓扑满结果 11001保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueTurntable Outcome 11002 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "转盘结果 11002服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueTurntable\",\"parameter_records\":[{\"source_locator\":\"6\",\"source_table\":\"RogueTurntable\",\"values\":{\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"High\"}},{\"source_locator\":\"7\",\"source_table\":\"RogueTurntable\",\"values\":{\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"Medium\"}},{\"source_locator\":\"8\",\"source_table\":\"RogueTurntable\",\"values\":{\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\"}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11002\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11002"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-rogueturntable-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-rogueturntable-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-rogueturntable-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11002"
+          },
+          "summary_en": {
+            "String": "RogueTurntable Outcome 11002 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "转盘结果 11002保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Outcome 11003 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "破坏物件结果 11003服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueDestroyProp\",\"parameter_records\":[{\"source_locator\":\"5\",\"source_table\":\"RogueDestroyProp\",\"values\":{\"GameTime\":\"35\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11003\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11003"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguedestroyprop-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11003"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp Outcome 11003 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "破坏物件结果 11003保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Outcome 11004 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "抓扑满结果 11004服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueCaptureMonster\",\"parameter_records\":[{\"source_locator\":\"2\",\"source_table\":\"RogueCaptureMonster\",\"values\":{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11004\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11004"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11004"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11004"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster Outcome 11004 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "抓扑满结果 11004保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Outcome 11005 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "破坏物件结果 11005服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueDestroyProp\",\"parameter_records\":[{\"source_locator\":\"6\",\"source_table\":\"RogueDestroyProp\",\"values\":{\"GameTime\":\"35\",\"ParamGroupID\":\"301002\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11005\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11005"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11005"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguedestroyprop-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11005"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp Outcome 11005 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "破坏物件结果 11005保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Outcome 11006 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "抓扑满结果 11006服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueCaptureMonster\",\"parameter_records\":[{\"source_locator\":\"2\",\"source_table\":\"RogueCaptureMonster\",\"values\":{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11006\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11006"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11006"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster Outcome 11006 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "抓扑满结果 11006保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueEscapeLaser Outcome 11007 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "躲避射线结果 11007服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueEscapeLaser\",\"parameter_records\":[{\"source_locator\":\"1\",\"source_table\":\"RogueEscapeLaser\",\"values\":{\"GameTimeperRound\":\"5\",\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"400\",\"600\"],\"ScoreperRound\":[\"100\",\"200\",\"300\",\"400\",\"500\"],\"ScoreperWave\":\"100\",\"TotalRounds\":\"6\"}}],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11007\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11007"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-rogueescapelaser-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11007"
+          },
+          "summary_en": {
+            "String": "RogueEscapeLaser Outcome 11007 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "躲避射线结果 11007保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Outcome 11008 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "狼枪结果 11008服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueWolfGun\",\"parameter_records\":[],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11008\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11008"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11008"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11008"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun Outcome 11008 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "狼枪结果 11008保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Outcome 11009 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "狼枪结果 11009服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"adventure_type\":\"RogueWolfGun\",\"parameter_records\":[],\"resolution\":\"Unspecified\",\"source_tier_id\":\"11009\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.adventure-outcome.11009"
+          },
+          "service_kind": {
+            "String": "AdventureOutcome"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11009"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.adventure-outcome.11009"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun Outcome 11009 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "狼枪结果 11009保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventureoutcome"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 100 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 100服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.100"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:100"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.100"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 100 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 100保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 101 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 101服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.101"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.101"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 101 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 101保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 102 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 102服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.102"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.102"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 102 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 102保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 103 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 103服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.103"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.103"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 103 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 103保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 104 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 104服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.104"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.104"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 104 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 104保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 105 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 105服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.105"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.105"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 105 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 105保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "SlotMachine Group 106 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "老虎机组 106服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"SlotMachine\",\"group_level\":\"NotApplicable\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.106"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:106"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.106"
+          },
+          "summary_en": {
+            "String": "SlotMachine Group 106 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "老虎机组 106保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "FortuneWheel Group 201 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "幸运转盘组 201服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"FortuneWheel\",\"group_level\":\"Common\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.201"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.201"
+          },
+          "summary_en": {
+            "String": "FortuneWheel Group 201 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "幸运转盘组 201保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "FortuneWheel Group 202 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "幸运转盘组 202服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"FortuneWheel\",\"group_level\":\"Normal\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.202"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.202"
+          },
+          "summary_en": {
+            "String": "FortuneWheel Group 202 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "幸运转盘组 202保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "FortuneWheel Group 203 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "幸运转盘组 203服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"gamble_type\":\"FortuneWheel\",\"group_level\":\"Grand\",\"resolution\":\"Unspecified\",\"unit_binding_resolution\":\"Unspecified\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-group.203"
+          },
+          "service_kind": {
+            "String": "GambleGroup"
+          },
+          "source_id": {
+            "String": "gamble-group:203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.9"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-group.203"
+          },
+          "summary_en": {
+            "String": "FortuneWheel Group 203 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "幸运转盘组 203保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamblegroup"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MagicUnitRare Unit 101 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "稀有组件单元 101服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"1102\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MagicUnitRare\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.101"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.101"
+          },
+          "summary_en": {
+            "String": "MagicUnitRare Unit 101 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "稀有组件单元 101保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MagicUnitRare Unit 102 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "稀有组件单元 102服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"1202\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MagicUnitRare\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.102"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.102"
+          },
+          "summary_en": {
+            "String": "MagicUnitRare Unit 102 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "稀有组件单元 102保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MagicUnitCommon Unit 103 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "普通组件单元 103服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"1101\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MagicUnitCommon\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.103"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.103"
+          },
+          "summary_en": {
+            "String": "MagicUnitCommon Unit 103 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "普通组件单元 103保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MagicUnitCommon Unit 104 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "普通组件单元 104服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"1201\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MagicUnitCommon\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.104"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.104"
+          },
+          "summary_en": {
+            "String": "MagicUnitCommon Unit 104 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "普通组件单元 104保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MiracleCommon Unit 201 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "普通奇物单元 201服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"60011\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MiracleCommon\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.201"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.201"
+          },
+          "summary_en": {
+            "String": "MiracleCommon Unit 201 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "普通奇物单元 201保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MiracleCommon Unit 202 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "普通奇物单元 202服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"60012\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MiracleCommon\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.202"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.202"
+          },
+          "summary_en": {
+            "String": "MiracleCommon Unit 202 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "普通奇物单元 202保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "MiracleCommon Unit 203 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "普通奇物单元 203服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"parameter_target_resolution\":\"Unspecified\",\"parameters\":[\"60013\"],\"resolution\":\"Unspecified\",\"unit_type\":\"MiracleCommon\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.gamble-unit.203"
+          },
+          "service_kind": {
+            "String": "GambleUnit"
+          },
+          "source_id": {
+            "String": "gamble-unit:203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.gamble-unit.203"
+          },
+          "summary_en": {
+            "String": "MiracleCommon Unit 203 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "普通奇物单元 203保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gambleunit"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "[{\"dialogue_ordinal\":1,\"dialogue_progress\":\"NotApplicable\",\"unlock_id\":\"NotApplicable\"},{\"dialogue_ordinal\":2,\"dialogue_progress\":\"1\",\"unlock_id\":\"NotApplicable\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510001 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510001服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"resolution\":\"ExactOptionBoundary\",\"service_options\":[{\"choice_label_sha256_en\":\"a962700658af552f3c69787f8c8268d8329e77a233863364f366ccd9919fd095\",\"choice_label_sha256_zh_cn\":\"4092b118de1bae961e7774d2a9d64eaec0cb7ac7df0153303f36054210b54ec0\",\"dialogue_ordinal\":1,\"operations\":[\"Battle\",\"Obtain\"],\"option_display_id\":\"13413\",\"option_id\":\"113413\",\"option_ordinal\":1,\"option_values\":[{\"field\":\"DescValue\",\"value\":\"2\"}],\"random_resolution\":\"NotApplicable\",\"result_sha256_en\":\"449704d088ffaaa4470022b150d60c99ace7ae28353c7fad7a42ee52dc341233\",\"result_sha256_zh_cn\":\"10492edc90fc43a231493505983776e886dd09c6180341192f699a98e3ea61ca\",\"service_id\":\"unknowable-domain.mode-service-option.510001.1.1\",\"targets\":[\"Component\"]},{\"choice_label_sha256_en\":\"3be8ff056f2167a2eea5e5fe4c6f617dc68bff83b598ecc9e598c35967e1b7cf\",\"choice_label_sha256_zh_cn\":\"a561b8642b540e81a548b058c13063992fea7ac72bf2a50f2e84abe4d24cfe0e\",\"dialogue_ordinal\":2,\"operations\":[\"Obtain\"],\"option_display_id\":\"23914\",\"option_id\":\"523910\",\"option_ordinal\":1,\"option_values\":[],\"random_resolution\":\"Unspecified\",\"result_sha256_en\":\"8a1dd9a3727cc43bad47246b0d0859013f8b598170f320d8450b54002a1e0e41\",\"result_sha256_zh_cn\":\"bea90948de02ecd18b5687576957c38688421501c3ae71a90c652026fb742cee\",\"service_id\":\"unknowable-domain.mode-service-option.510001.2.1\",\"targets\":[\"Component\"]},{\"choice_label_sha256_en\":\"942009d6789b0fcf1276dd1a1d4a3dcf00350dfcd322d1f6fc1334e27f823a6e\",\"choice_label_sha256_zh_cn\":\"da64d44463471379e08bdb71de060e69c2d60fab8a426909ef603b2bb551305a\",\"dialogue_ordinal\":2,\"operations\":[\"Obtain\"],\"option_display_id\":\"23913\",\"option_id\":\"523906\",\"option_ordinal\":2,\"option_values\":[{\"field\":\"DescValue\",\"value\":\"1\"}],\"random_resolution\":\"NotApplicable\",\"result_sha256_en\":\"e02ab9252d2739f3614b2f620dd57962a6891f07761945d71cc62a9d0cd7965d\",\"result_sha256_zh_cn\":\"dd98262db460688d338ecd5167187b623ba15c2b9d399301682bdcdaea47959d\",\"service_id\":\"unknowable-domain.mode-service-option.510001.2.2\",\"targets\":[\"Component\"]}]}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.mode-service-npc.510001"
+          },
+          "service_kind": {
+            "String": "ModeServiceNpc"
+          },
+          "source_id": {
+            "String": "mode-service-npc:510001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-1"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510001-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.426"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.870"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.871"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.mode-service-npc.510001"
+          },
+          "summary_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510001 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510001保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "modeservicenpc"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "[{\"dialogue_ordinal\":1,\"dialogue_progress\":\"NotApplicable\",\"unlock_id\":\"NotApplicable\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510002 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510002服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"resolution\":\"ExactOptionBoundary\",\"service_options\":[{\"choice_label_sha256_en\":\"9d2e8058eed7e80a8b0cf679bfcfc50440e8151d0975049551d7507a873681f6\",\"choice_label_sha256_zh_cn\":\"eb4d6651ab373d63ae4df07b96e7040eacfb94351defaf13ef894d21efaceafa\",\"dialogue_ordinal\":1,\"operations\":[\"Obtain\"],\"option_display_id\":\"11504\",\"option_id\":\"11501\",\"option_ordinal\":1,\"option_values\":[{\"field\":\"DescValue\",\"value\":\"1\"}],\"random_resolution\":\"NotApplicable\",\"result_sha256_en\":\"feb2c699dc308977b01437e6bbfb71eddbede38da869e3959949ff533cda1398\",\"result_sha256_zh_cn\":\"3362cea210a7683cac8821c2e75a48510d43a91a6a0b5d10e1fb09d1f962c6d1\",\"service_id\":\"unknowable-domain.mode-service-option.510002.1.1\",\"targets\":[\"Scepter\"]}]}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.mode-service-npc.510002"
+          },
+          "service_kind": {
+            "String": "ModeServiceNpc"
+          },
+          "source_id": {
+            "String": "mode-service-npc:510002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510002-opt0510002-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510002-opt0510002-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510002-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.247"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.mode-service-npc.510002"
+          },
+          "summary_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510002 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510002保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "modeservicenpc"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "[{\"dialogue_ordinal\":1,\"dialogue_progress\":\"NotApplicable\",\"unlock_id\":\"NotApplicable\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510003 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510003服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"resolution\":\"ExactOptionBoundary\",\"service_options\":[{\"choice_label_sha256_en\":\"06976b4348427e3670e3f8c14e41096e74e31600968f203d11352779476d4b59\",\"choice_label_sha256_zh_cn\":\"64e17f741de2e6cc56dc0996feff33e3c2333bf86a35ad822d98c57323cd8775\",\"dialogue_ordinal\":1,\"operations\":[\"Obtain\"],\"option_display_id\":\"14406\",\"option_id\":\"114406\",\"option_ordinal\":1,\"option_values\":[{\"field\":\"DescValue\",\"value\":\"4\"}],\"random_resolution\":\"Unspecified\",\"result_sha256_en\":\"9d657abf8b113e44f28cf270c1a292ca97126703e360790de4aa1c1f277df7da\",\"result_sha256_zh_cn\":\"d8748396de77a3629d13413e2f8721346423a1a4733db5e0ba3f33c9583db1ea\",\"service_id\":\"unknowable-domain.mode-service-option.510003.1.1\",\"targets\":[\"Curio\"]}]}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.mode-service-npc.510003"
+          },
+          "service_kind": {
+            "String": "ModeServiceNpc"
+          },
+          "source_id": {
+            "String": "mode-service-npc:510003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510003-opt0510003-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510003-opt0510003-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510003-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.556"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.mode-service-npc.510003"
+          },
+          "summary_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510003 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510003保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "modeservicenpc"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "[{\"dialogue_ordinal\":1,\"dialogue_progress\":\"NotApplicable\",\"unlock_id\":\"NotApplicable\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510004 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510004服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"resolution\":\"ExactOptionBoundary\",\"service_options\":[{\"choice_label_sha256_en\":\"7712092c5d4af21e574c4b3fa67cb6549dfd2c728e1843a320a49d5860f78b44\",\"choice_label_sha256_zh_cn\":\"d2d50d3562cba6dd92c0cc5c34524d1500612d1eae0faafb603e40594b006398\",\"dialogue_ordinal\":1,\"operations\":[\"Obtain\",\"Special\"],\"option_display_id\":\"10007\",\"option_id\":\"510004\",\"option_ordinal\":1,\"option_values\":[],\"random_resolution\":\"NotApplicable\",\"result_sha256_en\":\"af5104af9523438e4a987eee3b93f544af21d51b598ae1f090d36e13f3750cd0\",\"result_sha256_zh_cn\":\"43e3bf62c41e2dc98aed0723492ba29d8d3b8b3c239ae7a6541b60e66f2e7e69\",\"service_id\":\"unknowable-domain.mode-service-option.510004.1.1\",\"targets\":[]}]}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.mode-service-npc.510004"
+          },
+          "service_kind": {
+            "String": "ModeServiceNpc"
+          },
+          "source_id": {
+            "String": "mode-service-npc:510004"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510004-opt0510004-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510004-opt0510004-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510004-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.mode-service-npc.510004"
+          },
+          "summary_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510004 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510004保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "modeservicenpc"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "[{\"dialogue_ordinal\":1,\"dialogue_progress\":\"NotApplicable\",\"unlock_id\":\"NotApplicable\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510005 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510005服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"resolution\":\"ExactOptionBoundary\",\"service_options\":[{\"choice_label_sha256_en\":\"17bab50ce2c6ba0fd999bc5ca5cfe97970a82bbc804973bde622a460c2a49bb7\",\"choice_label_sha256_zh_cn\":\"0cec3edf280aa224d778b42b50230c5427cde164ecc82818dff91b7278f6bdb4\",\"dialogue_ordinal\":1,\"operations\":[\"Special\"],\"option_display_id\":\"10008\",\"option_id\":\"510005\",\"option_ordinal\":1,\"option_values\":[],\"random_resolution\":\"NotApplicable\",\"result_sha256_en\":\"1563dadab1fa0f9f8e7836c86e2e1a979ef3e41abbe27a4a8c2a553e597cdb1c\",\"result_sha256_zh_cn\":\"1e79002933592162557680c4ff39f0d481fe56e82c9cac56dcc892007e541679\",\"service_id\":\"unknowable-domain.mode-service-option.510005.1.1\",\"targets\":[]}]}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.mode-service-npc.510005"
+          },
+          "service_kind": {
+            "String": "ModeServiceNpc"
+          },
+          "source_id": {
+            "String": "mode-service-npc:510005"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510005-opt0510005-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510005-opt0510005-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510005-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.mode-service-npc.510005"
+          },
+          "summary_en": {
+            "String": "Unknowable Domain Service/Entry NPC 510005 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "不可知域服务/入口 NPC 510005保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "modeservicenpc"
+              },
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Scepter Modification Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "权杖改装服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"currency_id\":\"cosmic-fragments\",\"function_type\":\"MagicScepterLevelUp\",\"offer_policy_id\":\"unknowable-domain.service-offer.workbench-function.10\",\"resolution\":\"ExactFunctionBoundary\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench-function.10"
+          },
+          "service_kind": {
+            "String": "WorkbenchFunction"
+          },
+          "source_id": {
+            "String": "workbench-function:10"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench-function.10"
+          },
+          "summary_en": {
+            "String": "Scepter Modification retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "权杖改装保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbenchfunction"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Scepter Store Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "权杖商店服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"currency_id\":\"cosmic-fragments\",\"function_type\":\"MagicScepterShop\",\"offer_policy_id\":\"unknowable-domain.service-offer.workbench-function.6\",\"resolution\":\"ExactFunctionBoundary\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench-function.6"
+          },
+          "service_kind": {
+            "String": "WorkbenchFunction"
+          },
+          "source_id": {
+            "String": "workbench-function:6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench-function.6"
+          },
+          "summary_en": {
+            "String": "Scepter Store retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "权杖商店保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbenchfunction"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Component Store Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "组件商店服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"currency_id\":\"cosmic-fragments\",\"function_type\":\"MagicUnitShop\",\"offer_policy_id\":\"unknowable-domain.service-offer.workbench-function.7\",\"resolution\":\"ExactFunctionBoundary\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench-function.7"
+          },
+          "service_kind": {
+            "String": "WorkbenchFunction"
+          },
+          "source_id": {
+            "String": "workbench-function:7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench-function.7"
+          },
+          "summary_en": {
+            "String": "Component Store retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "组件商店保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbenchfunction"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Component Synthesis Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "组件合成服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"currency_id\":\"Unspecified\",\"function_type\":\"MagicUnitCompose\",\"offer_policy_id\":\"unknowable-domain.service-offer.workbench-function.8\",\"resolution\":\"ExactFunctionBoundary\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench-function.8"
+          },
+          "service_kind": {
+            "String": "WorkbenchFunction"
+          },
+          "source_id": {
+            "String": "workbench-function:8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench-function.8"
+          },
+          "summary_en": {
+            "String": "Component Synthesis retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "组件合成保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbenchfunction"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Overwrite Component Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "组件覆写服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"currency_id\":\"Unspecified\",\"function_type\":\"MagicUnitReforge\",\"offer_policy_id\":\"unknowable-domain.service-offer.workbench-function.9\",\"resolution\":\"ExactFunctionBoundary\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench-function.9"
+          },
+          "service_kind": {
+            "String": "WorkbenchFunction"
+          },
+          "source_id": {
+            "String": "workbench-function:9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench-function.9"
+          },
+          "summary_en": {
+            "String": "Overwrite Component retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "组件覆写保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbenchfunction"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Workbench 101 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "工作台 101服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"function_ids\":[\"unknowable-domain.workbench-function.6\",\"unknowable-domain.workbench-function.7\",\"unknowable-domain.workbench-function.10\"],\"resolution\":\"ExactStructured\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench.101"
+          },
+          "service_kind": {
+            "String": "Workbench"
+          },
+          "source_id": {
+            "String": "workbench:101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbench-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench.101"
+          },
+          "summary_en": {
+            "String": "Workbench 101 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "工作台 101保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Workbench 102 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "工作台 102服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"function_ids\":[\"unknowable-domain.workbench-function.9\",\"unknowable-domain.workbench-function.8\",\"unknowable-domain.workbench-function.10\"],\"resolution\":\"ExactStructured\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench.102"
+          },
+          "service_kind": {
+            "String": "Workbench"
+          },
+          "source_id": {
+            "String": "workbench:102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbench-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench.102"
+          },
+          "summary_en": {
+            "String": "Workbench 102 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "工作台 102保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Workbench 103 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "工作台 103服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"function_ids\":[\"unknowable-domain.workbench-function.9\",\"unknowable-domain.workbench-function.8\",\"unknowable-domain.workbench-function.10\"],\"resolution\":\"ExactStructured\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench.103"
+          },
+          "service_kind": {
+            "String": "Workbench"
+          },
+          "source_id": {
+            "String": "workbench:103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbench-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench.103"
+          },
+          "summary_en": {
+            "String": "Workbench 103 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "工作台 103保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "UnknowableServiceRule"
+          },
+          "lifecycle": {
+            "String": "Unspecified"
+          },
+          "name_en": {
+            "String": "Workbench 104 Service Boundary"
+          },
+          "name_zh_cn": {
+            "String": "工作台 104服务边界"
+          },
+          "outcome_json": {
+            "String": "{\"function_ids\":[\"unknowable-domain.workbench-function.9\",\"unknowable-domain.workbench-function.8\",\"unknowable-domain.workbench-function.10\"],\"resolution\":\"ExactStructured\"}"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "price": {
+            "String": "NotApplicable"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "service_id": {
+            "String": "unknowable-domain.workbench.104"
+          },
+          "service_kind": {
+            "String": "Workbench"
+          },
+          "source_id": {
+            "String": "workbench:104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbench-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.service-rule.workbench.104"
+          },
+          "summary_en": {
+            "String": "Workbench 104 retains its released identity/bindings while unpublished price, eligibility or lifecycle fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "工作台 104保留已发布身份/绑定；未发布的价格、资格或生命周期字段保持明确未指定。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "rule"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

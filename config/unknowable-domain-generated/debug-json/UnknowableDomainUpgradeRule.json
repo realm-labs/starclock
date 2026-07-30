@@ -1,0 +1,181 @@
+{
+  "table": {
+    "name": "UnknowableDomainUpgradeRule",
+    "rows": [
+      {
+        "values": {
+          "cap": {
+            "String": "3"
+          },
+          "cost": {
+            "String": "{\"amount\":\"Unspecified\",\"currency_id\":\"cosmic-fragments\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "function_type": {
+            "String": "MagicScepterLevelUp"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_level": {
+            "String": "1"
+          },
+          "kind": {
+            "String": "ScepterUpgradeRule"
+          },
+          "name_en": {
+            "String": "Scepter Level 1 to 2 Upgrade Policy"
+          },
+          "name_zh_cn": {
+            "String": "权杖等级 1 至 2 升级策略"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ValidateOwnedScepterLevel\",\"ResolveUnspecifiedCost\",\"AdvanceExactlyOneReleasedLevel\"]"
+          },
+          "output_level": {
+            "String": "2"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "component-transformation-policy-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "10:1:2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.scepter-upgrade.1-to-2"
+          },
+          "summary_en": {
+            "String": "The policy advances a released Scepter level from 1 to 2; the exact Cosmic Fragment amount and mutation order await stronger evidence."
+          },
+          "summary_zh_cn": {
+            "String": "该策略将已发布权杖等级从 1 提升至 2；精确宇宙碎片数量与变更顺序等待更强证据。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "scepter"
+              },
+              {
+                "String": "transformation"
+              },
+              {
+                "String": "upgrade"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cap": {
+            "String": "3"
+          },
+          "cost": {
+            "String": "{\"amount\":\"Unspecified\",\"currency_id\":\"cosmic-fragments\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "function_type": {
+            "String": "MagicScepterLevelUp"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_level": {
+            "String": "2"
+          },
+          "kind": {
+            "String": "ScepterUpgradeRule"
+          },
+          "name_en": {
+            "String": "Scepter Level 2 to 3 Upgrade Policy"
+          },
+          "name_zh_cn": {
+            "String": "权杖等级 2 至 3 升级策略"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ValidateOwnedScepterLevel\",\"ResolveUnspecifiedCost\",\"AdvanceExactlyOneReleasedLevel\"]"
+          },
+          "output_level": {
+            "String": "3"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "component-transformation-policy-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "10:2:3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.scepter-upgrade.2-to-3"
+          },
+          "summary_en": {
+            "String": "The policy advances a released Scepter level from 2 to 3; the exact Cosmic Fragment amount and mutation order await stronger evidence."
+          },
+          "summary_zh_cn": {
+            "String": "该策略将已发布权杖等级从 2 提升至 3；精确宇宙碎片数量与变更顺序等待更强证据。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "scepter"
+              },
+              {
+                "String": "transformation"
+              },
+              {
+                "String": "upgrade"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

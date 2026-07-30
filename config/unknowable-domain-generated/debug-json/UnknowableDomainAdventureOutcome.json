@@ -1,0 +1,790 @@
+{
+  "table": {
+    "name": "UnknowableDomainAdventureOutcome",
+    "rows": [
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Outcome 11001"
+          },
+          "name_zh_cn": {
+            "String": "抓扑满结果 11001"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "301001"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"2\",\"source_table\":\"RogueCaptureMonster\",\"values\":{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.0"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11001"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11001"
+          },
+          "summary_en": {
+            "String": "Released RogueCaptureMonster room 11001 binds parameter group 301001; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的抓扑满房间 11001 绑定参数组 301001；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguecapturemonster"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueTurntable"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueTurntable Outcome 11002"
+          },
+          "name_zh_cn": {
+            "String": "转盘结果 11002"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "5001"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"6\",\"source_table\":\"RogueTurntable\",\"values\":{\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"High\"}},{\"source_locator\":\"7\",\"source_table\":\"RogueTurntable\",\"values\":{\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"Medium\"}},{\"source_locator\":\"8\",\"source_table\":\"RogueTurntable\",\"values\":{\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\"}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-rogueturntable-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-rogueturntable-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-rogueturntable-json.8"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11002"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11002"
+          },
+          "summary_en": {
+            "String": "Released RogueTurntable room 11002 binds parameter group 5001; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的转盘房间 11002 绑定参数组 5001；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "rogueturntable"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Outcome 11003"
+          },
+          "name_zh_cn": {
+            "String": "破坏物件结果 11003"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "301001"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"5\",\"source_table\":\"RogueDestroyProp\",\"values\":{\"GameTime\":\"35\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguedestroyprop-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.3"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11003"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11003"
+          },
+          "summary_en": {
+            "String": "Released RogueDestroyProp room 11003 binds parameter group 301001; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的破坏物件房间 11003 绑定参数组 301001；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguedestroyprop"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Outcome 11004"
+          },
+          "name_zh_cn": {
+            "String": "抓扑满结果 11004"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "301001"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"2\",\"source_table\":\"RogueCaptureMonster\",\"values\":{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11004"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.1"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11004"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11004"
+          },
+          "summary_en": {
+            "String": "Released RogueCaptureMonster room 11004 binds parameter group 301001; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的抓扑满房间 11004 绑定参数组 301001；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguecapturemonster"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Outcome 11005"
+          },
+          "name_zh_cn": {
+            "String": "破坏物件结果 11005"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "301002"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"6\",\"source_table\":\"RogueDestroyProp\",\"values\":{\"GameTime\":\"35\",\"ParamGroupID\":\"301002\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11005"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguedestroyprop-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.4"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11005"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11005"
+          },
+          "summary_en": {
+            "String": "Released RogueDestroyProp room 11005 binds parameter group 301002; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的破坏物件房间 11005 绑定参数组 301002；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguedestroyprop"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Outcome 11006"
+          },
+          "name_zh_cn": {
+            "String": "抓扑满结果 11006"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "301001"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"2\",\"source_table\":\"RogueCaptureMonster\",\"values\":{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.2"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11006"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11006"
+          },
+          "summary_en": {
+            "String": "Released RogueCaptureMonster room 11006 binds parameter group 301001; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的抓扑满房间 11006 绑定参数组 301001；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguecapturemonster"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueEscapeLaser"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueEscapeLaser Outcome 11007"
+          },
+          "name_zh_cn": {
+            "String": "躲避射线结果 11007"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "5001"
+          },
+          "parameter_records_json": {
+            "String": "[{\"source_locator\":\"1\",\"source_table\":\"RogueEscapeLaser\",\"values\":{\"GameTimeperRound\":\"5\",\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"400\",\"600\"],\"ScoreperRound\":[\"100\",\"200\",\"300\",\"400\",\"500\"],\"ScoreperWave\":\"100\",\"TotalRounds\":\"6\"}}]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-rogueescapelaser-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.6"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11007"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11007"
+          },
+          "summary_en": {
+            "String": "Released RogueEscapeLaser room 11007 binds parameter group 5001; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的躲避射线房间 11007 绑定参数组 5001；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "rogueescapelaser"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Outcome 11008"
+          },
+          "name_zh_cn": {
+            "String": "狼枪结果 11008"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "101"
+          },
+          "parameter_records_json": {
+            "String": "[]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11008"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.7"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11008"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11008"
+          },
+          "summary_en": {
+            "String": "Released RogueWolfGun room 11008 binds parameter group 101; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的狼枪房间 11008 绑定参数组 101；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguewolfgun"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "UnknowableAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Outcome 11009"
+          },
+          "name_zh_cn": {
+            "String": "狼枪结果 11009"
+          },
+          "offered_result": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "param_group_id": {
+            "String": "102"
+          },
+          "parameter_records_json": {
+            "String": "[]"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-outcome:11009"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.8"
+              }
+            ]
+          },
+          "source_tier_id": {
+            "String": "11009"
+          },
+          "stable_key": {
+            "String": "unknowable-domain.adventure-outcome.11009"
+          },
+          "summary_en": {
+            "String": "Released RogueWolfGun room 11009 binds parameter group 102; its concrete offered reward tier is not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的狼枪房间 11009 绑定参数组 102；未发布具体提供的奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "roguewolfgun"
+              }
+            ]
+          },
+          "tier": {
+            "String": "Unspecified"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,3745 @@
+[
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-magic-darkteam-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Magic_DarkTeam.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Magic_DarkTeam.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 2 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 2 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-magic-darkteam-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.json",
+        "locator": "root",
+        "sha256": "683b369da34eae9f4453a792b7020efb46f29efcf22dbd72a4532288390c4e49",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-magic-darkteam-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:AbilityList",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "Structure:GlobalModifiers",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-magic-darkteam-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Magic_DarkTeam.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Magic_DarkTeam.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-magic-darkteam-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.layout.json",
+        "locator": "root",
+        "sha256": "acd9afc041b91bf5c69e9a0778a10c0c77cae619580064c55fa9a58a49d940e3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_DarkTeam.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-magic-darkteam-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-magic-lightteam-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Magic_LightTeam.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Magic_LightTeam.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 3 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 3 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-magic-lightteam-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.json",
+        "locator": "root",
+        "sha256": "e1358648217a8acd01cef32b17a0fc9efbd4f57531c67fcd19770d99a5f8d043",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-magic-lightteam-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:AbilityList",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "Structure:GlobalModifiers",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "Structure:GlobalTemplates",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-magic-lightteam-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Magic_LightTeam.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Magic_LightTeam.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-magic-lightteam-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.layout.json",
+        "locator": "root",
+        "sha256": "acd9afc041b91bf5c69e9a0778a10c0c77cae619580064c55fa9a58a49d940e3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic_LightTeam.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-magic-lightteam-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-magic-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Magic.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Magic.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 50 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 50 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-magic-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.json",
+        "locator": "root",
+        "sha256": "b98d4131d0198522f2539f2acdc3ee40584e1c5377cf223e15de0de152c638ca",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-magic-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.IncludeTaskListTemplate",
+        "source_occurrences": 11
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.WaitSecond",
+        "source_occurrences": 22
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.TriggerEffect",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.TargetAlias",
+        "source_occurrences": 152
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.Retarget",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.ModifyActionDelay",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.ModifyTeamBoostPoint",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.PredicateTaskList",
+        "source_occurrences": 16
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.ByCompareDynamicValue",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.AddModifier",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 12,
+        "operation_type": "RPG.GameCore.ByIsContainModifier",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 13,
+        "operation_type": "RPG.GameCore.SetDynamicValueByCopying",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 14,
+        "operation_type": "RPG.GameCore.RemoveModifier",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 15,
+        "operation_type": "RPG.GameCore.SetModifierDynamicValue",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 16,
+        "operation_type": "RPG.GameCore.TriggerSound",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 17,
+        "operation_type": "RPG.GameCore.LoopExecuteTaskList",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 18,
+        "operation_type": "RPG.GameCore.SetDynamicValueByModifierValue",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 19,
+        "operation_type": "RPG.GameCore.SetDynamicValue",
+        "source_occurrences": 15
+      },
+      {
+        "ordinal": 20,
+        "operation_type": "RPG.GameCore.TriggerAnimState",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 21,
+        "operation_type": "RPG.GameCore.ByIsPropertyValueMinOrMax",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 22,
+        "operation_type": "RPG.GameCore.DamageByAttackProperty",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 23,
+        "operation_type": "RPG.GameCore.AttackData",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 24,
+        "operation_type": "RPG.GameCore.DamagePerformFinish",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 25,
+        "operation_type": "RPG.GameCore.LoopExecuteTaskListWithInterval",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 26,
+        "operation_type": "RPG.GameCore.ByAny",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 27,
+        "operation_type": "RPG.GameCore.ByHaveEnemyAlive",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 28,
+        "operation_type": "RPG.GameCore.ByCompareHP",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 29,
+        "operation_type": "RPG.GameCore.StackProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 30,
+        "operation_type": "RPG.GameCore.ByTargetTeam",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 31,
+        "operation_type": "RPG.GameCore.ByAttackType",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 32,
+        "operation_type": "RPG.GameCore.ByAnd",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 33,
+        "operation_type": "RPG.GameCore.ByContainBehaviorFlag",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 34,
+        "operation_type": "RPG.GameCore.DefineDynamicValue",
+        "source_occurrences": 16
+      },
+      {
+        "ordinal": 35,
+        "operation_type": "RPG.GameCore.SetDynamicValueByScepterProperty",
+        "source_occurrences": 10
+      },
+      {
+        "ordinal": 36,
+        "operation_type": "RPG.GameCore.SetDynamicValueByHardLevelProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 37,
+        "operation_type": "RPG.GameCore.ByCompareBattleEventID",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 38,
+        "operation_type": "RPG.GameCore.RemoveSelfModifier",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 39,
+        "operation_type": "RPG.GameCore.ByTargetAliveState",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 40,
+        "operation_type": "RPG.GameCore.BySimulateSpeedUp",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 41,
+        "operation_type": "RPG.GameCore.ByInTimelinePerform",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 42,
+        "operation_type": "RPG.GameCore.PerformDelayExecute",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 43,
+        "operation_type": "RPG.GameCore.VCameraConfigChange",
+        "source_occurrences": 15
+      },
+      {
+        "ordinal": 44,
+        "operation_type": "RPG.GameCore.RadialBlurCurveEffect",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 45,
+        "operation_type": "RPG.GameCore.SetDynamicValueByCharacterCount",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 46,
+        "operation_type": "RPG.GameCore.SetDynamicValueByAddValue",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 47,
+        "operation_type": "RPG.GameCore.SetTeamFormation",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 48,
+        "operation_type": "RPG.GameCore.TargetConcat",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 49,
+        "operation_type": "RPG.GameCore.TargetSequence",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 50,
+        "operation_type": "RPG.GameCore.TargetFilter",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-magic-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Magic.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Magic.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-magic-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.layout.json",
+        "locator": "root",
+        "sha256": "0637c81a0c3e8484ee9a6e840a264b6de3833dae6dbcdbd66633331302713b46",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Magic.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-magic-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-module-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Module.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Module.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 70 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 70 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-module-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.json",
+        "locator": "root",
+        "sha256": "81b987c783743a97b8c44e626b91a90a007f976a141f7592cb25e6699d296d9f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-module-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.AddModifier",
+        "source_occurrences": 141
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.TargetAlias",
+        "source_occurrences": 663
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.PredicateTaskList",
+        "source_occurrences": 188
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.ByCompareDynamicValue",
+        "source_occurrences": 84
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.IncludeTaskListTemplate",
+        "source_occurrences": 35
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.LoopExecuteTaskList",
+        "source_occurrences": 17
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.ByAnd",
+        "source_occurrences": 35
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.ByIsContainModifier",
+        "source_occurrences": 35
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.Remodifier",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.SetDynamicValueByModifierValue",
+        "source_occurrences": 15
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 25
+      },
+      {
+        "ordinal": 12,
+        "operation_type": "RPG.GameCore.SetDynamicValue",
+        "source_occurrences": 100
+      },
+      {
+        "ordinal": 13,
+        "operation_type": "RPG.GameCore.TriggerEffect",
+        "source_occurrences": 29
+      },
+      {
+        "ordinal": 14,
+        "operation_type": "RPG.GameCore.VCameraConfigChange",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 15,
+        "operation_type": "RPG.GameCore.RadialBlurEffect",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 16,
+        "operation_type": "RPG.GameCore.DamageByAttackProperty",
+        "source_occurrences": 45
+      },
+      {
+        "ordinal": 17,
+        "operation_type": "RPG.GameCore.AttackData",
+        "source_occurrences": 45
+      },
+      {
+        "ordinal": 18,
+        "operation_type": "RPG.GameCore.RemoveModifier",
+        "source_occurrences": 46
+      },
+      {
+        "ordinal": 19,
+        "operation_type": "RPG.GameCore.RemoveEffect",
+        "source_occurrences": 21
+      },
+      {
+        "ordinal": 20,
+        "operation_type": "RPG.GameCore.ModifierAttachEffect",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 21,
+        "operation_type": "RPG.GameCore.RemoveSelfModifier",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 22,
+        "operation_type": "RPG.GameCore.ByContainBehaviorFlag",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 23,
+        "operation_type": "RPG.GameCore.TriggerModifierCustomEvent",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 24,
+        "operation_type": "RPG.GameCore.ByAttackType",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 25,
+        "operation_type": "RPG.GameCore.ModifyDamageData",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 26,
+        "operation_type": "RPG.GameCore.SetDynamicValueByCopying",
+        "source_occurrences": 28
+      },
+      {
+        "ordinal": 27,
+        "operation_type": "RPG.GameCore.ByTargetTeam",
+        "source_occurrences": 17
+      },
+      {
+        "ordinal": 28,
+        "operation_type": "RPG.GameCore.ByIsSplitDamage",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 29,
+        "operation_type": "RPG.GameCore.Retarget",
+        "source_occurrences": 32
+      },
+      {
+        "ordinal": 30,
+        "operation_type": "RPG.GameCore.ModifySPNew",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 31,
+        "operation_type": "RPG.GameCore.HealHP",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 32,
+        "operation_type": "RPG.GameCore.RandomConfig",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 33,
+        "operation_type": "RPG.GameCore.SetDynamicValueByAddValue",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 34,
+        "operation_type": "RPG.GameCore.SetDynamicValueByDamageDataProperty",
+        "source_occurrences": 12
+      },
+      {
+        "ordinal": 35,
+        "operation_type": "RPG.GameCore.AddRegardAsAttackType",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 36,
+        "operation_type": "RPG.GameCore.ClearRegardAsAttackType",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 37,
+        "operation_type": "RPG.GameCore.StackProperty",
+        "source_occurrences": 14
+      },
+      {
+        "ordinal": 38,
+        "operation_type": "RPG.GameCore.ByCharacterDamageType",
+        "source_occurrences": 39
+      },
+      {
+        "ordinal": 39,
+        "operation_type": "RPG.GameCore.ByAny",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 40,
+        "operation_type": "RPG.GameCore.SetDynamicValueByProperty",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 41,
+        "operation_type": "RPG.GameCore.ByHasStanceWeak",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 42,
+        "operation_type": "RPG.GameCore.SetModifierOverrideNameForStatus",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 43,
+        "operation_type": "RPG.GameCore.ByCompareTarget",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 44,
+        "operation_type": "RPG.GameCore.TargetSequence",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 45,
+        "operation_type": "RPG.GameCore.TargetFilter",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 46,
+        "operation_type": "RPG.GameCore.ByIsSkillTypeDisable",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 47,
+        "operation_type": "RPG.GameCore.TargetSortByProperty",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 48,
+        "operation_type": "RPG.GameCore.TargetTake",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 49,
+        "operation_type": "RPG.GameCore.TurnInsertAction",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 50,
+        "operation_type": "RPG.GameCore.ByCompareDamageTag",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 51,
+        "operation_type": "RPG.GameCore.ByTargetEntityType",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 52,
+        "operation_type": "RPG.GameCore.ModifyCurrentSkillDelayCost",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 53,
+        "operation_type": "RPG.GameCore.ModifyActionDelay",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 54,
+        "operation_type": "RPG.GameCore.ReduceStanceRatio",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 55,
+        "operation_type": "RPG.GameCore.SetDynamicValueByAttackTargetCount",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 56,
+        "operation_type": "RPG.GameCore.ByIsPropertyValueMinOrMax",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 57,
+        "operation_type": "RPG.GameCore.ByCurrentSkillType",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 58,
+        "operation_type": "RPG.GameCore.DispelStatus",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 59,
+        "operation_type": "RPG.GameCore.ByNot",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 60,
+        "operation_type": "RPG.GameCore.ByCompareHP",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 61,
+        "operation_type": "RPG.GameCore.HitDamageSplit",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 62,
+        "operation_type": "RPG.GameCore.SetDynamicValueByStatusCount",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 63,
+        "operation_type": "RPG.GameCore.SetModifierValue",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 64,
+        "operation_type": "RPG.GameCore.TriggerSound",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 65,
+        "operation_type": "RPG.GameCore.SetModifierDynamicValue",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 66,
+        "operation_type": "RPG.GameCore.ByCompareAbilityProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 67,
+        "operation_type": "RPG.GameCore.ModifySpecialSP",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 68,
+        "operation_type": "RPG.GameCore.DefineDynamicValue",
+        "source_occurrences": 11
+      },
+      {
+        "ordinal": 69,
+        "operation_type": "RPG.GameCore.SetDynamicValueByScepterProperty",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 70,
+        "operation_type": "RPG.GameCore.SetDynamicValueByHardLevelProperty",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-module-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Module.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Module.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-module-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.layout.json",
+        "locator": "root",
+        "sha256": "f23b692d353f1cf9a4c8ef2e83a9cb5fa563c4290b4d97798affdbe60637ac03",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Module.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-module-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_NewMagic_DarkTeam.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_NewMagic_DarkTeam.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 94 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 94 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.json",
+        "locator": "root",
+        "sha256": "9bb3df47c3ecb5f37e05e63db1fbeab1caca457f2382702e28e428a873158332",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 82
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.SetDynamicValueByScepterProperty",
+        "source_occurrences": 48
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.TargetAlias",
+        "source_occurrences": 693
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.RogueMagicShowScepterActiveEffect",
+        "source_occurrences": 24
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.SetTeamFormation",
+        "source_occurrences": 44
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.IncludeTaskListTemplate",
+        "source_occurrences": 98
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.WaitSecond",
+        "source_occurrences": 113
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.ModifySPNew",
+        "source_occurrences": 27
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.SetDynamicValue",
+        "source_occurrences": 124
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.TriggerParallelTaskListTemplate",
+        "source_occurrences": 15
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.Retarget",
+        "source_occurrences": 46
+      },
+      {
+        "ordinal": 12,
+        "operation_type": "RPG.GameCore.ByIsContainModifier",
+        "source_occurrences": 22
+      },
+      {
+        "ordinal": 13,
+        "operation_type": "RPG.GameCore.RemoveModifier",
+        "source_occurrences": 24
+      },
+      {
+        "ordinal": 14,
+        "operation_type": "RPG.GameCore.AddModifier",
+        "source_occurrences": 68
+      },
+      {
+        "ordinal": 15,
+        "operation_type": "RPG.GameCore.PredicateTaskList",
+        "source_occurrences": 123
+      },
+      {
+        "ordinal": 16,
+        "operation_type": "RPG.GameCore.ByCompareDynamicValue",
+        "source_occurrences": 86
+      },
+      {
+        "ordinal": 17,
+        "operation_type": "RPG.GameCore.TriggerEffect",
+        "source_occurrences": 129
+      },
+      {
+        "ordinal": 18,
+        "operation_type": "RPG.GameCore.WaitParallelTimeStamp",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 19,
+        "operation_type": "RPG.GameCore.FireProjectile",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 20,
+        "operation_type": "RPG.GameCore.SetDynamicValueByAddValue",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 21,
+        "operation_type": "RPG.GameCore.DamageByAttackProperty",
+        "source_occurrences": 59
+      },
+      {
+        "ordinal": 22,
+        "operation_type": "RPG.GameCore.AttackData",
+        "source_occurrences": 59
+      },
+      {
+        "ordinal": 23,
+        "operation_type": "RPG.GameCore.LoopExecuteTaskList",
+        "source_occurrences": 11
+      },
+      {
+        "ordinal": 24,
+        "operation_type": "RPG.GameCore.LoopExecuteTaskListWithInterval",
+        "source_occurrences": 28
+      },
+      {
+        "ordinal": 25,
+        "operation_type": "RPG.GameCore.ByAny",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 26,
+        "operation_type": "RPG.GameCore.ByCompareHP",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 27,
+        "operation_type": "RPG.GameCore.ByHaveEnemyAlive",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 28,
+        "operation_type": "RPG.GameCore.DefineDynamicValue",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 29,
+        "operation_type": "RPG.GameCore.ByCompareHPRatio",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 30,
+        "operation_type": "RPG.GameCore.RemoveEffect",
+        "source_occurrences": 12
+      },
+      {
+        "ordinal": 31,
+        "operation_type": "RPG.GameCore.SetDynamicValueByRandom",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 32,
+        "operation_type": "RPG.GameCore.VCameraConfigChange",
+        "source_occurrences": 30
+      },
+      {
+        "ordinal": 33,
+        "operation_type": "RPG.GameCore.ByRandomChance",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 34,
+        "operation_type": "RPG.GameCore.RandomConfig",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 35,
+        "operation_type": "RPG.GameCore.ByAnd",
+        "source_occurrences": 11
+      },
+      {
+        "ordinal": 36,
+        "operation_type": "RPG.GameCore.ShowUIPage",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 37,
+        "operation_type": "RPG.GameCore.SetDynamicValueByModifierValue",
+        "source_occurrences": 15
+      },
+      {
+        "ordinal": 38,
+        "operation_type": "RPG.GameCore.DamagePerformFinish",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 39,
+        "operation_type": "RPG.GameCore.SetModifierValue",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 40,
+        "operation_type": "RPG.GameCore.SetModifierDynamicValue",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 41,
+        "operation_type": "RPG.GameCore.ByIsPropertyValueMinOrMax",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 42,
+        "operation_type": "RPG.GameCore.Remodifier",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 43,
+        "operation_type": "RPG.GameCore.SetDynamicValueByCopying",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 44,
+        "operation_type": "RPG.GameCore.LookAt",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 45,
+        "operation_type": "RPG.GameCore.ModifyActionDelay",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 46,
+        "operation_type": "RPG.GameCore.ByTargetTeam",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 47,
+        "operation_type": "RPG.GameCore.ByTargetEntityType",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 48,
+        "operation_type": "RPG.GameCore.ModifyCurrentSkillDelayCost",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 49,
+        "operation_type": "RPG.GameCore.TriggerMagicUnitOnScepter",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 50,
+        "operation_type": "RPG.GameCore.ByCompareTarget",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 51,
+        "operation_type": "RPG.GameCore.TriggerModifierCustomEvent",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 52,
+        "operation_type": "RPG.GameCore.RadialBlurEffect",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 53,
+        "operation_type": "RPG.GameCore.TriggerAbility",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 54,
+        "operation_type": "RPG.GameCore.ConditionLoopExecuteTaskListWithInterval",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 55,
+        "operation_type": "RPG.GameCore.TargetSequence",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 56,
+        "operation_type": "RPG.GameCore.TargetSortByFormation",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 57,
+        "operation_type": "RPG.GameCore.GlobalMainIntensityEffect",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 58,
+        "operation_type": "RPG.GameCore.TriggerAnimState",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 59,
+        "operation_type": "RPG.GameCore.StackProperty",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 60,
+        "operation_type": "RPG.GameCore.ByCharacterDamageType",
+        "source_occurrences": 21
+      },
+      {
+        "ordinal": 61,
+        "operation_type": "RPG.GameCore.ByContainBehaviorFlag",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 62,
+        "operation_type": "RPG.GameCore.SetDynamicValueByProperty",
+        "source_occurrences": 12
+      },
+      {
+        "ordinal": 63,
+        "operation_type": "RPG.GameCore.ByInTurnBasedGameModeState",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 64,
+        "operation_type": "RPG.GameCore.AddBuffPerform",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 65,
+        "operation_type": "RPG.GameCore.ModifierAttachEffect",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 66,
+        "operation_type": "RPG.GameCore.OwnerEntityAddAbility",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 67,
+        "operation_type": "RPG.GameCore.TurnInsertAbility",
+        "source_occurrences": 14
+      },
+      {
+        "ordinal": 68,
+        "operation_type": "RPG.GameCore.ByCheckModifierCallBackName",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 69,
+        "operation_type": "RPG.GameCore.InfectModifier",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 70,
+        "operation_type": "RPG.GameCore.TargetShuffle",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 71,
+        "operation_type": "RPG.GameCore.TargetTake",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 72,
+        "operation_type": "RPG.GameCore.SwitchCaseByDynamicValue",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 73,
+        "operation_type": "RPG.GameCore.RemoveSelfModifier",
+        "source_occurrences": 33
+      },
+      {
+        "ordinal": 74,
+        "operation_type": "RPG.GameCore.ByAttackType",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 75,
+        "operation_type": "RPG.GameCore.ModifyDamageData",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 76,
+        "operation_type": "RPG.GameCore.SetDynamicValueByStatusCount",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 77,
+        "operation_type": "RPG.GameCore.TurnInsertAbilityCondition",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 78,
+        "operation_type": "RPG.GameCore.SetDynamicValueByHardLevelProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 79,
+        "operation_type": "RPG.GameCore.AddRegardAsAttackType",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 80,
+        "operation_type": "RPG.GameCore.ClearRegardAsAttackType",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 81,
+        "operation_type": "RPG.GameCore.StackScepterProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 82,
+        "operation_type": "RPG.GameCore.SetDynamicValueByBreakBaseDamage",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 83,
+        "operation_type": "RPG.GameCore.ByCompareMonsterRank",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 84,
+        "operation_type": "RPG.GameCore.ByIsSplitDamage",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 85,
+        "operation_type": "RPG.GameCore.HitDamageSplit",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 86,
+        "operation_type": "RPG.GameCore.SetDynamicValueByDamageDataProperty",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 87,
+        "operation_type": "RPG.GameCore.ByIsDamageCritical",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 88,
+        "operation_type": "RPG.GameCore.AddWeakByTeamAttackType",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 89,
+        "operation_type": "RPG.GameCore.ModifyTeamBoostPoint",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 90,
+        "operation_type": "RPG.GameCore.TargetFilterAliveState",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 91,
+        "operation_type": "RPG.GameCore.TargetSortByMultiModifierValueSum",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 92,
+        "operation_type": "RPG.GameCore.TargetFilter",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 93,
+        "operation_type": "RPG.GameCore.ByNot",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 94,
+        "operation_type": "RPG.GameCore.ByTargetListIntersects",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-newmagic-darkteam-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_NewMagic_DarkTeam.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_NewMagic_DarkTeam.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-newmagic-darkteam-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.layout.json",
+        "locator": "root",
+        "sha256": "756c7209ffaa7f2da8a3c98c512f3d2c6e088a36c4439e6ff1e29d74e2876af4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-newmagic-darkteam-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-rune-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Rune.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Rune.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 30 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 30 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-rune-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.json",
+        "locator": "root",
+        "sha256": "71bd363481727709d7170a5993599bbd53aeeec21ee20a84f34bebdbfa6433df",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-rune-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.AddModifier",
+        "source_occurrences": 91
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.TargetAlias",
+        "source_occurrences": 310
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.PredicateTaskList",
+        "source_occurrences": 64
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.ByCompareScepterFuncType",
+        "source_occurrences": 33
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.ByCompareScepterMainUnitEffectTag",
+        "source_occurrences": 16
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.ByRandomChance",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.StackScepterProperty",
+        "source_occurrences": 44
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 29
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.ByCompareDynamicValue",
+        "source_occurrences": 14
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.RemoveSelfModifier",
+        "source_occurrences": 14
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.StackProperty",
+        "source_occurrences": 19
+      },
+      {
+        "ordinal": 12,
+        "operation_type": "RPG.GameCore.IncludeTaskListTemplate",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 13,
+        "operation_type": "RPG.GameCore.SetDynamicValueByModifierValue",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 14,
+        "operation_type": "RPG.GameCore.ByAnd",
+        "source_occurrences": 10
+      },
+      {
+        "ordinal": 15,
+        "operation_type": "RPG.GameCore.SetDynamicValueByProperty",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 16,
+        "operation_type": "RPG.GameCore.ModifySPNew",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 17,
+        "operation_type": "RPG.GameCore.SetActionDelay",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 18,
+        "operation_type": "RPG.GameCore.SetDynamicValue",
+        "source_occurrences": 18
+      },
+      {
+        "ordinal": 19,
+        "operation_type": "RPG.GameCore.ByIsTurnOwnerEntity",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 20,
+        "operation_type": "RPG.GameCore.ModifyActionDelay",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 21,
+        "operation_type": "RPG.GameCore.Retarget",
+        "source_occurrences": 27
+      },
+      {
+        "ordinal": 22,
+        "operation_type": "RPG.GameCore.SwitchCaseByDynamicValue",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 23,
+        "operation_type": "RPG.GameCore.ByCompareTarget",
+        "source_occurrences": 10
+      },
+      {
+        "ordinal": 24,
+        "operation_type": "RPG.GameCore.ByIsScepter",
+        "source_occurrences": 9
+      },
+      {
+        "ordinal": 25,
+        "operation_type": "RPG.GameCore.ModifyCurrentSkillDelayCost",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 26,
+        "operation_type": "RPG.GameCore.ByTargetTeam",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 27,
+        "operation_type": "RPG.GameCore.SetDynamicValueByMagicUnitCounter",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 28,
+        "operation_type": "RPG.GameCore.ByCompareMonsterRank",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 29,
+        "operation_type": "RPG.GameCore.SetDynamicValueByScepterProperty",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 30,
+        "operation_type": "RPG.GameCore.DefineDynamicValue",
+        "source_occurrences": 2
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-rune-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Rune.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Rune.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-rune-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.layout.json",
+        "locator": "root",
+        "sha256": "b46cf8827dccdb6f274bde0e59348957f03bc263e34eca7883e7dd283330ff10",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Rune.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-rune-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-staff-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Staff.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Staff.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 33 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 33 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "root",
+        "sha256": "32f551dde8a0b4784bb6f8c0e2ca105593bf53f8f3a762382665e45f05ba3059",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-staff-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.CreateBattleEvent",
+        "source_occurrences": 88
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.IncludeTaskListTemplate",
+        "source_occurrences": 88
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 102
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.AddModifier",
+        "source_occurrences": 40
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.TargetAlias",
+        "source_occurrences": 120
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.SetDynamicValue",
+        "source_occurrences": 21
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.LoopExecuteTaskListWithInterval",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.PredicateTaskList",
+        "source_occurrences": 30
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.ByHaveEnemyAlive",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.ByCompareDynamicValue",
+        "source_occurrences": 16
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.WaitSecond",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 12,
+        "operation_type": "RPG.GameCore.TriggerMagicUnitOnScepter",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 13,
+        "operation_type": "RPG.GameCore.DamagePerformFinishOnScepter",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 14,
+        "operation_type": "RPG.GameCore.SetDynamicValueByScepterProperty",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 15,
+        "operation_type": "RPG.GameCore.TurnInsertAbility",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 16,
+        "operation_type": "RPG.GameCore.TurnInsertAbilityCondition",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 17,
+        "operation_type": "RPG.GameCore.StackProperty",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 18,
+        "operation_type": "RPG.GameCore.OwnerEntityAddAbility",
+        "source_occurrences": 10
+      },
+      {
+        "ordinal": 19,
+        "operation_type": "RPG.GameCore.StackScepterProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 20,
+        "operation_type": "RPG.GameCore.SetDynamicValueByProperty",
+        "source_occurrences": 12
+      },
+      {
+        "ordinal": 21,
+        "operation_type": "RPG.GameCore.Retarget",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 22,
+        "operation_type": "RPG.GameCore.ByCompareMonsterUniqueID",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 23,
+        "operation_type": "RPG.GameCore.ByAnd",
+        "source_occurrences": 19
+      },
+      {
+        "ordinal": 24,
+        "operation_type": "RPG.GameCore.SetDynamicValueByChangeValue",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 25,
+        "operation_type": "RPG.GameCore.ModifySPNew",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 26,
+        "operation_type": "RPG.GameCore.ShowBattleEventButton",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 27,
+        "operation_type": "RPG.GameCore.ByCurrentSkillType",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 28,
+        "operation_type": "RPG.GameCore.ByTargetTeam",
+        "source_occurrences": 14
+      },
+      {
+        "ordinal": 29,
+        "operation_type": "RPG.GameCore.ByCheckModifierCallBackStatusType",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 30,
+        "operation_type": "RPG.GameCore.ByAttackType",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 31,
+        "operation_type": "RPG.GameCore.ByCheckModifierCallBackBehaviorFlag",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 32,
+        "operation_type": "RPG.GameCore.SetDynamicValueByAttackTargetCount",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 33,
+        "operation_type": "RPG.GameCore.DefineDynamicValue",
+        "source_occurrences": 4
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-staff-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Staff.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Staff.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.layout.json",
+        "locator": "root",
+        "sha256": "86fa299b8da4dfa9a887e5246e5180bd7a68f4e0ad7f94eba6ddb591231fd95a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-staff-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-stage-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Stage.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Stage.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 44 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 44 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-stage-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.json",
+        "locator": "root",
+        "sha256": "c4775d3938137a6450f15ce792b5ba82c43787b3452ac2e205d10a1ad661568b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-stage-json",
+    "family_id": "scepter-charge-and-speed",
+    "scope": "Battle",
+    "trigger": "ModeAbilityLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.ShowUIPage",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.AddModifier",
+        "source_occurrences": 103
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.TargetAlias",
+        "source_occurrences": 244
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.CreateBattleEvent",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.Retarget",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.ByCompareScepterFuncType",
+        "source_occurrences": 11
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.ModifySPNew",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.PredicateTaskList",
+        "source_occurrences": 69
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.ByTargetTeam",
+        "source_occurrences": 30
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.ByCompareAbilityProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.ByAnd",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 12,
+        "operation_type": "RPG.GameCore.ByIsContainModifier",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 13,
+        "operation_type": "RPG.GameCore.SetDynamicValueByProperty",
+        "source_occurrences": 7
+      },
+      {
+        "ordinal": 14,
+        "operation_type": "RPG.GameCore.ModifySpecialSP",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 15,
+        "operation_type": "RPG.GameCore.StackProperty",
+        "source_occurrences": 34
+      },
+      {
+        "ordinal": 16,
+        "operation_type": "RPG.GameCore.RemoveModifier",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 17,
+        "operation_type": "RPG.GameCore.VCameraConfigChange",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 18,
+        "operation_type": "RPG.GameCore.WaitSecond",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 19,
+        "operation_type": "RPG.GameCore.SetDynamicValueByModifierValue",
+        "source_occurrences": 5
+      },
+      {
+        "ordinal": 20,
+        "operation_type": "RPG.GameCore.SetDynamicValueByBattleTargetID",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 21,
+        "operation_type": "RPG.GameCore.SetDynamicValueByVariateType",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 22,
+        "operation_type": "RPG.GameCore.ByLocalWin",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 23,
+        "operation_type": "RPG.GameCore.ByCompareDynamicValue",
+        "source_occurrences": 14
+      },
+      {
+        "ordinal": 24,
+        "operation_type": "RPG.GameCore.SetBattleTargetProgress",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 25,
+        "operation_type": "RPG.GameCore.SetBattleScoringItem",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 26,
+        "operation_type": "RPG.GameCore.ToggleScoreCounterShow",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 27,
+        "operation_type": "RPG.GameCore.ByIsScepter",
+        "source_occurrences": 12
+      },
+      {
+        "ordinal": 28,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 29,
+        "operation_type": "RPG.GameCore.ByIsStageFirstWave",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 30,
+        "operation_type": "RPG.GameCore.SetDynamicValue",
+        "source_occurrences": 6
+      },
+      {
+        "ordinal": 31,
+        "operation_type": "RPG.GameCore.DamageByAttackProperty",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 32,
+        "operation_type": "RPG.GameCore.AttackData",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 33,
+        "operation_type": "RPG.GameCore.ByAny",
+        "source_occurrences": 11
+      },
+      {
+        "ordinal": 34,
+        "operation_type": "RPG.GameCore.ModifyDamageData",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 35,
+        "operation_type": "RPG.GameCore.StackScepterProperty",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 36,
+        "operation_type": "RPG.GameCore.ModifyActionDelay",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 37,
+        "operation_type": "RPG.GameCore.IncludeTaskListTemplate",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 38,
+        "operation_type": "RPG.GameCore.ModifyTeamBoostPoint",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 39,
+        "operation_type": "RPG.GameCore.SetDynamicValueByCurrentBP",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 40,
+        "operation_type": "RPG.GameCore.ByAttackType",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 41,
+        "operation_type": "RPG.GameCore.ByCompareMonsterRank",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 42,
+        "operation_type": "RPG.GameCore.RemoveSelfModifier",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 43,
+        "operation_type": "RPG.GameCore.ByCompareTarget",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 44,
+        "operation_type": "RPG.GameCore.ForceKill",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-charge-and-speed"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configability-level-level-roguemagic-ability-stage-layout-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Level_RogueMagic_Ability_Stage.layout.json Mechanic Boundary",
+    "name_zh_cn": "Level_RogueMagic_Ability_Stage.layout.json 机制边界",
+    "summary_en": "Reference-only EvidenceLayout rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的证据布局规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-stage-layout-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.layout.json",
+        "locator": "root",
+        "sha256": "373078476612d18ac31df376decaa5ddd9f8de3d71359a1963e5aaaa466d207b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "EvidenceLayout",
+      "mechanic-rule",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Stage.layout.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configability-level-level-roguemagic-ability-stage-layout-json",
+    "family_id": "simultaneous-trigger-order",
+    "scope": "EvidenceLayout",
+    "trigger": "NoRuntimeTrigger",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "Structure:BakeInfoLayouts",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.simultaneous-trigger-order"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configadventuremodifier-adventuremodifier-rogue-roguemagic-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "AdventureModifier_Rogue_RogueMagic.json Mechanic Boundary",
+    "name_zh_cn": "AdventureModifier_Rogue_RogueMagic.json 机制边界",
+    "summary_en": "Reference-only CrossBattle rule preserves the source trigger boundary and 3 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的跨战斗域规则保留源触发边界与 3 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configadventuremodifier-adventuremodifier-rogue-roguemagic-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAdventureModifier/AdventureModifier_Rogue_RogueMagic.json",
+        "locator": "root",
+        "sha256": "13f2c9662e2074ff3510c3e0b428bea72d3a89fd1bd420e9da5a4274ac8687a6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "CrossBattle",
+      "mechanic-rule",
+      "service-and-adventure"
+    ],
+    "source_id": "Config/ConfigAdventureModifier/AdventureModifier_Rogue_RogueMagic.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configadventuremodifier-adventuremodifier-rogue-roguemagic-json",
+    "family_id": "service-and-adventure",
+    "scope": "CrossBattle",
+    "trigger": "AdventureLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.SetDynamicValueByCustomName",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.DebugLog",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.SetDynamicValueByRogueModifierCount",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.service-and-adventure"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-fire-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Fire.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Fire.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-fire-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Fire.json",
+        "locator": "root",
+        "sha256": "76d15d2bd5508f21ee08ca0f5f1f2ee4ebe5c4db6bdd7738c313439663e4b3c7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Fire.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-fire-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-ice-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Ice.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Ice.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-ice-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Ice.json",
+        "locator": "root",
+        "sha256": "00ffdbbab3eae7683754d326c8893e2e862e28f6d0aa3857a9bc71503b1bc674",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Ice.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-ice-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-imaginary-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Imaginary.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Imaginary.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-imaginary-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Imaginary.json",
+        "locator": "root",
+        "sha256": "d9974cdaafbd5773d8546a0647bda3ce6fbe516ada9f9fdc2fe65b44d3e72510",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Imaginary.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-imaginary-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-physical-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Physical.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Physical.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-physical-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Physical.json",
+        "locator": "root",
+        "sha256": "e50d517f834b166b6c47e9d538d73f07aa3db9801095add2ccb5cd99c3d9c236",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Physical.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-physical-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-quantum-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Quantum.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Quantum.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-quantum-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Quantum.json",
+        "locator": "root",
+        "sha256": "af1c40281943e5d77c299eab79867f211e5beec9890f7ab2ce2af2449eb3a195",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Quantum.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-quantum-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-thunder-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Thunder.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Thunder.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-thunder-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Thunder.json",
+        "locator": "root",
+        "sha256": "4478c390cce91bbe325c08349c1d35edb15a1be97fae548e2d7429d4b6ff5669",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Thunder.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-thunder-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-autostaff-wind-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_AutoStaff_Wind.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_AutoStaff_Wind.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-autostaff-wind-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Wind.json",
+        "locator": "root",
+        "sha256": "3d2e6241665b1ddb34ba48447372ca7b3af46595c1fec3d12d96578b160be8a8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_AutoStaff_Wind.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-autostaff-wind-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-fire-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Fire.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Fire.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-fire-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Fire.json",
+        "locator": "root",
+        "sha256": "e78bbbe7dd893ccd55da7cc178e29c648ba4a8dd41463d189482ffaadba43a8a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Fire.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-fire-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-ice-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Ice.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Ice.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-ice-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Ice.json",
+        "locator": "root",
+        "sha256": "eda40cc19f751fabb252bb8a708eb743ceefbbaf0d318d06fc9b1ce46ea60dbf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Ice.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-ice-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-imaginary-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Imaginary.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Imaginary.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-imaginary-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Imaginary.json",
+        "locator": "root",
+        "sha256": "aac83324593d8c522755799cd03777b395269859ee00a78d644aeee3d57a0287",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Imaginary.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-imaginary-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-physical-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Physical.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Physical.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-physical-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Physical.json",
+        "locator": "root",
+        "sha256": "67a78fcc149b7d6064955312c5c42f91857059bde5f38d4f6379b9eea63cfbc0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Physical.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-physical-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-quantum-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Quantum.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Quantum.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-quantum-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Quantum.json",
+        "locator": "root",
+        "sha256": "7650bebf06852ad2b77a049d13d5f125a5dcac76bdef5bd2b706b00e51bb675b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Quantum.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-quantum-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-thunder-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Thunder.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Thunder.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-thunder-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Thunder.json",
+        "locator": "root",
+        "sha256": "0d0079d102194d72a0a641e4aafe3339c93bf1f324be14cda7803e3a90998983",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Thunder.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-thunder-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-wind-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Avatar_RogueMagic_PassiveScepter_Wind.json Mechanic Boundary",
+    "name_zh_cn": "Avatar_RogueMagic_PassiveScepter_Wind.json 机制边界",
+    "summary_en": "Reference-only Battle rule preserves the source trigger boundary and 1 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的战斗域规则保留源触发边界与 1 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-wind-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Wind.json",
+        "locator": "root",
+        "sha256": "89f6da8dc7bcd4b49d3279969c1b0a6da9fb01b32935d2964c1e81983d2d69f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Battle",
+      "mechanic-rule",
+      "scepter-activation"
+    ],
+    "source_id": "Config/ConfigCharacter/BattleEvent/Avatar_RogueMagic_PassiveScepter_Wind.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-configcharacter-battleevent-avatar-roguemagic-passivescepter-wind-json",
+    "family_id": "scepter-activation",
+    "scope": "Battle",
+    "trigger": "BattleEventLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.BattleEventConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "SourceProgramPreservedNotLowered",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.scepter-activation"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-common-roguemodule-magic-content-common-coin-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueModule_Magic_Content_Common_Coin.json Mechanic Boundary",
+    "name_zh_cn": "RogueModule_Magic_Content_Common_Coin.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 3 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 3 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-common-roguemodule-magic-content-common-coin-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/RogueModule_Magic_Content_Common/RogueModule_Magic_Content_Common_Coin.json",
+        "locator": "root",
+        "sha256": "0141c6db6ba714daa2980be856520b559f1a6ac7ea2538a8095e8d51df5a34f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "mechanic-rule",
+      "service-and-adventure"
+    ],
+    "source_id": "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/RogueModule_Magic_Content_Common/RogueModule_Magic_Content_Common_Coin.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-common-roguemodule-magic-content-common-coin-json",
+    "family_id": "service-and-adventure",
+    "scope": "Activity",
+    "trigger": "CommonServiceLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.WaitPredicateSucc",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.SetRogueRoomFinish",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.SetAllRogueDoorState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.service-and-adventure"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-reforge-roguemodule-magic-content-reforge-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueModule_Magic_Content_Reforge.json Mechanic Boundary",
+    "name_zh_cn": "RogueModule_Magic_Content_Reforge.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 3 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 3 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-reforge-roguemodule-magic-content-reforge-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/RogueModule_Magic_Content_Reforge/RogueModule_Magic_Content_Reforge.json",
+        "locator": "root",
+        "sha256": "0141c6db6ba714daa2980be856520b559f1a6ac7ea2538a8095e8d51df5a34f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "component-reforge",
+      "mechanic-rule"
+    ],
+    "source_id": "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/RogueModule_Magic_Content_Reforge/RogueModule_Magic_Content_Reforge.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-reforge-roguemodule-magic-content-reforge-json",
+    "family_id": "component-reforge",
+    "scope": "Activity",
+    "trigger": "ReforgeServiceLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.WaitPredicateSucc",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.SetRogueRoomFinish",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.SetAllRogueDoorState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.component-reforge"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-shop-roguemodule-magic-content-shop-meow-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueModule_Magic_Content_Shop_Meow.json Mechanic Boundary",
+    "name_zh_cn": "RogueModule_Magic_Content_Shop_Meow.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 3 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 3 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-shop-roguemodule-magic-content-shop-meow-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/RogueModule_Magic_Content_Shop/RogueModule_Magic_Content_Shop_Meow.json",
+        "locator": "root",
+        "sha256": "0141c6db6ba714daa2980be856520b559f1a6ac7ea2538a8095e8d51df5a34f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "mechanic-rule",
+      "workbench-offer-and-cost"
+    ],
+    "source_id": "Config/Level/GroupTemplateGraph/03_Rogue/RogueMagic260/RogueModule_Magic_Content_Shop/RogueModule_Magic_Content_Shop_Meow.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-grouptemplategraph-03-rogue-roguemagic260-roguemodule-magic-content-shop-roguemodule-magic-content-shop-meow-json",
+    "family_id": "workbench-offer-and-cost",
+    "scope": "Activity",
+    "trigger": "ShopServiceLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.WaitPredicateSucc",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.SetRogueRoomFinish",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.SetAllRogueDoorState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.workbench-offer-and-cost"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-door-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Maze_Rogue260_Prop_Door.json Mechanic Boundary",
+    "name_zh_cn": "Maze_Rogue260_Prop_Door.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 7 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 7 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-door-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/Maze_Rogue260_Prop_Door.json",
+        "locator": "root",
+        "sha256": "82b2c6b93e46e096590a5566a01ccbbd0bd3491dc09b59e0f173d4e560546a6b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "area-layer-room-transition",
+      "mechanic-rule"
+    ],
+    "source_id": "Config/Level/Maze/MazeRogue/Rogue260/Maze_Rogue260_Prop_Door.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-door-json",
+    "family_id": "area-layer-room-transition",
+    "scope": "Activity",
+    "trigger": "RoomDoorLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.PropStateExecute",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.TargetFetchAdvPropEx",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.PropSetupUITrigger",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.RogueMagicEnterNextRoom",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.RogueDoorSetGotoInfo",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.PropStateChangeListenerConfig",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.PropTriggerAnimState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.area-layer-room-transition"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-extradoor-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Maze_Rogue260_Prop_ExtraDoor.json Mechanic Boundary",
+    "name_zh_cn": "Maze_Rogue260_Prop_ExtraDoor.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 7 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 7 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-extradoor-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/Maze_Rogue260_Prop_ExtraDoor.json",
+        "locator": "root",
+        "sha256": "31d87efa7c1e8cd158ffad87cabbef4a9c0cda577d67787add7f33acda740477",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "area-layer-room-transition",
+      "mechanic-rule"
+    ],
+    "source_id": "Config/Level/Maze/MazeRogue/Rogue260/Maze_Rogue260_Prop_ExtraDoor.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-extradoor-json",
+    "family_id": "area-layer-room-transition",
+    "scope": "Activity",
+    "trigger": "RoomDoorLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.PropStateExecute",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.TargetFetchAdvPropEx",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.PropSetupUITrigger",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.RogueMagicOptionalLayerGate",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.RogueDoorSetGotoInfo",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.PropStateChangeListenerConfig",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.PropTriggerAnimState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.area-layer-room-transition"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-finaldoor-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "Maze_Rogue260_Prop_FinalDoor.json Mechanic Boundary",
+    "name_zh_cn": "Maze_Rogue260_Prop_FinalDoor.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 11 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 11 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-finaldoor-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/Maze_Rogue260_Prop_FinalDoor.json",
+        "locator": "root",
+        "sha256": "0039e95173151c3b7640d2b8643ee148fe608a0fe3888a808f6606c47df4f6b9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "area-layer-room-transition",
+      "mechanic-rule"
+    ],
+    "source_id": "Config/Level/Maze/MazeRogue/Rogue260/Maze_Rogue260_Prop_FinalDoor.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-maze-mazerogue-rogue260-maze-rogue260-prop-finaldoor-json",
+    "family_id": "area-layer-room-transition",
+    "scope": "Activity",
+    "trigger": "RoomDoorLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.PropStateChangeListenerConfig",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.WaitSecond",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.PropTriggerAnimState",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.TargetFetchAdvPropEx",
+        "source_occurrences": 13
+      },
+      {
+        "ordinal": 5,
+        "operation_type": "RPG.GameCore.EnableBillboard",
+        "source_occurrences": 3
+      },
+      {
+        "ordinal": 6,
+        "operation_type": "RPG.GameCore.PropSetupUITrigger",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 7,
+        "operation_type": "RPG.GameCore.PropStateExecute",
+        "source_occurrences": 4
+      },
+      {
+        "ordinal": 8,
+        "operation_type": "RPG.GameCore.StartPropInteractMode",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 9,
+        "operation_type": "RPG.GameCore.EndPropInteract",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 10,
+        "operation_type": "RPG.GameCore.RogueMagicFinish",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 11,
+        "operation_type": "RPG.GameCore.SelectorConfig",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.area-layer-room-transition"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueMagic_Group_Monster.json Mechanic Boundary",
+    "name_zh_cn": "RogueMagic_Group_Monster.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 3 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 3 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_Monster.json",
+        "locator": "root",
+        "sha256": "662b63472687cf887c1c6b1682dda1d980eb0c7c3dfc5820c9f337f11358b6db",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "encounter-selection",
+      "mechanic-rule"
+    ],
+    "source_id": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_Monster.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json",
+    "family_id": "encounter-selection",
+    "scope": "Activity",
+    "trigger": "RoomEncounterLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.WaitPredicateSucc",
+        "source_occurrences": 2
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.SetRogueRoomFinish",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.SetAllRogueDoorState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.encounter-selection"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-maze-mazerogue-rogue260-roguemagic-group-unlocked-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueMagic_Group_Unlocked.json Mechanic Boundary",
+    "name_zh_cn": "RogueMagic_Group_Unlocked.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 2 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 2 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-unlocked-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_Unlocked.json",
+        "locator": "root",
+        "sha256": "acd1ab556924a7a8a1c493d4cfdb94814996ef99359933cee9d1e7ae40a38809",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "mechanic-rule",
+      "talent-and-unlock"
+    ],
+    "source_id": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_Unlocked.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-maze-mazerogue-rogue260-roguemagic-group-unlocked-json",
+    "family_id": "talent-and-unlock",
+    "scope": "Activity",
+    "trigger": "ProgressionOrRoomLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.SetRogueRoomFinish",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.SetAllRogueDoorState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.talent-and-unlock"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-maze-mazerogue-rogue260-roguemagic-group-waitdialogue-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueMagic_Group_WaitDialogue.json Mechanic Boundary",
+    "name_zh_cn": "RogueMagic_Group_WaitDialogue.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 4 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 4 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-waitdialogue-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_WaitDialogue.json",
+        "locator": "root",
+        "sha256": "365a6c887e78c0d1be8c67bb97ac1d46a204906cf83c0cbcf43d5b9dd7c450a2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "mechanic-rule",
+      "talent-and-unlock"
+    ],
+    "source_id": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_WaitDialogue.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-maze-mazerogue-rogue260-roguemagic-group-waitdialogue-json",
+    "family_id": "talent-and-unlock",
+    "scope": "Activity",
+    "trigger": "ProgressionOrRoomLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.WaitRogueFinishDialogue",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.WaitPredicateSucc",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 3,
+        "operation_type": "RPG.GameCore.SetRogueRoomFinish",
+        "source_occurrences": 1
+      },
+      {
+        "ordinal": 4,
+        "operation_type": "RPG.GameCore.SetAllRogueDoorState",
+        "source_occurrences": 1
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.talent-and-unlock"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mechanic-rule.config-level-rogue-roguemagicpower-roguemagicpower-json",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableMechanicRule",
+    "name_en": "RogueMagicPower.json Mechanic Boundary",
+    "name_zh_cn": "RogueMagicPower.json 机制边界",
+    "summary_en": "Reference-only Activity rule preserves the source trigger boundary and 2 ordered operation type(s); it is not executable runtime behavior.",
+    "summary_zh_cn": "仅供资料使用的活动域规则保留源触发边界与 2 个有序操作类型；它不是可执行运行时行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguemagicpower-roguemagicpower-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueMagicPower/RogueMagicPower.json",
+        "locator": "root",
+        "sha256": "94c40dfc66945b2cc0a3f1764a3eb4a207e903f0bd725777778efc9e665c3803",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "Activity",
+      "mechanic-rule",
+      "talent-and-unlock"
+    ],
+    "source_id": "Config/Level/Rogue/RogueMagicPower/RogueMagicPower.json",
+    "source_file_id": "unknowable-domain.mechanic-source.config-level-rogue-roguemagicpower-roguemagicpower-json",
+    "family_id": "talent-and-unlock",
+    "scope": "Activity",
+    "trigger": "ProgressionOrRoomLifecycle",
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation_type": "RPG.GameCore.RogueMagicUltraUnitSpecialFactorByFuncType",
+        "source_occurrences": 8
+      },
+      {
+        "ordinal": 2,
+        "operation_type": "RPG.GameCore.RogueMagicUltraUnitSpecialFactorByRangeType",
+        "source_occurrences": 4
+      }
+    ],
+    "battle_projection": "NotApplicable",
+    "fixture_ids": [
+      "unknowable-domain.review-fixture.talent-and-unlock"
+    ],
+    "runtime_lowered": false
+  }
+]

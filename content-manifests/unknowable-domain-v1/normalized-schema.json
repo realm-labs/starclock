@@ -1,0 +1,1334 @@
+{
+  "schema_revision": "starclock.unknowable-domain-normalized-schema.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "bound_content_manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.unknowable-domain-row.v1"
+    },
+    "kind": {
+      "type": "string",
+      "closed_by_file_contract": true
+    },
+    "name_en": {
+      "type": "string",
+      "nonempty": true
+    },
+    "name_zh_cn": {
+      "type": "string",
+      "nonempty": true
+    },
+    "summary_en": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "summary_zh_cn": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "ownership": {
+      "enum": [
+        "UnknowableDomain",
+        "Shared"
+      ]
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_hash": {
+      "storage": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve identifiers and TextMap hashes beyond JavaScript safe integer range"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "access_date",
+        "game_version",
+        "evidence_quality",
+        "mechanism_quality"
+      ],
+      "optional_fields": [
+        "note",
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require note and replacement_condition"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "closed pack index or explicit inherited stable-ID set",
+      "unknown_behavior": "reject"
+    },
+    "ordered_child": {
+      "required_fields": [
+        "parent_id",
+        "ordinal"
+      ],
+      "ordinal_type": "unsigned fixed-width integer",
+      "duplicate_behavior": "reject"
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit file ordering_keys; never filesystem or object iteration order",
+    "unicode_normalization": "NFC",
+    "null_policy": "omit optional absent values; never use null",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only",
+    "digest_policy": "SHA-256 over encoded bytes; pack digest excludes pack-index.json itself"
+  },
+  "manifest_mapping": {
+    "source_obligations": "every manifest category maps to one or more normalized files and closes exactly once in coverage.json",
+    "derived_files": "derived rows reuse a parent category and cannot create or remove a source obligation",
+    "child_rows": "typed child rows carry parent stable ID and deterministic ordinal",
+    "unknown_reference": "reject"
+  },
+  "reconciliation_policy": {
+    "checkpoint_proof_path": "evidence/unknowable-domain-reference-v1/reconciliation-checkpoints.json",
+    "checkpoints": [
+      {
+        "goal": "gold-and-gears-reference-v1",
+        "commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+        "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+        "required_now": true,
+        "completion_state": "Complete",
+        "registration_commit": "2688624c34a564d87076cadb405c8da506efd373",
+        "checkpoint_transport": "LocalCommittedReleaseRegistration"
+      },
+      {
+        "goal": "swarm-disaster-reference-v1",
+        "commit": "b8da6744a63cd92554b45f8e780d79a1be131f50",
+        "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+        "required_now": true,
+        "checkpoint_transport": "RemoteBranch",
+        "remote_ancestor": "origin/codex/goal09-swarm-disaster-reference"
+      }
+    ],
+    "join_key": [
+      "source_path",
+      "row_locator",
+      "evidence_sha256"
+    ],
+    "outcomes": [
+      "MatchedShared",
+      "UnknowableOnly",
+      "OtherGoalOnly",
+      "DivergentRepresentation",
+      "Conflict"
+    ],
+    "conflict_behavior": "Blocked; record the conflict and wait for merge coordination without mutating another Goal",
+    "required_receipt_fields": [
+      "id",
+      "source_path",
+      "row_locator",
+      "evidence_sha256",
+      "checkpoint_goal",
+      "checkpoint_commit",
+      "checkpoint_ownership",
+      "goal10_ownership",
+      "outcome",
+      "note"
+    ]
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "UnknowableProfile",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles",
+        "entry_points"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_refs",
+        "initial_resources",
+        "finish_condition_ids"
+      ]
+    },
+    {
+      "file": "finish-conditions.json",
+      "record_kind": "FinishCondition",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "finish_conditions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "finish_type",
+        "parameters",
+        "comparison",
+        "progress"
+      ]
+    },
+    {
+      "file": "areas.json",
+      "record_kind": "UnknowableArea",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "areas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "area_group",
+        "difficulty_ids",
+        "layer_ids",
+        "default_alignment"
+      ]
+    },
+    {
+      "file": "difficulty-compositions.json",
+      "record_kind": "DifficultyComposition",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "difficulty_compositions",
+        "difficulty_drops"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "level",
+        "parameters",
+        "drop_bindings"
+      ]
+    },
+    {
+      "file": "layers.json",
+      "record_kind": "UnknowableLayer",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "layers"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "layer_number",
+        "room_position_ids",
+        "carry_policy"
+      ]
+    },
+    {
+      "file": "layer-rooms.json",
+      "record_kind": "LayerRoomPosition",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "layer_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "layer_id",
+        "ordinal",
+        "room_pool_ids"
+      ]
+    },
+    {
+      "file": "rooms.json",
+      "record_kind": "UnknowableRoom",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "rooms",
+        "room_types"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "room_type",
+        "npc_graph_ids",
+        "encounter_pool_ids"
+      ]
+    },
+    {
+      "file": "stage-flow.json",
+      "record_kind": "StageFlowRule",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "areas",
+        "layers",
+        "layer_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "from_state",
+        "condition",
+        "to_state",
+        "ordered_operations"
+      ]
+    },
+    {
+      "file": "alignments.json",
+      "record_kind": "ExtrapolationAlignment",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "alignments"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "unlock_id",
+        "eligibility",
+        "pool_ids",
+        "rule_contribution_ids"
+      ]
+    },
+    {
+      "file": "scepters.json",
+      "record_kind": "Scepter",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "scepters"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "style",
+        "function",
+        "level_ids",
+        "slot_layout_ids"
+      ]
+    },
+    {
+      "file": "scepter-levels.json",
+      "record_kind": "ScepterLevel",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "scepter_levels",
+        "scepter_locked_components"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scepter_id",
+        "level",
+        "power",
+        "locked_component_ids",
+        "effect_ranges"
+      ]
+    },
+    {
+      "file": "scepter-activation-rules.json",
+      "record_kind": "ScepterActivationRule",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "scepter_levels",
+        "mechanic_source_files"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scepter_id",
+        "trigger",
+        "charge_or_speed",
+        "target_rule",
+        "ordered_operations"
+      ]
+    },
+    {
+      "file": "scepter-state-transitions.json",
+      "record_kind": "ScepterStateTransition",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "scepter_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scepter_id",
+        "from_state",
+        "input",
+        "to_state",
+        "teardown"
+      ]
+    },
+    {
+      "file": "components.json",
+      "record_kind": "Component",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "components",
+        "component_categories",
+        "component_types"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category",
+        "component_type",
+        "level_ids",
+        "style_ids"
+      ]
+    },
+    {
+      "file": "component-levels.json",
+      "record_kind": "ComponentLevel",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "component_levels",
+        "component_effects"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "component_id",
+        "level",
+        "shape",
+        "range_ids",
+        "effect_program"
+      ]
+    },
+    {
+      "file": "component-slot-compatibility.json",
+      "record_kind": "ComponentSlotCompatibility",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "component_levels",
+        "slot_layouts"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "component_id",
+        "component_level",
+        "slot_type",
+        "range",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "decision-components.json",
+      "record_kind": "DecisionComponent",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "decision_components"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "component_id",
+        "eligibility",
+        "scope",
+        "choice_program_ids"
+      ]
+    },
+    {
+      "file": "component-choice-programs.json",
+      "record_kind": "ComponentChoiceProgram",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "decision_components",
+        "mechanic_source_files"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "decision_component_id",
+        "candidate_set",
+        "ordering",
+        "outcomes",
+        "fallback"
+      ]
+    },
+    {
+      "file": "slot-layouts.json",
+      "record_kind": "ScepterSlotLayout",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "slot_layouts"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "active_count",
+        "attach_count",
+        "passive_count"
+      ]
+    },
+    {
+      "file": "loadouts.json",
+      "record_kind": "ScepterLoadout",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "scepters",
+        "slot_layouts"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scepter_id",
+        "slot_ids",
+        "locked_component_ids"
+      ]
+    },
+    {
+      "file": "loadout-transition-rules.json",
+      "record_kind": "LoadoutTransitionRule",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "slot_layouts",
+        "component_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "operation",
+        "eligibility",
+        "replacement_order",
+        "no_legal_candidate"
+      ]
+    },
+    {
+      "file": "synthesis-rules.json",
+      "record_kind": "ComponentSynthesisRule",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "workbench_functions",
+        "component_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "input_count",
+        "input_eligibility",
+        "output_pool",
+        "cost",
+        "fallback"
+      ]
+    },
+    {
+      "file": "upgrade-rules.json",
+      "record_kind": "ScepterUpgradeRule",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "workbench_functions",
+        "scepter_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "input_level",
+        "output_level",
+        "cost",
+        "cap",
+        "ordered_operations"
+      ]
+    },
+    {
+      "file": "reforge-rules.json",
+      "record_kind": "ComponentReforgeRule",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "workbench_functions",
+        "component_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "input_eligibility",
+        "candidate_set",
+        "ordering",
+        "cost",
+        "fallback"
+      ]
+    },
+    {
+      "file": "workbenches.json",
+      "record_kind": "Workbench",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "workbenches"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "function_ids",
+        "eligibility",
+        "lifecycle"
+      ]
+    },
+    {
+      "file": "workbench-functions.json",
+      "record_kind": "WorkbenchFunction",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "workbench_functions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "function_type",
+        "currency_id",
+        "price",
+        "offer_policy_id"
+      ]
+    },
+    {
+      "file": "gamble-groups.json",
+      "record_kind": "GambleGroup",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "gamble_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "gamble_type",
+        "unit_ids",
+        "offer_policy_id"
+      ]
+    },
+    {
+      "file": "gamble-units.json",
+      "record_kind": "GambleUnit",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "gamble_units"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "unit_type",
+        "parameters",
+        "outcome_program"
+      ]
+    },
+    {
+      "file": "service-offer-rules.json",
+      "record_kind": "ServiceOfferRule",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "workbenches",
+        "workbench_functions",
+        "gamble_groups",
+        "gamble_units"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "service_id",
+        "candidate_set",
+        "ordering",
+        "refresh",
+        "no_legal_candidate"
+      ]
+    },
+    {
+      "file": "mode-constants.json",
+      "record_kind": "ModeConstant",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "mode_constants"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "value_type",
+        "value",
+        "consumer_ids"
+      ]
+    },
+    {
+      "file": "talents.json",
+      "record_kind": "UnknowableTalent",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "talents"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "level",
+        "cost",
+        "prerequisite_ids",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "unlocks.json",
+      "record_kind": "UnknowableUnlock",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "unlocks"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "finish_condition_id",
+        "consequence",
+        "evaluation_boundary"
+      ]
+    },
+    {
+      "file": "layer-effects.json",
+      "record_kind": "LayerEffect",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "layer_effects"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "trigger",
+        "parameters",
+        "ordered_operations"
+      ]
+    },
+    {
+      "file": "maze-buffs.json",
+      "record_kind": "UnknowableMazeBuff",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "maze_buffs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "series",
+        "rarity",
+        "level",
+        "binding",
+        "parameters"
+      ]
+    },
+    {
+      "file": "score-inputs.json",
+      "record_kind": "ScoreInput",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "score_inputs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "world_level",
+        "layer",
+        "room",
+        "score"
+      ]
+    },
+    {
+      "file": "progression-effects.json",
+      "record_kind": "ProgressionEffect",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "talents",
+        "unlocks",
+        "layer_effects",
+        "maze_buffs",
+        "score_inputs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_kind",
+        "source_id",
+        "scope",
+        "ordered_operations",
+        "battle_projection"
+      ]
+    },
+    {
+      "file": "blessings.json",
+      "record_kind": "UnknowableBlessingBinding",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "shared_blessing_id",
+        "pool_id",
+        "reachability_proof"
+      ]
+    },
+    {
+      "file": "pool-membership.json",
+      "record_kind": "UnknowablePoolMembership",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings",
+        "curios",
+        "occurrences",
+        "components"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "pool_id",
+        "member_kind",
+        "member_id",
+        "eligibility",
+        "weight"
+      ]
+    },
+    {
+      "file": "curios.json",
+      "record_kind": "UnknowableCurio",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "handbook_id",
+        "state_ids",
+        "pool_ids"
+      ]
+    },
+    {
+      "file": "curio-states.json",
+      "record_kind": "UnknowableCurioState",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curio_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "curio_id",
+        "state",
+        "charges",
+        "effect_program"
+      ]
+    },
+    {
+      "file": "curio-groups.json",
+      "record_kind": "UnknowableCurioGroup",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curio_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "weighted_members",
+        "eligibility",
+        "ordering"
+      ]
+    },
+    {
+      "file": "curio-rules.json",
+      "record_kind": "UnknowableCurioRule",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curio_states",
+        "curio_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "curio_id",
+        "trigger",
+        "lifecycle",
+        "repair",
+        "replacement"
+      ]
+    },
+    {
+      "file": "occurrences.json",
+      "record_kind": "UnknowableOccurrence",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "occurrences"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "handbook_id",
+        "variant_ids",
+        "pool_ids"
+      ]
+    },
+    {
+      "file": "occurrence-variants.json",
+      "record_kind": "UnknowableOccurrenceVariant",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "occurrence_variants"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "occurrence_id",
+        "graph_path",
+        "choice_ids"
+      ]
+    },
+    {
+      "file": "occurrence-choices.json",
+      "record_kind": "UnknowableOccurrenceChoice",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "occurrence_variants"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "variant_id",
+        "eligibility",
+        "costs",
+        "ordered_outcomes"
+      ]
+    },
+    {
+      "file": "mode-service-npcs.json",
+      "record_kind": "ModeServiceNpc",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "mode_service_npcs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "graph_path",
+        "service_ids",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "adventure-outcomes.json",
+      "record_kind": "UnknowableAdventureOutcome",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "adventure_outcomes"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "adventure_type",
+        "tier",
+        "offered_result"
+      ]
+    },
+    {
+      "file": "currencies.json",
+      "record_kind": "UnknowableCurrency",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "workbench_functions",
+        "gamble_units"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "initial_amount",
+        "cap",
+        "carry_policy"
+      ]
+    },
+    {
+      "file": "service-rules.json",
+      "record_kind": "UnknowableServiceRule",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "workbenches",
+        "gamble_groups",
+        "adventure_outcomes",
+        "mode_service_npcs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "service_kind",
+        "eligibility",
+        "price",
+        "outcome",
+        "lifecycle"
+      ]
+    },
+    {
+      "file": "boss-choices.json",
+      "record_kind": "UnknowableBossChoice",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "boss_choices"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "enemy_id",
+        "display_level_bindings",
+        "pool_id"
+      ]
+    },
+    {
+      "file": "encounter-source-obligations.json",
+      "record_kind": "EncounterSourceObligation",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "encounter_source_obligations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "parent_kind",
+        "parent_id",
+        "expansion_state"
+      ]
+    },
+    {
+      "file": "encounter-groups.json",
+      "record_kind": "UnknowableEncounterGroup",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "encounter_source_obligations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "room_ids",
+        "difficulty_ids",
+        "weighted_stage_ids"
+      ]
+    },
+    {
+      "file": "encounter-waves.json",
+      "record_kind": "UnknowableEncounterWave",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "encounter_source_obligations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "encounter_group_id",
+        "ordinal",
+        "enemy_slot_ids"
+      ]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "UnknowableEnemySlot",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "encounter_source_obligations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "wave_id",
+        "ordinal",
+        "enemy_variant_id",
+        "level"
+      ]
+    },
+    {
+      "file": "boss-pools.json",
+      "record_kind": "UnknowableBossPool",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "boss_choices"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "difficulty_id",
+        "candidate_ids",
+        "ordering",
+        "fallback"
+      ]
+    },
+    {
+      "file": "mechanic-source-files.json",
+      "record_kind": "MechanicSourceFile",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "mechanic_source_files"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "path",
+        "source_sha256",
+        "consumer_rule_ids"
+      ]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "UnknowableMechanicRule",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "mechanic_source_files"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scope",
+        "trigger",
+        "ordered_operations",
+        "battle_projection"
+      ]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "SourceEvidence",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "mechanic_source_files"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256"
+      ]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "ReferenceCoverage",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "manifest_category",
+        "manifest_record_id",
+        "state",
+        "data_ids"
+      ]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "ReferenceResearchGap",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "field",
+        "known_fact",
+        "policy",
+        "replacement_condition"
+      ]
+    },
+    {
+      "file": "semantic-fixture-families.json",
+      "record_kind": "SemanticFixtureFamily",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "minimum_cases",
+        "must_cover"
+      ]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "SemanticReviewFixture",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "family_id",
+        "preconditions",
+        "input",
+        "expected_facts"
+      ]
+    },
+    {
+      "file": "reconciliation-receipts.json",
+      "record_kind": "OwnershipReconciliationReceipt",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "curios",
+        "occurrences",
+        "boss_choices"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_path",
+        "row_locator",
+        "evidence_sha256",
+        "outcome",
+        "note"
+      ]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "ReferenceManifestSummary",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "profiles"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "content_manifest_sha256",
+        "category_counts",
+        "ownership_counts"
+      ]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "ReferencePackIndex",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "profiles"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "file_digests",
+        "pack_digest",
+        "component_digest"
+      ]
+    }
+  ]
+}

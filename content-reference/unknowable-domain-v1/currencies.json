@@ -1,0 +1,67 @@
+[
+  {
+    "id": "unknowable-domain.currency.cosmic-fragments",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableCurrency",
+    "name_en": "Cosmic Fragments",
+    "name_zh_cn": "宇宙碎片",
+    "summary_en": "Released workbench text identifies Cosmic Fragments as the Scepter shop, Component shop and Scepter-modification currency; initial amount, cap and carry behavior are not published.",
+    "summary_zh_cn": "已发布工作台文本将宇宙碎片确定为权杖商店、组件商店与权杖改装货币；未发布初始数量、上限和携带行为。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "fed8ce78801deea3c52d876a67626f1b1c16e4240e1cc27f4a0aee80cc29f2a2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "1",
+        "sha256": "32cd47205d1753dbec883e090c5ff2bb0c0c2bc9aacb2665ddd95ee198fb0322",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fa46fb2863dfab67ce0308c1da97d6f98ceded1be93713a056dca5823c25ef85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cosmic-fragments",
+      "currency",
+      "service"
+    ],
+    "source_id": "currency:cosmic-fragments",
+    "initial_amount": "Unspecified",
+    "cap": "Unspecified",
+    "carry_policy": "Unspecified",
+    "consumer_service_ids": [
+      "unknowable-domain.workbench-function.10",
+      "unknowable-domain.workbench-function.6",
+      "unknowable-domain.workbench-function.7"
+    ],
+    "runtime_lowered": false
+  }
+]

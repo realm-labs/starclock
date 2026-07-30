@@ -1,0 +1,613 @@
+{
+  "table": {
+    "name": "UnknowableDomainBossChoice",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level_bindings_json": {
+            "String": "[{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"25\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"1\"]},{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"35\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"1\"]},{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"45\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"1\"]},{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"55\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"1\"]},{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"65\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"1\"]},{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"80\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"1\"]},{\"area_id\":\"unknowable-domain.area.101\",\"display_level\":\"90\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"1\"]}]"
+          },
+          "enemy_id": {
+            "String": "enemy.stellaron-hunter-kafka-complete.littleboss"
+          },
+          "enemy_variant_id": {
+            "String": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "UnknowableBossChoice"
+          },
+          "name_en": {
+            "String": "Stellaron Hunter: Kafka (Complete)"
+          },
+          "name_zh_cn": {
+            "String": "「星核猎手」卡芙卡（完整）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.101"
+              }
+            ]
+          },
+          "reverse_match_audit_json": {
+            "String": "{\"accepted_as_reachability\":false,\"matching_group_count\":10,\"matching_group_ids_sha256\":\"787062b217938a59d3bfa4b4eeb06591fde7c1d6a3119dd24296361975ca8b7e\",\"matching_rogue_monster_count\":11,\"matching_rogue_monster_ids_sha256\":\"381f6a267374096385b8d0b3c149ff7111d05fdd4ececfce14374518fac5b555\",\"matching_stage_count\":16,\"matching_stage_ids_sha256\":\"21d91a4d1bde65577998d563a0ec8f431a03ec0195f309ba6df8ea7e13a75636\",\"reason\":\"Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference.\"}"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "2004011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.626"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-choice.2004011"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Released Unknowable Domain areas directly display enemy 2004011 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的不可知域区域直接展示敌人 2004011，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "display-identity"
+              },
+              {
+                "String": "shared-enemy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level_bindings_json": {
+            "String": "[{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.501\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"41\",\"42\",\"43\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.601\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"51\",\"52\",\"53\",\"54\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.701\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]}]"
+          },
+          "enemy_id": {
+            "String": "enemy.borisin-warhead-hoolay-complete.littleboss"
+          },
+          "enemy_variant_id": {
+            "String": "enemy.borisin-warhead-hoolay-complete.littleboss.variant.01"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "UnknowableBossChoice"
+          },
+          "name_en": {
+            "String": "Borisin Warhead: Hoolay (Complete)"
+          },
+          "name_zh_cn": {
+            "String": "步离战首•呼雷（完整）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.501"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.601"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.701"
+              }
+            ]
+          },
+          "reverse_match_audit_json": {
+            "String": "{\"accepted_as_reachability\":false,\"matching_group_count\":0,\"matching_group_ids_sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"matching_rogue_monster_count\":0,\"matching_rogue_monster_ids_sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"matching_stage_count\":8,\"matching_stage_ids_sha256\":\"9672dff98c8d6df9bfa676f587a5a5cf1f367bd268588eb8070e6a8fd5d78a15\",\"reason\":\"Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference.\"}"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "2034012"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.973"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.109"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.497"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-choice.2034012"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Released Unknowable Domain areas directly display enemy 2034012 in 3 area boss pool(s); no released selector binds that identity to a StageConfig row."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的不可知域区域直接展示敌人 2034012，并将其绑定到 3 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "display-identity"
+              },
+              {
+                "String": "shared-enemy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level_bindings_json": {
+            "String": "[{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"11\",\"12\"]},{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"11\",\"12\"]},{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"11\",\"12\"]},{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"11\",\"12\"]},{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"11\",\"12\"]},{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"11\",\"12\"]},{\"area_id\":\"unknowable-domain.area.201\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"11\",\"12\"]}]"
+          },
+          "enemy_id": {
+            "String": "enemy.tomorrow-in-harmonious-chords-bug.elite"
+          },
+          "enemy_variant_id": {
+            "String": "enemy.tomorrow-in-harmonious-chords-bug.elite.variant.01"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "UnknowableBossChoice"
+          },
+          "name_en": {
+            "String": "\"Tomorrow in Harmonious Chords\" (Bug)"
+          },
+          "name_zh_cn": {
+            "String": "「同音共律的来日」（错误）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.201"
+              }
+            ]
+          },
+          "reverse_match_audit_json": {
+            "String": "{\"accepted_as_reachability\":false,\"matching_group_count\":13,\"matching_group_ids_sha256\":\"d731c6568c130d9fe095300afdce147bba20dc1928fa13b29ca1ae33fffb5374\",\"matching_rogue_monster_count\":8,\"matching_rogue_monster_ids_sha256\":\"fbbee17266fa553f85124b54f7044e4fb8aa184b1cc13a4bb20a1ed660478cd3\",\"matching_stage_count\":13,\"matching_stage_ids_sha256\":\"2507cfb54fa816de1b0d6d9e32dcef26ff9fd2caf5c18de19bffab210c01ada0\",\"reason\":\"Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference.\"}"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "3003042"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.1191"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.553"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2338"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-choice.3003042"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Released Unknowable Domain areas directly display enemy 3003042 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的不可知域区域直接展示敌人 3003042，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "display-identity"
+              },
+              {
+                "String": "shared-enemy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level_bindings_json": {
+            "String": "[{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]},{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]},{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]},{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]},{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]},{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]},{\"area_id\":\"unknowable-domain.area.301\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"21\",\"22\",\"23\"]}]"
+          },
+          "enemy_id": {
+            "String": "enemy.stellaron-hunter-sam-complete.littleboss"
+          },
+          "enemy_variant_id": {
+            "String": "enemy.stellaron-hunter-sam-complete.littleboss.variant.01"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "UnknowableBossChoice"
+          },
+          "name_en": {
+            "String": "Stellaron Hunter: Sam (Complete)"
+          },
+          "name_zh_cn": {
+            "String": "「星核猎手」萨姆（完整）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.301"
+              }
+            ]
+          },
+          "reverse_match_audit_json": {
+            "String": "{\"accepted_as_reachability\":false,\"matching_group_count\":0,\"matching_group_ids_sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"matching_rogue_monster_count\":0,\"matching_rogue_monster_ids_sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"matching_stage_count\":5,\"matching_stage_ids_sha256\":\"2978dd15526d89b2bcd1788886646f7921124949ba68d5d973b653f719ea3d69\",\"reason\":\"Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference.\"}"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "3024023"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.1373"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.491"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2123"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-choice.3024023"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Released Unknowable Domain areas directly display enemy 3024023 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的不可知域区域直接展示敌人 3024023，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "display-identity"
+              },
+              {
+                "String": "shared-enemy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level_bindings_json": {
+            "String": "[{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.801\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.802\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.803\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.804\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.805\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]},{\"area_id\":\"unknowable-domain.area.806\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"71\",\"72\",\"73\"]}]"
+          },
+          "enemy_id": {
+            "String": "enemy.swarm-true-sting-complete.littleboss"
+          },
+          "enemy_variant_id": {
+            "String": "enemy.swarm-true-sting-complete.littleboss.variant.01"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "UnknowableBossChoice"
+          },
+          "name_en": {
+            "String": "Swarm: True Sting (Complete)"
+          },
+          "name_zh_cn": {
+            "String": "虫群•真蛰虫（完整）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.801"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.802"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.803"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.804"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.805"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.806"
+              }
+            ]
+          },
+          "reverse_match_audit_json": {
+            "String": "{\"accepted_as_reachability\":false,\"matching_group_count\":11,\"matching_group_ids_sha256\":\"f1d43829fce0900fcaf7e08c8149c1db5a647454461eda10eb3f1a1335eabd97\",\"matching_rogue_monster_count\":7,\"matching_rogue_monster_ids_sha256\":\"9375babdd90f4f8a1ebd5d92e790f5c166809a56a00d95e801257c6d8e257c49\",\"matching_stage_count\":1,\"matching_stage_ids_sha256\":\"47506aba96f1615707d6c013211840eb41c18c572214154d775ff6ae1f784b75\",\"reason\":\"Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference.\"}"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "8024010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.508"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-choice.8024010"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Released Unknowable Domain areas directly display enemy 8024010 in 6 area boss pool(s); no released selector binds that identity to a StageConfig row."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的不可知域区域直接展示敌人 8024010，并将其绑定到 6 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "display-identity"
+              },
+              {
+                "String": "shared-enemy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level_bindings_json": {
+            "String": "[{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"30\",\"display_ordinal\":1,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"40\",\"display_ordinal\":2,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"50\",\"display_ordinal\":3,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"60\",\"display_ordinal\":4,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"70\",\"display_ordinal\":5,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"85\",\"display_ordinal\":6,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]},{\"area_id\":\"unknowable-domain.area.401\",\"display_level\":\"95\",\"display_ordinal\":7,\"source_difficulty_selectors\":[\"31\",\"32\",\"33\"]}]"
+          },
+          "enemy_id": {
+            "String": "enemy.swarm-true-sting-complete.littleboss.02"
+          },
+          "enemy_variant_id": {
+            "String": "enemy.swarm-true-sting-complete.littleboss.02.variant.01"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "UnknowableBossChoice"
+          },
+          "name_en": {
+            "String": "Swarm: True Sting (Complete)"
+          },
+          "name_zh_cn": {
+            "String": "虫群•真蛰虫（完整）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.401"
+              }
+            ]
+          },
+          "reverse_match_audit_json": {
+            "String": "{\"accepted_as_reachability\":false,\"matching_group_count\":0,\"matching_group_ids_sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"matching_rogue_monster_count\":0,\"matching_rogue_monster_ids_sha256\":\"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\",\"matching_stage_count\":10,\"matching_stage_ids_sha256\":\"f2142ac4c2311b1a5111bb30acd71f6e0e4fd513dd16799b99dd6bc660fb22f8\",\"reason\":\"Reverse identity matches cross mode boundaries and are not an explicit Unknowable Domain selector or forward reference.\"}"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "8024012"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.2504"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.509"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2203"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.boss-choice.8024012"
+          },
+          "stage_binding_state": {
+            "String": "UnresolvedNoReleasedSelector"
+          },
+          "summary_en": {
+            "String": "Released Unknowable Domain areas directly display enemy 8024012 in 1 area boss pool(s); no released selector binds that identity to a StageConfig row."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的不可知域区域直接展示敌人 8024012，并将其绑定到 1 个区域首领池；未发布将该身份绑定到 StageConfig 行的选择器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "display-identity"
+              },
+              {
+                "String": "shared-enemy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

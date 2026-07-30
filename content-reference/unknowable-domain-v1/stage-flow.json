@@ -1,0 +1,2904 @@
+[
+  {
+    "id": "unknowable-domain.flow.101.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 101 Entry",
+    "name_zh_cn": "区域 101 进入",
+    "summary_en": "Area 101 enters its first authored layer 101.",
+    "summary_zh_cn": "区域 101 进入首个已发布层级 101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.101",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.101.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 101 Terminal Transition",
+    "name_zh_cn": "区域 101 终止转换",
+    "summary_en": "After the final authored layer 101, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 101 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.101",
+    "from_state": "unknowable-domain.layer.101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.201.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 201 Entry",
+    "name_zh_cn": "区域 201 进入",
+    "summary_en": "Area 201 enters its first authored layer 201.",
+    "summary_zh_cn": "区域 201 进入首个已发布层级 201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "1",
+        "sha256": "4984c1b3c2551351189e72a8045f2eb496e2ddfb29573efc0164f0ea434bcbb8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.201",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.201",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.201.layer.201.202",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 201 Layer 201 → 202",
+    "name_zh_cn": "区域 201 层级 201 → 202",
+    "summary_en": "Authored area order advances layer 201 to 202.",
+    "summary_zh_cn": "区域已发布顺序将层级 201 推进到 202。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "1",
+        "sha256": "4984c1b3c2551351189e72a8045f2eb496e2ddfb29573efc0164f0ea434bcbb8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.201",
+    "from_state": "unknowable-domain.layer.201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.202",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.201.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 201 Terminal Transition",
+    "name_zh_cn": "区域 201 终止转换",
+    "summary_en": "After the final authored layer 202, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 202 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "1",
+        "sha256": "4984c1b3c2551351189e72a8045f2eb496e2ddfb29573efc0164f0ea434bcbb8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.201",
+    "from_state": "unknowable-domain.layer.202",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.301.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 301 Entry",
+    "name_zh_cn": "区域 301 进入",
+    "summary_en": "Area 301 enters its first authored layer 301.",
+    "summary_zh_cn": "区域 301 进入首个已发布层级 301。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "2",
+        "sha256": "8844ebbcf3a1e77c8d391b6250643d18bf5b2b5ba4ebd2afca0426fcda03f992",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.301",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.301",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.301.layer.301.302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 301 Layer 301 → 302",
+    "name_zh_cn": "区域 301 层级 301 → 302",
+    "summary_en": "Authored area order advances layer 301 to 302.",
+    "summary_zh_cn": "区域已发布顺序将层级 301 推进到 302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "2",
+        "sha256": "8844ebbcf3a1e77c8d391b6250643d18bf5b2b5ba4ebd2afca0426fcda03f992",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.301",
+    "from_state": "unknowable-domain.layer.301",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.301.layer.302.303",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 301 Layer 302 → 303",
+    "name_zh_cn": "区域 301 层级 302 → 303",
+    "summary_en": "Authored area order advances layer 302 to 303.",
+    "summary_zh_cn": "区域已发布顺序将层级 302 推进到 303。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "2",
+        "sha256": "8844ebbcf3a1e77c8d391b6250643d18bf5b2b5ba4ebd2afca0426fcda03f992",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.301",
+    "from_state": "unknowable-domain.layer.302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.303",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.301.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 301 Terminal Transition",
+    "name_zh_cn": "区域 301 终止转换",
+    "summary_en": "After the final authored layer 303, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 303 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "2",
+        "sha256": "8844ebbcf3a1e77c8d391b6250643d18bf5b2b5ba4ebd2afca0426fcda03f992",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.301",
+    "from_state": "unknowable-domain.layer.303",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.401.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 401 Entry",
+    "name_zh_cn": "区域 401 进入",
+    "summary_en": "Area 401 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 401 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "3",
+        "sha256": "958d728663ec7160c39cc4b796b7178af7251ae22aa9e20768c260c52aa516d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.401",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.401.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 401 Layer 1101 → 1201",
+    "name_zh_cn": "区域 401 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "3",
+        "sha256": "958d728663ec7160c39cc4b796b7178af7251ae22aa9e20768c260c52aa516d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.401",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.401.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 401 Layer 1201 → 1302",
+    "name_zh_cn": "区域 401 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "3",
+        "sha256": "958d728663ec7160c39cc4b796b7178af7251ae22aa9e20768c260c52aa516d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.401",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.401.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 401 Terminal Transition",
+    "name_zh_cn": "区域 401 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "3",
+        "sha256": "958d728663ec7160c39cc4b796b7178af7251ae22aa9e20768c260c52aa516d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.401",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.501.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 501 Entry",
+    "name_zh_cn": "区域 501 进入",
+    "summary_en": "Area 501 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 501 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "4",
+        "sha256": "c52ba786a9f4d22fcb5062e5c8a92df45884976ba617799055bf695e244001f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.501",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.501.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 501 Layer 1101 → 1201",
+    "name_zh_cn": "区域 501 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "4",
+        "sha256": "c52ba786a9f4d22fcb5062e5c8a92df45884976ba617799055bf695e244001f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.501",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.501.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 501 Layer 1201 → 1302",
+    "name_zh_cn": "区域 501 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "4",
+        "sha256": "c52ba786a9f4d22fcb5062e5c8a92df45884976ba617799055bf695e244001f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.501",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.501.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 501 Terminal Transition",
+    "name_zh_cn": "区域 501 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "4",
+        "sha256": "c52ba786a9f4d22fcb5062e5c8a92df45884976ba617799055bf695e244001f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.501",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.601.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 601 Entry",
+    "name_zh_cn": "区域 601 进入",
+    "summary_en": "Area 601 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 601 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.601",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.601.extra-terminal.1401",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 601 Extra Layer Terminal",
+    "name_zh_cn": "区域 601 额外层终止",
+    "summary_en": "Completion of extra layer 1401 reaches the area terminal.",
+    "summary_zh_cn": "完成额外层 1401 后进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "extra-layer",
+      "project-policy",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.601",
+    "from_state": "unknowable-domain.layer.1401",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.601.extra.1401",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 601 Extra Layer 1401",
+    "name_zh_cn": "区域 601 额外层 1401",
+    "summary_en": "Released area 601 references extra layer 1401; eligibility timing remains ProjectPolicy.",
+    "summary_zh_cn": "已发布区域 601 引用额外层 1401；其资格时机仍为 ProjectPolicy。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "extra-layer",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.601",
+    "from_state": "unknowable-domain.layer.1301",
+    "condition": "CurrentLayerCompletedAndExtraLayerOffered",
+    "to_state": "unknowable-domain.layer.1401",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterExtraLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.601.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 601 Layer 1101 → 1201",
+    "name_zh_cn": "区域 601 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.601",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.601.layer.1201.1301",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 601 Layer 1201 → 1301",
+    "name_zh_cn": "区域 601 层级 1201 → 1301",
+    "summary_en": "Authored area order advances layer 1201 to 1301.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1301。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.601",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1301",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.601.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 601 Terminal Transition",
+    "name_zh_cn": "区域 601 终止转换",
+    "summary_en": "After the final authored layer 1301, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1301 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.601",
+    "from_state": "unknowable-domain.layer.1301",
+    "condition": "CurrentLayerCompletedAndExtraLayerNotOffered",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.701.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 701 Entry",
+    "name_zh_cn": "区域 701 进入",
+    "summary_en": "Area 701 enters its first authored layer 4101.",
+    "summary_zh_cn": "区域 701 进入首个已发布层级 4101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "6",
+        "sha256": "98ff2ee2d3cd762702414841249d24f73a3453641430581b27925742fd7cb9e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.701",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.4101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.701.layer.4101.4201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 701 Layer 4101 → 4201",
+    "name_zh_cn": "区域 701 层级 4101 → 4201",
+    "summary_en": "Authored area order advances layer 4101 to 4201.",
+    "summary_zh_cn": "区域已发布顺序将层级 4101 推进到 4201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "6",
+        "sha256": "98ff2ee2d3cd762702414841249d24f73a3453641430581b27925742fd7cb9e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.701",
+    "from_state": "unknowable-domain.layer.4101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.4201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.701.layer.4201.4301",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 701 Layer 4201 → 4301",
+    "name_zh_cn": "区域 701 层级 4201 → 4301",
+    "summary_en": "Authored area order advances layer 4201 to 4301.",
+    "summary_zh_cn": "区域已发布顺序将层级 4201 推进到 4301。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "6",
+        "sha256": "98ff2ee2d3cd762702414841249d24f73a3453641430581b27925742fd7cb9e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.701",
+    "from_state": "unknowable-domain.layer.4201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.4301",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.701.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 701 Terminal Transition",
+    "name_zh_cn": "区域 701 终止转换",
+    "summary_en": "After the final authored layer 4301, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 4301 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "6",
+        "sha256": "98ff2ee2d3cd762702414841249d24f73a3453641430581b27925742fd7cb9e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.701",
+    "from_state": "unknowable-domain.layer.4301",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.801.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 801 Entry",
+    "name_zh_cn": "区域 801 进入",
+    "summary_en": "Area 801 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 801 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "7",
+        "sha256": "d8a8a369b820e5158ca08d6bd7e5068d1a64c1eeef6c18cb2dc13088ec0b4bea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.801",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.801.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 801 Layer 1101 → 1201",
+    "name_zh_cn": "区域 801 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "7",
+        "sha256": "d8a8a369b820e5158ca08d6bd7e5068d1a64c1eeef6c18cb2dc13088ec0b4bea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.801",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.801.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 801 Layer 1201 → 1302",
+    "name_zh_cn": "区域 801 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "7",
+        "sha256": "d8a8a369b820e5158ca08d6bd7e5068d1a64c1eeef6c18cb2dc13088ec0b4bea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.801",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.801.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 801 Terminal Transition",
+    "name_zh_cn": "区域 801 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "7",
+        "sha256": "d8a8a369b820e5158ca08d6bd7e5068d1a64c1eeef6c18cb2dc13088ec0b4bea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.801",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.802.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 802 Entry",
+    "name_zh_cn": "区域 802 进入",
+    "summary_en": "Area 802 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 802 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "8",
+        "sha256": "2fd9b79e77ce0beaf4bd4a3eef33ba7c803db858acc86f5f3e948e41b8ff36e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.802",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.802.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 802 Layer 1101 → 1201",
+    "name_zh_cn": "区域 802 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "8",
+        "sha256": "2fd9b79e77ce0beaf4bd4a3eef33ba7c803db858acc86f5f3e948e41b8ff36e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.802",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.802.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 802 Layer 1201 → 1302",
+    "name_zh_cn": "区域 802 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "8",
+        "sha256": "2fd9b79e77ce0beaf4bd4a3eef33ba7c803db858acc86f5f3e948e41b8ff36e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.802",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.802.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 802 Terminal Transition",
+    "name_zh_cn": "区域 802 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "8",
+        "sha256": "2fd9b79e77ce0beaf4bd4a3eef33ba7c803db858acc86f5f3e948e41b8ff36e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.802",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.803.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 803 Entry",
+    "name_zh_cn": "区域 803 进入",
+    "summary_en": "Area 803 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 803 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "9",
+        "sha256": "807cf44a630af0dcb809e1a665e5172377477f7834b41e733ad019a4dda95022",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.803",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.803.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 803 Layer 1101 → 1201",
+    "name_zh_cn": "区域 803 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "9",
+        "sha256": "807cf44a630af0dcb809e1a665e5172377477f7834b41e733ad019a4dda95022",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.803",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.803.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 803 Layer 1201 → 1302",
+    "name_zh_cn": "区域 803 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "9",
+        "sha256": "807cf44a630af0dcb809e1a665e5172377477f7834b41e733ad019a4dda95022",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.803",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.803.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 803 Terminal Transition",
+    "name_zh_cn": "区域 803 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "9",
+        "sha256": "807cf44a630af0dcb809e1a665e5172377477f7834b41e733ad019a4dda95022",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.803",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.804.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 804 Entry",
+    "name_zh_cn": "区域 804 进入",
+    "summary_en": "Area 804 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 804 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "10",
+        "sha256": "1ea8ba19e187c08dc45ab2ee8d8b0d3b2e3642f012c68ff37b4b8199324b5cf0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.804",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.804.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 804 Layer 1101 → 1201",
+    "name_zh_cn": "区域 804 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "10",
+        "sha256": "1ea8ba19e187c08dc45ab2ee8d8b0d3b2e3642f012c68ff37b4b8199324b5cf0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.804",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.804.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 804 Layer 1201 → 1302",
+    "name_zh_cn": "区域 804 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "10",
+        "sha256": "1ea8ba19e187c08dc45ab2ee8d8b0d3b2e3642f012c68ff37b4b8199324b5cf0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.804",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.804.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 804 Terminal Transition",
+    "name_zh_cn": "区域 804 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "10",
+        "sha256": "1ea8ba19e187c08dc45ab2ee8d8b0d3b2e3642f012c68ff37b4b8199324b5cf0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.804",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.805.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 805 Entry",
+    "name_zh_cn": "区域 805 进入",
+    "summary_en": "Area 805 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 805 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "11",
+        "sha256": "580e231b5d5da4eb83499e36f18459bc493d1f43608e8640836992084f9c69ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.805",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.805.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 805 Layer 1101 → 1201",
+    "name_zh_cn": "区域 805 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "11",
+        "sha256": "580e231b5d5da4eb83499e36f18459bc493d1f43608e8640836992084f9c69ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.805",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.805.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 805 Layer 1201 → 1302",
+    "name_zh_cn": "区域 805 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "11",
+        "sha256": "580e231b5d5da4eb83499e36f18459bc493d1f43608e8640836992084f9c69ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.805",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.805.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 805 Terminal Transition",
+    "name_zh_cn": "区域 805 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "11",
+        "sha256": "580e231b5d5da4eb83499e36f18459bc493d1f43608e8640836992084f9c69ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.805",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.806.entry",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 806 Entry",
+    "name_zh_cn": "区域 806 进入",
+    "summary_en": "Area 806 enters its first authored layer 1101.",
+    "summary_zh_cn": "区域 806 进入首个已发布层级 1101。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "12",
+        "sha256": "f4ccba94ddd8ce2b3e012f241b05ce1a39fe2c4e1b1fed659c57121eff43163f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "entry",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.806",
+    "from_state": "AreaEntry",
+    "condition": "AcceptedEntry",
+    "to_state": "unknowable-domain.layer.1101",
+    "ordered_operations": [
+      "InitializeArea",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.806.layer.1101.1201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 806 Layer 1101 → 1201",
+    "name_zh_cn": "区域 806 层级 1101 → 1201",
+    "summary_en": "Authored area order advances layer 1101 to 1201.",
+    "summary_zh_cn": "区域已发布顺序将层级 1101 推进到 1201。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "12",
+        "sha256": "f4ccba94ddd8ce2b3e012f241b05ce1a39fe2c4e1b1fed659c57121eff43163f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.806",
+    "from_state": "unknowable-domain.layer.1101",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1201",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.806.layer.1201.1302",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 806 Layer 1201 → 1302",
+    "name_zh_cn": "区域 806 层级 1201 → 1302",
+    "summary_en": "Authored area order advances layer 1201 to 1302.",
+    "summary_zh_cn": "区域已发布顺序将层级 1201 推进到 1302。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "12",
+        "sha256": "f4ccba94ddd8ce2b3e012f241b05ce1a39fe2c4e1b1fed659c57121eff43163f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "unknowable-domain.area.806",
+    "from_state": "unknowable-domain.layer.1201",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "unknowable-domain.layer.1302",
+    "ordered_operations": [
+      "CarryRunState",
+      "ExitLayer",
+      "EnterLayer"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.806.terminal",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Area 806 Terminal Transition",
+    "name_zh_cn": "区域 806 终止转换",
+    "summary_en": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible.",
+    "summary_zh_cn": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "12",
+        "sha256": "f4ccba94ddd8ce2b3e012f241b05ce1a39fe2c4e1b1fed659c57121eff43163f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "project-policy",
+      "stage-flow",
+      "terminal"
+    ],
+    "area_id": "unknowable-domain.area.806",
+    "from_state": "unknowable-domain.layer.1302",
+    "condition": "CurrentLayerCompleted",
+    "to_state": "AreaTerminal",
+    "ordered_operations": [
+      "ExitLayer",
+      "EvaluateFinish",
+      "FinalizeArea"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.policy.carry-layer",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Layer Carry Boundary",
+    "name_zh_cn": "层级继承边界",
+    "summary_en": "Layer Carry Boundary is a deterministic reference policy until released field-level carry/reset evidence is registered.",
+    "summary_zh_cn": "层级继承边界 是确定性资料策略，待公开的字段级继承/重置证据登记后替换。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "carry-reset",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "",
+    "from_state": "LayerTerminal",
+    "condition": "NextLayerSelected",
+    "to_state": "LayerEntry",
+    "ordered_operations": [
+      "CarryAlignment",
+      "CarryScepters",
+      "CarryComponents",
+      "CarryCurios",
+      "CarryCurrencies"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.policy.carry-room",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Room Carry Boundary",
+    "name_zh_cn": "房间继承边界",
+    "summary_en": "Room Carry Boundary is a deterministic reference policy until released field-level carry/reset evidence is registered.",
+    "summary_zh_cn": "房间继承边界 是确定性资料策略，待公开的字段级继承/重置证据登记后替换。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "carry-reset",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "",
+    "from_state": "RoomTerminal",
+    "condition": "NextRoomSelected",
+    "to_state": "RoomEntry",
+    "ordered_operations": [
+      "CarryAlignment",
+      "CarryScepters",
+      "CarryComponents",
+      "CarryCurios",
+      "CarryCurrencies"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  },
+  {
+    "id": "unknowable-domain.flow.policy.reset-run",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "StageFlowRule",
+    "name_en": "Run Reset Boundary",
+    "name_zh_cn": "流程重置边界",
+    "summary_en": "Run Reset Boundary is a deterministic reference policy until released field-level carry/reset evidence is registered.",
+    "summary_zh_cn": "流程重置边界 是确定性资料策略，待公开的字段级继承/重置证据登记后替换。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "carry-reset",
+      "project-policy",
+      "stage-flow"
+    ],
+    "area_id": "",
+    "from_state": "AreaTerminal",
+    "condition": "RunFinalized",
+    "to_state": "ProfileReady",
+    "ordered_operations": [
+      "ClearRunInventory",
+      "ClearRunProgress",
+      "PreservePermanentUnlocks"
+    ],
+    "policy_id": "ordered-area-layer-flow-v1"
+  }
+]

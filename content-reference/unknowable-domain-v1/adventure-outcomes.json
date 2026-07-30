@@ -1,0 +1,599 @@
+[
+  {
+    "id": "unknowable-domain.adventure-outcome.11001",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueCaptureMonster Outcome 11001",
+    "name_zh_cn": "抓扑满结果 11001",
+    "summary_en": "Released RogueCaptureMonster room 11001 binds parameter group 301001; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的抓扑满房间 11001 绑定参数组 301001；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "e3f5ca61a6655f41652c1ad5a5967b158f7b2289941dc676940977abb9d0f502",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "0",
+        "sha256": "29426aa9182362a3815e4140bf4dfb84020652ac9ac324f7ecd6ccaa2d618ba5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguecapturemonster"
+    ],
+    "source_id": "adventure-outcome:11001",
+    "adventure_type": "RogueCaptureMonster",
+    "tier": "Unspecified",
+    "source_tier_id": "11001",
+    "param_group_id": "301001",
+    "parameter_records": [
+      {
+        "source_table": "RogueCaptureMonster",
+        "source_locator": "2",
+        "values": {
+          "GameTime": "40",
+          "MonsterNum": "16",
+          "ParamGroupID": "301001",
+          "PrepareTime": "3",
+          "ScoreRange": [
+            "0",
+            "2000",
+            "3600"
+          ]
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11002",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueTurntable Outcome 11002",
+    "name_zh_cn": "转盘结果 11002",
+    "summary_en": "Released RogueTurntable room 11002 binds parameter group 5001; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的转盘房间 11002 绑定参数组 5001；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "5",
+        "sha256": "c2129643dffd53a50c4e4480238c2c6e6d2541c60f6a0811543497e999f75666",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-rogueturntable-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "6",
+        "sha256": "6414ff05bc56b5ed99809b9816373a893d8471a7d86ab8ec4ca37ee43ad72130",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-rogueturntable-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "7",
+        "sha256": "a7595ccf69d0ea5fc79409258c05c3a29dfc05f0954364790d8082ae87e7554d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-rogueturntable-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "8",
+        "sha256": "398945a1b7b74003aa062d478223645ac6318579783ddb61c437904556a5f438",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "rogueturntable"
+    ],
+    "source_id": "adventure-outcome:11002",
+    "adventure_type": "RogueTurntable",
+    "tier": "Unspecified",
+    "source_tier_id": "11002",
+    "param_group_id": "5001",
+    "parameter_records": [
+      {
+        "source_table": "RogueTurntable",
+        "source_locator": "6",
+        "values": {
+          "ParamGroupID": "5001",
+          "PrepareTime": "3",
+          "RewardLevel": "High"
+        }
+      },
+      {
+        "source_table": "RogueTurntable",
+        "source_locator": "7",
+        "values": {
+          "ParamGroupID": "5001",
+          "PrepareTime": "3",
+          "RewardLevel": "Medium"
+        }
+      },
+      {
+        "source_table": "RogueTurntable",
+        "source_locator": "8",
+        "values": {
+          "ParamGroupID": "5001",
+          "PrepareTime": "3"
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11003",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueDestroyProp Outcome 11003",
+    "name_zh_cn": "破坏物件结果 11003",
+    "summary_en": "Released RogueDestroyProp room 11003 binds parameter group 301001; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的破坏物件房间 11003 绑定参数组 301001；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguedestroyprop-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "5",
+        "sha256": "a421b29be37b904ffaf998cb62e9d820945700bb956d0bc9a2fd34e53557a8b8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "3",
+        "sha256": "8c277e8d4b6a233dd378280dd5b51f32ee80e1371c9c2657a8116de0d3807b72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguedestroyprop"
+    ],
+    "source_id": "adventure-outcome:11003",
+    "adventure_type": "RogueDestroyProp",
+    "tier": "Unspecified",
+    "source_tier_id": "11003",
+    "param_group_id": "301001",
+    "parameter_records": [
+      {
+        "source_table": "RogueDestroyProp",
+        "source_locator": "5",
+        "values": {
+          "GameTime": "35",
+          "ParamGroupID": "301001",
+          "PrepareTime": "3",
+          "ScoreRange": [
+            "0",
+            "15",
+            "30"
+          ]
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11004",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueCaptureMonster Outcome 11004",
+    "name_zh_cn": "抓扑满结果 11004",
+    "summary_en": "Released RogueCaptureMonster room 11004 binds parameter group 301001; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的抓扑满房间 11004 绑定参数组 301001；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "e3f5ca61a6655f41652c1ad5a5967b158f7b2289941dc676940977abb9d0f502",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "1",
+        "sha256": "6b4827a71349daf191291dd2ed37073bdd28d7b7813770603c183402e24ac496",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguecapturemonster"
+    ],
+    "source_id": "adventure-outcome:11004",
+    "adventure_type": "RogueCaptureMonster",
+    "tier": "Unspecified",
+    "source_tier_id": "11004",
+    "param_group_id": "301001",
+    "parameter_records": [
+      {
+        "source_table": "RogueCaptureMonster",
+        "source_locator": "2",
+        "values": {
+          "GameTime": "40",
+          "MonsterNum": "16",
+          "ParamGroupID": "301001",
+          "PrepareTime": "3",
+          "ScoreRange": [
+            "0",
+            "2000",
+            "3600"
+          ]
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11005",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueDestroyProp Outcome 11005",
+    "name_zh_cn": "破坏物件结果 11005",
+    "summary_en": "Released RogueDestroyProp room 11005 binds parameter group 301002; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的破坏物件房间 11005 绑定参数组 301002；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguedestroyprop-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "6",
+        "sha256": "e135672572bfcc136621cdcc29ed8fef47a7b0bc22349bc170a9284efa15acd8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "4",
+        "sha256": "9e02a386aa427c4d4952760f56eed22b00aecc90a1672063b424960595bcf164",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguedestroyprop"
+    ],
+    "source_id": "adventure-outcome:11005",
+    "adventure_type": "RogueDestroyProp",
+    "tier": "Unspecified",
+    "source_tier_id": "11005",
+    "param_group_id": "301002",
+    "parameter_records": [
+      {
+        "source_table": "RogueDestroyProp",
+        "source_locator": "6",
+        "values": {
+          "GameTime": "35",
+          "ParamGroupID": "301002",
+          "PrepareTime": "3",
+          "ScoreRange": [
+            "0",
+            "15",
+            "30"
+          ]
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11006",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueCaptureMonster Outcome 11006",
+    "name_zh_cn": "抓扑满结果 11006",
+    "summary_en": "Released RogueCaptureMonster room 11006 binds parameter group 301001; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的抓扑满房间 11006 绑定参数组 301001；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "e3f5ca61a6655f41652c1ad5a5967b158f7b2289941dc676940977abb9d0f502",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "2",
+        "sha256": "0f81f4747c07731890b7706d4d7d6c97a580cf1b94d729f9b73af518bfb48714",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguecapturemonster"
+    ],
+    "source_id": "adventure-outcome:11006",
+    "adventure_type": "RogueCaptureMonster",
+    "tier": "Unspecified",
+    "source_tier_id": "11006",
+    "param_group_id": "301001",
+    "parameter_records": [
+      {
+        "source_table": "RogueCaptureMonster",
+        "source_locator": "2",
+        "values": {
+          "GameTime": "40",
+          "MonsterNum": "16",
+          "ParamGroupID": "301001",
+          "PrepareTime": "3",
+          "ScoreRange": [
+            "0",
+            "2000",
+            "3600"
+          ]
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11007",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueEscapeLaser Outcome 11007",
+    "name_zh_cn": "躲避射线结果 11007",
+    "summary_en": "Released RogueEscapeLaser room 11007 binds parameter group 5001; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的躲避射线房间 11007 绑定参数组 5001；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-rogueescapelaser-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueEscapeLaser.json",
+        "locator": "1",
+        "sha256": "a3e27d9c81b354bce4d5d693bf342967ac6b41676eded5957d683e6c02191f17",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "6",
+        "sha256": "3d888c5b3a5b5fbecc0d5406b37a1f81793a645fd0bb6bbc17524d74e52821d5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "rogueescapelaser"
+    ],
+    "source_id": "adventure-outcome:11007",
+    "adventure_type": "RogueEscapeLaser",
+    "tier": "Unspecified",
+    "source_tier_id": "11007",
+    "param_group_id": "5001",
+    "parameter_records": [
+      {
+        "source_table": "RogueEscapeLaser",
+        "source_locator": "1",
+        "values": {
+          "GameTimeperRound": "5",
+          "ParamGroupID": "5001",
+          "PrepareTime": "3",
+          "ScoreRange": [
+            "0",
+            "400",
+            "600"
+          ],
+          "ScoreperRound": [
+            "100",
+            "200",
+            "300",
+            "400",
+            "500"
+          ],
+          "ScoreperWave": "100",
+          "TotalRounds": "6"
+        }
+      }
+    ],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11008",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueWolfGun Outcome 11008",
+    "name_zh_cn": "狼枪结果 11008",
+    "summary_en": "Released RogueWolfGun room 11008 binds parameter group 101; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的狼枪房间 11008 绑定参数组 101；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "7",
+        "sha256": "ce002c7c361cfab9599fe52009b98813b8ae70c3a3adb8cd54b561e2c3aad410",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguewolfgun"
+    ],
+    "source_id": "adventure-outcome:11008",
+    "adventure_type": "RogueWolfGun",
+    "tier": "Unspecified",
+    "source_tier_id": "11008",
+    "param_group_id": "101",
+    "parameter_records": [],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.adventure-outcome.11009",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableAdventureOutcome",
+    "name_en": "RogueWolfGun Outcome 11009",
+    "name_zh_cn": "狼枪结果 11009",
+    "summary_en": "Released RogueWolfGun room 11009 binds parameter group 102; its concrete offered reward tier is not published.",
+    "summary_zh_cn": "已发布的狼枪房间 11009 绑定参数组 102；未发布具体提供的奖励层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "8",
+        "sha256": "39ae8f1494d7467e8ff4cf396776f39445f6f7a5fe2cd4bb98d8677e904b7106",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "adventure",
+      "outcome",
+      "roguewolfgun"
+    ],
+    "source_id": "adventure-outcome:11009",
+    "adventure_type": "RogueWolfGun",
+    "tier": "Unspecified",
+    "source_tier_id": "11009",
+    "param_group_id": "102",
+    "parameter_records": [],
+    "offered_result": "Unspecified",
+    "eligibility": "Unspecified",
+    "runtime_lowered": false
+  }
+]

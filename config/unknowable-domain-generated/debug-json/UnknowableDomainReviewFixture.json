@@ -1,0 +1,2953 @@
+{
+  "table": {
+    "name": "UnknowableDomainReviewFixture",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-alignment-selection"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"four Alignments\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offered pool\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no legal selection\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 1
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "alignment-selection Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "alignment-selection 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"four Alignments\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"offered pool\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"no legal selection\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "alignment-selection"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.alignment.break"
+              },
+              {
+                "String": "unknowable-domain.alignment.dot"
+              },
+              {
+                "String": "unknowable-domain.alignment.follow"
+              },
+              {
+                "String": "unknowable-domain.alignment.ultimate"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicstyletypeselect-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-alignment-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.alignment-selection"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "alignment-selection"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayer-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayerroom-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicroom-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"carry\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"reset\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"illegal transition\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 2
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "area-layer-room-transition Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "area-layer-room-transition 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"ordered transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"carry\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"reset\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"illegal transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":5}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "area-layer-room-transition"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.area.101"
+              },
+              {
+                "String": "unknowable-domain.flow.101.entry"
+              },
+              {
+                "String": "unknowable-domain.layer-room.101.1"
+              },
+              {
+                "String": "unknowable-domain.layer.101"
+              },
+              {
+                "String": "unknowable-domain.room.11001"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayer-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayerroom-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicroom-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.area-layer-room-transition"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area-layer-room-transition"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"insert\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"remove\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"replace\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"locked Component\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 3
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "component-insertion-removal-replacement Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "component-insertion-removal-replacement 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"insert\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"remove\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"replace\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"locked Component\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "component-insertion-removal-replacement"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.loadout-transition.insert"
+              },
+              {
+                "String": "unknowable-domain.loadout-transition.remove"
+              },
+              {
+                "String": "unknowable-domain.loadout-transition.replace"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.loadout"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.component-insertion-removal-replacement"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-insertion-removal-replacement"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-reforge"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cost\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"replacement\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"empty candidate\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 4
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "component-reforge Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "component-reforge 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"cost\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"replacement\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"empty candidate\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "component-reforge"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.reforge.component"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-reforge"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.component-reforge"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-reforge"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json.abilitylist-0-roguemagic-newmagic-eject-686010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.139"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicunit-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicunitdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-slot-legality"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"shape\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"range\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"slot type\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"rejected insertion\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 5
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "component-slot-legality Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "component-slot-legality 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"shape\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"range\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"slot type\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"rejected insertion\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "component-slot-legality"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.4001.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.4001.level.1.compatibility.none"
+              },
+              {
+                "String": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json.abilitylist-0-roguemagic-newmagic-eject-686010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.139"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicunit-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicunitdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-slot-legality"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.component-slot-legality"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-slot-legality"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-synthesis"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"input count\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"consumption\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"output pool\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no legal output\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 6
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "component-synthesis Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "component-synthesis 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"input count\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"consumption\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"output pool\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"no legal output\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "component-synthesis"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.synthesis.component"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-synthesis"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.component-synthesis"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-synthesis"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-upgrade"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"level transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cost\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cap\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordering\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 7
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "component-upgrade Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "component-upgrade 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"level transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"cost\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"cap\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"ordering\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "component-upgrade"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter-upgrade.1-to-2"
+              },
+              {
+                "String": "unknowable-domain.scepter-upgrade.2-to-3"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-upgrade"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.component-upgrade"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-upgrade"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicfinishway-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.profile"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"state slot\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"carry boundary\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"reset boundary\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"finish cleanup\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 8
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "cross-battle-carry-reset Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "cross-battle-carry-reset 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"state slot\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"carry boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"reset boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"finish cleanup\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "cross-battle-carry-reset"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.finish.5013001"
+              },
+              {
+                "String": "unknowable-domain.flow.101.entry"
+              },
+              {
+                "String": "unknowable-domain.profile.v1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicfinishway-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.profile"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.cross-battle-carry-reset"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cross-battle-carry-reset"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguehandbookmiracle-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiracle-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiraclegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemiracledisplay-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemiracleeffect-json.237"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemiracleeffectdisplay-json.237"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-curio-lifecycle"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mode state\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"charges\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"repair\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"replacement\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 9
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "curio-lifecycle Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "curio-lifecycle 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"mode state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"charges\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"repair\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"replacement\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "curio-lifecycle"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.curio-rule.group.50002"
+              },
+              {
+                "String": "unknowable-domain.curio-state.7101"
+              },
+              {
+                "String": "unknowable-domain.curio.4"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguehandbookmiracle-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiracle-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiraclegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemiracledisplay-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemiracleeffect-json.237"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemiracleeffectdisplay-json.237"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-curio-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.curio-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curio-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunit-json.252"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-decision-component-choice"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"candidate order\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"scope\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"fallback\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 10
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "decision-component-choice Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "decision-component-choice 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"candidate order\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"scope\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"fallback\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "decision-component-choice"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.decision-component.6051"
+              },
+              {
+                "String": "unknowable-domain.decision-component.6051.choice"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunit-json.252"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-decision-component-choice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.decision-component-choice"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "decision-component-choice"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicdifficultycomp-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicdifficultydrop-json.1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-difficulty-composition"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty parameters\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"drop binding\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty application boundary\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 11
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "difficulty-composition Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "difficulty-composition 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"difficulty parameters\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"drop binding\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"difficulty application boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "difficulty-composition"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.difficulty-drop.101.1"
+              },
+              {
+                "String": "unknowable-domain.difficulty.10101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicdifficultycomp-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicdifficultydrop-json.1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-difficulty-composition"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.difficulty-composition"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "difficulty-composition"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.626"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicroom-json.9"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-encounter-selection"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"room parent\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"candidate order\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"wave\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"enemy slots\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 12
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "encounter-selection Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "encounter-selection 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"room parent\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"candidate order\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"wave\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"enemy slots\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "encounter-selection"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.101"
+              },
+              {
+                "String": "unknowable-domain.encounter-source.room.11101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.626"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicroom-json.9"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.encounter-selection"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter-selection"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome"
+              },
+              {
+                "String": "source.goal10.project-policy.service-offer-policy-v1"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"weighted candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"seed\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"outcome\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"failure\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 13
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "gamble-offer-and-outcome Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "gamble-offer-and-outcome 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"weighted candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"seed\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"failure\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "gamble-offer-and-outcome"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.gamble-group.100"
+              },
+              {
+                "String": "unknowable-domain.gamble-unit.101"
+              },
+              {
+                "String": "unknowable-domain.service-offer.gamble-group.100"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicgambleunit-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome"
+              },
+              {
+                "String": "source.goal10.project-policy.service-offer-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.gamble-offer-and-outcome"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamble-offer-and-outcome"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayereffect-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"entry trigger\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cross-battle state\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"battle projection\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"teardown\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 14
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "layer-and-difficulty-effect Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "layer-and-difficulty-effect 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"entry trigger\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"cross-battle state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"battle projection\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"teardown\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "layer-and-difficulty-effect"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.layer-effect.401"
+              },
+              {
+                "String": "unknowable-domain.layer-effect.401.contribution"
+              },
+              {
+                "String": "unknowable-domain.maze-buff.682010.level.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayereffect-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.layer-and-difficulty-effect"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "layer-and-difficulty-effect"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback"
+              },
+              {
+                "String": "source.goal10.project-policy.service-offer-policy-v1"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"empty set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"explicit fallback\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no hidden RNG draw\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"review fact\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 15
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "no-legal-candidate-fallback Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "no-legal-candidate-fallback 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"empty set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"explicit fallback\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"no hidden RNG draw\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"review fact\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "no-legal-candidate-fallback"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.loadout-transition.insert"
+              },
+              {
+                "String": "unknowable-domain.service-offer.gamble-group.100"
+              },
+              {
+                "String": "unknowable-domain.synthesis.component"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback"
+              },
+              {
+                "String": "source.goal10.project-policy.service-offer-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.no-legal-candidate-fallback"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "no-legal-candidate-fallback"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510301-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.43"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguehandbookevent-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-occurrence-choice"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"variant\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"condition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cost\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered outcome\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 16
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "occurrence-choice Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-choice 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"variant\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"condition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"cost\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"ordered outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "occurrence-choice"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.occurrence-choice.510301.01.01"
+              },
+              {
+                "String": "unknowable-domain.occurrence-variant.510301"
+              },
+              {
+                "String": "unknowable-domain.occurrence.10"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510301-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.43"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguehandbookevent-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-occurrence-choice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.occurrence-choice"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence-choice"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-rogueactivityresidentconfig-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicfinishway-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.profile"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"entry eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"initial resources\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"finish and terminal boundary\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 17
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "profile-entry-and-finish Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry-and-finish 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"entry eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"initial resources\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"finish and terminal boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "profile-entry-and-finish"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.entry.activity.103"
+              },
+              {
+                "String": "unknowable-domain.finish.5013001"
+              },
+              {
+                "String": "unknowable-domain.profile.v1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-rogueactivityresidentconfig-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicfinishway-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.profile"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.profile-entry-and-finish"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "profile-entry-and-finish"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-scepter-activation"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"trigger\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"targeting\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered operations\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"single activation\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 18
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "scepter-activation Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "scepter-activation 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"trigger\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"targeting\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"ordered operations\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"single activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "scepter-activation"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter.2001"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.activation"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.dispatch"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-scepter-activation"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.scepter-activation"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "scepter-activation"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub"
+              },
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"gain\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"spend\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"action ordering\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cap and teardown\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 19
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "scepter-charge-and-speed Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "scepter-charge-and-speed 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"gain\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"spend\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"action ordering\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"cap and teardown\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "scepter-charge-and-speed"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.dispatch"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.finish"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub"
+              },
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.scepter-charge-and-speed"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "scepter-charge-and-speed"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-1"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510001-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.426"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.870"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.871"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-service-and-adventure"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"service eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"price or tier\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offered abstract outcome\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 20
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "service-and-adventure Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "service-and-adventure 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"service eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"price or tier\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"offered abstract outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "service-and-adventure"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.adventure-outcome.11001"
+              },
+              {
+                "String": "unknowable-domain.mode-service-npc.510001"
+              },
+              {
+                "String": "unknowable-domain.service-rule.adventure-outcome.11001"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-0"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-1"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.root"
+              },
+              {
+                "String": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510001-json.root"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguecapturemonster-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.426"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.870"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.871"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicadventureroom-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicnpc-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-service-and-adventure"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.service-and-adventure"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "service-and-adventure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub"
+              },
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"trigger phase\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"priority\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"stable tie key\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"expected facts\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 21
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "simultaneous-trigger-order Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "simultaneous-trigger-order 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"trigger phase\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"priority\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"stable tie key\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"expected facts\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "simultaneous-trigger-order"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.dispatch"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.finish"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.initialize"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub"
+              },
+              {
+                "String": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmazebuff-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepter-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.simultaneous-trigger-order"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "simultaneous-trigger-order"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-talent-and-unlock"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"prerequisite\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cost\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"unlock consequence\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"evaluation boundary\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 22
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "talent-and-unlock Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "talent-and-unlock 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"prerequisite\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"cost\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"unlock consequence\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"evaluation boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "talent-and-unlock"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.talent.1001.level.1"
+              },
+              {
+                "String": "unknowable-domain.unlock.5013001"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-talent-and-unlock"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.talent-and-unlock"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "talent-and-unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.626"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"StageConfig row\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"wave order\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"boss alternative\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 23
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "wave-and-boss-binding Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "wave-and-boss-binding 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"StageConfig row\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"wave order\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"boss alternative\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"difficulty\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "wave-and-boss-binding"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.2004011"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.101"
+              },
+              {
+                "String": "unknowable-domain.encounter-source.boss.2004011"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-monsterconfig-json.626"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486"
+              },
+              {
+                "String": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.wave-and-boss-binding"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "wave-and-boss-binding"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbench-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost"
+              },
+              {
+                "String": "source.goal10.project-policy.service-offer-policy-v1"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"price\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offer ordering\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"refresh lifecycle\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 24
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "input_json": {
+            "String": "{\"candidate_order\":\"StableIdAscending\",\"kind\":\"SemanticReview\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "workbench-offer-and-cost Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "workbench-offer-and-cost 资料审查"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"price\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"offer ordering\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3},{\"fact\":\"refresh lifecycle\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":4}]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "preconditions_json": {
+            "String": "{\"candidate_lane\":\"ReferenceCandidate\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "workbench-offer-and-cost"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.service-offer.gamble-group.100"
+              },
+              {
+                "String": "unknowable-domain.workbench-function.10"
+              },
+              {
+                "String": "unknowable-domain.workbench.101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicgamblegroup-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbench-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost"
+              },
+              {
+                "String": "source.goal10.project-policy.service-offer-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.review-fixture.workbench-offer-and-cost"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "workbench-offer-and-cost"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

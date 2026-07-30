@@ -1,0 +1,796 @@
+[
+  {
+    "id": "unknowable-domain.area.101",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Unknowable Domain",
+    "name_zh_cn": "不可知域",
+    "summary_en": "Guide area 101 uses 1 difficulty binding(s) and 1 ordered layer(s).",
+    "summary_zh_cn": "Guide 区域 101 绑定 1 个难度与 1 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "guide"
+    ],
+    "source_id": "101",
+    "area_group": "Guide",
+    "default_alignment": "Ultimate",
+    "unlock_id": "",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "1"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.101"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "2004011"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.201",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Fading Empire",
+    "name_zh_cn": "消逝的帝国",
+    "summary_en": "Formal area 201 uses 2 difficulty binding(s) and 2 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 201 绑定 2 个难度与 2 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "1",
+        "sha256": "4984c1b3c2551351189e72a8045f2eb496e2ddfb29573efc0164f0ea434bcbb8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal"
+    ],
+    "source_id": "201",
+    "area_group": "Formal",
+    "default_alignment": "Dot",
+    "unlock_id": "5013017",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "11",
+      "12"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.201",
+      "unknowable-domain.layer.202"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "3003042"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.301",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Future Rehearsal",
+    "name_zh_cn": "未来的预演",
+    "summary_en": "Formal area 301 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 301 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "2",
+        "sha256": "8844ebbcf3a1e77c8d391b6250643d18bf5b2b5ba4ebd2afca0426fcda03f992",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal"
+    ],
+    "source_id": "301",
+    "area_group": "Formal",
+    "default_alignment": "Follow",
+    "unlock_id": "5013001",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "21",
+      "22",
+      "23"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.301",
+      "unknowable-domain.layer.302",
+      "unknowable-domain.layer.303"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "3024023"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.401",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Ice-Cold Technology",
+    "name_zh_cn": "冰冷的技术",
+    "summary_en": "Formal area 401 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 401 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "3",
+        "sha256": "958d728663ec7160c39cc4b796b7178af7251ae22aa9e20768c260c52aa516d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal"
+    ],
+    "source_id": "401",
+    "area_group": "Formal",
+    "default_alignment": "Break",
+    "unlock_id": "5013002",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "31",
+      "32",
+      "33"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024012"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.501",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Center of Knowledge",
+    "name_zh_cn": "知识的中心",
+    "summary_en": "Formal area 501 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 501 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "4",
+        "sha256": "c52ba786a9f4d22fcb5062e5c8a92df45884976ba617799055bf695e244001f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal"
+    ],
+    "source_id": "501",
+    "area_group": "Formal",
+    "default_alignment": "Ultimate",
+    "unlock_id": "5013003",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "41",
+      "42",
+      "43"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "2034012"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.601",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Someone's Mausoleum",
+    "name_zh_cn": "谁人的陵寝",
+    "summary_en": "Formal area 601 uses 4 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 601 绑定 4 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "5",
+        "sha256": "c0b79c820c00bc40bf1048fbd6e81775f062cc251a659ade2817084a4e20681f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal"
+    ],
+    "source_id": "601",
+    "area_group": "Formal",
+    "default_alignment": "Ultimate",
+    "unlock_id": "5013004",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "51",
+      "52",
+      "53",
+      "54"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1301"
+    ],
+    "extra_layer_id": "unknowable-domain.layer.1401",
+    "displayed_boss_ids": [
+      "2034012"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.701",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Chaotic Ripples",
+    "name_zh_cn": "混沌涟漪",
+    "summary_en": "Final area 701 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Final 区域 701 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "6",
+        "sha256": "98ff2ee2d3cd762702414841249d24f73a3453641430581b27925742fd7cb9e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "final"
+    ],
+    "source_id": "701",
+    "area_group": "Final",
+    "default_alignment": "Ultimate",
+    "unlock_id": "5013260",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "31",
+      "32",
+      "33"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.4101",
+      "unknowable-domain.layer.4201",
+      "unknowable-domain.layer.4301"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "2034012"
+    ],
+    "customization_inputs": []
+  },
+  {
+    "id": "unknowable-domain.area.801",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Windup World",
+    "name_zh_cn": "发条世界",
+    "summary_en": "Customization area 801 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Customization 区域 801 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "7",
+        "sha256": "d8a8a369b820e5158ca08d6bd7e5068d1a64c1eeef6c18cb2dc13088ec0b4bea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "customization"
+    ],
+    "source_id": "801",
+    "area_group": "Customization",
+    "default_alignment": "Break",
+    "unlock_id": "5013028",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "71",
+      "72",
+      "73"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024010"
+    ],
+    "customization_inputs": [
+      {
+        "ordinal": 0,
+        "kind": "MagicScepter",
+        "source_value": "2006_2"
+      },
+      {
+        "ordinal": 1,
+        "kind": "MagicUnit",
+        "source_value": "6056_1"
+      },
+      {
+        "ordinal": 2,
+        "kind": "MagicUnit",
+        "source_value": "5013_2"
+      },
+      {
+        "ordinal": 3,
+        "kind": "MagicUnit",
+        "source_value": "6017_2"
+      }
+    ]
+  },
+  {
+    "id": "unknowable-domain.area.802",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Printed Truths",
+    "name_zh_cn": "打印真实",
+    "summary_en": "Customization area 802 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Customization 区域 802 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "8",
+        "sha256": "2fd9b79e77ce0beaf4bd4a3eef33ba7c803db858acc86f5f3e948e41b8ff36e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "customization"
+    ],
+    "source_id": "802",
+    "area_group": "Customization",
+    "default_alignment": "Dot",
+    "unlock_id": "5013028",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "71",
+      "72",
+      "73"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024010"
+    ],
+    "customization_inputs": [
+      {
+        "ordinal": 0,
+        "kind": "MagicScepter",
+        "source_value": "2001_2"
+      },
+      {
+        "ordinal": 1,
+        "kind": "MagicUnit",
+        "source_value": "6064_1"
+      },
+      {
+        "ordinal": 2,
+        "kind": "MagicUnit",
+        "source_value": "5002_2"
+      },
+      {
+        "ordinal": 3,
+        "kind": "MagicUnit",
+        "source_value": "6019_2"
+      }
+    ]
+  },
+  {
+    "id": "unknowable-domain.area.803",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "The Great Lie",
+    "name_zh_cn": "伟大谎言",
+    "summary_en": "Customization area 803 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Customization 区域 803 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "9",
+        "sha256": "807cf44a630af0dcb809e1a665e5172377477f7834b41e733ad019a4dda95022",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "customization"
+    ],
+    "source_id": "803",
+    "area_group": "Customization",
+    "default_alignment": "Ultimate",
+    "unlock_id": "5013028",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "71",
+      "72",
+      "73"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024010"
+    ],
+    "customization_inputs": [
+      {
+        "ordinal": 0,
+        "kind": "Miracle",
+        "source_value": "7303"
+      },
+      {
+        "ordinal": 1,
+        "kind": "Miracle",
+        "source_value": "7402"
+      },
+      {
+        "ordinal": 2,
+        "kind": "Miracle",
+        "source_value": "7305"
+      },
+      {
+        "ordinal": 3,
+        "kind": "Miracle",
+        "source_value": "7307"
+      }
+    ]
+  },
+  {
+    "id": "unknowable-domain.area.804",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Resleeved",
+    "name_zh_cn": "躯壳迁移",
+    "summary_en": "Customization area 804 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Customization 区域 804 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "10",
+        "sha256": "1ea8ba19e187c08dc45ab2ee8d8b0d3b2e3642f012c68ff37b4b8199324b5cf0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "customization"
+    ],
+    "source_id": "804",
+    "area_group": "Customization",
+    "default_alignment": "Ultimate",
+    "unlock_id": "5013028",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "71",
+      "72",
+      "73"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024010"
+    ],
+    "customization_inputs": [
+      {
+        "ordinal": 0,
+        "kind": "MagicScepter",
+        "source_value": "3007_2"
+      },
+      {
+        "ordinal": 1,
+        "kind": "MagicUnit",
+        "source_value": "6071_1"
+      },
+      {
+        "ordinal": 2,
+        "kind": "MagicUnit",
+        "source_value": "5009_2"
+      },
+      {
+        "ordinal": 3,
+        "kind": "MagicUnit",
+        "source_value": "6006_2"
+      }
+    ]
+  },
+  {
+    "id": "unknowable-domain.area.805",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Dousing Flames",
+    "name_zh_cn": "熄灭火焰",
+    "summary_en": "Customization area 805 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Customization 区域 805 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "11",
+        "sha256": "580e231b5d5da4eb83499e36f18459bc493d1f43608e8640836992084f9c69ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "customization"
+    ],
+    "source_id": "805",
+    "area_group": "Customization",
+    "default_alignment": "Follow",
+    "unlock_id": "5013028",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "71",
+      "72",
+      "73"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024010"
+    ],
+    "customization_inputs": [
+      {
+        "ordinal": 0,
+        "kind": "MagicScepter",
+        "source_value": "3003_2"
+      },
+      {
+        "ordinal": 1,
+        "kind": "MagicUnit",
+        "source_value": "6070_1"
+      },
+      {
+        "ordinal": 2,
+        "kind": "MagicUnit",
+        "source_value": "5007_2"
+      },
+      {
+        "ordinal": 3,
+        "kind": "MagicUnit",
+        "source_value": "6023_2"
+      }
+    ]
+  },
+  {
+    "id": "unknowable-domain.area.806",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableArea",
+    "name_en": "Those Remembered",
+    "name_zh_cn": "记住他们",
+    "summary_en": "Customization area 806 uses 3 difficulty binding(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Customization 区域 806 绑定 3 个难度与 3 个有序层级。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "12",
+        "sha256": "f4ccba94ddd8ce2b3e012f241b05ce1a39fe2c4e1b1fed659c57121eff43163f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "customization"
+    ],
+    "source_id": "806",
+    "area_group": "Customization",
+    "default_alignment": "Ultimate",
+    "unlock_id": "5013028",
+    "difficulty_ids": [],
+    "source_difficulty_ids": [
+      "71",
+      "72",
+      "73"
+    ],
+    "difficulty_resolution": "Unspecified",
+    "layer_ids": [
+      "unknowable-domain.layer.1101",
+      "unknowable-domain.layer.1201",
+      "unknowable-domain.layer.1302"
+    ],
+    "extra_layer_id": "",
+    "displayed_boss_ids": [
+      "8024010"
+    ],
+    "customization_inputs": [
+      {
+        "ordinal": 0,
+        "kind": "MagicUnit",
+        "source_value": "6066_1"
+      },
+      {
+        "ordinal": 1,
+        "kind": "MagicUnit",
+        "source_value": "6067_1"
+      },
+      {
+        "ordinal": 2,
+        "kind": "MagicUnit",
+        "source_value": "6068_1"
+      },
+      {
+        "ordinal": 3,
+        "kind": "MagicUnit",
+        "source_value": "6069_1"
+      },
+      {
+        "ordinal": 4,
+        "kind": "MagicUnit",
+        "source_value": "6059_1"
+      },
+      {
+        "ordinal": 5,
+        "kind": "MagicUnit",
+        "source_value": "6060_1"
+      }
+    ]
+  }
+]

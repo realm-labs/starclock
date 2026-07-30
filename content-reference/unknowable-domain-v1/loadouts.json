@@ -1,0 +1,5330 @@
+[
+  {
+    "id": "unknowable-domain.scepter.2001.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2001 Level 1 Loadout",
+    "name_zh_cn": "权杖 2001 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "0",
+        "sha256": "1f44f6cbf216eaee51406b1e57fbb8adb227b70e6bfb8d5f22d38b66421f6db1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2001:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2001",
+    "scepter_level_id": "unknowable-domain.scepter.2001.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2001.level.1.slot.active.0",
+      "unknowable-domain.scepter.2001.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2001.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2001.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2001.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4001.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2001.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2001 Level 2 Loadout",
+    "name_zh_cn": "权杖 2001 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "1",
+        "sha256": "b5ccc60149a43fe4e0168b65cf6d655fde99a483ab010af626ceafa027fc5dcf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2001:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2001",
+    "scepter_level_id": "unknowable-domain.scepter.2001.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2001.level.2.slot.active.0",
+      "unknowable-domain.scepter.2001.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2001.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2001.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2001.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2001.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4001.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2001.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2001 Level 3 Loadout",
+    "name_zh_cn": "权杖 2001 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "2",
+        "sha256": "0bd180e8d7a21998186bb5050ec6bec44a30c0d00fec9298997336d33b28775a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2001:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2001",
+    "scepter_level_id": "unknowable-domain.scepter.2001.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2001.level.3.slot.active.0",
+      "unknowable-domain.scepter.2001.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2001.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2001.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2001.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2001.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2001.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2001.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4001.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2002.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2002 Level 1 Loadout",
+    "name_zh_cn": "权杖 2002 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "3",
+        "sha256": "39bc99e09386f752609a7433360bca1a3929f1b252f4b4e86aee2aef6efc471a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2002:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2002",
+    "scepter_level_id": "unknowable-domain.scepter.2002.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2002.level.1.slot.active.0",
+      "unknowable-domain.scepter.2002.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2002.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2002.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2002.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4004.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2002.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2002 Level 2 Loadout",
+    "name_zh_cn": "权杖 2002 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "4",
+        "sha256": "e7a7e2521426737b73b9b3da36dcaf0c2a1cdcc4ddfd15be9c29c8833a604bad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2002:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2002",
+    "scepter_level_id": "unknowable-domain.scepter.2002.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2002.level.2.slot.active.0",
+      "unknowable-domain.scepter.2002.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2002.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2002.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2002.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2002.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4004.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2002.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2002 Level 3 Loadout",
+    "name_zh_cn": "权杖 2002 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "5",
+        "sha256": "b5394c86d5c9a39bf765f57b341cc9041d14ea7defbbd6788f1edaf4a97c5406",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2002:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2002",
+    "scepter_level_id": "unknowable-domain.scepter.2002.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2002.level.3.slot.active.0",
+      "unknowable-domain.scepter.2002.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2002.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2002.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2002.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2002.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2002.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2002.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4004.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2003.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2003 Level 1 Loadout",
+    "name_zh_cn": "权杖 2003 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "6",
+        "sha256": "ab745bffebb0aab1dfb5e75846956e2c74547fd96865b9a4f1cb6a352b421379",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2003:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2003",
+    "scepter_level_id": "unknowable-domain.scepter.2003.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2003.level.1.slot.active.0",
+      "unknowable-domain.scepter.2003.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2003.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2003.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2003.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4006.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2003.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2003 Level 2 Loadout",
+    "name_zh_cn": "权杖 2003 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "7",
+        "sha256": "85812500d41d423626037df7c164d2d3d08fdd2e0c7b84268c0e0aacafe52da0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2003:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2003",
+    "scepter_level_id": "unknowable-domain.scepter.2003.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2003.level.2.slot.active.0",
+      "unknowable-domain.scepter.2003.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2003.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2003.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2003.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2003.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4006.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2003.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2003 Level 3 Loadout",
+    "name_zh_cn": "权杖 2003 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "8",
+        "sha256": "71d2ac96bea1e07eb9ae619ad4be3aca6a2ca1e8bc70e431cd2d7323409449e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2003:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2003",
+    "scepter_level_id": "unknowable-domain.scepter.2003.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2003.level.3.slot.active.0",
+      "unknowable-domain.scepter.2003.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2003.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2003.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2003.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2003.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2003.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2003.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4006.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2004.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2004 Level 1 Loadout",
+    "name_zh_cn": "权杖 2004 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "9",
+        "sha256": "1882040ec5c9a4cda7958fcd73c2f4ae4f30a0e345e5bd4d85360646f2b3b1c6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2004:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2004",
+    "scepter_level_id": "unknowable-domain.scepter.2004.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2004.level.1.slot.active.0",
+      "unknowable-domain.scepter.2004.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2004.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2004.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2004.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4021.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2004.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2004 Level 2 Loadout",
+    "name_zh_cn": "权杖 2004 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "10",
+        "sha256": "8bffdf97cd65c7c5b67d6255d91be4e0ea7e276d8902852a9343657771918773",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2004:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2004",
+    "scepter_level_id": "unknowable-domain.scepter.2004.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2004.level.2.slot.active.0",
+      "unknowable-domain.scepter.2004.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2004.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2004.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2004.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2004.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4021.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2004.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2004 Level 3 Loadout",
+    "name_zh_cn": "权杖 2004 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "11",
+        "sha256": "158444831300a6b7564285d704d70026b3ec255aea660e8804409df4ae0d1d27",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2004:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2004",
+    "scepter_level_id": "unknowable-domain.scepter.2004.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2004.level.3.slot.active.0",
+      "unknowable-domain.scepter.2004.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2004.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2004.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2004.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2004.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2004.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2004.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4021.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2005.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2005 Level 1 Loadout",
+    "name_zh_cn": "权杖 2005 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "12",
+        "sha256": "ee81b291b4e9c49118ad55e4254d6e6e478b708e53833cb21b7513e103d045e3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2005:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2005",
+    "scepter_level_id": "unknowable-domain.scepter.2005.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2005.level.1.slot.active.0",
+      "unknowable-domain.scepter.2005.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2005.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2005.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2005.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4023.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2005.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2005 Level 2 Loadout",
+    "name_zh_cn": "权杖 2005 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "13",
+        "sha256": "5e570088b9aec28fac1a06a432f63483e99d95605d3bfa629adeafd44feae9a5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2005:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2005",
+    "scepter_level_id": "unknowable-domain.scepter.2005.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2005.level.2.slot.active.0",
+      "unknowable-domain.scepter.2005.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2005.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2005.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2005.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2005.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4023.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2005.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2005 Level 3 Loadout",
+    "name_zh_cn": "权杖 2005 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "14",
+        "sha256": "10a45676f98fd932a0b2d8c04874f5676196d883f1ebf62ac0913f4fe82cde4d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2005:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2005",
+    "scepter_level_id": "unknowable-domain.scepter.2005.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2005.level.3.slot.active.0",
+      "unknowable-domain.scepter.2005.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2005.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2005.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2005.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2005.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2005.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2005.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4023.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2006.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2006 Level 1 Loadout",
+    "name_zh_cn": "权杖 2006 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "15",
+        "sha256": "d909ed64cc7df9c96d714c2365d8f707b699cf7cabc7e579d1ed846ab387a68e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2006:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2006",
+    "scepter_level_id": "unknowable-domain.scepter.2006.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2006.level.1.slot.active.0",
+      "unknowable-domain.scepter.2006.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2006.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2006.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2006.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4024.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2006.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2006 Level 2 Loadout",
+    "name_zh_cn": "权杖 2006 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "16",
+        "sha256": "848a9255a34a56885919a65571a6e730c1cc54a5b4e8c887883137f778184813",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2006:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2006",
+    "scepter_level_id": "unknowable-domain.scepter.2006.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2006.level.2.slot.active.0",
+      "unknowable-domain.scepter.2006.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2006.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2006.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2006.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2006.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4024.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2006.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2006 Level 3 Loadout",
+    "name_zh_cn": "权杖 2006 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "17",
+        "sha256": "80466db66d2276f597369c6f763e1ebb4afb70c9180c7098fde7b2c042686d95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2006:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2006",
+    "scepter_level_id": "unknowable-domain.scepter.2006.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2006.level.3.slot.active.0",
+      "unknowable-domain.scepter.2006.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2006.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2006.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2006.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2006.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2006.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2006.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4024.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2007.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2007 Level 1 Loadout",
+    "name_zh_cn": "权杖 2007 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "18",
+        "sha256": "698193e81843fc24db1f08cd7a318e61b7ae075a880c62f6ae842381e1403a32",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "2007:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2007",
+    "scepter_level_id": "unknowable-domain.scepter.2007.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2007.level.1.slot.active.0",
+      "unknowable-domain.scepter.2007.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2007.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2007.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2007.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4025.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2007.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2007 Level 2 Loadout",
+    "name_zh_cn": "权杖 2007 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "19",
+        "sha256": "3f54d3ce9e85afeb2854312befe524c661ee3eb3498bebf98a515ea8add2a890",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "2007:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2007",
+    "scepter_level_id": "unknowable-domain.scepter.2007.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2007.level.2.slot.active.0",
+      "unknowable-domain.scepter.2007.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2007.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2007.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2007.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2007.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4025.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2007.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2007 Level 3 Loadout",
+    "name_zh_cn": "权杖 2007 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "20",
+        "sha256": "291b0b1e4c6828c76d8a7d9f536e45917198d0adf90d0abea79a1db30a4cc09e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "2007:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2007",
+    "scepter_level_id": "unknowable-domain.scepter.2007.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2007.level.3.slot.active.0",
+      "unknowable-domain.scepter.2007.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2007.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2007.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2007.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2007.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2007.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2007.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4025.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2008.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2008 Level 1 Loadout",
+    "name_zh_cn": "权杖 2008 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "21",
+        "sha256": "141f7c1788d9ad6c3247bad7ffdacf10df7819b6982e0fb8fec5379f4806bb6b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2008:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2008",
+    "scepter_level_id": "unknowable-domain.scepter.2008.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2008.level.1.slot.active.0",
+      "unknowable-domain.scepter.2008.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2008.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2008.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2008.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4042.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2008.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2008 Level 2 Loadout",
+    "name_zh_cn": "权杖 2008 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "22",
+        "sha256": "8de768b5935bd8183fa09b8c3501034f7740e9c17ea46837530ddcfb4d92ebb5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2008:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2008",
+    "scepter_level_id": "unknowable-domain.scepter.2008.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2008.level.2.slot.active.0",
+      "unknowable-domain.scepter.2008.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2008.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2008.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2008.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2008.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4042.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2008.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2008 Level 3 Loadout",
+    "name_zh_cn": "权杖 2008 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "23",
+        "sha256": "0059c928e9f50f33a117fc88fd631beaff15c330c7ecb7f2cd281408681b82d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2008:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2008",
+    "scepter_level_id": "unknowable-domain.scepter.2008.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2008.level.3.slot.active.0",
+      "unknowable-domain.scepter.2008.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2008.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2008.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2008.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2008.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2008.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2008.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4042.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2009.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2009 Level 1 Loadout",
+    "name_zh_cn": "权杖 2009 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "24",
+        "sha256": "08f352616a4ec11b32431860fa26cc79280df3f94956307ad8ab57f7ee9fa52f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2009:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2009",
+    "scepter_level_id": "unknowable-domain.scepter.2009.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2009.level.1.slot.active.0",
+      "unknowable-domain.scepter.2009.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2009.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2009.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2009.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4043.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2009.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2009 Level 2 Loadout",
+    "name_zh_cn": "权杖 2009 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "25",
+        "sha256": "4bf04cdb3fc1bc59cd2ddf36c3dff1b49cef39e1a819cb1d52914ed80f1fc9c5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2009:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2009",
+    "scepter_level_id": "unknowable-domain.scepter.2009.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2009.level.2.slot.active.0",
+      "unknowable-domain.scepter.2009.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2009.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2009.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2009.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2009.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4043.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2009.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2009 Level 3 Loadout",
+    "name_zh_cn": "权杖 2009 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "26",
+        "sha256": "a57891ea76146c0b360dd32793e94251adec4d785c058f293c5b8e0f1195df1a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2009:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2009",
+    "scepter_level_id": "unknowable-domain.scepter.2009.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2009.level.3.slot.active.0",
+      "unknowable-domain.scepter.2009.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2009.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2009.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2009.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2009.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2009.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2009.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4043.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2010.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2010 Level 1 Loadout",
+    "name_zh_cn": "权杖 2010 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "27",
+        "sha256": "ef39dfae73506c0d2a73c9db876733bac83c4fa38cb53613cd56167109300cb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2010:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2010",
+    "scepter_level_id": "unknowable-domain.scepter.2010.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2010.level.1.slot.active.0",
+      "unknowable-domain.scepter.2010.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2010.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2010.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2010.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4046.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2010.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2010 Level 2 Loadout",
+    "name_zh_cn": "权杖 2010 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "28",
+        "sha256": "c5279a5a86cee62b7ebb2b5144b06a67c3e5b683b572bd593a165d5e443a0450",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2010:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2010",
+    "scepter_level_id": "unknowable-domain.scepter.2010.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2010.level.2.slot.active.0",
+      "unknowable-domain.scepter.2010.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2010.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2010.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2010.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2010.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4046.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2010.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2010 Level 3 Loadout",
+    "name_zh_cn": "权杖 2010 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "29",
+        "sha256": "53eeae9c0164a2b36cc992a7d164c19d2c40c376fb18a804867229c773703371",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "follow",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2010:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2010",
+    "scepter_level_id": "unknowable-domain.scepter.2010.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2010.level.3.slot.active.0",
+      "unknowable-domain.scepter.2010.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2010.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2010.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2010.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2010.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2010.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2010.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4046.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2011.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2011 Level 1 Loadout",
+    "name_zh_cn": "权杖 2011 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "30",
+        "sha256": "ff22e0ed94b50edb99971dad61d2abb25bd4799419b28188895ab8f4fd905758",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2011:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2011",
+    "scepter_level_id": "unknowable-domain.scepter.2011.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2011.level.1.slot.active.0",
+      "unknowable-domain.scepter.2011.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2011.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2011.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2011.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4061.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2011.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2011 Level 2 Loadout",
+    "name_zh_cn": "权杖 2011 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "31",
+        "sha256": "8d4c234173a533a6b6004883dce16cf4e82adcc56028b3a23b8e014408620754",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2011:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2011",
+    "scepter_level_id": "unknowable-domain.scepter.2011.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2011.level.2.slot.active.0",
+      "unknowable-domain.scepter.2011.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2011.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2011.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2011.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2011.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4061.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2011.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2011 Level 3 Loadout",
+    "name_zh_cn": "权杖 2011 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "32",
+        "sha256": "fed82fdb696db331948f679a96c631606b6fd7143396e5a395e065c5e95255ee",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "loadout",
+      "sp",
+      "ultimate"
+    ],
+    "source_id": "2011:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2011",
+    "scepter_level_id": "unknowable-domain.scepter.2011.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2011.level.3.slot.active.0",
+      "unknowable-domain.scepter.2011.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2011.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2011.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2011.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2011.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2011.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2011.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4061.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2012.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2012 Level 1 Loadout",
+    "name_zh_cn": "权杖 2012 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "33",
+        "sha256": "c5b8bc16ef5a0334f7ffa683de87c4053ca6ccdfb986a501aae5c3d05336d276",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2012:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2012",
+    "scepter_level_id": "unknowable-domain.scepter.2012.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2012.level.1.slot.active.0",
+      "unknowable-domain.scepter.2012.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2012.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2012.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2012.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4063.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2012.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2012 Level 2 Loadout",
+    "name_zh_cn": "权杖 2012 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "34",
+        "sha256": "af3c244f3e050a128f8daa57e180f3a90b643241f873333cce79f07e06132e37",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2012:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2012",
+    "scepter_level_id": "unknowable-domain.scepter.2012.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2012.level.2.slot.active.0",
+      "unknowable-domain.scepter.2012.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2012.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2012.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2012.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2012.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4063.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2012.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2012 Level 3 Loadout",
+    "name_zh_cn": "权杖 2012 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "35",
+        "sha256": "8eb3512c67a03223ed30d11761de5938740b742f3f8530ef2103fea760058686",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "break",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2012:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2012",
+    "scepter_level_id": "unknowable-domain.scepter.2012.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2012.level.3.slot.active.0",
+      "unknowable-domain.scepter.2012.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2012.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2012.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2012.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2012.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2012.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2012.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4063.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2013.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2013 Level 1 Loadout",
+    "name_zh_cn": "权杖 2013 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "36",
+        "sha256": "a31539342326519ea3871d36b9162b515ba1569c21d303f32b0cb99d041a666f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2013:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.2013",
+    "scepter_level_id": "unknowable-domain.scepter.2013.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2013.level.1.slot.active.0",
+      "unknowable-domain.scepter.2013.level.1.slot.attach.0",
+      "unknowable-domain.scepter.2013.level.1.slot.passive.0",
+      "unknowable-domain.scepter.2013.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2013.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4065.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2013.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2013 Level 2 Loadout",
+    "name_zh_cn": "权杖 2013 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "37",
+        "sha256": "0ed532ed9e85542a9147db0607d509c7605ac9524943a71e215938ff1fae53fe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2013:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.2013",
+    "scepter_level_id": "unknowable-domain.scepter.2013.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.2013.level.2.slot.active.0",
+      "unknowable-domain.scepter.2013.level.2.slot.attach.0",
+      "unknowable-domain.scepter.2013.level.2.slot.attach.1",
+      "unknowable-domain.scepter.2013.level.2.slot.passive.0",
+      "unknowable-domain.scepter.2013.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2013.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4065.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.2013.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 2013 Level 3 Loadout",
+    "name_zh_cn": "权杖 2013 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "38",
+        "sha256": "dd615e075176544a38cb4fb65ae38bc8ea89c0de034be99d63f0c6581eff75da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "dot",
+      "loadout",
+      "sp"
+    ],
+    "source_id": "2013:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.2013",
+    "scepter_level_id": "unknowable-domain.scepter.2013.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.2013.level.3.slot.active.0",
+      "unknowable-domain.scepter.2013.level.3.slot.attach.0",
+      "unknowable-domain.scepter.2013.level.3.slot.attach.1",
+      "unknowable-domain.scepter.2013.level.3.slot.passive.0",
+      "unknowable-domain.scepter.2013.level.3.slot.passive.1",
+      "unknowable-domain.scepter.2013.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.2013.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.2013.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4065.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3001.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3001 Level 1 Loadout",
+    "name_zh_cn": "权杖 3001 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "39",
+        "sha256": "8fa9405b8650de375ea9e65c2ed69313e7684cb2f295ba09cf36332d3799206b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "3001:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3001",
+    "scepter_level_id": "unknowable-domain.scepter.3001.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3001.level.1.slot.active.0",
+      "unknowable-domain.scepter.3001.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3001.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3001.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3001.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4002.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3001.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3001 Level 2 Loadout",
+    "name_zh_cn": "权杖 3001 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "40",
+        "sha256": "12b4e14a64ea8be331485b974416f5a25b9d0a0a291b6d7db137124b8df4a20c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "3001:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3001",
+    "scepter_level_id": "unknowable-domain.scepter.3001.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3001.level.2.slot.active.0",
+      "unknowable-domain.scepter.3001.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3001.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3001.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3001.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3001.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4002.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3001.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3001 Level 3 Loadout",
+    "name_zh_cn": "权杖 3001 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "41",
+        "sha256": "394215a369b45a12cd87d4e6a496825511e3f5930da8e6db69f294d411f6080d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "3001:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3001",
+    "scepter_level_id": "unknowable-domain.scepter.3001.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3001.level.3.slot.active.0",
+      "unknowable-domain.scepter.3001.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3001.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3001.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3001.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3001.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3001.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3001.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4002.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3002.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3002 Level 1 Loadout",
+    "name_zh_cn": "权杖 3002 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "42",
+        "sha256": "c4f7f08ecdccf30c076993f9d8d650b5db4d8ac34ca494c9b65249934d26cf39",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3002:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3002",
+    "scepter_level_id": "unknowable-domain.scepter.3002.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3002.level.1.slot.active.0",
+      "unknowable-domain.scepter.3002.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3002.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3002.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3002.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4003.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3002.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3002 Level 2 Loadout",
+    "name_zh_cn": "权杖 3002 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "43",
+        "sha256": "f5f3eb90cfa381e13b5ef6adfe5ded210fe219d7afd357a08b33eebc5699caf9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3002:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3002",
+    "scepter_level_id": "unknowable-domain.scepter.3002.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3002.level.2.slot.active.0",
+      "unknowable-domain.scepter.3002.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3002.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3002.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3002.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3002.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4003.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3002.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3002 Level 3 Loadout",
+    "name_zh_cn": "权杖 3002 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.44",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "44",
+        "sha256": "0ba2c47d51391a519c5d11a460c0e53398b473aca107fb1f9da1eb3481566334",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3002:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3002",
+    "scepter_level_id": "unknowable-domain.scepter.3002.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3002.level.3.slot.active.0",
+      "unknowable-domain.scepter.3002.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3002.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3002.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3002.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3002.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3002.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3002.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4003.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3003.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3003 Level 1 Loadout",
+    "name_zh_cn": "权杖 3003 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "45",
+        "sha256": "b2f3cebf5cc0f36859645de3b4db2b57b1c6b8211494b556860a32010d65a9f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3003:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3003",
+    "scepter_level_id": "unknowable-domain.scepter.3003.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3003.level.1.slot.active.0",
+      "unknowable-domain.scepter.3003.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3003.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3003.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3003.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4022.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3003.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3003 Level 2 Loadout",
+    "name_zh_cn": "权杖 3003 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "46",
+        "sha256": "5a88de42ae77542d3605985116cb04a29cd527b2fc7e8a26fcfd073c7602edc9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3003:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3003",
+    "scepter_level_id": "unknowable-domain.scepter.3003.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3003.level.2.slot.active.0",
+      "unknowable-domain.scepter.3003.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3003.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3003.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3003.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3003.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4022.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3003.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3003 Level 3 Loadout",
+    "name_zh_cn": "权杖 3003 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "47",
+        "sha256": "3c0198420721bd904c59d2991d1e64df479d609296c712c259c42399468dbe93",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3003:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3003",
+    "scepter_level_id": "unknowable-domain.scepter.3003.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3003.level.3.slot.active.0",
+      "unknowable-domain.scepter.3003.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3003.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3003.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3003.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3003.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3003.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3003.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4022.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3004.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3004 Level 1 Loadout",
+    "name_zh_cn": "权杖 3004 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "48",
+        "sha256": "71a8df36d7deccaa63ec2c31222ecc5dbdc0bad7605a0d7ecf5881902e82dc86",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3004:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3004",
+    "scepter_level_id": "unknowable-domain.scepter.3004.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3004.level.1.slot.active.0",
+      "unknowable-domain.scepter.3004.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3004.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3004.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3004.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4026.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3004.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3004 Level 2 Loadout",
+    "name_zh_cn": "权杖 3004 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "49",
+        "sha256": "aa47b0c0fddf8e1bd1a2ec3c94ce4346c3b8b121fe09a77e3b68f8126627473c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3004:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3004",
+    "scepter_level_id": "unknowable-domain.scepter.3004.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3004.level.2.slot.active.0",
+      "unknowable-domain.scepter.3004.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3004.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3004.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3004.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3004.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4026.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3004.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3004 Level 3 Loadout",
+    "name_zh_cn": "权杖 3004 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.50",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "50",
+        "sha256": "5de6b7c718f4ffc77c582881a6afaf3b19cce2aec28612694f1c151b762d5f44",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3004:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3004",
+    "scepter_level_id": "unknowable-domain.scepter.3004.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3004.level.3.slot.active.0",
+      "unknowable-domain.scepter.3004.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3004.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3004.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3004.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3004.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3004.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3004.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4026.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3005.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3005 Level 1 Loadout",
+    "name_zh_cn": "权杖 3005 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.51",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "51",
+        "sha256": "9cf7266f92cf6d126db3a13c98e29fec2eac43f11ba934954bb4e47971ad0eec",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "3005:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3005",
+    "scepter_level_id": "unknowable-domain.scepter.3005.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3005.level.1.slot.active.0",
+      "unknowable-domain.scepter.3005.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3005.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3005.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3005.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4041.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3005.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3005 Level 2 Loadout",
+    "name_zh_cn": "权杖 3005 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "52",
+        "sha256": "a2f94b6131393c89c3c1000a4721bb5564feb7abc234ba881f404210a1b4b0c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "3005:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3005",
+    "scepter_level_id": "unknowable-domain.scepter.3005.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3005.level.2.slot.active.0",
+      "unknowable-domain.scepter.3005.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3005.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3005.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3005.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3005.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4041.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3005.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3005 Level 3 Loadout",
+    "name_zh_cn": "权杖 3005 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.53",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "53",
+        "sha256": "7c622397f3602080709714dec4bfba28b02c889226466eca1b149da1ea055a4f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "dot",
+      "loadout"
+    ],
+    "source_id": "3005:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3005",
+    "scepter_level_id": "unknowable-domain.scepter.3005.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3005.level.3.slot.active.0",
+      "unknowable-domain.scepter.3005.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3005.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3005.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3005.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3005.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3005.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3005.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4041.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3006.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3006 Level 1 Loadout",
+    "name_zh_cn": "权杖 3006 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "54",
+        "sha256": "d1ef7e69be6c3dea9f8cddd8cf2e4b74759529486832114958315ac1cd9ddfbc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3006:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3006",
+    "scepter_level_id": "unknowable-domain.scepter.3006.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3006.level.1.slot.active.0",
+      "unknowable-domain.scepter.3006.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3006.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3006.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3006.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4044.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3006.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3006 Level 2 Loadout",
+    "name_zh_cn": "权杖 3006 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "55",
+        "sha256": "bf33eb9373056af67e2b4571aaa593a6be37edbcabf2a0b87a83b23f0278fdcd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3006:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3006",
+    "scepter_level_id": "unknowable-domain.scepter.3006.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3006.level.2.slot.active.0",
+      "unknowable-domain.scepter.3006.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3006.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3006.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3006.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3006.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4044.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3006.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3006 Level 3 Loadout",
+    "name_zh_cn": "权杖 3006 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "56",
+        "sha256": "1d2324a692220061cf83cafbc728f1581ea9a2aadeb6fc41dc7aa39bf117a7c1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3006:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3006",
+    "scepter_level_id": "unknowable-domain.scepter.3006.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3006.level.3.slot.active.0",
+      "unknowable-domain.scepter.3006.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3006.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3006.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3006.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3006.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3006.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3006.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4044.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3007.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3007 Level 1 Loadout",
+    "name_zh_cn": "权杖 3007 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "57",
+        "sha256": "b325ab7b1e39e194aadbddb2514cb6058ac18451195b389b9c1960ddb21ab6f4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3007:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3007",
+    "scepter_level_id": "unknowable-domain.scepter.3007.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3007.level.1.slot.active.0",
+      "unknowable-domain.scepter.3007.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3007.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3007.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3007.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4062.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3007.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3007 Level 2 Loadout",
+    "name_zh_cn": "权杖 3007 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.58",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "58",
+        "sha256": "8684c2fd55421b2da9ea8d35879d6a186619d1ab21d80118f5ee5a9b51792def",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3007:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3007",
+    "scepter_level_id": "unknowable-domain.scepter.3007.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3007.level.2.slot.active.0",
+      "unknowable-domain.scepter.3007.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3007.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3007.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3007.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3007.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4062.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3007.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3007 Level 3 Loadout",
+    "name_zh_cn": "权杖 3007 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "59",
+        "sha256": "33b5528104eec42258458aba0ca6fe500febacd2362c32591ec23a12ee79217e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "loadout",
+      "ultimate"
+    ],
+    "source_id": "3007:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3007",
+    "scepter_level_id": "unknowable-domain.scepter.3007.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3007.level.3.slot.active.0",
+      "unknowable-domain.scepter.3007.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3007.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3007.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3007.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3007.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3007.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3007.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4062.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3008.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3008 Level 1 Loadout",
+    "name_zh_cn": "权杖 3008 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "60",
+        "sha256": "bd882a137285c20bad6eca5eaa89825a34a88479c028ce35b1f25726ee133c8b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3008:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3008",
+    "scepter_level_id": "unknowable-domain.scepter.3008.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3008.level.1.slot.active.0",
+      "unknowable-domain.scepter.3008.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3008.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3008.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3008.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4066.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3008.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3008 Level 2 Loadout",
+    "name_zh_cn": "权杖 3008 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "61",
+        "sha256": "f1b36a2147b5b8e5b473c209500cda3697ffc82e9e353f5c23a258b1d7c02658",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3008:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3008",
+    "scepter_level_id": "unknowable-domain.scepter.3008.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3008.level.2.slot.active.0",
+      "unknowable-domain.scepter.3008.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3008.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3008.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3008.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3008.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4066.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3008.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3008 Level 3 Loadout",
+    "name_zh_cn": "权杖 3008 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "62",
+        "sha256": "2dfbcaba5706d5bc5bc5697e288487813f2705fe535a4536221c0a8978bdd815",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "follow",
+      "loadout"
+    ],
+    "source_id": "3008:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3008",
+    "scepter_level_id": "unknowable-domain.scepter.3008.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3008.level.3.slot.active.0",
+      "unknowable-domain.scepter.3008.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3008.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3008.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3008.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3008.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3008.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3008.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4066.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3009.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3009 Level 1 Loadout",
+    "name_zh_cn": "权杖 3009 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.63",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "63",
+        "sha256": "b2fa7fce3930444f15fe5c87106278b3c124021a2f09a5e37f967e765056fdeb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3009:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3009",
+    "scepter_level_id": "unknowable-domain.scepter.3009.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3009.level.1.slot.active.0",
+      "unknowable-domain.scepter.3009.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3009.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3009.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3009.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4005.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3009.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3009 Level 2 Loadout",
+    "name_zh_cn": "权杖 3009 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.64",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "64",
+        "sha256": "c4c561bd4cde2a807fc581c2a46d396610186a2528006b891dcd3e4f62ea0775",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3009:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3009",
+    "scepter_level_id": "unknowable-domain.scepter.3009.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3009.level.2.slot.active.0",
+      "unknowable-domain.scepter.3009.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3009.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3009.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3009.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3009.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4005.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3009.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3009 Level 3 Loadout",
+    "name_zh_cn": "权杖 3009 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.65",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "65",
+        "sha256": "cd993f95512c15c4e2ce8dd431290c61d676f9eb9edacaf46fbe91c3a00eb315",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3009:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3009",
+    "scepter_level_id": "unknowable-domain.scepter.3009.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3009.level.3.slot.active.0",
+      "unknowable-domain.scepter.3009.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3009.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3009.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3009.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3009.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3009.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3009.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4005.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3010.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3010 Level 1 Loadout",
+    "name_zh_cn": "权杖 3010 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.66",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "66",
+        "sha256": "330a718ffd8abcb8a31295b7da272ce634514a15a92f96a67368c0f15d1f263b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3010:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3010",
+    "scepter_level_id": "unknowable-domain.scepter.3010.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3010.level.1.slot.active.0",
+      "unknowable-domain.scepter.3010.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3010.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3010.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3010.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4045.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3010.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3010 Level 2 Loadout",
+    "name_zh_cn": "权杖 3010 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.67",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "67",
+        "sha256": "c71be99cb102449bb0b9b6c9f3d03268d998e85efd88cf92d96cf783771eee86",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3010:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3010",
+    "scepter_level_id": "unknowable-domain.scepter.3010.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3010.level.2.slot.active.0",
+      "unknowable-domain.scepter.3010.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3010.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3010.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3010.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3010.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4045.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3010.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3010 Level 3 Loadout",
+    "name_zh_cn": "权杖 3010 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.68",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "68",
+        "sha256": "7b0cb829f2f743670bccd009d7600403a8e486cbcf89f356731cfe088d4c888d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3010:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3010",
+    "scepter_level_id": "unknowable-domain.scepter.3010.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3010.level.3.slot.active.0",
+      "unknowable-domain.scepter.3010.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3010.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3010.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3010.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3010.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3010.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3010.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4045.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3011.level.1.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3011 Level 1 Loadout",
+    "name_zh_cn": "权杖 3011 等级 1 配装",
+    "summary_en": "This level exposes 4 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 4 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.69",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "69",
+        "sha256": "fd1d3a0cbdbf434a5b008c250fa14255286145f381ab7806423817364194b409",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3011:1:loadout",
+    "scepter_id": "unknowable-domain.scepter.3011",
+    "scepter_level_id": "unknowable-domain.scepter.3011.level.1",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3011.level.1.slot.active.0",
+      "unknowable-domain.scepter.3011.level.1.slot.attach.0",
+      "unknowable-domain.scepter.3011.level.1.slot.passive.0",
+      "unknowable-domain.scepter.3011.level.1.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3011.level.1.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.1.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.1.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.1.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4064.level.1"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3011.level.2.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3011 Level 2 Loadout",
+    "name_zh_cn": "权杖 3011 等级 2 配装",
+    "summary_en": "This level exposes 5 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 5 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "70",
+        "sha256": "9b52675424c6462e93bdfa59ed44216a92b27980fa8df5441f88487d768ec481",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3011:2:loadout",
+    "scepter_id": "unknowable-domain.scepter.3011",
+    "scepter_level_id": "unknowable-domain.scepter.3011.level.2",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-2",
+    "slot_ids": [
+      "unknowable-domain.scepter.3011.level.2.slot.active.0",
+      "unknowable-domain.scepter.3011.level.2.slot.attach.0",
+      "unknowable-domain.scepter.3011.level.2.slot.attach.1",
+      "unknowable-domain.scepter.3011.level.2.slot.passive.0",
+      "unknowable-domain.scepter.3011.level.2.slot.passive.1"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3011.level.2.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.2.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.2.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.2.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.2.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4064.level.2"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  },
+  {
+    "id": "unknowable-domain.scepter.3011.level.3.loadout",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterLoadout",
+    "name_en": "Scepter 3011 Level 3 Loadout",
+    "name_zh_cn": "权杖 3011 等级 3 配装",
+    "summary_en": "This level exposes 6 typed slots and 1 exact locked Component binding(s).",
+    "summary_zh_cn": "该等级公开 6 个有类型槽位与 1 个精确锁定组件绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "71",
+        "sha256": "1db961e41ad7a1126b8dbdb23f5a98a24e9e98f3963623fe4896057b8a9d2294",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "actiondelay",
+      "break",
+      "loadout"
+    ],
+    "source_id": "3011:3:loadout",
+    "scepter_id": "unknowable-domain.scepter.3011",
+    "scepter_level_id": "unknowable-domain.scepter.3011.level.3",
+    "slot_layout_id": "unknowable-domain.scepter-slot-layout.active-1.attach-2.passive-3",
+    "slot_ids": [
+      "unknowable-domain.scepter.3011.level.3.slot.active.0",
+      "unknowable-domain.scepter.3011.level.3.slot.attach.0",
+      "unknowable-domain.scepter.3011.level.3.slot.attach.1",
+      "unknowable-domain.scepter.3011.level.3.slot.passive.0",
+      "unknowable-domain.scepter.3011.level.3.slot.passive.1",
+      "unknowable-domain.scepter.3011.level.3.slot.passive.2"
+    ],
+    "slots": [
+      {
+        "id": "unknowable-domain.scepter.3011.level.3.slot.active.0",
+        "slot_type": "Active",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.3.slot.attach.0",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.3.slot.attach.1",
+        "slot_type": "Attach",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.3.slot.passive.0",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.3.slot.passive.1",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      },
+      {
+        "id": "unknowable-domain.scepter.3011.level.3.slot.passive.2",
+        "slot_type": "Passive",
+        "occupancy": "Unspecified"
+      }
+    ],
+    "locked_component_ids": [
+      "unknowable-domain.component.4064.level.3"
+    ],
+    "locked_slot_resolution": "Unspecified",
+    "authored_occupancy": []
+  }
+]

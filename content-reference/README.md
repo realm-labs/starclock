@@ -27,3 +27,10 @@ The isolated Version 4.4 Gold and Gears Candidate reference lives under
 Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
 approximation register and semantic fixtures. It remains reference-only and
 does not enter the Standard profile or production runtime bundle.
+
+The isolated Version 4.4 Unknowable Domain Candidate reference lives under
+`unknowable-domain-v1/`. It has its own frozen manifest, normalized pack, three
+Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
+reconciliation evidence, approximation register and semantic fixtures. It
+remains reference-only and does not enter the Standard profile or production
+runtime bundle.

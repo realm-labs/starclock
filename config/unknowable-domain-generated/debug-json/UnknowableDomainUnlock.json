@@ -1,0 +1,2897 @@
+{
+  "table": {
+    "name": "UnknowableDomainUnlock",
+    "rows": [
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#2"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#9"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#10"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#11"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#27"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#28"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#29"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#39"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#40"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#41"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#42"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#43"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#44"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#54"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#55"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#56"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicStyleTypeSelect.json#2"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#90"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#91"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#92"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#99"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#100"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#101"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#120"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#121"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#122"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#144"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#145"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#146"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#150"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#151"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#152"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#180"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#181"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#182"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#186"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#187"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#188"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#210"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#211"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#212"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear \"Fading Empire\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「消逝的帝国」后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013001"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013001"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013001"
+          },
+          "summary_en": {
+            "String": "Unlock 5013001 binds finish condition 5013001 to 41 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013001 将完成条件 5013001 绑定到 41 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#3"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#12"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#13"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#14"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#15"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#16"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#17"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#48"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#49"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#50"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#51"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#52"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#53"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#66"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#67"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#68"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicStyleTypeSelect.json#3"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#108"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#109"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#110"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#111"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#112"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#113"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#114"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#115"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#116"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#129"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#130"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#131"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#183"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#184"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#185"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#228"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#229"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#230"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#252"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#253"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#256"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#257"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#258"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#259"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear \"Future Rehearsal\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「未来的预演」后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013002"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013002"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013002"
+          },
+          "summary_en": {
+            "String": "Unlock 5013002 binds finish condition 5013002 to 41 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013002 将完成条件 5013002 绑定到 41 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#4"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#3"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#4"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#5"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#18"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#19"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#20"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#57"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#58"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#59"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#69"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#70"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#71"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#72"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#73"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#74"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#87"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#88"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#89"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#93"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#94"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#95"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#132"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#133"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#134"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#153"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#154"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#155"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#156"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#157"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#158"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#207"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#208"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#209"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#225"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#226"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#227"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#240"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#241"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#242"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#254"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#255"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#266"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear \"Ice-Cold Technology\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「冰冷的技术」后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 3
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013003"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013003"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013003"
+          },
+          "summary_en": {
+            "String": "Unlock 5013003 binds finish condition 5013003 to 43 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013003 将完成条件 5013003 绑定到 43 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#5"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#81"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#82"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#83"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#84"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#85"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#86"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#96"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#97"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#98"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#117"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#118"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#119"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#147"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#148"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#149"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#159"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#160"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#161"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#192"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#193"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#194"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#267"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#268"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#269"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#270"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear \"Center of Knowledge\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「知识的中心」后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 4
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013004"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013004"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013004"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013004"
+          },
+          "summary_en": {
+            "String": "Unlock 5013004 binds finish condition 5013004 to 26 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013004 将完成条件 5013004 绑定到 26 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicDifficultyComp.json#0"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#30"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#31"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#32"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#33"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#34"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#35"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#45"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#46"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#47"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#60"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#61"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#62"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#63"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#64"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicScepter.json#65"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#234"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#235"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#236"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#237"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#238"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#239"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#243"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#244"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#245"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#260"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#261"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#262"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#263"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#273"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear \"Someone's Mausoleum\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「谁人的陵寝」后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 5
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013005"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013005"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013005"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013005"
+          },
+          "summary_en": {
+            "String": "Unlock 5013005 binds finish condition 5013005 to 30 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013005 将完成条件 5013005 绑定到 30 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicDifficultyComp.json#1"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear Conundrum 1 of \"Someone's Mausoleum\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「谁人的陵寝」难题等级1后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 6
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013006"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013006"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013006"
+          },
+          "summary_en": {
+            "String": "Unlock 5013006 binds finish condition 5013006 to 1 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013006 将完成条件 5013006 绑定到 1 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicDifficultyComp.json#2"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear Conundrum 2 of \"Someone's Mausoleum\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「谁人的陵寝」难题等级2后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 7
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013007"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013007"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013007"
+          },
+          "summary_en": {
+            "String": "Unlock 5013007 binds finish condition 5013007 to 1 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013007 将完成条件 5013007 绑定到 1 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicDifficultyComp.json#3"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear Conundrum 3 of \"Someone's Mausoleum\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「谁人的陵寝」难题等级3后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013008"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013008"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013008"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013008"
+          },
+          "summary_en": {
+            "String": "Unlock 5013008 binds finish condition 5013008 to 1 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013008 将完成条件 5013008 绑定到 1 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicDifficultyComp.json#4"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear Conundrum 4 of \"Someone's Mausoleum\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「谁人的陵寝」难题等级4后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 9
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013009"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013009"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013009"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013009"
+          },
+          "summary_en": {
+            "String": "Unlock 5013009 binds finish condition 5013009 to 1 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013009 将完成条件 5013009 绑定到 1 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicDifficultyComp.json#5"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Clear Conundrum 1 of \"Someone's Mausoleum\" to unlock"
+          },
+          "description_zh_cn": {
+            "String": "通关「谁人的陵寝」难题等级5后解锁"
+          },
+          "evaluation_boundary": {
+            "String": "AfterFinishConditionSatisfied"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 10
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013010"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013010"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.9"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013010"
+          },
+          "summary_en": {
+            "String": "Unlock 5013010 binds finish condition 5013010 to 1 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013010 将完成条件 5013010 绑定到 1 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#162"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#163"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#164"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#165"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#166"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#167"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#168"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#169"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#170"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#174"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#175"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#176"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 11
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013011"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013011"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.10"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013011"
+          },
+          "summary_en": {
+            "String": "Unlock 5013011 binds finish condition 5013011 to 12 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013011 将完成条件 5013011 绑定到 12 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#105"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#106"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#107"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#123"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#124"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#125"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#126"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#127"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#128"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#141"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#142"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#143"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 12
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013012"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013012"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013012"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013012"
+          },
+          "summary_en": {
+            "String": "Unlock 5013012 binds finish condition 5013012 to 12 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013012 将完成条件 5013012 绑定到 12 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#213"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#214"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#215"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#216"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#217"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#218"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#219"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#220"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#221"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 13
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013013"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013013"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013013"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.12"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013013"
+          },
+          "summary_en": {
+            "String": "Unlock 5013013 binds finish condition 5013013 to 9 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013013 将完成条件 5013013 绑定到 9 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#246"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#247"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#248"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#249"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#250"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#251"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#264"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#265"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 14
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013014"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013014"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013014"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013014"
+          },
+          "summary_en": {
+            "String": "Unlock 5013014 binds finish condition 5013014 to 8 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013014 将完成条件 5013014 绑定到 8 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#271"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#275"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#276"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 15
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013015"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013015"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013015"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.14"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013015"
+          },
+          "summary_en": {
+            "String": "Unlock 5013015 binds finish condition 5013015 to 3 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013015 将完成条件 5013015 绑定到 3 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#272"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicUnit.json#274"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 16
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013016"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013016"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013016"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.15"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013016"
+          },
+          "summary_en": {
+            "String": "Unlock 5013016 binds finish condition 5013016 to 2 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013016 将完成条件 5013016 绑定到 2 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#1"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicStyleTypeSelect.json#1"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 17
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013017"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013017"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013017"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.16"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013017"
+          },
+          "summary_en": {
+            "String": "Unlock 5013017 binds finish condition 5013017 to 2 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013017 将完成条件 5013017 绑定到 2 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013018"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013018"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013018"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.17"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013018"
+          },
+          "summary_en": {
+            "String": "Unlock 5013018 binds finish condition 5013018 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013018 将完成条件 5013018 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 19
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013019"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013019"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013019"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.18"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013019"
+          },
+          "summary_en": {
+            "String": "Unlock 5013019 binds finish condition 5013019 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013019 将完成条件 5013019 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 20
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013020"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013020"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013020"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.19"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013020"
+          },
+          "summary_en": {
+            "String": "Unlock 5013020 binds finish condition 5013020 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013020 将完成条件 5013020 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 21
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013021"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013021"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.20"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013021"
+          },
+          "summary_en": {
+            "String": "Unlock 5013021 binds finish condition 5013021 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013021 将完成条件 5013021 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 22
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013022"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013022"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013022"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.21"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013022"
+          },
+          "summary_en": {
+            "String": "Unlock 5013022 binds finish condition 5013022 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013022 将完成条件 5013022 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 23
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013023"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013023"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013023"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.22"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013023"
+          },
+          "summary_en": {
+            "String": "Unlock 5013023 binds finish condition 5013023 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013023 将完成条件 5013023 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 24
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013024"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013024"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013024"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.23"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013024"
+          },
+          "summary_en": {
+            "String": "Unlock 5013024 binds finish condition 5013024 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013024 将完成条件 5013024 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 25
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013025"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013025"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013025"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.24"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013025"
+          },
+          "summary_en": {
+            "String": "Unlock 5013025 binds finish condition 5013025 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013025 将完成条件 5013025 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 26
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013026"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013026"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013026"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.25"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013026"
+          },
+          "summary_en": {
+            "String": "Unlock 5013026 binds finish condition 5013026 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013026 将完成条件 5013026 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013027"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013027"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013027"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.26"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013027"
+          },
+          "summary_en": {
+            "String": "Unlock 5013027 binds finish condition 5013027 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013027 将完成条件 5013027 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#7"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#8"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#9"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#10"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#11"
+              },
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#12"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 28
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013028"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013028"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013028"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.27"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013028"
+          },
+          "summary_en": {
+            "String": "Unlock 5013028 binds finish condition 5013028 to 6 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013028 将完成条件 5013028 绑定到 6 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 134
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013029"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013029"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013029"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.28"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013029"
+          },
+          "summary_en": {
+            "String": "Unlock 5013029 binds finish condition 5013259 to 0 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013029 将完成条件 5013259 绑定到 0 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "consequence": {
+            "String": "EnableSourceRowsReferencingUnlockID"
+          },
+          "consumer_source_locators": {
+            "List": [
+              {
+                "String": "ExcelOutput/RogueMagicArea.json#6"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": "Null",
+          "description_zh_cn": "Null",
+          "evaluation_boundary": {
+            "String": "Unspecified"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "finish_condition_id": {
+            "Integer": 135
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "UnknowableUnlock"
+          },
+          "name_en": {
+            "String": "Unlock 5013260"
+          },
+          "name_zh_cn": {
+            "String": "解锁 5013260"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "5013260"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicunlock-json.29"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.unlock.5013260"
+          },
+          "summary_en": {
+            "String": "Unlock 5013260 binds finish condition 5013260 to 1 exact source consumer(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁 5013260 将完成条件 5013260 绑定到 1 个精确源消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "progression"
+              },
+              {
+                "String": "unlock"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

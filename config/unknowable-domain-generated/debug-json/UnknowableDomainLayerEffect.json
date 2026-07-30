@@ -1,0 +1,86 @@
+{
+  "table": {
+    "name": "UnknowableDomainLayerEffect",
+    "rows": [
+      {
+        "values": {
+          "component_pool_ids": "Null",
+          "component_pool_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Obtains #1[i] Cosmic Fragment(s) and #2[i] random Component(s)"
+          },
+          "description_zh_cn": {
+            "String": "获得#1[i]宇宙碎片，随机获得#2[i]个组件"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "LayerEffect"
+          },
+          "name_en": {
+            "String": "Obtain Cosmic Fragments and Components"
+          },
+          "name_zh_cn": {
+            "String": "获取宇宙碎片与组件"
+          },
+          "ordered_operations_json": {
+            "String": "[\"GrantCosmicFragments:500\",\"GrantRandomComponents:4\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "parameters_json": {
+            "String": "[\"500\",\"4\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagiclayereffect-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.layer-effect.401"
+          },
+          "summary_en": {
+            "String": "Obtain Cosmic Fragments and Components grants 500 Cosmic Fragments and 4 random Components; the trigger and Component pool are not published."
+          },
+          "summary_zh_cn": {
+            "String": "获取宇宙碎片与组件会给予 500 个宇宙碎片与 4 个随机组件；触发点与组件池未发布。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "layer-effect"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "reward"
+              }
+            ]
+          },
+          "trigger": {
+            "String": "Unspecified"
+          }
+        }
+      }
+    ]
+  }
+}

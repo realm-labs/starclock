@@ -1,0 +1,2235 @@
+{
+  "table": {
+    "name": "UnknowableDomainTalent",
+    "rows": [
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "When a Normal Enemy is defeated, increases DMG taken by the Boss Enemy by #1[i]%, stacking up to #2[i] time(s). Loses #3[i] stack(s) at the start of the Boss Enemy's turn"
+          },
+          "description_zh_cn": {
+            "String": "普通敌人死亡时，首领敌人受到的伤害提高#1[i]%，最多叠加#2[i]层，首领敌人回合开始时降低#3[i]层"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.05\",\"value_type\":\"Number\"},{\"value\":\"10\",\"value_type\":\"Number\"},{\"value\":\"1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1001"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1001"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1001:1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1001.level.1"
+          },
+          "summary_en": {
+            "String": "Talent 1001 is released at progression level 1 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1001 在进度等级 1 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "The SPD of \"SPD\" Scepters increases by #1[i]"
+          },
+          "description_zh_cn": {
+            "String": "【速度】类权杖速度提高#1[i]点"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"10\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1002"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1002"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1002:2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1002.level.2"
+          },
+          "summary_en": {
+            "String": "Talent 1002 is released at progression level 2 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1002 在进度等级 2 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Initial Charge for \"Charge\" Scepters increases by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "【充能】类权杖的初始能量增加#1[i]%"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.5\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1003"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1003"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1003:3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.2"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1003.level.3"
+          },
+          "summary_en": {
+            "String": "Talent 1003 is released at progression level 3 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1003 在进度等级 3 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "All enemies will receive a set amount of DMG equal to #2[i]% of their respective Max HP when you enter combat for the first #1[i] times (excluding Boss battles) in the First Plane in the current run"
+          },
+          "description_zh_cn": {
+            "String": "本次挑战中第一位面的前#1[i]场非首领区域的战斗，进入战斗时，敌方全体受到等同于各自生命上限#2[i]%的固定数值的伤害"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"4\",\"value_type\":\"Number\"},{\"value\":\"0.99\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "4"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1004"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1004"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1004:4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.3"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1004.level.4"
+          },
+          "summary_en": {
+            "String": "Talent 1004 is released at progression level 4 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1004 在进度等级 4 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Additionally unlocks Scepter / Component"
+          },
+          "description_zh_cn": {
+            "String": "额外解锁权杖/组件"
+          },
+          "display_group_id": {
+            "String": "203"
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.5031.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.5032.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.5033.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.5035.level.3"
+              }
+            ]
+          },
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"5031_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"5032_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"5033_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"5035_3\",\"value_type\":\"MagicUnit\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "5"
+          },
+          "name_en": {
+            "String": "Access Unlock Talent 1005"
+          },
+          "name_zh_cn": {
+            "String": "权限解锁天赋 1005"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1005:5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.4"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1005.level.5"
+          },
+          "summary_en": {
+            "String": "Talent 1005 is released at progression level 5 with 1 exact cost row(s) and 4 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1005 在进度等级 5 发布，具有 1 条精确费用与 4 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "access-unlock"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Reduces the price for Component Overwriting by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "组件覆写的价格降低#1[i]%"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.2\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "6"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1006"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1006"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1006:6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.5"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1006.level.6"
+          },
+          "summary_en": {
+            "String": "Talent 1006 is released at progression level 6 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1006 在进度等级 6 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all characters' ATK by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色攻击力提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "7"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1007"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1007"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1007:7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.6"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1007.level.7"
+          },
+          "summary_en": {
+            "String": "Talent 1007 is released at progression level 7 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1007 在进度等级 7 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases the number of purchasable Scepters by #1[i] and Components by #2[i] in Transaction domains."
+          },
+          "description_zh_cn": {
+            "String": "【交易】区域内增加#1[i]台可购买权杖，增加#2[i]个可购买组件"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"1\",\"value_type\":\"Number\"},{\"value\":\"4\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "8"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1008"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1008"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1008:8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.7"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1008.level.8"
+          },
+          "summary_en": {
+            "String": "Talent 1008 is released at progression level 8 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1008 在进度等级 8 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all characters' and Scepters' Break Effect by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色与权杖击破特攻提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.2\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "9"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1009"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1009"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1009:9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.8"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1009.level.9"
+          },
+          "summary_en": {
+            "String": "Talent 1009 is released at progression level 9 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1009 在进度等级 9 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Additionally unlocks Scepter / Component"
+          },
+          "description_zh_cn": {
+            "String": "额外解锁权杖/组件"
+          },
+          "display_group_id": {
+            "String": "203"
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.5012.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.5018.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.5019.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.5024.level.3"
+              }
+            ]
+          },
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"5012_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"5018_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"5019_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"5024_3\",\"value_type\":\"MagicUnit\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "10"
+          },
+          "name_en": {
+            "String": "Access Unlock Talent 1010"
+          },
+          "name_zh_cn": {
+            "String": "权限解锁天赋 1010"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1010:10"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.9"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1010.level.10"
+          },
+          "summary_en": {
+            "String": "Talent 1010 is released at progression level 10 with 1 exact cost row(s) and 4 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1010 在进度等级 10 发布，具有 1 条精确费用与 4 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "access-unlock"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all characters' SPD by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色速度提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "11"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1011"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1011"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1011:11"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.10"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1011.level.11"
+          },
+          "summary_en": {
+            "String": "Talent 1011 is released at progression level 11 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1011 在进度等级 11 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all characters' Max HP by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色生命上限提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "12"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1012"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1012"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1012:12"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.11"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1012.level.12"
+          },
+          "summary_en": {
+            "String": "Talent 1012 is released at progression level 12 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1012 在进度等级 12 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all characters' and Scepters' CRIT Rate by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色与权杖暴击率提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "13"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1013"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1013"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1013:13"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.12"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1013.level.13"
+          },
+          "summary_en": {
+            "String": "Talent 1013 is released at progression level 13 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1013 在进度等级 13 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all characters' and Scepters' CRIT DMG by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色与权杖暴击伤害提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.2\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "14"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1014"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1014"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1014:14"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.13"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1014.level.14"
+          },
+          "summary_en": {
+            "String": "Talent 1014 is released at progression level 14 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1014 在进度等级 14 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Additionally unlocks Scepter / Component"
+          },
+          "description_zh_cn": {
+            "String": "额外解锁权杖/组件"
+          },
+          "display_group_id": {
+            "String": "203"
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.6013.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.6014.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.6015.level.3"
+              }
+            ]
+          },
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"6013_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"6014_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"6015_3\",\"value_type\":\"MagicUnit\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "15"
+          },
+          "name_en": {
+            "String": "Access Unlock Talent 1015"
+          },
+          "name_zh_cn": {
+            "String": "权限解锁天赋 1015"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1015:15"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.14"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1015.level.15"
+          },
+          "summary_en": {
+            "String": "Talent 1015 is released at progression level 15 with 1 exact cost row(s) and 3 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1015 在进度等级 15 发布，具有 1 条精确费用与 3 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "access-unlock"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all Scepters' DMG by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有权杖的伤害提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "16"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1016"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1016"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1016:16"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.15"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1016.level.16"
+          },
+          "summary_en": {
+            "String": "Talent 1016 is released at progression level 16 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1016 在进度等级 16 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases DMG dealt by all characters by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色造成的伤害提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "17"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1017"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1017"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1017:17"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.16"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1017.level.17"
+          },
+          "summary_en": {
+            "String": "Talent 1017 is released at progression level 17 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1017 在进度等级 17 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Reduces DMG taken by all the characters by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色受到的伤害降低#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "18"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1018"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1018"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1018:18"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.17"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1018.level.18"
+          },
+          "summary_en": {
+            "String": "Talent 1018 is released at progression level 18 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1018 在进度等级 18 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases the number of extra Cycles usable in the stage by #1[i]"
+          },
+          "description_zh_cn": {
+            "String": "全局可用的额外轮次增加#1[i]回合"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "19"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1019"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1019"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1019:19"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.18"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1019.level.19"
+          },
+          "summary_en": {
+            "String": "Talent 1019 is released at progression level 19 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1019 在进度等级 19 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Additionally unlocks Scepter / Component"
+          },
+          "description_zh_cn": {
+            "String": "额外解锁权杖/组件"
+          },
+          "display_group_id": {
+            "String": "203"
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.6063.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.6064.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.6024.level.3"
+              },
+              {
+                "String": "unknowable-domain.component.6025.level.3"
+              }
+            ]
+          },
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"6063_1\",\"value_type\":\"MagicUnit\"},{\"value\":\"6064_1\",\"value_type\":\"MagicUnit\"},{\"value\":\"6024_3\",\"value_type\":\"MagicUnit\"},{\"value\":\"6025_3\",\"value_type\":\"MagicUnit\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "20"
+          },
+          "name_en": {
+            "String": "Access Unlock Talent 1020"
+          },
+          "name_zh_cn": {
+            "String": "权限解锁天赋 1020"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1020:20"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.19"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1020.level.20"
+          },
+          "summary_en": {
+            "String": "Talent 1020 is released at progression level 20 with 1 exact cost row(s) and 4 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1020 在进度等级 20 发布，具有 1 条精确费用与 4 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "access-unlock"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases DMG dealt by all characters by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有角色造成的伤害提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "202"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "21"
+          },
+          "name_en": {
+            "String": "Combat Amplification Talent 1021"
+          },
+          "name_zh_cn": {
+            "String": "战斗增幅天赋 1021"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1021:21"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.20"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1021.level.21"
+          },
+          "summary_en": {
+            "String": "Talent 1021 is released at progression level 21 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1021 在进度等级 21 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "combat-amplification"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases all Scepters' DMG by #1[i]%"
+          },
+          "description_zh_cn": {
+            "String": "所有权杖的伤害提高#1[i]%"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"0.1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "22"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1022"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1022"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1022:22"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.21"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1022.level.22"
+          },
+          "summary_en": {
+            "String": "Talent 1022 is released at progression level 22 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1022 在进度等级 22 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Additionally unlocks Scepter / Component"
+          },
+          "description_zh_cn": {
+            "String": "额外解锁权杖/组件"
+          },
+          "display_group_id": {
+            "String": "203"
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.6070.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.6074.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.6075.level.1"
+              }
+            ]
+          },
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"6070_1\",\"value_type\":\"MagicUnit\"},{\"value\":\"6074_1\",\"value_type\":\"MagicUnit\"},{\"value\":\"6075_1\",\"value_type\":\"MagicUnit\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "23"
+          },
+          "name_en": {
+            "String": "Access Unlock Talent 1023"
+          },
+          "name_zh_cn": {
+            "String": "权限解锁天赋 1023"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1023:23"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.22"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1023.level.23"
+          },
+          "summary_en": {
+            "String": "Talent 1023 is released at progression level 23 with 1 exact cost row(s) and 3 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1023 在进度等级 23 发布，具有 1 条精确费用与 3 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "access-unlock"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"25\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Increases the number of extra Cycles usable in the stage by #1[i]"
+          },
+          "description_zh_cn": {
+            "String": "全局可用的额外轮次增加#1[i]回合"
+          },
+          "display_group_id": {
+            "String": "201"
+          },
+          "effect_ids": "Null",
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"1\",\"value_type\":\"Number\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "24"
+          },
+          "name_en": {
+            "String": "Mechanics Iteration Talent 1024"
+          },
+          "name_zh_cn": {
+            "String": "机制迭代天赋 1024"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1024:24"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.23"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1024.level.24"
+          },
+          "summary_en": {
+            "String": "Talent 1024 is released at progression level 24 with 1 exact cost row(s) and 0 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1024 在进度等级 24 发布，具有 1 条精确费用与 0 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanics-iteration"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cost_json": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281026\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_en": {
+            "String": "Additionally unlocks Scepter / Component"
+          },
+          "description_zh_cn": {
+            "String": "额外解锁权杖/组件"
+          },
+          "display_group_id": {
+            "String": "203"
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.6071.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.6073.level.1"
+              }
+            ]
+          },
+          "effect_parameters_json": {
+            "String": "[{\"value\":\"6071_1\",\"value_type\":\"MagicUnit\"},{\"value\":\"6073_1\",\"value_type\":\"MagicUnit\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "UnknowableTalent"
+          },
+          "level": {
+            "String": "25"
+          },
+          "name_en": {
+            "String": "Access Unlock Talent 1025"
+          },
+          "name_zh_cn": {
+            "String": "权限解锁天赋 1025"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "prerequisite_ids": "Null",
+          "prerequisite_resolution": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "1025:25"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagictalent-json.24"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.talent.1025.level.25"
+          },
+          "summary_en": {
+            "String": "Talent 1025 is released at progression level 25 with 1 exact cost row(s) and 2 explicit Component reference(s)."
+          },
+          "summary_zh_cn": {
+            "String": "天赋 1025 在进度等级 25 发布，具有 1 条精确费用与 2 个显式组件引用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "access-unlock"
+              },
+              {
+                "String": "progression"
+              },
+              {
+                "String": "talent"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
