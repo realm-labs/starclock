@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `gold-and-gears-runtime-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Contract, audit and execution plan |
+| Active phase | Phase 1 — Bundle and catalogs |
 | Active batch | None |
-| Next unblocked batch | `G14-P0-B4` |
+| Next unblocked batch | `G14-P1-B1` |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
@@ -22,8 +22,8 @@
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Contract, audit and execution plan | `InProgress` | `G14-P0-B1`: Goals 01–08 snapshots, merged Candidate audit, protected roots and generic runtime/interface baseline frozen. |
-| Phase 1 — Bundle and catalogs | `Pending` | None |
+| Phase 0 — Contract, audit and execution plan | `Complete` | `G14-P0-B1`–`B4`: prerequisites, 7,913/1,224/18 assignments, APIs/state/identity, 25-run matrix, 16 policy owners, workloads, CI and release scaffold verified. |
+| Phase 1 — Bundle and catalogs | `InProgress` | None |
 | Phase 2 — Entry, topology and Cognition | `Pending` | None |
 | Phase 3 — Custom Dice and Knowledge | `Pending` | None |
 | Phase 4 — Progression, content and battle contributions | `Pending` | None |
@@ -42,7 +42,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G14-P0-B1` | `Complete` | This batch commit | `node tools/repository-check/verify-release-snapshots.mjs`; `node tools/reference-integration/verify.mjs`; `node tools/goal14/verify-foundation.mjs`; `node tools/repository-check/run.mjs`; 8 snapshots, 46,110 merged records, 15/15 mode pairs, 0 conflicts, 5 protected roots and 9 baseline crate trees verified; quick gate passed with Rust scope skipped. |
 | `G14-P0-B2` | `Complete` | This batch commit | `node tools/goal14/generate-dispositions.mjs --check`; 7,913 source obligations, 1,224 rules and 18 fixture families assigned exact-once; nine P5 partitions frozen at 5/6/6/40/160/384/38/495/90 rules; 0 gaps, 0 duplicates, 0 native handlers admitted. |
 | `G14-P0-B3` | `Complete` | This batch commit | `node tools/goal14/verify-runtime-contract.mjs`; 6 public mode types, 4 physical + 3 logical scopes, 17 typed slot families, 5 generic commands, 9 Activity event families, 10 components, 8 RNG labels and 7 failure policies frozen; 0 native handlers admitted. |
-| `G14-P0-B4` | `Pending` | None | Freeze matrix, slice, policies, workloads and release scaffold. |
+| `G14-P0-B4` | `Complete` | This batch commit | `node tools/goal14/generate-coverage-matrix.mjs --check`; `node tools/goal14/verify-phase0.mjs`; quick gate passed; `node tools/repository-check/run.mjs --full` passed in 282.7s with 136 workspace test harnesses and 4 source-cache-only checks skipped; 25 valid runs cover 5 difficulties, 9 Paths, 12 dice, both Conundrum tracks 0–6 and 6+6; 16 policy probes, 7 workloads, 3 native + 3 compile-only profiles and 13 release gates frozen. |
 | `G14-P1-B1` | `Pending` | None | Integrate exact private 52-table bundle readers. |
 | `G14-P1-B2` | `Pending` | None | Compose catalog, component and registry identities. |
 | `G14-P1-B3` | `Pending` | None | Lower profile and topology catalogs. |
@@ -133,6 +133,8 @@ without a documented data revision and compatibility decision.
 | 2026-07-30 | Represent the mutable chessboard as a validated immutable graph superset plus bounded typed state overlays. | Creation, replacement, copying, blanking, domain, beacon and Knowledge changes can commit through ordinary Activity operations without introducing a second graph aggregate. |
 | 2026-07-30 | Keep the existing eight Activity RNG labels; use `Spawn` only for a Custom Dice resolution and Knowledge causally owned by that resolution. | This isolates dice work from graph, encounter, reward, shop, occurrence and battle streams without changing released Standard Activity RNG state. |
 | 2026-07-30 | Give Gold and Gears a distinct 10-component set and replay entry while leaving the released Standard component set and replay bytes unchanged. | Compatibility is based on consumed components, not on a whole multi-mode bundle or central mode registry. |
+| 2026-07-30 | Freeze 25 valid seeded complete runs instead of a Cartesian matrix. | Twelve baseline runs cover all difficulty/Path/dice axes; twelve single-track and one combined-cap Difficulty 5 runs cover legal Conundrum boundaries with explicit prior-clear evidence. |
+| 2026-07-30 | Bind every inherited policy to one matrix probe and one or more exact owner batches. | A policy cannot disappear between reference evidence and runtime release, and pending ownership cannot be mistaken for a terminal disposition. |
 
 ## Research and policy register
 
