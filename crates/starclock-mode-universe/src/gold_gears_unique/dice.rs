@@ -138,6 +138,7 @@ pub(super) fn face(source: &GoldGearsDiceFace) -> Result<DiceFace, GoldAndGearsU
         item_id: text(&source.item_id, &source.stable_key)?,
         rarity: positive_u8(source.rarity, &source.stable_key)?,
         activation_stage: nonnegative_u8(source.activation_stage, &source.stable_key)?,
+        unlock_display_source: text(&source.unlock_display_id, &source.stable_key)?,
         parameters: optional_texts(source.parameters.as_deref(), &source.stable_key)?,
         allowed_slot_keys: texts(&source.allowed_slot_ids, &source.stable_key)?,
         allowed_slot_sources: texts(&source.allowed_slot_source_ids, &source.stable_key)?,

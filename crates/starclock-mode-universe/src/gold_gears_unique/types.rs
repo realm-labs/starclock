@@ -127,6 +127,7 @@ pub(crate) struct DiceFace {
     pub(crate) item_id: Box<str>,
     pub(crate) rarity: u8,
     pub(crate) activation_stage: u8,
+    pub(crate) unlock_display_source: Box<str>,
     pub(crate) parameters: Box<[Box<str>]>,
     pub(crate) allowed_slot_keys: Box<[Box<str>]>,
     pub(crate) allowed_slot_sources: Box<[Box<str>]>,

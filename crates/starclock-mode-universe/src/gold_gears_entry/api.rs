@@ -11,13 +11,14 @@ use starclock_activity::{
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     cognition::CognitionRuntimeCatalog,
+    dice_loadout::DiceLoadoutRuntimeCatalog,
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     plane_transition::PlaneTransitionRuntimeCatalog,
     state::compile_state,
     topology::compile_topology,
     validate::{
         canonical_completed_areas, canonical_neural_network, canonical_unlocked_dice,
-        validate_conundrum, validate_loadout, validate_participants,
+        validate_conundrum, validate_participants,
     },
 };
 use crate::{
@@ -161,6 +162,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) map: Arc<MapRuntimeCatalog>,
     pub(super) cognition: Arc<CognitionRuntimeCatalog>,
     pub(super) transitions: Arc<PlaneTransitionRuntimeCatalog>,
+    pub(super) dice_loadouts: Arc<DiceLoadoutRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -187,12 +189,14 @@ impl GoldAndGearsRuntimeFactory {
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
         let cognition = CognitionRuntimeCatalog::compile(&unique)?;
         let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
+        let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
             map: Arc::new(map),
             cognition: Arc::new(cognition),
             transitions: Arc::new(transitions),
+            dice_loadouts: Arc::new(dice_loadouts),
         })
     }
 
@@ -226,8 +230,14 @@ impl GoldAndGearsRuntimeFactory {
                 entry.custom_dice.clone(),
             ));
         }
-        let faces = validate_loadout(&self.unique, dice, &entry.dice_faces)?;
         let neural = canonical_neural_network(&self.unique, &entry.neural_network)?;
+        let loadout = self.dice_loadouts.compile_loadout(
+            &self.unique,
+            dice,
+            &entry.dice_faces,
+            &neural,
+            &unlocked_dice,
+        )?;
         let completed_areas =
             canonical_completed_areas(&self.structural, &entry.completed_formal_areas)?;
         validate_conundrum(
@@ -254,7 +264,8 @@ impl GoldAndGearsRuntimeFactory {
             area,
             path.identity.id.0,
             dice.identity.id.0,
-            &faces,
+            &loadout.faces,
+            &loadout.maximum_rarities,
             &neural,
             entry.stats_conundrum,
             entry.auxiliary_conundrum,
@@ -270,11 +281,16 @@ impl GoldAndGearsRuntimeFactory {
             difficulty: area.difficulty,
             path: path.identity.stable_key.clone(),
             custom_dice: dice.identity.stable_key.clone(),
-            dice_faces: faces
+            dice_faces: loadout
+                .faces
                 .iter()
                 .map(|face| face.identity.stable_key.clone())
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
+            dice_slot_max_rarities: loadout.maximum_rarities,
+            eligible_dice_faces: loadout.eligible_faces,
+            suggestive_dice_faces: loadout.suggestive_faces,
+            recommended_dice_faces: loadout.recommended_faces,
             participants: Arc::new(entry.participants),
             neural_network: neural
                 .iter()
@@ -341,6 +357,10 @@ pub struct GoldAndGearsRuntimeInstance {
     path: Box<str>,
     custom_dice: Box<str>,
     dice_faces: Box<[Box<str>]>,
+    dice_slot_max_rarities: Box<[u8]>,
+    eligible_dice_faces: Box<[Box<[Box<str>]>]>,
+    suggestive_dice_faces: Box<[Box<str>]>,
+    recommended_dice_faces: Box<[Box<str>]>,
     participants: Arc<ParticipantLock>,
     neural_network: Box<[Box<str>]>,
     stats_conundrum: u8,
@@ -381,6 +401,34 @@ impl GoldAndGearsRuntimeInstance {
     #[must_use]
     pub fn dice_faces(&self) -> impl ExactSizeIterator<Item = &str> {
         self.dice_faces.iter().map(Box::as_ref)
+    }
+
+    /// Returns the effective rarity ceiling for each of the six stable slots.
+    ///
+    /// Selected Neural slot upgrades are already applied.
+    pub fn dice_slot_max_rarities(&self) -> impl ExactSizeIterator<Item = u8> + '_ {
+        self.dice_slot_max_rarities.iter().copied()
+    }
+
+    /// Returns canonical eligible faces for one 1-based slot after applying
+    /// unlock, color/slot, Custom Dice and effective-rarity constraints.
+    pub fn eligible_dice_faces(
+        &self,
+        slot_index: u8,
+    ) -> Option<impl ExactSizeIterator<Item = &str> + '_> {
+        self.eligible_dice_faces
+            .get(usize::from(slot_index.checked_sub(1)?))
+            .map(|faces| faces.iter().map(Box::as_ref))
+    }
+
+    /// Returns the authored suggestive pool filtered to legal unlocked faces.
+    pub fn suggestive_dice_faces(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.suggestive_dice_faces.iter().map(Box::as_ref)
+    }
+
+    /// Returns the authored recommended pool filtered to legal unlocked faces.
+    pub fn recommended_dice_faces(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.recommended_dice_faces.iter().map(Box::as_ref)
     }
 
     #[must_use]

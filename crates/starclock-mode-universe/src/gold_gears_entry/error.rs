@@ -12,9 +12,11 @@ pub enum GoldAndGearsEntryError {
     UnknownDiceFace(Box<str>),
     InvalidDiceFaceCount,
     DuplicateDiceFace(Box<str>),
+    LockedDiceFace(Box<str>),
     DiceFaceSlotMismatch(Box<str>),
     DiceFaceDiceMismatch(Box<str>),
     DiceFaceRarityMismatch(Box<str>),
+    InvalidDiceLoadoutRuntime,
     UnknownNeuralNode(Box<str>),
     DuplicateNeuralNode(Box<str>),
     MissingNeuralPrerequisite {

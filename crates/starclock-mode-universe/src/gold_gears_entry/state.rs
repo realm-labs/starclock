@@ -15,7 +15,8 @@ use super::{
         BOARD_NODE_DOMAIN_SOURCE, BOARD_NODE_STATE_SLOT, BOARD_NODE_STATE_SOURCE, COGNITION_SLOT,
         COGNITION_SOURCE, CONTENT_LIFECYCLE_SLOT, CONTENT_LIFECYCLE_SOURCE,
         CONUNDRUM_AUXILIARY_KEY, CONUNDRUM_BERSERK_KEY, CONUNDRUM_SLOT, CONUNDRUM_SOURCE,
-        CONUNDRUM_STATS_KEY, DEFERRED_EFFECTS_SLOT, DEFERRED_EFFECTS_SOURCE, DICE_LOADOUT_SLOT,
+        CONUNDRUM_STATS_KEY, DEFERRED_EFFECTS_SLOT, DEFERRED_EFFECTS_SOURCE,
+        DICE_LOADOUT_FACE_KEY_BASE, DICE_LOADOUT_MAX_RARITY_KEY_BASE, DICE_LOADOUT_SLOT,
         DICE_LOADOUT_SOURCE, DICE_RESOLUTION_SLOT, DICE_RESOLUTION_SOURCE, ENTRY_AREA_KEY,
         ENTRY_AUXILIARY_CONUNDRUM_KEY, ENTRY_DICE_KEY, ENTRY_DIFFICULTY_KEY, ENTRY_PATH_KEY,
         ENTRY_SELECTION_SLOT, ENTRY_SELECTION_SOURCE, ENTRY_STATS_CONUNDRUM_KEY,
@@ -34,6 +35,7 @@ pub(super) fn compile_state(
     path_id: u32,
     dice_id: u32,
     faces: &[&DiceFace],
+    dice_slot_max_rarities: &[u8],
     neural: &[&NeuralNode],
     stats: u8,
     auxiliary: u8,
@@ -50,16 +52,29 @@ pub(super) fn compile_state(
         (ENTRY_STATS_CONUNDRUM_KEY, i64::from(stats)),
         (ENTRY_AUXILIARY_CONUNDRUM_KEY, i64::from(auxiliary)),
     ];
-    let loadout = faces
+    let mut loadout = faces
         .iter()
         .enumerate()
         .map(|(index, face)| {
             (
-                u64::try_from(index + 1).expect("six slot indices fit u64"),
+                DICE_LOADOUT_FACE_KEY_BASE
+                    + u64::try_from(index + 1).expect("six slot indices fit u64"),
                 i64::from(face.identity.id.0),
             )
         })
-        .collect();
+        .collect::<Vec<_>>();
+    loadout.extend(
+        dice_slot_max_rarities
+            .iter()
+            .enumerate()
+            .map(|(index, rarity)| {
+                (
+                    DICE_LOADOUT_MAX_RARITY_KEY_BASE
+                        + u64::try_from(index + 1).expect("six slot indices fit u64"),
+                    i64::from(*rarity),
+                )
+            }),
+    );
     let neural_ids = neural
         .iter()
         .map(|node| u64::from(node.identity.id.0))

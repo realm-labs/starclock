@@ -2,7 +2,7 @@ use starclock_activity::{LoadoutLockScope, ParticipantPolicy, ParticipantUniquen
 
 use crate::{
     gold_gears_structural::{AreaDefinition, AreaGroup, GoldAndGearsStructuralCatalog},
-    gold_gears_unique::{DiceDefinition, DiceFace, GoldAndGearsUniqueCatalog, NeuralNode},
+    gold_gears_unique::{GoldAndGearsUniqueCatalog, NeuralNode},
 };
 
 use super::{CONUNDRUM_AREA_KEY, GoldAndGearsEntryError};
@@ -98,50 +98,6 @@ pub(super) fn canonical_neural_network<'a>(
         }
     }
     Ok(selected)
-}
-
-pub(super) fn validate_loadout<'a>(
-    catalog: &'a GoldAndGearsUniqueCatalog,
-    dice: &DiceDefinition,
-    input: &[Box<str>],
-) -> Result<Vec<&'a DiceFace>, GoldAndGearsEntryError> {
-    if input.len() != catalog.dice_slots.len() || input.len() != 6 {
-        return Err(GoldAndGearsEntryError::InvalidDiceFaceCount);
-    }
-    let mut faces = Vec::with_capacity(input.len());
-    for (slot, key) in catalog.dice_slots.iter().zip(input) {
-        let face = catalog
-            .dice_faces
-            .iter()
-            .find(|face| face.identity.stable_key == *key)
-            .ok_or_else(|| GoldAndGearsEntryError::UnknownDiceFace(key.clone()))?;
-        if faces
-            .iter()
-            .any(|selected: &&DiceFace| selected.identity.id == face.identity.id)
-        {
-            return Err(GoldAndGearsEntryError::DuplicateDiceFace(key.clone()));
-        }
-        if !face
-            .allowed_slot_keys
-            .iter()
-            .any(|allowed| allowed == &slot.identity.stable_key)
-        {
-            return Err(GoldAndGearsEntryError::DiceFaceSlotMismatch(key.clone()));
-        }
-        if !face.universal_dice_eligibility
-            && !face
-                .allowed_dice_keys
-                .iter()
-                .any(|allowed| allowed == &dice.identity.stable_key)
-        {
-            return Err(GoldAndGearsEntryError::DiceFaceDiceMismatch(key.clone()));
-        }
-        if face.rarity > slot.base_max_rarity {
-            return Err(GoldAndGearsEntryError::DiceFaceRarityMismatch(key.clone()));
-        }
-        faces.push(face);
-    }
-    Ok(faces)
 }
 
 pub(super) fn validate_conundrum(

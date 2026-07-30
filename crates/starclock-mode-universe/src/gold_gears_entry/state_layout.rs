@@ -43,6 +43,9 @@ pub(super) const ENTRY_DICE_KEY: u64 = 4;
 pub(super) const ENTRY_STATS_CONUNDRUM_KEY: u64 = 5;
 pub(super) const ENTRY_AUXILIARY_CONUNDRUM_KEY: u64 = 6;
 
+pub(super) const DICE_LOADOUT_FACE_KEY_BASE: u64 = 0;
+pub(super) const DICE_LOADOUT_MAX_RARITY_KEY_BASE: u64 = 0x100;
+
 pub(super) const CONUNDRUM_STATS_KEY: u64 = 1;
 pub(super) const CONUNDRUM_AUXILIARY_KEY: u64 = 2;
 pub(super) const CONUNDRUM_BERSERK_KEY: u64 = 3;
