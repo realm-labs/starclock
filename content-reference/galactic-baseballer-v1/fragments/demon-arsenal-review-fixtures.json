@@ -1,0 +1,722 @@
+[
+  {
+    "id": "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-7",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "RuinBot corrected level 7",
+    "name_zh_cn": "歼灭机器人修正后等级 7",
+    "summary_en": "Concrete ReferenceOnly review of the retained Version 4.4 post-correction parameter vector.",
+    "summary_zh_cn": "具体审查 Version 4.4 保留的修正后参数向量，仅供资料使用。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearConfig:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d7deb197165cb33a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearConfig.json",
+        "locator": "row=15;GearID=3113002;Level=7",
+        "sha256": "d7deb197165cb33ab2ce3020fe838500e3195d8d84134b59556dbcb54ba988cf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.d7b7e658d445accd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=15;ID=3113002",
+        "sha256": "d7b7e658d445accd891fb0a48ec8b9382ce6119fdaf472e3cc4cb336d60ced71",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact Version 4.4 MazeBuff parameter vector and program binding"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.b315b9fac59c",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / WeaponLevel",
+        "sha256": "be5f87a60dc233b314e47addc7eb4f5b3a4d282db90741f2c1818627d2a8007d",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed incorrect level 7 and level 8 ability effects for RuinBot."
+      }
+    ],
+    "tags": [
+      "correction",
+      "demon-king",
+      "ruinbot",
+      "semantic-review"
+    ],
+    "family_id": "weapon-auto-action",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.weapon.3113002.level.7",
+      "galactic-baseballer.correction.v3_4.ruinbot-level-7-8"
+    ],
+    "trigger_point": "load retained Version 4.4 weapon level",
+    "state_owner": "immutable weapon-level definition",
+    "preconditions": {
+      "weapon_id": "galactic-baseballer.demon-king.weapon.3113002",
+      "level": 7
+    },
+    "input": {
+      "resolve_binding_key": "StageAbility_VS_Weapon_S2_002"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "resolve exact GearConfig row"
+      },
+      {
+        "operation_order": 1,
+        "operation": "resolve exact MazeBuff level row"
+      },
+      {
+        "operation_order": 2,
+        "operation": "retain post-correction parameter vector without reconstructing pre-fix values"
+      }
+    ],
+    "expected_facts": {
+      "maze_buff_id": "3113002",
+      "parameter_values": [
+        "0",
+        "9",
+        "70",
+        "14",
+        "0.75",
+        "30",
+        "0.3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "correction_id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+      "pre_fix_values_modeled": false
+    },
+    "evidence_refs": [
+      "source.goal16.d7deb197165cb33a",
+      "source.goal16.d7b7e658d445accd",
+      "source.goal16.hoyolab-version-3.4-update.b315b9fac59c"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "fixture.galactic-baseballer.demon-king.weapon-ruinbot-level-8",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "RuinBot corrected level 8",
+    "name_zh_cn": "歼灭机器人修正后等级 8",
+    "summary_en": "Concrete ReferenceOnly review of the retained Version 4.4 post-correction parameter vector.",
+    "summary_zh_cn": "具体审查 Version 4.4 保留的修正后参数向量，仅供资料使用。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearConfig:0016",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.dfe5b62b4992d34c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearConfig.json",
+        "locator": "row=16;GearID=3113002;Level=8",
+        "sha256": "dfe5b62b4992d34c1c927d88b739bd3378fc84cd902c3e3fb359128dd9579480",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.24ca27fdcd4086e6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=16;ID=3113002",
+        "sha256": "24ca27fdcd4086e63314a9a57b5a7dac73e418f0dbabe6e00fea87bb0c9ff573",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact Version 4.4 MazeBuff parameter vector and program binding"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-version-3.4-update.b315b9fac59c",
+        "repository_or_url": "https://www.hoyolab.com/article/39751178",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "released-demon-king-corrections",
+        "locator": "Gameplay fixes / WeaponLevel",
+        "sha256": "be5f87a60dc233b314e47addc7eb4f5b3a4d282db90741f2c1818627d2a8007d",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "Version 3.4 fixed incorrect level 7 and level 8 ability effects for RuinBot."
+      }
+    ],
+    "tags": [
+      "correction",
+      "demon-king",
+      "ruinbot",
+      "semantic-review"
+    ],
+    "family_id": "weapon-auto-action",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.weapon.3113002.level.8",
+      "galactic-baseballer.correction.v3_4.ruinbot-level-7-8"
+    ],
+    "trigger_point": "load retained Version 4.4 weapon level",
+    "state_owner": "immutable weapon-level definition",
+    "preconditions": {
+      "weapon_id": "galactic-baseballer.demon-king.weapon.3113002",
+      "level": 8
+    },
+    "input": {
+      "resolve_binding_key": "StageAbility_VS_Weapon_S2_002"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "resolve exact GearConfig row"
+      },
+      {
+        "operation_order": 1,
+        "operation": "resolve exact MazeBuff level row"
+      },
+      {
+        "operation_order": 2,
+        "operation": "retain post-correction parameter vector without reconstructing pre-fix values"
+      }
+    ],
+    "expected_facts": {
+      "maze_buff_id": "3113002",
+      "parameter_values": [
+        "0",
+        "12",
+        "70",
+        "14",
+        "0.75",
+        "30",
+        "0.3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "correction_id": "galactic-baseballer.correction.v3_4.ruinbot-level-7-8",
+      "pre_fix_values_modeled": false
+    },
+    "evidence_refs": [
+      "source.goal16.dfe5b62b4992d34c",
+      "source.goal16.24ca27fdcd4086e6",
+      "source.goal16.hoyolab-version-3.4-update.b315b9fac59c"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.rejected",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Supreme synthesis rejected",
+    "name_zh_cn": "至尊武器合成拒绝",
+    "summary_en": "Concrete ReferenceOnly missing-prerequisite trace proving failure invariance.",
+    "summary_zh_cn": "具体的仅供资料审查缺少前置轨迹，证明失败不变性。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004",
+      "supreme-weapon-synthesis"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ed2fe1bd209243c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=13;ForgeGearID=3113301",
+        "sha256": "ed2fe1bd209243c4643bdc1f2a1764dfe211caa75e3031f7a7c84b4adfd7b7c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.cf44d9274b1e3751",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=4;ID=UltraForge;Season=SecondChapter",
+        "sha256": "cf44d9274b1e375118a76be89755436b2056b4067eadba432033a0a5c734a7d8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      },
+      {
+        "source_id": "source.goal16.policy.dff0110f8d33102a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.simultaneous-synthesis-order",
+        "sha256": "dff0110f8d33102a879c1e0daf19a100e1b4018456ccaf32deddd15c20f29496",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic synthesis policy; not an observed parity claim",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "supreme-weapon-synthesis"
+    ],
+    "family_id": "supreme-weapon-synthesis",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.recipe.3113301",
+      "galactic-baseballer.demon-king.recipe.3113301.input.0",
+      "galactic-baseballer.demon-king.recipe.3113301.input.1"
+    ],
+    "trigger_point": "accepted level-up offer resolution",
+    "state_owner": "battle-local weapon and accessory inventory",
+    "evidence_refs": [
+      "source.goal16.ed2fe1bd209243c4",
+      "source.goal16.cf44d9274b1e3751",
+      "source.goal16.policy.dff0110f8d33102a"
+    ],
+    "runtime_executable": false,
+    "preconditions": {
+      "inventory": [
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113014",
+          "level": 8
+        }
+      ]
+    },
+    "input": {
+      "request_recipe_id": "galactic-baseballer.demon-king.recipe.3113301"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate prerequisites"
+      },
+      {
+        "operation_order": 1,
+        "operation": "detect missing exact input"
+      },
+      {
+        "operation_order": 2,
+        "operation": "reject before consumption"
+      }
+    ],
+    "expected_facts": {
+      "accepted": false,
+      "inventory_byte_identical": true,
+      "output_added": false,
+      "consumed_input_ids": []
+    }
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.supreme-weapon-synthesis.success",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Supreme synthesis success",
+    "name_zh_cn": "至尊武器合成成功",
+    "summary_en": "Concrete ReferenceOnly advanced-synthesis success trace.",
+    "summary_zh_cn": "具体的仅供资料审查高级合成成功轨迹。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0013",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0004",
+      "supreme-weapon-synthesis"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ed2fe1bd209243c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=13;ForgeGearID=3113301",
+        "sha256": "ed2fe1bd209243c4643bdc1f2a1764dfe211caa75e3031f7a7c84b4adfd7b7c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.cf44d9274b1e3751",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=4;ID=UltraForge;Season=SecondChapter",
+        "sha256": "cf44d9274b1e375118a76be89755436b2056b4067eadba432033a0a5c734a7d8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      },
+      {
+        "source_id": "source.goal16.policy.dff0110f8d33102a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.simultaneous-synthesis-order",
+        "sha256": "dff0110f8d33102a879c1e0daf19a100e1b4018456ccaf32deddd15c20f29496",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic synthesis policy; not an observed parity claim",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "supreme-weapon-synthesis"
+    ],
+    "family_id": "supreme-weapon-synthesis",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.recipe.3113301",
+      "galactic-baseballer.demon-king.recipe.3113301.input.0",
+      "galactic-baseballer.demon-king.recipe.3113301.input.1"
+    ],
+    "trigger_point": "accepted level-up offer resolution",
+    "state_owner": "battle-local weapon and accessory inventory",
+    "evidence_refs": [
+      "source.goal16.ed2fe1bd209243c4",
+      "source.goal16.cf44d9274b1e3751",
+      "source.goal16.policy.dff0110f8d33102a"
+    ],
+    "runtime_executable": false,
+    "preconditions": {
+      "inventory": [
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113014",
+          "level": 8
+        },
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113901",
+          "level": 1
+        }
+      ]
+    },
+    "input": {
+      "accept_recipe_id": "galactic-baseballer.demon-king.recipe.3113301"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate every prerequisite in input stable-ID order"
+      },
+      {
+        "operation_order": 1,
+        "operation": "emit synthesis candidate before ordinary duplicate upgrade"
+      },
+      {
+        "operation_order": 2,
+        "operation": "select candidates by Supreme, Twin, Legendary, then stable recipe ID"
+      },
+      {
+        "operation_order": 3,
+        "operation": "consume only CostGearList inputs in source order"
+      },
+      {
+        "operation_order": 4,
+        "operation": "install the level-1 output weapon"
+      }
+    ],
+    "expected_facts": {
+      "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113301",
+      "output_level": 1,
+      "consumed_input_ids": [
+        "galactic-baseballer.demon-king.weapon.3113901",
+        "galactic-baseballer.demon-king.weapon.3113014"
+      ],
+      "retained_input_ids": []
+    }
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.rejected",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Twin synthesis rejected",
+    "name_zh_cn": "双重武器合成拒绝",
+    "summary_en": "Concrete ReferenceOnly missing-prerequisite trace proving failure invariance.",
+    "summary_zh_cn": "具体的仅供资料审查缺少前置轨迹，证明失败不变性。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003",
+      "twin-weapon-synthesis"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.84017fb7aff1fd18",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3113201",
+        "sha256": "84017fb7aff1fd1838038e3616d59eaa78b4961ace718506a3bdb3089591accb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.7023023663a206cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=3;ID=DuelForge;Season=SecondChapter",
+        "sha256": "7023023663a206cfce7b406e8773e0743fabbfc87604a17d3a8d745a11824f3b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      },
+      {
+        "source_id": "source.goal16.policy.dff0110f8d33102a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.simultaneous-synthesis-order",
+        "sha256": "dff0110f8d33102a879c1e0daf19a100e1b4018456ccaf32deddd15c20f29496",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic synthesis policy; not an observed parity claim",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "twin-weapon-synthesis"
+    ],
+    "family_id": "twin-weapon-synthesis",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.recipe.3113201",
+      "galactic-baseballer.demon-king.recipe.3113201.input.0",
+      "galactic-baseballer.demon-king.recipe.3113201.input.1"
+    ],
+    "trigger_point": "accepted level-up offer resolution",
+    "state_owner": "battle-local weapon and accessory inventory",
+    "evidence_refs": [
+      "source.goal16.84017fb7aff1fd18",
+      "source.goal16.7023023663a206cf",
+      "source.goal16.policy.dff0110f8d33102a"
+    ],
+    "runtime_executable": false,
+    "preconditions": {
+      "inventory": [
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113005",
+          "level": 8
+        }
+      ]
+    },
+    "input": {
+      "request_recipe_id": "galactic-baseballer.demon-king.recipe.3113201"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate prerequisites"
+      },
+      {
+        "operation_order": 1,
+        "operation": "detect missing exact input"
+      },
+      {
+        "operation_order": 2,
+        "operation": "reject before consumption"
+      }
+    ],
+    "expected_facts": {
+      "accepted": false,
+      "inventory_byte_identical": true,
+      "output_added": false,
+      "consumed_input_ids": []
+    }
+  },
+  {
+    "id": "galactic-baseballer.demon-king.fixture.twin-weapon-synthesis.success",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "Twin synthesis success",
+    "name_zh_cn": "双重武器合成成功",
+    "summary_en": "Concrete ReferenceOnly advanced-synthesis success trace.",
+    "summary_zh_cn": "具体的仅供资料审查高级合成成功轨迹。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCForgeMaterial:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0003",
+      "twin-weapon-synthesis"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.84017fb7aff1fd18",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3113201",
+        "sha256": "84017fb7aff1fd1838038e3616d59eaa78b4961ace718506a3bdb3089591accb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial output, prerequisites and CostGearList order"
+      },
+      {
+        "source_id": "source.goal16.7023023663a206cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=3;ID=DuelForge;Season=SecondChapter",
+        "sha256": "7023023663a206cfce7b406e8773e0743fabbfc87604a17d3a8d745a11824f3b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact output gear type"
+      },
+      {
+        "source_id": "source.goal16.policy.dff0110f8d33102a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.simultaneous-synthesis-order",
+        "sha256": "dff0110f8d33102a879c1e0daf19a100e1b4018456ccaf32deddd15c20f29496",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic synthesis policy; not an observed parity claim",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "semantic-review",
+      "twin-weapon-synthesis"
+    ],
+    "family_id": "twin-weapon-synthesis",
+    "source_record_ids": [
+      "galactic-baseballer.demon-king.recipe.3113201",
+      "galactic-baseballer.demon-king.recipe.3113201.input.0",
+      "galactic-baseballer.demon-king.recipe.3113201.input.1"
+    ],
+    "trigger_point": "accepted level-up offer resolution",
+    "state_owner": "battle-local weapon and accessory inventory",
+    "evidence_refs": [
+      "source.goal16.84017fb7aff1fd18",
+      "source.goal16.7023023663a206cf",
+      "source.goal16.policy.dff0110f8d33102a"
+    ],
+    "runtime_executable": false,
+    "preconditions": {
+      "inventory": [
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113005",
+          "level": 8
+        },
+        {
+          "input_id": "galactic-baseballer.demon-king.weapon.3113006",
+          "level": 8
+        }
+      ]
+    },
+    "input": {
+      "accept_recipe_id": "galactic-baseballer.demon-king.recipe.3113201"
+    },
+    "ordered_operations": [
+      {
+        "operation_order": 0,
+        "operation": "validate every prerequisite in input stable-ID order"
+      },
+      {
+        "operation_order": 1,
+        "operation": "emit synthesis candidate before ordinary duplicate upgrade"
+      },
+      {
+        "operation_order": 2,
+        "operation": "select candidates by Supreme, Twin, Legendary, then stable recipe ID"
+      },
+      {
+        "operation_order": 3,
+        "operation": "consume only CostGearList inputs in source order"
+      },
+      {
+        "operation_order": 4,
+        "operation": "install the level-1 output weapon"
+      }
+    ],
+    "expected_facts": {
+      "output_weapon_id": "galactic-baseballer.demon-king.weapon.3113201",
+      "output_level": 1,
+      "consumed_input_ids": [
+        "galactic-baseballer.demon-king.weapon.3113005",
+        "galactic-baseballer.demon-king.weapon.3113006"
+      ],
+      "retained_input_ids": []
+    }
+  }
+]

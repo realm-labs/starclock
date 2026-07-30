@@ -7,8 +7,8 @@
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
 | Active phase | Phase 2 — Demon King differences and progression |
-| Active batch | `G16-P2-B1` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P2-B2` |
+| Active batch | `G16-P2-B2` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P2-B3` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -35,7 +35,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
 | Phase 1 — Departure and shared base | `Complete` | Departure profile, stages, arsenal, Legendary synthesis, growth, candidates, inventory, encounters, stable enemy/skill identities, score/settlement and 17 semantic families are closed. |
-| Phase 2 — Demon King and progression | `InProgress` | The independent Demon King profile, release/correction boundaries, all seven stage rows, 56 periods and complete constant difference index are closed; P2-B2 owns arsenal and advanced synthesis. |
+| Phase 2 — Demon King and progression | `InProgress` | Profile/differences plus all 29 weapons, 16 accessories, 198 linked levels, 14 acyclic recipes, Twin/Supreme rules and correction fixtures are closed; P2-B3 owns strategies and persistent progression. |
 | Phase 3 — Evidence, Excel and Sora | `Pending` | Requires complete normalized profile data and closed evidence owners. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
 
@@ -52,7 +52,7 @@
 | `G16-P1-B3` | `Complete` | This row's containing commit | Froze exact `expForLevel=40`, wave/level scaling and `2/4/8/0/0` enemy experience values with structural program evidence. Authored all 11 Adventure Strategy candidates and exact card/MazeBuff/program bindings. Retained the `18,6,3,3,7,6,2,0,2,0,7` source weight vector without guessing its ordinal mapping; froze 3 refreshes, 2 exclusions, 0 card refreshes and unlock quests. Authored Standard 4/5 weapon and 4/6 accessory slots plus Origin-stage 3/4 capacities. Added five explicit ProjectPolicy inventory operations covering duplicates, maximum/full rejection, expansion and failure invariance. |
 | `G16-P1-B4` | `Complete` | This row's containing commit | Closed five reachable shared StageConfig rows, five infinite groups, 17 waves, 17 monster groups and 204 ordered enemy candidates. Resolved all 27 MonsterIDs and 81 SkillIDs exactly to frozen Version 4.4 stable identities without copying core definitions; the reachable MonsterStatus set is exactly zero. Froze exact score/weight/time/cap/final-bonus vectors, program structure and six ordered rating/settlement rows. Added 17 ReferenceOnly rules and 17 concrete semantic fixtures; Twin, Supreme and Galactic Store remain explicit Phase 2 families. |
 | `G16-P2-B1` | `Complete` | This row's containing commit | Authored independent `galactic-baseballer.demon-king.v3_3` with released Version 3.3 entry requirements, Version 4.4 retention, shared activity module, explicit unlock locators and a non-replacement edge to Departure. Separated permanent mechanics, limited account rewards and released 3.4 corrections. Mapped one Origin plus six challenge stages and all 56 stage periods exactly once with zero unresolved shared StageConfig references. Compared all 83 normalized constants: 38 repeated values, 25 changed, 13 added and 7 Departure-only. Froze RuinBot Lv7/Lv8 and D007 score correction boundaries without reconstructing unpublished erroneous behavior; retained the Boothill visual fix as EvidenceOnly. |
-| `G16-P2-B2` | `Pending` | — | Demon King content and advanced synthesis. |
+| `G16-P2-B2` | `Complete` | This row's containing commit | Authored 15 Standard, 12 Legendary, one Twin and one Supreme weapon with all 134 levels; authored 16 accessories with all 64 levels. Reconciled every GearConfig row to one exact MazeBuff level and retained complete parameter/binding vectors. Added 29 weapon and 16 accessory structural trigger summaries plus all three Ranger's Badge actor programs. Froze 12 Legendary, one Twin and one Supreme recipe with 28 exact inputs, source CostGearList order and an acyclic graph. Added success/rejection rules and fixtures for Twin/Supreme synthesis, including failure invariance, and bound the post-3.4 RuinBot level 7/8 vectors to two correction fixtures. |
 | `G16-P2-B3` | `Pending` | — | Strategies, currencies, store and progression. |
 | `G16-P2-B4` | `Pending` | — | Demon King encounters, score and fixtures. |
 | `G16-P3-B1` | `Pending` | — | Evidence and 100% DataReady closure. |
@@ -106,7 +106,7 @@ from this planning list or reduced later.
 | `G16-R01` | `Closed` | The focused closure is 81 files: 64 mode-family tables/programs, 10 shared seeds and 7 identity cross-checks. Row-level membership remains intentionally owned by P0-B3. | P0-B2 |
 | `G16-R02` | `Closed` | The manifest freezes 2,232 exact obligations: 1,528 dedicated table rows, 35 programs, 647 explicit shared rows, two profiles and 20 semantic families. | P0-B3 |
 | `G16-R03` | `Open` | Which offer weights, orders, refresh/skip/exclusion rules and no-candidate behaviors are not publicly structured? | P0-B4 / P1-B3 |
-| `G16-R04` | `Open` | What exact recipe edges and consumption/order rules define Legendary, Twin and Esteemed/Ultimate synthesis? | P1-B2 / P2-B2 |
+| `G16-R04` | `Closed` | Departure has 13 Legendary recipes; Demon King has 12 Legendary, one Twin and one Supreme recipe. All exact prerequisites and CostGearList positions are frozen; hidden simultaneous-candidate precedence remains an explicit replaceable ProjectPolicy. | P1-B2 / P2-B2 |
 | `G16-R05` | `Open` | How do stage phases, waves, elite objectives, bosses and scoring bind to StageConfig and shared enemies? | P1-B4 / P2-B4 |
 | `G16-R06` | `Open` | Which reputation/store/reward rows change mechanics and which are account-only locators? | P2-B3 |
 | `G16-R07` | `Closed` | Version 3.4 fixes RuinBot Lv7/Lv8 effects and abnormal D007 Adventure Score mechanically; Version 4.4 rows are the retained corrected state. The Boothill Ultimate visual fix is EvidenceOnly. No later released mechanical correction was found in the frozen official-source inventory. | P2-B1 |

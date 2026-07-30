@@ -1,0 +1,1437 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113101.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Evernight Shield battle binding",
+    "name_zh_cn": "永暗圆盾战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0029",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ec018c58336b08eb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=29;ID=3113101;Season=SecondChapter",
+        "sha256": "ec018c58336b08ebd458bad43a5595c9c71c5f1fc308e17f8e2670b9e7fbff29",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113101",
+    "binding_key": "StageAbility_VS_Accessory_SC_Tag_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Tag_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Tag_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "960b78d42f871b0671d52398bee6f6b03b897b0497f754813ef49928c4e59793",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113102.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Lightning Storm Shackles battle binding",
+    "name_zh_cn": "飓霆拷链战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0030",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.dfa7d2674c8e5b49",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=30;ID=3113102;Season=SecondChapter",
+        "sha256": "dfa7d2674c8e5b490b68036fbfa41906f57d0ee6a3d880a23d1af65f4a8bc06a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113102",
+    "binding_key": "StageAbility_VS_Accessory_SC_Tag_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Tag_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Tag_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "1204e2fd75cab9b9d13a49effe7f3933a232af5cf8358acad46393e625532153",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113103.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Daring Wager battle binding",
+    "name_zh_cn": "孤注一掷战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0031",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.dce5874329debe1c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=31;ID=3113103;Season=SecondChapter",
+        "sha256": "dce5874329debe1c0cc5f1e8f9a07d6760f143e62c9c423086085ef759149469",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113103",
+    "binding_key": "StageAbility_VS_Accessory_SC_Tag_003",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Tag_003"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Tag_003_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "4a3722fa0ff25662409fdd8f3157181d0c52a02c4949fd3a6d3962a220032147",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113104.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Activation Key battle binding",
+    "name_zh_cn": "启动秘钥战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0032",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2670f327d6268044",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=32;ID=3113104;Season=SecondChapter",
+        "sha256": "2670f327d62680447bfa4907e724559b5ae6f509e9271a5eaffc51a1f3d37bc6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113104",
+    "binding_key": "StageAbility_VS_Accessory_SC_Tag_004",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Tag_004"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Tag_004_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "42308e9d8ce85276892d63a9165c7ed7c620362dbc9e22c33413bad2a27a8cff",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113111.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Benedictive Torch battle binding",
+    "name_zh_cn": "赐福火把战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0033",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2e01d9935a746679",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=33;ID=3113111;Season=SecondChapter",
+        "sha256": "2e01d9935a746679a6fb9c074be4b3cab97d9fcc37ca48acf680bc7d5ce93a6e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113111",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "218a3a43735c19306f8e308bf96231a9d35e4f4192de32147a6e6eab0c61a529",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113112.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Evergreen Spring battle binding",
+    "name_zh_cn": "不冻灵泉战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0034",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.25879f74f334da65",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=34;ID=3113112;Season=SecondChapter",
+        "sha256": "25879f74f334da65efe7b9f5771069d7bf63d48356f2fcd64bc16aa0e2df565e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113112",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "e20bd697039a442eaf5b84cc516008eb974bce3d24acfcd45770698e42ee6ddd",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113113.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Meadow Breeze battle binding",
+    "name_zh_cn": "绿野吹息战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0035",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.df942d52c90a80a8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=35;ID=3113113;Season=SecondChapter",
+        "sha256": "df942d52c90a80a8df3ca8c6e1b63c271191646c0bd8f06ca5b53add72ff311e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113113",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_003",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_003"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_003_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "9e75140b702020da199145a37c657ea1207bd3b133c026af0d85cf2527efa05e",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113114.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Heavy Gloves battle binding",
+    "name_zh_cn": "厚重手套战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0036",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c323b3995a5f6da1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=36;ID=3113114;Season=SecondChapter",
+        "sha256": "c323b3995a5f6da14d6feadb2c21c206c48b7116afd7acde01ea4c28c2615bf1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113114",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_004",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_004"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_004_ADAR_Modifier",
+      "StageAbility_VS_Accessory_SC_Attribute_004_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnBeforeHitAll",
+      "OnDestroy",
+      "OnListenAfterBeingHitAll",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByCompareDynamicValue",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByIsDamageType",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyDamageData",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByModifierValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "965dd41ca8b811dc6f2514f7dc6be9bf586bcd89b93b993a2d9be728bd21876c",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113121.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Alliance Ring battle binding",
+    "name_zh_cn": "盟约指环战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0037",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b8ea299598be5332",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=37;ID=3113121;Season=SecondChapter",
+        "sha256": "b8ea299598be5332e433bcaafedb0c6dbb0dcdaba863d893427e810ca73102e1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113121",
+    "binding_key": "StageAbility_VS_Accessory_SC_Special_003",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Special_003"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Special_003_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnListenAfterAction"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByIsBattleEventEntity",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetEntityType",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.ModifyActionDelay",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "528ccf33675a50dfe0ffb79c64380f3ccaad0c963bb1dadcddca7c73c2026270",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113122.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Shadowy Cloak battle binding",
+    "name_zh_cn": "阴影披风战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0038",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.41496e00378250da",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=38;ID=3113122;Season=SecondChapter",
+        "sha256": "41496e00378250da8ccbe6fb66be744a9f54c083599bde92766dde255708c4ab",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113122",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_005",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_005"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_005_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "edb0625e371eb46129de78c9ec42af50b5a71ac1caf5c5368aafd9c99fba237c",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113123.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Caloric Bomb battle binding",
+    "name_zh_cn": "热量炸弹战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0039",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.90e19d3085098465",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=39;ID=3113123;Season=SecondChapter",
+        "sha256": "90e19d308509846592c847c846526b7ed694031e9ce248a6f1b6add57bfe1d4f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113123",
+    "binding_key": "StageAbility_VS_Accessory_SC_Special_004",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Special_004"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Special_004_LE_Modifier",
+      "StageAbility_VS_Accessory_SC_Special_004_PLY_Modifier"
+    ],
+    "trigger_events": [
+      "OnBeforeHitAll",
+      "OnDestroy",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyDamageData",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByHPRatio",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "003938ee399951ec537a6534b6e32018f2b45e1f002c3ab396095ef219836a81",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113124.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Golden Rose battle binding",
+    "name_zh_cn": "黄金玫瑰战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0040",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a42035b17e27bf6e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=40;ID=3113124;Season=SecondChapter",
+        "sha256": "a42035b17e27bf6e39255f17bd2f9e1fc3041399630085c9df47cc4e2aac3cc9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113124",
+    "binding_key": "StageAbility_VS_Accessory_SC_Special_005",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Special_005"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Special_005_LE_Modifier",
+      "StageAbility_VS_Accessory_SC_Special_005_PLY_Modifier"
+    ],
+    "trigger_events": [
+      "OnListenCharacterCreate",
+      "OnPhase2",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByRandomChance",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyActionDelay",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "dc32f31a4bb0d12565227e76a7dcd81f2de25f210311afd2ac9c3b1a8ccb3cb2",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113131.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Duelist's Fist battle binding",
+    "name_zh_cn": "擂者之拳战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0041",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.97024bf22474456a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=41;ID=3113131;Season=SecondChapter",
+        "sha256": "97024bf22474456a55c3b04da664d2f877181aeb43f19819cb1aca7328c64a0a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113131",
+    "binding_key": "StageAbility_VS_Accessory_SC_Special_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Special_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Special_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ModifyEvolveBuildProperty",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "a90a0f57e20f4128d22632d1c014cb466527932a0dd6c9682997b8d9078d6ecd",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113132.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Reward of Diligence battle binding",
+    "name_zh_cn": "勤勉的嘉奖战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0042",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0b7889451284f6b8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=42;ID=3113132;Season=SecondChapter",
+        "sha256": "0b7889451284f6b829d8db2051e20fe253836ec08c39341228d7f8201933be9f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113132",
+    "binding_key": "StageAbility_VS_Accessory_SC_Special_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Special_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Special_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ModifyEvolveBuildProperty",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "75eaeb460fe5d8e0f1ab70103d38448a59895448396169b566e5cd82dd128100",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113133.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Overdosing Prescription battle binding",
+    "name_zh_cn": "超剂量处方战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0043",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.93673e6a51bb66dd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=43;ID=3113133;Season=SecondChapter",
+        "sha256": "93673e6a51bb66dd33bf4f129035e508587ffcf6ef9e8054b7bcc69bc979212c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113133",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_006",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_006"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_006_LE_Modifier",
+      "StageAbility_VS_Accessory_SC_Attribute_006_PLYAndBOSS_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "b5a756251619f88bdeb30d4f0ab0d5e6f950082b8f9d40a63f97fab4583efd57",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.accessory.3113134.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Cream Raccoon Pie battle binding",
+    "name_zh_cn": "奶油浣熊派战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying source programs.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearCollection:0044",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCGearTypeConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5e9571523e8be368",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearCollection.json",
+        "locator": "row=44;ID=3113134;Season=SecondChapter",
+        "sha256": "5e9571523e8be3682c31f995bc3d6ac206841ba7a1c98b30b6538b0ea857b39d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.936f77a561a0116d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCGearTypeConfig.json",
+        "locator": "row=1;ID=Plugin;Season=SecondChapter",
+        "sha256": "936f77a561a0116df21d023a393c2d608666f6b0e967db3d6267570ab4d7f0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Plugin gear-type definition"
+      },
+      {
+        "source_id": "source.goal16.ea305eab2fbecd71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory_SC.json",
+        "locator": "whole-file",
+        "sha256": "ea305eab2fbecd715c07201946ee2130c24b441c71f0e86e662d0e3ac5fbea9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains structural identifiers only"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "demon-king"
+    ],
+    "parent_id": "galactic-baseballer.demon-king.accessory.3113134",
+    "binding_key": "StageAbility_VS_Accessory_SC_Attribute_007",
+    "ability_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_007"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_SC_Attribute_007_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "51e553c1cd9cf52b58ee39f63507b235f8d942711c8354ecd5bea426ae7a43d4",
+    "actor_program_bindings": [],
+    "runtime_executable": false
+  }
+]
