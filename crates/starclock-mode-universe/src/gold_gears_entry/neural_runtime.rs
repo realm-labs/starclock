@@ -96,6 +96,55 @@ pub struct GoldAndGearsNeuralStatContribution {
     ratio_scaled: i64,
 }
 
+/// One frozen Neural mechanic rule bound to its production executor.
+///
+/// Bindings retain the exact source identity and evidence classification while
+/// the actual values flow through the typed Activity and battle projections
+/// exposed by [`GoldAndGearsRuntimeInstance`].
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsNeuralRuleBinding {
+    rule_id: Box<str>,
+    owner_node: Box<str>,
+    operation: &'static str,
+    accuracy: GoldAndGearsNeuralRuleAccuracy,
+}
+
+impl GoldAndGearsNeuralRuleBinding {
+    #[must_use]
+    pub fn rule_id(&self) -> &str {
+        &self.rule_id
+    }
+
+    #[must_use]
+    pub fn owner_node(&self) -> &str {
+        &self.owner_node
+    }
+
+    #[must_use]
+    pub const fn operation(&self) -> &'static str {
+        self.operation
+    }
+
+    #[must_use]
+    pub const fn accuracy(&self) -> GoldAndGearsNeuralRuleAccuracy {
+        self.accuracy
+    }
+
+    /// The frozen partition dispatches every rule through ordinary Activity
+    /// programs or immutable combat inputs.
+    #[must_use]
+    pub const fn executor(&self) -> &'static str {
+        "ActivityAndCombatPrograms"
+    }
+}
+
+/// Truthful runtime accuracy attached to one Neural mechanic rule.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum GoldAndGearsNeuralRuleAccuracy {
+    ExactPublic,
+    VersionedProjectPolicy,
+}
+
 impl GoldAndGearsNeuralStatContribution {
     #[must_use]
     pub fn source_node(&self) -> &str {
@@ -198,6 +247,7 @@ pub(super) struct NeuralRuntimeCatalog {
 #[derive(Clone, Debug)]
 struct RuntimeNeuralNode {
     id: u32,
+    source_id: Box<str>,
     topological_index: u16,
     key: Box<str>,
     prerequisites: Box<[Box<str>]>,
@@ -230,6 +280,7 @@ enum NeuralEffect {
 
 #[derive(Clone, Debug)]
 pub(super) struct CompiledNeuralRuntime {
+    rule_bindings: Box<[GoldAndGearsNeuralRuleBinding]>,
     battle_stats: Box<[GoldAndGearsNeuralStatContribution]>,
     fixed_entry: Option<RuntimeFixedEntry>,
     trailblaze_bonus_unlocks: Box<[Box<str>]>,
@@ -274,6 +325,7 @@ impl NeuralRuntimeCatalog {
             let effect = decode_effect(node, contribution)?;
             nodes.push(RuntimeNeuralNode {
                 id: node.identity.id.0,
+                source_id: node.identity.source_id.clone(),
                 topological_index: node.topological_index,
                 key: node.identity.stable_key.clone(),
                 prerequisites: node.prerequisites.clone(),
@@ -293,6 +345,7 @@ impl NeuralRuntimeCatalog {
         &self,
         selected: &[&NeuralNode],
     ) -> Result<CompiledNeuralRuntime, GoldAndGearsEntryError> {
+        let mut rule_bindings = Vec::with_capacity(selected.len());
         let mut battle_stats = Vec::new();
         let mut fixed_entry = None;
         let mut trailblaze_bonus_unlocks = BTreeSet::new();
@@ -314,6 +367,7 @@ impl NeuralRuntimeCatalog {
             encoder.u32(node.cost_item);
             encoder.u32(node.cost);
             encode_effect(&mut encoder, &node.effect);
+            rule_bindings.push(rule_binding(node));
             match &node.effect {
                 NeuralEffect::BattleStat { stat, ratio_scaled } => {
                     battle_stats.push(GoldAndGearsNeuralStatContribution {
@@ -353,6 +407,7 @@ impl NeuralRuntimeCatalog {
             }
         }
         Ok(CompiledNeuralRuntime {
+            rule_bindings: rule_bindings.into_boxed_slice(),
             battle_stats: battle_stats.into_boxed_slice(),
             fixed_entry,
             trailblaze_bonus_unlocks: trailblaze_bonus_unlocks.into_iter().collect(),
@@ -544,6 +599,13 @@ impl GoldAndGearsRuntimeFactory {
 }
 
 impl GoldAndGearsRuntimeInstance {
+    /// Selected Neural rules in canonical source-node order, each bound to its
+    /// production executor and truthful accuracy classification.
+    #[must_use]
+    pub fn neural_rule_bindings(&self) -> &[GoldAndGearsNeuralRuleBinding] {
+        &self.neural_runtime.rule_bindings
+    }
+
     /// Immutable additive Neural stat projections in source-node order.
     #[must_use]
     pub fn neural_battle_stat_contributions(&self) -> &[GoldAndGearsNeuralStatContribution] {
@@ -586,6 +648,49 @@ impl GoldAndGearsRuntimeInstance {
         context: GoldAndGearsNeuralBattleEntryContext,
     ) -> Result<Option<GoldAndGearsNeuralBattleEntry>, GoldAndGearsEntryError> {
         self.neural_runtime.compile_battle_entry(state, context)
+    }
+}
+
+fn rule_binding(node: &RuntimeNeuralNode) -> GoldAndGearsNeuralRuleBinding {
+    let (operation, accuracy) = match node.effect {
+        NeuralEffect::BattleStat { .. } => (
+            "AddBattleStatRatio",
+            GoldAndGearsNeuralRuleAccuracy::ExactPublic,
+        ),
+        NeuralEffect::FixedEntryDamage { .. } => (
+            "ApplyFixedEntryDamage",
+            GoldAndGearsNeuralRuleAccuracy::ExactPublic,
+        ),
+        NeuralEffect::DiceSlotUpgrade { .. } => (
+            "UpgradeDiceFaceSlot",
+            GoldAndGearsNeuralRuleAccuracy::VersionedProjectPolicy,
+        ),
+        NeuralEffect::TrailblazeBonusUnlock(_) => (
+            "UnlockTrailblazeBonus",
+            GoldAndGearsNeuralRuleAccuracy::ExactPublic,
+        ),
+        NeuralEffect::InitialCountdown(_) => (
+            "AddInitialCountdown",
+            GoldAndGearsNeuralRuleAccuracy::ExactPublic,
+        ),
+        NeuralEffect::BlessingStoreOffers(_) => (
+            "AddBlessingStoreOfferCount",
+            GoldAndGearsNeuralRuleAccuracy::ExactPublic,
+        ),
+        NeuralEffect::NextPlaneRerolls(_) => (
+            "AddRerollAttempts",
+            GoldAndGearsNeuralRuleAccuracy::ExactPublic,
+        ),
+        NeuralEffect::RerollExclusion => (
+            "ExcludePreviousRerollResult",
+            GoldAndGearsNeuralRuleAccuracy::VersionedProjectPolicy,
+        ),
+    };
+    GoldAndGearsNeuralRuleBinding {
+        rule_id: format!("gold-gears.rule.neural-network.{}", node.source_id).into(),
+        owner_node: node.key.clone(),
+        operation,
+        accuracy,
     }
 }
 

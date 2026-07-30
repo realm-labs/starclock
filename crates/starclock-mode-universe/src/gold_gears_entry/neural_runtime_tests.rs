@@ -1,14 +1,17 @@
 use std::collections::BTreeMap;
 
 use starclock_activity::{
-    ActivityCause, ActivityProgramDefinition, ActivitySlotId, ActivityTransactionOutcome,
-    ActivityTransactionRejection, ActivityTransactionState, ActivityValue,
+    ActivityCause, ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
+    ActivityDefinitionIdentity, ActivityInstanceId, ActivityMasterSeed, ActivityProgramDefinition,
+    ActivityRngContext, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+    ActivityValue,
 };
 
 use super::{
     GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsEntryError,
-    GoldAndGearsNeuralBattleEntryContext, GoldAndGearsNeuralBattleStat, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GoldAndGearsNeuralBattleEntryContext, GoldAndGearsNeuralBattleStat,
+    GoldAndGearsNeuralRuleAccuracy, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     state_layout::{
         PLANE_ACTION_POINTS_KEY, PLANE_STATE_SLOT, PROGRESSION_NEURAL_REBOOT_BATTLES_KEY,
         PROGRESSION_SLOT, RESOURCE_DICE_REROLLS_KEY, RUN_RESOURCES_SLOT,
@@ -19,6 +22,59 @@ use super::{
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
+
+#[test]
+fn neural_partition_binds_exactly_forty_rules_to_production_executors() {
+    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = compile(&factory, all_neural(&factory));
+    let bindings = instance.neural_rule_bindings();
+    assert_eq!(bindings.len(), 40);
+    assert!(bindings.windows(2).all(
+        |pair| source(&factory, pair[0].owner_node()) < source(&factory, pair[1].owner_node())
+    ));
+    assert!(
+        bindings
+            .iter()
+            .all(|binding| binding.executor() == "ActivityAndCombatPrograms")
+    );
+    assert_eq!(
+        bindings
+            .iter()
+            .filter(|binding| binding.accuracy() == GoldAndGearsNeuralRuleAccuracy::ExactPublic)
+            .count(),
+        36
+    );
+    let policy_rules = bindings
+        .iter()
+        .filter(|binding| {
+            binding.accuracy() == GoldAndGearsNeuralRuleAccuracy::VersionedProjectPolicy
+        })
+        .map(|binding| binding.rule_id())
+        .collect::<Vec<_>>();
+    assert_eq!(
+        policy_rules,
+        [
+            "gold-gears.rule.neural-network.301",
+            "gold-gears.rule.neural-network.1401",
+            "gold-gears.rule.neural-network.1701",
+            "gold-gears.rule.neural-network.2001",
+        ]
+    );
+    let operation_counts = bindings
+        .iter()
+        .fold(BTreeMap::new(), |mut counts, binding| {
+            *counts.entry(binding.operation()).or_insert(0_usize) += 1;
+            counts
+        });
+    assert_eq!(operation_counts["AddBattleStatRatio"], 30);
+    assert_eq!(operation_counts["ApplyFixedEntryDamage"], 1);
+    assert_eq!(operation_counts["UpgradeDiceFaceSlot"], 3);
+    assert_eq!(operation_counts["UnlockTrailblazeBonus"], 2);
+    assert_eq!(operation_counts["AddInitialCountdown"], 1);
+    assert_eq!(operation_counts["AddBlessingStoreOfferCount"], 1);
+    assert_eq!(operation_counts["AddRerollAttempts"], 1);
+    assert_eq!(operation_counts["ExcludePreviousRerollResult"], 1);
+}
 
 #[test]
 fn all_forty_nodes_compile_exact_costs_and_immutable_battle_contributions() {
@@ -301,6 +357,69 @@ fn production_program_matches_the_neural_network_effect_semantic_fixture() {
     assert_eq!(effect.accounting_program().operations().len(), 2);
 }
 
+#[test]
+fn all_forty_neural_rules_execute_through_the_production_fixture() {
+    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = compile(&factory, all_neural(&factory));
+    assert_eq!(instance.neural_rule_bindings().len(), 40);
+    assert_eq!(instance.neural_battle_stat_contributions().len(), 30);
+    assert_eq!(
+        instance.dice_slot_max_rarities().collect::<Vec<_>>(),
+        [3, 3, 3, 2, 2, 2]
+    );
+    assert_eq!(instance.neural_trailblaze_bonus_unlocks().count(), 2);
+    assert_eq!(instance.neural_blessing_store_offer_count(), 3);
+
+    let mut next_plane = new_state(&instance);
+    commit(
+        &instance,
+        &mut next_plane,
+        instance.compile_neural_plane_start(2).unwrap().unwrap(),
+    );
+    assert_eq!(
+        counter(&next_plane, RUN_RESOURCES_SLOT, RESOURCE_DICE_REROLLS_KEY),
+        2
+    );
+
+    let mut state = new_state(&instance);
+    commit(
+        &instance,
+        &mut state,
+        instance.compile_neural_plane_start(1).unwrap().unwrap(),
+    );
+    let eligible = GoldAndGearsNeuralBattleEntryContext::new(1, false, true);
+    for _ in 0..4 {
+        let entry = instance
+            .compile_neural_battle_entry(&state, eligible)
+            .unwrap()
+            .unwrap();
+        assert_eq!(entry.target_max_hp_ratio_scaled(), 990_000);
+        commit(&instance, &mut state, entry.accounting_program().clone());
+    }
+    assert!(
+        instance
+            .compile_neural_battle_entry(&state, eligible)
+            .unwrap()
+            .is_none()
+    );
+
+    let mut rng = activity_rng(&instance, 14_504);
+    let before = rng.snapshots();
+    let roll = instance.compile_dice_roll(&state, &mut rng).unwrap();
+    assert_one_spawn_draw(&before, &rng.snapshots());
+    commit(&instance, &mut state, roll);
+    let first = instance.dice_resolution_face(&state).unwrap().to_owned();
+    let before = rng.snapshots();
+    let reroll = instance.compile_dice_reroll(&state, &mut rng).unwrap();
+    assert_one_spawn_draw(&before, &rng.snapshots());
+    commit(&instance, &mut state, reroll);
+    assert_ne!(instance.dice_resolution_face(&state), Some(first.as_str()));
+    assert_eq!(
+        state_hash(&instance, &state, &rng),
+        "ba2c297bed0da6a587b80fc4a619619955aa3ff1ee9e37ab17d1ac4d7b3635ac"
+    );
+}
+
 fn compile(
     factory: &GoldAndGearsRuntimeFactory,
     selected: Vec<String>,
@@ -392,5 +511,60 @@ fn counter(state: &ActivityTransactionState, slot_id: u32, key: u64) -> i64 {
             .ok()
             .map_or(0, |index| values[index].1),
         value => panic!("unexpected counter slot: {value:?}"),
+    }
+}
+
+fn activity_rng(instance: &GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRngStreams {
+    let identity = identity();
+    ActivityRngStreams::new(ActivityRngContext::new(
+        ActivityMasterSeed::from_u64(seed),
+        identity.id(),
+        identity.definition_digest(),
+        identity.config_digest(),
+        instance.graph_definition().digest(),
+        ActivityInstanceId::new(1).unwrap(),
+        None,
+        Some(instance.graph_definition().entry()),
+        None,
+        0,
+    ))
+}
+
+fn identity() -> ActivityDefinitionIdentity {
+    ActivityDefinitionIdentity::new(
+        ActivityDefinitionId::new(14).unwrap(),
+        ActivityDefinitionDigest::new([0x14; 32]).unwrap(),
+        ActivityConfigDigest::new([0x47; 32]).unwrap(),
+    )
+}
+
+fn state_hash(
+    instance: &GoldAndGearsRuntimeInstance,
+    state: &ActivityTransactionState,
+    rng: &ActivityRngStreams,
+) -> String {
+    state
+        .state_hash(
+            identity(),
+            instance.graph_definition(),
+            ActivityInstanceId::new(1).unwrap(),
+            rng,
+        )
+        .bytes()
+        .iter()
+        .map(|byte| format!("{byte:02x}"))
+        .collect()
+}
+
+fn assert_one_spawn_draw(
+    before: &[starclock_activity::ActivityRngStreamSnapshot],
+    after: &[starclock_activity::ActivityRngStreamSnapshot],
+) {
+    for (old, new) in before.iter().zip(after) {
+        assert_eq!(new.seed(), old.seed());
+        assert_eq!(
+            new.draw_count(),
+            old.draw_count() + u64::from(old.label() == ActivityRngLabel::Spawn)
+        );
     }
 }

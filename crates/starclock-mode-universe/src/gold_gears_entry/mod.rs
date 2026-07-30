@@ -80,7 +80,8 @@ pub use knowledge_resolution::{
 pub use neural_runtime::{
     GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsNeuralAcquisition,
     GoldAndGearsNeuralBattleEntry, GoldAndGearsNeuralBattleEntryContext,
-    GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralStatContribution,
+    GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralRuleAccuracy, GoldAndGearsNeuralRuleBinding,
+    GoldAndGearsNeuralStatContribution,
 };
 pub use occurrence_runtime::{
     GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY, GOLD_AND_GEARS_OCCURRENCE_POLICY_REVISION,
