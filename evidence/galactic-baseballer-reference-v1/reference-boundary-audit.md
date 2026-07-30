@@ -3,7 +3,7 @@
 `G16-P4-B2` audits profile ownership, shared identities, synthesis and repository
 isolation against the complete Version 4.4 reference pack. The machine result
 is `reference-boundary-results.json` with SHA-256
-`c50880c742c156aead77c599c8bc5adcba6991d94964f5a38eb760b4d587e157`.
+`7541da2e505234ff566f4f8e73ab580960d7b18348962a32f40976496c3cdbd4`.
 
 ## Profile correction and result
 

@@ -44,6 +44,8 @@ assert(
   profiles[0].id === "galactic-baseballer.departure.v2_2"
     && profiles[0].released_version === "2.2"
     && profiles[0].retained_baseline_version === "4.4"
+    && profiles[0].shared_system_id
+      === "galactic-baseballer.shared-base.v1"
     && profiles[0].entry_unlock_quest_id === "6070207"
     && profiles[0].runtime_enabled === false,
   "Departure profile boundary drift",

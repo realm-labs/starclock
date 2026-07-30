@@ -19,7 +19,9 @@ const outputPath = path.join(
   "reference-boundary-results.json",
 );
 const check = process.argv.includes("--check");
+const allowDetached = process.argv.includes("--allow-detached");
 const branchBase = "0191cc71b1735d6e101e6e04817181423c599232";
+const expectedBranch = "codex/goal16-galactic-baseballer-reference";
 const profileIds = [
   "galactic-baseballer.demon-king.v3_3",
   "galactic-baseballer.departure.v2_2",
@@ -386,9 +388,9 @@ assert(
     && worktrees.includes(`worktree ${mainWorktree}`),
   "parallel worktree registration drift",
 );
+const currentBranch = git(["branch", "--show-current"]);
 assert(
-  git(["branch", "--show-current"])
-    === "codex/goal16-galactic-baseballer-reference",
+  currentBranch === expectedBranch || (allowDetached && currentBranch === ""),
   "Goal 16 branch drift",
 );
 
@@ -445,9 +447,9 @@ const result = {
   },
   isolation_audit: {
     branch_base: branchBase,
-    branch: git(["branch", "--show-current"]),
-    worktree: root,
-    main_worktree: mainWorktree,
+    expected_branch: expectedBranch,
+    detached_clean_checkout_supported: true,
+    worktree_isolated_from_main: true,
     changed_path_scope: "all committed and working-tree paths validated",
     out_of_boundary_changed_path_count: 0,
     protected_root_count: protectedResults.length,

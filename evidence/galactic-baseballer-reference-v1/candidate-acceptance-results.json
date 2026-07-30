@@ -1,0 +1,54 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-candidate-acceptance-results.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "batch_id": "G16-P4-B3",
+  "baseline_game_version": "4.4",
+  "status": "Passed",
+  "current_worktree": {
+    "full_source_cache_command": "node tools/repository-check/run.mjs --full --with-source-cache",
+    "generated_and_source_check_count": 32,
+    "cache_dependent_check_skipped_count": 0,
+    "clippy_status": "Passed",
+    "workspace_test_harness_count": 138,
+    "workspace_test_seconds": "78.8",
+    "full_gate_seconds": "123.0"
+  },
+  "goal_candidate_verifier": {
+    "status": "Passed",
+    "fixed_source_repositories": 2,
+    "profile_count": 2,
+    "frozen_obligation_count": 2232,
+    "semantic_family_count": 20,
+    "workbook_count": 4,
+    "workbook_double_generation_byte_identical": true,
+    "sora_table_count": 40,
+    "standalone_loaded_row_count": 10615,
+    "source_repositories_clean_after_regeneration": true
+  },
+  "clean_checkout": {
+    "status": "Passed",
+    "audited_commit": "ccc0c108f8fbdee5940dce63fb2676258c7dd613",
+    "audited_tree": "fad9760201233b849e428424e6ed4ca5f4dd71bf",
+    "mode": "detached Git worktree with ignored read-only fixed-source and tool-cache links",
+    "full_source_cache_command": "node tools/repository-check/run.mjs --full --with-source-cache",
+    "generated_and_source_check_count": 32,
+    "cache_dependent_check_skipped_count": 0,
+    "clippy_status": "Passed",
+    "workspace_test_harness_count": 138,
+    "workspace_test_seconds": "203.7",
+    "full_gate_seconds": "316.1",
+    "reference_pack_check": "Passed",
+    "semantic_fixture_check": "Passed",
+    "workbook_round_trip_check": "Passed",
+    "sora_release_drift_check": "Passed",
+    "standalone_reader_check": "Passed",
+    "tracked_worktree_clean_after_checks": true,
+    "temporary_worktree_removed": true
+  },
+  "candidate_fingerprints": {
+    "workbook_semantic_sha256": "2c0021b589e057bc398d7202ed73193eb48a2cdf97229b68cc9fd1b464091aac",
+    "sora_schema_lock_sha256": "cd0e4a3645da7d1a6e0526d506881879bd63f347549de7619aa85714e31da56b",
+    "sora_bundle_sha256": "82e600ee2b8aaaaeada82810f223d4f45e193833eb4151c939a5e51950f78848",
+    "sora_generated_tree_sha256": "fad82dc324258451c71039130f5f5043b12360efd80716d81e02ed4ffaf18e03"
+  }
+}
