@@ -66,6 +66,7 @@ pub use curio_types::{
     GoldAndGearsCurioCandidate, GoldAndGearsCurioCategory, GoldAndGearsCurioContribution,
     GoldAndGearsCurioContributionSet, GoldAndGearsCurioDefinition, GoldAndGearsCurioId,
     GoldAndGearsCurioOfferContext, GoldAndGearsCurioOfferSource, GoldAndGearsCurioParameter,
+    GoldAndGearsCurioRuleBinding, GoldAndGearsCurioRuleKind, GoldAndGearsCurioRuleOwnership,
     GoldAndGearsCurioState,
 };
 pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;

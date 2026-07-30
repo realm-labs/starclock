@@ -9,8 +9,8 @@ use super::{
     GOLD_AND_GEARS_CURIO_OFFER_POLICY_ACCURACY, GOLD_AND_GEARS_CURIO_OFFER_POLICY_REVISION,
     GOLD_AND_GEARS_CURIO_RUNTIME_REVISION, GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION,
     GoldAndGearsCurioCategory, GoldAndGearsCurioId, GoldAndGearsCurioOfferContext,
-    GoldAndGearsCurioOfferSource, GoldAndGearsCurioState, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GoldAndGearsCurioOfferSource, GoldAndGearsCurioRuleKind, GoldAndGearsCurioRuleOwnership,
+    GoldAndGearsCurioState, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     state_layout::{
         BLESSING_INVENTORY, CONTENT_CURIO_CHARGE_BASE, CONTENT_CURIO_STATE_BASE,
         CONTENT_LIFECYCLE_SLOT, CURIO_INVENTORY,
@@ -19,6 +19,67 @@ use super::{
 };
 
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
+
+#[test]
+fn curio_partition_binds_exactly_160_versioned_policy_rules() {
+    let factory = factory();
+    let bindings = factory.curio_rule_bindings();
+    assert_eq!(bindings.len(), 160);
+    assert!(
+        bindings
+            .windows(2)
+            .all(|pair| pair[0].rule_id() < pair[1].rule_id())
+    );
+    assert!(
+        bindings
+            .iter()
+            .all(|binding| binding.accuracy() == "VersionedProjectPolicy")
+    );
+    assert_eq!(
+        bindings
+            .iter()
+            .filter(|binding| binding.kind() == GoldAndGearsCurioRuleKind::LifecycleState)
+            .count(),
+        80
+    );
+    assert_eq!(
+        bindings
+            .iter()
+            .filter(|binding| binding.kind() == GoldAndGearsCurioRuleKind::Contribution)
+            .count(),
+        80
+    );
+    assert_eq!(
+        bindings
+            .iter()
+            .filter(|binding| binding.ownership() == GoldAndGearsCurioRuleOwnership::Shared)
+            .count(),
+        61
+    );
+    assert_eq!(
+        bindings
+            .iter()
+            .filter(|binding| binding.ownership() == GoldAndGearsCurioRuleOwnership::GoldAndGears)
+            .count(),
+        99
+    );
+    assert!(bindings.iter().all(|binding| {
+        binding.operation()
+            == if binding.kind() == GoldAndGearsCurioRuleKind::LifecycleState {
+                "ExecuteCurioLifecycle"
+            } else {
+                "ProjectCurioContribution"
+            }
+    }));
+    assert!(bindings.iter().all(|binding| {
+        binding.executor()
+            == if binding.ownership() == GoldAndGearsCurioRuleOwnership::Shared {
+                "ReleasedSharedExecutor"
+            } else {
+                "ActivityAndCombatPrograms"
+            }
+    }));
+}
 
 #[test]
 fn shared_content_denominators_revisions_and_inventories_are_bound() {
@@ -484,6 +545,59 @@ fn replacement_teardown_and_contribution_validation_preserve_invariants() {
     );
 }
 
+#[test]
+fn all_160_curio_rules_execute_through_the_production_fixture() {
+    let instance = compiled_fixture(&factory());
+    let definitions = instance.curio_definitions();
+    let mut state = new_state(&instance);
+    for definition in definitions {
+        commit(
+            &instance,
+            &mut state,
+            instance.compile_curio_acquisition(definition.id()).unwrap(),
+        );
+    }
+    assert_eq!(state.command_sequence(), 80);
+
+    let owned = definitions
+        .iter()
+        .map(|definition| (definition.id(), 1))
+        .collect::<Vec<_>>();
+    let states = definitions
+        .iter()
+        .map(|definition| (definition.id(), definition.initial_state()))
+        .collect::<Vec<_>>();
+    let counters = definitions
+        .iter()
+        .filter_map(|definition| {
+            definition
+                .maximum_charges()
+                .map(|charges| (definition.id(), charges))
+        })
+        .collect::<Vec<_>>();
+    let contributions = instance
+        .curio_contributions(&owned, &states, &counters)
+        .unwrap();
+    assert_eq!(contributions.entries().len(), 80);
+    assert_eq!(
+        contributions
+            .entries()
+            .iter()
+            .filter(|contribution| contribution.shared_curio().is_some())
+            .count(),
+        61
+    );
+    assert_eq!(
+        digest_hex(contributions.digest()),
+        "a7fbde6e31ec7a7037dd3168fe4d99c71fa8ee593409c36c3fd333a9cd4b0934"
+    );
+    let rng = activity_rng(&instance, 14_505);
+    assert_eq!(
+        state_hash(&instance, &state, &rng),
+        "61b32bed5729e03ce9f4066033926dab1d9490db6f84185e51d5c9a6a6719a6e"
+    );
+}
+
 fn factory() -> GoldAndGearsRuntimeFactory {
     GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
 }
@@ -656,4 +770,21 @@ fn activity_rng(instance: &GoldAndGearsRuntimeInstance, seed: u64) -> ActivityRn
 
 fn digest_hex(digest: [u8; 32]) -> String {
     digest.iter().map(|byte| format!("{byte:02x}")).collect()
+}
+
+fn state_hash(
+    instance: &GoldAndGearsRuntimeInstance,
+    state: &ActivityTransactionState,
+    rng: &ActivityRngStreams,
+) -> String {
+    digest_hex(
+        state
+            .state_hash(
+                identity(),
+                instance.graph_definition(),
+                ActivityInstanceId::new(1).unwrap(),
+                rng,
+            )
+            .bytes(),
+    )
 }

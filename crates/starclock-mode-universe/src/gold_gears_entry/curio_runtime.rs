@@ -24,6 +24,7 @@ use super::{
         GoldAndGearsCurioCandidate, GoldAndGearsCurioCategory, GoldAndGearsCurioContribution,
         GoldAndGearsCurioContributionSet, GoldAndGearsCurioDefinition, GoldAndGearsCurioId,
         GoldAndGearsCurioOfferContext, GoldAndGearsCurioOfferSource, GoldAndGearsCurioParameter,
+        GoldAndGearsCurioRuleBinding, GoldAndGearsCurioRuleKind, GoldAndGearsCurioRuleOwnership,
         GoldAndGearsCurioState,
     },
     state_layout::{
@@ -46,6 +47,7 @@ const REPLACEMENT_PURPOSE: u16 = 0x4776;
 #[derive(Clone, Debug)]
 pub(super) struct GoldAndGearsCurioRuntimeCatalog {
     definitions: Box<[GoldAndGearsCurioDefinition]>,
+    rule_bindings: Box<[GoldAndGearsCurioRuleBinding]>,
     digest: [u8; 32],
 }
 
@@ -82,9 +84,11 @@ impl GoldAndGearsCurioRuntimeCatalog {
         {
             return Err(GoldAndGearsEntryError::InvalidCurioRuntime);
         }
+        let rule_bindings = compile_rule_bindings(&definitions)?;
         let digest = catalog_digest(&definitions);
         Ok(Self {
             definitions: definitions.into_boxed_slice(),
+            rule_bindings,
             digest,
         })
     }
@@ -95,6 +99,10 @@ impl GoldAndGearsCurioRuntimeCatalog {
 
     pub(super) const fn digest(&self) -> [u8; 32] {
         self.digest
+    }
+
+    pub(super) fn rule_bindings(&self) -> &[GoldAndGearsCurioRuleBinding] {
+        &self.rule_bindings
     }
 
     fn definition(&self, id: GoldAndGearsCurioId) -> Option<&GoldAndGearsCurioDefinition> {
@@ -203,6 +211,11 @@ impl GoldAndGearsRuntimeFactory {
     pub fn curio_runtime_digest(&self) -> [u8; 32] {
         self.content_runtime.curios.digest()
     }
+
+    #[must_use]
+    pub fn curio_rule_bindings(&self) -> &[GoldAndGearsCurioRuleBinding] {
+        self.content_runtime.curios.rule_bindings()
+    }
 }
 
 impl GoldAndGearsRuntimeInstance {
@@ -214,6 +227,11 @@ impl GoldAndGearsRuntimeInstance {
     #[must_use]
     pub fn curio_runtime_digest(&self) -> [u8; 32] {
         self.content_runtime.curios.digest()
+    }
+
+    #[must_use]
+    pub fn curio_rule_bindings(&self) -> &[GoldAndGearsCurioRuleBinding] {
+        self.content_runtime.curios.rule_bindings()
     }
 
     pub fn curio_candidates(
@@ -526,6 +544,8 @@ fn compile_definition(
         id,
         stable_key: curio.key.as_str().into(),
         source_id,
+        lifecycle_rule: state.rule.as_str().into(),
+        contribution_rule: curio.rule.as_str().into(),
         handbook_order: u16::try_from(curio.handbook_order)
             .ok()
             .filter(|value| *value > 0)
@@ -545,6 +565,65 @@ fn compile_definition(
             == "ReplaceAllPossessedCuriosIncludingSelfWithRandomCurios",
         post_destruction_effect: nonempty(lifecycle.post_destruction_effect),
     })
+}
+
+fn compile_rule_bindings(
+    definitions: &[GoldAndGearsCurioDefinition],
+) -> Result<Box<[GoldAndGearsCurioRuleBinding]>, GoldAndGearsEntryError> {
+    let mut bindings = Vec::with_capacity(definitions.len() * 2);
+    for definition in definitions {
+        let contribution_owner = if definition.shared_curio.is_some() {
+            GoldAndGearsCurioRuleOwnership::Shared
+        } else {
+            GoldAndGearsCurioRuleOwnership::GoldAndGears
+        };
+        let expected_contribution_rule = format!("gold-gears.rule.curio.{}", definition.source_id);
+        if definition.contribution_rule.as_ref() != expected_contribution_rule {
+            return Err(GoldAndGearsEntryError::InvalidCurioRuntime);
+        }
+        let Some(state_source) = definition
+            .lifecycle_rule
+            .strip_prefix("gold-gears.rule.curio-state.")
+        else {
+            return Err(GoldAndGearsEntryError::InvalidCurioRuntime);
+        };
+        parse_u32(state_source)?;
+        bindings.push(GoldAndGearsCurioRuleBinding {
+            rule_id: definition.lifecycle_rule.clone(),
+            owner_id: format!("gold-gears.curio-state.{state_source}").into(),
+            kind: GoldAndGearsCurioRuleKind::LifecycleState,
+            ownership: GoldAndGearsCurioRuleOwnership::GoldAndGears,
+        });
+        bindings.push(GoldAndGearsCurioRuleBinding {
+            rule_id: definition.contribution_rule.clone(),
+            owner_id: if contribution_owner == GoldAndGearsCurioRuleOwnership::Shared {
+                format!("universe.curio.{}", definition.source_id).into()
+            } else {
+                format!("gold-gears.curio.{}", definition.source_id).into()
+            },
+            kind: GoldAndGearsCurioRuleKind::Contribution,
+            ownership: contribution_owner,
+        });
+    }
+    bindings.sort_unstable_by(|left, right| left.rule_id.cmp(&right.rule_id));
+    if bindings.len() != 160
+        || bindings
+            .windows(2)
+            .any(|pair| pair[0].rule_id == pair[1].rule_id)
+        || bindings
+            .iter()
+            .filter(|binding| binding.kind == GoldAndGearsCurioRuleKind::LifecycleState)
+            .count()
+            != 80
+        || bindings
+            .iter()
+            .filter(|binding| binding.ownership == GoldAndGearsCurioRuleOwnership::Shared)
+            .count()
+            != 61
+    {
+        return Err(GoldAndGearsEntryError::InvalidCurioRuntime);
+    }
+    Ok(bindings.into_boxed_slice())
 }
 
 #[derive(Deserialize)]

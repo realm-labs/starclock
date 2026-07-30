@@ -131,11 +131,79 @@ impl GoldAndGearsCurioParameter {
     }
 }
 
+/// Frozen Curio rule responsibility bound to one production executor.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum GoldAndGearsCurioRuleKind {
+    LifecycleState,
+    Contribution,
+}
+
+/// Truthful owner of a Curio rule's executable semantics.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+pub enum GoldAndGearsCurioRuleOwnership {
+    Shared,
+    GoldAndGears,
+}
+
+/// One of the 160 frozen Curio lifecycle rules with terminal dispatch.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct GoldAndGearsCurioRuleBinding {
+    pub(super) rule_id: Box<str>,
+    pub(super) owner_id: Box<str>,
+    pub(super) kind: GoldAndGearsCurioRuleKind,
+    pub(super) ownership: GoldAndGearsCurioRuleOwnership,
+}
+
+impl GoldAndGearsCurioRuleBinding {
+    #[must_use]
+    pub fn rule_id(&self) -> &str {
+        &self.rule_id
+    }
+
+    #[must_use]
+    pub fn owner_id(&self) -> &str {
+        &self.owner_id
+    }
+
+    #[must_use]
+    pub const fn kind(&self) -> GoldAndGearsCurioRuleKind {
+        self.kind
+    }
+
+    #[must_use]
+    pub const fn ownership(&self) -> GoldAndGearsCurioRuleOwnership {
+        self.ownership
+    }
+
+    #[must_use]
+    pub const fn accuracy(&self) -> &'static str {
+        "VersionedProjectPolicy"
+    }
+
+    #[must_use]
+    pub const fn executor(&self) -> &'static str {
+        match self.ownership {
+            GoldAndGearsCurioRuleOwnership::Shared => "ReleasedSharedExecutor",
+            GoldAndGearsCurioRuleOwnership::GoldAndGears => "ActivityAndCombatPrograms",
+        }
+    }
+
+    #[must_use]
+    pub const fn operation(&self) -> &'static str {
+        match self.kind {
+            GoldAndGearsCurioRuleKind::LifecycleState => "ExecuteCurioLifecycle",
+            GoldAndGearsCurioRuleKind::Contribution => "ProjectCurioContribution",
+        }
+    }
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GoldAndGearsCurioDefinition {
     pub(super) id: GoldAndGearsCurioId,
     pub(super) stable_key: Box<str>,
     pub(super) source_id: u32,
+    pub(super) lifecycle_rule: Box<str>,
+    pub(super) contribution_rule: Box<str>,
     pub(super) handbook_order: u16,
     pub(super) category: GoldAndGearsCurioCategory,
     pub(super) shared_curio: Option<CurioId>,
