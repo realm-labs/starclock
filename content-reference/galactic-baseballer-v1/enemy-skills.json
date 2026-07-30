@@ -1,0 +1,4376 @@
+[
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.100401001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Chill of Bone-Piercing Coagulation",
+    "name_zh_cn": "刺骨凝血的寒芒",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:100401001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.97b57b9a0e90e762",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=47",
+        "sha256": "97b57b9a0e90e762e35b234bd9c11cf14531c1097292b9597f0832946b362e1a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.30c9f2d0fe50da3e",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=100401001",
+        "sha256": "30c9f2d0fe50da3e614553e0e964c3181ef62a17d416923bbe377a8355e91e0a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "100401001",
+    "inherited_enemy_ability_id": "enemy.cocolia.littleboss.ability.chill-of-bone-piercing-coagulation.skill06",
+    "inherited_enemy_id": "enemy.cocolia.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.100401002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Omen of Everlasting Freeze",
+    "name_zh_cn": "漫长冰期的预兆",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:100401002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.15b79730232cdf98",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=48",
+        "sha256": "15b79730232cdf984c353a2e5e573d75252fa1d97a9f6df9784b4445c493a7fe",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.af205fbff06c011a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=100401002",
+        "sha256": "af205fbff06c011ae9419a2e025b4ade43e95249006952e808aee6926fd75d99",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "100401002",
+    "inherited_enemy_ability_id": "enemy.cocolia.littleboss.ability.omen-of-everlasting-freeze.skill02",
+    "inherited_enemy_id": "enemy.cocolia.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.100401003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Punishment of Endless Winter",
+    "name_zh_cn": "无尽长冬的绝罚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:100401003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2a32341e9417d5b9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=49",
+        "sha256": "2a32341e9417d5b964a6d011eb6daef2ac8efe20e4b54f01a67a8cfd49a9eb52",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.10b1ee6fe6015202",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=100401003",
+        "sha256": "10b1ee6fe601520257a7afd61d2a3118c0da05d9df96d32aa8fca9a478cf06f4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "100401003",
+    "inherited_enemy_ability_id": "enemy.cocolia.littleboss.ability.punishment-of-endless-winter.skill03",
+    "inherited_enemy_id": "enemy.cocolia.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.100401004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Hoarfrost of Eternal Isolation",
+    "name_zh_cn": "永囚于此的白霜",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:100401004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f58ff494ee33443d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=50",
+        "sha256": "f58ff494ee33443d65a6e79403d2c92846d44451491df056f2a1705317339225",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.920ce14325427fdc",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=100401004",
+        "sha256": "920ce14325427fdcded7ee18782834502daf9ed0e339e872f854412ee49c2325",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "100401004",
+    "inherited_enemy_ability_id": "enemy.cocolia.littleboss.ability.hoarfrost-of-eternal-isolation.skill04",
+    "inherited_enemy_id": "enemy.cocolia.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.100401005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Wrath of Winterland Saints",
+    "name_zh_cn": "雪国圣徒的烈怒",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:100401005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.678794b6820b3ebc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=51",
+        "sha256": "678794b6820b3ebc87eb6962ecf18e522b7e1bc85febeddd180c3ac4f583ed15",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.554031357efc3631",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=100401005",
+        "sha256": "554031357efc3631ee6179fedbe14859ec2995c23f68e74dbdd68959883fc410",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "100401005",
+    "inherited_enemy_ability_id": "enemy.cocolia.littleboss.ability.wrath-of-winterland-saints.skill05",
+    "inherited_enemy_id": "enemy.cocolia.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.100401006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Ability 100401006",
+    "name_zh_cn": "Ability 100401006",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:100401006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.75f44ba0ad740245",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=52",
+        "sha256": "75f44ba0ad740245825962d03f4edd929096d574253d5661e797a3f2b4d15ae8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.4bffe39d70327e9c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=100401006",
+        "sha256": "4bffe39d70327e9c24b3b82219d8fad6f3ccdc5e2490d1286a5b0f2345852009",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "100401006",
+    "inherited_enemy_ability_id": "enemy.cocolia.littleboss.ability.ability-100401006.skill07",
+    "inherited_enemy_id": "enemy.cocolia.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.102201001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Frost Crush",
+    "name_zh_cn": "霜冻重击",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:102201001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8401e9b104158bca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=471",
+        "sha256": "8401e9b104158bca3e3727bf7420595a0815ce83cf18690a11840167ee30f772",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.1d992d5809d9ad83",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=102201001",
+        "sha256": "1d992d5809d9ad835296228f8b687271c3ad2ae5f421c60f5204f27844ce7124",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "102201001",
+    "inherited_enemy_ability_id": "enemy.everwinter-shadewalker.minionlv2.ability.frost-crush.skill01",
+    "inherited_enemy_id": "enemy.everwinter-shadewalker.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.102202001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Scorching Crush",
+    "name_zh_cn": "灼炎重击",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:102202001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a1111bc141efa563",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=472",
+        "sha256": "a1111bc141efa5636e4087c77506ccb86cc1250e722f2bb79229fa7854b3bba1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.42f565433c163201",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=102202001",
+        "sha256": "42f565433c163201422d86ef4ccb75a9d67659e79b274fac31a03655cddf8cb3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "102202001",
+    "inherited_enemy_ability_id": "enemy.incineration-shadewalker.minionlv2.ability.scorching-crush.skill01",
+    "inherited_enemy_id": "enemy.incineration-shadewalker.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.302401001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Piety",
+    "name_zh_cn": "虔诚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:302401001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1a47d137f0f4aa9e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=1453",
+        "sha256": "1a47d137f0f4aa9efddb64bb463660ec9a71c18ca2ef7ec73599694c29479831",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.200cfc6974656a7c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=302401001",
+        "sha256": "200cfc6974656a7c4054b917913a88d7967a0cc50a7d9b1a3086f67da2e4447d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "302401001",
+    "inherited_enemy_ability_id": "enemy.argenti.littleboss.ability.piety.skill01",
+    "inherited_enemy_id": "enemy.argenti.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.302401002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Imbue Devotion",
+    "name_zh_cn": "渐臻虔诚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:302401002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.dd4296e526b72714",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=1454",
+        "sha256": "dd4296e526b72714cbadf8b2467b4efc4960951188fbe2a31bbb8508e0895072",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5878ba4fda34bc49",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=302401002",
+        "sha256": "5878ba4fda34bc49edb39cb649819278f07198466ce023f1692709bb8dde6bf3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "302401002",
+    "inherited_enemy_ability_id": "enemy.argenti.littleboss.ability.imbue-devotion.skill02",
+    "inherited_enemy_id": "enemy.argenti.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.302401003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Spear & Shield",
+    "name_zh_cn": "枪与盾",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:302401003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.97d613445eca9081",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=1455",
+        "sha256": "97d613445eca90812d1ca33b0a367000f4990be8b60f7aa8f1fb48550bae6f8d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.4a2b6da1a9f1c4de",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=302401003",
+        "sha256": "4a2b6da1a9f1c4de65e365f6a4001f9b6ff8328da8db42a65b69976d4a697c63",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "302401003",
+    "inherited_enemy_ability_id": "enemy.argenti.littleboss.ability.spear-shield.skill03",
+    "inherited_enemy_id": "enemy.argenti.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.302401004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Soul of Tenacity",
+    "name_zh_cn": "坚韧灵魂",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:302401004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b584a163dcdcd780",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=1456",
+        "sha256": "b584a163dcdcd780a8f37fe789b292321ad4d37ee1d67db06abae299fafdafae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5ceb939b4435a648",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=302401004",
+        "sha256": "5ceb939b4435a648b5e12014e222f23b4b49b87224f2eee00d7c20d9866f9273",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "302401004",
+    "inherited_enemy_ability_id": "enemy.argenti.littleboss.ability.soul-of-tenacity.skill04",
+    "inherited_enemy_id": "enemy.argenti.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.302401005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Hymn of Gorgeous Courage",
+    "name_zh_cn": "纯美的勇气赞歌",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:302401005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7de6c016d1e04059",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=1457",
+        "sha256": "7de6c016d1e04059ad27f890535cff4aa99b406edd88a417c7d98ceb47dccfd8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.65ec39a2c0e3822e",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=302401005",
+        "sha256": "65ec39a2c0e3822e82683e33507dec49a0e165a6e8bf7f07abc92d449f9b8461",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "302401005",
+    "inherited_enemy_ability_id": "enemy.argenti.littleboss.ability.hymn-of-gorgeous-courage.skill05",
+    "inherited_enemy_id": "enemy.argenti.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.302401007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Spear & Shield",
+    "name_zh_cn": "枪与盾",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:302401007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ac1c9dfacd87be97",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=1458",
+        "sha256": "ac1c9dfacd87be97b2fad69c265d0be3aae20bc46a27443bae853ff3a0dcded5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.2af250ec7e07821e",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=302401007",
+        "sha256": "2af250ec7e07821e20279ed3630285779321cfff0ecde7bba0dada8e1324c197",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "302401007",
+    "inherited_enemy_ability_id": "enemy.argenti.littleboss.ability.spear-shield.skill07",
+    "inherited_enemy_id": "enemy.argenti.littleboss",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800101001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Distract",
+    "name_zh_cn": "扰乱",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800101001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9325433869111b62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2847",
+        "sha256": "9325433869111b628ff485e7d2f9e1b54ae6711cd208ebd622db0402f4f06bd8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.52a35bac4765f2ec",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800101001",
+        "sha256": "52a35bac4765f2ec6336593bb839680163e95d3f575468dc0fcb0ab617ed4ebd",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800101001",
+    "inherited_enemy_ability_id": "enemy.flamespawn.minion.ability.distract.skill01",
+    "inherited_enemy_id": "enemy.flamespawn.minion",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800102001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Distract",
+    "name_zh_cn": "扰乱",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800102001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.eaf0b1f514f1088e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2848",
+        "sha256": "eaf0b1f514f1088ec852ed582d7e114a8a2493c1fa0b81b493bb9f2016ea0019",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.16ced2ef6f9d1b55",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800102001",
+        "sha256": "16ced2ef6f9d1b55c11f923f31ccdcd2e6a405a7ba92bc22f77a207fc98467d4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800102001",
+    "inherited_enemy_ability_id": "enemy.frostspawn.minion.ability.distract.skill01",
+    "inherited_enemy_id": "enemy.frostspawn.minion",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800103001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Iridescent Beam",
+    "name_zh_cn": "虹彩光束",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800103001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.134640e570483e0b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2849",
+        "sha256": "134640e570483e0b086c2da14c3022840bef49dc53624d958beea960a1981e62",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.103340326f7ced1c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800103001",
+        "sha256": "103340326f7ced1c38de419b11fa761b772402b9ae00d34ea959a6a0d7f443df",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800103001",
+    "inherited_enemy_ability_id": "enemy.mask-of-no-thought.minion.ability.iridescent-beam.skill01",
+    "inherited_enemy_id": "enemy.mask-of-no-thought.minion",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800103002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Focused Charge",
+    "name_zh_cn": "聚焦充能",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800103002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.26a113d7a7d5814a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2850",
+        "sha256": "26a113d7a7d5814a13ba1ddc60870b1c02e43c88111e2f0c4b9e465520204d95",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.9a03a6a126ca47a9",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800103002",
+        "sha256": "9a03a6a126ca47a9240efa25294a9d0bebedf499ac810874d8f7e3d6af006105",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800103002",
+    "inherited_enemy_ability_id": "enemy.mask-of-no-thought.minion.ability.focused-charge.skill02",
+    "inherited_enemy_id": "enemy.mask-of-no-thought.minion",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800103003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Energy Burst",
+    "name_zh_cn": "能量涌泄",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800103003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.56c7e09ce171572f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2851",
+        "sha256": "56c7e09ce171572fd3d8fa566cff325943528ee98f11c423860744dda9c8a57a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.d92240f5bd375f77",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800103003",
+        "sha256": "d92240f5bd375f776254c5a611d48d3c3a96c122e73406ed2f4c40fc108b81e2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800103003",
+    "inherited_enemy_ability_id": "enemy.mask-of-no-thought.minion.ability.energy-burst.passiveskill01",
+    "inherited_enemy_id": "enemy.mask-of-no-thought.minion",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800104001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Thunderflash",
+    "name_zh_cn": "雷腾",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800104001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.864980695742872b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2852",
+        "sha256": "864980695742872b024aab6a89f105e4f8c39de4c128c31ae029376b63f1d0b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.baf43e72f130f318",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800104001",
+        "sha256": "baf43e72f130f318e36565aa0f29b51c1fabfed5598d10a67fe78750ce34644c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800104001",
+    "inherited_enemy_ability_id": "enemy.thunderspawn.minion.ability.thunderflash.skill01",
+    "inherited_enemy_id": "enemy.thunderspawn.minion",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800201001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Carolbeam",
+    "name_zh_cn": "颂歌光束",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800201001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.74e40aa1125b25cb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2854",
+        "sha256": "74e40aa1125b25cb462ddf81704c5aafbe92a696bef47749e399ea5206e6f37f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.23ac858e109285a9",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800201001",
+        "sha256": "23ac858e109285a92debadc021fa3d5e7248b5bb60925b47d1ff7019fd0ca304",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800201001",
+    "inherited_enemy_ability_id": "enemy.imaginary-weaver.minionlv2.ability.carolbeam.skill01",
+    "inherited_enemy_id": "enemy.imaginary-weaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800201002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Carolburst",
+    "name_zh_cn": "颂歌爆发",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800201002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9e5ca634ce9f1167",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2855",
+        "sha256": "9e5ca634ce9f1167c395d8e1ec8696b5c06b4b275cdb9017156c6691048753f2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.4de91d1dea6f5fc6",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800201002",
+        "sha256": "4de91d1dea6f5fc616c2a4aa77594c9d698049aa149d9f7990dfdf131ce034c8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800201002",
+    "inherited_enemy_ability_id": "enemy.imaginary-weaver.minionlv2.ability.carolburst.skill02",
+    "inherited_enemy_id": "enemy.imaginary-weaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800201003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Reverberating Carol",
+    "name_zh_cn": "颂歌震荡",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800201003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d9cf262101259966",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2856",
+        "sha256": "d9cf262101259966802763c09f519b4aff9de93f691ab964aced5b92a3ea21aa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.7907b34ce576da9b",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800201003",
+        "sha256": "7907b34ce576da9bdd064b87da8d96572c04bb4b1a8cde55262eb001ac7b502f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800201003",
+    "inherited_enemy_ability_id": "enemy.imaginary-weaver.minionlv2.ability.reverberating-carol.skill03",
+    "inherited_enemy_id": "enemy.imaginary-weaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800201004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Imaginary Armor",
+    "name_zh_cn": "虚数护甲",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800201004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.71bd6ec12c823262",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2857",
+        "sha256": "71bd6ec12c8232621911d2e4ee0c92bd2667824e8f2bb7b97f353c401b20f0a2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.ca99222aed463b73",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800201004",
+        "sha256": "ca99222aed463b73849f49f7cf67ca61b3eb56a202e50ae45772b9c0b1ff7fa1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800201004",
+    "inherited_enemy_ability_id": "enemy.imaginary-weaver.minionlv2.ability.imaginary-armor.passiveskillinitiate",
+    "inherited_enemy_id": "enemy.imaginary-weaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800301101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Chilling Lament",
+    "name_zh_cn": "叹息之寒",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800301101"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c827c85e973c1e67",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2957",
+        "sha256": "c827c85e973c1e67b7399bad89ed393790b3927e9aea528d576adcdc7ba3f3bb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.f5d6e9ae77f05906",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800301101",
+        "sha256": "f5d6e9ae77f05906db92725d79ac69c925586c785eb9e1e1f308f51dda4547e7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800301101",
+    "inherited_enemy_ability_id": "enemy.ice-out-of-space-bug.elite.ability.chilling-lament.skill01",
+    "inherited_enemy_id": "enemy.ice-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800301102",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Frosty Absorption",
+    "name_zh_cn": "汲取霜晶",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800301102"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a4815cd53ae60325",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2958",
+        "sha256": "a4815cd53ae603253e699fecbb894943ebdb0f5dd7e571893b22afdbf9745504",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.fd0a272708c647f4",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800301102",
+        "sha256": "fd0a272708c647f43cbb16bdcc78a5026c334e8c9bde88fa08a94ed3002116d6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800301102",
+    "inherited_enemy_ability_id": "enemy.ice-out-of-space-bug.elite.ability.frosty-absorption.skill02",
+    "inherited_enemy_id": "enemy.ice-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800301103",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Everwinter Rain",
+    "name_zh_cn": "永冬之雨",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800301103"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2394aa9a5adc8ed5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2959",
+        "sha256": "2394aa9a5adc8ed56a43e651a0c8502094e1ab392b7fe51cc1b7f2834a7a13f5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.7227a551b5095eff",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800301103",
+        "sha256": "7227a551b5095efffc80f77c887c16c711b46852e631a3cc7a5e1c6a1fcd60d3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800301103",
+    "inherited_enemy_ability_id": "enemy.ice-out-of-space-bug.elite.ability.everwinter-rain.skill03",
+    "inherited_enemy_id": "enemy.ice-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800301104",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Chilling Lament",
+    "name_zh_cn": "叹息之寒",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800301104"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aa3199df319e23d7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2960",
+        "sha256": "aa3199df319e23d7fbe487ea90116bf30a80fb417e31bc4363d1c6f769e8636d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5ac8208731f76893",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800301104",
+        "sha256": "5ac8208731f76893ef9691c693aea98cebb38a573dd8015c59e6d5b25b135bb6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800301104",
+    "inherited_enemy_ability_id": "enemy.ice-out-of-space-bug.elite.ability.chilling-lament.skill04",
+    "inherited_enemy_id": "enemy.ice-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800301105",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Ability 800301105",
+    "name_zh_cn": "Ability 800301105",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800301105"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b91dc5d9a39a1e4c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2961",
+        "sha256": "b91dc5d9a39a1e4cb22a5db8d01a894cbdd8f913cddea018bd15e7e8268ecdff",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.de8c4c0d6713cbaa",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800301105",
+        "sha256": "de8c4c0d6713cbaa8ec6c19768247532cb95b49fbbeab283d31438dc9219f0d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800301105",
+    "inherited_enemy_ability_id": "enemy.ice-out-of-space-bug.elite.ability.ability-800301105.skill05",
+    "inherited_enemy_id": "enemy.ice-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800301106",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Freeze Burst",
+    "name_zh_cn": "碎冰裂寒",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800301106"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e09348638a11e350",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2962",
+        "sha256": "e09348638a11e350f7942e315898fab004e3fe9b8a463cbd0e97c18be5da3976",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.bd5991c6faadb694",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800301106",
+        "sha256": "bd5991c6faadb694684996c18a4d0faaa5e5d63628dcbd7e17bb90b8cbc5e218",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800301106",
+    "inherited_enemy_ability_id": "enemy.ice-out-of-space-bug.elite.ability.freeze-burst.skill06",
+    "inherited_enemy_id": "enemy.ice-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800302101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Bellowing Inferno",
+    "name_zh_cn": "咆哮之火",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800302101"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a8aae28f2f1b83c5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2973",
+        "sha256": "a8aae28f2f1b83c5ea3a833b97909ab2db0b3cfe6569a848bc2bcfc9515c3c33",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.6247ea860c5c527f",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800302101",
+        "sha256": "6247ea860c5c527f729a5b9951bef3a5089661f99a6f482ebffc8fdcfeb655e9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800302101",
+    "inherited_enemy_ability_id": "enemy.blaze-out-of-space-bug.elite.ability.bellowing-inferno.skill01",
+    "inherited_enemy_id": "enemy.blaze-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800302102",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Blazing Absorption",
+    "name_zh_cn": "汲取炎华",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800302102"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6fac24900d056987",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2974",
+        "sha256": "6fac24900d0569872c0325e64aad1c08c157163ff7e22365b0fee5dcff5bea51",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.23ea870df92ce5ac",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800302102",
+        "sha256": "23ea870df92ce5ac7db972da0bb247f637145e49193588a6c9151919e3a6e623",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800302102",
+    "inherited_enemy_ability_id": "enemy.blaze-out-of-space-bug.elite.ability.blazing-absorption.skill03",
+    "inherited_enemy_id": "enemy.blaze-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800302103",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Rain of Purifying Flames",
+    "name_zh_cn": "净炎之雨",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800302103"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.059bda414ebd50c7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2975",
+        "sha256": "059bda414ebd50c7e8a697d2076af449a9c091c82e20013c5c3f7de8688a2ee6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.7da5c51771b2565a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800302103",
+        "sha256": "7da5c51771b2565a13437b06970b9bf82e589c1f310759427f4d0a11c80edea4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800302103",
+    "inherited_enemy_ability_id": "enemy.blaze-out-of-space-bug.elite.ability.rain-of-purifying-flames.skill05",
+    "inherited_enemy_id": "enemy.blaze-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800302104",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Molten Fusion",
+    "name_zh_cn": "熔聚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800302104"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a8d828975223b5bc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2976",
+        "sha256": "a8d828975223b5bc7dd2a31d695445a57b879256c90372ab8e14087250319710",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.84b8805b1dc91393",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800302104",
+        "sha256": "84b8805b1dc91393e4e2c010b62f880228f264b706cacde6b366b3790bbea6b0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800302104",
+    "inherited_enemy_ability_id": "enemy.blaze-out-of-space-bug.elite.ability.molten-fusion.skill07",
+    "inherited_enemy_id": "enemy.blaze-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800302105",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Bomb Warning",
+    "name_zh_cn": "轰炸前兆",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800302105"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ef8bf3250af45951",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2977",
+        "sha256": "ef8bf3250af4595172d415f4e83630ace317781eae0551c8625240de71e72014",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.940a08618d3c1e5b",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800302105",
+        "sha256": "940a08618d3c1e5b1fb4d73830935876ddd016fe54423b7e88af6d412cd5b7a6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800302105",
+    "inherited_enemy_ability_id": "enemy.blaze-out-of-space-bug.elite.ability.bomb-warning.skill08",
+    "inherited_enemy_id": "enemy.blaze-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800302106",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Bomb en Masse",
+    "name_zh_cn": "火炽轰炸",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800302106"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a89702e334a66b27",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2978",
+        "sha256": "a89702e334a66b27976996777eabc143dade407f34331be3026ed6cf8a8f96bc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5055698a24f06855",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800302106",
+        "sha256": "5055698a24f06855f7b54cd2d1449b1d5af51f497a9f706eb32f1b92448bc3ec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800302106",
+    "inherited_enemy_ability_id": "enemy.blaze-out-of-space-bug.elite.ability.bomb-en-masse.skill09",
+    "inherited_enemy_id": "enemy.blaze-out-of-space-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Lightning Recollection",
+    "name_zh_cn": "追忆闪电",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2a497ec2c1c81895",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2985",
+        "sha256": "2a497ec2c1c818958cee7ccefdd543eaff4a67222df20f3076f647b6f68c508b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.f3f6bbebbd6a5d7d",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303001",
+        "sha256": "f3f6bbebbd6a5d7d9e6ad6686b0a58672857ce418527fc40e85c0a691150363b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303001",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.lightning-recollection.skill01",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Lightning Condemnation",
+    "name_zh_cn": "谴罚闪电",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7db256bbe8a5d889",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2986",
+        "sha256": "7db256bbe8a5d889d4b30e0a9447e3943c7e9e88cdbaded7b22ad4eba48c670b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5ce172dc7f0da654",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303002",
+        "sha256": "5ce172dc7f0da654ebb2fba4077fc2781b41e84d88843d7e8e1a46a83b1557ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303002",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.lightning-condemnation.skill02",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Tranquil Ban",
+    "name_zh_cn": "宁静禁令",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.67d63fa804f9f609",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2987",
+        "sha256": "67d63fa804f9f609d1e5ad21f9bfa0127e1eaf0e3abb3789b5d119f2da26f98a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.ffe37134cff2a51f",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303003",
+        "sha256": "ffe37134cff2a51f673b3813ed9f0d5fe9d820b851d8b21b568edd8a15873187",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303003",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.tranquil-ban.skill03",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Disarm Ban",
+    "name_zh_cn": "缴械禁令",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0d128db14bacbf84",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2988",
+        "sha256": "0d128db14bacbf841c7e5abf5f654967ae4d060471a9b58abcd4698caed9c09c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.724ad0515ee790b8",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303004",
+        "sha256": "724ad0515ee790b85cd9d35556335645b0dab38afa3dfd4a2c9f97cbf6571b7b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303004",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.disarm-ban.skill04",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Silent Ban",
+    "name_zh_cn": "缄默禁令",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9f059e4ce1f50c84",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2989",
+        "sha256": "9f059e4ce1f50c842149e5383c2d5c28cd286320b632119a91b8ae68a96b9076",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.cd0648cdd342f495",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303005",
+        "sha256": "cd0648cdd342f4956ca52c19a01b5edad4c4d309eb2a63344369ce0b6ca4da96",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303005",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.silent-ban.skill05",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Thunderstorm Condemnation",
+    "name_zh_cn": "谴罚雷暴",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.00394c2881755bd1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2990",
+        "sha256": "00394c2881755bd1d2262d20634858af9615910fea0c2893f4d496774be83258",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.82a98022dcd117d5",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303006",
+        "sha256": "82a98022dcd117d51328f5293ece53ecec25fc256279e8c3d2b5fd1b46b2d438",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303006",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.thunderstorm-condemnation.skill06",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Inevitable Punishment",
+    "name_zh_cn": "不可违逆之责罚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4c275f987f00fc91",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2991",
+        "sha256": "4c275f987f00fc912f13c8ab9d8fbf26440c658bd8e02c23bf3a0dc90951c2a1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.73c4ca36290773a4",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303007",
+        "sha256": "73c4ca36290773a487d5d2a98debb60f855084848b1861279dbcdf5fd876ce4a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303007",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.inevitable-punishment.skill07",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303008",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Ability 800303008",
+    "name_zh_cn": "Ability 800303008",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f72cce86bcb7f544",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2992",
+        "sha256": "f72cce86bcb7f544da055f0347f23a5d69c369067e96235cf7ebe295ade49c4f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.bc74933f60d1ce71",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303008",
+        "sha256": "bc74933f60d1ce710ef5f84adf058a64077f4b5e2d932657c8d8cdfa51ac1b74",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303008",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow.elite.ability.ability-800303008.passiveskill01",
+    "inherited_enemy_id": "enemy.guardian-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Lightning Recollection",
+    "name_zh_cn": "追忆闪电",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303101"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7295fab2fcf21868",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2993",
+        "sha256": "7295fab2fcf21868b19b2b4876aa81b63c266c6338ba9a8f0aa48caf56ee5d31",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.23ddcc771d2f6f6c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303101",
+        "sha256": "23ddcc771d2f6f6cd43d9773280174b3cafa3f990741bbbf822456f982e69f5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303101",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.lightning-recollection.skill01",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303102",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Lightning Condemnation",
+    "name_zh_cn": "谴罚闪电",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303102"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cce389b97a4f937c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2994",
+        "sha256": "cce389b97a4f937cdf42f9409694b79f42fd149989977f53b7f7e1eda4536041",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.4d4844bc8bc86d77",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303102",
+        "sha256": "4d4844bc8bc86d776cfaf937f13f4d2d7485d7b1b37059a55005e2ae7624f1f8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303102",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.lightning-condemnation.skill02",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303103",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Tranquil Ban",
+    "name_zh_cn": "宁静禁令",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303103"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.163f6f9ddaf31d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2995",
+        "sha256": "163f6f9ddaf31d3c9778909e2a787ac0bcd5c484b8d241c88bbbf93fffbb122f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.d39d3163c33758e6",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303103",
+        "sha256": "d39d3163c33758e6d0908473819a64834cc622f637e8a1ad56dfb66bb25d9b93",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303103",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.tranquil-ban.skill03",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303104",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Disarm Ban",
+    "name_zh_cn": "缴械禁令",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303104"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1247e04c12822198",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2996",
+        "sha256": "1247e04c128221986d6ddf473021e653e66f9773fe40263a658e62e476f3a962",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.1fd44bb5e8a82b10",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303104",
+        "sha256": "1fd44bb5e8a82b10ab4536683c2e609a65d6469ce3a050150406a8c3d500244a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303104",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.disarm-ban.skill04",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303105",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Silent Ban",
+    "name_zh_cn": "缄默禁令",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303105"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06611f69043e7f92",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2997",
+        "sha256": "06611f69043e7f927dd244ef36b09560df3c3da245f8c307e23b70ae9cc00401",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5a2386de13909f6d",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303105",
+        "sha256": "5a2386de13909f6df01f59468fe3b289384391d3068bbc0350d213dad84b7ace",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303105",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.silent-ban.skill05",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303106",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Thunderstorm Condemnation",
+    "name_zh_cn": "谴罚雷暴",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303106"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.310146314b673dfc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2998",
+        "sha256": "310146314b673dfcd9eefb8736f25420483aebe4573e0d8379cac8f3904accc3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.4692114885fc3ae0",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303106",
+        "sha256": "4692114885fc3ae09ad95aa729b0171196bb04308710366f867227f2493bb5e0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303106",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.thunderstorm-condemnation.skill06",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303107",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Inevitable Punishment",
+    "name_zh_cn": "不可违逆之责罚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303107"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1df50041050cebf4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=2999",
+        "sha256": "1df50041050cebf492962bc362feb61c9764d163cc816e81f14ad0c0098ea423",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.cb25a5ed20a24562",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303107",
+        "sha256": "cb25a5ed20a245622527edac0b0c8cc4c2652c8d954ee56384518a4851b812e6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303107",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.inevitable-punishment.skill07",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800303108",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Ability 800303108",
+    "name_zh_cn": "Ability 800303108",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800303108"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5fca8cc52696ef5e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3000",
+        "sha256": "5fca8cc52696ef5ee94565838c062ff21cb4c260ca0bb076ae85d9855714106c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.64d63f083b582079",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800303108",
+        "sha256": "64d63f083b582079c8712c930b27324c8557302be7487d11e2e66a47e72f557b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800303108",
+    "inherited_enemy_ability_id": "enemy.guardian-shadow-bug.elite.ability.ability-800303108.passiveskill01",
+    "inherited_enemy_id": "enemy.guardian-shadow-bug.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Ability 800304001",
+    "name_zh_cn": "Ability 800304001",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f99b972e84b00b2d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3001",
+        "sha256": "f99b972e84b00b2d1c30f8ef2ccf77098efcb4dc47d5aed0707255c0747c7133",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.adad50f4aae33a6b",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304001",
+        "sha256": "adad50f4aae33a6b55b4b3fd65814f4078f2ddc2ce52b25be68e7f734bf1786e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304001",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.ability-800304001.skill01",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Fleeting Gilded Spikes",
+    "name_zh_cn": "流年金刺",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.528c840ab396e2fa",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3002",
+        "sha256": "528c840ab396e2fa614420e760d75eb94b0f456d420cd7cd7f824bb3590a5181",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.1d7febbad4066f5f",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304002",
+        "sha256": "1d7febbad4066f5ff9d623a47f440334686126a1e6b3f18e194bf36356527bd3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304002",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.fleeting-gilded-spikes.skill02",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Fleeting Punishment",
+    "name_zh_cn": "流年谴罚",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a0cd57ee929016ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3003",
+        "sha256": "a0cd57ee929016ad8f9db903168f42799d811f5af57400d68dad049d889b2ca7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.6a3273531968c169",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304003",
+        "sha256": "6a3273531968c169ec07cc72e0de74c354193bd2fe45034540a309a5261cf49c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304003",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.fleeting-punishment.skill03",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Binding of the Golden Age",
+    "name_zh_cn": "黄金年代的绸缪",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.45253bc096211bae",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3004",
+        "sha256": "45253bc096211bae290e32b1b67df5d9aeba5de75dac4b3cf8b5608420479145",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.05ceb2495fdcb20a",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304004",
+        "sha256": "05ceb2495fdcb20a842859e442326c0ca3496738fac6c72888b63dcf84d583a8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304004",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.binding-of-the-golden-age.skill05",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Liberation of the Golden Age",
+    "name_zh_cn": "黄金年代的解放",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.291be4c2a24394c7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3005",
+        "sha256": "291be4c2a24394c7f76d9320af68d0f3cbc4403848de7706a56632c6493dab30",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5492887e05e6b3dc",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304005",
+        "sha256": "5492887e05e6b3dc3b03caf34fab7b857c0c91c4fc781e6b2a099a281b923dea",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304005",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.liberation-of-the-golden-age.skill04",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Fleeting Veil",
+    "name_zh_cn": "流年盾纱",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9cf2d25c880b84a3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3006",
+        "sha256": "9cf2d25c880b84a35aaf2ec3242b0a4a60bac4c5cfb92e1190b262cb8f3001e0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.01be0213b4488598",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304006",
+        "sha256": "01be0213b448859853e934fa6fcbee7da6a5bda677efc25a9615e010be4c84c8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304006",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.fleeting-veil.passiveskill01",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800304007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Liberation of the Golden Age",
+    "name_zh_cn": "黄金年代的解放",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800304007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6c2112ae50e2ee8a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3007",
+        "sha256": "6c2112ae50e2ee8af970fea3e7d6d53541ce22001d17abac6104de1c56d76a95",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5c40ff5cd58a84c2",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800304007",
+        "sha256": "5c40ff5cd58a84c2973cdd7c105d58f3414b9435c8a927e573e8a1e14b143845",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800304007",
+    "inherited_enemy_ability_id": "enemy.decaying-shadow.elite.ability.liberation-of-the-golden-age.skill06",
+    "inherited_enemy_id": "enemy.decaying-shadow.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800305001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Watchful Meteor",
+    "name_zh_cn": "巡风光陨",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800305001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.08029c36c28fec35",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3024",
+        "sha256": "08029c36c28fec3511c5c76f2d51d5888531bf235e21b510a0364bf3bc824198",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.704a961a9cd700d6",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800305001",
+        "sha256": "704a961a9cd700d670246f4150cd4ed73150ae8fabe6bf423987f2eb5a07b8d2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800305001",
+    "inherited_enemy_ability_id": "enemy.stormbringer.elite.ability.watchful-meteor.skill01",
+    "inherited_enemy_id": "enemy.stormbringer.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800305002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Wind Walker",
+    "name_zh_cn": "踏风而行",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800305002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a2ee9d973aaac0f5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3025",
+        "sha256": "a2ee9d973aaac0f57c39b1e7cea9c434df3bc79aea48375dbd3d6f749c08459e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.849fce5e96f1fd49",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800305002",
+        "sha256": "849fce5e96f1fd498eb2b514d59ebf90842a34d2ad7ddbf93e4eef79e8bcf439",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800305002",
+    "inherited_enemy_ability_id": "enemy.stormbringer.elite.ability.wind-walker.skill03",
+    "inherited_enemy_id": "enemy.stormbringer.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800305003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Wind-Twisting Crossbow",
+    "name_zh_cn": "拈风张弩",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800305003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d6f3edf0b6358c08",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3026",
+        "sha256": "d6f3edf0b6358c083821b39dcd3d575eab8f4b2e6ce2d831b3c8c77558f5f6a1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.1d89c409422bda74",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800305003",
+        "sha256": "1d89c409422bda74183c738f5436030242493a140742f3345fa87acab63fb6eb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800305003",
+    "inherited_enemy_ability_id": "enemy.stormbringer.elite.ability.wind-twisting-crossbow.skill04",
+    "inherited_enemy_id": "enemy.stormbringer.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800305004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Windfall Storm",
+    "name_zh_cn": "风落暴矢",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800305004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ee480b46ff3b83ed",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3027",
+        "sha256": "ee480b46ff3b83edeab43fe71c44ea4b34f3e8240e7ed6cefda59339b2cc5ea2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.9ca5724ac3a42ce9",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800305004",
+        "sha256": "9ca5724ac3a42ce9de7ae838c26270a27ce5659ee2e539b6601dfb20aff978a3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800305004",
+    "inherited_enemy_ability_id": "enemy.stormbringer.elite.ability.windfall-storm.skill05",
+    "inherited_enemy_id": "enemy.stormbringer.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800305005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Storm Cyclone",
+    "name_zh_cn": "风浪急旋",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800305005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.377dc432aba549c3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3028",
+        "sha256": "377dc432aba549c3d22041d7088e9f782d1b1f2f601fefadda1593deed4a2060",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.1ea6a0f3a586665f",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800305005",
+        "sha256": "1ea6a0f3a586665f4b61c944b843f00e01bb1f3cfd4a64670219a5be73fbadb0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800305005",
+    "inherited_enemy_ability_id": "enemy.stormbringer.elite.ability.storm-cyclone.passiveskillinitiate",
+    "inherited_enemy_id": "enemy.stormbringer.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.800305006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Windfall Storm",
+    "name_zh_cn": "风落暴矢",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:800305006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aef22edc8a269e14",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3029",
+        "sha256": "aef22edc8a269e14f95982d5632c5713bb7a06775150d8086f02966acc8e7d58",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.9bfba00a0187bcad",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=800305006",
+        "sha256": "9bfba00a0187bcad063f64bdba1511a524daeb81656e70f3a9cb004a9886876d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "800305006",
+    "inherited_enemy_ability_id": "enemy.stormbringer.elite.ability.windfall-storm.skill06",
+    "inherited_enemy_id": "enemy.stormbringer.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801101001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Obliterate",
+    "name_zh_cn": "湮灭",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801101001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.81b5a36ce4ebdfad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3046",
+        "sha256": "81b5a36ce4ebdfadfcc0ddbc9cd05c0ede23669a04445d1f5d5c027061c0dc00",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.c322214e8774647c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801101001",
+        "sha256": "c322214e8774647cd0f9dbbf0a13f4a757997d87476ec46dc36ff3d353183984",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801101001",
+    "inherited_enemy_ability_id": "enemy.worldpurge-tail.minionlv2.ability.obliterate.skill01",
+    "inherited_enemy_id": "enemy.worldpurge-tail.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801102001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Obliterate",
+    "name_zh_cn": "湮灭",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801102001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2e36cdba3f4cf136",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3047",
+        "sha256": "2e36cdba3f4cf136fee4109b56e23cdbde920f21cca71ead1f9a233c68e57f83",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.c334573aa0deb4d2",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801102001",
+        "sha256": "c334573aa0deb4d2d5de24023a0fc9737110f4045a477a2e28e122f00ed9daab",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801102001",
+    "inherited_enemy_ability_id": "enemy.planeshred-claws.minionlv2.ability.obliterate.skill01",
+    "inherited_enemy_id": "enemy.planeshred-claws.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801201001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Hunting Blade",
+    "name_zh_cn": "狩猎之刃",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801201001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d79ad5ddd2d047b4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3048",
+        "sha256": "d79ad5ddd2d047b4a073c9cc4815f209d577e1bb46f3d6b000a01150af0a31d4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.dc1b0be255bf64eb",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801201001",
+        "sha256": "dc1b0be255bf64eb74c65fc9ece213c9503b86d157925ff432195d4ad5f12976",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801201001",
+    "inherited_enemy_ability_id": "enemy.voidranger-reaver.minionlv2.ability.hunting-blade.skill01",
+    "inherited_enemy_id": "enemy.voidranger-reaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801201002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Vortex Leap",
+    "name_zh_cn": "涡旋跃袭",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801201002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5c62a5927f7fdae3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3049",
+        "sha256": "5c62a5927f7fdae386c6b14b8d9d452bf8e7423246021c4770c9c223a585ab35",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.c15b4f7d61ef5119",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801201002",
+        "sha256": "c15b4f7d61ef5119a21b6e58f4a12959b91c54a0dee2cb565a9ca8ab798cad38",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801201002",
+    "inherited_enemy_ability_id": "enemy.voidranger-reaver.minionlv2.ability.vortex-leap.skill02",
+    "inherited_enemy_id": "enemy.voidranger-reaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801201003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Ability 801201003",
+    "name_zh_cn": "Ability 801201003",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801201003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1354f6a6702ddd6e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3050",
+        "sha256": "1354f6a6702ddd6ee7b28fdb7b61e6389d34e9ec07e1556ffc16ecb4470dbaac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.77fdc36664b3de57",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801201003",
+        "sha256": "77fdc36664b3de57928d7fbe66267029aa72a86f09b212fa42c4aefe61ac9fff",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801201003",
+    "inherited_enemy_ability_id": "enemy.voidranger-reaver.minionlv2.ability.ability-801201003.passiveskill01",
+    "inherited_enemy_id": "enemy.voidranger-reaver.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801202101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Nihility's Command",
+    "name_zh_cn": "虚无命意",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801202101"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.770330467e7110cd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3053",
+        "sha256": "770330467e7110cdc5ef2e41c283cc7d98c3fa7f9ef38262a32a881ef1eee977",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.01762da850a70a14",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801202101",
+        "sha256": "01762da850a70a140c6e46883ca95406f85749168eb8d7a6f6584d4f8f974169",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801202101",
+    "inherited_enemy_ability_id": "enemy.voidranger-distorter.minionlv2.02.ability.nihilitys-command.skill01",
+    "inherited_enemy_id": "enemy.voidranger-distorter.minionlv2.02",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801202102",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Shadowless Void Strike",
+    "name_zh_cn": "无影虚击",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801202102"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aaa9d206429a1112",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3054",
+        "sha256": "aaa9d206429a111281ab25247e686f3909f4a521d5aa7d144150a7944c744e95",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.f995c160c3107c02",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801202102",
+        "sha256": "f995c160c3107c024984a94aad2b5dbe85454fa765878b861921345ae971a8fd",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801202102",
+    "inherited_enemy_ability_id": "enemy.voidranger-distorter.minionlv2.02.ability.shadowless-void-strike.skill02",
+    "inherited_enemy_id": "enemy.voidranger-distorter.minionlv2.02",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801203001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Void Cannon",
+    "name_zh_cn": "虚灼炮攻",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801203001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4718cfec80c7fab0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3055",
+        "sha256": "4718cfec80c7fab019d5d8de80674f24a2cadec8cd95089f6e21d611a4a2e965",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.7ca682f3a48b681d",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801203001",
+        "sha256": "7ca682f3a48b681db28fea78ec18d7d6aedba6baa18da9d66ec6a48c6b562daf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801203001",
+    "inherited_enemy_ability_id": "enemy.voidranger-eliminator.minionlv2.ability.void-cannon.skill01",
+    "inherited_enemy_id": "enemy.voidranger-eliminator.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801203002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Thermal Barrier",
+    "name_zh_cn": "热障阻塞",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801203002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0e3442e95a3390f3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3056",
+        "sha256": "0e3442e95a3390f32c0986d0f608cc92e78502aa9a607c324366e00a32c7a56c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.5d999ef1d72f21c5",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801203002",
+        "sha256": "5d999ef1d72f21c5e1a427562e1ec2f29e87896b8c5b1e547e2aa89f0c1cad5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801203002",
+    "inherited_enemy_ability_id": "enemy.voidranger-eliminator.minionlv2.ability.thermal-barrier.skill02",
+    "inherited_enemy_id": "enemy.voidranger-eliminator.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801301001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Unreal Projection",
+    "name_zh_cn": "虚实的投影",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801301001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f3823179b6442ec4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3130",
+        "sha256": "f3823179b6442ec4827facb1dc3ed0fe1a72cf2ac18ee226f40e46f44e693e4f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.b4fa83741ea1d361",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801301001",
+        "sha256": "b4fa83741ea1d3611a388338f1b9af55e6e0f5919817b2d5f95f92b6f7cc07da",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801301001",
+    "inherited_enemy_ability_id": "enemy.voidranger-trampler.elite.ability.unreal-projection.skill01",
+    "inherited_enemy_id": "enemy.voidranger-trampler.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801301002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Rule of Force",
+    "name_zh_cn": "侵略的铁蹄",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801301002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.509213faa9dd4e75",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3131",
+        "sha256": "509213faa9dd4e75993502ef188c444ce607f009ba4875e7582cf2c9193b96cf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.3a76f8cabb017f55",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801301002",
+        "sha256": "3a76f8cabb017f55a1a3b0523313999c19f4b81fc0427fea8bf8cb084ae7eb45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801301002",
+    "inherited_enemy_ability_id": "enemy.voidranger-trampler.elite.ability.rule-of-force.skill02",
+    "inherited_enemy_id": "enemy.voidranger-trampler.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801301003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "War Trample",
+    "name_zh_cn": "战争的践踏",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801301003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b78596f30765bbca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3132",
+        "sha256": "b78596f30765bbca749c838e3c53960c833794e2476986d121239cc6fc32a5a7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.3ddc038944a51c88",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801301003",
+        "sha256": "3ddc038944a51c88bad341bec9741afee22e1cdaa4fd4228360c54592b53b65b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801301003",
+    "inherited_enemy_ability_id": "enemy.voidranger-trampler.elite.ability.war-trample.skill03",
+    "inherited_enemy_id": "enemy.voidranger-trampler.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801301004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Spiral Arrow",
+    "name_zh_cn": "螺旋的弓矢",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801301004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2e72d37f947381d9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3133",
+        "sha256": "2e72d37f947381d93923a0475f6a6ab8925f3676bb04d9e8025165cd1a21d424",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.439c12ddae5cd95c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801301004",
+        "sha256": "439c12ddae5cd95c4b3e7943d84d7f2e28ee738654b07a03b8907a47da07c497",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801301004",
+    "inherited_enemy_ability_id": "enemy.voidranger-trampler.elite.ability.spiral-arrow.skill04",
+    "inherited_enemy_id": "enemy.voidranger-trampler.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.801301005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "End of Bow",
+    "name_zh_cn": "强弩的终结",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:801301005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.41babd149d3db1b9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3134",
+        "sha256": "41babd149d3db1b98735a6b48f2a6cea6e5fd1d66c71c77be08a180220e8f5ec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.17d342e81933d9b1",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=801301005",
+        "sha256": "17d342e81933d9b10a23896acaefec1834647e2bfb2cbb232f5903c73edc34b5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "801301005",
+    "inherited_enemy_ability_id": "enemy.voidranger-trampler.elite.ability.end-of-bow.skill05",
+    "inherited_enemy_id": "enemy.voidranger-trampler.elite",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.802203001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Horn Clash",
+    "name_zh_cn": "角击",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:802203001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2d4cbe17d2dc5b14",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3298",
+        "sha256": "2d4cbe17d2dc5b148c3e37c20769d3cbaa6821cd0f0dddcdaf1a576d64e01e25",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.ea550f3beaa3fcd8",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=802203001",
+        "sha256": "ea550f3beaa3fcd8ba80bfe06ab24f2fc8042f385c1391c0559a0b12be123bab",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "802203001",
+    "inherited_enemy_ability_id": "enemy.gnaw-sting.minionlv2.ability.horn-clash.skill01",
+    "inherited_enemy_id": "enemy.gnaw-sting.minionlv2",
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-skill-resolution.802203002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemySkill",
+    "name_en": "Decay Eulogy",
+    "name_zh_cn": "蚀亡语",
+    "summary_en": "Exact source skill reconciled to an existing frozen enemy ability.",
+    "summary_zh_cn": "精确源技能对账到现有冻结敌人能力。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "SkillID:802203002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.09c10958d01fc4b0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterSkillConfig.json",
+        "locator": "row=3299",
+        "sha256": "09c10958d01fc4b0016dbfdc526f2564b448713cbfd3c60584493c958b310f22",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterSkillConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.69fe7d8755a9e59e",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-abilities.json",
+        "locator": "source_skill_id=802203002",
+        "sha256": "69fe7d8755a9e59e3da58b1ca3e5db170bd3e94a60cc981deb60e0214f3c6f39",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing frozen ability identity referenced without duplication"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-skill-resolution",
+      "shared"
+    ],
+    "source_skill_id": "802203002",
+    "inherited_enemy_ability_id": "enemy.gnaw-sting.minionlv2.ability.decay-eulogy.passiveskill01",
+    "inherited_enemy_id": "enemy.gnaw-sting.minionlv2",
+    "resolution": "ExactStableIdentity"
+  }
+]

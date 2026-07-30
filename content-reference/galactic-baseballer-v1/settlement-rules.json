@@ -1,0 +1,422 @@
+[
+  {
+    "id": "galactic-baseballer.departure.settlement.414001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Volcanic Planet settlement",
+    "name_zh_cn": "火山星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.db3bdbdd502393d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=0;Season=EarlyAccess;StageMergedID=414001",
+        "sha256": "db3bdbdd502393d4ad0585557439557e4f505a4944419290923444ed5e5540e6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 0,
+    "stage_id": "galactic-baseballer.departure.stage.414001",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.departure.settlement.414002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Cogwheel Planet settlement",
+    "name_zh_cn": "齿轮星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f9fd5c2082a41260",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=1;Season=EarlyAccess;StageMergedID=414002",
+        "sha256": "f9fd5c2082a41260481a55cb5861df7976c5576eb4680a9afa7c0193d80d8d85",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 1,
+    "stage_id": "galactic-baseballer.departure.stage.414002",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.departure.settlement.414003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Sugarfrost Planet settlement",
+    "name_zh_cn": "糖霜星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.af44aa9a95d65b72",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=2;Season=EarlyAccess;StageMergedID=414003",
+        "sha256": "af44aa9a95d65b725ab17105f47fcf4317199bbb8ef98bcc3f580f3388c43115",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 2,
+    "stage_id": "galactic-baseballer.departure.stage.414003",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.departure.settlement.414004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Miniature Planet settlement",
+    "name_zh_cn": "微缩星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e3badf26d265793c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=3;Season=EarlyAccess;StageMergedID=414004",
+        "sha256": "e3badf26d265793c6aba97fa3553b3e6bc5baa021d435ddd73f37136bf6bc40d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 3,
+    "stage_id": "galactic-baseballer.departure.stage.414004",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.departure.settlement.414006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Blissdream Planet settlement",
+    "name_zh_cn": "甜梦星球结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4e7a642fec9bd991",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=4;Season=EarlyAccess;StageMergedID=414006",
+        "sha256": "4e7a642fec9bd99172011284c7453a86005cc5b5b0c9bb55066fa299431acb45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 4,
+    "stage_id": "galactic-baseballer.departure.stage.414006",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  },
+  {
+    "id": "galactic-baseballer.departure.settlement.414007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SettlementRule",
+    "name_en": "Eternal Black Hole settlement",
+    "name_zh_cn": "永恒黑洞结算",
+    "summary_en": "Exact ordered rating thresholds and stage clear/settlement boundary.",
+    "summary_zh_cn": "精确有序评级阈值与关卡通关/结算边界。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1a2321951ce5c7b9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildStageConfig.json",
+        "locator": "row=5;Season=EarlyAccess;StageMergedID=414007",
+        "sha256": "1a2321951ce5c7b9d9bf58c04a1410a9da70a38743ec46dd09d85e4f8a51016e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "departure",
+      "rating",
+      "settlement"
+    ],
+    "settlement_order": 5,
+    "stage_id": "galactic-baseballer.departure.stage.414007",
+    "rating_thresholds": [
+      {
+        "ordinal": 0,
+        "rating": "C",
+        "minimum_score": 0
+      },
+      {
+        "ordinal": 1,
+        "rating": "B",
+        "minimum_score": 20000
+      },
+      {
+        "ordinal": 2,
+        "rating": "A",
+        "minimum_score": 40000
+      },
+      {
+        "ordinal": 3,
+        "rating": "S",
+        "minimum_score": 60000
+      },
+      {
+        "ordinal": 4,
+        "rating": "SS",
+        "minimum_score": 80000
+      }
+    ],
+    "score_cap": 200000,
+    "clear_condition": "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
+    "failure_behavior": "ProjectPolicy: no clear projection when a required terminal period is unresolved"
+  }
+]

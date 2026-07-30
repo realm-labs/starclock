@@ -1,0 +1,1640 @@
+[
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.100401007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.cocolia.littleboss.variant.08",
+    "name_zh_cn": "继承敌人变体 enemy.cocolia.littleboss.variant.08",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:100401007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.56e206e0fbaf448e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=222",
+        "sha256": "56e206e0fbaf448e0eada20e69e58024f84eb82e0259fba3f2f9b049022de4ff",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.7ce3af6ac1a6322f",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=100401007",
+        "sha256": "7ce3af6ac1a6322ffbadc6775e693afbdeda9f9bd0d3960321934a33ac47de04",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "100401007",
+    "inherited_enemy_variant_id": "enemy.cocolia.littleboss.variant.08",
+    "inherited_enemy_template_id": "enemy.cocolia.littleboss",
+    "source_monster_template_id": "1004010",
+    "source_skill_ids": [
+      "100401001",
+      "100401002",
+      "100401003",
+      "100401004",
+      "100401005",
+      "100401006"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.1022010",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.everwinter-shadewalker.minionlv2.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.everwinter-shadewalker.minionlv2.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:1022010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.69941921e7d37e01",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=482",
+        "sha256": "69941921e7d37e014a8876c52ba54cba640831423711ce2a6e342fb10f9a4e9b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.72109221fbf1e1ab",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=1022010",
+        "sha256": "72109221fbf1e1ab05aebf0b5c7d10803efa71bea86a363c7536bf4440e0a715",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "1022010",
+    "inherited_enemy_variant_id": "enemy.everwinter-shadewalker.minionlv2.variant.01",
+    "inherited_enemy_template_id": "enemy.everwinter-shadewalker.minionlv2",
+    "source_monster_template_id": "1022010",
+    "source_skill_ids": [
+      "102201001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.1022020",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.incineration-shadewalker.minionlv2.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.incineration-shadewalker.minionlv2.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:1022020"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a47357ae528a1f2a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=502",
+        "sha256": "a47357ae528a1f2a1d7be618e46ccd5a1a0ec713f06a247367ed4a80368ba895",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.24d4750f96a9a1a3",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=1022020",
+        "sha256": "24d4750f96a9a1a3a15c5cde42b4a900dfb4aa04c34b2ab7d6dbfcab21a4cb0b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "1022020",
+    "inherited_enemy_variant_id": "enemy.incineration-shadewalker.minionlv2.variant.01",
+    "inherited_enemy_template_id": "enemy.incineration-shadewalker.minionlv2",
+    "source_monster_template_id": "1022020",
+    "source_skill_ids": [
+      "102202001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.302401007",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.argenti.littleboss.variant.08",
+    "name_zh_cn": "继承敌人变体 enemy.argenti.littleboss.variant.08",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:302401007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.890f5a94e03ecdf4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=1332",
+        "sha256": "890f5a94e03ecdf4835110c957af6c9afb57d73fe330aae8b8dcd4448925730b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.0b4652b115785e54",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=302401007",
+        "sha256": "0b4652b115785e5454d096d2876a5500b334c2856b2541708b9e8c4c92ed8cab",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "302401007",
+    "inherited_enemy_variant_id": "enemy.argenti.littleboss.variant.08",
+    "inherited_enemy_template_id": "enemy.argenti.littleboss",
+    "source_monster_template_id": "3024010",
+    "source_skill_ids": [
+      "302401001",
+      "302401002",
+      "302401003",
+      "302401004",
+      "302401005",
+      "302401007"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8001010",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.flamespawn.minion.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.flamespawn.minion.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8001010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.82168ae74e27ffdf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=1941",
+        "sha256": "82168ae74e27ffdfd260ed05acaba1fb5978a91391ce1272c0fe2d405c55c74b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.ef249135a06d1fdf",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8001010",
+        "sha256": "ef249135a06d1fdf1bb15298565bbc62472cf8ef5e4a85b6d692fa8bca5fc4df",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8001010",
+    "inherited_enemy_variant_id": "enemy.flamespawn.minion.variant.01",
+    "inherited_enemy_template_id": "enemy.flamespawn.minion",
+    "source_monster_template_id": "8001010",
+    "source_skill_ids": [
+      "800101001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8001020",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.frostspawn.minion.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.frostspawn.minion.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8001020"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.557b24a0d5ed9c6c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=1962",
+        "sha256": "557b24a0d5ed9c6c830b04c64aaa152ff82e77f9f08753020c41f5c7a8446a2d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.e2e7393c8cd9cdbb",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8001020",
+        "sha256": "e2e7393c8cd9cdbb184decda5a2eb9c2efe95af5e196f80df00c8f58cc2979ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8001020",
+    "inherited_enemy_variant_id": "enemy.frostspawn.minion.variant.01",
+    "inherited_enemy_template_id": "enemy.frostspawn.minion",
+    "source_monster_template_id": "8001020",
+    "source_skill_ids": [
+      "800102001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8001030",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.mask-of-no-thought.minion.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.mask-of-no-thought.minion.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8001030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.60b8003a116d1279",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=1984",
+        "sha256": "60b8003a116d1279b88aac6fba4d1377e9b5e63824e367894b95822d06d3ed37",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.9b074a679160c328",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8001030",
+        "sha256": "9b074a679160c32820c9b3bdf71d39e51163da9a2e15be22aa50175397800058",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8001030",
+    "inherited_enemy_variant_id": "enemy.mask-of-no-thought.minion.variant.01",
+    "inherited_enemy_template_id": "enemy.mask-of-no-thought.minion",
+    "source_monster_template_id": "8001030",
+    "source_skill_ids": [
+      "800103001",
+      "800103002",
+      "800103003"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8001040",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.thunderspawn.minion.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.thunderspawn.minion.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8001040"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3afd831ed7fedff7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=1998",
+        "sha256": "3afd831ed7fedff78ea9585ba1b721df90c77c1859f9603c04215e26a1f9b719",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.298b84b005aefe55",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8001040",
+        "sha256": "298b84b005aefe5576d5fe52fda8a2bb68ccbb1a1dd5451770bfe26d25a844d7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8001040",
+    "inherited_enemy_variant_id": "enemy.thunderspawn.minion.variant.01",
+    "inherited_enemy_template_id": "enemy.thunderspawn.minion",
+    "source_monster_template_id": "8001040",
+    "source_skill_ids": [
+      "800104001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.800201015",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.imaginary-weaver.minionlv2.variant.12",
+    "name_zh_cn": "继承敌人变体 enemy.imaginary-weaver.minionlv2.variant.12",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:800201015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.60b650dd9479abc1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2022",
+        "sha256": "60b650dd9479abc17bd8eea91e7c4784abadd23e2077fff6335e0cc623946cfc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.b1bfe7c875ac8f85",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=800201015",
+        "sha256": "b1bfe7c875ac8f856ac56bab4d0b7133059304e9928cb256268fc1d1da930ad3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "800201015",
+    "inherited_enemy_variant_id": "enemy.imaginary-weaver.minionlv2.variant.12",
+    "inherited_enemy_template_id": "enemy.imaginary-weaver.minionlv2",
+    "source_monster_template_id": "8002010",
+    "source_skill_ids": [
+      "800201001",
+      "800201002",
+      "800201003",
+      "800201004"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8003011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.ice-out-of-space-bug.elite.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.ice-out-of-space-bug.elite.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8003011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.636778f3bd7a1d91",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2171",
+        "sha256": "636778f3bd7a1d914dbb9a3f5a7c73f46ac3efc45122f240ef8b02ea1e97313a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.e2db20c5f3893533",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8003011",
+        "sha256": "e2db20c5f38935338aae08a3fae03e657f9f11bd06074e3aef0f98899b7b1b7b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8003011",
+    "inherited_enemy_variant_id": "enemy.ice-out-of-space-bug.elite.variant.01",
+    "inherited_enemy_template_id": "enemy.ice-out-of-space-bug.elite",
+    "source_monster_template_id": "8003011",
+    "source_skill_ids": [
+      "800301101",
+      "800301102",
+      "800301103",
+      "800301104",
+      "800301105",
+      "800301106"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8003021",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.blaze-out-of-space-bug.elite.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.blaze-out-of-space-bug.elite.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8003021"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7c997346bfb94d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2203",
+        "sha256": "7c997346bfb94d3c3ed45c54ebfab5844178a7b8bbec854f7d6c909fae33bb60",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.083929af395057e1",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8003021",
+        "sha256": "083929af395057e16a0ce6238679472b1211dbd8898cf226046b3d716871635a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8003021",
+    "inherited_enemy_variant_id": "enemy.blaze-out-of-space-bug.elite.variant.01",
+    "inherited_enemy_template_id": "enemy.blaze-out-of-space-bug.elite",
+    "source_monster_template_id": "8003021",
+    "source_skill_ids": [
+      "800302101",
+      "800302102",
+      "800302103",
+      "800302104",
+      "800302105",
+      "800302106"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8003030",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.guardian-shadow.elite.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.guardian-shadow.elite.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8003030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2e12ea3373e10ea1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2210",
+        "sha256": "2e12ea3373e10ea1f7e68304d577921ef018a50ac79e9fea7894f7f101e55f90",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.f31b4fd7f2142964",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8003030",
+        "sha256": "f31b4fd7f214296463156ba16aaa91eba6a1c6c2f2e47ddcb56f3301ffea9caa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8003030",
+    "inherited_enemy_variant_id": "enemy.guardian-shadow.elite.variant.01",
+    "inherited_enemy_template_id": "enemy.guardian-shadow.elite",
+    "source_monster_template_id": "8003030",
+    "source_skill_ids": [
+      "800303001",
+      "800303002",
+      "800303003",
+      "800303004",
+      "800303005",
+      "800303006",
+      "800303007",
+      "800303008"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.800303101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.guardian-shadow-bug.elite.variant.02",
+    "name_zh_cn": "继承敌人变体 enemy.guardian-shadow-bug.elite.variant.02",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:800303101"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c15ee61d6c09000e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2232",
+        "sha256": "c15ee61d6c09000ee70f272ba39d7a8eec547f4c012cc36035ebdac54b9f1b34",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.a8e0879cc767baa0",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=800303101",
+        "sha256": "a8e0879cc767baa0b914221158ff0b4adbfb5d650a3adb418c4579a4e785b5f0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "800303101",
+    "inherited_enemy_variant_id": "enemy.guardian-shadow-bug.elite.variant.02",
+    "inherited_enemy_template_id": "enemy.guardian-shadow-bug.elite",
+    "source_monster_template_id": "8003031",
+    "source_skill_ids": [
+      "800303101",
+      "800303102",
+      "800303103",
+      "800303104",
+      "800303105",
+      "800303106",
+      "800303107",
+      "800303108"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.800304012",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.decaying-shadow.elite.variant.13",
+    "name_zh_cn": "继承敌人变体 enemy.decaying-shadow.elite.variant.13",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:800304012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d99b009e329acce6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2247",
+        "sha256": "d99b009e329acce641ae3a3c58030b8fc240065501c1cbfc384152308a8ae9c5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.04345bde2784f125",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=800304012",
+        "sha256": "04345bde2784f1251d5216d00e3633c8390e3ca338dbc32eca513c2a02961c61",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "800304012",
+    "inherited_enemy_variant_id": "enemy.decaying-shadow.elite.variant.13",
+    "inherited_enemy_template_id": "enemy.decaying-shadow.elite",
+    "source_monster_template_id": "8003040",
+    "source_skill_ids": [
+      "800304001",
+      "800304002",
+      "800304003",
+      "800304004",
+      "800304005",
+      "800304006",
+      "800304007"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.800305011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.stormbringer.elite.variant.12",
+    "name_zh_cn": "继承敌人变体 enemy.stormbringer.elite.variant.12",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:800305011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.59a24c76a6a54ea2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2268",
+        "sha256": "59a24c76a6a54ea28d1077cc4a5608ed337a9e8119a3028b20103b173031d45c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.bb395f953513815c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=800305011",
+        "sha256": "bb395f953513815c79ba89b88552f9dec67b480d5f258074466e796f2a16ed07",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "800305011",
+    "inherited_enemy_variant_id": "enemy.stormbringer.elite.variant.12",
+    "inherited_enemy_template_id": "enemy.stormbringer.elite",
+    "source_monster_template_id": "8003050",
+    "source_skill_ids": [
+      "800305001",
+      "800305002",
+      "800305003",
+      "800305004",
+      "800305005",
+      "800305006"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.800305015",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.stormbringer.elite.variant.14",
+    "name_zh_cn": "继承敌人变体 enemy.stormbringer.elite.variant.14",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:800305015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c2556e3454a52cab",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2270",
+        "sha256": "c2556e3454a52cab4dc12b7009a3d26c8a7f8cd36e3ccaa2af945420e924b020",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.32d43c736875a5f3",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=800305015",
+        "sha256": "32d43c736875a5f3f4dbfb8fc7592401892e74677bd203fb7dbd66032a416aa3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "800305015",
+    "inherited_enemy_variant_id": "enemy.stormbringer.elite.variant.14",
+    "inherited_enemy_template_id": "enemy.stormbringer.elite",
+    "source_monster_template_id": "8003050",
+    "source_skill_ids": [
+      "800305001",
+      "800305002",
+      "800305003",
+      "800305004",
+      "800305005",
+      "800305006"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8011010",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.baryon.minion.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.baryon.minion.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8011010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ba95e58810a803f1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2281",
+        "sha256": "ba95e58810a803f1fdffd965d849f96d10aaa123545615ab509e7aedd9f37402",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.4e40c294b7d304e9",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8011010",
+        "sha256": "4e40c294b7d304e9bf598fd77584a1f0d8148ea1b9693371e2aa663cf7b93c6d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8011010",
+    "inherited_enemy_variant_id": "enemy.baryon.minion.variant.01",
+    "inherited_enemy_template_id": "enemy.baryon.minion",
+    "source_monster_template_id": "8011010",
+    "source_skill_ids": [
+      "801101001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801102009",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.antibaryon.minion.variant.09",
+    "name_zh_cn": "继承敌人变体 enemy.antibaryon.minion.variant.09",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801102009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7880846ecf76bd55",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2301",
+        "sha256": "7880846ecf76bd55469e9bb5c6388d863c356397be6468cc537a888d59270868",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.0919a1baa9006fff",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801102009",
+        "sha256": "0919a1baa9006fffafadffd4970d5ca99ddb8791d4d12d3e1fabf6e3b8af6b4a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801102009",
+    "inherited_enemy_variant_id": "enemy.antibaryon.minion.variant.09",
+    "inherited_enemy_template_id": "enemy.antibaryon.minion",
+    "source_monster_template_id": "8011020",
+    "source_skill_ids": [
+      "801102001"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801201027",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-reaver.minionlv2.variant.27",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-reaver.minionlv2.variant.27",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801201027"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.41e22715cd19197d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2330",
+        "sha256": "41e22715cd19197daae1aeeb7e7d76b2d784bead0257d8f18db7e8053baf47d7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.e3023c231ac31284",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801201027",
+        "sha256": "e3023c231ac31284140b60fc6f6014781dc1a027c686d1066bb44e0bee53c54b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801201027",
+    "inherited_enemy_variant_id": "enemy.voidranger-reaver.minionlv2.variant.27",
+    "inherited_enemy_template_id": "enemy.voidranger-reaver.minionlv2",
+    "source_monster_template_id": "8012010",
+    "source_skill_ids": [
+      "801201001",
+      "801201002",
+      "801201003"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801201030",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-reaver.minionlv2.variant.30",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-reaver.minionlv2.variant.30",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801201030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.55b863e3602c0187",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2333",
+        "sha256": "55b863e3602c0187f702e292af1dfdfbc4bbffbcbab5e56db75cf94f4af5ed21",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.e61a21b4fd4760c0",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801201030",
+        "sha256": "e61a21b4fd4760c0c8861879e4f6746edb20d8e94ace532660c4bf2ec8cbbad7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801201030",
+    "inherited_enemy_variant_id": "enemy.voidranger-reaver.minionlv2.variant.30",
+    "inherited_enemy_template_id": "enemy.voidranger-reaver.minionlv2",
+    "source_monster_template_id": "8012010",
+    "source_skill_ids": [
+      "801201001",
+      "801201002",
+      "801201003"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801202103",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-distorter.minionlv2.02.variant.04",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-distorter.minionlv2.02.variant.04",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801202103"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e9075c1149a63a95",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2358",
+        "sha256": "e9075c1149a63a95be07fd0ccb833a05f41d3f984b48e3f23a20b0a553b3e672",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.7976f3a2ad3236ac",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801202103",
+        "sha256": "7976f3a2ad3236ac3aa61757a8b804e4aad473d65750f0b5394242328f3416a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801202103",
+    "inherited_enemy_variant_id": "enemy.voidranger-distorter.minionlv2.02.variant.04",
+    "inherited_enemy_template_id": "enemy.voidranger-distorter.minionlv2.02",
+    "source_monster_template_id": "8012021",
+    "source_skill_ids": [
+      "801202101",
+      "801202102"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801202104",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-distorter.minionlv2.02.variant.05",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-distorter.minionlv2.02.variant.05",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801202104"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.92812bf7a08dc12b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2359",
+        "sha256": "92812bf7a08dc12b425c086fc5084d1aa0b33d0cf84ab6e6e5de884a89808650",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.62a40d10e402f3c1",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801202104",
+        "sha256": "62a40d10e402f3c1a778b977d60038d530fd6872d168e56cffe8895bb8f05554",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801202104",
+    "inherited_enemy_variant_id": "enemy.voidranger-distorter.minionlv2.02.variant.05",
+    "inherited_enemy_template_id": "enemy.voidranger-distorter.minionlv2.02",
+    "source_monster_template_id": "8012021",
+    "source_skill_ids": [
+      "801202101",
+      "801202102"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8012030",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-eliminator.minionlv2.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-eliminator.minionlv2.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8012030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7dfb7ddde035de9b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2360",
+        "sha256": "7dfb7ddde035de9b0af34b4bc717c11408f0ede36f6ed88b0cff7038c85fefc8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.1761f9afb8031eb4",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8012030",
+        "sha256": "1761f9afb8031eb4a2c4d72d3671e253a4858fb0824e41d619a0a268f9f8d353",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8012030",
+    "inherited_enemy_variant_id": "enemy.voidranger-eliminator.minionlv2.variant.01",
+    "inherited_enemy_template_id": "enemy.voidranger-eliminator.minionlv2",
+    "source_monster_template_id": "8012030",
+    "source_skill_ids": [
+      "801203001",
+      "801203002"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801203009",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-eliminator.minionlv2.variant.10",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-eliminator.minionlv2.variant.10",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801203009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a57e8747649329ca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2369",
+        "sha256": "a57e8747649329ca6fb0f99f1ea221d9fed3823a2e34290f20a845820d3fbd0c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.fdc98716bc757578",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801203009",
+        "sha256": "fdc98716bc7575782c8bf0be41b268bcb50391fcfa8f39b442d8e38785b6de09",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801203009",
+    "inherited_enemy_variant_id": "enemy.voidranger-eliminator.minionlv2.variant.10",
+    "inherited_enemy_template_id": "enemy.voidranger-eliminator.minionlv2",
+    "source_monster_template_id": "8012030",
+    "source_skill_ids": [
+      "801203001",
+      "801203002"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801301017",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-trampler.elite.variant.17",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-trampler.elite.variant.17",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801301017"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2bf0e5b7c8e10803",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2417",
+        "sha256": "2bf0e5b7c8e108037f72225e08c49b7aa6c6707a5626ab60d24fbdc457adfc08",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.c4b62334e1cf9a40",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801301017",
+        "sha256": "c4b62334e1cf9a4047376dc07c01faa56b4509132c79126828ac4e05e6fb5241",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801301017",
+    "inherited_enemy_variant_id": "enemy.voidranger-trampler.elite.variant.17",
+    "inherited_enemy_template_id": "enemy.voidranger-trampler.elite",
+    "source_monster_template_id": "8013010",
+    "source_skill_ids": [
+      "801301001",
+      "801301002",
+      "801301003",
+      "801301004",
+      "801301005"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.801301022",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.voidranger-trampler.elite.variant.21",
+    "name_zh_cn": "继承敌人变体 enemy.voidranger-trampler.elite.variant.21",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:801301022"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2cdc5ff3a4782eab",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2421",
+        "sha256": "2cdc5ff3a4782eab7203d60228603a4e785544c204e04e4812a5a7597896f2ae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.27e7d181f0b43bfe",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=801301022",
+        "sha256": "27e7d181f0b43bfe79f2719e40ba9d850197415aa66d33356eeb925d6060288b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "801301022",
+    "inherited_enemy_variant_id": "enemy.voidranger-trampler.elite.variant.21",
+    "inherited_enemy_template_id": "enemy.voidranger-trampler.elite",
+    "source_monster_template_id": "8013010",
+    "source_skill_ids": [
+      "801301001",
+      "801301002",
+      "801301003",
+      "801301004",
+      "801301005"
+    ],
+    "resolution": "ExactStableIdentity"
+  },
+  {
+    "id": "galactic-baseballer.departure.enemy-resolution.8022030",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "EnemyIdentity",
+    "name_en": "Inherited enemy variant enemy.gnaw-sting.minionlv2.variant.01",
+    "name_zh_cn": "继承敌人变体 enemy.gnaw-sting.minionlv2.variant.01",
+    "summary_en": "Exact source MonsterID reconciled to the frozen Version 4.4 stable enemy identity.",
+    "summary_zh_cn": "精确源 MonsterID 对账到冻结的 Version 4.4 稳定敌人身份。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Shared",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "MonsterID:8022030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.36d25a255eb5a4af",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/MonsterConfig.json",
+        "locator": "row=2486",
+        "sha256": "36d25a255eb5a4aff35972cd087c298883f191ca9cb8ec46b44948b253760f37",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "exact recursively reachable MonsterConfig row"
+      },
+      {
+        "source_id": "source.goal16.core.24490d76fb18ba26",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "content-reference.v4.4@0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
+        "game_version": "4.4",
+        "path_or_page": "content-reference/v4.4/enemy-variants.json",
+        "locator": "source_monster_id=8022030",
+        "sha256": "24490d76fb18ba26df1a5a9cb06d15d415bad6621e76f72254339522ff2e339c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "existing stable identity reused without copying its definition"
+      }
+    ],
+    "tags": [
+      "departure",
+      "enemy-resolution",
+      "shared"
+    ],
+    "source_monster_id": "8022030",
+    "inherited_enemy_variant_id": "enemy.gnaw-sting.minionlv2.variant.01",
+    "inherited_enemy_template_id": "enemy.gnaw-sting.minionlv2",
+    "source_monster_template_id": "8022030",
+    "source_skill_ids": [
+      "802203001",
+      "802203002"
+    ],
+    "resolution": "ExactStableIdentity"
+  }
+]
