@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Contract, audit and execution plan |
 | Active batch | None |
-| Next unblocked batch | `G14-P0-B3` |
+| Next unblocked batch | `G14-P0-B4` |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
@@ -41,7 +41,7 @@ commands, counts, digests and executable evidence in the completing commit.
 |---|---|---|---|
 | `G14-P0-B1` | `Complete` | This batch commit | `node tools/repository-check/verify-release-snapshots.mjs`; `node tools/reference-integration/verify.mjs`; `node tools/goal14/verify-foundation.mjs`; `node tools/repository-check/run.mjs`; 8 snapshots, 46,110 merged records, 15/15 mode pairs, 0 conflicts, 5 protected roots and 9 baseline crate trees verified; quick gate passed with Rust scope skipped. |
 | `G14-P0-B2` | `Complete` | This batch commit | `node tools/goal14/generate-dispositions.mjs --check`; 7,913 source obligations, 1,224 rules and 18 fixture families assigned exact-once; nine P5 partitions frozen at 5/6/6/40/160/384/38/495/90 rules; 0 gaps, 0 duplicates, 0 native handlers admitted. |
-| `G14-P0-B3` | `Pending` | None | Freeze APIs, state, identity, RNG and replay contracts. |
+| `G14-P0-B3` | `Complete` | This batch commit | `node tools/goal14/verify-runtime-contract.mjs`; 6 public mode types, 4 physical + 3 logical scopes, 17 typed slot families, 5 generic commands, 9 Activity event families, 10 components, 8 RNG labels and 7 failure policies frozen; 0 native handlers admitted. |
 | `G14-P0-B4` | `Pending` | None | Freeze matrix, slice, policies, workloads and release scaffold. |
 | `G14-P1-B1` | `Pending` | None | Integrate exact private 52-table bundle readers. |
 | `G14-P1-B2` | `Pending` | None | Compose catalog, component and registry identities. |
@@ -130,6 +130,9 @@ without a documented data revision and compatibility decision.
 | 2026-07-30 | Reuse released shared content by stable identity and digest. | Shared source rows do not justify duplicated semantics or mode-owned copies. |
 | 2026-07-30 | Freeze a valid coverage matrix in P0 rather than claiming an arbitrary Cartesian product. | Difficulty, Conundrum and unlock constraints must be respected while every required axis and interaction is covered. |
 | 2026-07-30 | Give shared rows `SharedIntegrated` precedence except the eight Adventure abstractions, which are `ExternalOutcome`; fixture-manifest rows remain `Metadata` until production execution. | This preserves released shared semantics, keeps external physics outside the runtime and prevents fixture metadata from being counted as implementation. |
+| 2026-07-30 | Represent the mutable chessboard as a validated immutable graph superset plus bounded typed state overlays. | Creation, replacement, copying, blanking, domain, beacon and Knowledge changes can commit through ordinary Activity operations without introducing a second graph aggregate. |
+| 2026-07-30 | Keep the existing eight Activity RNG labels; use `Spawn` only for a Custom Dice resolution and Knowledge causally owned by that resolution. | This isolates dice work from graph, encounter, reward, shop, occurrence and battle streams without changing released Standard Activity RNG state. |
+| 2026-07-30 | Give Gold and Gears a distinct 10-component set and replay entry while leaving the released Standard component set and replay bytes unchanged. | Compatibility is based on consumed components, not on a whole multi-mode bundle or central mode registry. |
 
 ## Research and policy register
 
