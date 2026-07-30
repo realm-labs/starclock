@@ -28,9 +28,42 @@ Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
 approximation register and semantic fixtures. It remains reference-only and
 does not enter the Standard profile or production runtime bundle.
 
+The isolated Version 4.4 Swarm Disaster Candidate reference lives under
+`swarm-disaster-v1/`. It has its own frozen manifest, normalized pack, four
+Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
+reconciliation evidence, approximation register and semantic fixtures. It
+remains reference-only and does not enter the Standard profile or production
+runtime bundle.
+
 The isolated Version 4.4 Unknowable Domain Candidate reference lives under
 `unknowable-domain-v1/`. It has its own frozen manifest, normalized pack, three
 Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
 reconciliation evidence, approximation register and semantic fixtures. It
 remains reference-only and does not enter the Standard profile or production
 runtime bundle.
+
+The isolated Version 4.4 Divergent Universe Candidate reference lives under
+`divergent-universe-v1/`. It has its own frozen manifest, normalized pack,
+three Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
+reconciliation evidence, approximation register and semantic fixtures. It
+remains reference-only and does not enter the Standard profile or production
+runtime bundle.
+
+The isolated Version 4.4 Currency Wars Candidate reference lives under
+`currency-wars-v1/`. It has its own frozen manifest, normalized pack, three
+Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
+reconciliation evidence, approximation register and semantic fixtures. It
+remains reference-only and does not enter any Simulated Universe or production
+runtime bundle.
+
+The isolated Version 4.4 Anomaly Arbitration Candidate reference lives under
+`anomaly-arbitration-v1/`. It has its own frozen manifest, normalized pack,
+three Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
+peer reconciliation, approximation register and semantic fixtures. It remains
+reference-only and does not enter any production runtime bundle.
+
+The post-merge audit for all six Candidate packages is generated at
+`evidence/reference-integration-v1/merged-mode-audit.json`. It binds their
+final completion commits, proves the merged manifests and release evidence are
+unchanged, covers all 15 mode pairs and fails on any factual evidence conflict
+or runtime-boundary leak.

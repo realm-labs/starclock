@@ -102,6 +102,10 @@
       "command": ["node", "tools/repository-check/verify-release-snapshots.mjs"]
     },
     {
+      "name": "merged Candidate reference integration",
+      "command": ["node", "tools/reference-integration/verify.mjs", "--check"]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },
@@ -125,8 +129,8 @@
       "requires": "source-cache"
     },
     {
-      "name": "Standard Universe normalized pack drift",
-      "command": ["node", "tools/universe-reference/bootstrap.mjs", ".", "--check"],
+      "name": "Standard Universe Goal 03 release-snapshot regeneration",
+      "command": ["node", "tools/universe-reference/verify-release-regeneration.mjs"],
       "requires": "source-cache"
     }
   ]

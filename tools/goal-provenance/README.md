@@ -5,6 +5,10 @@ reference records and their pinned source files. It also verifies all cached
 source hashes, compares a full bootstrap regeneration with the committed pack,
 and performs the dedicated Saber/Archer previous-release audit.
 
+The frozen source receipts use canonical UTF-8 CRLF text hashes. Verification
+normalizes only line endings before hashing, so LF and CRLF Git checkouts prove
+the same source bytes while every other byte difference still fails closed.
+
 The source caches and regenerated pack remain ignored local inputs:
 
 ```text

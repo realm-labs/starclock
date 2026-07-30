@@ -271,7 +271,10 @@ function verifyCaches(expectedRepositories, sources, roots) {
     assert(cache, `unknown source repository ${source.repository}`);
     const file = path.join(cache, ...source.path.split("/"));
     assert(fs.existsSync(file), `source cache is missing ${source.repository}:${source.path}`);
-    assert(sha256File(file) === source.sha256, `source hash mismatch for ${source.repository}:${source.path}`);
+    assert(
+      sha256CanonicalCrlfTextFile(file) === source.sha256,
+      `source hash mismatch for ${source.repository}:${source.path}`,
+    );
     byRepository[source.repository] = (byRepository[source.repository] ?? 0) + 1;
   }
   return {
@@ -413,6 +416,10 @@ function assertSetEqual(actual, expected, label) { assert(JSON.stringify(unique(
 function readJson(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }
 function formatJson(value) { return `${JSON.stringify(value, null, 2)}\n`; }
 function sha256File(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
+function sha256CanonicalCrlfTextFile(file) {
+  const canonical = fs.readFileSync(file, "utf8").replace(/\r?\n/gu, "\r\n");
+  return sha256Text(canonical);
+}
 function sha256Text(value) { return crypto.createHash("sha256").update(value, "utf8").digest("hex"); }
 function git(directory, args) { return execFileSync("git", ["-C", directory, ...args], { encoding: "utf8" }).trim(); }
 function relative(file) { return path.relative(root, file).replaceAll("\\", "/"); }

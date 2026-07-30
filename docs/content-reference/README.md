@@ -112,6 +112,22 @@ the isolated Sora review bundle digest is
 Exact counts, evidence and the remaining runtime boundary are recorded in the
 [Goal 08 ledger](../goals/08-gold-and-gears-reference-data-status.md).
 
+## Swarm Disaster Candidate reference
+
+Goal 09 freezes a separate Version 4.4 Swarm Disaster reference package under
+`content-reference/swarm-disaster-v1/`. Its 6,963 manifest obligations are
+fully `DataReady`; 31 unavailable facts remain explicit, nonblocking and
+replaceable. The four isolated authoring workbooks and Candidate Sora bundle
+are review artifacts only: no JSON/Excel runtime path, runtime lowering,
+handler registration or playable profile is released.
+
+The normalized Candidate pack digest is
+`82f3ffc444a1cdcd8bcba5a946bee3a3c8d58527b93a1c9d77f285697401b2d8`;
+the isolated Sora review bundle digest is
+`385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 09 ledger](../goals/09-swarm-disaster-reference-data-status.md).
+
 ## Unknowable Domain Candidate reference
 
 Goal 10 freezes a separate Version 4.4 Unknowable Domain reference package
@@ -128,3 +144,59 @@ the isolated Sora review bundle digest is
 `05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec`.
 Exact counts, evidence and the remaining runtime boundary are recorded in the
 [Goal 10 ledger](../goals/10-unknowable-domain-reference-data-status.md).
+
+## Divergent Universe Candidate reference
+
+Goal 11 freezes a separate Version 4.4 Divergent Universe reference package
+under `content-reference/divergent-universe-v1/`. Its 6,215 source obligations
+are fully `DataReady`; all 25 unavailable facts remain explicit, nonblocking
+and replaceable. The three isolated authoring workbooks and Candidate Sora
+bundle are review artifacts only: no JSON/Excel runtime path, runtime lowering,
+handler registration or playable profile is released.
+
+The normalized Candidate pack digest is
+`74234f3f689db6ba897d13865e079a3404ab707d3ddd978d646390e7b50bad02`;
+the isolated Sora review bundle digest is
+`3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 11 ledger](../goals/11-divergent-universe-reference-data-status.md).
+
+## Currency Wars Candidate reference
+
+Goal 12 freezes a separate Version 4.4 Currency Wars reference package under
+`content-reference/currency-wars-v1/`. Its 19,250 obligations resolve as
+18,524 eligible `DataReady` rows plus 726 explicit exclusions, with no
+unresolved row. The three isolated authoring workbooks and Candidate Sora
+bundle are review artifacts only and do not enable a playable profile.
+
+The normalized Candidate pack digest is
+`6166401347306cc38f5f0e3eed1a519d25a1f015e88f7782fb0c1bdf2761c2cb`;
+the isolated Sora review bundle digest is
+`a4569997990727739db74a2d942e6b13a84d2466b0fe3723acb92c7406ae8571`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 12 ledger](../goals/12-currency-wars-reference-data-status.md).
+
+## Anomaly Arbitration Candidate reference
+
+Goal 13 freezes a separate Version 4.4 Anomaly Arbitration reference package
+under `content-reference/anomaly-arbitration-v1/`. Its 392 obligations comprise
+76 mode-owned and 316 shared records, all `DataReady`; the normalized pack has
+2,103 rows and zero runtime-executable rows. The three isolated authoring
+workbooks and Candidate Sora bundle remain review artifacts only.
+
+The normalized pack-index digest is
+`923394ff72bddcc86318363e2ef248ee2d47ec05e19b60001aa3f7c1bd7dbdf3`;
+the isolated Sora review bundle digest is
+`a646b66ad0eae515a624d838ea8574f52c6e40588f88127f281b9cd8c40f89f1`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 13 ledger](../goals/13-anomaly-arbitration-reference-data-status.md).
+
+## Merged Candidate integration
+
+The generated
+[`merged-mode-audit.json`](../../evidence/reference-integration-v1/merged-mode-audit.json)
+binds the final Goal 08-13 completion commits after merge. It verifies all
+46,110 manifest obligations, the complete 15-pair reconciliation chain, zero
+factual evidence conflicts and zero runtime-enabled Candidate modes. Historical
+release evidence remains unchanged; the integration audit records current-tree
+compatibility separately.

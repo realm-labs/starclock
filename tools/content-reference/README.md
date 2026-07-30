@@ -23,6 +23,8 @@ The generator:
 
 - preserves 64-bit text hashes before JSON parsing;
 - converts gameplay decimals to canonical strings;
+- hashes source receipts as canonical UTF-8 CRLF text bytes, matching the
+  frozen authoring snapshot independently of the checkout's LF/CRLF setting;
 - merges Trailblazer body variants by Path;
 - uses descriptive Starclock keys and retains source IDs only as locators;
 - merges released 4.4 facts with the pinned Saber/Archer 4.3 fallback;

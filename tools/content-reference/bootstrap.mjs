@@ -729,7 +729,7 @@ function recordSourceFile(repository, absolutePath, relativePath) {
       id,
       repository,
       path: forwardSlash(relativePath),
-      sha256: sha256File(absolutePath),
+      sha256: sha256CanonicalCrlfTextFile(absolutePath),
     });
   }
   return sourceFiles.get(id);
@@ -1092,6 +1092,12 @@ function writePackIndex() {
 
 function sha256File(file) {
   return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+}
+
+function sha256CanonicalCrlfTextFile(file) {
+  const canonical = fs.readFileSync(file, "utf8")
+    .replace(/\r?\n/gu, "\r\n");
+  return sha256Text(canonical);
 }
 
 function sha256Text(value) {

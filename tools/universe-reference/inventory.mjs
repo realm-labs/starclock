@@ -137,7 +137,12 @@ const tracked = git(["ls-tree", "-r", "--name-only", "HEAD"])
 const records = [];
 for (const relativePath of tracked) {
   const absolutePath = path.join(source, ...relativePath.split("/"));
-  const bytes = await readFile(absolutePath);
+  // Goal 03 froze these receipts from a CRLF checkout. Canonicalize only line
+  // endings so the same pinned Git content regenerates on LF and CRLF hosts.
+  const bytes = Buffer.from(
+    (await readFile(absolutePath, "utf8")).replace(/\r?\n/gu, "\r\n"),
+    "utf8",
+  );
   records.push({
     path: relativePath,
     sha256: createHash("sha256").update(bytes).digest("hex"),

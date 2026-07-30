@@ -1,0 +1,280 @@
+{
+  "schema_revision": "starclock.merged-reference-integration-audit.v1",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "scope": "Final merged Goal 08-13 Candidate reference snapshots and their triangular pairwise reconciliation chain.",
+  "mode_count": 6,
+  "manifest_record_count": 46110,
+  "final_snapshots_unchanged": true,
+  "immutable_release_snapshots_registered": true,
+  "runtime_loading_enabled_modes": 0,
+  "pairwise_mode_pair_count": 15,
+  "pairwise_mode_pairs": [
+    "G08-G09",
+    "G08-G10",
+    "G08-G11",
+    "G08-G12",
+    "G08-G13",
+    "G09-G10",
+    "G09-G11",
+    "G09-G12",
+    "G09-G13",
+    "G10-G11",
+    "G10-G12",
+    "G10-G13",
+    "G11-G12",
+    "G11-G13",
+    "G12-G13"
+  ],
+  "conflict_count": 0,
+  "merge_coordination_required": false,
+  "source_cache_eol_policy": "Goal 01 frozen source receipts use canonical UTF-8 CRLF hashes; checkout-only LF/CRLF differences are not content drift.",
+  "modes": [
+    {
+      "goal": "G08",
+      "goal_id": "gold-and-gears-reference-v1",
+      "mode": "gold-and-gears",
+      "completion_commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+      "completion_tree": "d5430413258a35a6a988973a9f57966f4daeee7d",
+      "manifest_path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+      "manifest_record_count": 7913,
+      "release_evidence_path": "evidence/gold-and-gears-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "191db83faae7490defeaa68a7025a88384243ce7821407fa5ac7f21f6c21a28d",
+      "release_result": "complete",
+      "normalized_pack_sha256": "ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623",
+      "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G09",
+      "goal_id": "swarm-disaster-reference-v1",
+      "mode": "swarm-disaster",
+      "completion_commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+      "completion_tree": "7116ca632ca03f13c8d8b0243338d88bef846093",
+      "manifest_path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+      "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+      "manifest_record_count": 6963,
+      "release_evidence_path": "evidence/swarm-disaster-reference-v1/release-evidence.json",
+      "release_evidence_sha256": "91da4152241aed3a3bad8cab2a0f2c78f36dd2ba242448a75922de43bbf7f4a0",
+      "release_result": "CandidateReferenceComplete",
+      "normalized_pack_sha256": "82f3ffc444a1cdcd8bcba5a946bee3a3c8d58527b93a1c9d77f285697401b2d8",
+      "candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G10",
+      "goal_id": "unknowable-domain-reference-v1",
+      "mode": "unknowable-domain",
+      "completion_commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+      "completion_tree": "7ac9d6242de3b024c6b0149f3f28230edc78da56",
+      "manifest_path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+      "manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+      "manifest_record_count": 5377,
+      "release_evidence_path": "evidence/unknowable-domain-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "c35241052491bfd00e26f803bd7eb0f168af719f4a3542593efe2055528c9a3b",
+      "release_result": "complete",
+      "normalized_pack_sha256": "f48f264fb55221e2494156c5ab7911719d703ec47f492c9c0e2d7fd2c8123b28",
+      "candidate_bundle_sha256": "05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G11",
+      "goal_id": "divergent-universe-reference-v1",
+      "mode": "divergent-universe",
+      "completion_commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+      "completion_tree": "1cb45215d06549dbc7bb4f38ab331ae4e2e872e2",
+      "manifest_path": "content-manifests/divergent-universe-v1/content-manifest.json",
+      "manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+      "manifest_record_count": 6215,
+      "release_evidence_path": "evidence/divergent-universe-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "2285182e1685bd28e202955f828279a8c9853cd8c0adeba08e90bb18793afe0d",
+      "release_result": "complete",
+      "normalized_pack_sha256": "74234f3f689db6ba897d13865e079a3404ab707d3ddd978d646390e7b50bad02",
+      "candidate_bundle_sha256": "3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G12",
+      "goal_id": "currency-wars-reference-v1",
+      "mode": "currency-wars",
+      "completion_commit": "7d672177524a6b43cfd0ff3a5cb62ce7aa6e4981",
+      "completion_tree": "3aa951a8708fc8333497df16055aced197dcaa5e",
+      "manifest_path": "content-manifests/currency-wars-v1/content-manifest.json",
+      "manifest_sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+      "manifest_record_count": 19250,
+      "release_evidence_path": "evidence/currency-wars-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "c260d63c8c276d204668cbbd6128797ca74b268e9f6429aa9d4c7196454c9106",
+      "release_result": "Complete",
+      "normalized_pack_sha256": "6166401347306cc38f5f0e3eed1a519d25a1f015e88f7782fb0c1bdf2761c2cb",
+      "candidate_bundle_sha256": "a4569997990727739db74a2d942e6b13a84d2466b0fe3723acb92c7406ae8571",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G13",
+      "goal_id": "anomaly-arbitration-reference-v1",
+      "mode": "anomaly-arbitration",
+      "completion_commit": "6b3ed8a13e962c95c5654e780d4b64f4f71ffc2c",
+      "completion_tree": "46859cec1a7a3639bc898fe724da89f8058d3fa1",
+      "manifest_path": "content-manifests/anomaly-arbitration-v1/content-manifest.json",
+      "manifest_sha256": "84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4",
+      "manifest_record_count": 392,
+      "release_evidence_path": "evidence/anomaly-arbitration-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "0e23b77e86f8c6c932d3cff803371c250ba46aa0bb4dbb85c03560583e04200f",
+      "release_result": "Passed",
+      "normalized_pack_sha256": "923394ff72bddcc86318363e2ef248ee2d47ec05e19b60001aa3f7c1bd7dbdf3",
+      "candidate_bundle_sha256": "a646b66ad0eae515a624d838ea8574f52c6e40588f88127f281b9cd8c40f89f1",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    }
+  ],
+  "published_reconciliations": [
+    {
+      "goal": "G09",
+      "peers": [
+        "G08"
+      ],
+      "receipt_count": 609,
+      "exact_match_count": 609,
+      "conflict_count": 0
+    },
+    {
+      "goal": "G10",
+      "peers": [
+        "G08",
+        "G09"
+      ],
+      "receipt_count": 155,
+      "exact_match_count": 143,
+      "conflict_count": 0
+    },
+    {
+      "goal": "G11",
+      "peers": [
+        "G08",
+        "G09",
+        "G10"
+      ],
+      "receipt_count": 102,
+      "exact_match_count": 102,
+      "non_join_digest_representation_count": 181,
+      "conflict_count": 0
+    },
+    {
+      "goal": "G12",
+      "peers": [
+        "G08",
+        "G09",
+        "G10",
+        "G11"
+      ],
+      "receipt_count": 4,
+      "exact_match_count": 0,
+      "conflict_count": 0
+    }
+  ],
+  "anomaly_arbitration_final_peer_reconciliation": {
+    "shared_record_count": 316,
+    "peer_goals": [
+      "G07",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12"
+    ],
+    "peers": [
+      {
+        "goal": "G07",
+        "completion_commit": "c3acefe237cef1e277e28a017e60ecdbe119f5d0",
+        "manifest_path": "content-manifests/standard-universe-v1/content-manifest.json",
+        "manifest_record_count": 1935
+      },
+      {
+        "goal": "G08",
+        "completion_commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+        "manifest_path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+        "manifest_record_count": 7913
+      },
+      {
+        "goal": "G09",
+        "completion_commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "manifest_path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+        "manifest_record_count": 6963
+      },
+      {
+        "goal": "G10",
+        "completion_commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+        "manifest_path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+        "manifest_record_count": 5377
+      },
+      {
+        "goal": "G11",
+        "completion_commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+        "manifest_path": "content-manifests/divergent-universe-v1/content-manifest.json",
+        "manifest_record_count": 6215
+      },
+      {
+        "goal": "G12",
+        "completion_commit": "7d672177524a6b43cfd0ff3a5cb62ce7aa6e4981",
+        "manifest_path": "content-manifests/currency-wars-v1/content-manifest.json",
+        "manifest_record_count": 19250
+      }
+    ],
+    "exact_match_count": 0,
+    "container_only_count": 5,
+    "absent_count": 311,
+    "conflict_count": 0,
+    "classification_sha256": "0aa9ce8d6e7a12fba63bf3867943e99677ca32449e707b12805bfacfce1d4d63",
+    "container_observations": [
+      {
+        "manifest_record_id": "stage_configs:stage:30508011",
+        "peer_goals": [
+          "G11"
+        ],
+        "peer_record_count": 1
+      },
+      {
+        "manifest_record_id": "stage_configs:stage:30508012",
+        "peer_goals": [
+          "G11"
+        ],
+        "peer_record_count": 1
+      },
+      {
+        "manifest_record_id": "stage_configs:stage:30508013",
+        "peer_goals": [
+          "G11"
+        ],
+        "peer_record_count": 1
+      },
+      {
+        "manifest_record_id": "stage_configs:stage:30508021",
+        "peer_goals": [
+          "G11"
+        ],
+        "peer_record_count": 1
+      },
+      {
+        "manifest_record_id": "stage_configs:stage:30508022",
+        "peer_goals": [
+          "G11"
+        ],
+        "peer_record_count": 1
+      }
+    ],
+    "historical_goal13_release_evidence_preserved": true
+  },
+  "conclusions": [
+    "No mode-owned manifest or release evidence changed while merging.",
+    "All 15 Goal 08-13 mode pairs are covered by the ordered reconciliation chain.",
+    "No reconciliation reports a factual evidence conflict.",
+    "All six packages remain Candidate reference data with runtime loading disabled.",
+    "Historical release evidence remains unchanged; this report records post-merge compatibility."
+  ]
+}

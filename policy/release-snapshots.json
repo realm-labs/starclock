@@ -72,6 +72,54 @@
       "release_policy_path": "policy/gold-and-gears-reference.json",
       "release_evidence_path": "evidence/gold-and-gears-reference-v1/release/release-evidence.json",
       "evidence_schema_revision": "starclock.gold-and-gears-reference-release.v1"
+    },
+    {
+      "goal_id": "swarm-disaster-reference-v1",
+      "completion_commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+      "completion_tree": "7116ca632ca03f13c8d8b0243338d88bef846093",
+      "status_path": "docs/goals/09-swarm-disaster-reference-data-status.md",
+      "release_policy_path": "policy/goal09-foundation.json",
+      "release_evidence_path": "evidence/swarm-disaster-reference-v1/release-evidence.json",
+      "evidence_schema_revision": "starclock.swarm-disaster-reference-release.v1",
+      "evidence_result": "CandidateReferenceComplete"
+    },
+    {
+      "goal_id": "unknowable-domain-reference-v1",
+      "completion_commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+      "completion_tree": "7ac9d6242de3b024c6b0149f3f28230edc78da56",
+      "status_path": "docs/goals/10-unknowable-domain-reference-data-status.md",
+      "release_policy_path": "policy/unknowable-domain-reference.json",
+      "release_evidence_path": "evidence/unknowable-domain-reference-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.unknowable-domain-reference-release.v1"
+    },
+    {
+      "goal_id": "divergent-universe-reference-v1",
+      "completion_commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+      "completion_tree": "1cb45215d06549dbc7bb4f38ab331ae4e2e872e2",
+      "status_path": "docs/goals/11-divergent-universe-reference-data-status.md",
+      "release_policy_path": "content-manifests/divergent-universe-v1/foundation.json",
+      "release_evidence_path": "evidence/divergent-universe-reference-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.divergent-universe-reference-release.v1"
+    },
+    {
+      "goal_id": "currency-wars-reference-v1",
+      "completion_commit": "7d672177524a6b43cfd0ff3a5cb62ce7aa6e4981",
+      "completion_tree": "3aa951a8708fc8333497df16055aced197dcaa5e",
+      "status_path": "docs/goals/12-currency-wars-reference-data-status.md",
+      "release_policy_path": "content-manifests/currency-wars-v1/foundation.json",
+      "release_evidence_path": "evidence/currency-wars-reference-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.currency-wars-reference-release.v1",
+      "evidence_result": "Complete"
+    },
+    {
+      "goal_id": "anomaly-arbitration-reference-v1",
+      "completion_commit": "6b3ed8a13e962c95c5654e780d4b64f4f71ffc2c",
+      "completion_tree": "46859cec1a7a3639bc898fe724da89f8058d3fa1",
+      "status_path": "docs/goals/13-anomaly-arbitration-reference-data-status.md",
+      "release_policy_path": "content-manifests/anomaly-arbitration-v1/foundation.json",
+      "release_evidence_path": "evidence/anomaly-arbitration-reference-v1/release/release-evidence.json",
+      "evidence_schema_revision": "starclock.anomaly-arbitration-release-evidence.v1",
+      "evidence_result": "Passed"
     }
   ]
 }

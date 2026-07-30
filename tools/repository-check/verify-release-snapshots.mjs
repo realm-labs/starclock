@@ -28,8 +28,11 @@ for (const goal of policy.goals) {
   assert(evidence.goal_id === goal.goal_id, `${goal.goal_id}: release evidence goal differs`);
   assert(evidence.schema_revision === goal.evidence_schema_revision,
     `${goal.goal_id}: release evidence schema differs`);
-  if (Object.hasOwn(evidence, "result"))
-    assert(evidence.result === "complete", `${goal.goal_id}: release evidence is not complete`);
+  if (Object.hasOwn(evidence, "result")) {
+    const expectedResult = goal.evidence_result ?? "complete";
+    assert(evidence.result === expectedResult,
+      `${goal.goal_id}: release evidence result differs`);
+  }
 }
 
 console.log(`Immutable release snapshots verified (${policy.goals.length} goals; current source remains evolvable).`);
