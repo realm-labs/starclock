@@ -1,0 +1,53 @@
+{
+  "schema_revision": "starclock.gold-and-gears-identity-composition.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P1-B2",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog": {
+    "revision": "gold-and-gears-v4.4-runtime-v1",
+    "profile_revision": "gold-gears-profile-v1",
+    "content_revision": "gold-gears-content-v1",
+    "shared_content_revision": "universe-shared-content-v1",
+    "gold_content_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "shared_content_sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+    "profile_identity_sha256": "b9da9f159d3b80fe47ea2bfe702c66c88dc9ba2e53bb44b26b9038c70df9903b",
+    "composition_sha256": "8e53d5ef103f554b9602de634cdcf2fc3ccf493700001e2bb877567decd31340"
+  },
+  "activity_registry": {
+    "registry_revision": "activity-handler-registry-v1",
+    "mode_bundle_id": "starclock.mode.gold-and-gears",
+    "mode_bundle_revision": "gold-and-gears-activity-handlers-v1",
+    "dependencies": [
+      "starclock.activity.core"
+    ],
+    "bundles": 2,
+    "admitted_handlers": 0,
+    "sha256": "83c542b5142a9b627dcc5add7bc382cb51f76185da736a1104f1f9419f93205d"
+  },
+  "components": {
+    "revision": 1,
+    "count": 10,
+    "gold_mode_content_components": 1,
+    "shared_mode_content_components": 1,
+    "unrelated_mode_components": 0,
+    "fixture_root_sha256": "93c50f430cf8950bb40fc180d355adbc6719d8f56ae434da4f8aac3068509b18"
+  },
+  "compatibility": {
+    "standard_handler_bundle_blob": "9dae3f37987b365b3c28e1f40c863e918d2510f0",
+    "standard_component_composer_blob": "4b7e8a4a4c095eb29ee0ea9c706d545571659afc",
+    "standard_sources_unchanged_from_goal_start": true,
+    "gold_registry_excludes_standard_bundle": true,
+    "controller_digest_changes_component_root": true
+  },
+  "tests": {
+    "integration_passed": 3,
+    "golden_digest_vectors": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --test gold_gears_identity --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal14/verify-phase1-b2.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}
