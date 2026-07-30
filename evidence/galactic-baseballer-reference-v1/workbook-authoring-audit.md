@@ -15,7 +15,7 @@ authoring surface; normalized JSON remains research/debug staging, and Sora
 | Authored rows | 10,615 |
 | Normalized-file ownership | every one of 40 files maps to exactly one sheet |
 | Sora metadata | rows 1–7 on every sheet; authored rows begin at row 8 |
-| Semantic digest | `a9c449aab9b115e5599d3440352b7e732bdfe0414cd1e120ce76a25d80acdc1c` |
+| Semantic digest | `a75898e2681dd5144f2f6107e88ccbfc8b423f95b7667bf758fe66ef8529b889` |
 | Existing-target behavior | generation refuses to overwrite any workbook |
 | Formula/error scan | no formula cells or Excel error cells |
 | Round trip | every cell reconstructs the canonical normalized value |
@@ -24,16 +24,24 @@ The canonical workbook digests are:
 
 | Workbook | SHA-256 |
 |---|---|
-| `GalacticBaseballerProfiles.xlsx` | `4d30a557792403941f1bc9699535a83b2426b9b5952bc6ec3bb3c0854e04c667` |
-| `GalacticBaseballerArsenal.xlsx` | `6477416da03d3781f42fa0812a9acfdf757ded4cb2f774502b713ea393d80b08` |
-| `GalacticBaseballerEncounters.xlsx` | `3eec8a52dbfdb4f4927950c6a4e3755bf777db5f02585df49eed242814141582` |
-| `GalacticBaseballerReview.xlsx` | `62b24bee05eb6ca0da5536077eaf9dd7a035bc332807b692b118291d25e7e193` |
+| `GalacticBaseballerProfiles.xlsx` | `bfbc30f547ad4a8bc7119d30ce1c2ce59ba88df12bc6fd93edb3b5da04f00379` |
+| `GalacticBaseballerArsenal.xlsx` | `1f78ef940ee9bb210df1d9b3ed3c860948c345f5efa6429ad74f7ccec9ff09b2` |
+| `GalacticBaseballerEncounters.xlsx` | `3f019e30a8216171f510839eb8c798d7a5c85957c357845e915abca3aac51b56` |
+| `GalacticBaseballerReview.xlsx` | `cb2af908fbab277999ca466909fb8d86496b840a57adbb52729ee9a20f624b46` |
 
 Two clean output directories were generated independently. All four byte
 digests and the semantic digest matched each other and the committed target.
 The authoring command was also directed at the populated target and failed
 with the required `FileExistsError: refusing to overwrite authored
 workbook(s)`.
+
+`G16-P3-B3` then generated the authoritative Sora templates and re-authored
+the complete workbook set from those templates. This replaced the provisional
+hand-constructed metadata values from P3-B2 with the exact Sora `@schema`,
+field type, scope and input rows without changing any normalized payload row.
+The current digests above supersede the pre-schema fingerprints. Double
+generation, round-trip verification and the complete visual review were rerun
+after that synchronization.
 
 ## Structural and visual review
 
@@ -63,11 +71,13 @@ column bands.
 ```text
 /Users/mikai/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
   tools/galactic-baseballer-reference/author-workbooks.py \
-  --root "$PWD" --output <new-empty-directory>
+  --root "$PWD" --output <new-empty-directory> \
+  --templates config/galactic-baseballer-generated/templates
 
 /Users/mikai/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 \
   tools/galactic-baseballer-reference/verify-workbooks.py \
-  --root "$PWD" --directory config/galactic-baseballer/data
+  --root "$PWD" --directory config/galactic-baseballer/data \
+  --templates config/galactic-baseballer-generated/templates
 
 node tools/galactic-baseballer-reference/visual-review-workbooks.mjs \
   "$PWD" config/galactic-baseballer/data <new-review-directory> \

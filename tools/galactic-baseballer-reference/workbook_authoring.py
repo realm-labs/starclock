@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 import openpyxl
-from openpyxl import Workbook, load_workbook
+from openpyxl import load_workbook
 from openpyxl.cell.cell import TYPE_ERROR, TYPE_FORMULA
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -69,10 +69,6 @@ def compact(value: Any) -> str:
 def sheet_name(file_name: str) -> str:
     parts = re.sub(r"\.json$", "", file_name).split("-")
     return "".join(part[:1].upper() + part[1:] for part in parts)[:31]
-
-
-def table_name(file_name: str) -> str:
-    return f"Gb{sheet_name(file_name)}"
 
 
 def normalized_files(root: Path) -> list[str]:
@@ -135,42 +131,6 @@ def authored_rows(
                 )
         authored.append(values)
     return fields, authored
-
-
-def metadata(
-    file_name: str,
-    fields: list[str],
-) -> list[list[Any]]:
-    columns = ["id", "stable_key", *fields]
-    constraints = [
-        "key;range=1..2147483647",
-        "length=1..32767",
-        *(["length=0..32767"] * len(fields)),
-    ]
-    descriptions = [
-        "workbook-private numeric key",
-        "globally stable Starclock reference key",
-        *[f"canonical Goal 16 field: {field}" for field in fields],
-    ]
-    return [
-        [
-            "@table",
-            table_name(file_name),
-            "@mode",
-            "map",
-            "@key",
-            "id",
-            "@scope",
-            "all",
-            *([None] * max(0, len(columns) - 8)),
-        ],
-        ["#name", *columns],
-        ["#field", *columns],
-        ["#type", "i32", *(["string"] * (len(columns) - 1))],
-        ["#scope", *(["all"] * len(columns))],
-        ["#input", *constraints],
-        ["#desc", *descriptions],
-    ]
 
 
 def add_validation(
@@ -334,7 +294,8 @@ def normalize_archive(file: Path) -> None:
         for name, payload in members:
             if name == "docProps/core.xml":
                 payload = re.sub(
-                    rb"(<dcterms:modified[^>]*>)[^<]*(</dcterms:modified>)",
+                    rb"(<dcterms:(?:created|modified)[^>]*>)"
+                    rb"[^<]*(</dcterms:(?:created|modified)>)",
                     rb"\g<1>2000-01-01T00:00:00Z\g<2>",
                     payload,
                 )
@@ -360,7 +321,11 @@ def expected_layout(
     }
 
 
-def author(root: Path, output: Path) -> dict[str, int]:
+def author(
+    root: Path,
+    output: Path,
+    templates: Path,
+) -> dict[str, int]:
     output.mkdir(parents=True, exist_ok=True)
     layout = expected_layout(root)
     targets = [output / name for name in layout]
@@ -372,15 +337,32 @@ def author(root: Path, output: Path) -> dict[str, int]:
         )
     counts: dict[str, int] = {}
     for workbook_name, files in layout.items():
-        workbook = Workbook()
-        workbook.remove(workbook.active)
+        template = templates / workbook_name
+        if not template.is_file():
+            raise FileNotFoundError(f"Sora template missing: {template}")
+        workbook = load_workbook(template, data_only=False)
+        expected_sheets = [sheet_name(file_name) for file_name in files]
+        if workbook.sheetnames != expected_sheets:
+            raise ValueError(
+                f"{workbook_name}: Sora template sheet partition drift"
+            )
         for file_name in files:
             fields, rows = authored_rows(root, file_name)
-            sheet = workbook.create_sheet(sheet_name(file_name))
-            metadata_rows = metadata(file_name, fields)
-            for row in metadata_rows:
-                sheet.append(row)
             columns = ["id", "stable_key", *fields]
+            sheet = workbook[sheet_name(file_name)]
+            template_fields = [
+                cell.value for cell in sheet[3] if cell.value is not None
+            ]
+            if template_fields != ["#field", *columns]:
+                raise ValueError(
+                    f"{workbook_name}/{sheet.title}: "
+                    "Sora template field drift"
+                )
+            if sheet.max_row != 7:
+                raise ValueError(
+                    f"{workbook_name}/{sheet.title}: "
+                    "Sora template contains authored rows"
+                )
             for values in rows:
                 sheet.append([values[column] for column in columns])
             style_sheet(sheet, len(rows))
@@ -397,13 +379,14 @@ def author(root: Path, output: Path) -> dict[str, int]:
         workbook.save(target)
         workbook.close()
         normalize_archive(target)
-    verify(root, output, counts)
+    verify(root, output, templates, counts)
     return counts
 
 
 def verify(
     root: Path,
     directory: Path,
+    templates: Path,
     authored_counts: dict[str, int] | None = None,
 ) -> dict[str, int]:
     layout = expected_layout(root)
@@ -415,26 +398,42 @@ def verify(
         )
     }
     for workbook_name, files in layout.items():
+        template = load_workbook(
+            templates / workbook_name,
+            read_only=True,
+            data_only=False,
+        )
         workbook = load_workbook(
             directory / workbook_name,
             data_only=False,
         )
         expected_sheets = [sheet_name(file_name) for file_name in files]
-        if workbook.sheetnames != expected_sheets:
+        if (
+            workbook.sheetnames != expected_sheets
+            or template.sheetnames != expected_sheets
+        ):
             raise ValueError(f"{workbook_name}: missing or reordered sheet")
         for file_name, sheet_name_value in zip(files, expected_sheets):
             sheet = workbook[sheet_name_value]
+            template_sheet = template[sheet_name_value]
             fields, expected_rows = authored_rows(root, file_name)
-            expected_metadata = metadata(file_name, fields)
-            for row_number, values in enumerate(expected_metadata, start=1):
+            columns = ["id", "stable_key", *fields]
+            for row_number in range(1, 8):
                 observed_values = [
                     sheet.cell(row=row_number, column=column).value
-                    for column in range(1, len(values) + 1)
+                    for column in range(1, len(columns) + 2)
                 ]
-                if observed_values != values:
+                template_values = [
+                    template_sheet.cell(
+                        row=row_number,
+                        column=column,
+                    ).value
+                    for column in range(1, len(columns) + 2)
+                ]
+                if observed_values != template_values:
                     raise ValueError(
                         f"{workbook_name}/{sheet_name_value}: "
-                        f"metadata row {row_number} drift"
+                        f"Sora metadata row {row_number} drift"
                     )
             key = f"{workbook_name}/{sheet_name_value}"
             count = len(expected_rows)
@@ -443,7 +442,6 @@ def verify(
                 raise ValueError(
                     f"{key}: expected {count} rows, got {sheet.max_row - 7}"
                 )
-            columns = ["id", "stable_key", *fields]
             for offset, expected in enumerate(expected_rows, start=8):
                 values = [
                     sheet.cell(row=offset, column=column).value
@@ -495,6 +493,7 @@ def verify(
                             f"{key}/{cell.coordinate}: Excel text overflow"
                         )
         workbook.close()
+        template.close()
     if authored_counts is not None and observed != authored_counts:
         raise ValueError("workbook counts changed after save/reload")
     return observed

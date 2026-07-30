@@ -13,10 +13,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--templates", type=Path, required=True)
     args = parser.parse_args()
     root = args.root.resolve()
     output = args.output.resolve()
-    counts = author(root, output)
+    templates = args.templates.resolve()
+    counts = author(root, output, templates)
     print(
         f"Authored {len(counts)} Galactic Baseballer sheets with "
         f"openpyxl==3.1.5; {sum(counts.values())} rows; "

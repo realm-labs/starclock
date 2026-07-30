@@ -7,8 +7,8 @@
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
 | Active phase | Phase 3 — Evidence closure and isolated authoring |
-| Active batch | `G16-P3-B2` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P3-B3` |
+| Active batch | `G16-P3-B3` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P3-B4` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -36,7 +36,7 @@
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
 | Phase 1 — Departure and shared base | `Complete` | Departure profile, stages, arsenal, Legendary synthesis, growth, candidates, inventory, encounters, stable enemy/skill identities, score/settlement and 17 semantic families are closed. |
 | Phase 2 — Demon King and progression | `Complete` | Independent profile/differences, arsenal/synthesis, growth, progression, 18 shared encounters, 61 waves, 1,573 ordered candidates, 77 enemies, 258 skills, 10 status locators, seven team bonuses, scoring, Devil phases and semantic fixtures are closed. |
-| Phase 3 — Evidence, Excel and Sora | `InProgress` | The 40-file normalized pack, all 2,232 exact-once reconciliation/coverage rows, 2,634 source receipts, 12 replaceable boundaries, 26 rules and 35 fixtures are closed. Four isolated workbooks now cover all 40 sheets and 10,615 rows; double generation, semantic/structural verification and 141-band visual review pass. P3-B3 owns Sora schema/template/lock generation. |
+| Phase 3 — Evidence, Excel and Sora | `InProgress` | The 40-file normalized pack, all 2,232 exact-once reconciliation/coverage rows, 2,634 source receipts, 12 replaceable boundaries, 26 rules and 35 fixtures are closed. Four isolated workbooks cover all 40 sheets and 10,615 rows; double generation, semantic/structural verification and 141-band visual review pass. The isolated 40-table Sora 0.3.0 schema, lock and four templates regenerate without drift. P3-B4 owns readers and exports. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
 
 ## Batch ledger
@@ -57,7 +57,7 @@
 | `G16-P2-B4` | `Complete` | This row's containing commit | Closed all 18 reachable shared StageConfig encounters, 61 waves and 1,573 ordered candidate positions. Resolved 77 MonsterIDs and 258 SkillIDs to existing frozen stable identities without copying definitions; retained ten exact reachable status locators. Bound all seven stage team bonuses to their remaining seven MazeBuff rows and exact program fragments, completing ownership of all 315 Demon King MazeBuff rows. Froze exact scoring/group/contribution IDs, seven settlements, 39 ordered Demon King's Den periods and the 40-ability Devil program structure. Added five ReferenceOnly rules and six fixtures, including the post-correction D007 `3000/4500/45000` score facts. |
 | `G16-P3-B1` | `Complete` | This row's containing commit | Assembled all 40 contracted normalized files and indexed the other 39 with canonical counts/digests. Closed all 2,232 frozen obligations exact-once: 2,207 DataReady rows each point to a real normalized owner, while 25 reward/presentation rows remain EvidenceOnly with no mechanical import. Aggregated 2,634 auditable sources and 12 complete non-blocking replacement boundaries. Corrected an exposed Departure gap by adding item `281019`, exact income/chest vectors, 14 store definitions/54 price levels, 20 tutorial locators, four tags and eight team-bonus definitions. Combined both profiles into 26 ReferenceOnly rules and 35 fixtures across exactly 20 families. |
 | `G16-P3-B2` | `Complete` | This row's containing commit | Authored four complete non-overwriting workbooks with the required `openpyxl==3.1.5` adapter: 40 sheets and 10,615 canonical rows. Two independent clean generations are byte-identical to each other and the committed targets; all cell values round-trip to the normalized pack, with no formulas or Excel errors. Rendered every sheet and every schema column as 141 contiguous review bands, inspected all four contact sheets and retained a zero-defect `PassedHumanInspection` record with per-band/contact PNG digests. |
-| `G16-P3-B3` | `Pending` | — | Sora schema, template, lock and double generation. |
+| `G16-P3-B3` | `Complete` | This row's containing commit | Generated the isolated `starclock_galactic_baseballer_reference` Sora 0.3.0 project with four schema partitions and 40 exact-once workbook sources. Two clean schema-lock/template generations and a third committed-tree regeneration are byte-identical. Synchronized all four authored workbooks to the authoritative Sora metadata rows, reran 10,615-row round-trip checks and visually reinspected all 141 column bands with zero severe defects. The generated root contains only the schema lock and four 40-sheet templates; readers and exports remain P3-B4-owned. |
 | `G16-P3-B4` | `Pending` | — | Binary/debug exports and standalone reader. |
 | `G16-P4-B1` | `Pending` | — | Full semantic execution and invariance review. |
 | `G16-P4-B2` | `Pending` | — | Profile/shared identity/synthesis/isolation audit. |

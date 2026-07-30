@@ -13,9 +13,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--directory", type=Path, required=True)
+    parser.add_argument("--templates", type=Path, required=True)
     args = parser.parse_args()
     directory = args.directory.resolve()
-    counts = verify(args.root.resolve(), directory)
+    counts = verify(
+        args.root.resolve(),
+        directory,
+        args.templates.resolve(),
+    )
     print(
         f"Verified {len(counts)} Galactic Baseballer sheets and "
         f"{sum(counts.values())} rows; semantic digest "
