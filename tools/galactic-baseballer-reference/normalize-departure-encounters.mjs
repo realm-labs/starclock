@@ -6,13 +6,34 @@ import path from "node:path";
 import process from "node:process";
 
 const check = process.argv.includes("--check");
+const requestedProfile = option("--profile") ?? "departure";
+if (!["departure", "demon-king"].includes(requestedProfile))
+  throw new Error(`unsupported profile: ${requestedProfile}`);
+const demonKing = requestedProfile === "demon-king";
 const root = path.resolve(".");
 const cache = path.resolve(option("--source-cache")
   ?? process.env.STARCLOCK_SOURCE_CACHE
   ?? path.join(root, ".cache/galactic-baseballer-source"));
 const sourceRoot = path.join(cache, "turnbasedgamedata");
-const outputRoot = path.join(root, "content-reference", "galactic-baseballer-v1");
-const profileId = "galactic-baseballer.departure.v2_2";
+const packRoot = path.join(
+  root,
+  "content-reference",
+  "galactic-baseballer-v1",
+);
+const outputRoot = demonKing ? path.join(packRoot, "fragments") : packRoot;
+const profileId = demonKing
+  ? "galactic-baseballer.demon-king.v3_3"
+  : "galactic-baseballer.departure.v2_2";
+const idPrefix = demonKing
+  ? "galactic-baseballer.demon-king"
+  : "galactic-baseballer.departure";
+const displayName = demonKing ? "Demon King" : "Departure";
+const displayNameZh = demonKing ? "魔王篇" : "启程篇";
+const tag = demonKing ? "demon-king" : "departure";
+const ownership = demonKing ? "DemonKing" : "Departure";
+const sourcePrefix = demonKing ? "EvoBdSC" : "EvolveBuild";
+const constantPrefix = demonKing ? "EvolveBuildSC" : "EvolveBuild";
+const outputPrefix = demonKing ? "demon-" : "";
 const rowRevision = "starclock.galactic-baseballer-row.v1";
 const manifest = JSON.parse(await readFile(path.join(
   root,
@@ -34,11 +55,11 @@ const coreEnemyAbilities = JSON.parse(await readFile(path.join(
 ), "utf8"));
 const authoredStages = JSON.parse(await readFile(path.join(
   outputRoot,
-  "stages.json",
+  `${outputPrefix}stages.json`,
 ), "utf8"));
 const authoredPeriods = JSON.parse(await readFile(path.join(
   outputRoot,
-  "stage-periods.json",
+  `${outputPrefix}stage-periods.json`,
 ), "utf8"));
 
 function option(name) {
@@ -126,7 +147,7 @@ function envelope({
   manifestIds,
   sourceRefs,
   tags,
-  ownership = "Departure",
+  ownership: rowOwnership = ownership,
   evidenceQuality = "ExactStructured",
   mechanismQuality = "ExactRelationship",
 }) {
@@ -139,7 +160,7 @@ function envelope({
     summary_en: summaryEn,
     summary_zh_cn: summaryZh,
     profile_ids: [profileId],
-    ownership,
+    ownership: rowOwnership,
     coverage_state: "Researched",
     evidence_quality: evidenceQuality,
     mechanism_quality: mechanismQuality,
@@ -150,7 +171,7 @@ function envelope({
 }
 
 const periodSource = await readSource(
-  "ExcelOutput/EvolveBuildStagePeriod.json",
+  `ExcelOutput/${sourcePrefix}StagePeriod.json`,
 );
 const stageSource = await readSource("ExcelOutput/StageConfig.json");
 const groupSource = await readSource("ExcelOutput/StageInfiniteGroup.json");
@@ -164,18 +185,40 @@ const monsterSource = await readSource("ExcelOutput/MonsterConfig.json");
 const monsterSkillSource = await readSource(
   "ExcelOutput/MonsterSkillConfig.json",
 );
+const monsterStatusSource = demonKing
+  ? await readSource("ExcelOutput/MonsterStatusConfig.json")
+  : [];
+const mazeBuffSource = demonKing
+  ? await readSource("ExcelOutput/EvoBdSCMazeBuff.json")
+  : [];
 const constantSource = await readSource(
-  "ExcelOutput/EvolveBuildConstValueCommon.json",
+  `ExcelOutput/${sourcePrefix}ConstValueCommon.json`,
 );
 const scoreProgramPath =
   "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json";
 const scoreProgram = await readSource(scoreProgramPath);
 const scoreProgramManifest = manifestRecord("config_programs", scoreProgramPath);
+const teamBonusProgramPath =
+  "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json";
+const teamBonusProgram = demonKing
+  ? await readSource(teamBonusProgramPath)
+  : undefined;
+const teamBonusProgramManifest = demonKing
+  ? manifestRecord("config_programs", teamBonusProgramPath)
+  : undefined;
+const devilProgramPath =
+  "Config/ConfigAbility/BattleEvent/EvolveBuildSC_11_Devil.json";
+const devilProgram = demonKing
+  ? await readSource(devilProgramPath)
+  : undefined;
+const devilProgramManifest = demonKing
+  ? manifestRecord("config_programs", devilProgramPath)
+  : undefined;
 
-const departureStageIds = new Set(periodSource.map(({ StageID }) => StageID));
+const reachableStageIds = new Set(periodSource.map(({ StageID }) => StageID));
 const stageRows = stageSource
   .map((row, index) => ({ row, index }))
-  .filter(({ row }) => departureStageIds.has(row.StageID));
+  .filter(({ row }) => reachableStageIds.has(row.StageID));
 const groupIds = new Set(stageRows.flatMap(({ row }) =>
   row.StageConfigData
     .filter(({ BFLIFKBEOPJ }) => BFLIFKBEOPJ === "_StageInfiniteGroup")
@@ -215,10 +258,10 @@ const encounters = stageRows.map(({ row }) => {
   const groupId = configValue(row, "_StageInfiniteGroup");
   return {
     ...envelope({
-      id: `galactic-baseballer.departure.encounter.${stageId}`,
+      id: `${idPrefix}.encounter.${stageId}`,
       kind: "Encounter",
-      nameEn: `Departure encounter stage ${stageId}`,
-      nameZh: `启程篇遭遇关卡 ${stageId}`,
+      nameEn: `${displayName} encounter stage ${stageId}`,
+      nameZh: `${displayNameZh}遭遇关卡 ${stageId}`,
       summaryEn:
         "Explicitly reachable shared stage with exact infinite group, battle event, MazeBuff and ability bindings.",
       summaryZh: "通过显式引用可达的共享关卡，含精确无限组、战斗事件、MazeBuff 与能力绑定。",
@@ -228,7 +271,7 @@ const encounters = stageRows.map(({ row }) => {
         "ExactRelationship",
         "StagePeriod.StageID exact shared-stage reachability",
       )],
-      tags: ["departure", "encounter", "shared"],
+      tags: [tag, "encounter", "shared"],
       ownership: "Shared",
     }),
     source_stage_id: stageId,
@@ -257,10 +300,10 @@ const waves = waveRows.map(({ row }) => {
   const record = manifestRecord("infinite_waves", manifestId);
   return {
     ...envelope({
-      id: `galactic-baseballer.departure.wave.${row.InfiniteWaveID}`,
+      id: `${idPrefix}.wave.${row.InfiniteWaveID}`,
       kind: "EncounterWave",
-      nameEn: `Departure wave ${row.InfiniteWaveID}`,
-      nameZh: `启程篇波次 ${row.InfiniteWaveID}`,
+      nameEn: `${displayName} wave ${row.InfiniteWaveID}`,
+      nameZh: `${displayNameZh}波次 ${row.InfiniteWaveID}`,
       summaryEn: "Exact ordered infinite-wave definition and monster-group candidates.",
       summaryZh: "精确有序无限波次定义与怪物组候选。",
       manifestIds: [manifestId],
@@ -269,7 +312,7 @@ const waves = waveRows.map(({ row }) => {
         "ExactRelationship",
         "StageInfiniteGroup.WaveIDList exact reachability",
       )],
-      tags: ["departure", "shared", "wave"],
+      tags: [tag, "shared", "wave"],
       ownership: "Shared",
     }),
     encounter_id: encounterByGroup.get(relation.groupId),
@@ -307,7 +350,7 @@ for (const { row } of monsterGroupRows) {
     enemySlots.push({
       ...envelope({
         id:
-          `galactic-baseballer.departure.enemy-candidate.${row.InfiniteMonsterGroupID}.${String(candidateOrder).padStart(3, "0")}`,
+          `${idPrefix}.enemy-candidate.${row.InfiniteMonsterGroupID}.${String(candidateOrder).padStart(3, "0")}`,
         kind: "EnemySlot",
         nameEn: `Enemy candidate ${candidateOrder} in group ${row.InfiniteMonsterGroupID}`,
         nameZh: `怪物组 ${row.InfiniteMonsterGroupID} 的敌人候选 ${candidateOrder}`,
@@ -328,7 +371,7 @@ for (const { row } of monsterGroupRows) {
             "existing frozen stable enemy identity; referenced, not copied",
           ),
         ],
-        tags: ["departure", "enemy-candidate", "shared"],
+        tags: [tag, "enemy-candidate", "shared"],
         ownership: "Shared",
       }),
       wave_id: parent.waveId,
@@ -350,7 +393,7 @@ const enemies = monsterRows.map(({ row }) => {
   const record = manifestRecord("enemy_variants", manifestId);
   return {
     ...envelope({
-      id: `galactic-baseballer.departure.enemy-resolution.${sourceId}`,
+      id: `${idPrefix}.enemy-resolution.${sourceId}`,
       kind: "EnemyIdentity",
       nameEn: `Inherited enemy variant ${inherited.id}`,
       nameZh: `继承敌人变体 ${inherited.id}`,
@@ -371,7 +414,7 @@ const enemies = monsterRows.map(({ row }) => {
           "existing stable identity reused without copying its definition",
         ),
       ],
-      tags: ["departure", "enemy-resolution", "shared"],
+      tags: [tag, "enemy-resolution", "shared"],
       ownership: "Shared",
     }),
     source_monster_id: sourceId,
@@ -394,7 +437,7 @@ const enemySkills = skillRows.map(({ row }) => {
   const record = manifestRecord("enemy_skills", manifestId);
   return {
     ...envelope({
-      id: `galactic-baseballer.departure.enemy-skill-resolution.${sourceId}`,
+      id: `${idPrefix}.enemy-skill-resolution.${sourceId}`,
       kind: "EnemySkill",
       nameEn: inherited.name_en,
       nameZh: inherited.name_zh_cn,
@@ -414,7 +457,7 @@ const enemySkills = skillRows.map(({ row }) => {
           "existing frozen ability identity referenced without duplication",
         ),
       ],
-      tags: ["departure", "enemy-skill-resolution", "shared"],
+      tags: [tag, "enemy-skill-resolution", "shared"],
       ownership: "Shared",
     }),
     source_skill_id: sourceId,
@@ -423,14 +466,52 @@ const enemySkills = skillRows.map(({ row }) => {
     resolution: "ExactStableIdentity",
   };
 });
-const enemyStatuses = [];
+const statusManifestRows = demonKing
+  ? manifest.categories.enemy_statuses.records
+  : [];
+const enemyStatuses = statusManifestRows.map((record) => {
+  const sourceId = record.id.slice("StatusID:".length);
+  const sourceRow = monsterStatusSource.find(({ StatusID }) =>
+    String(StatusID) === sourceId);
+  if (sourceRow === undefined)
+    throw new Error(`reachable MonsterStatusConfig row missing: ${sourceId}`);
+  return {
+    ...envelope({
+      id: `${idPrefix}.enemy-status.${sourceId}`,
+      kind: "EnemyStatus",
+      nameEn: `Reachable enemy status ${sourceId}`,
+      nameZh: `可达敌人状态 ${sourceId}`,
+      summaryEn:
+        "Exact recursively reachable status locator retained for Demon King encounter review.",
+      summaryZh: "为魔王篇遭遇审查保留的精确递归可达状态定位。",
+      manifestIds: [record.id],
+      sourceRefs: [structuredSource(
+        record,
+        "ExactRelationship",
+        "exact recursively reachable MonsterStatusConfig row",
+      )],
+      tags: [tag, "enemy-status", "shared"],
+      ownership: "Shared",
+    }),
+    source_status_id: sourceId,
+    modifier_name: sourceRow.ModifierName,
+    status_type: sourceRow.StatusType,
+    can_dispel: sourceRow.CanDispel ?? false,
+    source_name_hash: String(sourceRow.StatusName?.Hash ?? ""),
+    source_description_hash: String(sourceRow.StatusDesc?.Hash ?? ""),
+    source_effect_hash: String(sourceRow.StatusEffect?.Hash ?? ""),
+    read_parameter_names: sourceRow.ReadParamList ?? [],
+    tag_names: sourceRow.TagList ?? [],
+    resolution: "ExactSourceLocator",
+  };
+});
 
 function constant(name) {
   const index = constantSource.findIndex(({ ConstValueName }) =>
     ConstValueName === name);
   if (index === -1) throw new Error(`constant missing: ${name}`);
   const manifestId =
-    `${profileId}:EvolveBuildConstValueCommon:${String(index).padStart(4, "0")}`;
+    `${profileId}:${sourcePrefix}ConstValueCommon:${String(index).padStart(4, "0")}`;
   return {
     value: canonicalValue(constantSource[index].Value),
     manifestId,
@@ -438,17 +519,19 @@ function constant(name) {
   };
 }
 const scoreConstantNames = [
-  "EvolveBuild_FinalStage_ExtraBonus",
-  "EvolveBuild_Score_Monster",
-  "EvolveBuild_Score_Monster_Elite",
-  "EvolveBuild_Score_Monster_Weight",
-  "EvolveBuild_Score_ScoringGroup",
-  "EvolveBuild_Score_Time",
-  "EvolveBuild_Score_Special",
-  "EvolveBuild_Score_ScoringID_MonsterKill",
-  "EvolveBuild_Score_ScoringID_BossHP",
-  "EvolveBuild_Score_ScoringID_Time",
-  "EvolveBuild_Score_UpperLimit",
+  `${constantPrefix}_FinalStage_ExtraBonus`,
+  `${constantPrefix}_Score_Monster`,
+  `${constantPrefix}_Score_Monster_Elite`,
+  `${constantPrefix}_Score_Monster_Weight`,
+  `${constantPrefix}_Score_ScoringGroup`,
+  ...(demonKing ? [] : [
+    `${constantPrefix}_Score_Time`,
+    `${constantPrefix}_Score_Special`,
+  ]),
+  `${constantPrefix}_Score_ScoringID_MonsterKill`,
+  `${constantPrefix}_Score_ScoringID_BossHP`,
+  `${constantPrefix}_Score_ScoringID_Time`,
+  `${constantPrefix}_Score_UpperLimit`,
 ];
 const scoreManifestIds = scoreConstantNames.map((name) =>
   constant(name).manifestId);
@@ -458,27 +541,36 @@ const scoreSources = scoreConstantNames.map((name) =>
     "ExactRelationship",
     "exact released score constant",
   ));
-const scoreProgramSummary = {
-  ability_names: scoreProgram.AbilityList.map(({ Name }) => Name).sort(),
-  trigger_events: [...new Set(scoreProgram.AbilityList.flatMap((ability) => {
+function summarizeProgram(program, programManifest) {
+  return {
+    ability_names: program.AbilityList.map(({ Name }) => Name).sort(),
+    trigger_events: [...new Set(program.AbilityList.flatMap((ability) => {
     const encoded = JSON.stringify(ability);
     return [...encoded.matchAll(/"Event":"([^"]+)"/gu)].map((match) => match[1]);
-  }))].sort(),
-  operation_types: [...new Set(
-    [...JSON.stringify(scoreProgram).matchAll(/"\$type":"([^"]+)"/gu)]
-      .map((match) => match[1]),
-  )].sort(),
-  whole_program_sha256: scoreProgramManifest.evidence_sha256,
-};
+    }))].sort(),
+    operation_types: [...new Set(
+      [...JSON.stringify(program).matchAll(/"\$type":"([^"]+)"/gu)]
+        .map((match) => match[1]),
+    )].sort(),
+    whole_program_sha256: programManifest.evidence_sha256,
+  };
+}
+const scoreProgramSummary = summarizeProgram(
+  scoreProgram,
+  scoreProgramManifest,
+);
 const scoringRules = [{
   ...envelope({
-    id: "galactic-baseballer.departure.scoring.source-parameters",
+    id: `${idPrefix}.scoring.source-parameters`,
     kind: "ScoringRule",
-    nameEn: "Departure score parameters",
-    nameZh: "启程篇分数参数",
-    summaryEn:
-      "Exact kill, elite, boss-HP, time, upper-limit and final-stage score parameters with program structure.",
-    summaryZh: "精确击杀、精英、Boss 生命、时间、上限与最终关分数参数及程序结构。",
+    nameEn: `${displayName} score parameters`,
+    nameZh: `${displayNameZh}分数参数`,
+    summaryEn: demonKing
+      ? "Exact kill, elite, boss-HP, upper-limit and final-stage score parameters with program structure."
+      : "Exact kill, elite, boss-HP, time, upper-limit and final-stage score parameters with program structure.",
+    summaryZh: demonKing
+      ? "精确击杀、精英、Boss 生命、上限与最终关分数参数及程序结构。"
+      : "精确击杀、精英、Boss 生命、时间、上限与最终关分数参数及程序结构。",
     manifestIds: [...scoreManifestIds, scoreProgramManifest.id],
     sourceRefs: [
       ...scoreSources,
@@ -488,33 +580,35 @@ const scoringRules = [{
         "whole-file scoring program digest and structural operation summary",
       ),
     ],
-    tags: ["departure", "score"],
+    tags: [tag, "score"],
   }),
   evaluation_order: 0,
-  monster_base_score: constant("EvolveBuild_Score_Monster").value.IntValue,
+  monster_base_score:
+    constant(`${constantPrefix}_Score_Monster`).value.IntValue,
   elite_score_vector:
-    constant("EvolveBuild_Score_Monster_Elite").value.ArrayValue
+    constant(`${constantPrefix}_Score_Monster_Elite`).value.ArrayValue
       .map(({ IntValue }) => IntValue),
   monster_weight_vector:
-    constant("EvolveBuild_Score_Monster_Weight").value.ArrayValue
+    constant(`${constantPrefix}_Score_Monster_Weight`).value.ArrayValue
       .map(({ IntValue }) => IntValue),
-  time_parameters: constant("EvolveBuild_Score_Time").value.ArrayValue
-    .map(({ IntValue }) => IntValue),
+  time_parameters: demonKing ? null
+    : constant(`${constantPrefix}_Score_Time`).value.ArrayValue
+      .map(({ IntValue }) => IntValue),
   score_upper_limit:
-    constant("EvolveBuild_Score_UpperLimit").value.IntValue,
+    constant(`${constantPrefix}_Score_UpperLimit`).value.IntValue,
   final_stage_extra_bonus:
-    constant("EvolveBuild_FinalStage_ExtraBonus").value.IntValue,
+    constant(`${constantPrefix}_FinalStage_ExtraBonus`).value.IntValue,
   scoring_group_id:
-    String(constant("EvolveBuild_Score_ScoringGroup").value.IntValue),
+    String(constant(`${constantPrefix}_Score_ScoringGroup`).value.IntValue),
   contribution_ids: {
     monster_kill: String(
-      constant("EvolveBuild_Score_ScoringID_MonsterKill").value.IntValue,
+      constant(`${constantPrefix}_Score_ScoringID_MonsterKill`).value.IntValue,
     ),
     boss_hp: String(
-      constant("EvolveBuild_Score_ScoringID_BossHP").value.IntValue,
+      constant(`${constantPrefix}_Score_ScoringID_BossHP`).value.IntValue,
     ),
     time: String(
-      constant("EvolveBuild_Score_ScoringID_Time").value.IntValue,
+      constant(`${constantPrefix}_Score_ScoringID_Time`).value.IntValue,
     ),
   },
   intermediate_rounding:
@@ -523,7 +617,7 @@ const scoringRules = [{
 }];
 const settlementRules = authoredStages.map((stage, settlementOrder) => ({
   ...envelope({
-    id: `galactic-baseballer.departure.settlement.${stage.source_numeric_id}`,
+    id: `${idPrefix}.settlement.${stage.source_numeric_id}`,
     kind: "SettlementRule",
     nameEn: `${stage.name_en} settlement`,
     nameZh: `${stage.name_zh_cn}结算`,
@@ -531,27 +625,152 @@ const settlementRules = authoredStages.map((stage, settlementOrder) => ({
     summaryZh: "精确有序评级阈值与关卡通关/结算边界。",
     manifestIds: stage.manifest_record_ids,
     sourceRefs: stage.source_refs,
-    tags: ["departure", "rating", "settlement"],
+    tags: [tag, "rating", "settlement"],
   }),
   settlement_order: settlementOrder,
   stage_id: stage.id,
   rating_thresholds: stage.rating_thresholds,
-  score_cap: constant("EvolveBuild_Score_UpperLimit").value.IntValue,
+  score_cap: constant(`${constantPrefix}_Score_UpperLimit`).value.IntValue,
   clear_condition:
     "ReferenceOnly: declared stage periods reach their terminal evaluation boundary",
   failure_behavior:
     "ProjectPolicy: no clear projection when a required terminal period is unresolved",
 }));
 
+const teamBonuses = demonKing ? authoredStages.map((stage) => {
+  const mazeBuffIndex = mazeBuffSource.findIndex(({ ID, Lv }) =>
+    String(ID) === stage.team_bonus_maze_buff_id && Lv === 1);
+  if (mazeBuffIndex === -1)
+    throw new Error(`team bonus MazeBuff missing: ${stage.team_bonus_maze_buff_id}`);
+  const mazeBuff = mazeBuffSource[mazeBuffIndex];
+  const manifestId =
+    `${profileId}:EvoBdSCMazeBuff:${String(mazeBuffIndex).padStart(4, "0")}`;
+  const mazeBuffManifest = manifestRecord("accessory_levels", manifestId);
+  const ability = teamBonusProgram.AbilityList.find(({ Name }) =>
+    Name === mazeBuff.InBattleBindingKey);
+  if (ability === undefined)
+    throw new Error(`team bonus program binding missing: ${mazeBuff.InBattleBindingKey}`);
+  return {
+    ...envelope({
+      id: `${idPrefix}.team-bonus.${stage.source_numeric_id}`,
+      kind: "TeamBonus",
+      nameEn: `${stage.name_en} team bonus`,
+      nameZh: `${stage.name_zh_cn}队伍加成`,
+      summaryEn:
+        "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+      summaryZh: "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+      manifestIds: [
+        ...stage.manifest_record_ids,
+        manifestId,
+        teamBonusProgramManifest.id,
+      ],
+      sourceRefs: [
+        ...stage.source_refs,
+        structuredSource(
+          mazeBuffManifest,
+          "ExactProgram",
+          "exact stage-owned team-bonus MazeBuff row",
+        ),
+        structuredSource(
+          teamBonusProgramManifest,
+          "ExactProgram",
+          "whole-file team-bonus program receipt",
+        ),
+      ],
+      tags: [tag, "stage", "team-bonus"],
+    }),
+    stage_id: stage.id,
+    source_maze_buff_id: String(mazeBuff.ID),
+    source_level: mazeBuff.Lv,
+    parameter_values: mazeBuff.ParamList.map(({ Value }) => String(Value)),
+    binding_key: mazeBuff.InBattleBindingKey,
+    ability_names: [ability.Name],
+    trigger_events: [...new Set(
+      [...JSON.stringify(ability).matchAll(/"Event":"([^"]+)"/gu)]
+        .map((match) => match[1]),
+    )].sort(),
+    operation_types: [...new Set(
+      [...JSON.stringify(ability).matchAll(/"\$type":"([^"]+)"/gu)]
+        .map((match) => match[1]),
+    )].sort(),
+    program_fragment_sha256: digest(ability),
+    runtime_executable: false,
+  };
+}) : [];
+
+const bossPhases = demonKing ? (() => {
+  const devilCard = constant(`${constantPrefix}_Devil_CardID`);
+  const cardId = String(devilCard.value.IntValue).slice(0, -1);
+  const cardIndex = manifest.categories.upgrade_cards.records.findIndex(
+    ({ row_locator: locator }) => locator.includes(`ID=${cardId};`),
+  );
+  if (cardIndex === -1) throw new Error(`Demon King card missing: ${cardId}`);
+  const cardManifest = manifest.categories.upgrade_cards.records[cardIndex];
+  const bossStage = authoredStages.find(({ source_numeric_id: id }) =>
+    id === "424006");
+  if (bossStage === undefined) throw new Error("Demon King's Den stage missing");
+  const bossPeriods = authoredPeriods.filter(({ parent_stage_id: parent }) =>
+    parent === bossStage.id);
+  return [{
+    ...envelope({
+      id: `${idPrefix}.boss-phase.devil`,
+      kind: "BossPhase",
+      nameEn: "Demon King boss phase program",
+      nameZh: "魔王 Boss 阶段程序",
+      summaryEn:
+        "Exact Demon King card, stage-period ownership and structural Devil program binding.",
+      summaryZh: "精确魔王卡、关卡阶段所有权与 Devil 程序结构绑定。",
+      manifestIds: [
+        ...bossStage.manifest_record_ids,
+        ...bossPeriods.flatMap(({ manifest_record_ids: ids }) => ids),
+        devilCard.manifestId,
+        cardManifest.id,
+        devilProgramManifest.id,
+      ],
+      sourceRefs: [
+        ...bossStage.source_refs,
+        ...bossPeriods.flatMap(({ source_refs: refs }) => refs),
+        structuredSource(
+          devilCard.manifest,
+          "ExactRelationship",
+          "exact Demon King card constant",
+        ),
+        structuredSource(
+          cardManifest,
+          "ExactRelationship",
+          "exact Demon King Adventure Strategy card row",
+        ),
+        structuredSource(
+          devilProgramManifest,
+          "ExactProgram",
+          "whole-file Demon King boss program receipt",
+        ),
+      ],
+      tags: [tag, "boss", "devil"],
+    }),
+    stage_id: bossStage.id,
+    ordered_period_ids: bossPeriods.map(({ id }) => id),
+    source_devil_card_level_id: String(devilCard.value.IntValue),
+    source_devil_card_id: cardId,
+    program_summary: summarizeProgram(devilProgram, devilProgramManifest),
+    phase_state_owner: "battle-local Demon King boss state",
+    runtime_executable: false,
+  }];
+})() : [];
+
 const outputs = new Map([
-  ["encounters.json", encounters],
-  ["waves.json", waves],
-  ["enemy-slots.json", enemySlots],
-  ["enemies.json", enemies],
-  ["enemy-skills.json", enemySkills],
-  ["enemy-statuses.json", enemyStatuses],
-  ["scoring-rules.json", scoringRules],
-  ["settlement-rules.json", settlementRules],
+  [`${outputPrefix}encounters.json`, encounters],
+  [`${outputPrefix}waves.json`, waves],
+  [`${outputPrefix}enemy-slots.json`, enemySlots],
+  [`${outputPrefix}enemies.json`, enemies],
+  [`${outputPrefix}enemy-skills.json`, enemySkills],
+  [`${outputPrefix}enemy-statuses.json`, enemyStatuses],
+  [`${outputPrefix}scoring-rules.json`, scoringRules],
+  [`${outputPrefix}settlement-rules.json`, settlementRules],
+  ...(demonKing ? [
+    [`${outputPrefix}team-bonuses.json`, teamBonuses],
+    [`${outputPrefix}boss-phases.json`, bossPhases],
+  ] : []),
 ]);
 for (const rows of outputs.values())
   rows.sort((left, right) => left.id.localeCompare(right.id, "en"));
@@ -562,13 +781,13 @@ for (const [file, value] of outputs) {
   if (check) {
     const existing = await readFile(target, "utf8");
     if (existing !== encoded)
-      throw new Error(`Departure encounter drift: ${target}`);
+      throw new Error(`${displayName} encounter drift: ${target}`);
   } else {
     await writeFile(target, encoded);
   }
 }
 console.log(
-  `Departure encounters ${check ? "verified" : "wrote"}: `
+  `${displayName} encounters ${check ? "verified" : "wrote"}: `
   + `${encounters.length} encounters, ${waves.length} waves, `
   + `${enemySlots.length} candidates, ${enemies.length} enemy identities, `
   + `${enemySkills.length} skill identities`,

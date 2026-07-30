@@ -7,8 +7,8 @@
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
 | Active phase | Phase 2 — Demon King differences and progression |
-| Active batch | `G16-P2-B3` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P2-B4` |
+| Active batch | `G16-P2-B4` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P3-B1` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -35,7 +35,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
 | Phase 1 — Departure and shared base | `Complete` | Departure profile, stages, arsenal, Legendary synthesis, growth, candidates, inventory, encounters, stable enemy/skill identities, score/settlement and 17 semantic families are closed. |
-| Phase 2 — Demon King and progression | `InProgress` | Profile/differences, arsenal/synthesis, all 56 strategies, growth, candidates, inventories, two currencies, 20 reputation ranks, 5/10 treasure groups/pools, 60 store levels and 30 unlock locators are closed; P2-B4 owns encounters, score and remaining team bonuses. |
+| Phase 2 — Demon King and progression | `Complete` | Independent profile/differences, arsenal/synthesis, growth, progression, 18 shared encounters, 61 waves, 1,573 ordered candidates, 77 enemies, 258 skills, 10 status locators, seven team bonuses, scoring, Devil phases and semantic fixtures are closed. |
 | Phase 3 — Evidence, Excel and Sora | `Pending` | Requires complete normalized profile data and closed evidence owners. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
 
@@ -54,7 +54,7 @@
 | `G16-P2-B1` | `Complete` | This row's containing commit | Authored independent `galactic-baseballer.demon-king.v3_3` with released Version 3.3 entry requirements, Version 4.4 retention, shared activity module, explicit unlock locators and a non-replacement edge to Departure. Separated permanent mechanics, limited account rewards and released 3.4 corrections. Mapped one Origin plus six challenge stages and all 56 stage periods exactly once with zero unresolved shared StageConfig references. Compared all 83 normalized constants: 38 repeated values, 25 changed, 13 added and 7 Departure-only. Froze RuinBot Lv7/Lv8 and D007 score correction boundaries without reconstructing unpublished erroneous behavior; retained the Boothill visual fix as EvidenceOnly. |
 | `G16-P2-B2` | `Complete` | This row's containing commit | Authored 15 Standard, 12 Legendary, one Twin and one Supreme weapon with all 134 levels; authored 16 accessories with all 64 levels. Reconciled every GearConfig row to one exact MazeBuff level and retained complete parameter/binding vectors. Added 29 weapon and 16 accessory structural trigger summaries plus all three Ranger's Badge actor programs. Froze 12 Legendary, one Twin and one Supreme recipe with 28 exact inputs, source CostGearList order and an acyclic graph. Added success/rejection rules and fixtures for Twin/Supreme synthesis, including failure invariance, and bound the post-3.4 RuinBot level 7/8 vectors to two correction fixtures. |
 | `G16-P2-B3` | `Complete` | This row's containing commit | Authored the exact Demon King level threshold/scaling, 56 Adventure Strategies, all strategy MazeBuff/program bindings, four candidate pools, source candidate vector, resource limits and four slot/five inventory-operation rows. Added two currencies, 20 Cosmic Reputation ranks, five treasure groups, ten pools/100 retained entry positions, 16 store definitions/60 price levels costing 75,600 Raccoon Gold and 30 mechanical/presentation unlock locators. Account rewards remain excluded. Four explicit approximation boundaries, two ReferenceOnly rules and six fixtures cover selection, rank costs, store atomicity and failure invariance. Added exact-revision public-source caching with SHA-1/SHA-256 and offline verification. |
-| `G16-P2-B4` | `Pending` | — | Demon King encounters, score and fixtures. |
+| `G16-P2-B4` | `Complete` | This row's containing commit | Closed all 18 reachable shared StageConfig encounters, 61 waves and 1,573 ordered candidate positions. Resolved 77 MonsterIDs and 258 SkillIDs to existing frozen stable identities without copying definitions; retained ten exact reachable status locators. Bound all seven stage team bonuses to their remaining seven MazeBuff rows and exact program fragments, completing ownership of all 315 Demon King MazeBuff rows. Froze exact scoring/group/contribution IDs, seven settlements, 39 ordered Demon King's Den periods and the 40-ability Devil program structure. Added five ReferenceOnly rules and six fixtures, including the post-correction D007 `3000/4500/45000` score facts. |
 | `G16-P3-B1` | `Pending` | — | Evidence and 100% DataReady closure. |
 | `G16-P3-B2` | `Pending` | — | Complete Excel authoring and visual QA. |
 | `G16-P3-B3` | `Pending` | — | Sora schema, template, lock and double generation. |
@@ -107,7 +107,7 @@ from this planning list or reduced later.
 | `G16-R02` | `Closed` | The manifest freezes 2,232 exact obligations: 1,528 dedicated table rows, 35 programs, 647 explicit shared rows, two profiles and 20 semantic families. | P0-B3 |
 | `G16-R03` | `Closed` | Both profiles retain exact source vectors, refresh/exclusion limits and eligible records. Hidden ordinal-to-candidate mappings, ordering and empty-pool behavior remain explicit replaceable ProjectPolicy rows using stable IDs and labeled integer RNG; they are not presented as observed parity. | P0-B4 / P1-B3 / P2-B3 |
 | `G16-R04` | `Closed` | Departure has 13 Legendary recipes; Demon King has 12 Legendary, one Twin and one Supreme recipe. All exact prerequisites and CostGearList positions are frozen; hidden simultaneous-candidate precedence remains an explicit replaceable ProjectPolicy. | P1-B2 / P2-B2 |
-| `G16-R05` | `Open` | How do stage phases, waves, elite objectives, bosses and scoring bind to StageConfig and shared enemies? | P1-B4 / P2-B4 |
+| `G16-R05` | `Closed` | Both profiles resolve authored periods through exact StageID → infinite group → wave → monster group → MonsterID/SkillID recursion. Enemy definitions are referenced by frozen stable IDs; candidate order is retained without assuming simultaneous slots. Score, rating, boss contribution and settlement rows are explicit, including the post-correction D007 facts and Demon King Devil program structure. | P1-B4 / P2-B4 |
 | `G16-R06` | `Closed` | Raccoon Gold income/cap, Cosmic Reputation ranks/costs, treasure pools, 60 Cosmic Store levels and mechanical unlock constants are modeled. Rank rewards, Stellar Jade, materials, character/avatar/achievement payloads and tutorials remain counted EvidenceOnly locators and are not imported. | P2-B3 |
 | `G16-R07` | `Closed` | Version 3.4 fixes RuinBot Lv7/Lv8 effects and abnormal D007 Adventure Score mechanically; Version 4.4 rows are the retained corrected state. The Boothill Ultimate visual fix is EvidenceOnly. No later released mechanical correction was found in the frozen official-source inventory. | P2-B1 |
 
@@ -131,6 +131,17 @@ from this planning list or reduced later.
 | Quick repository gate | `fnm exec --using 24.15.0 node tools/repository-check/run.mjs` passed. |
 | Full repository gate | The same fixed Sora 0.3.0 and temporary bundled `openpyxl==3.1.5` Python PATH used at Phase 0 passed `node tools/repository-check/run.mjs --full`; generated drift, Clippy and 138 test harnesses passed. |
 | Protected outputs | No Standard, other-mode or production generated root changed. |
+
+## Phase 2 verification
+
+| Check | Result |
+|---|---|
+| Fixed denominator and sources | `verify-manifest.mjs` retained all 2,232 obligations and 12 replacement boundaries; the 11 revision-pinned public pages passed exact offline verification. |
+| Demon King double generation | Profile/difference, arsenal/synthesis, growth/progression, encounter/score and semantic fragments were regenerated and then passed byte-identical `--check` runs. |
+| Focused verification | All four Demon King verifiers passed: independent profile/differences, 29-weapon/16-accessory synthesis, 56-strategy/persistent progression and 18-encounter/score/Devil closure. |
+| Quick repository gate | `fnm exec --using 24.15.0 node tools/repository-check/run.mjs` passed. |
+| Full repository gate | With the fixed Sora 0.3.0 cache and bundled `openpyxl==3.1.5` Python PATH, `node tools/repository-check/run.mjs --full` passed generated drift, immutable snapshots, Sora golden, Clippy and 138 test harnesses in 122.4 seconds. Cache-dependent upstream regeneration was intentionally deferred to the required `--with-source-cache` Phase 3/4 acceptance. |
+| Protected outputs | No Standard, other-mode, production generated or Goals 01–15 immutable path changed. |
 
 ## Terminal checklist
 

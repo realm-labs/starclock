@@ -1,0 +1,228 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.scoring.source-parameters",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ScoringRule",
+    "name_en": "Demon King score parameters",
+    "name_zh_cn": "魔王篇分数参数",
+    "summary_en": "Exact kill, elite, boss-HP, upper-limit and final-stage score parameters with program structure.",
+    "summary_zh_cn": "精确击杀、精英、Boss 生命、上限与最终关分数参数及程序结构。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0019",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0038",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0039",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0040",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0041",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0045",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0046",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0047",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0048"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.444d009808dc1a19",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=19;ConstValueName=EvolveBuildSC_FinalStage_ExtraBonus",
+        "sha256": "444d009808dc1a192b1acb6d6a9bdbea6e264fe064729f7def9d44ce1e9d9a39",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.6d6f601f1adac846",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=38;ConstValueName=EvolveBuildSC_Score_Monster",
+        "sha256": "6d6f601f1adac846c316c9a8bd7db5d40c88dce592c250cac1e965d54314ce36",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.b278545bc633d436",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=39;ConstValueName=EvolveBuildSC_Score_Monster_Elite",
+        "sha256": "b278545bc633d436c81a8b48377ba947194ae71a27b65fec4f343cdeafe66839",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.4a3176684ecfadf9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=40;ConstValueName=EvolveBuildSC_Score_Monster_Weight",
+        "sha256": "4a3176684ecfadf9f0050e7455dcda21122be5f040668056dbf5128056ea6db3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.74f2efab04c112b8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=41;ConstValueName=EvolveBuildSC_Score_ScoringGroup",
+        "sha256": "74f2efab04c112b8a2aeab877c4d7e7de42ec265f428952f55847909149860d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.2a5b8bcf6f4556a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=45;ConstValueName=EvolveBuildSC_Score_ScoringID_MonsterKill",
+        "sha256": "2a5b8bcf6f4556a6330b3261f06eb5ab4e62ce0446f882f66cab46abc1fbae42",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.cd21b906c30a76ff",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=46;ConstValueName=EvolveBuildSC_Score_ScoringID_BossHP",
+        "sha256": "cd21b906c30a76ff54a53dc2ede907279fb167c41a760961cb3306b18cd68e6c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.79015382155118de",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=47;ConstValueName=EvolveBuildSC_Score_ScoringID_Time",
+        "sha256": "79015382155118de081900e62107c3966b587ac2c0fad9ba5a25e297219af1d1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.c64a5c288888269a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=48;ConstValueName=EvolveBuildSC_Score_UpperLimit",
+        "sha256": "c64a5c288888269a89f597cd3f46fdfcc859f9436a8bef1becf0ef5e209b48e3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released score constant"
+      },
+      {
+        "source_id": "source.goal16.d76d80a754c5f1f0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_08_BossScoring.json",
+        "locator": "whole-file",
+        "sha256": "d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file scoring program digest and structural operation summary"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "score"
+    ],
+    "evaluation_order": 0,
+    "monster_base_score": 7000,
+    "elite_score_vector": [
+      10000,
+      10000,
+      0,
+      0
+    ],
+    "monster_weight_vector": [
+      1,
+      1,
+      5,
+      5,
+      1
+    ],
+    "time_parameters": null,
+    "score_upper_limit": 200000,
+    "final_stage_extra_bonus": 5000,
+    "scoring_group_id": "913",
+    "contribution_ids": {
+      "monster_kill": "90019",
+      "boss_hp": "90020",
+      "time": "90021"
+    },
+    "intermediate_rounding": "ProjectPolicy: canonical fixed point, toward zero at explicit integer contribution boundaries",
+    "program_summary": {
+      "ability_names": [
+        "EvolveBuild_SC_Scoring_Ability_0001",
+        "EvolveBuild_SC_Scoring_Ability_0002",
+        "EvolveBuild_SC_Scoring_Ability_0003",
+        "EvolveBuild_Scoring_Ability_0002",
+        "EvolveBuild_Scoring_Ability_0003"
+      ],
+      "trigger_events": [
+        "OnCreate",
+        "OnEvolveBuildGetKillScore",
+        "OnHPChange",
+        "OnLeaveBattle",
+        "OnListenCharacterCreate",
+        "OnModifierAdd",
+        "OnStack"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.ByAnd",
+        "RPG.GameCore.ByAny",
+        "RPG.GameCore.ByCheckModifierCallBackName",
+        "RPG.GameCore.ByCompareDynamicValue",
+        "RPG.GameCore.ByCompareMonsterID",
+        "RPG.GameCore.ByCompareMonsterPhase",
+        "RPG.GameCore.ByCompareMonsterRank",
+        "RPG.GameCore.ByCompareParamValue",
+        "RPG.GameCore.ByIsContainModifier",
+        "RPG.GameCore.ByLocalWin",
+        "RPG.GameCore.ByTargetTeam",
+        "RPG.GameCore.DebugLog",
+        "RPG.GameCore.DefineDynamicValue",
+        "RPG.GameCore.IncludeTaskListTemplate",
+        "RPG.GameCore.PredicateTaskList",
+        "RPG.GameCore.RemoveModifier",
+        "RPG.GameCore.RemoveSelfModifier",
+        "RPG.GameCore.Retarget",
+        "RPG.GameCore.SetBattleScoringItem",
+        "RPG.GameCore.SetDynamicValue",
+        "RPG.GameCore.SetDynamicValueByChangeValue",
+        "RPG.GameCore.SetDynamicValueByEvolveBuild",
+        "RPG.GameCore.SetDynamicValueByHPRatio",
+        "RPG.GameCore.SetDynamicValueByVariateType",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "whole_program_sha256": "d76d80a754c5f1f005c8d008c9c856ea9f93b14c13f47338d76bc60b06f45e11"
+    }
+  }
+]

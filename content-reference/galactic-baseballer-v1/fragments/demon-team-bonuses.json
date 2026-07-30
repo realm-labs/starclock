@@ -1,0 +1,658 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424000",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "Initial Planet team bonus",
+    "name_zh_cn": "初始星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0313",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7bf279a53a71d8d6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=0;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "7bf279a53a71d8d67ac2f66e93d4726576708a300aa73855cd6e852709742230",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.107d53a78deecfd3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=313;ID=3113607",
+        "sha256": "107d53a78deecfd389b3bce69d9b7076257ea63459dbd77f4e173b722cc8e6c3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424000",
+    "source_maze_buff_id": "3113607",
+    "source_level": 1,
+    "parameter_values": [
+      "0.5",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_008",
+    "ability_names": [
+      "StageAbility_VS_Enhance_008"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "a590ac800505f33ee763802282d61280e37ff54ba54f6b644598a2cba66c3f62",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "V612 - Volcanic Planet team bonus",
+    "name_zh_cn": "V612-火山星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0308",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b73bb56751a0c20e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=1;Season=SecondChapter;StageMergedID=424001",
+        "sha256": "b73bb56751a0c20eedf90822c3628a87fe8680436b82cbc909a0aab19f298ac2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.657d79e523a12c09",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=308;ID=3113602",
+        "sha256": "657d79e523a12c09aeba21bec60cfaddd98b9474f9ead4d68c29ef2c80637f5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424001",
+    "source_maze_buff_id": "3113602",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_011",
+    "ability_names": [
+      "StageAbility_VS_Enhance_011"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetEntityType",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "fe0fcb10a58b0e5ad0bbf4efbad0943535e6d493cf6ba4158e679d405f98981a",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "C996 - Cogwheel Planet team bonus",
+    "name_zh_cn": "C996-齿轮星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0307",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e0d008a88738fe5f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=2;Season=SecondChapter;StageMergedID=424002",
+        "sha256": "e0d008a88738fe5fbe0ef383c71a86deda1d89f14d292c4ef9da46ae43f1ccae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.79d7ed2054e6a8e7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=307;ID=3113601",
+        "sha256": "79d7ed2054e6a8e7a3010b11dc43eb72c75d1c8cca949953cd86b8bbf4583251",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424002",
+    "source_maze_buff_id": "3113601",
+    "source_level": 1,
+    "parameter_values": [
+      "0.3",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_001",
+    "ability_names": [
+      "StageAbility_VS_Enhance_001"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "955589e7f7e39bc3ee226ec5cbc9ab19734fe78660b1cd10c98b09bc36bb8fe1",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424003",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "F233 - Sugarfrost Planet team bonus",
+    "name_zh_cn": "F233-糖霜星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0309",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e15d4b0c993d6542",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=3;Season=SecondChapter;StageMergedID=424003",
+        "sha256": "e15d4b0c993d65426b5f4c62e91ccb3f2627bfae1e6034ac62db911ce0cbaf7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.2889f3393b28dbcb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=309;ID=3113603",
+        "sha256": "2889f3393b28dbcb1ce176585ac42626067faa12eb006b75faf2c8f15cd744f0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424003",
+    "source_maze_buff_id": "3113603",
+    "source_level": 1,
+    "parameter_values": [
+      "0.5",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_009",
+    "ability_names": [
+      "StageAbility_VS_Enhance_009"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "f4725bac40b517e7a371cf3cb0d5ba6c8862f23b97c6d643fb5e3c8b2da5b107",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424004",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "M078 - Miniature Planet team bonus",
+    "name_zh_cn": "M078-微缩星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0310",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb05d86146189789",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=4;Season=SecondChapter;StageMergedID=424004",
+        "sha256": "cb05d86146189789764818a7c353a0218a7d091b1e1daa0b3dfc35da7d292fb2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.fe5e7bcaf7802527",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=310;ID=3113604",
+        "sha256": "fe5e7bcaf7802527f7f1d5c2146269bd17420ac92892b460e69eb4ff495ab8a9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424004",
+    "source_maze_buff_id": "3113604",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_003",
+    "ability_names": [
+      "StageAbility_VS_Enhance_003"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "52c0c3501c101ed1cc829b86b8f449be29c0e72d902814d37a191916acf8160c",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424005",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "D007 - Blissdream Planet team bonus",
+    "name_zh_cn": "D007-甜梦星球队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0311",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e340d097c9b66d3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=5;Season=SecondChapter;StageMergedID=424005",
+        "sha256": "e340d097c9b66d3c38673342a1c93fedd2998dc4d18e6c57b8dbec3335b3d493",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.2b695ae7341334c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=311;ID=3113605",
+        "sha256": "2b695ae7341334c4c6e979ffda1ac86c8085ccdd2e3ee18644470da13ddbb9be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424005",
+    "source_maze_buff_id": "3113605",
+    "source_level": 1,
+    "parameter_values": [
+      "0.4",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_005",
+    "ability_names": [
+      "StageAbility_VS_Enhance_005"
+    ],
+    "trigger_events": [
+      "OnBeforeHitAll",
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByAttackType",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyDamageData",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "c60eccdc587c2dfa186010f85c67990155f68b6cbd90c5840310e6a3cb2d931a",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.team-bonus.424006",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "TeamBonus",
+    "name_en": "Demon King's Den team bonus",
+    "name_zh_cn": "魔王巢穴队伍加成",
+    "summary_en": "Exact stage-to-MazeBuff and structural team-bonus program binding.",
+    "summary_zh_cn": "精确关卡到 MazeBuff 及队伍加成程序结构绑定。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCMazeBuff:0312",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStageConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38c0d9833f70f455",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStageConfig.json",
+        "locator": "row=6;Season=SecondChapter;StageMergedID=424006",
+        "sha256": "38c0d9833f70f455e546ecc05b7c80b22dd5579d09b16ad94604c884ad3c473a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.e152915de1bfd2e5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCMazeBuff.json",
+        "locator": "row=312;ID=3113606",
+        "sha256": "e152915de1bfd2e5bfd92c1618ccdc424b946378b6bb3e96b0a8747c8f2eebd9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact stage-owned team-bonus MazeBuff row"
+      },
+      {
+        "source_id": "source.goal16.3809fc99ea5ff045",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_07_TeamBonus.json",
+        "locator": "whole-file",
+        "sha256": "3809fc99ea5ff04510224aa43a0cd9cb10529e4c91c8baa31401c91747d105db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file team-bonus program receipt"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage",
+      "team-bonus"
+    ],
+    "stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "source_maze_buff_id": "3113606",
+    "source_level": 1,
+    "parameter_values": [
+      "0.25",
+      "0"
+    ],
+    "binding_key": "StageAbility_VS_Enhance_010",
+    "ability_names": [
+      "StageAbility_VS_Enhance_010"
+    ],
+    "trigger_events": [
+      "OnBeforeHitAll",
+      "OnEvolveBuildExpStepUp",
+      "OnListenCharacterCreate",
+      "OnListenModifierAdd",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAny",
+      "RPG.GameCore.ByCheckModifierCallBackName",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyDamageData",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "e9e9debf2aca65bd9dc49762d8a1592cf7aa59a031005e947755ac96ca5c7242",
+    "runtime_executable": false
+  }
+]
