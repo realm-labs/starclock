@@ -209,6 +209,33 @@ pub(super) fn expression(
             stat: stat(*query_stat),
             purpose: purpose(*formula_purpose),
         },
+        Node::QueryShield {
+            subject_selector_id,
+            observation,
+        } => ValueExpr::QueryShield {
+            subject: query_subject(config, *subject_selector_id)?,
+            observation: match observation {
+                generated::shield_observation::ShieldObservation::Current => {
+                    starclock_combat::rule::model::ShieldObservation::Current
+                }
+                generated::shield_observation::ShieldObservation::BeforeEvent => {
+                    starclock_combat::rule::model::ShieldObservation::BeforeEvent
+                }
+            },
+        },
+        Node::QueryHp {
+            subject_selector_id,
+        } => ValueExpr::QueryHp {
+            subject: query_subject(config, *subject_selector_id)?,
+        },
+        Node::QueryEffectStacks {
+            subject_selector_id,
+            effect_id,
+        } => ValueExpr::QueryEffectStacks {
+            subject: query_subject(config, *subject_selector_id)?,
+            effect: starclock_combat::EffectDefinitionId::new(positive(*effect_id)?)
+                .expect("positive effect ID"),
+        },
         Node::SelectorCount { selector_id } => ValueExpr::SelectorCount(selector(*selector_id)?),
         Node::ReadEventProperty { property } => {
             ValueExpr::ReadEventProperty(crate::rule_lower::lower_event_property(*property))

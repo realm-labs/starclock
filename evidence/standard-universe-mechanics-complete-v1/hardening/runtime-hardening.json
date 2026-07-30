@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.goal07-hardening-evidence.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P6-B3",
+  "result": "pass",
+  "coverage": {
+    "ai": {
+      "enemy_legality_tests": 4,
+      "baseline_player_legality_tests": 3,
+      "standard_battle_scenarios": 6,
+      "complete_universe_runs": 33,
+      "production_nested_battles": 154,
+      "production_battle_commands": 1048
+    },
+    "concurrency": {
+      "shared_factory_sessions": 16,
+      "idempotency_race_rounds": 16
+    },
+    "rollback": {
+      "invalid_activity_commands": 4096,
+      "agent_replay_mutations": 16,
+      "resource_rejections": 100,
+      "stale_charge_rejections": 100
+    },
+    "rng_isolation": {
+      "streams": 8,
+      "perturbation_draws_per_stream": 257
+    },
+    "long_run": {
+      "resource_cycles": 100,
+      "resource_commands": 300,
+      "curio_charge_cycles": 100,
+      "charge_consumptions": 300
+    }
+  },
+  "contracts": {
+    "enemy_ai_returns_only_exact_offered_commands": true,
+    "baseline_player_ai_scores_only_authored_legal_commands": true,
+    "run_ai_completes_every_constructible_world_difficulty": true,
+    "concurrent_sessions_share_only_immutable_catalog_state": true,
+    "failed_commands_preserve_state_and_rng": true,
+    "idempotency_races_commit_exactly_once": true,
+    "activity_rng_streams_are_pairwise_isolated": true,
+    "resource_and_charge_values_never_underflow_or_overdraw": true,
+    "stale_resource_and_charge_commands_are_inert": true
+  },
+  "inputs": {
+    "policy_sha256": "73daa3a6bb90b1a2fe28aad28c9a55d87eceb9ec14397f7da60067119ea47fc6",
+    "matrix_evidence_sha256": "caa60f0300c70453258a3948153f6082608af4a363d19618ba32d1cf10cb65f4",
+    "hardening_corpus_sha256": "c27fccbf4a82ef20b353f03cb130b31a209d3355993abf260a10b18b55445b2d",
+    "sources": {
+      "enemyAi": {
+        "path": "crates/starclock-ai/src/tests.rs",
+        "sha256": "b1a21d89e6cb5a32b23455d0eb7d4cbbd2238b41e6ee405ae22b044a358557aa"
+      },
+      "baselineAi": {
+        "path": "crates/starclock-ai/src/baseline.rs",
+        "sha256": "8e6454b7d2f6f416f3fffcf1d1cecebf07a73cf043e59af376c6bc384a1955c1"
+      },
+      "activityRng": {
+        "path": "crates/starclock-activity/src/activity_rng.rs",
+        "sha256": "20228e92df219ec484ade933f02763660e022998ac1eb01cd84793f7df673efc"
+      },
+      "activityHardening": {
+        "path": "crates/starclock-activity/tests/activity_hardening.rs",
+        "sha256": "dd42eaa13b9b236e82b4d7be8161b15934efb3863d456a31d9232ecdc95a123e"
+      },
+      "activityTransaction": {
+        "path": "crates/starclock-activity/tests/activity_transaction.rs",
+        "sha256": "b2d52f4dbad79745ddcffb03a6ac43a77537f13156eba411ea7cfb449366c405"
+      },
+      "combatRng": {
+        "path": "crates/starclock-combat/tests/rng_golden.rs",
+        "sha256": "757af1e1bf7d894e9b1e5972b0f653d41e46a0d6402a04714de1da432e0c9d2c"
+      },
+      "combatResources": {
+        "path": "crates/starclock-combat/tests/action_resources.rs",
+        "sha256": "812576e1ab488a95de3730a6bbeb8c36f806ce8e115e4943eabf8bee0d79761b"
+      },
+      "curioRuntime": {
+        "path": "crates/starclock-mode-universe/tests/curio_runtime.rs",
+        "sha256": "da108b667907345f92190260b6c9a6d468b7091838954e940b431caf540b1a98"
+      },
+      "runRuntime": {
+        "path": "crates/starclock-mode-universe/tests/run_runtime.rs",
+        "sha256": "8d5b1852aa8c540997c862d550f25221987e48337c4c0968e8fabfca9e8b9e33"
+      },
+      "runLongRun": {
+        "path": "crates/starclock-mode-universe/tests/run_runtime/hardening.rs",
+        "sha256": "ab0bafcfdbfac56af5ecfd535449af5031a7881b804caa6ff9ee6b08be7c1a88"
+      },
+      "activitySession": {
+        "path": "crates/starclock-agent-api/tests/activity_session_loop.rs",
+        "sha256": "ae596ade1da87cd29d8ae055b842664d5ba8e82beee377a6d3ae2db80a8781ab"
+      },
+      "agentHardening": {
+        "path": "crates/starclock-agent-api/tests/hardening_corpus.rs",
+        "sha256": "071a71e3cec867df6aa9af464788c1e5f2c3880aaa2ff832e096f9e5fc83e6a7"
+      },
+      "standardSessions": {
+        "path": "crates/starclock-agent-api/tests/standard_session_loop.rs",
+        "sha256": "aa233d06f96f5dfca25b91eda255a1f57ce3d157cefd35b7566c40a47222fa96"
+      }
+    }
+  }
+}

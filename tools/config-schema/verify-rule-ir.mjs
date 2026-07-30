@@ -99,10 +99,10 @@ function verifySchemaLock(file) {
   const unions = new Map(schema.unions.map((union) => [union.name, union]));
   assertVariantSet(unions.get("EventPattern"), ["Battle", "Wave", "Turn", "Action", "Hit", "Damage", "HpChanged", "HealApplied", "ShieldChanged", "ToughnessChanged", "WeaknessBroken", "Effect", "ResourceChanged", "TimelineChanged", "Unit", "PresenceChanged", "EncounterTransition", "RuleStateChanged", "DecisionRequested", "FaultRaised", "InformationalRule"]);
   assertVariantSet(unions.get("ProgramStepNode"), ["Operation", "If", "ForEach"]);
-  assertVariantSet(unions.get("ValueExpressionNode"), ["IntegerLiteral", "ScalarLiteral", "RatioLiteral", "ProbabilityLiteral", "StableIdLiteral", "BooleanLiteral", "ReadStateSlot", "AbilityParameter", "ReadResource", "QueryStat", "ReadEventProperty", "SelectorCount", "SelectorSum", "CheckedBinary", "Clamp", "Negate", "Choose", "Convert"]);
+  assertVariantSet(unions.get("ValueExpressionNode"), ["IntegerLiteral", "ScalarLiteral", "RatioLiteral", "ProbabilityLiteral", "StableIdLiteral", "BooleanLiteral", "ReadStateSlot", "AbilityParameter", "ReadResource", "QueryStat", "QueryShield", "QueryHp", "QueryEffectStacks", "ReadEventProperty", "SelectorCount", "SelectorSum", "CheckedBinary", "Clamp", "Negate", "Choose", "Convert"]);
   assertVariantSet(unions.get("ConditionExpressionNode"), ["Constant", "Compare", "All", "Any", "Not", "HasTag", "LifePresence", "ResourceBounds", "EffectExists", "HasWeakness", "IsBroken", "SelectorCardinality", "EventPropertyCompare"]);
   assertVariantSet(unions.get("OperationPayload"), expectedOperationVariants());
-  assertVariantSet(unions.get("SelectorPredicateNode"), ["FormationRange", "HasMark", "HasWeakness", "HasEffect", "HasTag", "OwnedBy", "StatCompare"]);
+  assertVariantSet(unions.get("SelectorPredicateNode"), ["FormationRange", "HasMark", "HasWeakness", "HasEffect", "HasTag", "OwnedBy", "Excludes", "StatCompare"]);
   assertVariantSet(unions.get("ModifierFilterNode"), ["AbilityTag", "DamageTag", "Element", "Action", "Life", "Presence", "Source", "Target"]);
 
   const allFields = [
@@ -306,7 +306,7 @@ function expectDataFailure(name, mutate) {
 }
 
 function expectedOperationVariants() {
-  return ["Damage", "TrueDamage", "Heal", "Shield", "ConsumeHp", "RedirectDamage", "ReduceToughness", "CreateToughnessLayer", "RemoveToughnessLayer", "Break", "SuperBreak", "ApplyEffect", "RemoveEffect", "DetonateDot", "RefreshEffect", "TransferEffect", "ModifyEffect", "ModifyResource", "ModifyStateSlot", "AdvanceAction", "DelayAction", "QueueAction", "CancelAction", "GrantExtraTurn", "Summon", "Despawn", "Transform", "ReplaceAbility", "SetField", "ChangePresence", "AddWeakness", "RemoveWeakness", "ResistanceOverride", "RequestDecision", "EmitRuleEvent", "RequestEncounterTransition", "ProposeReplacement", "InvokeNativeHandler"];
+  return ["Damage", "TrueDamage", "Heal", "Shield", "ConsumeHp", "RedirectDamage", "ReduceToughness", "CreateToughnessLayer", "RemoveToughnessLayer", "Break", "SuperBreak", "ApplyEffect", "ApplyRandomEffect", "RemoveEffect", "DetonateDot", "RefreshEffect", "TransferEffect", "ModifyEffect", "ModifyResource", "ModifyStateSlot", "AdvanceAction", "DelayAction", "QueueAction", "CancelAction", "GrantExtraTurn", "Summon", "Despawn", "Transform", "ReplaceAbility", "SetField", "ChangePresence", "AddWeakness", "RemoveWeakness", "ResistanceOverride", "RequestDecision", "EmitRuleEvent", "RequestEncounterTransition", "ProposeReplacement", "InvokeNativeHandler"];
 }
 function expectedTables() {
   return [

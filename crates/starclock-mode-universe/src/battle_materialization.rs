@@ -6,6 +6,7 @@ pub mod catalog_composition;
 mod materialization_digest;
 mod occurrence;
 mod player;
+mod runtime_roster;
 
 use std::{collections::BTreeMap, sync::Arc};
 
@@ -54,7 +55,8 @@ use player::player_participants;
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
     "standard-universe-battle-materialization-v2";
-pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str = "goal01-executable-enemy-proxy-stats-v1";
+pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str =
+    "goal07-reviewed-enemy-stats-with-proxy-fallback-v2";
 
 const MEMBER_ENCOUNTER_ID_BASE: u32 = 0x7500_0000;
 const DIFFICULTY_ENCOUNTER_ID_BASE: u32 = 0x7510_0000;
@@ -66,7 +68,7 @@ const MEMBER_COUNT: usize = 173;
 const MEMBER_ENEMY_SLOT_COUNT: usize = 538;
 const DIFFICULTY_BINDING_COUNT: usize = 182;
 const ENEMY_VARIANT_COUNT: usize = 86;
-const EXACT_ENEMY_VARIANT_COUNT: usize = 13;
+const EXACT_ENEMY_VARIANT_COUNT: usize = 86;
 
 const MINION_PROXY: &str = "enemy.flamespawn.minion.variant.01";
 const MINION_LV2_PROXY: &str = "enemy.voidranger-reaver.minionlv2.variant.01";
@@ -118,6 +120,8 @@ pub struct UniverseBattleRosterEntry {
     combatant: ResolvedCombatantSpec,
     build_digest: starclock_activity::BuildDigest,
     build_spec: Option<starclock_build::spec::CombatantBuildSpec>,
+    compiled_combatant_digest: Option<starclock_combat::CombatantSpecDigest>,
+    preserve_runtime_base_stats: bool,
 }
 
 impl UniverseBattleRosterEntry {
@@ -141,6 +145,14 @@ impl UniverseBattleRosterEntry {
     pub const fn build_spec(&self) -> Option<&starclock_build::spec::CombatantBuildSpec> {
         self.build_spec.as_ref()
     }
+    #[must_use]
+    pub const fn compiled_combatant_digest(&self) -> Option<starclock_combat::CombatantSpecDigest> {
+        self.compiled_combatant_digest
+    }
+    #[must_use]
+    pub const fn preserve_runtime_base_stats(&self) -> bool {
+        self.preserve_runtime_base_stats
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -149,6 +161,14 @@ pub struct UniverseBattleRoster {
     entries: Box<[UniverseBattleRosterEntry]>,
 }
 
+type UniverseBattleRosterInput = (
+    ParticipantId,
+    ResolvedCombatantSpec,
+    Option<starclock_build::spec::CombatantBuildSpec>,
+    Option<starclock_combat::CombatantSpecDigest>,
+    bool,
+);
+
 impl UniverseBattleRoster {
     pub fn new(
         lock: &ParticipantLock,
@@ -156,7 +176,7 @@ impl UniverseBattleRoster {
     ) -> Result<Self, UniverseBattleMaterializationError> {
         let combatants = combatants
             .into_iter()
-            .map(|(participant, combatant)| (participant, combatant, None))
+            .map(|(participant, combatant)| (participant, combatant, None, None, false))
             .collect();
         Self::new_inner(lock, combatants)
     }
@@ -173,31 +193,33 @@ impl UniverseBattleRoster {
     ) -> Result<Self, UniverseBattleMaterializationError> {
         let combatants = combatants
             .into_iter()
-            .map(|(participant, build, combatant)| (participant, combatant, Some(build)))
+            .map(|(participant, build, combatant)| {
+                let compiled = combatant.digest();
+                (participant, combatant, Some(build), Some(compiled), false)
+            })
             .collect();
         Self::new_inner(lock, combatants)
     }
 
     fn new_inner(
         lock: &ParticipantLock,
-        combatants: Vec<(
-            ParticipantId,
-            ResolvedCombatantSpec,
-            Option<starclock_build::spec::CombatantBuildSpec>,
-        )>,
+        combatants: Vec<UniverseBattleRosterInput>,
     ) -> Result<Self, UniverseBattleMaterializationError> {
         if combatants.len() != lock.entries().len() {
             return Err(UniverseBattleMaterializationError::RosterMismatch);
         }
         let mut entries = Vec::with_capacity(combatants.len());
         for locked in lock.entries() {
-            let (_, combatant, build_spec) = combatants
-                .iter()
-                .find(|(participant, _, _)| *participant == locked.participant())
-                .ok_or(UniverseBattleMaterializationError::RosterMismatch)?;
+            let (_, combatant, build_spec, compiled_combatant_digest, preserve_runtime_base_stats) =
+                combatants
+                    .iter()
+                    .find(|(participant, _, _, _, _)| *participant == locked.participant())
+                    .ok_or(UniverseBattleMaterializationError::RosterMismatch)?;
             if locked.team_index() != 0
                 || locked.character() != combatant.form()
                 || locked.build().resolved_spec_digest() != combatant.digest()
+                || build_spec.is_some() != compiled_combatant_digest.is_some()
+                || (*preserve_runtime_base_stats && build_spec.is_none())
                 || build_spec
                     .as_ref()
                     .is_some_and(|build| build.form() != combatant.form())
@@ -211,6 +233,8 @@ impl UniverseBattleRoster {
                 combatant: combatant.clone(),
                 build_digest: locked.build().build_digest(),
                 build_spec: build_spec.clone(),
+                compiled_combatant_digest: *compiled_combatant_digest,
+                preserve_runtime_base_stats: *preserve_runtime_base_stats,
             });
         }
         entries.sort_by_key(|entry| entry.formation);
@@ -679,6 +703,7 @@ impl UniverseBattleMaterializer {
                 member,
                 &players,
                 &enemy_map,
+                universe.simulation_catalog(),
                 &combat_catalog,
                 revision,
                 digest,
@@ -704,6 +729,7 @@ impl UniverseBattleMaterializer {
                     member,
                     technique_players,
                     &enemy_map,
+                    universe.simulation_catalog(),
                     &combat_catalog,
                     revision,
                     digest,
@@ -752,6 +778,7 @@ impl UniverseBattleMaterializer {
             &players,
             technique_players.as_deref(),
             &enemy_map,
+            universe.simulation_catalog(),
             &combat_catalog,
             revision,
             digest,
@@ -772,6 +799,7 @@ impl UniverseBattleMaterializer {
                 binding,
                 &players,
                 &enemy_map,
+                universe.simulation_catalog(),
                 &combat_catalog,
                 revision,
                 digest,
@@ -924,6 +952,7 @@ fn proxy_key(stable_key: &str) -> &'static str {
 fn member_encounter(
     member: &EncounterMemberDefinition,
     enemies: &BTreeMap<&str, EnemyDefinitionId>,
+    catalog: &CombatCatalog,
 ) -> Result<EncounterDefinition, UniverseBattleMaterializationError> {
     let encounter = member_encounter_id(member.id())?;
     let waves = member
@@ -939,12 +968,16 @@ fn member_encounter(
                     let enemy = *enemies
                         .get(slot.enemy_variant_key())
                         .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
+                    let initial_phase = catalog
+                        .enemy(enemy)
+                        .and_then(|definition| definition.phases().first())
+                        .map(starclock_combat::catalog::encounter::EnemyPhaseDefinition::id);
                     WaveSlotDefinition::new(
                         checked_sequence(slot_index)?,
                         checked_formation(slot_index)?,
                         enemy,
                         Some(checked_level(member.stage_level())?.get()),
-                        None,
+                        initial_phase,
                         true,
                     )
                     .ok_or(UniverseBattleMaterializationError::InvalidEncounter)
@@ -970,11 +1003,16 @@ fn difficulty_encounter(
     index: usize,
     binding: &DifficultyEnemyBinding,
     enemies: &BTreeMap<&str, EnemyDefinitionId>,
+    catalog: &CombatCatalog,
 ) -> Result<EncounterDefinition, UniverseBattleMaterializationError> {
     let enemy = *enemies
         .get(binding.enemy_variant_key())
         .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
     let encounter = difficulty_encounter_id(index)?;
+    let initial_phase = catalog
+        .enemy(enemy)
+        .and_then(|definition| definition.phases().first())
+        .map(starclock_combat::catalog::encounter::EnemyPhaseDefinition::id);
     let wave = CombatEncounterWave::new(
         difficulty_wave_id(index)?,
         1,
@@ -987,7 +1025,7 @@ fn difficulty_encounter(
                 FormationIndex::new(0).expect("zero formation is valid"),
                 enemy,
                 Some(checked_level(binding.level())?.get()),
-                None,
+                initial_phase,
                 true,
             )
             .expect("checked difficulty slot is valid"),

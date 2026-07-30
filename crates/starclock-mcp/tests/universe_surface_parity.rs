@@ -62,7 +62,9 @@ fn selected(observation: &Value) -> &Value {
                 .cmp(&priority(right))
                 .then_with(|| option(right).cmp(&option(left)))
         })
-        .unwrap()
+        .unwrap_or_else(|| {
+            panic!("nonterminal MCP observation has no legal actions: {observation}")
+        })
 }
 
 #[tokio::test]
@@ -103,7 +105,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
                     "schema_revision":"agent-api-v1",
                     "world":"1",
                     "difficulty_index":"0",
-                    "seed":"10"
+                    "seed":"1"
                 }),
             )),
         )
@@ -137,7 +139,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(observation["status"], "completed");
     assert_eq!(
         observation["state_hash"],
-        "8ac790cd8b109cea763a57dbda7e17acaa6db5db6163939f6489fc10d31fe74f"
+        "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b"
     );
 
     let exported = client
@@ -153,9 +155,10 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
         .unwrap();
     let export = exported.structured_content.unwrap();
     assert_eq!(export["complete"], true);
+    assert_eq!(export["action_count"], "35");
     assert_eq!(
         export["sha256"],
-        "1ebf680321222c6a1b7f33f786905eb7cfe0eac42c750dd3b29bae8e08a4621a"
+        "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b"
     );
 
     let verified = client
@@ -165,7 +168,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
                     "schema_revision":"agent-api-v1",
                     "world":"1",
                     "difficulty_index":"0",
-                    "seed":"10",
+                    "seed":"1",
                     "replay_hex":export["replay_hex"]
                 })),
             ),
@@ -175,7 +178,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(verified.is_error, Some(false));
     let verification = verified.structured_content.unwrap();
     assert_eq!(verification["final_state_hash"], observation["state_hash"]);
-    assert_eq!(verification["nested_battles"], "5");
+    assert_eq!(verification["nested_battles"], "3");
 
     client.cancel().await.unwrap();
     task.await.unwrap();

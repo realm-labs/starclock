@@ -421,6 +421,7 @@ fn exposed_brain_matter(
             EventFilter {
                 actor_selector: Some(actor),
                 ability_tag: Some(AbilityTag::Basic),
+                damage_class: Some(starclock_combat::rule::model::RuleDamageClass::Ordinary),
                 excluded_source: Some(binding.source().definition()),
                 ..EventFilter::default()
             },

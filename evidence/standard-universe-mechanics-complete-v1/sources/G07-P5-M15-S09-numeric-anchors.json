@@ -1,0 +1,66 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v1",
+  "partition_id": "G07-P5-M15-S09",
+  "enemy_variant_id": "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+  "source_monster_id": "3014022",
+  "source": {
+    "publisher": "Honkai: Star Rail Wiki",
+    "url": "https://honkai-star-rail.fandom.com/wiki/Memory_Zone_Meme_%22Something_Unto_Death%22_%28Complete%29",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "ExactPublicPerLevel"
+  },
+  "curve_source": {
+    "repository": "Dimbreath/StarRailData",
+    "template_path": "ExcelOutput/MonsterTemplateConfig.json",
+    "hard_level_path": "ExcelOutput/HardLevelGroup.json",
+    "hard_level_group": 1,
+    "rounding": "NearestTiesAway"
+  },
+  "combat_rank": "Boss",
+  "base_template": {
+    "base_hp": "1023",
+    "base_atk": "18",
+    "base_def": "210",
+    "base_spd": "144",
+    "base_effect_resistance": "0.3"
+  },
+  "levels": [
+    {
+      "authored_level": 56,
+      "base_hp": "41422",
+      "base_atk": "297",
+      "base_def": "760",
+      "base_spd": "144",
+      "effect_hit_rate": "0.048",
+      "effect_resistance": "0.324"
+    },
+    {
+      "authored_level": 72,
+      "base_hp": "108021",
+      "base_atk": "459",
+      "base_def": "920",
+      "base_spd": "158.4",
+      "effect_hit_rate": "0.176",
+      "effect_resistance": "0.388"
+    },
+    {
+      "authored_level": 81,
+      "base_hp": "159064",
+      "base_atk": "563",
+      "base_def": "1010",
+      "base_spd": "172.8",
+      "effect_hit_rate": "0.248",
+      "effect_resistance": "0.4"
+    },
+    {
+      "authored_level": 90,
+      "base_hp": "241975",
+      "base_atk": "663",
+      "base_def": "1100",
+      "base_spd": "190.08",
+      "effect_hit_rate": "0.32",
+      "effect_resistance": "0.4"
+    }
+  ]
+}

@@ -535,7 +535,7 @@ impl ActivityAgentSession {
             let settled = self
                 .battle_executor
                 .execute_dynamic_pending_activity_battle(&mut self.activity, &self.battle_assembler)
-                .map_err(|_| nested_battle_error())?;
+                .map_err(nested_battle_error)?;
             self.push_trace(
                 StandardUniverseReplayAction::Battle {
                     result: Box::new(settled.result().clone()),
@@ -653,12 +653,19 @@ fn runtime_error(error: ActivityRuntimeError) -> AgentError {
     }
 }
 
-fn nested_battle_error() -> AgentError {
-    agent_error(
+fn nested_battle_error(
+    source: starclock_mode_universe::nested_battle_executor::ActivityNestedBattleExecutionError,
+) -> AgentError {
+    let mut error = agent_error(
         AgentErrorCode::CombatRejected,
         "The automatic nested battle failed and the Activity boundary was restored.",
         true,
-    )
+    );
+    let reason = format!("{source:?}").chars().take(512).collect::<String>();
+    error
+        .insert_detail("reason", reason)
+        .expect("bounded nested-battle diagnostic is valid");
+    error
 }
 
 fn terminal(value: ActivityTerminalOutcome) -> AgentActivityTerminalOutcome {

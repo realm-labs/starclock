@@ -150,6 +150,9 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
     builder.add_selector(SelectorDefinition::new(definition(2)).with_unit_targets(
         UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Single).unwrap(),
     ));
+    builder.add_selector(SelectorDefinition::new(definition(3)).with_unit_targets(
+        UnitTargetSelector::new(TargetRelation::Opposing, TargetPattern::Blast).unwrap(),
+    ));
     builder.add_program(ProgramDefinition::new(
         definition(1),
         vec![],
@@ -171,6 +174,13 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
         vec![],
         vec![],
     ));
+    builder.add_program(ProgramDefinition::new(
+        definition(3),
+        vec![],
+        vec![definition(3)],
+        vec![],
+        vec![],
+    ));
 
     builder.add_ability(ability(
         1,
@@ -185,7 +195,7 @@ fn fixture_catalog() -> Arc<CombatCatalog> {
     ));
     builder.add_ability(ability(
         2,
-        1,
+        3,
         AbilityKind::Memosprite,
         TargetInvalidationPolicy::CancelRemainingForTarget,
         vec![],

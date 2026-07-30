@@ -7,15 +7,15 @@ use starclock_agent_api::{
 use starclock_data::standard_v1::SCENARIOS;
 
 const EXPECTED_FINAL_HASHES: [&str; 6] = [
-    "2d2bcb50b70ad488cf17744c9fc8082dca3c2b66aa51eca00ee1327c2359fefe",
-    "bea916585577191dad2b8818c5ef84a98c73fa745c83092676ebb6c751cad493",
-    "7bf6795a63223c7ef58d76971d79e9d81d5d39db8a27e7f1a4776cd0e1a5ab05",
-    "a3f2217378030f1c1dc995f477df9b9f8aa6ea2b6520f60c22e6bb8ae18e8900",
-    "70d8f90b5646befa1124dcc7c824d8fefc4acefba0ab6029ea2bdb5b13f72dae",
-    "3e10a00231405cec20c20b6c5ec5c81e553075f2c2f392db0ffaa2c3698a7293",
+    "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
+    "9c14dace6f72cfc267277b35bf0096df6851e71df2ac6fc3755da5fdb0dd859a",
+    "157610fab9cd6fe5f5f04a8ba7b66bf46d28449c83465dfd41f8ee2bc9df02a4",
+    "194d97c4cc3a2b96985f9fee52ff31ae297eb061b586c0d78069caf2f7eea6d4",
+    "b22a1455458206a91b9d9a995536fd09c0ffc687fcbc267556f2fffcfac19a06",
+    "20133e32dd1f7c1a6f4e46d498847ec567ef22b9a1eda546a72424e223535c1e",
 ];
-const EXPECTED_EXTERNAL_STEPS: [u64; 6] = [8, 2, 6, 2, 22, 22];
-const EXPECTED_REPLAY_COMMANDS: [usize; 6] = [9, 3, 7, 3, 23, 23];
+const EXPECTED_EXTERNAL_STEPS: [u64; 6] = [16, 4, 12, 6, 34, 44];
+const EXPECTED_REPLAY_COMMANDS: [usize; 6] = [21, 5, 15, 7, 41, 55];
 
 #[test]
 fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
@@ -75,7 +75,11 @@ fn every_frozen_standard_scenario_finishes_through_agent_values_only() {
         );
         assert_eq!(external_steps, EXPECTED_EXTERNAL_STEPS[index], "{scenario}");
         let export = session.export_replay().unwrap();
-        assert_eq!(state_hashes.len(), export.diagnostics().len());
+        assert_eq!(
+            state_hashes.len(),
+            usize::try_from(external_steps).unwrap() + 1
+        );
+        assert!(export.diagnostics().len() >= state_hashes.len());
         assert_eq!(
             export.diagnostics().len(),
             EXPECTED_REPLAY_COMMANDS[index],

@@ -29,6 +29,8 @@ pub(crate) struct UnitState {
     pub(crate) base_attack: StatValue,
     pub(crate) base_defense: StatValue,
     pub(crate) base_speed: Speed,
+    pub(crate) base_effect_hit_rate: crate::Scalar,
+    pub(crate) base_effect_resistance: crate::Scalar,
     pub(crate) current_energy: Energy,
     pub(crate) maximum_energy: Energy,
     pub(crate) rank: crate::formula::toughness::EnemyRank,

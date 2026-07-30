@@ -1,0 +1,591 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v2",
+  "partition_id": "G07-P5-M15-S13",
+  "numeric_policy_id": "goal07-s13-public-and-derived-level-curve-v1",
+  "source": {
+    "publisher": "Honkai: Star Rail Wiki and committed version 4.4 extraction",
+    "url": "https://honkai-star-rail.fandom.com/wiki/Automaton_Spider",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "PerVariantExactOrApprovedDerivedCurve"
+  },
+  "derivation": {
+    "hp_reference_base": "930",
+    "hp_rounding": "NearestTiesAway",
+    "atk_reference_base": "18",
+    "def_reference_base": "210",
+    "speed_breakpoints": [
+      {
+        "level_minimum": 1,
+        "multiplier": "1"
+      },
+      {
+        "level_minimum": 65,
+        "multiplier": "1.1"
+      },
+      {
+        "level_minimum": 78,
+        "multiplier": "1.2"
+      },
+      {
+        "level_minimum": 86,
+        "multiplier": "1.32"
+      }
+    ],
+    "exact_overrides": "ExactPublic variants use the reviewed public level curve; all other rows use the same named normalized template curve."
+  },
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.automaton-spider.minionlv2.variant.01",
+      "source_monster_id": "1012020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Automaton_Spider",
+      "levels": [
+        {
+          "authored_level": 31,
+          "base_hp": "396",
+          "base_atk": "104",
+          "base_def": "510",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 32,
+          "base_hp": "425",
+          "base_atk": "109",
+          "base_def": "520",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 34,
+          "base_hp": "485",
+          "base_atk": "121",
+          "base_def": "540",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 37,
+          "base_hp": "575",
+          "base_atk": "138",
+          "base_def": "570",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 51,
+          "base_hp": "1758",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "83",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "2398",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.baryon.minion.variant.01",
+      "source_monster_id": "8011010",
+      "combat_rank": "Minion",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 7,
+          "base_hp": "87",
+          "base_atk": "23",
+          "base_def": "270",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 21,
+          "base_hp": "181",
+          "base_atk": "57",
+          "base_def": "410",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 22,
+          "base_hp": "194",
+          "base_atk": "62",
+          "base_def": "420",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 24,
+          "base_hp": "218",
+          "base_atk": "71",
+          "base_def": "440",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 25,
+          "base_hp": "231",
+          "base_atk": "75",
+          "base_def": "450",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 51,
+          "base_hp": "1406",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "83",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.004"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.cloud-knights-patroller.minionlv2.variant.01",
+      "source_monster_id": "2002010",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "3750",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "120",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 52,
+          "base_hp": "4205",
+          "base_atk": "255",
+          "base_def": "720",
+          "base_spd": "120",
+          "effect_hit_rate": "0.016",
+          "effect_resistance": "0.108"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "5115",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "120",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+      "source_monster_id": "8003040",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 36,
+          "base_hp": "7265",
+          "base_atk": "132",
+          "base_def": "560",
+          "base_spd": "172",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 49,
+          "base_hp": "19417",
+          "base_atk": "226",
+          "base_def": "690",
+          "base_spd": "172",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 50,
+          "base_hp": "20590",
+          "base_atk": "234",
+          "base_def": "700",
+          "base_spd": "172",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 61,
+          "base_hp": "52964",
+          "base_atk": "348",
+          "base_def": "810",
+          "base_spd": "172",
+          "effect_hit_rate": "0.088",
+          "effect_resistance": "0.244"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "72616",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "189.2",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "112994",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "189.2",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "167044",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "206.4",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
+      "source_monster_id": "2022060",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Disciples_of_Sanctus_Medicus%3A_Ballistarius",
+      "levels": [
+        {
+          "authored_level": 54,
+          "base_hp": "7033",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "7659",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "83",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "8910",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-internal-alchemist.minionlv2.variant.01",
+      "source_monster_id": "2022020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 54,
+          "base_hp": "3836",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "4860",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite.variant.01",
+      "source_monster_id": "2023011",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 53,
+          "base_hp": "49509",
+          "base_atk": "265",
+          "base_def": "730",
+          "base_spd": "144",
+          "effect_hit_rate": "0.024",
+          "effect_resistance": "0.212"
+        },
+        {
+          "authored_level": 69,
+          "base_hp": "143494",
+          "base_atk": "426",
+          "base_def": "890",
+          "base_spd": "158.4",
+          "effect_hit_rate": "0.152",
+          "effect_resistance": "0.276"
+        },
+        {
+          "authored_level": 78,
+          "base_hp": "217240",
+          "base_atk": "529",
+          "base_def": "980",
+          "base_spd": "172.8",
+          "effect_hit_rate": "0.224",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 87,
+          "base_hp": "326519",
+          "base_atk": "630",
+          "base_def": "1070",
+          "base_spd": "190.08",
+          "effect_hit_rate": "0.296",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+      "source_monster_id": "2023010",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Disciples_of_Sanctus_Medicus%3A_Shape_Shifter",
+      "levels": [
+        {
+          "authored_level": 44,
+          "base_hp": "16261",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "87139",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "132",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "135593",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "132",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "200453",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "144",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked-bug.elite.variant.01",
+      "source_monster_id": "3003012",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 47,
+          "base_hp": "46092",
+          "base_atk": "210",
+          "base_def": "670",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+      "source_monster_id": "3003010",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 44,
+          "base_hp": "24392",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 50,
+          "base_hp": "37062",
+          "base_atk": "234",
+          "base_def": "700",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "130709",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "110",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "203389",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "110",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "300679",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "120",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-birdskull.minion.variant.01",
+      "source_monster_id": "3001020",
+      "combat_rank": "Minion",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "2344",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "83",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.004"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "3197",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "4050",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.028"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-bubble-hound.minionlv2.variant.01",
+      "source_monster_id": "3002030",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "5273",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "100",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "7193",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "7833",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "100",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "9113",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    }
+  ]
+}

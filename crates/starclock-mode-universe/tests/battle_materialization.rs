@@ -11,6 +11,7 @@ use starclock_activity::{
 use starclock_combat::{
     CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
     StatValue, TeamSide, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
+    formula::model::CombatElement,
 };
 use starclock_mode_universe::{
     ability_runtime::{
@@ -42,6 +43,41 @@ use starclock_mode_universe::{
         verify_standard_universe_replay_v3,
     },
 };
+
+#[path = "battle_materialization/blaze_s04.rs"]
+mod blaze_s04;
+#[path = "battle_materialization/cocolia_s06.rs"]
+mod cocolia_s06;
+#[path = "battle_materialization/direwolf_s02.rs"]
+mod direwolf_s02;
+#[path = "battle_materialization/gepard_s07.rs"]
+mod gepard_s07;
+#[path = "battle_materialization/grizzly_s03.rs"]
+mod grizzly_s03;
+#[path = "battle_materialization/ice_out_of_space_s08.rs"]
+mod ice_out_of_space_s08;
+#[path = "battle_materialization/ordinary_enemies_s12.rs"]
+mod ordinary_enemies_s12;
+#[path = "battle_materialization/ordinary_enemies_s13.rs"]
+mod ordinary_enemies_s13;
+#[path = "battle_materialization/ordinary_enemies_s14.rs"]
+mod ordinary_enemies_s14;
+#[path = "battle_materialization/ordinary_enemies_s15.rs"]
+mod ordinary_enemies_s15;
+#[path = "battle_materialization/ordinary_enemies_s16.rs"]
+mod ordinary_enemies_s16;
+#[path = "battle_materialization/ordinary_enemies_s17.rs"]
+mod ordinary_enemies_s17;
+#[path = "battle_materialization/ordinary_enemies_s18.rs"]
+mod ordinary_enemies_s18;
+#[path = "battle_materialization/something_unto_death_s09.rs"]
+mod something_unto_death_s09;
+#[path = "battle_materialization/stellaron_hunter_kafka_s10.rs"]
+mod stellaron_hunter_kafka_s10;
+#[path = "battle_materialization/svarog_s11.rs"]
+mod svarog_s11;
+#[path = "battle_materialization/yanqing_s05.rs"]
+mod yanqing_s05;
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
@@ -316,7 +352,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::Exact)
             .count(),
-        13
+        86
     );
     assert_eq!(
         materialized
@@ -324,7 +360,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::ApproximateProxy)
             .count(),
-        73
+        0
     );
     assert!(
         materialized
@@ -339,8 +375,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(coverage.member_enemy_slot_count(), 538);
     assert_eq!(coverage.difficulty_binding_count(), 182);
     assert_eq!(coverage.enemy_variant_count(), 86);
-    assert_eq!(coverage.exact_enemy_variant_count(), 13);
-    assert_eq!(coverage.approximate_enemy_variant_count(), 73);
+    assert_eq!(coverage.exact_enemy_variant_count(), 86);
+    assert_eq!(coverage.approximate_enemy_variant_count(), 0);
     assert_eq!(
         coverage.declared_rule_binding_count(),
         u16::try_from(contributions.rules().len()).unwrap()
@@ -451,15 +487,15 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         materialized.digest(),
         [
-            108, 223, 218, 7, 111, 112, 45, 251, 110, 71, 169, 28, 255, 14, 4, 225, 80, 111, 191,
-            33, 11, 86, 12, 132, 156, 9, 61, 235, 183, 70, 59, 170,
+            218, 181, 2, 10, 67, 37, 107, 112, 172, 90, 90, 112, 162, 29, 10, 187, 213, 144, 113,
+            142, 102, 39, 18, 18, 105, 243, 132, 106, 136, 229, 57, 180,
         ]
     );
     assert_eq!(
         coverage.digest(),
         [
-            111, 244, 31, 80, 215, 63, 136, 13, 66, 219, 26, 11, 185, 28, 109, 113, 254, 43, 198,
-            49, 69, 22, 125, 148, 107, 32, 102, 87, 150, 189, 40, 16,
+            68, 4, 34, 41, 165, 225, 28, 223, 55, 102, 61, 228, 157, 102, 161, 152, 228, 182, 91,
+            42, 45, 243, 252, 194, 2, 76, 226, 177, 107, 135, 146, 28,
         ]
     );
 
@@ -488,6 +524,150 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
                 .is_some()
         );
     }
+}
+
+#[test]
+fn abundant_ebon_deer_uses_reviewed_universe_stats_and_authored_phase() {
+    let catalog = catalog();
+    let materialized = UniverseBattleMaterializer
+        .compile(&catalog, &roster(&catalog), &contributions(&catalog))
+        .unwrap();
+    let variant_key = "enemy.abundant-ebon-deer-complete.littleboss.variant.01";
+    let enemy = materialized
+        .enemies()
+        .iter()
+        .find(|enemy| enemy.stable_key() == variant_key)
+        .expect("S01 enemy materialization");
+    assert_eq!(enemy.definition_match(), EnemyDefinitionMatch::Exact);
+
+    let expected = [
+        (
+            56,
+            56_487,
+            447_000_000,
+            760_000_000,
+            144_000_000,
+            48_000,
+            324_000,
+        ),
+        (
+            72,
+            88_816,
+            561_000_000,
+            920_000_000,
+            158_400_000,
+            176_000,
+            388_000,
+        ),
+        (
+            81,
+            267_655,
+            881_000_000,
+            1_010_000_000,
+            172_800_000,
+            248_000,
+            400_000,
+        ),
+        (
+            90,
+            514_058,
+            876_000_000,
+            1_100_000_000,
+            190_080_000,
+            320_000,
+            400_000,
+        ),
+    ];
+    for (level, hp, attack, defense, speed, effect_hit_rate, effect_resistance) in expected {
+        let spec = materialized
+            .difficulty_specs()
+            .iter()
+            .find(|spec| spec.enemy_variant_key() == variant_key && spec.level().get() == level)
+            .expect("reviewed difficulty binding");
+        let participant = spec
+            .battle_spec()
+            .participants()
+            .iter()
+            .find(|participant| participant.side() == TeamSide::Enemy)
+            .expect("enemy participant");
+        let combatant = participant.combatant();
+        assert_eq!(combatant.maximum_hp().get(), hp);
+        assert_eq!(combatant.base_attack().scaled(), attack);
+        assert_eq!(combatant.base_defense().scaled(), defense);
+        assert_eq!(combatant.speed().scaled(), speed);
+        assert_eq!(combatant.base_effect_hit_rate().scaled(), effect_hit_rate);
+        assert_eq!(
+            combatant.base_effect_resistance().scaled(),
+            effect_resistance
+        );
+        assert_eq!(
+            combatant.weaknesses(),
+            &[
+                CombatElement::Fire,
+                CombatElement::Ice,
+                CombatElement::Quantum,
+            ]
+        );
+        assert_eq!(combatant.toughness_layers().len(), 1);
+        assert_eq!(combatant.toughness_layers()[0].maximum().get(), 420);
+
+        let encounter = materialized
+            .combat_catalog()
+            .encounter(spec.battle_spec().encounter())
+            .expect("materialized difficulty encounter");
+        let initial_phase = encounter.waves()[0].slots()[0]
+            .initial_phase()
+            .expect("authored initial phase");
+        assert_eq!(
+            initial_phase,
+            materialized
+                .combat_catalog()
+                .enemy(enemy.combat_enemy())
+                .expect("authored enemy")
+                .phases()[0]
+                .id()
+        );
+    }
+
+    let combat_catalog = materialized.combat_catalog();
+    let deer = combat_catalog
+        .enemy(enemy.combat_enemy())
+        .expect("authored enemy");
+    let phase_three_program = deer.phases()[2]
+        .entry_program()
+        .and_then(|program| combat_catalog.program(program))
+        .expect("phase-three entry program");
+    assert_eq!(
+        phase_three_program
+            .steps()
+            .iter()
+            .filter(|step| matches!(
+                step,
+                starclock_combat::rule::model::ProgramStep::Operation(
+                    starclock_combat::rule::model::RuleOperationTemplate::GrantExtraTurn { .. }
+                )
+            ))
+            .count(),
+        2
+    );
+    let hardy = combat_catalog
+        .effect(starclock_combat::EffectDefinitionId::new(980_504).unwrap())
+        .and_then(|effect| effect.runtime_template())
+        .expect("Hardy Leaf runtime");
+    assert!(hardy.prevents_toughness_reduction());
+    let outrage = combat_catalog
+        .effect(starclock_combat::EffectDefinitionId::new(980_508).unwrap())
+        .and_then(|effect| effect.runtime_template())
+        .expect("Outrage runtime");
+    assert_eq!(
+        outrage.forced_normal_action(),
+        Some(starclock_combat::ForcedNormalAction::BasicAttackRandomAlly)
+    );
+    let vigor = combat_catalog
+        .effect(starclock_combat::EffectDefinitionId::new(980_506).unwrap())
+        .expect("Vigor Overflow runtime");
+    assert_eq!(vigor.runtime_template().unwrap().stack_limit(), 100);
+    assert_eq!(vigor.modifiers().len(), 1);
 }
 
 #[test]
@@ -607,27 +787,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 7);
+    assert_eq!(executor.reports().len(), 3);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        41
+        15
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            38, 61, 115, 51, 220, 173, 103, 129, 216, 108, 33, 130, 130, 39, 183, 4, 176, 61, 247,
-            184, 179, 181, 67, 46, 144, 100, 22, 19, 90, 224, 70, 176,
+            56, 166, 183, 75, 178, 21, 68, 47, 24, 98, 47, 200, 253, 159, 45, 213, 92, 101, 242,
+            185, 24, 135, 144, 3, 184, 165, 210, 47, 171, 248, 219, 175,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            155, 42, 121, 97, 18, 3, 88, 23, 219, 138, 23, 53, 54, 47, 173, 140, 22, 158, 150, 110,
-            36, 187, 143, 79, 253, 212, 114, 80, 3, 58, 88, 15,
+            187, 5, 33, 198, 165, 213, 27, 238, 229, 75, 6, 229, 225, 15, 92, 121, 37, 91, 132,
+            107, 208, 187, 197, 40, 115, 138, 111, 178, 116, 15, 135, 116,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {
@@ -677,8 +857,8 @@ fn component_replay_reexecutes_nested_commands_and_compares_event_payloads() {
         starclock_activity::ACTIVITY_STATE_HASH_REVISION,
     )
     .unwrap();
-    let instance = ActivityInstanceId::new(5_034).unwrap();
-    let seed = ActivityMasterSeed::from_u64(0x5034);
+    let instance = ActivityInstanceId::new(5_033).unwrap();
+    let seed = ActivityMasterSeed::from_u64(0x5033);
     let mut activity = compiled
         .start_standard(instance, seed)
         .unwrap()
@@ -686,7 +866,7 @@ fn component_replay_reexecutes_nested_commands_and_compares_event_payloads() {
     let header = standard_universe_header_v2(
         compatibility.clone(),
         components.clone(),
-        0x5034,
+        0x5033,
         &activity,
         "standard-universe-v1",
     )

@@ -1,0 +1,174 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S02",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+  "source_monster_id": "1013022",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:101302201-through-101302208",
+        "felling-order:0.8-atk-per-hit-and-10-hits",
+        "felling-order:0.05-atk-physical-bleed",
+        "disintegration-and-dismantle:2.5-atk-physical",
+        "phase-one:lock-on-target",
+        "phase-two:teamwork-order",
+        "phase-three:targeting-order-and-combat-speed-up",
+        "combat-speed-up:0.6-base-plus-0.2-per-targeting-order-capped-at-2"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:1013022",
+        "combat-rank:Elite",
+        "weaknesses:Ice-Imaginary-Lightning",
+        "resistances:Fire-Physical-Quantum-Wind-at-0.2",
+        "control-resistances:Confine-Frozen-Entangle-at-0.5",
+        "toughness:300"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:1013022",
+        "base-speed:172",
+        "base-hp:441.75",
+        "base-atk:18",
+        "base-def:210",
+        "ai-file:Config/ConfigAI/Monster_W1_Mecha04_00_AI_RL.json",
+        "ai-file-sha256:852955ecd12e7fbdea11c395dc23bf9f90c9699f00e65b4a00b17094e4c52cc7"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:2",
+        "difficulty:1",
+        "authored-level:27",
+        "role:boss"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "sha256": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c",
+      "facts": [
+        "exact-public-level:27",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "1013022",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "hp",
+      "anchor_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+      "anchor_value": "2554",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "2554",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c"
+    },
+    {
+      "source_monster_id": "1013022",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "atk",
+      "anchor_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+      "anchor_value": "84",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "84",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c"
+    },
+    {
+      "source_monster_id": "1013022",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "def",
+      "anchor_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+      "anchor_value": "470",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "470",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c"
+    },
+    {
+      "source_monster_id": "1013022",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "spd",
+      "anchor_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+      "anchor_value": "172",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "172",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c"
+    },
+    {
+      "source_monster_id": "1013022",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "effect_hit_rate",
+      "anchor_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+      "anchor_value": "0",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "0",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c"
+    },
+    {
+      "source_monster_id": "1013022",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "effect_resistance",
+      "anchor_variant_id": "enemy.automaton-direwolf-complete.elite.variant.01",
+      "anchor_value": "0.2",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "0.2",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S02-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "4d4311796be765c1e2a223719ff4549ab663838a3fcbc051ea85e2e2a655909c"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 2 difficulty 1 uses the direct public level-27 values; no interpolation is used.",
+    "Lock On Target marks one target, while Teamwork Order and Targeting Order select two unique living opponents through deterministic Rule IR RNG.",
+    "Felling Order resolves ten separately crit-capable 80% ATK Physical hits and ten independent resistible Bleed applications against every marked target.",
+    "Each unshielded marked target schedules one 250% ATK Dismantle against a uniformly selected different living ally; a solo target produces an explicit no-op.",
+    "Teamwork Order emits a permanent coordination marker tagged for the Automaton Grizzly Purge Order response and clears it after Felling Order.",
+    "Phase three applies +60% base SPD on entry; each Targeting Order adds +20% base SPD up to two stacks.",
+    "The three source-ordered phase action graphs, phase resets, target marks, damage, Bleed, shield guard, teammate follow-up, coordination handshake and speed progression use shared enemy lifecycle and Rule IR without a native handler."
+  ]
+}

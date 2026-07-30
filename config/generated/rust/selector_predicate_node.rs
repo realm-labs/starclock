@@ -32,6 +32,10 @@ pub enum SelectorPredicateNode {
         #[serde(rename = "owner_selector_id")]
         owner_selector_id: i32,
     },
+    Excludes {
+        #[serde(rename = "excluded_selector_id")]
+        excluded_selector_id: i32,
+    },
     StatCompare {
         #[serde(rename = "stat")]
         stat: StatKind,
@@ -66,7 +70,10 @@ impl super::runtime::SoraDecode for SelectorPredicateNode {
             5 => Ok(Self::OwnedBy {
                 owner_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            6 => Ok(Self::StatCompare {
+            6 => Ok(Self::Excludes {
+                excluded_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            }),
+            7 => Ok(Self::StatCompare {
                 stat: <StatKind as super::runtime::SoraDecode>::decode(reader)?,
                 comparison: <ComparisonOperator as super::runtime::SoraDecode>::decode(reader)?,
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
@@ -89,6 +96,7 @@ impl SelectorPredicateNode {
             Self::HasEffect { .. } => {}
             Self::HasTag { .. } => {}
             Self::OwnedBy { .. } => {}
+            Self::Excludes { .. } => {}
             Self::StatCompare { .. } => {}
         }
     }

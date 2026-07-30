@@ -239,9 +239,17 @@ fn run(factory: &ActivityAgentSessionFactory, entry: Entry) -> RunEvidence {
             ))
             .unwrap(),
         };
-        session
-            .apply_action(request)
-            .expect("offered action applies");
+        session.apply_action(request).unwrap_or_else(|error| {
+            panic!(
+                "matrix entry {} world {} difficulty {} seed {} action {} kind {:?} failed: {error:?}",
+                entry.ordinal,
+                entry.world,
+                entry.difficulty_index,
+                entry.seed,
+                external_actions,
+                action.kind
+            )
+        });
         external_actions += 1;
     }
     let replay = session.export_replay().expect("complete replay exports");
@@ -255,7 +263,12 @@ fn run(factory: &ActivityAgentSessionFactory, entry: Entry) -> RunEvidence {
     assert_eq!(verified.final_state_hash, session.state_hash());
     assert_eq!(
         session.terminal(),
-        Some(starclock_activity::ActivityTerminalOutcome::Completed)
+        Some(starclock_activity::ActivityTerminalOutcome::Completed),
+        "matrix entry {} world {} difficulty {} seed {} did not complete",
+        entry.ordinal,
+        entry.world,
+        entry.difficulty_index,
+        entry.seed
     );
     RunEvidence {
         ordinal: entry.ordinal,

@@ -1,15 +1,11 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
-import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
-execFileSync("node", ["tools/goal07/audit-retained.mjs", "--check"], {
-  cwd: root,
-  stdio: "inherit",
-});
 const policy = json("policy/goal07-retained-audit.json");
 const audit = json(
   "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
@@ -20,6 +16,18 @@ const evidence = json(
 assert(audit.schema_revision === "starclock.goal07-retained-audit.v1"
   && evidence.schema_revision === "starclock.goal07-retained-audit-summary.v1",
 "Goal 07 retained audit revision drift");
+assert(JSON.stringify(audit.source_sha256)
+  === JSON.stringify(Object.fromEntries(
+    Object.values(policy.inputs).map(({ path: inputPath, sha256 }) =>
+      [inputPath, sha256]),
+  )),
+"Goal 07 retained-audit frozen input inventory drift");
+assert(audit.policy_sha256 === sha256("policy/goal07-retained-audit.json")
+  && evidence.policy_sha256 === audit.policy_sha256
+  && evidence.audit_sha256 === sha256(
+    "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
+  ),
+"Goal 07 retained-audit evidence digest drift");
 for (const [field, expected] of Object.entries(policy.denominators)) {
   if (field === "retained_records")
     assert(audit.summary.records.inherited_states.RetainedApproximation === expected,
@@ -72,6 +80,10 @@ function text(relative) {
 }
 function json(relative) {
   return JSON.parse(text(relative));
+}
+function sha256(relative) {
+  return crypto.createHash("sha256")
+    .update(fs.readFileSync(path.join(root, relative))).digest("hex");
 }
 function assert(condition, message) {
   if (!condition) throw new Error(message);

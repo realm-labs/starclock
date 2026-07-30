@@ -1,0 +1,103 @@
+{
+  "schema_revision": "starclock.goal07-interface-replay-parity.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P6-B2",
+  "world": 1,
+  "difficulty_index": 0,
+  "seed": 1,
+  "surfaces": [
+    "baseline-ai",
+    "cli",
+    "agent",
+    "mcp"
+  ],
+  "goldens": {
+    "terminal": "completed",
+    "final_state_hash": "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b",
+    "replay_actions": 35,
+    "nested_battles": 3,
+    "battle_commands": 17,
+    "cli_catalog_identities": 6719,
+    "cli_catalog_bundle_sha256": "a6c6c67913685ccaab5e05665bb40b92001b3388e6be4977e25dd9cd029cb300",
+    "cli_replay_bytes": 25678,
+    "cli_replay_sha256": "07f61f8b6b9b4d57f566277f51cf0cfdc7baa7935a9df7727acfbdaa8e53bf89",
+    "agent_mcp_replay_bytes": 25673,
+    "agent_mcp_replay_sha256": "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b"
+  },
+  "compatibility_goldens": {
+    "standard_battle_external_actions": 16,
+    "standard_battle_replay_commands": 21,
+    "standard_battle_final_state_hash": "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
+    "standard_battle_cli_replay_bytes": 1945,
+    "http_concurrent_clients": 8,
+    "http_state_hashes": 17
+  },
+  "first_divergence_order": [
+    "Component",
+    "Assembly",
+    "CombatInput",
+    "Command",
+    "Event",
+    "State",
+    "Result",
+    "Activity"
+  ],
+  "focused_commands": [
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-mode-universe",
+      "--test",
+      "dynamic_battle_assembly",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-agent-api",
+      "--test",
+      "activity_session_loop",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-cli",
+      "--test",
+      "universe_cli",
+      "--test",
+      "cli_contract",
+      "--test",
+      "mcp_stdio",
+      "--test",
+      "standard_replay_smoke",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-mcp",
+      "--test",
+      "universe_surface_parity",
+      "--test",
+      "http_conformance",
+      "--all-features"
+    ]
+  ],
+  "contracts": {
+    "all_surfaces_use_the_production_runtime_factory": true,
+    "all_surfaces_reach_the_same_authoritative_terminal_state": true,
+    "baseline_and_agent_nested_authority_are_byte_equivalent": true,
+    "agent_and_mcp_replays_are_byte_equivalent": true,
+    "cli_replay_verifies_from_a_fresh_runtime": true,
+    "agent_replay_verifies_from_a_fresh_factory": true,
+    "mcp_replay_verifies_from_a_fresh_factory": true,
+    "every_nested_battle_is_reassembled_from_one_current_activity_snapshot": true,
+    "first_divergence_precedence_is_exhaustively_corruption_tested": true,
+    "malformed_replay_verification_does_not_mutate_the_live_agent_session": true
+  }
+}

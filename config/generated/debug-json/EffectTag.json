@@ -1,6 +1,2620 @@
 {
   "table": {
     "name": "EffectTag",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 980504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "prevents-toughness-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 980508
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "forced-basic-attack-random-ally"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 990501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "direwolf-felling-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 990503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "coordinates-automaton-grizzly-purge-order"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1000501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "forced-basic-attack-applier"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1000502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "charging-next-action-purge-order"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "burn"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010501
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "enkindle"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "spontaneous-combustion"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "attack-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010503
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "remove-on-weakness-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "internal-ai-reset"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1010505
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "internal-ai-setup"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "chilling-light"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sword-formation"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "prevents-toughness-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "formation-core"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020503
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "true-weakness-wind"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "formation-core"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020504
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "true-weakness-lightning"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020505
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "formation-core"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020505
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "true-weakness-imaginary"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020506
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "ordeal"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020507
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "freeze"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020507
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020508
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "qi-converge-lock"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1020509
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "qi-advance-charge"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1030501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "freeze"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1030501
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1030502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "charging"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1030502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "punishment-damage-boost"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1030503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "intensifying-cold"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1030504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "combat-redeployment"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "frigid-waterfall-escalation"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "collective-shield"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "prevents-toughness-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "counter"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040503
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "single-trigger"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "lock-on"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040504
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "besiege-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1040505
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "def-down"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1050501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "freeze"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1050501
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1050502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "freezing-point"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1050502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "remove-on-weakness-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1050503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "internal-ai-reset"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "harrowing-obituary"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060501
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "permanent-damage-growth"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "harrowing-obituary"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "remove-on-weakness-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sunset"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060503
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "remove-on-weakness-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "nightfall"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060504
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "weakness-protection"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060504
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "tag": {
+            "String": "prevents-toughness-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060504
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "tag": {
+            "String": "remove-on-weakness-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060505
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "morbid-dream"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060505
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060506
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sombrous-sepulcher"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060506
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "fixed-hit-bars"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060510
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sombrous-sepulcher"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060510
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "captured-formation-0"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060511
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sombrous-sepulcher"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060511
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "captured-formation-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060512
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sombrous-sepulcher"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060512
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "captured-formation-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060513
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sombrous-sepulcher"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1060513
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "captured-formation-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "shock"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070501
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "kafka-shock"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "dominated"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "forced-basic-attack-random-ally"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "psychological-suggestion"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "cruelty-listener"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1070505
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "griever-damage-growth"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080501
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "def-down"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080501
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "oversaturated-bombardment"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080502
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "power-amplification"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080502
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "stackable-damage-boost"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080503
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "restrained"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080503
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080503
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "tag": {
+            "String": "remove-with-applier"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "auxiliary-arm-turn-clock"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080505
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "overload-warning"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080505
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "controlled-blasting-next-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080506
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "emergency-support-role"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080506
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "automaton-beetle"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080507
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "emergency-support-role"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1080507
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "automaton-hound"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "rebound-roar"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "monitor"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "damage-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "rallying-howl"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095005
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "bleed"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "weaken"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sanction-mode"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095007
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "toughness-protected"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sanction-mode"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095008
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "toughness-protected"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "imprisonment"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095009
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095010
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "reverberation"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095011
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "lock-on-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1095012
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "overcombust"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "chains-of-destruction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "timed-module"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "damage-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "golden-age-binding"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105005
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "seeding-core"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "vigor-draining"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "inferno-stove"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "bleed"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "sweetness"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1105010
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "rebirth"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "channel-state"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "bad-roll"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "shield"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "soulglad-party"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115005
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "celebration-fountain"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "alarm-set"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "dense-fog"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "defense-down"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "candle-flame"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115010
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "deep-freeze"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115010
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "speed-down"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115011
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "attack-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1115011
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "lock-on-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "performance-boost"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "guardian-ban"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125002
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "ability-restriction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "imaginary-armor"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "burn"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125005
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "wind-shear"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "entomon-eulogy"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "prepare-to-fight"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "rebirth"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "maddened"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125009
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "ability-replacement"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125010
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "energy-burst"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125010
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "resource"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125011
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "aegis"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1125011
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "damage-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "faded-rage"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135001
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "enhanced-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "disembodied-shell"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135002
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "damage-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "mirror-cognition"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135003
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "transform"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "burn"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135005
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "melt"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135005
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "damage-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "high-temperature"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135006
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "toughness-protected"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "performance-boost"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "in-training"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135008
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "transform"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "covering-support"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135009
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "follow-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135010
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "bleed"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135011
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "shield-reflect"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135011
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "counter"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135012
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "rallying"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135012
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "damage-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135013
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "storm-cyclone"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135013
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "life-steal"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135014
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "wind-shear"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135015
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "wind-twisting-crossbow"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135015
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "prepare"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135016
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "subduing-prana"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135016
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "prepare"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135017
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "prana-snare"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1135017
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "maximum-hp-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "shock"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "scared"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145002
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "prepare"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "run"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145003
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "prevents-toughness-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145004
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "cure-you"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145004
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "damage-transfer"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145005
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "taking-revenge"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145005
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "additional-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145006
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "protect"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145006
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "shared-hit-nullification"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145007
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "inspire"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145007
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "attack-up"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145007
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "tag": {
+            "String": "action-advance"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145008
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "nihility-command"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145008
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "lock-on-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145008
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "tag": {
+            "String": "vulnerability"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145009
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "detonated"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145009
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "additional-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145010
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "overloaded"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145011
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "spiral-arrow"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145011
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "lock-on-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145012
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "entanglement"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1145012
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1155001
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "spiral-arrow"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1155001
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "lock-on-target"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1155002
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "entanglement"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1155002
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "tag": {
+            "String": "blocks-normal-action"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 1155003
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "wind-shear"
+          }
+        }
+      }
+    ]
   }
 }

@@ -769,18 +769,37 @@ impl AgentSession {
                         .ok_or_else(settlement_budget_error)?;
                 }
                 DecisionOwner::Team(TeamSide::Enemy) => {
-                    let (command, actor, graph_id) = self.authored_enemy_command(&decision)?;
+                    if decision.kind() == DecisionKind::InterruptWindow
+                        || (decision.kind() == DecisionKind::BattleChoice
+                            && decision.legal_commands().len() == 1)
+                    {
+                        let command = if decision.kind() == DecisionKind::InterruptWindow {
+                            system_command(&decision)?
+                        } else {
+                            decision.legal_commands()[0].clone()
+                        };
+                        emitted_events = emitted_events
+                            .checked_add(
+                                self.apply_recorded(command, AgentControllerKind::AuthoredEnemy)?,
+                            )
+                            .ok_or_else(settlement_budget_error)?;
+                        continue;
+                    }
+                    let (command, actor, graph_id, settle_ai_state) =
+                        self.authored_enemy_command(&decision)?;
                     emitted_events = emitted_events
                         .checked_add(
                             self.apply_recorded(command, AgentControllerKind::AuthoredEnemy)?,
                         )
                         .ok_or_else(settlement_budget_error)?;
-                    let graph = self.standard.ai_graph(graph_id).ok_or_else(ai_error)?;
-                    self.enemy
-                        .settle(graph, actor, AiTransitionTiming::AfterAction, |condition| {
-                            static_condition(condition).unwrap_or(false)
-                        })
-                        .map_err(|_| ai_error())?;
+                    if settle_ai_state {
+                        let graph = self.standard.ai_graph(graph_id).ok_or_else(ai_error)?;
+                        self.enemy
+                            .settle(graph, actor, AiTransitionTiming::AfterAction, |condition| {
+                                static_condition(condition).unwrap_or(false)
+                            })
+                            .map_err(ai_error_from)?;
+                    }
                 }
             }
         }
@@ -794,6 +813,7 @@ impl AgentSession {
             Command,
             starclock_combat::UnitId,
             starclock_combat::AiGraphId,
+            bool,
         ),
         AgentError,
     > {
@@ -822,13 +842,34 @@ impl AgentSession {
         }) {
             return Err(ai_error());
         }
-        let selected = self
-            .enemy
-            .decide(graph, initial_state, actor, decision, |condition| {
-                static_condition(condition).unwrap_or(false)
-            })
-            .map_err(|_| ai_error())?;
-        Ok((selected.command().clone(), actor, graph_id))
+        let (command, settle_ai_state) =
+            match self
+                .enemy
+                .decide(graph, initial_state, actor, decision, |condition| {
+                    static_condition(condition).unwrap_or(false)
+                }) {
+                Ok(selected) => (selected.command().clone(), true),
+                Err(starclock_ai::EnemyDecisionError::NoLegalFallback) => (
+                    decision
+                        .legal_commands()
+                        .first()
+                        .cloned()
+                        .ok_or_else(ai_error)?,
+                    false,
+                ),
+                Err(source) => {
+                    let mut error = ai_error_from(source);
+                    let commands = format!("{:?}", decision.legal_commands())
+                        .chars()
+                        .take(512)
+                        .collect::<String>();
+                    error
+                        .insert_detail("commands", commands)
+                        .expect("bounded enemy command diagnostic is valid");
+                    return Err(error);
+                }
+            };
+        Ok((command, actor, graph_id, settle_ai_state))
     }
 
     fn apply_recorded(
@@ -1025,6 +1066,14 @@ fn ai_error() -> AgentError {
         AgentErrorCode::CombatRejected,
         "The authored enemy controller could not select a supported exact command.",
     )
+}
+
+fn ai_error_from(source: starclock_ai::EnemyDecisionError) -> AgentError {
+    let mut error = ai_error();
+    error
+        .insert_detail("reason", format!("{source:?}"))
+        .expect("bounded enemy-controller diagnostic is valid");
+    error
 }
 
 fn settlement_budget_error() -> AgentError {

@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S13` |
-| Next unblocked batch | `G07-P4-M13-S13` |
+| State | `Complete` |
+| Active phase | None |
+| Active batch | None |
+| Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -270,10 +270,138 @@ Curios, paired two- and three-star Blessing rewards, atomic discard-all and
 equal-count Curio or Blessing exchanges. All 32 records and the assigned
 battle fixture have terminal dispositions, with no deferred counter, native
 handler or numeric approximation.
-`G07-P4-M13-S13` is active.
+Occurrence S13 is complete. The final Cuckoo Clock Fanatic (II) exchange and
+the complete third graph reuse the exact six-clock acquisition, discard and
+equal-count exchange primitives. Mirror of Transcendence (II) now closes all
+16 assigned dialogue states as exact no-effect transitions, while The
+Cremators performs an atomic one-to-two-star for one-to-three-star Blessing
+exchange or grants exactly 80 Cosmic Fragments. All 32 records have terminal
+dispositions, with no deferred counter, native handler or numeric
+approximation.
+Occurrence S14 is complete. The final two Mirror of Transcendence (II)
+dialogue states and all 18 Mirror (III) states are exact no-effect
+transitions. Interactive Arts grants one two-star Elation or Hunt Blessing,
+or restores every living character by exactly 100% of Max HP. Pixel World
+grants exactly 200 Cosmic Fragments, or atomically removes 20% of every
+living character's current HP before granting two random one-star Blessings.
+All 31 records and the assigned restoration fixture have terminal
+dispositions. The complete 321-choice Occurrence runtime now has zero
+deferred operations, with no native handler or numeric approximation.
+Enemy partitions S01–S18 are complete. S17 and S18 close the final ordinary
+enemy proxies, including the three Trotter paths, Voidranger action cycles,
+Trampler lock and Entanglement, Windspawn Wind Shear and Wraith Warden's
+Physical strike. All 86 frozen enemy variants now materialize through exact
+production definitions. Domain-graph S19 is complete: all nine Standard
+Universe domains retain their exact public source types, kinds, terminal
+flags, localized text and Activity decision bindings. Battle domains hand off
+through battle commands, ordinary external domains use run commands and
+Adventure uses the explicit external-outcome boundary. Encounter-selection
+S20 is complete: its 32 room-scoped pools retain 61 ordered weighted group
+bindings, 20 fixed-content bindings and all three selection policies. The
+assigned production fixture proves that an exact condition key selects the
+weighted-group or fixed-content branch before resolution, and unoffered keys
+fail closed. Encounter-selection S21 is complete: another 32 pools retain 60
+ordered weighted bindings and two fixed bindings. Its two production fixtures
+prove exact-condition weighted stable order and World-difficulty Boss
+resolution against the selected difficulty's authored enemy binding.
+Encounter-selection S22 is complete: its final 28 pools retain 53 weighted
+bindings and 14 fixed bindings. Together S20–S22 exactly close all 92
+encounter pools, with contiguous identities, 174 weighted bindings, 36 fixed
+bindings and a closed 59/4/29 split across the three selection policies.
+Topology-map S23 is complete: its first eight complete maps retain 86 nodes
+and 98 ordered edges. Each map has one source node, one reachable terminal,
+no cross-map edge and a bounded acyclic runtime graph. Topology-map S24 is
+complete: five more complete maps retain 85 contiguous nodes and 105 ordered
+edges under the same single-entry, reachable-terminal and graph-local
+invariants. Topology-map S25 is complete: its next five complete maps retain
+another 85 contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S26 is complete: five further complete maps retain another 85
+contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S27 is complete: its five complete maps retain another 85
+contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S28 is complete: five more complete maps retain another 85
+contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S29 is complete: its final four maps retain 68 contiguous nodes
+and 84 ordered edges. Together S23–S29 close all 37 topology maps, 579 nodes
+and 707 edges under the single-entry, reachable-terminal, graph-local and
+bounded-acyclic invariants. Room-content S30 is complete: its first 32 rooms
+retain 114 ordered content bindings, split exactly into 31 encounter-group,
+39 fixed-content and 44 external-decision bindings. Every room retains one
+unique primary binding and every encounter binding resolves its exact authored
+group. Room-content S31 is complete: its next 32 rooms retain 65 ordered
+content bindings, split exactly into 46 encounter-group, six fixed-content
+and 13 external-decision bindings under the same primary and foreign-key
+invariants. Room-content S32 is complete: its next 32 rooms retain 55 ordered
+content bindings, split exactly into 39 encounter-group, two fixed-content
+and 14 external-decision bindings under the same invariants.
+Room-content S33 is complete: its next 32 rooms retain 38 ordered content
+bindings, split exactly into 18 encounter-group and 20 external-decision
+bindings under the same invariants. Room-content S34 is complete: its next 32
+rooms retain 101 ordered content bindings, split exactly into 37
+encounter-group, 27 fixed-content and 37 external-decision bindings under the
+same invariants. Room-content S35 is complete: its final three rooms retain
+seven ordered content bindings, split into three encounter-group and four
+fixed-content bindings. Together S30-S35 close all 163 rooms and 380 content
+bindings, split exactly into 174 encounter-group, 78 fixed-content and 128
+external-decision bindings under the unique-primary and exact foreign-key
+invariants. World-difficulty S36 is complete: all nine worlds and 33
+difficulties retain their exact metadata, ownership and score curves, while all
+182 difficulty-enemy bindings resolve into the battle catalog with the exact
+35 boss and 147 elite split. The frozen content ledger is now 104/104 complete.
+Integrated scenarios P6-B1 are complete: all 104 receipts bind targeted
+execution evidence for 786 rules, 78 semantic fixtures, 86 enemy variants and
+173 encounter members across 13 mechanic families. Seven explicit dynamic
+acquire, enhance, replace, repair, remove and projection boundaries pass.
+The fresh production matrix completes all 33 constructible World/difficulty
+runs across nine Worlds and nine Paths, executing 154 nested battles and 1,048
+authoritative battle commands with exact state-record parity. `G07-P6-B2` is
+complete: baseline AI, CLI, Agent and MCP reach the same authoritative terminal
+state, baseline and Agent retain byte-equivalent nested authority, and Agent
+and MCP emit the same complete replay. Fresh replay-v3 reconstruction resolves
+exactly one current Activity snapshot per nested battle and reports all eight
+corruption classes in component, assembly, combat-input, command, event, state,
+result and Activity order. P6-B3 is complete: enemy and baseline-player AI
+legality passes alongside all
+six frozen Battle scenarios and the 33-run production Universe matrix. Sixteen
+shared-factory sessions, 16 idempotency races, 4,096 invalid commands, 16
+Agent replay mutations and pairwise perturbation of all eight Activity RNG
+streams preserve isolation and rollback. Two 100-cycle probes retain exact
+Cosmic Fragment and Curio charge bounds while rejecting every overdraw and
+stale consumption without mutation. P6-B4 is complete on the reused Goal 06
+stable runner identity. Five measured
+rows freeze combat-input, all-entry cold assembly, zero-allocation warm cache,
+bounded eviction and 16-session shared-catalog behavior against strict
+Goal 07 budgets. Cold assembly retains one catalog composition and 33 misses;
+warm assembly retains 10,000 exact hits with zero allocations. Four material
+regressions caused by the completed rule/enemy catalog and real compiled
+player builds are explicitly reviewed. The mismatched historical Goal 04
+64-session workload exceeded a 300-second local command limit and is retained
+as replaced evidence rather than a passing claim. P7-B1 is complete: all 104
+completion receipts retain exact-once 2,201/786/78/86/173 coverage, all 2,645
+provenance rows retain bilingual content bindings and license notes, and both
+authoritative workbook/Sora pipelines regenerate without drift. The dependency
+audit retains the same 136 registry package identities and explicitly reviews
+the one internal `starclock-mode-universe` to `starclock-build` edge needed for
+locked-build compilation. All 427 native candidates close without an admitted
+handler. Of 73 Phase 0 numeric candidates, 24 upgrade to `ExactPublic` and 49
+close as named, evidenced `ApprovedNumericApproximation`; all 86 enemy variants
+are mechanism-correct and no mechanic approximation remains. `G07-P7-B2` is
+complete. The final native release gate executes unchanged on Windows x64,
+Linux x64 and macOS ARM64 successful CI jobs; Windows ARM64, Linux ARM64 and
+macOS x64 remain explicitly compile-only with zero runtime claim. The current
+Windows x64 runner completed the 33-run/154-battle matrix, 256-case fixed-seed
+replay properties, 512-case Agent schema properties, 16 live-session-inert
+replay mutations, all eight ordered divergence boundaries and native Agent/MCP
+surface checks in 256.3 seconds. The full repository gate passes after
+separating immutable Goal 01/06 evidence from current production regeneration;
+historical bytes are checked from registered completion snapshots while current
+Excel/Sora artifacts retain their own regeneration gates. P7-B3 now freezes
+the complete 121-row ledger, release contract and evidence inventory. Its
+containing commit is the immutable completion target; snapshot registration
+follows in the dedicated release-registration commit.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 66 completed partitions use scoped Excel/Sora semantic
+model. All 104 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -314,20 +442,20 @@ verification commands are recorded in
 | `G07-P2-M05-S02` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed both levels of Salvation From Damnation, Candlelight Radiance, Bitter Is the Bane, Corporeal Pellucidity and Prajna Voyage plus Dharma Rain L1. Added exact already-resolved HP restoration and replaced the legacy enhanced-only HP-damage slice with committed-target, event-element L1/L2 Rule IR. Production materialization proves 65%/100% Cleanse, one-turn 50% ATK, 36%/42% HP damage, 36% mitigation, 27% Effect RES, 30%/45% extra healing and six-stack 30% MaxHP; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed Dharma Rain L2 and both levels of Dew Delight, Extended Life, Mudra, Peril Parry and Back to Life. Added target-directional incoming healing, actor-credited Break healing and ability-source once-per-action provider healing. Production execution proves the 63% nine-Blessing cap, 12%/18% Incoming Healing, 24%/36% entry healing, 16%/24% breaking-actor healing, one-turn 24%/36% DEF and 12%/18% provider healing; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed both levels of Force Victoire and Empower, Abundance Resonance and all three Formations. Added generic negative-effect and team-defeat guards plus auxiliary Resonance abilities/countdowns. Production execution proves one-turn 10%/15% SPD, once-per-action 30%/45% Skill Point chance, 50% healing, 15% MaxHP, first-lethal prevention, five-stack Subduing Evils, 10% guard healing and recurring 70%-effective Resonance; eight native candidates close as `IrSufficient`. |
-| `G07-P6-B1` | `Pending` | — | Generate complete targeted and seeded scenario coverage. |
-| `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
-| `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
-| `G07-P6-B4` | `Pending` | — | Freeze performance and allocation evidence. |
-| `G07-P7-B1` | `Pending` | — | Complete release audits. |
-| `G07-P7-B2` | `Pending` | — | Complete native/full clean verification. |
-| `G07-P7-B3` | `Pending` | — | Freeze release and register immutable snapshot. |
+| `G07-P6-B1` | `Complete` | `node tools/goal07/verify-integrated-scenarios.mjs`; 104 partition receipts; targeted dynamic-boundary tests; 33-run production combat/replay matrix; quick repository gate | Bound all 786 mechanic rules and 78 semantic fixtures to existing production execution evidence across 13 families, retained seven explicit lifecycle/projection scenarios, and completed all 33 constructible World/difficulty runs across all nine Paths. The matrix executes 154 production nested battles and retains exact parity for 1,048 battle commands/state records and fresh replay reconstruction. It also fixed ability-origin queued actions, automatic linked-actor target selection, dynamic encounter settlement identity, two over-broad content triggers, compiled-build Eidolon reprojection and legal baseline action selection exposed by the complete matrix. |
+| `G07-P6-B2` | `Complete` | `node tools/goal07/verify-interface-replay-parity.mjs`; dynamic assembly, Agent Activity, CLI and MCP integration tests; quick repository gate | Verified baseline AI, CLI, Agent and MCP against World 1/difficulty 0/seed 1. All surfaces reach `64078b…`; baseline and Agent nested authority is byte-equivalent, while Agent and MCP share the exact 25,673-byte/35-action replay `ec9aff…`. CLI independently emits and freshly verifies its controller-bound 25,678-byte replay. Dynamic reconstruction consumes one current Activity snapshot per battle and rejects all eight ordered first-divergence classes; 16 malformed Agent replays leave the live session inert. |
+| `G07-P6-B3` | `Complete` | `node tools/goal07/verify-hardening.mjs`; AI, Activity, Combat resource, Universe long-run and Agent hardening tests; P6-B1 seeded matrix; quick repository gate | Proved exact-offer enemy AI and authored-hint baseline AI legality, all six frozen Battle scenarios and all 33 complete Universe runs/154 battles. Verified 16 isolated shared-factory sessions, 16 exactly-once idempotency races, 4,096 inert invalid Activity commands, 16 inert Agent replay mutations and 257-draw pairwise isolation for all eight Activity RNG streams. Added 100-cycle Cosmic Fragment and Curio charge probes with 200 accepted resource mutations, 300 charge consumptions and 200 inert overdraw/stale-command rejections. |
+| `G07-P6-B4` | `Complete` | `node tools/goal07/verify-performance.mjs`; Goal 06 stable-runner benchmark on current complete content; integrated/hardening/quick acceptance samples | Reused the exact Win10/i7-10700F/Rust 1.97 stable runner and unchanged Goal 06 workload. Warm assembly completes 10,000 hits in 14.62 ms with zero allocations; cold all-entry assembly retains one catalog composition, 33 misses and 26 evictions under the reviewed 90 s/30 GB cumulative/640 MiB peak ceilings. Eviction and 16-session rows retain exact cache/catalog shapes. Four material regression groups caused by 786-rule/86-enemy/real-build scope expansion are explicit; the out-of-contract Goal 04 64-session timeout is not promoted to evidence. |
+| `G07-P7-B1` | `Complete` | `node tools/goal07/verify-release-audits.mjs`; production Excel/Sora double regeneration; dependency/license, native-handler and source-policy audits | Proved exact-once 104-receipt coverage; 2,201 bilingual DataReady rows and 2,645 licensed provenance rows; zero workbook/Sora drift; 136 unchanged registry identities plus one reviewed internal build-compiler edge; 427 terminal native reviews with zero admissions; and 73/73 terminal numeric candidates with zero mechanic approximations. |
+| `G07-P7-B2` | `Complete` | `node tools/goal07/run-native-release.mjs . --record`; replay/Agent property and malformed corpora; 33-run complete-content matrix; `node tools/repository-check/run.mjs --full` | Added the Goal 07 gate to all three native CI hosts and retained three alternate targets as compile-only. Windows x64 passed in 256.3 seconds with 33 fresh replay verifications, 154 battles, 1,048 command/state pairs, 256-case replay properties, 512-case schema properties, 16 inert replay mutations and all eight divergence boundaries. The full workspace gate passes against current artifacts plus immutable historical snapshots. |
+| `G07-P7-B3` | `Complete` | `node tools/goal07/verify-release-contract.mjs . --release`; final 121-row ledger; release evidence; full repository gate | Froze the Released contract, 17 complete fixed batches, 104 complete generated content batches, terminal 2,201/786/78/86/173 coverage, release inventories and the completion-tree registration contract. |
 
 ## Content milestone ledger
 
 These are coverage milestones, not permission to make one oversized commit.
 The complete 104-row generated ledger is maintained in
 [Goal 07 content ledger](07-standard-universe-mechanics-content-ledger.md).
-Validated completion state is maintained separately in
+The same validated completion state is also detailed in
 [Goal 07 content progress](07-standard-universe-mechanics-content-progress.md).
 The milestone summary remains here for orientation.
 
@@ -345,9 +473,9 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 384 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Complete` | 447 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
-| `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
+| `G07-P5-M15` | `Complete` | 959 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 
 ## Starting coverage
 
@@ -398,10 +526,10 @@ The milestone summary remains here for orientation.
 
 | Field | Value |
 |---|---|
-| Final state | In progress |
-| Completion commit | — |
+| Final state | `Complete` |
+| Completion commit | This row's containing commit (`G07-P7-B3`) |
 | Expanded batch denominator | 121 total: 17 fixed + 104 generated content batches |
-| Runtime coverage | 3 / 786 executable starting point |
-| Numeric approximation register | 73 candidates under `goal07-public-anchor-level-curve-v1`; per-variant inputs remain partition work |
-| Cross-platform evidence | To be generated |
-| Release evidence | To be generated |
+| Runtime coverage | 2,201 / 2,201 content records; 786 / 786 rules; 78 / 78 semantic fixtures; 86 / 86 enemy variants; 173 / 173 encounter members |
+| Numeric approximation register | 73 / 73 terminal: 24 `ExactPublic`, 49 approved numeric approximations, 0 mechanic approximations |
+| Cross-platform evidence | Three required native profiles and three compile-only profiles; Windows x64 recorded locally |
+| Release evidence | `evidence/standard-universe-mechanics-complete-v1/release/release-evidence.json` |

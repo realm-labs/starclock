@@ -1,0 +1,116 @@
+{
+  "schema_revision": "starclock.goal07-interface-replay-parity-evidence.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P6-B2",
+  "result": "pass",
+  "scenario": {
+    "world": 1,
+    "difficulty_index": 0,
+    "seed": 1,
+    "terminal": "completed",
+    "final_state_hash": "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b",
+    "replay_actions": 35,
+    "nested_battles": 3,
+    "battle_commands": 17
+  },
+  "surface_parity": {
+    "surfaces": [
+      "baseline-ai",
+      "cli",
+      "agent",
+      "mcp"
+    ],
+    "baseline_agent_nested_authority": "byte-equivalent",
+    "agent_mcp_full_replay": "byte-equivalent",
+    "cli": {
+      "catalog_identities": 6719,
+      "catalog_bundle_sha256": "a6c6c67913685ccaab5e05665bb40b92001b3388e6be4977e25dd9cd029cb300",
+      "replay_bytes": 25678,
+      "replay_sha256": "07f61f8b6b9b4d57f566277f51cf0cfdc7baa7935a9df7727acfbdaa8e53bf89",
+      "fresh_verification": "pass"
+    },
+    "agent_mcp": {
+      "replay_bytes": 25673,
+      "replay_sha256": "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b",
+      "fresh_verification": "pass"
+    }
+  },
+  "reconstruction": {
+    "current_activity_snapshots_per_nested_battle": 1,
+    "first_divergence_order": [
+      "Component",
+      "Assembly",
+      "CombatInput",
+      "Command",
+      "Event",
+      "State",
+      "Result",
+      "Activity"
+    ],
+    "corruption_classes": 8,
+    "malformed_agent_replay_cases": 16,
+    "live_session_mutation_after_corruption": 0
+  },
+  "compatibility": {
+    "immutable_goal02_evidence_mutated": false,
+    "standard_battle_external_actions": 16,
+    "standard_battle_replay_commands": 21,
+    "standard_battle_final_state_hash": "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
+    "standard_battle_cli_replay_bytes": 1945,
+    "http_concurrent_clients": 8,
+    "http_state_hashes": 17
+  },
+  "contracts": {
+    "all_surfaces_use_the_production_runtime_factory": true,
+    "all_surfaces_reach_the_same_authoritative_terminal_state": true,
+    "baseline_and_agent_nested_authority_are_byte_equivalent": true,
+    "agent_and_mcp_replays_are_byte_equivalent": true,
+    "cli_replay_verifies_from_a_fresh_runtime": true,
+    "agent_replay_verifies_from_a_fresh_factory": true,
+    "mcp_replay_verifies_from_a_fresh_factory": true,
+    "every_nested_battle_is_reassembled_from_one_current_activity_snapshot": true,
+    "first_divergence_precedence_is_exhaustively_corruption_tested": true,
+    "malformed_replay_verification_does_not_mutate_the_live_agent_session": true
+  },
+  "inputs": {
+    "policy_sha256": "db1171fa978c93e214cb88bec58eb41597d73a752988035d2cfd1af33cf53975",
+    "sources": {
+      "dynamic": {
+        "path": "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+        "sha256": "63ef90e5bf7d0cb91b5c68637e5066fb4e8a1cecb0f0b0ad6d687fe7290706be"
+      },
+      "agent": {
+        "path": "crates/starclock-agent-api/tests/activity_session_loop.rs",
+        "sha256": "ae596ade1da87cd29d8ae055b842664d5ba8e82beee377a6d3ae2db80a8781ab"
+      },
+      "cli": {
+        "path": "crates/starclock-cli/tests/universe_cli.rs",
+        "sha256": "bc3f707e165d5ce0e074f75197236df034d685286844153c8840b09eb5a1a3ca"
+      },
+      "cliContract": {
+        "path": "crates/starclock-cli/tests/cli_contract.rs",
+        "sha256": "bed680665755d018d3e754b662039c8d7b6f83caf13a096853a84569708a19d4"
+      },
+      "cliMcpStdio": {
+        "path": "crates/starclock-cli/tests/mcp_stdio.rs",
+        "sha256": "387cb7ab994978528bb2fe88048aeec1ca94e5eb7180dcd1c81c26676b8c5115"
+      },
+      "cliStandardBattle": {
+        "path": "crates/starclock-cli/tests/standard_replay_smoke.rs",
+        "sha256": "ea6310c38d3e3437f31c1ebaa4ecbf607cad85d481093723c4ebd057e3aff577"
+      },
+      "cliRuntime": {
+        "path": "crates/starclock-cli/src/universe_v1.rs",
+        "sha256": "9dfe739034780b2799bdbf26c334757c0df1b85ffd3740af4096a881a6ec25ec"
+      },
+      "mcp": {
+        "path": "crates/starclock-mcp/tests/universe_surface_parity.rs",
+        "sha256": "43984a1d38320d1a2174ecea27d04c6426f2810816b4c2cd5b8c4f254abd3d4f"
+      },
+      "mcpHttp": {
+        "path": "crates/starclock-mcp/tests/http_conformance.rs",
+        "sha256": "42a753a985c1d7aaa4a2a011c7f5c49dbbfc9b13b36c0b789d5f33103a77bfca"
+      }
+    }
+  }
+}

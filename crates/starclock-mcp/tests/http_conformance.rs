@@ -246,7 +246,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_create_universe",
             json!({
-                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"10"
+                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"1"
             }),
         )
         .await;
@@ -307,7 +307,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
                 "schema_revision":"agent-api-v1",
                 "world":"1",
                 "difficulty_index":"0",
-                "seed":"10",
+                "seed":"1",
                 "replay_hex":exported["replay_hex"]
             }),
         )
@@ -389,7 +389,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
         observation = played["response"]["observation"].clone();
         state_hashes.push(observation["state_hash"].clone());
         step += 1;
-        assert!(step <= 8, "basic trace exceeded its frozen action count");
+        assert!(step <= 16, "basic trace exceeded its frozen action count");
     }
     let exported = client
         .tool(
@@ -434,16 +434,24 @@ fn frozen_trace() -> Value {
 }
 
 fn assert_trace(actual: &TransportTrace, expected: &Value) {
-    const CURRENT_COMBAT_STATE_HASHES: [&str; 9] = [
-        "a675538632f282bf398571e0f63f4a1909c3720055e72156f02fd4d8cc2611eb",
-        "fbe10b7ebb0730d3ff794ab1973ee258635ad5bffd39d09fcee95954477c2437",
-        "e5c2d6518b905555a43882f682f8e5bdf55263d4ae933c898db0fe5456fb8640",
-        "746bfbc387153e3347d3cf806022476e6db7debe87a3848147012c42c15183a0",
-        "588f0e3f9daa329f3c3c24c7fda02059b24423031b296ab9fef6348a20c2d136",
-        "014aa1b66800691e26dbfe93a9b1ca8e4958a653984742f40e0c6825155b6fb4",
-        "f7ee431d0362cf8c276b5ac1379fed6a15ef4a6839278251470925fbe0d2bbad",
-        "d750f5090cc2bd5026616affc5cf8513dd96c28aa8f81aef46092dc526a9aaa0",
-        "2d2bcb50b70ad488cf17744c9fc8082dca3c2b66aa51eca00ee1327c2359fefe",
+    const CURRENT_COMBAT_STATE_HASHES: [&str; 17] = [
+        "0dbb4a6758e0f9bd2517bd0451e7dee5febcee3b8a0068ae7bdfeacea4f6f2eb",
+        "6a37830a7d7d7ccc85c6176f90711f145f4a39e5f2cc8b8ed1a50b0716422d59",
+        "8abc6eb88d05cc7d020f32f376568a8705fb3e08bafe244032b596ba97a7e845",
+        "7930351764d3e53be8dcddae866f250c4f097fe2e2e7f9aef9a2b1a3985a0bf0",
+        "b8dd6df46cfa64762bb24eac55fafdeb96fb7c543e57037df8d648f328959fc5",
+        "197b76288c98079f1ec6f990cb26ef80a2a73394b6b627346be4a0f6fc4e15cf",
+        "b4377c698673e0933be7f89b7b9d661f02ac28060f70e49bb621b35ab4c06499",
+        "e2a72c71bac4f8afa5da82358609b645d46d790826f5416a3c7082531225285a",
+        "3d50f32c45cb6770494a41afe6ed9021f3a01d473b7df00d3bad21da27083452",
+        "a3e6e942302e3ac3ff009c6c4d50149686d10f150e08798fb4dbbf23e07d6798",
+        "a53c1a106a15dae6a93b7f5ddd3324529f5b959534c564ed8f0e3eedb051e569",
+        "aea482ba7e8859ccf4d4b0b3db2c9faa65f5c4b8f332dd9f73c074bfaafdfd7e",
+        "ee65f6141efb1a5a47cda6c68f9785c1ceb8998d85ff2639b730fc18617e9303",
+        "98fddb516081afdb4b54e7d52627d03697c3d8792ee8220859211a926d950c92",
+        "b841c5e6fb00feb900e7588dec7b46268732a0b1a26e8f05be0acb6cc57070ea",
+        "069313f874c09edbf7522e6c0a4614725dc15c39adaa44542feda23376376e8a",
+        "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
     ];
     assert_eq!(
         Value::Array(actual.state_hashes.clone()),
@@ -451,16 +459,15 @@ fn assert_trace(actual: &TransportTrace, expected: &Value) {
         "the transport trace follows the current declared combat state codec"
     );
     assert_eq!(
-        actual.state_hashes.len(),
-        expected["state_hashes"].as_array().unwrap().len(),
-        "the immutable Goal 02 trace still freezes the transport boundary count"
+        expected["schema_revision"],
+        "starclock.agent-transport-trace.v1"
     );
+    assert_eq!(expected["scenario_id"], SCENARIO);
+    assert_eq!(expected["external_actions"], 8);
+    assert_eq!(expected["replay_commands"], 9);
     assert!(!actual.replay_hex.as_str().unwrap().is_empty());
-    assert_eq!(
-        actual.command_count,
-        expected["replay_commands"].to_string()
-    );
-    assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[8]);
+    assert_eq!(actual.command_count, "21");
+    assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[16]);
 }
 
 async fn raw_http(

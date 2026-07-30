@@ -176,7 +176,6 @@ impl StandardUniverseProfile {
         }) {
             return Err(StandardUniverseCompileError::EncounterOverlayParticipantMismatch);
         }
-
         let ability_tree = canonical_ability_tree(&self.catalog, &entry.ability_tree)?;
         let ability_runtime = Arc::new(
             AbilityRuntimeCatalog::compile(&self.catalog)
@@ -629,6 +628,7 @@ impl CompiledActivity {
                     ability_projection_slot: self.ability_projection_slot(),
                     blessing_reroll_slot: self.blessing_reroll_slot(),
                     selected_room_slot: self.selected_room_slot(),
+                    selected_encounter_member_slot: self.selected_encounter_member_slot(),
                     formation_capability_slot: self.formation_capability_slot(),
                     technique_points_slot: self.technique_points_slot(),
                 }

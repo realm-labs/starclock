@@ -137,6 +137,7 @@ Treat the date, not an assumed game version number, as the baseline. Character k
 111. [Goal 07 Nihility partition S02](goal-07-nihility-s02.md) — Break efficiency/propagation, random DoTs, selected detonation and Blessing-count DoT scaling.
 112. [Goal 07 Nihility partition S03](goal-07-nihility-s03.md) — Break damage, Effect RES, DoT vulnerability/duration and dynamic DoT-stack vulnerability.
 113. [Goal 07 Nihility partition S04](goal-07-nihility-s04.md) — team healing/Energy from DoTs, Resonance statuses, Confusion, Devoid and all Nihility Formations.
+114. [Goal 07 release contract](goal-07-release-contract.md) — frozen 121-batch ledger, terminal mechanics denominators, audit/native/performance evidence and immutable completion boundary.
 
 ## Execution goals
 

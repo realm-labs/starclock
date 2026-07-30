@@ -1,0 +1,221 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S08",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.ice-out-of-space.elite.variant.01",
+  "source_monster_id": "8003010",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:800301001-through-800301004",
+        "chilling-lament:2.5-atk-ice-single-target",
+        "freezing-point-chilling-lament:adds-1.0-atk-ice-against-frozen-primary-target",
+        "frosty-absorption:enters-freezing-point",
+        "everwinter-rain:2.0-atk-ice-all-targets",
+        "everwinter-rain:0.6-base-freeze-chance",
+        "freeze:delayed-1.0-atk-ice-damage"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:8003010",
+        "combat-rank:Elite",
+        "weaknesses:Fire-Quantum-Wind",
+        "resistance:Ice-at-0.4",
+        "resistances:Imaginary-Lightning-Physical-at-0.2",
+        "frozen-resistance:1",
+        "summons:none"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:8003010",
+        "base-hp:930",
+        "base-atk:18",
+        "base-def:210",
+        "base-speed:100",
+        "base-toughness:300",
+        "base-effect-resistance:0.2",
+        "ai-file:Config/ConfigAI/Monster_XP_Elite02_00_AI.json"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-and-ability-source-file-hashes-retained"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "worlds:1-6-9",
+        "authored-levels:14-49-50-66-75-84",
+        "roles:boss-and-elite",
+        "difficulty-key:standard-universe-v1"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/encounter-groups.json",
+      "sha256": "f5aab75d59678aab90f146b8d11881450e9b682a329c20477d52d2f2d4d23001",
+      "facts": [
+        "encounter-group:universe.encounter-group.19001",
+        "encounter-member:universe.encounter-member.108",
+        "source-stage-id:80190011",
+        "source-rogue-monster-id:190011",
+        "single-wave:everwinter-shadewalker-ice-out-of-space-everwinter-shadewalker"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "sha256": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4",
+      "facts": [
+        "exact-public-levels:14-44-49-50-66-75-84",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 14,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "2117",
+        "atk": "37",
+        "def": "340",
+        "spd": "100",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    },
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 44,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "13551",
+        "atk": "187",
+        "def": "640",
+        "spd": "100",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    },
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 49,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "19417",
+        "atk": "226",
+        "def": "690",
+        "spd": "100",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    },
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 50,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "20590",
+        "atk": "234",
+        "def": "700",
+        "spd": "100",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    },
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 66,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "72616",
+        "atk": "397",
+        "def": "860",
+        "spd": "110",
+        "effect_hit_rate": "0.128",
+        "effect_resistance": "0.264"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    },
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 75,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "112994",
+        "atk": "494",
+        "def": "950",
+        "spd": "110",
+        "effect_hit_rate": "0.2",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    },
+    {
+      "source_monster_id": "8003010",
+      "authored_level": 84,
+      "combat_rank": "Elite",
+      "fields": {
+        "hp": "167044",
+        "atk": "597",
+        "def": "1040",
+        "spd": "120",
+        "effect_hit_rate": "0.272",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S08-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "2e12722a69ed4d9e3505ab976461a8ffff488882066dc5e110c2596108b120e4"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 1, 6 and 9 difficulties use direct public level 14, 49, 50, 66, 75 and 84 values, while encounter member 108 uses direct public level 44 values; no interpolation is used.",
+    "The inactive cycle uses Chilling Lament followed by Frosty Absorption; Freezing Point then alternates Everwinter Rain with the enhanced Chilling Lament.",
+    "Chilling Lament deals 250% Ice damage to the primary target; while in Freezing Point, a Frozen primary target receives an additional 100% Ice damage.",
+    "Everwinter Rain deals 200% Ice damage to all opponents and applies one-turn Freeze at 60% base chance; Freeze deals delayed 100% Ice damage.",
+    "Weakness Break removes Freezing Point, marks the public reset path, and makes the next sequence restart with Chilling Lament followed by Frosty Absorption.",
+    "The Freezing Point marker, Freeze delayed damage, frozen-target bonus and Weakness-Broken reset use shared Rule IR without a native handler."
+  ]
+}

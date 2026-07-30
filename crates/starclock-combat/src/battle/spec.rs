@@ -6,7 +6,10 @@ use crate::{
         AbilityId, EncounterId, EnemyDefinitionId, ModifierDefinitionId, RuleBundleId,
         UnitDefinitionId,
     },
-    numeric::domain::{Energy, Hp, Speed, StatValue},
+    numeric::{
+        domain::{Energy, Hp, Speed, StatValue},
+        scalar::Scalar,
+    },
     rule::model::RuleSource,
     toughness::model::ToughnessLayerSpec,
 };
@@ -248,6 +251,8 @@ pub struct ResolvedCombatantSpec {
     base_attack: StatValue,
     base_defense: StatValue,
     speed: Speed,
+    base_effect_hit_rate: Scalar,
+    base_effect_resistance: Scalar,
     current_energy: Energy,
     maximum_energy: Energy,
     rank: EnemyRank,
@@ -281,6 +286,8 @@ impl ResolvedCombatantSpec {
             base_attack: StatValue::from_scaled(0).expect("zero is a valid stat"),
             base_defense: StatValue::from_scaled(0).expect("zero is a valid stat"),
             speed,
+            base_effect_hit_rate: Scalar::ZERO,
+            base_effect_resistance: Scalar::ZERO,
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
             rank: EnemyRank::Normal,
@@ -300,6 +307,17 @@ impl ResolvedCombatantSpec {
     pub const fn with_base_attack_defense(mut self, attack: StatValue, defense: StatValue) -> Self {
         self.base_attack = attack;
         self.base_defense = defense;
+        self
+    }
+    /// Attaches generic base Effect Hit Rate and Effect Resistance contributions.
+    #[must_use]
+    pub const fn with_base_effect_stats(
+        mut self,
+        effect_hit_rate: Scalar,
+        effect_resistance: Scalar,
+    ) -> Self {
+        self.base_effect_hit_rate = effect_hit_rate;
+        self.base_effect_resistance = effect_resistance;
         self
     }
     /// Attaches canonical generic source bindings resolved upstream.
@@ -408,6 +426,16 @@ impl ResolvedCombatantSpec {
     #[must_use]
     pub const fn speed(&self) -> Speed {
         self.speed
+    }
+    /// Returns the immutable authored base Effect Hit Rate.
+    #[must_use]
+    pub const fn base_effect_hit_rate(&self) -> Scalar {
+        self.base_effect_hit_rate
+    }
+    /// Returns the immutable authored base Effect Resistance.
+    #[must_use]
+    pub const fn base_effect_resistance(&self) -> Scalar {
+        self.base_effect_resistance
     }
     /// Returns entry Energy.
     #[must_use]

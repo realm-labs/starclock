@@ -1,0 +1,201 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P5-M15-S35",
+  "state": "Complete",
+  "completed_on": "2026-07-29",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseRoom",
+          "UniverseRoomContent"
+        ]
+      },
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseEncounterGroup"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-world-partition.py --partition G07-P5-M15-S35 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+      "git_blob_sha1": "d57866c8ee0f67072399a583f3e57eef1907e5d0"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S35.json",
+      "sha256": "0539cc0ef3c560a510a3798c6098963134c9f8b4c62f28c3e7319321e886f4f6",
+      "git_blob_sha1": "f253991e40e2710c4b971ed5007889ee21910c73"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.room.400611",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s35.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400612",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s35.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.501",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s35.rs"
+        }
+      ]
+    }
+  ],
+  "rules": [],
+  "fixtures": [],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-world-partition.py --partition G07-P5-M15-S35 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test room_content_s35 --all-features",
+      "cargo test -p starclock-mode-universe --all-features",
+      "node tools/repository-check/run.mjs"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S35.json",
+        "sha256": "0539cc0ef3c560a510a3798c6098963134c9f8b4c62f28c3e7319321e886f4f6",
+        "git_blob_sha1": "f253991e40e2710c4b971ed5007889ee21910c73"
+      }
+    ]
+  }
+}

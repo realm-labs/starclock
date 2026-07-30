@@ -3,6 +3,7 @@ use super::event_value_property::EventValueProperty;
 use super::formula_purpose::FormulaPurpose;
 use super::resource_kind::ResourceKind;
 use super::rounding_policy::RoundingPolicy;
+use super::shield_observation::ShieldObservation;
 use super::stat_kind::StatKind;
 use super::value_binary_operator::ValueBinaryOperator;
 use super::value_kind::ValueKind;
@@ -57,6 +58,22 @@ pub enum ValueExpressionNode {
         stat: StatKind,
         #[serde(rename = "formula_purpose")]
         formula_purpose: FormulaPurpose,
+    },
+    QueryShield {
+        #[serde(rename = "subject_selector_id")]
+        subject_selector_id: i32,
+        #[serde(rename = "observation")]
+        observation: ShieldObservation,
+    },
+    QueryHp {
+        #[serde(rename = "subject_selector_id")]
+        subject_selector_id: i32,
+    },
+    QueryEffectStacks {
+        #[serde(rename = "subject_selector_id")]
+        subject_selector_id: i32,
+        #[serde(rename = "effect_id")]
+        effect_id: i32,
     },
     ReadEventProperty {
         #[serde(rename = "property")]
@@ -153,36 +170,47 @@ impl super::runtime::SoraDecode for ValueExpressionNode {
                 stat: <StatKind as super::runtime::SoraDecode>::decode(reader)?,
                 formula_purpose: <FormulaPurpose as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            10 => Ok(Self::ReadEventProperty {
+            10 => Ok(Self::QueryShield {
+                subject_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                observation: <ShieldObservation as super::runtime::SoraDecode>::decode(reader)?,
+            }),
+            11 => Ok(Self::QueryHp {
+                subject_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            }),
+            12 => Ok(Self::QueryEffectStacks {
+                subject_selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            }),
+            13 => Ok(Self::ReadEventProperty {
                 property: <EventValueProperty as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            11 => Ok(Self::SelectorCount {
+            14 => Ok(Self::SelectorCount {
                 selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            12 => Ok(Self::SelectorSum {
+            15 => Ok(Self::SelectorSum {
                 selector_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            13 => Ok(Self::CheckedBinary {
+            16 => Ok(Self::CheckedBinary {
                 operator: <ValueBinaryOperator as super::runtime::SoraDecode>::decode(reader)?,
                 left_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 right_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 rounding: <RoundingPolicy as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            14 => Ok(Self::Clamp {
+            17 => Ok(Self::Clamp {
                 value_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 minimum_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 maximum_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            15 => Ok(Self::Negate {
+            18 => Ok(Self::Negate {
                 operand_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            16 => Ok(Self::Choose {
+            19 => Ok(Self::Choose {
                 condition_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 when_true_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 when_false_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             }),
-            17 => Ok(Self::Convert {
+            20 => Ok(Self::Convert {
                 operand_expression_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
                 target_kind: <ValueKind as super::runtime::SoraDecode>::decode(reader)?,
                 rounding: <RoundingPolicy as super::runtime::SoraDecode>::decode(reader)?,
@@ -209,6 +237,9 @@ impl ValueExpressionNode {
             Self::AbilityParameter { .. } => {}
             Self::ReadResource { .. } => {}
             Self::QueryStat { .. } => {}
+            Self::QueryShield { .. } => {}
+            Self::QueryHp { .. } => {}
+            Self::QueryEffectStacks { .. } => {}
             Self::ReadEventProperty { .. } => {}
             Self::SelectorCount { .. } => {}
             Self::SelectorSum { .. } => {}

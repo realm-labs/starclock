@@ -1,0 +1,186 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v2",
+  "partition_id": "G07-P5-M15-S18",
+  "numeric_policy_id": "goal07-s18-public-and-derived-level-curve-v1",
+  "source": {
+    "publisher": "Honkai: Star Rail Wiki and committed version 4.4 extraction",
+    "url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Trampler",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "PerVariantExactOrApprovedDerivedCurve"
+  },
+  "derivation": {
+    "hp_reference_base": "930",
+    "hp_rounding": "NearestTiesAway",
+    "atk_reference_base": "18",
+    "def_reference_base": "210",
+    "speed_breakpoints": [
+      {
+        "level_minimum": 1,
+        "multiplier": "1"
+      },
+      {
+        "level_minimum": 65,
+        "multiplier": "1.1"
+      },
+      {
+        "level_minimum": 78,
+        "multiplier": "1.2"
+      },
+      {
+        "level_minimum": 86,
+        "multiplier": "1.32"
+      }
+    ],
+    "exact_overrides": "The Trampler uses its reviewed public level curve; Windspawn and Wraith Warden use the named normalized template curve."
+  },
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.voidranger-trampler.elite.variant.01",
+      "source_monster_id": "8013010",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Trampler",
+      "levels": [
+        {
+          "authored_level": 11,
+          "base_hp": "1947",
+          "base_atk": "29",
+          "base_def": "310",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 15,
+          "base_hp": "2457",
+          "base_atk": "40",
+          "base_def": "350",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 29,
+          "base_hp": "5136",
+          "base_atk": "93",
+          "base_def": "490",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 44,
+          "base_hp": "14906",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 61,
+          "base_hp": "58260",
+          "base_atk": "348",
+          "base_def": "810",
+          "base_spd": "100",
+          "effect_hit_rate": "0.088",
+          "effect_resistance": "0.244"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "79878",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "110",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "124293",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "110",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "183748",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "120",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.windspawn.minion.variant.01",
+      "source_monster_id": "8001050",
+      "combat_rank": "Minion",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Windspawn",
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "1406",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "83",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.004"
+        },
+        {
+          "authored_level": 52,
+          "base_hp": "1577",
+          "base_atk": "255",
+          "base_def": "720",
+          "base_spd": "83",
+          "effect_hit_rate": "0.016",
+          "effect_resistance": "0.008"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "1918",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "2430",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.028"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.wraith-warden.minionlv2.variant.01",
+      "source_monster_id": "2002030",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Wraith_Warden",
+      "levels": [
+        {
+          "authored_level": 54,
+          "base_hp": "4795",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "120",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    }
+  ]
+}

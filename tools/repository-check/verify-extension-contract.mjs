@@ -33,6 +33,22 @@ assert(commands.includes("node tools/repository-check/verify-release-snapshots.m
   "generated drift does not verify immutable release snapshots");
 assert(!commands.some((command) => command.includes("tools/goal04/")),
   "global generated drift still binds current source to historical Goal 04 evidence");
+assert(!commands.some((command) =>
+  command.includes("tools/goal-coverage/generate.mjs")),
+"global generated drift still regenerates immutable Goal 01 coverage from current production content");
+assert(!commands.some((command) =>
+  command.includes("tools/goal05/") || command.includes("tools/goal06/")),
+"global generated drift still reruns a completed Goal 05/06 batch against current source");
+assert(commands.includes(
+  "node tools/goal07/verify-release-contract.mjs . --release"),
+"global generated drift does not verify the Goal 07 release contract");
+assert(!commands.some((command) =>
+  command.includes("tools/goal07/verify-foundation.mjs")
+  || command.includes("tools/goal07/verify-retained-audit.mjs")
+  || command.includes("tools/goal07/verify-partitions.mjs")
+  || command.includes("tools/goal07/verify-phase0.mjs")
+  || command.includes("tools/goal07/verify-phase1-b1.mjs")),
+"global generated drift still reruns a completed Goal 07 foundation batch");
 assert(workflow.includes("fetch-depth: 0") && !workflow.includes("tools/goal04/run-native-ci.mjs"),
   "CI cannot resolve immutable snapshots or still reruns historical Goal 04 gates");
 assert(workspacePolicy.schema_revision === "starclock.workspace-dependencies.v1"
@@ -45,6 +61,11 @@ for (const historical of [
   "verify-goal02-clean-acceptance.mjs",
   "verify-property-hardening.mjs",
   "verify-architecture-audit.mjs",
+  "tools/goal-hardening/verify-content-audits.mjs",
+  "tools/benchmark/review-phase8.mjs",
+  "tools/core-kernel/verify-phase4.mjs",
+  "tools/goal05/verify-release-contract.mjs",
+  "tools/goal06/verify-release-contract.mjs",
 ]) assert(!repositoryRunner.includes(historical), `current repository gate still recomputes historical evidence through ${historical}`);
 
 console.log("Mode extension contract verified (task sets, logical scopes, composed registries, component digests, delivery lanes, immutable releases).");

@@ -1,0 +1,61 @@
+{
+  "schema_revision": "starclock.goal07-world-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S20",
+  "lane": "encounter-selection",
+  "record_ids": [
+    "universe.encounter-pool.room.100",
+    "universe.encounter-pool.room.1000001",
+    "universe.encounter-pool.room.1000002",
+    "universe.encounter-pool.room.1000003",
+    "universe.encounter-pool.room.1000004",
+    "universe.encounter-pool.room.1000005",
+    "universe.encounter-pool.room.1000014",
+    "universe.encounter-pool.room.1000015",
+    "universe.encounter-pool.room.1000017",
+    "universe.encounter-pool.room.1000018",
+    "universe.encounter-pool.room.1000019",
+    "universe.encounter-pool.room.1000020",
+    "universe.encounter-pool.room.1000022",
+    "universe.encounter-pool.room.1000024",
+    "universe.encounter-pool.room.1000025",
+    "universe.encounter-pool.room.1000026",
+    "universe.encounter-pool.room.1000027",
+    "universe.encounter-pool.room.1000029",
+    "universe.encounter-pool.room.1000031",
+    "universe.encounter-pool.room.1000032",
+    "universe.encounter-pool.room.1000033",
+    "universe.encounter-pool.room.200111",
+    "universe.encounter-pool.room.200112",
+    "universe.encounter-pool.room.200121",
+    "universe.encounter-pool.room.200122",
+    "universe.encounter-pool.room.200131",
+    "universe.encounter-pool.room.200132",
+    "universe.encounter-pool.room.200141",
+    "universe.encounter-pool.room.200142",
+    "universe.encounter-pool.room.200152",
+    "universe.encounter-pool.room.200211",
+    "universe.encounter-pool.room.200212"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [
+    "universe.fixture.encounter-selection.selectconditionkeythenresolvegroupordifficultybinding"
+  ],
+  "tables": {
+    "UniverseEncounterPool": {
+      "rows": 32,
+      "semantic_sha256": "36ad019acfa06819e4bac5cf0da333317477ba058bd907099660bea5f7167369"
+    },
+    "UniverseEncounterPoolGroup": {
+      "rows": 61,
+      "semantic_sha256": "bd52c35d1ff4723869b7efda588bef77c793e49597739128d9df2b7d59439f42"
+    },
+    "UniverseEncounterPoolFixed": {
+      "rows": 20,
+      "semantic_sha256": "8c813247307ed734df87ec1475957d6ddb4fcc91096f2ef9c23d779d7e9da570"
+    },
+    "UniverseReviewFixture": {
+      "rows": 1,
+      "semantic_sha256": "d80b82466492418024d28ba5e2ff9fcb08a40c2a9f83113430d78e43612c582b"
+    }
+  }
+}

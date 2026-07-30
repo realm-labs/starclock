@@ -117,7 +117,7 @@ pub(crate) fn normal_action(
     )
 }
 
-fn effective_abilities(
+pub(crate) fn effective_abilities(
     innate: &[AbilityId],
     effects: &crate::effect::state::EffectStore,
     catalog: &CombatCatalog,

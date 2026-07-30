@@ -96,6 +96,7 @@ pub struct StandardUniverseActivity {
     ability_projection_slot: ActivitySlotId,
     blessing_reroll_slot: ActivitySlotId,
     selected_room_slot: ActivitySlotId,
+    selected_encounter_member_slot: ActivitySlotId,
     formation_capability_slot: ActivitySlotId,
     technique_points_slot: ActivitySlotId,
 }
@@ -136,6 +137,7 @@ pub(crate) struct StandardUniverseRuntimeContext {
     pub(crate) ability_projection_slot: ActivitySlotId,
     pub(crate) blessing_reroll_slot: ActivitySlotId,
     pub(crate) selected_room_slot: ActivitySlotId,
+    pub(crate) selected_encounter_member_slot: ActivitySlotId,
     pub(crate) formation_capability_slot: ActivitySlotId,
     pub(crate) technique_points_slot: ActivitySlotId,
 }
@@ -179,6 +181,7 @@ impl StandardUniverseActivity {
             ability_projection_slot: context.ability_projection_slot,
             blessing_reroll_slot: context.blessing_reroll_slot,
             selected_room_slot: context.selected_room_slot,
+            selected_encounter_member_slot: context.selected_encounter_member_slot,
             formation_capability_slot: context.formation_capability_slot,
             technique_points_slot: context.technique_points_slot,
         }

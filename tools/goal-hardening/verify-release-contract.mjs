@@ -46,7 +46,7 @@ for (const code of policy.cli_exit_codes.filter((value) => value !== 0)) {
   assert(main.includes(`=> ${code}`), `CLI implementation lacks exit class ${code}`);
 }
 const cliTests = `${readText("crates/starclock-cli/tests/cli_contract.rs")}\n${readText("crates/starclock-cli/tests/standard_replay_smoke.rs")}`;
-for (const token of ["starclock-cli-v1", "283", "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440", "scenario.standard-v1.basic-single-wave", "replay_bytes"]) {
+for (const token of ["starclock-cli-v1", "283", "9ed99b16a46a310b9ac8825b13c2ed3d4ba99db2c94c68d44a6a978bc9cfa0fb", "scenario.standard-v1.basic-single-wave", "replay_bytes"]) {
   assert(cliTests.includes(token), `CLI tests do not freeze ${token}`);
 }
 

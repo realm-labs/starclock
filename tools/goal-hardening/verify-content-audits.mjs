@@ -76,6 +76,7 @@ const rules = decodedRows("RuleDefinition");
 const rootedRules = new Set([
   ...decodedRows("Ability").map((row) => row.entry_rule_identity_id).filter(Number.isInteger),
   ...decodedRows("LightCone").map((row) => row.passive_rule_identity_id),
+  ...decodedRows("EffectRuleBinding").map((row) => row.rule_id),
 ]);
 assert(rootedRules.size === rules.length, "rule root count differs from RuleDefinition count");
 for (const rule of rules) assert(rootedRules.has(rule.id), `RuleDefinition.${rule.id}: unreachable from an ability or Light Cone root`);

@@ -5,8 +5,8 @@ use std::collections::BTreeMap;
 use starclock_combat::{
     AssemblyDigest, BattleSpec, CombatantSpecDigest, ConcedePolicy, EnemyDefinitionId, Energy, Hp,
     KeyedTeamResourceSpec, ParticipantSource, ParticipantSpec, ResolvedCombatantSpec,
-    ResolvedDefinitionBindings, Speed, TeamResourceSpec, TeamResourceWavePolicy, TeamSide,
-    UnitLevel, catalog::CombatCatalog,
+    ResolvedDefinitionBindings, Rounding, Speed, StatValue, TeamResourceSpec,
+    TeamResourceWavePolicy, TeamSide, UnitLevel, catalog::CombatCatalog,
 };
 
 use crate::{
@@ -21,10 +21,14 @@ use super::{
     materialization_digest::spec_digest, member_encounter_id,
 };
 
+const UNIVERSE_ENEMY_STAT_DIFFICULTY_KEY: &str = "standard-universe-v1";
+
+#[allow(clippy::too_many_arguments)]
 pub(super) fn member_spec(
     member: &EncounterMemberDefinition,
     players: &[ParticipantSpec],
     enemy_map: &BTreeMap<&str, EnemyDefinitionId>,
+    data: &starclock_data::catalog::SimulationCatalog,
     catalog: &CombatCatalog,
     revision: &str,
     root_digest: [u8; 32],
@@ -37,6 +41,7 @@ pub(super) fn member_spec(
                 .get(slot.enemy_variant_key())
                 .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
             participants.push(enemy_participant(
+                data,
                 catalog,
                 enemy,
                 checked_level(member.stage_level())?,
@@ -71,6 +76,7 @@ pub(super) fn difficulty_spec(
     binding: &DifficultyEnemyBinding,
     players: &[ParticipantSpec],
     enemy_map: &BTreeMap<&str, EnemyDefinitionId>,
+    data: &starclock_data::catalog::SimulationCatalog,
     catalog: &CombatCatalog,
     revision: &str,
     root_digest: [u8; 32],
@@ -81,6 +87,7 @@ pub(super) fn difficulty_spec(
         .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
     let mut participants = players.to_vec();
     participants.push(enemy_participant(
+        data,
         catalog,
         enemy,
         checked_level(binding.level())?,
@@ -128,7 +135,9 @@ fn player_resources(
         .ok_or(UniverseBattleMaterializationError::InvalidCombatant)
 }
 
+#[allow(clippy::too_many_arguments)]
 fn enemy_participant(
+    data: &starclock_data::catalog::SimulationCatalog,
     catalog: &CombatCatalog,
     enemy_id: EnemyDefinitionId,
     level: UnitLevel,
@@ -146,11 +155,42 @@ fn enemy_participant(
         .filter(|rule| rule.attachment() == RuleAttachment::EveryEnemy)
         .map(|rule| rule.bundle().id())
         .collect::<Vec<_>>();
-    let combatant = ResolvedCombatantSpec::new(
+    let reviewed_stats =
+        data.enemy_runtime_stat(enemy_id, level, UNIVERSE_ENEMY_STAT_DIFFICULTY_KEY);
+    let (maximum_hp, speed, attack, defense, effect_hit_rate, effect_resistance) = reviewed_stats
+        .map_or_else(
+        || {
+            Ok((
+                Hp::new(1).expect("Goal 01 executable proxy HP is positive"),
+                Speed::from_scaled(50_000_000).expect("static proxy Speed is valid"),
+                StatValue::from_scaled(0).expect("zero proxy ATK is valid"),
+                StatValue::from_scaled(0).expect("zero proxy DEF is valid"),
+                starclock_combat::Scalar::ZERO,
+                starclock_combat::Scalar::ZERO,
+            ))
+        },
+        |stats| {
+            let hp = stats
+                .hp()
+                .rounded_integer(Rounding::NearestTiesAway)
+                .ok()
+                .and_then(|value| Hp::new(value).ok())
+                .ok_or(UniverseBattleMaterializationError::InvalidCombatant)?;
+            Ok((
+                hp,
+                stats.speed(),
+                stats.attack(),
+                stats.defense(),
+                stats.effect_hit_rate(),
+                stats.effect_resistance(),
+            ))
+        },
+    )?;
+    let mut combatant = ResolvedCombatantSpec::new(
         enemy.unit(),
         level,
-        Hp::new(1).expect("Goal 01 executable proxy HP is positive"),
-        Speed::from_scaled(50_000_000).expect("static proxy Speed is valid"),
+        maximum_hp,
+        speed,
         ResolvedDefinitionBindings::new(enemy.abilities().to_vec(), enemy_rules, Vec::new())
             .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?,
         CombatantSpecDigest::new(enemy_digest(
@@ -159,8 +199,22 @@ fn enemy_participant(
         .expect("SHA-256 digest is non-zero"),
     )
     .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?
+    .with_base_attack_defense(attack, defense)
+    .with_base_effect_stats(effect_hit_rate, effect_resistance)
     .with_energy(Energy::ZERO, Energy::ZERO)
     .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?;
+    if reviewed_stats.is_some() {
+        let profile = data
+            .enemy_runtime_profile(enemy_id)
+            .ok_or(UniverseBattleMaterializationError::InvalidCombatant)?;
+        combatant = combatant
+            .with_toughness(
+                profile.rank(),
+                profile.weaknesses().to_vec(),
+                profile.toughness_layers().to_vec(),
+            )
+            .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?;
+    }
     ParticipantSpec::new(
         TeamSide::Enemy,
         checked_formation(slot_index)?,

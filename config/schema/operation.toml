@@ -191,6 +191,9 @@ name = "ApplyEffect"
 name = "effect_id"
 type = "ref<Effect.id>"
 [[unions.variants.fields]]
+name = "stacks_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[unions.variants.fields]]
 name = "chance_policy"
 type = "enum<EffectChancePolicy>"
 [[unions.variants.fields]]
@@ -198,6 +201,30 @@ name = "base_chance_expression_id"
 type = "optional<ref<ValueExpression.id>>"
 [[unions.variants.fields]]
 name = "rng_purpose_key"
+type = "optional<string>"
+
+[[unions.variants]]
+name = "ApplyRandomEffect"
+[[unions.variants.fields]]
+name = "effect_ids"
+type = "list<ref<Effect.id>>"
+parser = { kind = "split", separator = "|" }
+length = [1, 16]
+[[unions.variants.fields]]
+name = "stacks_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[unions.variants.fields]]
+name = "choice_rng_purpose_key"
+type = "string"
+length = [1, 80]
+[[unions.variants.fields]]
+name = "chance_policy"
+type = "enum<EffectChancePolicy>"
+[[unions.variants.fields]]
+name = "base_chance_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[unions.variants.fields]]
+name = "chance_rng_purpose_key"
 type = "optional<string>"
 
 [[unions.variants]]

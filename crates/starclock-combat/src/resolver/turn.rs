@@ -124,6 +124,7 @@ pub(super) fn begin_turn(
         );
     }
     let controlled_skip = txn.state.effects.skips_normal_turn_at_start(turn.unit);
+    let forced_normal_action = forced_normal_action(catalog, txn, turn.unit);
     let (mut parent, frozen_skip) = super::operation::settle_break_effects_at_turn_start(
         catalog, txn, turn_cause, parent, turn.unit,
     )?;
@@ -195,7 +196,44 @@ pub(super) fn begin_turn(
     if let Some((ability, origin)) = turn.automatic {
         return execute_automatic_turn(catalog, txn, root, parent, turn, ability, origin);
     }
+    if let Some((action, applier)) = forced_normal_action {
+        return execute_forced_basic_turn(catalog, txn, root, parent, turn, action, applier);
+    }
     offer_turn_decision(catalog, txn, root, parent, turn)
+}
+
+fn forced_normal_action(
+    catalog: &CombatCatalog,
+    txn: &Transaction<'_>,
+    unit: crate::UnitId,
+) -> Option<(crate::ForcedNormalAction, crate::UnitId)> {
+    txn.state
+        .effects
+        .iter_by_id()
+        .filter(|effect| effect.target == unit)
+        .find_map(|effect| {
+            let action = catalog
+                .effect(effect.definition)?
+                .runtime_template()
+                .and_then(crate::EffectRuntimeTemplate::forced_normal_action)
+                .or_else(|| {
+                    catalog
+                        .effect(effect.definition)
+                        .expect("effect definition was resolved above")
+                        .runtime()
+                        .and_then(crate::EffectRuntimeDefinition::forced_normal_action)
+                })?;
+            let valid_applier = action != crate::ForcedNormalAction::BasicAttackApplier
+                || txn.state.units.get(effect.applier).is_some_and(|applier| {
+                    applier.life == crate::LifeState::Alive
+                        && txn
+                            .state
+                            .units
+                            .get(unit)
+                            .is_some_and(|target| target.side != applier.side)
+                });
+            valid_applier.then_some((action, effect.applier))
+        })
 }
 
 fn offer_turn_decision(
@@ -233,7 +271,22 @@ fn execute_automatic_turn(
     ability: crate::AbilityId,
     origin: crate::ActionOrigin,
 ) -> Result<(), BattleFault> {
-    let targets = commit_targets(catalog, txn, turn.unit, ability, None)?;
+    let selector = catalog
+        .ability(ability)
+        .and_then(|definition| catalog.selector(definition.selector()))
+        .and_then(|definition| definition.unit_targets())
+        .ok_or_else(|| action_fault(97))?;
+    let primary = crate::target::select::legal_primary_targets(
+        &txn.state.units,
+        &txn.state.formations,
+        turn.unit,
+        selector,
+    )
+    .map_err(|_| action_fault(97))?
+    .into_iter()
+    .next()
+    .flatten();
+    let targets = commit_targets(catalog, txn, turn.unit, ability, primary)?;
     let mut plan = crate::action::lower::lower_timeline_action(
         catalog,
         txn,
@@ -247,8 +300,117 @@ fn execute_automatic_turn(
         targets,
     )
     .ok_or_else(|| action_fault(98))?;
-    let mut parent = execute_action_plan(catalog, txn, root, parent, &mut plan)?;
-    let cause = action_cause(root, &plan)?;
+    execute_planned_turn(catalog, txn, root, parent, turn, &mut plan)
+}
+
+fn execute_forced_basic_turn(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    turn: crate::timeline::state::NormalTurnState,
+    forced_action: crate::ForcedNormalAction,
+    applier: crate::UnitId,
+) -> Result<(), BattleFault> {
+    let abilities = txn
+        .state
+        .units
+        .get(turn.unit)
+        .map(|unit| {
+            legal::effective_abilities(&unit.abilities, &txn.state.effects, catalog, turn.unit)
+        })
+        .ok_or_else(|| action_fault(100))?;
+    let ability = abilities
+        .into_iter()
+        .find(|ability| {
+            catalog
+                .ability(*ability)
+                .and_then(|definition| definition.action())
+                .is_some_and(|action| action.kind() == crate::catalog::action::AbilityKind::Basic)
+        })
+        .ok_or_else(|| action_fault(101))?;
+    let definition = catalog.ability(ability).ok_or_else(|| action_fault(102))?;
+    let action = definition.action().ok_or_else(|| action_fault(102))?;
+    let authored = catalog
+        .selector(definition.selector())
+        .and_then(|selector| selector.unit_targets())
+        .ok_or_else(|| action_fault(103))?;
+    let relation = match forced_action {
+        crate::ForcedNormalAction::BasicAttackRandomAlly => {
+            crate::catalog::action::TargetRelation::Allied
+        }
+        crate::ForcedNormalAction::BasicAttackApplier => {
+            crate::catalog::action::TargetRelation::Opposing
+        }
+    };
+    let mut selector =
+        crate::catalog::action::UnitTargetSelector::new(relation, authored.pattern())
+            .ok_or_else(|| action_fault(104))?;
+    if authored.repeated_targets() {
+        selector = selector.with_repeated_targets();
+    }
+    let primary = match (forced_action, selector.pattern()) {
+        (_, crate::catalog::action::TargetPattern::All) => None,
+        (crate::ForcedNormalAction::BasicAttackApplier, _) => Some(applier),
+        (crate::ForcedNormalAction::BasicAttackRandomAlly, _) => {
+            let mut pool = crate::target::select::stable_pool(
+                &txn.state.units,
+                &txn.state.formations,
+                turn.side,
+                crate::catalog::action::TargetRelation::Allied,
+            );
+            let mut candidates = pool
+                .iter()
+                .copied()
+                .filter(|target| *target != turn.unit)
+                .collect::<Vec<_>>();
+            if candidates.is_empty() {
+                candidates.append(&mut pool);
+            }
+            let index = txn
+                .choose_index(
+                    crate::rng::types::DrawPurpose::FORCED_ACTION_TARGET,
+                    candidates.len(),
+                )?
+                .ok_or_else(|| action_fault(105))?;
+            Some(candidates[index])
+        }
+    };
+    let targets = crate::target::select::commit(
+        &txn.state.units,
+        &txn.state.formations,
+        turn.unit,
+        selector,
+        action.invalidation(),
+        primary,
+    )
+    .map_err(|_| action_fault(106))?;
+    let mut plan = crate::action::lower::lower_forced_basic_action(
+        catalog,
+        txn,
+        crate::action::lower::TimelineActionContext {
+            actor: turn.unit,
+            owner: turn.owner,
+            timeline_actor: turn.actor,
+            origin: crate::ActionOrigin::Forced,
+        },
+        ability,
+        targets,
+    )
+    .ok_or_else(|| action_fault(107))?;
+    execute_planned_turn(catalog, txn, root, parent, turn, &mut plan)
+}
+
+fn execute_planned_turn(
+    catalog: &CombatCatalog,
+    txn: &mut Transaction<'_>,
+    root: CommandId,
+    parent: EventId,
+    turn: crate::timeline::state::NormalTurnState,
+    plan: &mut crate::action::model::ActionPlan,
+) -> Result<(), BattleFault> {
+    let mut parent = execute_action_plan(catalog, txn, root, parent, plan)?;
+    let cause = action_cause(root, plan)?;
     parent = super::operation::settle_effects_at_action_end(catalog, txn, cause, parent)?;
     parent = drain_reactions(
         catalog,

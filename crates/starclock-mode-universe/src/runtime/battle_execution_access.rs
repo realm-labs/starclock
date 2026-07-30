@@ -364,12 +364,19 @@ impl StandardUniverseActivity {
     }
 
     fn pending_domain_kind(&self) -> Result<DomainKind, GraphActivityBattleError> {
-        let pending = self.graph.pending_battle().ok_or_else(invalid_boundary)?;
         let member = self
-            .overlay
-            .binding_for_spec(pending.battle_spec_digest().bytes())
-            .ok_or_else(invalid_boundary)?
-            .member();
+            .graph
+            .debug_view()
+            .all_slots()
+            .iter()
+            .find(|slot| slot.id() == self.selected_encounter_member_slot)
+            .and_then(|slot| match slot.value() {
+                starclock_activity::ActivityValue::OptionalId(Some(value)) => Some(*value),
+                _ => None,
+            })
+            .and_then(|value| u32::try_from(value).ok())
+            .and_then(crate::id::EncounterMemberId::new)
+            .ok_or_else(invalid_boundary)?;
         let room = self
             .graph
             .debug_view()

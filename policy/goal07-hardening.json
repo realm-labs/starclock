@@ -1,0 +1,95 @@
+{
+  "schema_revision": "starclock.goal07-hardening.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P6-B3",
+  "wall_budget_seconds": 180,
+  "matrix_evidence": {
+    "path": "evidence/standard-universe-mechanics-complete-v1/integration/seeded-matrix.json",
+    "complete_runs": 33,
+    "nested_battles": 154,
+    "battle_commands": 1048,
+    "battle_state_records": 1048
+  },
+  "corpora": {
+    "enemy_ai_legality_tests": 4,
+    "baseline_player_legality_tests": 3,
+    "standard_battle_scenarios": 6,
+    "concurrent_shared_factory_sessions": 16,
+    "agent_replay_mutations": 16,
+    "idempotency_race_rounds": 16,
+    "invalid_activity_commands": 4096,
+    "activity_rng_streams": 8,
+    "rng_perturbation_draws_per_stream": 257,
+    "long_run_resource_cycles": 100,
+    "resource_commands_per_cycle": 3,
+    "long_run_curio_charge_cycles": 100,
+    "curio_charge_consumptions_per_cycle": 3,
+    "stale_charge_rejections_per_cycle": 1
+  },
+  "focused_commands": [
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-ai",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-activity",
+      "--test",
+      "activity_hardening",
+      "--test",
+      "activity_transaction",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-combat",
+      "--test",
+      "rng_golden",
+      "--test",
+      "action_resources",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-mode-universe",
+      "--test",
+      "curio_runtime",
+      "--test",
+      "run_runtime",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-agent-api",
+      "--test",
+      "activity_session_loop",
+      "--test",
+      "hardening_corpus",
+      "--test",
+      "standard_session_loop",
+      "--all-features"
+    ]
+  ],
+  "contracts": {
+    "enemy_ai_returns_only_exact_offered_commands": true,
+    "baseline_player_ai_scores_only_authored_legal_commands": true,
+    "run_ai_completes_every_constructible_world_difficulty": true,
+    "concurrent_sessions_share_only_immutable_catalog_state": true,
+    "failed_commands_preserve_state_and_rng": true,
+    "idempotency_races_commit_exactly_once": true,
+    "activity_rng_streams_are_pairwise_isolated": true,
+    "resource_and_charge_values_never_underflow_or_overdraw": true,
+    "stale_resource_and_charge_commands_are_inert": true
+  }
+}

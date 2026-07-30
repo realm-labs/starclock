@@ -1,0 +1,121 @@
+{
+  "schema_revision": "starclock.goal07-native-release-evidence.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P7-B2",
+  "result": "local-windows-native-complete-content-with-hosted-cross-platform-contract",
+  "recorded_on": "2026-07-29",
+  "local_execution": {
+    "runner": {
+      "platform": "win32",
+      "architecture": "x64",
+      "os_release": "10.0.19045",
+      "cpu_model": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+      "logical_processors": 16,
+      "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+      "node": "v24.15.0"
+    },
+    "elapsed_ms": 256296,
+    "commands": [
+      {
+        "id": "complete-content-native-matrix",
+        "elapsed_ms": 164826,
+        "status": "passed"
+      },
+      {
+        "id": "replay-property-and-malformed-corpora",
+        "elapsed_ms": 8623,
+        "status": "passed"
+      },
+      {
+        "id": "agent-property-corruption-and-rollback",
+        "elapsed_ms": 67076,
+        "status": "passed"
+      },
+      {
+        "id": "mcp-native-surface-parity",
+        "elapsed_ms": 15770,
+        "status": "passed"
+      }
+    ],
+    "matrix": {
+      "worlds": 9,
+      "difficulties": 33,
+      "runs": 33,
+      "nested_battles": 154,
+      "battle_commands": 1048,
+      "battle_state_records": 1048,
+      "external_actions": 1749,
+      "replay_actions": 1903,
+      "encoded_bytes": 1763830,
+      "final_state_digest": "a3751ba876d6733a8e1cef7f4f6c83812edd42394e1570467fc60ec043b864ef",
+      "replay_digest": "75f0a8bc2494a662331121ef21bc0ceee4bf606e4d6257c3d08965deca5278af"
+    }
+  },
+  "corpora": {
+    "replay_property_cases_per_property": 256,
+    "agent_schema_property_cases": 512,
+    "agent_replay_mutations": 16,
+    "ordered_first_divergence_kinds": 8,
+    "complete_matrix_replay_verifications": 33,
+    "malformed_replays_may_mutate_live_state": 0
+  },
+  "native_profiles": [
+    {
+      "id": "windows-x64-native",
+      "execution": "required-native-on-successful-ci-job",
+      "proof": "retained-per-run-ci-artifact"
+    },
+    {
+      "id": "linux-x64-native",
+      "execution": "required-native-on-successful-ci-job",
+      "proof": "retained-per-run-ci-artifact"
+    },
+    {
+      "id": "macos-arm64-native",
+      "execution": "required-native-on-successful-ci-job",
+      "proof": "retained-per-run-ci-artifact"
+    }
+  ],
+  "compile_only_profiles": [
+    {
+      "id": "windows-arm64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    },
+    {
+      "id": "linux-arm64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    },
+    {
+      "id": "macos-x64-compile",
+      "execution": "compiled-not-executed",
+      "runtime_claims": 0
+    }
+  ],
+  "contracts": {
+    "native_profiles_execute_the_same_goal07_gate": true,
+    "compile_only_profiles_make_zero_runtime_claims": true,
+    "all_constructible_difficulties_execute_real_combat": true,
+    "every_matrix_replay_verifies_from_fresh_state": true,
+    "property_seeds_and_case_counts_are_fixed": true,
+    "malformed_replays_fail_without_live_mutation": true,
+    "ordered_replay_divergence_is_preserved": true,
+    "windows_local_execution_is_not_promoted_to_other_hosts": true
+  },
+  "source_sha256": {
+    "crates/starclock-replay/tests/property_contract.rs": "57b7855cdb03feb8648ee05ba6cf94447bd639c0cfa86c8e9fb4ddbedf457f88",
+    "crates/starclock-replay/tests/battle_property_contract.rs": "b4d947facb93ccdcc8839303ab20c5425991136958cb35515eb0bc0d32373289",
+    "crates/starclock-replay/tests/activity_replay.rs": "2aa70d6a7e998f687e698655dc07d019f66fc87087351b7cae7f3d49a81f8298",
+    "crates/starclock-agent-api/tests/schema_property_contract.rs": "3d3c3ae445f70b119a0b968467772febbadfc6d667db3585d0734c467aa068a7",
+    "crates/starclock-agent-api/tests/hardening_corpus.rs": "071a71e3cec867df6aa9af464788c1e5f2c3880aaa2ff832e096f9e5fc83e6a7",
+    "crates/starclock-agent-api/tests/activity_session_loop.rs": "ae596ade1da87cd29d8ae055b842664d5ba8e82beee377a6d3ae2db80a8781ab",
+    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs": "63ef90e5bf7d0cb91b5c68637e5066fb4e8a1cecb0f0b0ad6d687fe7290706be",
+    "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs": "478948898afc9983f6f8af089b4550c473d4cf73f3a448ac6e83455826844bfc",
+    "crates/starclock-mcp/tests/universe_surface_parity.rs": "43984a1d38320d1a2174ecea27d04c6426f2810816b4c2cd5b8c4f254abd3d4f"
+  },
+  "matrix_evidence_sha256": "caa60f0300c70453258a3948153f6082608af4a363d19618ba32d1cf10cb65f4",
+  "policy_sha256": "13a29a19de03b588a34360d336628c8a9bf8739f524fadb3aaed16d87f4ed4ca",
+  "workflow_sha256": "3c8d84961c1e6485ce219dd264d37ee2ea3ea51c5347f52a3cfc8c0a36b9f6f6",
+  "new_registry_packages": []
+}

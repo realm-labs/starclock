@@ -4,8 +4,9 @@ use std::collections::{BTreeMap, BTreeSet};
 
 use starclock_combat::{
     AbilityId, AiCandidateId, AiGraphId, AiStateId, AiTransitionId, EncounterId, EncounterWaveId,
-    EnemyDefinitionId, EnemyPhaseId, FormationIndex, ProgramId, RuleBundleId, SelectorId,
-    UnitDefinitionId,
+    EnemyDefinitionId, EnemyPhaseId, FormationIndex, ProgramId, Ratio, RawToughness, Rounding,
+    RuleBundleId, Scalar, SelectorId, Speed, StatValue, ToughnessLayerKind, ToughnessLayerSpec,
+    UnitDefinitionId, UnitLevel,
     catalog::{
         definition::{EncounterDefinition, EnemyDefinition},
         encounter::{
@@ -26,10 +27,98 @@ use crate::{
     generated::{self, SoraConfig},
 };
 
+/// Generated-row-free runtime statistics for one enemy variant at one level.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct EnemyRuntimeStatDefinition {
+    variant: EnemyDefinitionId,
+    level: UnitLevel,
+    difficulty_key: Box<str>,
+    hp: Scalar,
+    attack: StatValue,
+    defense: StatValue,
+    speed: Speed,
+    effect_hit_rate: Scalar,
+    effect_resistance: Scalar,
+    critical_damage: Scalar,
+}
+
+impl EnemyRuntimeStatDefinition {
+    #[must_use]
+    pub const fn variant(&self) -> EnemyDefinitionId {
+        self.variant
+    }
+    #[must_use]
+    pub const fn level(&self) -> UnitLevel {
+        self.level
+    }
+    #[must_use]
+    pub fn difficulty_key(&self) -> &str {
+        &self.difficulty_key
+    }
+    #[must_use]
+    pub const fn hp(&self) -> Scalar {
+        self.hp
+    }
+    #[must_use]
+    pub const fn attack(&self) -> StatValue {
+        self.attack
+    }
+    #[must_use]
+    pub const fn defense(&self) -> StatValue {
+        self.defense
+    }
+    #[must_use]
+    pub const fn speed(&self) -> Speed {
+        self.speed
+    }
+    #[must_use]
+    pub const fn effect_hit_rate(&self) -> Scalar {
+        self.effect_hit_rate
+    }
+    #[must_use]
+    pub const fn effect_resistance(&self) -> Scalar {
+        self.effect_resistance
+    }
+    #[must_use]
+    pub const fn critical_damage(&self) -> Scalar {
+        self.critical_damage
+    }
+}
+
+/// Generated-row-free static combat profile for one enemy variant.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct EnemyRuntimeProfileDefinition {
+    variant: EnemyDefinitionId,
+    rank: starclock_combat::formula::toughness::EnemyRank,
+    weaknesses: Box<[starclock_combat::formula::model::CombatElement]>,
+    toughness_layers: Box<[ToughnessLayerSpec]>,
+}
+
+impl EnemyRuntimeProfileDefinition {
+    #[must_use]
+    pub const fn variant(&self) -> EnemyDefinitionId {
+        self.variant
+    }
+    #[must_use]
+    pub const fn rank(&self) -> starclock_combat::formula::toughness::EnemyRank {
+        self.rank
+    }
+    #[must_use]
+    pub fn weaknesses(&self) -> &[starclock_combat::formula::model::CombatElement] {
+        &self.weaknesses
+    }
+    #[must_use]
+    pub fn toughness_layers(&self) -> &[ToughnessLayerSpec] {
+        &self.toughness_layers
+    }
+}
+
 #[derive(Debug)]
 pub(super) struct EncounterDefinitions {
     pub(super) ai_graphs: Box<[AiGraphDefinition]>,
     pub(super) enemies: Box<[EnemyDefinition]>,
+    pub(super) enemy_stats: Box<[EnemyRuntimeStatDefinition]>,
+    pub(super) enemy_profiles: Box<[EnemyRuntimeProfileDefinition]>,
     pub(super) encounters: Box<[EncounterDefinition]>,
 }
 
@@ -40,6 +129,30 @@ impl EncounterDefinitions {
 
     pub(super) fn enemy(&self, id: EnemyDefinitionId) -> Option<&EnemyDefinition> {
         lookup(&self.enemies, id, EnemyDefinition::id)
+    }
+
+    pub(super) fn enemy_stat(
+        &self,
+        variant: EnemyDefinitionId,
+        level: UnitLevel,
+        difficulty_key: &str,
+    ) -> Option<&EnemyRuntimeStatDefinition> {
+        self.enemy_stats.iter().find(|definition| {
+            definition.variant == variant
+                && definition.level == level
+                && definition.difficulty_key.as_ref() == difficulty_key
+        })
+    }
+
+    pub(super) fn enemy_profile(
+        &self,
+        variant: EnemyDefinitionId,
+    ) -> Option<&EnemyRuntimeProfileDefinition> {
+        lookup(
+            &self.enemy_profiles,
+            variant,
+            EnemyRuntimeProfileDefinition::variant,
+        )
     }
 
     pub(super) fn encounter(&self, id: EncounterId) -> Option<&EncounterDefinition> {
@@ -63,12 +176,145 @@ pub(super) fn convert(
     validate_enemy_rows(config, mode, identities, combat)?;
     let ai_graphs = lower_ai_graphs(config, mode, identities)?;
     let enemies = lower_enemies(config, mode, identities)?;
+    let enemy_stats = lower_enemy_stats(config)?;
+    let enemy_profiles = lower_enemy_profiles(config)?;
     let encounters = lower_encounters(config, mode, identities, &enemies)?;
     Ok(EncounterDefinitions {
         ai_graphs: ai_graphs.into_boxed_slice(),
         enemies: enemies.into_boxed_slice(),
+        enemy_stats: enemy_stats.into_boxed_slice(),
+        enemy_profiles: enemy_profiles.into_boxed_slice(),
         encounters: encounters.into_boxed_slice(),
     })
+}
+
+fn lower_enemy_profiles(
+    config: &SoraConfig,
+) -> Result<Vec<EnemyRuntimeProfileDefinition>, CatalogLoadError> {
+    use generated::{
+        combat_element::CombatElement as Element, enemy_rank::EnemyRank as Rank,
+        toughness_layer_kind::ToughnessLayerKind as LayerKind,
+    };
+    let mut definitions = Vec::new();
+    for variant in config.enemy_variant().ordered_rows() {
+        let template = config
+            .enemy_template()
+            .get(&variant.template_id)
+            .ok_or_else(|| domain_fail("enemy profile has no template"))?;
+        let rank = match template.rank {
+            Rank::Normal | Rank::Minion => starclock_combat::formula::toughness::EnemyRank::Normal,
+            Rank::Elite | Rank::Boss => {
+                starclock_combat::formula::toughness::EnemyRank::EliteOrBoss
+            }
+        };
+        let mut weaknesses = config
+            .enemy_weakness()
+            .iter()
+            .filter(|row| row.variant_id == variant.id)
+            .map(|row| match row.element {
+                Element::Physical => starclock_combat::formula::model::CombatElement::Physical,
+                Element::Fire => starclock_combat::formula::model::CombatElement::Fire,
+                Element::Ice => starclock_combat::formula::model::CombatElement::Ice,
+                Element::Lightning => starclock_combat::formula::model::CombatElement::Lightning,
+                Element::Wind => starclock_combat::formula::model::CombatElement::Wind,
+                Element::Quantum => starclock_combat::formula::model::CombatElement::Quantum,
+                Element::Imaginary => starclock_combat::formula::model::CombatElement::Imaginary,
+            })
+            .collect::<Vec<_>>();
+        weaknesses.sort_unstable();
+        weaknesses.dedup();
+        let mut layer_rows = config
+            .enemy_toughness_layer()
+            .iter()
+            .filter(|row| row.variant_id == variant.id)
+            .collect::<Vec<_>>();
+        layer_rows.sort_unstable_by_key(|row| row.sequence);
+        let toughness_layers = layer_rows
+            .into_iter()
+            .map(|row| {
+                let maximum = RawToughness::from_scalar(
+                    Scalar::from_scaled(parse_decimal(&row.maximum_decimal)?),
+                    Rounding::NearestTiesAway,
+                )
+                .map_err(|_| domain_fail("enemy Toughness is outside the runtime domain"))?;
+                let recovery = Ratio::from_scaled(parse_decimal(&row.recovery_ratio_decimal)?);
+                let layer = ToughnessLayerSpec::ordinary(
+                    u32::try_from(row.sequence)
+                        .map_err(|_| domain_fail("enemy Toughness sequence is negative"))?,
+                    maximum,
+                )
+                .map(|layer| {
+                    layer
+                        .with_kind(match row.kind {
+                            LayerKind::Ordinary => ToughnessLayerKind::Ordinary,
+                            LayerKind::ExoToughness => ToughnessLayerKind::ExoToughness,
+                            LayerKind::Sequential => ToughnessLayerKind::Sequential,
+                            LayerKind::Shared => ToughnessLayerKind::Shared,
+                        })
+                        .with_active(row.active_at_start)
+                })
+                .map_err(|_| domain_fail("enemy Toughness layer is outside the runtime domain"))?;
+                layer
+                    .with_recovery_ratio(recovery)
+                    .map_err(|_| domain_fail("enemy Toughness layer is outside the runtime domain"))
+            })
+            .collect::<Result<Vec<_>, CatalogLoadError>>()?;
+        definitions.push(EnemyRuntimeProfileDefinition {
+            variant: EnemyDefinitionId::new(positive(variant.id, "EnemyVariant.id")?)
+                .expect("positive enemy variant ID"),
+            rank,
+            weaknesses: weaknesses.into_boxed_slice(),
+            toughness_layers: toughness_layers.into_boxed_slice(),
+        });
+    }
+    definitions.sort_unstable_by_key(EnemyRuntimeProfileDefinition::variant);
+    Ok(definitions)
+}
+
+fn lower_enemy_stats(
+    config: &SoraConfig,
+) -> Result<Vec<EnemyRuntimeStatDefinition>, CatalogLoadError> {
+    let mut definitions = config
+        .enemy_stat()
+        .iter()
+        .map(|row| {
+            let variant = EnemyDefinitionId::new(positive(row.variant_id, "EnemyStat.variant_id")?)
+                .expect("positive enemy variant ID");
+            let level = UnitLevel::new(
+                u8::try_from(row.level).map_err(|_| domain_fail("EnemyStat.level exceeds u8"))?,
+            )
+            .ok_or_else(|| domain_fail("EnemyStat.level is outside the runtime domain"))?;
+            let hp = Scalar::from_scaled(parse_decimal(&row.hp_decimal)?);
+            let attack = StatValue::from_scaled(parse_decimal(&row.atk_decimal)?)
+                .map_err(|_| domain_fail("EnemyStat.atk_decimal is outside the runtime domain"))?;
+            let defense = StatValue::from_scaled(parse_decimal(&row.def_decimal)?)
+                .map_err(|_| domain_fail("EnemyStat.def_decimal is outside the runtime domain"))?;
+            let speed = Speed::from_scaled(parse_decimal(&row.spd_decimal)?)
+                .map_err(|_| domain_fail("EnemyStat.spd_decimal is outside the runtime domain"))?;
+            Ok(EnemyRuntimeStatDefinition {
+                variant,
+                level,
+                difficulty_key: row.difficulty_key.as_str().into(),
+                hp,
+                attack,
+                defense,
+                speed,
+                effect_hit_rate: Scalar::from_scaled(parse_decimal(&row.effect_hit_rate_decimal)?),
+                effect_resistance: Scalar::from_scaled(parse_decimal(
+                    &row.effect_resistance_decimal,
+                )?),
+                critical_damage: Scalar::from_scaled(parse_decimal(&row.crit_damage_decimal)?),
+            })
+        })
+        .collect::<Result<Vec<_>, CatalogLoadError>>()?;
+    definitions.sort_unstable_by(|left, right| {
+        (left.variant, left.level, left.difficulty_key.as_ref()).cmp(&(
+            right.variant,
+            right.level,
+            right.difficulty_key.as_ref(),
+        ))
+    });
+    Ok(definitions)
 }
 
 fn lower_ai_graphs(
@@ -339,6 +585,7 @@ fn validate_enemy_rows(
             (&row.atk_decimal, "enemy ATK", true),
             (&row.def_decimal, "enemy DEF", true),
             (&row.spd_decimal, "enemy SPD", true),
+            (&row.effect_hit_rate_decimal, "enemy effect hit rate", false),
             (
                 &row.effect_resistance_decimal,
                 "enemy effect resistance",

@@ -132,6 +132,16 @@ pub enum ControlledAction {
     SummonAction,
 }
 
+/// Authored action that replaces a controlled unit's ordinary timeline action.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
+pub enum ForcedNormalAction {
+    /// Use the unit's Basic ATK against one uniformly selected living ally.
+    BasicAttackRandomAlly,
+    /// Use the unit's Basic ATK against the living opposing effect applier.
+    BasicAttackApplier,
+}
+
 /// DoT-specific captured damage and selection metadata.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DotDefinition {
@@ -187,6 +197,7 @@ mod tests {
         .unwrap()
         .with_damage_guard(EffectDamageGuard::ShieldOverflowOnce)
         .with_application_guard(EffectApplicationGuard::NegativeEffectOnce)
+        .with_toughness_protection()
         .with_specific_resistance(StatKind::FreezeResistance);
         let runtime = template.resolve(Some(2), Scalar::ZERO).unwrap();
         assert_eq!(
@@ -200,6 +211,81 @@ mod tests {
         assert_eq!(
             runtime.application_guard(),
             EffectApplicationGuard::NegativeEffectOnce
+        );
+        assert!(runtime.prevents_toughness_reduction());
+    }
+
+    #[test]
+    fn forced_normal_actions_are_control_only_and_survive_template_resolution() {
+        let buff = EffectRuntimeTemplate::new(
+            EffectCategory::Buff,
+            DispelCategory::DispellableBuff,
+            1,
+            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
+                1,
+            ))),
+            DurationClock::TargetTurnEnd,
+            EffectTickPhase::None,
+            EffectStackPolicy::Refresh,
+        )
+        .unwrap();
+        assert!(
+            buff.with_forced_normal_action(ForcedNormalAction::BasicAttackRandomAlly)
+                .is_none()
+        );
+        let control = EffectRuntimeTemplate::new(
+            EffectCategory::Control,
+            DispelCategory::CleanseableControl,
+            1,
+            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
+                2,
+            ))),
+            DurationClock::TargetTurnEnd,
+            EffectTickPhase::None,
+            EffectStackPolicy::Refresh,
+        )
+        .unwrap()
+        .with_forced_normal_action(ForcedNormalAction::BasicAttackRandomAlly)
+        .unwrap()
+        .resolve(Some(2), Scalar::ZERO)
+        .unwrap();
+        assert_eq!(
+            control.forced_normal_action(),
+            Some(ForcedNormalAction::BasicAttackRandomAlly)
+        );
+    }
+
+    #[test]
+    fn damaging_control_blocks_normal_actions_and_preserves_its_tick() {
+        let control = EffectRuntimeTemplate::new(
+            EffectCategory::Control,
+            DispelCategory::CleanseableControl,
+            1,
+            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
+                1,
+            ))),
+            DurationClock::TargetTurnStart,
+            EffectTickPhase::TurnStart,
+            EffectStackPolicy::Refresh,
+        )
+        .unwrap()
+        .with_control(vec![
+            ControlledAction::NormalAction,
+            ControlledAction::NormalAction,
+        ])
+        .unwrap()
+        .with_dot(CombatElement::Ice, None)
+        .unwrap()
+        .resolve(Some(1), Scalar::from_scaled(1_200_000))
+        .unwrap();
+
+        assert_eq!(
+            control.controlled_actions(),
+            [ControlledAction::NormalAction]
+        );
+        assert_eq!(
+            control.dot().expect("delayed damage definition").element(),
+            CombatElement::Ice
         );
     }
 }
@@ -223,6 +309,8 @@ pub struct EffectRuntimeDefinition {
     dot: Option<DotDefinition>,
     damage_guard: EffectDamageGuard,
     application_guard: EffectApplicationGuard,
+    prevents_toughness_reduction: bool,
+    forced_normal_action: Option<ForcedNormalAction>,
     specific_resistance_stat: Option<StatKind>,
 }
 
@@ -240,9 +328,12 @@ pub struct EffectRuntimeTemplate {
     snapshot_policy: EffectSnapshotPolicy,
     teardown_policy: EffectTeardownPolicy,
     application_priority: i32,
+    controlled_actions: Box<[ControlledAction]>,
     dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
     damage_guard: EffectDamageGuard,
     application_guard: EffectApplicationGuard,
+    prevents_toughness_reduction: bool,
+    forced_normal_action: Option<ForcedNormalAction>,
     specific_resistance_stat: Option<StatKind>,
 }
 
@@ -272,9 +363,12 @@ impl EffectRuntimeTemplate {
             snapshot_policy: EffectSnapshotPolicy::Dynamic,
             teardown_policy: EffectTeardownPolicy::RemoveWithOwner,
             application_priority: 0,
+            controlled_actions: Box::new([]),
             dot: None,
             damage_guard: EffectDamageGuard::None,
             application_guard: EffectApplicationGuard::None,
+            prevents_toughness_reduction: false,
+            forced_normal_action: None,
             specific_resistance_stat: None,
         })
     }
@@ -318,6 +412,32 @@ impl EffectRuntimeTemplate {
         self.application_guard = guard;
         self
     }
+    /// Marks the affected unit's active Toughness layers as temporarily protected.
+    #[must_use]
+    pub const fn with_toughness_protection(mut self) -> Self {
+        self.prevents_toughness_reduction = true;
+        self
+    }
+    /// Blocks selected actions while this control effect is active.
+    #[must_use]
+    pub fn with_control(mut self, mut actions: Vec<ControlledAction>) -> Option<Self> {
+        if self.category != EffectCategory::Control {
+            return None;
+        }
+        actions.sort_unstable();
+        actions.dedup();
+        self.controlled_actions = actions.into_boxed_slice();
+        Some(self)
+    }
+    /// Replaces the affected unit's ordinary timeline action.
+    #[must_use]
+    pub fn with_forced_normal_action(mut self, action: ForcedNormalAction) -> Option<Self> {
+        if self.category != EffectCategory::Control {
+            return None;
+        }
+        self.forced_normal_action = Some(action);
+        Some(self)
+    }
     #[must_use]
     pub const fn with_specific_resistance(mut self, stat: StatKind) -> Self {
         self.specific_resistance_stat = Some(stat);
@@ -333,6 +453,18 @@ impl EffectRuntimeTemplate {
         self.application_guard
     }
     #[must_use]
+    pub const fn prevents_toughness_reduction(&self) -> bool {
+        self.prevents_toughness_reduction
+    }
+    #[must_use]
+    pub fn controlled_actions(&self) -> &[ControlledAction] {
+        &self.controlled_actions
+    }
+    #[must_use]
+    pub const fn forced_normal_action(&self) -> Option<ForcedNormalAction> {
+        self.forced_normal_action
+    }
+    #[must_use]
     pub const fn specific_resistance_stat(&self) -> Option<StatKind> {
         self.specific_resistance_stat
     }
@@ -343,7 +475,7 @@ impl EffectRuntimeTemplate {
         element: CombatElement,
         detonation_tag: Option<SourceDefinitionId>,
     ) -> Option<Self> {
-        if self.category != EffectCategory::Dot {
+        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot) {
             return None;
         }
         self.dot = Some((element, detonation_tag));
@@ -391,11 +523,19 @@ impl EffectRuntimeTemplate {
         .with_teardown(self.teardown_policy)
         .with_damage_guard(self.damage_guard)
         .with_application_guard(self.application_guard);
+        if self.prevents_toughness_reduction {
+            runtime = runtime.with_toughness_protection();
+        }
+        if !self.controlled_actions.is_empty() {
+            runtime = runtime.with_control(self.controlled_actions.to_vec())?;
+        }
+        if let Some(action) = self.forced_normal_action {
+            runtime = runtime.with_forced_normal_action(action)?;
+        }
         if let Some(stat) = self.specific_resistance_stat {
             runtime = runtime.with_specific_resistance(stat);
         }
-        if self.category == EffectCategory::Dot {
-            let (element, detonation_tag) = self.dot?;
+        if let Some((element, detonation_tag)) = self.dot {
             let formula = OrdinaryDamageDefinition::new(
                 magnitude,
                 OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).ok()?,
@@ -442,6 +582,8 @@ impl EffectRuntimeDefinition {
             dot: None,
             damage_guard: EffectDamageGuard::None,
             application_guard: EffectApplicationGuard::None,
+            prevents_toughness_reduction: false,
+            forced_normal_action: None,
             specific_resistance_stat: None,
         })
     }
@@ -490,6 +632,21 @@ impl EffectRuntimeDefinition {
         self.application_guard = guard;
         self
     }
+    /// Prevents Toughness reduction while this effect is active.
+    #[must_use]
+    pub const fn with_toughness_protection(mut self) -> Self {
+        self.prevents_toughness_reduction = true;
+        self
+    }
+    /// Replaces the affected unit's ordinary timeline action.
+    #[must_use]
+    pub fn with_forced_normal_action(mut self, action: ForcedNormalAction) -> Option<Self> {
+        if self.category != EffectCategory::Control {
+            return None;
+        }
+        self.forced_normal_action = Some(action);
+        Some(self)
+    }
     #[must_use]
     pub const fn with_specific_resistance(mut self, stat: StatKind) -> Self {
         self.specific_resistance_stat = Some(stat);
@@ -497,7 +654,7 @@ impl EffectRuntimeDefinition {
     }
     #[must_use]
     pub fn with_dot(mut self, dot: DotDefinition) -> Option<Self> {
-        if !matches!(self.category, EffectCategory::Dot) {
+        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot) {
             return None;
         }
         self.dot = Some(dot);
@@ -576,6 +733,14 @@ impl EffectRuntimeDefinition {
     #[must_use]
     pub const fn application_guard(&self) -> EffectApplicationGuard {
         self.application_guard
+    }
+    #[must_use]
+    pub const fn prevents_toughness_reduction(&self) -> bool {
+        self.prevents_toughness_reduction
+    }
+    #[must_use]
+    pub const fn forced_normal_action(&self) -> Option<ForcedNormalAction> {
+        self.forced_normal_action
     }
     #[must_use]
     pub const fn specific_resistance_stat(&self) -> Option<StatKind> {

@@ -365,7 +365,7 @@ Change an item to `[x]` only with evidence in this file.
 |---|---|
 | Final state | `Complete` |
 | Completion commit | `453f76e2c98a896d3166e2a57364941ceea86ee2` (`G01-P8-B7`) |
-| Catalog digest | `abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440` |
+| Catalog digest | `9ed99b16a46a310b9ac8825b13c2ed3d4ba99db2c94c68d44a6a978bc9cfa0fb` |
 | Clean-checkout report | [Goal 01 release evidence](../../evidence/core-combat-v1/release/release-evidence.json) |
 | Cross-platform report | [CI golden matrix](../../evidence/core-combat-v1/hardening/ci-golden-matrix.json) |
 | Remaining required work | None within Goal 01; excluded modes and datasets require later goals. |

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "87a51f96716c32a8",
+  "fingerprint": "f3119e6abcc42ec6",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -1062,6 +1062,18 @@
           "AwayFromZero",
           "NearestTiesAway",
           "NearestTiesEven"
+        ]
+      },
+      {
+        "name": "ShieldObservation",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "values": [
+          "Current",
+          "BeforeEvent"
         ]
       },
       {
@@ -2765,6 +2777,37 @@
             ]
           },
           {
+            "name": "Excludes",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "excluded_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
             "name": "StatCompare",
             "scope": {
               "values": [
@@ -3430,6 +3473,138 @@
                 "name": "formula_purpose",
                 "ty": {
                   "Enum": "FormulaPurpose"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "QueryShield",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "subject_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "observation",
+                "ty": {
+                  "Enum": "ShieldObservation"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "QueryHp",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "subject_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "QueryEffectStacks",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "subject_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "effect_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Effect",
+                    "field": "id"
+                  }
                 },
                 "scope": {
                   "values": [
@@ -5284,6 +5459,29 @@
                 "derived_from": null
               },
               {
+                "name": "stacks_expression_id",
+                "ty": {
+                  "Optional": {
+                    "Ref": {
+                      "table": "ValueExpression",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
                 "name": "chance_policy",
                 "ty": {
                   "Enum": "EffectChancePolicy"
@@ -5326,6 +5524,148 @@
               },
               {
                 "name": "rng_purpose_key",
+                "ty": {
+                  "Optional": "String"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "ApplyRandomEffect",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "effect_ids",
+                "ty": {
+                  "List": {
+                    "Ref": {
+                      "table": "Effect",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": [
+                  1,
+                  16
+                ],
+                "parser": {
+                  "kind": "split",
+                  "options": {
+                    "separator": "|"
+                  }
+                },
+                "derived_from": null
+              },
+              {
+                "name": "stacks_expression_id",
+                "ty": {
+                  "Optional": {
+                    "Ref": {
+                      "table": "ValueExpression",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "choice_rng_purpose_key",
+                "ty": "String",
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": [
+                  1,
+                  80
+                ],
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "chance_policy",
+                "ty": {
+                  "Enum": "EffectChancePolicy"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "base_chance_expression_id",
+                "ty": {
+                  "Optional": {
+                    "Ref": {
+                      "table": "ValueExpression",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "chance_rng_purpose_key",
                 "ty": {
                   "Optional": "String"
                 },
@@ -14798,6 +15138,25 @@
           },
           {
             "name": "spd_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "effect_hit_rate_decimal",
             "ty": "String",
             "scope": {
               "values": [

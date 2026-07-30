@@ -261,7 +261,7 @@ fn toxi_flame(
             selector: marked_actor,
             amount: multiply(
                 ValueExpr::QueryStat {
-                    subject: StatQuerySubject::CurrentTarget,
+                    subject: StatQuerySubject::Actor,
                     stat: StatKind::Hp,
                     purpose: FormulaPurpose::Stat,
                 },

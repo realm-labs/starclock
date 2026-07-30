@@ -18,7 +18,7 @@ fn text(bytes: Vec<u8>) -> String {
 
 fn fixture_path(suffix: &str) -> PathBuf {
     std::env::temp_dir().join(format!(
-        "starclock-g05-p4-b2-{}-{suffix}.scrp",
+        "starclock-g07-p6-b2-{}-{suffix}.scrp",
         std::process::id()
     ))
 }
@@ -29,7 +29,7 @@ fn universe_configuration_and_coverage_are_machine_readable() {
     assert!(validation.status.success(), "{validation:?}");
     assert_eq!(
         text(validation.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-config-validation\",\"valid\":true,\"bundle_sha256\":\"1c67b59aea4e80c7d77d5823ffc6f727a90e39a029b19b2777f11fa324e466bf\",\"worlds\":9,\"difficulties\":33,\"paths\":9,\"blessings\":162,\"curios\":61}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-config-validation\",\"valid\":true,\"bundle_sha256\":\"5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75\",\"worlds\":9,\"difficulties\":33,\"paths\":9,\"blessings\":162,\"curios\":61}"
     );
 
     let coverage = output(&["universe", "coverage", "--json"]);
@@ -56,7 +56,7 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
         "--difficulty-index",
         "0",
         "--seed",
-        "10",
+        "1",
         "--controller",
         "baseline",
         "--replay-out",
@@ -66,11 +66,11 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":10,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":61,\"nested_battles\":5,\"battle_commands\":29,\"terminal\":\"completed\",\"state_hash\":\"8ac790cd8b109cea763a57dbda7e17acaa6db5db6163939f6489fc10d31fe74f\",\"replay_bytes\":46544}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":1,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b\",\"replay_bytes\":25678}"
     );
 
     let replay_bytes = fs::read(&replay).unwrap();
-    assert_eq!(replay_bytes.len(), 46_544);
+    assert_eq!(replay_bytes.len(), 25_678);
     let decoded = starclock_replay::format_v3::decode_replay_v3(&replay_bytes).unwrap();
     assert_eq!(decoded.header().components().components().len(), 9);
     assert!(decoded.records().iter().any(|record| {
@@ -82,8 +82,8 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            216, 194, 242, 11, 228, 188, 176, 228, 188, 71, 78, 160, 92, 141, 103, 13, 11, 118, 58,
-            50, 61, 7, 108, 80, 211, 241, 200, 235, 200, 18, 183, 232,
+            7, 246, 31, 139, 107, 155, 77, 87, 245, 102, 39, 127, 81, 207, 12, 253, 199, 186, 167,
+            147, 90, 157, 247, 114, 122, 207, 189, 170, 142, 83, 191, 137,
         ])
     );
 
@@ -91,7 +91,7 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(verified.status.success(), "{verified:?}");
     assert_eq!(
         text(verified.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":61,\"nested_battles\":5,\"battle_commands\":29,\"terminal\":\"completed\",\"state_hash\":\"8ac790cd8b109cea763a57dbda7e17acaa6db5db6163939f6489fc10d31fe74f\"}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b\"}"
     );
 
     let mut changed = replay_bytes;

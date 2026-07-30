@@ -41,6 +41,8 @@ impl DrawPurpose {
     pub const DAMAGE_TARGET: Self = Self(8);
     /// Uniform allied-element selection for one weakness-implant emission.
     pub const WEAKNESS_ELEMENT: Self = Self(9);
+    /// Uniform ally selection for an authored forced Basic ATK.
+    pub const FORCED_ACTION_TARGET: Self = Self(10);
 
     /// Creates a stable non-zero extension purpose code.
     #[must_use]

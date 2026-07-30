@@ -85,7 +85,7 @@ fn projected_eidolon_combatant(
     let compiled = starclock_build::compiler::LoadoutCompiler
         .compile(core.build_catalog(), core.combat_catalog(), spec)
         .map_err(|_| UniverseBattleMaterializationError::InvalidBuildSelection)?;
-    if compiled.combatant().digest() != entry.combatant().digest()
+    if Some(compiled.combatant().digest()) != entry.compiled_combatant_digest()
         || compiled.build_digest().bytes() != entry.build_digest().bytes()
     {
         return Err(UniverseBattleMaterializationError::InvalidBuildSelection);
@@ -99,10 +99,63 @@ fn projected_eidolon_combatant(
         starclock_build::spec::EidolonLevel::new(effective)
             .expect("clamped Eidolon level is valid"),
     );
-    starclock_build::compiler::LoadoutCompiler
+    let enhanced = starclock_build::compiler::LoadoutCompiler
         .compile(core.build_catalog(), core.combat_catalog(), &enhanced)
-        .map(|compiled| compiled.combatant().clone())
-        .map_err(|_| UniverseBattleMaterializationError::InvalidBuildSelection)
+        .map_err(|_| UniverseBattleMaterializationError::InvalidBuildSelection)?;
+    if entry.preserve_runtime_base_stats() {
+        preserve_runtime_base_stats(enhanced.combatant(), entry.combatant())
+    } else {
+        Ok(enhanced.combatant().clone())
+    }
+}
+
+fn preserve_runtime_base_stats(
+    compiled: &ResolvedCombatantSpec,
+    runtime: &ResolvedCombatantSpec,
+) -> Result<ResolvedCombatantSpec, UniverseBattleMaterializationError> {
+    let mut encoder = crate::digest::Encoder::new(
+        b"starclock.standard-universe.compiled-runtime-stat-envelope.v1",
+    );
+    encoder.digest(compiled.digest().bytes());
+    encoder.i64(runtime.maximum_hp().get());
+    encoder.i64(runtime.base_attack().scaled());
+    encoder.i64(runtime.base_defense().scaled());
+    encoder.i64(runtime.speed().scaled());
+    let digest = CombatantSpecDigest::new(encoder.finish())
+        .expect("SHA-256 runtime stat envelope digest is non-zero");
+    let mut resolved = ResolvedCombatantSpec::new(
+        compiled.form(),
+        compiled.level(),
+        runtime.maximum_hp(),
+        runtime.speed(),
+        ResolvedDefinitionBindings::new(
+            compiled.abilities().to_vec(),
+            compiled.rule_bundles().to_vec(),
+            compiled.modifiers().to_vec(),
+        )
+        .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?,
+        digest,
+    )
+    .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?
+    .with_base_attack_defense(runtime.base_attack(), runtime.base_defense())
+    .with_base_effect_stats(
+        compiled.base_effect_hit_rate(),
+        compiled.base_effect_resistance(),
+    )
+    .with_energy(compiled.current_energy(), compiled.maximum_energy())
+    .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?
+    .with_toughness(
+        compiled.rank(),
+        compiled.weaknesses().to_vec(),
+        compiled.toughness_layers().to_vec(),
+    )
+    .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?;
+    resolved = resolved
+        .with_sources(compiled.sources().to_vec())
+        .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)?;
+    resolved
+        .with_modifier_bindings(compiled.modifier_bindings().to_vec())
+        .map_err(|_| UniverseBattleMaterializationError::InvalidCombatant)
 }
 
 fn apply_party_modifiers(

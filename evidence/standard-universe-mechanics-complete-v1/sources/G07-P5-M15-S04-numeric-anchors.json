@@ -1,0 +1,102 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v1",
+  "partition_id": "G07-P5-M15-S04",
+  "enemy_variant_id": "enemy.blaze-out-of-space.elite.variant.01",
+  "source_monster_id": "8003020",
+  "source": {
+    "publisher": "Honkai: Star Rail Database Wiki",
+    "url": "https://starrail.honeyhunterworld.com/blaze-out-of-space-enemy-2/?lang=EN",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "ExactPublicLevelCurve"
+  },
+  "curve_source": {
+    "repository": "Dimbreath/StarRailData",
+    "template_path": "ExcelOutput/MonsterTemplateConfig.json",
+    "hard_level_path": "ExcelOutput/HardLevelGroup.json",
+    "hard_level_group": 1,
+    "rounding": "NearestTiesAway"
+  },
+  "combat_rank": "Elite",
+  "base_template": {
+    "base_hp": "930",
+    "base_atk": "18",
+    "base_def": "210",
+    "base_spd": "120",
+    "base_effect_resistance": "0.2"
+  },
+  "levels": [
+    {
+      "authored_level": 8,
+      "base_hp": "1520",
+      "base_atk": "25",
+      "base_def": "280",
+      "base_spd": "120",
+      "effect_hit_rate": "0",
+      "effect_resistance": "0.2"
+    },
+    {
+      "authored_level": 14,
+      "base_hp": "2117",
+      "base_atk": "37",
+      "base_def": "340",
+      "base_spd": "120",
+      "effect_hit_rate": "0",
+      "effect_resistance": "0.2"
+    },
+    {
+      "authored_level": 17,
+      "base_hp": "2466",
+      "base_atk": "45",
+      "base_def": "370",
+      "base_spd": "120",
+      "effect_hit_rate": "0",
+      "effect_resistance": "0.2"
+    },
+    {
+      "authored_level": 44,
+      "base_hp": "13551",
+      "base_atk": "187",
+      "base_def": "640",
+      "base_spd": "120",
+      "effect_hit_rate": "0",
+      "effect_resistance": "0.2"
+    },
+    {
+      "authored_level": 50,
+      "base_hp": "20590",
+      "base_atk": "234",
+      "base_def": "700",
+      "base_spd": "120",
+      "effect_hit_rate": "0",
+      "effect_resistance": "0.2"
+    },
+    {
+      "authored_level": 66,
+      "base_hp": "72616",
+      "base_atk": "397",
+      "base_def": "860",
+      "base_spd": "132",
+      "effect_hit_rate": "0.128",
+      "effect_resistance": "0.264"
+    },
+    {
+      "authored_level": 75,
+      "base_hp": "112994",
+      "base_atk": "494",
+      "base_def": "950",
+      "base_spd": "132",
+      "effect_hit_rate": "0.2",
+      "effect_resistance": "0.3"
+    },
+    {
+      "authored_level": 84,
+      "base_hp": "167044",
+      "base_atk": "597",
+      "base_def": "1040",
+      "base_spd": "144",
+      "effect_hit_rate": "0.272",
+      "effect_resistance": "0.3"
+    }
+  ]
+}

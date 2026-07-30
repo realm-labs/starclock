@@ -44,7 +44,7 @@ outside this release.
 | Light Cones | 165 frozen definitions | Imported through Excel/Sora with stat curves, promotions, S1-S5 selections, rules and goldens | 165/165 `GoldenVerified`. |
 | Relic and planar sets | Detailed set/affix/piece schema | Not imported | Frozen 4.4 manifest, piece effects, main/sub-affix curves and provenance. |
 | Enemies and bosses | Behavior/AI/phase model plus prepared source evidence | Goal 01 imports the exact 17-variant Standard subset and 63 source-bound abilities | 17/17 frozen variants verified; broader catalogs remain future scope. |
-| Standard Simulated Universe | System boundary, runtime and current-Activity per-battle assembly implemented | 2,201 DataReady records, 786 rules, 78 fixtures and 33 replay-v3 seeded complete runs | Goal 07 must replace the retained 783 rule and 73 enemy-proxy approximations without changing the Goal 06 combat boundary. |
+| Standard Simulated Universe | Complete Version 4.4 mechanics on current-Activity per-battle assembly | 2,201 DataReady records, 786 executable rules, 78 production fixtures, 86 mechanism-correct enemies and 33 replay-v3 seeded complete runs | Goal 07 released with 104/104 content partitions, 49 approved numeric approximations and zero mechanic approximations. |
 | Swarm Disaster | System boundary documented | Not imported | Full active content, dice/map/progression mechanics and seeded golden run. |
 | Gold and Gears | System boundary documented | Not imported | Full active content, custom dice/Cognition/Secrets/Conundrum and seeded golden run. |
 | Unknowable Domain | System boundary documented | Not imported | Full Scepter/Component/alignment/stage data and seeded golden run. |

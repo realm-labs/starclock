@@ -1,0 +1,108 @@
+{
+  "schema_revision": "starclock.goal07-integrated-scenarios.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P6-B1",
+  "matrix_revision": "standard-universe-real-seed-matrix-v1",
+  "executor_revision": "standard-universe-nested-battle-executor-v1",
+  "first_seed": 200000,
+  "coverage": {
+    "content_partitions": 104,
+    "content_records": 2201,
+    "mechanic_rules": 786,
+    "semantic_fixtures": 78,
+    "enemy_variants": 86,
+    "encounter_members": 173,
+    "mechanic_families": 13,
+    "worlds": 9,
+    "difficulties": 33,
+    "path_options": 9,
+    "complete_runs": 33
+  },
+  "dynamic_scenarios": [
+    {
+      "boundary": "blessing-acquire-enhance-replace",
+      "path": "crates/starclock-mode-universe/tests/blessing_runtime.rs",
+      "marker": "acquire_enhance_and_replace_are_generic_atomic_inventory_programs"
+    },
+    {
+      "boundary": "curio-acquire-charge-exhaust-repair",
+      "path": "crates/starclock-mode-universe/tests/curio_runtime.rs",
+      "marker": "acquisition_is_unique_and_charge_exhaustion_repairs_error_code"
+    },
+    {
+      "boundary": "curio-repair-replace-remove",
+      "path": "crates/starclock-mode-universe/tests/curio_runtime.rs",
+      "marker": "immediate_repair_replacement_and_teardown_are_atomic_and_scoped"
+    },
+    {
+      "boundary": "occurrence-curio-acquire",
+      "path": "crates/starclock-mode-universe/tests/run_runtime.rs",
+      "marker": "occurrence_curio_acquisition_initializes_lifecycle_in_the_same_transaction"
+    },
+    {
+      "boundary": "ability-tree-unlock-and-consume",
+      "path": "crates/starclock-mode-universe/tests/encounter_runtime.rs",
+      "marker": "goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice"
+    },
+    {
+      "boundary": "ability-tree-battle-projection",
+      "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs",
+      "marker": "ability_tree_projection_changes_battle_spec_and_active_modifier_state"
+    },
+    {
+      "boundary": "compiled-build-eidolon-reprojection",
+      "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s05.rs",
+      "marker": "space_time_prism_recompiles_each_exact_build_at_one_higher_eidolon"
+    }
+  ],
+  "focused_commands": [
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-combat",
+      "--test",
+      "ability_program_execution",
+      "--test",
+      "linked_lifecycle",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-mode-universe",
+      "--test",
+      "blessing_runtime",
+      "--test",
+      "curio_runtime",
+      "--test",
+      "encounter_runtime",
+      "--test",
+      "run_runtime",
+      "--all-features"
+    ],
+    [
+      "cargo",
+      "test",
+      "-p",
+      "starclock-mode-universe",
+      "--test",
+      "mechanic_battle_integration",
+      "--all-features"
+    ]
+  ],
+  "contracts": {
+    "every_content_partition_has_a_complete_receipt": true,
+    "every_rule_has_production_execution_evidence": true,
+    "every_fixture_has_an_existing_test_and_marker": true,
+    "every_mechanic_family_has_targeted_evidence": true,
+    "dynamic_acquire_upgrade_replace_remove_boundaries_are_targeted": true,
+    "one_run_per_constructible_difficulty": true,
+    "path_options_rotate_by_canonical_matrix_ordinal": true,
+    "every_run_reaches_completed": true,
+    "every_nested_battle_uses_production_combat": true,
+    "every_battle_command_has_one_authoritative_state_record": true,
+    "every_replay_verifies_from_a_fresh_activity": true
+  }
+}

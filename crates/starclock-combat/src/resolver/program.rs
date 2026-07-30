@@ -294,8 +294,8 @@ pub(super) fn stat_bases(
             (unit.id, CritDamage),
             Scalar::from_scaled(if player { 500_000 } else { 0 }),
         );
-        bases.insert((unit.id, EffectHitRate), Scalar::ZERO);
-        bases.insert((unit.id, EffectResistance), Scalar::ZERO);
+        bases.insert((unit.id, EffectHitRate), unit.base_effect_hit_rate);
+        bases.insert((unit.id, EffectResistance), unit.base_effect_resistance);
         bases.insert((unit.id, EnergyRegenerationRate), Scalar::ONE);
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
         bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);
@@ -874,9 +874,15 @@ fn execute_emission(
             payment,
             ..
         } => {
-            let rule = context.rule.ok_or_else(|| program_fault(45, 0))?;
-            let instance = context.rule_instance.ok_or_else(|| program_fault(46, 0))?;
-            let trigger = context.trigger.ok_or_else(|| program_fault(47, 0))?;
+            let attribution = match (context.rule, context.rule_instance, context.trigger) {
+                (Some(rule), Some(instance), Some(trigger)) => {
+                    (Some(rule), Some(instance), Some(trigger))
+                }
+                (None, None, None) => (None, None, None),
+                (None, _, _) => return Err(program_fault(45, 0)),
+                (_, None, _) => return Err(program_fault(46, 0)),
+                (_, _, None) => return Err(program_fault(47, 0)),
+            };
             Operation::QueueRuleAction(QueueRuleActionOp {
                 id: operation_id,
                 actors: emission_targets(catalog, resolved, actor_selector, current_target)?,
@@ -890,9 +896,9 @@ fn execute_emission(
                 source: cause
                     .source_definition()
                     .ok_or_else(|| program_fault(48, 0))?,
-                rule,
-                instance,
-                trigger,
+                rule: attribution.0,
+                instance: attribution.1,
+                trigger: attribution.2,
             })
         }
         RuleEmission::GrantExtraTurn { actor_selector, .. } => {

@@ -2,7 +2,7 @@ use std::{num::NonZeroUsize, sync::Arc};
 
 use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityPreparationBoundary, BattleOutcome,
-    BattleResult, EventDigest, ParticipantBattleState, ParticipantId, ProjectedValue,
+    BattleResult, EventDigest, ParticipantBattleState, ProjectedValue,
 };
 use starclock_combat::{Battle, BattleStateHash, Energy, Hp, LifeState, PresenceState, TeamSide};
 use starclock_mode_universe::{
@@ -164,7 +164,7 @@ fn pending_encounter_is_assembled_and_sealed_from_one_current_snapshot() {
 
 #[test]
 fn stale_invalid_and_budget_failures_preserve_state_and_retry_cleanly() {
-    let (mut activity, assembler) = activity_and_assembler(0x6024);
+    let (mut activity, assembler) = activity_and_assembler(0x6023);
     let initial = activity.view();
     activity
         .choose_option(
@@ -272,15 +272,23 @@ fn bounded_dynamic_cache_hits_and_evicts_exact_activity_snapshots() {
 
 #[test]
 fn settled_carry_is_reassembled_into_the_next_real_battle() {
-    let (mut activity, assembler) = activity_and_assembler(0);
+    let (mut activity, assembler) = activity_and_assembler(1);
     drive_to_pending(&mut activity);
     let first = assembler.start_pending_battle(&mut activity).unwrap();
     let first_input = first.handoff().identity().combat_input_digest();
+    let expected_carry = first
+        .handoff()
+        .participant_carry()
+        .iter()
+        .map(|carry| {
+            (
+                Hp::new(carry.maximum_hp().get() * 7 / 10).unwrap(),
+                Energy::from_scaled(carry.maximum_energy().scaled() / 2).unwrap(),
+            )
+        })
+        .collect::<Vec<_>>();
     activity
-        .submit_pending_battle_result(
-            activity.view().state_hash(),
-            damaged_win(first.handoff().identity()),
-        )
+        .submit_pending_battle_result(activity.view().state_hash(), damaged_win(first.handoff()))
         .unwrap();
     assert_eq!(activity.view().participant_carry().len(), 4);
 
@@ -307,14 +315,8 @@ fn settled_carry_is_reassembled_into_the_next_real_battle() {
         let initial = participant
             .initial_state()
             .expect("the second battle embeds exact Activity carry");
-        assert_eq!(
-            initial.current_hp(),
-            Hp::new(70_000 + i64::try_from(index).unwrap()).unwrap()
-        );
-        assert_eq!(
-            initial.current_energy(),
-            Energy::from_scaled(40_000_000 + i64::try_from(index).unwrap()).unwrap()
-        );
+        assert_eq!(initial.current_hp(), expected_carry[index].0);
+        assert_eq!(initial.current_energy(), expected_carry[index].1);
     }
     Battle::create(
         Arc::clone(second.combat_catalog()),
@@ -324,39 +326,40 @@ fn settled_carry_is_reassembled_into_the_next_real_battle() {
     .expect("the carry-adjusted second battle is executable");
 }
 
-fn damaged_win(identity: starclock_activity::BattleResultIdentity) -> BattleResult {
+fn damaged_win(handoff: &starclock_activity::ActivityBattleHandoff) -> BattleResult {
     let mut values = vec![
         ProjectedValue::Outcome(BattleOutcome::Won),
         ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x73; 32])),
         ProjectedValue::EventDigest(EventDigest::new([0x74; 32]).unwrap()),
         ProjectedValue::TerminalFault(None),
     ];
-    values.extend((0_u32..4).map(|index| {
+    values.extend(handoff.participant_carry().iter().map(|carry| {
         ProjectedValue::ParticipantState(
             ParticipantBattleState::new(
-                ParticipantId::new(index + 1).unwrap(),
-                Hp::new(70_000 + i64::from(index)).unwrap(),
-                Hp::new(100_000).unwrap(),
-                Energy::from_scaled(40_000_000 + i64::from(index)).unwrap(),
-                Energy::from_scaled(100_000_000).unwrap(),
+                carry.participant(),
+                Hp::new(carry.maximum_hp().get() * 7 / 10).unwrap(),
+                carry.maximum_hp(),
+                Energy::from_scaled(carry.maximum_energy().scaled() / 2).unwrap(),
+                carry.maximum_energy(),
                 LifeState::Alive,
                 PresenceState::Present,
             )
             .unwrap(),
         )
     }));
-    BattleResult::seal(identity, values)
+    BattleResult::seal(handoff.identity(), values)
 }
 
 #[test]
 fn production_baseline_records_and_verifies_dynamic_replay_v3() {
+    const SEED: u64 = 1;
     let factory = StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-test",
         revision: StandardUniverseBaselineRunner::REVISION,
         digest: [0x63; 32],
     };
-    let instance = factory.start(1, 0, 0x6027, controller).unwrap();
+    let instance = factory.start(1, 0, SEED, controller).unwrap();
     let profile_id = instance.profile_id().to_owned();
     let components = instance.components().clone();
     let compatibility = instance.compatibility().clone();
@@ -365,7 +368,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
     let header = standard_universe_header_v3(
         compatibility.clone(),
         components.clone(),
-        0x6027,
+        SEED,
         &activity,
         &profile_id,
     )
@@ -384,7 +387,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
         "new production recordings use replay v3"
     );
 
-    let fresh = factory.start(1, 0, 0x6027, controller).unwrap();
+    let fresh = factory.start(1, 0, SEED, controller).unwrap();
     let fresh_assembler = Arc::clone(fresh.battle_assembler());
     let (_, fresh_activity, _, _, _) = fresh.into_dynamic_parts();
     let verified = verify_standard_universe_replay_v3_dynamic(
@@ -405,7 +408,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
 
 #[test]
 fn dynamic_replay_reconstructs_each_snapshot_and_reports_first_divergence() {
-    const SEED: u64 = 10;
+    const SEED: u64 = 0x6023;
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-corruption-test",
         revision: StandardUniverseBaselineRunner::REVISION,

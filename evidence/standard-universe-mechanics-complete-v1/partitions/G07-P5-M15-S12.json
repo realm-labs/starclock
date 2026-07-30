@@ -1,0 +1,3526 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P5-M15-S12",
+  "state": "Complete",
+  "completed_on": "2026-07-29",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Ability.xlsx",
+        "tables": [
+          "Ability"
+        ]
+      },
+      {
+        "path": "config/data/AbilityPhase.xlsx",
+        "tables": [
+          "AbilityPhase"
+        ]
+      },
+      {
+        "path": "config/data/AiCandidate.xlsx",
+        "tables": [
+          "AiCandidate"
+        ]
+      },
+      {
+        "path": "config/data/AiGraph.xlsx",
+        "tables": [
+          "AiGraph"
+        ]
+      },
+      {
+        "path": "config/data/AiState.xlsx",
+        "tables": [
+          "AiState"
+        ]
+      },
+      {
+        "path": "config/data/AiTransition.xlsx",
+        "tables": [
+          "AiTransition"
+        ]
+      },
+      {
+        "path": "config/data/ConditionExpression.xlsx",
+        "tables": [
+          "ConditionExpression"
+        ]
+      },
+      {
+        "path": "config/data/ContentEvidenceBinding.xlsx",
+        "tables": [
+          "ContentEvidenceBinding"
+        ]
+      },
+      {
+        "path": "config/data/ContentIdentity.xlsx",
+        "tables": [
+          "ContentIdentity"
+        ]
+      },
+      {
+        "path": "config/data/Effect.xlsx",
+        "tables": [
+          "Effect"
+        ]
+      },
+      {
+        "path": "config/data/EffectModifierBinding.xlsx",
+        "tables": [
+          "EffectModifierBinding"
+        ]
+      },
+      {
+        "path": "config/data/EffectRuleBinding.xlsx",
+        "tables": [
+          "EffectRuleBinding"
+        ]
+      },
+      {
+        "path": "config/data/EffectTag.xlsx",
+        "tables": [
+          "EffectTag"
+        ]
+      },
+      {
+        "path": "config/data/EnemyAbility.xlsx",
+        "tables": [
+          "EnemyAbility"
+        ]
+      },
+      {
+        "path": "config/data/EnemyDebuffResistance.xlsx",
+        "tables": [
+          "EnemyDebuffResistance"
+        ]
+      },
+      {
+        "path": "config/data/EnemyPhase.xlsx",
+        "tables": [
+          "EnemyPhase"
+        ]
+      },
+      {
+        "path": "config/data/EnemyResistance.xlsx",
+        "tables": [
+          "EnemyResistance"
+        ]
+      },
+      {
+        "path": "config/data/EnemyStat.xlsx",
+        "tables": [
+          "EnemyStat"
+        ]
+      },
+      {
+        "path": "config/data/EnemyTemplate.xlsx",
+        "tables": [
+          "EnemyTemplate"
+        ]
+      },
+      {
+        "path": "config/data/EnemyToughnessLayer.xlsx",
+        "tables": [
+          "EnemyToughnessLayer"
+        ]
+      },
+      {
+        "path": "config/data/EnemyVariant.xlsx",
+        "tables": [
+          "EnemyVariant"
+        ]
+      },
+      {
+        "path": "config/data/EnemyVariantAbility.xlsx",
+        "tables": [
+          "EnemyVariantAbility"
+        ]
+      },
+      {
+        "path": "config/data/EnemyWeakness.xlsx",
+        "tables": [
+          "EnemyWeakness"
+        ]
+      },
+      {
+        "path": "config/data/EventFilter.xlsx",
+        "tables": [
+          "EventFilter"
+        ]
+      },
+      {
+        "path": "config/data/EvidenceRecord.xlsx",
+        "tables": [
+          "EvidenceRecord"
+        ]
+      },
+      {
+        "path": "config/data/LinkedUnitDefinition.xlsx",
+        "tables": [
+          "LinkedUnitDefinition"
+        ]
+      },
+      {
+        "path": "config/data/ModifierDefinition.xlsx",
+        "tables": [
+          "ModifierDefinition"
+        ]
+      },
+      {
+        "path": "config/data/ModifierStackingGroup.xlsx",
+        "tables": [
+          "ModifierStackingGroup"
+        ]
+      },
+      {
+        "path": "config/data/Operation.xlsx",
+        "tables": [
+          "Operation"
+        ]
+      },
+      {
+        "path": "config/data/Program.xlsx",
+        "tables": [
+          "Program"
+        ]
+      },
+      {
+        "path": "config/data/ProgramStep.xlsx",
+        "tables": [
+          "ProgramStep"
+        ]
+      },
+      {
+        "path": "config/data/RuleDefinition.xlsx",
+        "tables": [
+          "RuleDefinition"
+        ]
+      },
+      {
+        "path": "config/data/RuleTrigger.xlsx",
+        "tables": [
+          "RuleTrigger"
+        ]
+      },
+      {
+        "path": "config/data/Selector.xlsx",
+        "tables": [
+          "Selector"
+        ]
+      },
+      {
+        "path": "config/data/SelectorPredicate.xlsx",
+        "tables": [
+          "SelectorPredicate"
+        ]
+      },
+      {
+        "path": "config/data/SourceRecord.xlsx",
+        "tables": [
+          "SourceRecord"
+        ]
+      },
+      {
+        "path": "config/data/ValueExpression.xlsx",
+        "tables": [
+          "ValueExpression"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-enemy-partition.py --partition G07-P5-M15-S12 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/generated/config.sora",
+      "sha256": "c96ad19d0c95aa2e14e8c76b67301ed115211e72e04bf4e9169da3e119258a1f",
+      "git_blob_sha1": "de7bcb39bd6bd34d9ffdda729cce75465d8cee7d"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S12.json",
+      "sha256": "f6e1f075138c38e6a07dc54b9fdaa5a43aade3b0e3aee6d9817dd7731ca48107",
+      "git_blob_sha1": "3ce2a38a1b9e82f4a72f22eaca601ec747659d08"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.encounter-group.1001",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.1002",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.1003",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.1004",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.1005",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.101002",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.101003",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.101004",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.101005",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.101006",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.101102",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.104002",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.104003",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.104005",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.104101",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.104102",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.13001",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.19002",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.2001",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.2003",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3001",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3003",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3004",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3005",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3008",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3009",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3010",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3022",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.3023",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9001",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9003",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9004",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9005",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9006",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9008",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9009",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-group.9011",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ]
+    }
+  ],
+  "rules": [],
+  "fixtures": [
+    {
+      "id": "universe.fixture.encounter-wave.singlewave",
+      "runtime_disposition": "Metadata",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs",
+      "test_marker": "ordinary_enemy_batch_s12_materializes_all_frozen_variants_and_level_rows"
+    }
+  ],
+  "enemy_variants": [
+    {
+      "id": "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+        "enemy.abundance-sprite-golden-hound.minionlv2",
+        "ai.goal07.enemy-s12.1"
+      ],
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+        "enemy.abundance-sprite-malefic-ape-bug.elite",
+        "ai.goal07.enemy-s12.2"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+        "enemy.abundance-sprite-malefic-ape.elite",
+        "ai.goal07.enemy-s12.3"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.abundance-sprite-wooden-lupus.minionlv2.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.abundance-sprite-wooden-lupus.minionlv2.variant.01",
+        "enemy.abundance-sprite-wooden-lupus.minionlv2",
+        "ai.goal07.enemy-s12.4"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.antibaryon.minion.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.antibaryon.minion.variant.01",
+        "enemy.antibaryon.minion",
+        "ai.goal07.enemy-s12.5"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+        "enemy.aurumaton-gatekeeper-bug.elite",
+        "ai.goal07.enemy-s12.6"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.aurumaton-gatekeeper.elite.variant.01",
+        "enemy.aurumaton-gatekeeper.elite",
+        "ai.goal07.enemy-s12.7"
+      ],
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.aurumaton-spectral-envoy.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.aurumaton-spectral-envoy.elite.variant.01",
+        "enemy.aurumaton-spectral-envoy.elite",
+        "ai.goal07.enemy-s12.8"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.automaton-beetle.minionlv2.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.automaton-beetle.minionlv2.variant.01",
+        "enemy.automaton-beetle.minionlv2",
+        "ai.goal07.enemy-s12.9"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.automaton-direwolf.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.automaton-direwolf.elite.variant.01",
+        "enemy.automaton-direwolf.elite",
+        "ai.goal07.enemy-s12.10"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.automaton-grizzly.elite.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.automaton-grizzly.elite.variant.01",
+        "enemy.automaton-grizzly.elite",
+        "ai.goal07.enemy-s12.11"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    },
+    {
+      "id": "enemy.automaton-hound.minionlv2.variant.01",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "workbook_evidence": [
+        {
+          "path": "config/data/EnemyVariant.xlsx"
+        },
+        {
+          "path": "config/data/EnemyStat.xlsx"
+        },
+        {
+          "path": "config/data/EnemyPhase.xlsx"
+        },
+        {
+          "path": "config/data/EnemyAbility.xlsx"
+        },
+        {
+          "path": "config/data/AiGraph.xlsx"
+        },
+        {
+          "path": "config/data/LinkedUnitDefinition.xlsx"
+        },
+        {
+          "path": "config/data/Program.xlsx"
+        },
+        {
+          "path": "config/data/Effect.xlsx"
+        },
+        {
+          "path": "config/data/EffectTag.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/v4.4/enemy-abilities.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-templates.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/world-difficulties.json"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+          "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+          "git_blob_sha1": "d6f80634ac3e7ef63957192d0743ee9d31b1a099"
+        },
+        {
+          "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+          "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+          "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        }
+      ],
+      "implementation_kind": "SharedRuleIrAndEnemyLifecycle",
+      "definition_keys": [
+        "enemy.automaton-hound.minionlv2.variant.01",
+        "enemy.automaton-hound.minionlv2",
+        "ai.goal07.enemy-s12.12"
+      ],
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "numeric_review": {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "status": "ApprovedPerVariantInputs"
+      },
+      "execution_evidence": [
+        {
+          "path": "config/schema/enemy.toml"
+        },
+        {
+          "path": "config/schema/expression.toml"
+        },
+        {
+          "path": "config/schema/operation.toml"
+        },
+        {
+          "path": "crates/starclock-data/src/encounter_lower.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/catalog_lookup.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/action/lower.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/battle/spec.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/effect/model.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/lifecycle.rs"
+        },
+        {
+          "path": "crates/starclock-combat/src/resolver/turn.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/enemy_orchestration.rs"
+        },
+        {
+          "path": "crates/starclock-combat/tests/forced_control.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization.rs"
+        },
+        {
+          "path": "crates/starclock-data/src/standard_v1.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/catalog.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs"
+        }
+      ]
+    }
+  ],
+  "encounter_members": [
+    {
+      "id": "universe.encounter-member.1",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.105",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.113",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.119",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.12",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.121",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.122",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.123",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.125",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.127",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.13",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.131",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.133",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.157",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.158",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.159",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.160",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.163",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.164",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.165",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.166",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.169",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.17",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.19",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.2",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.21",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.27",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.3",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.30",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.31",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.33",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.4",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.48",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.49",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.5",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.51",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.6",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.61",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.63",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.69",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.71",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.73",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.8",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.81",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.86",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.94",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-member.96",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        },
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/v4.4/enemy-variants.json"
+        }
+      ]
+    }
+  ],
+  "native_handler_reviews": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-enemy-partition.py --partition G07-P5-M15-S12 --check",
+      "node tools/config-production/verify.mjs",
+      "cargo test -p starclock-combat --test enemy_orchestration",
+      "cargo test -p starclock-combat --test forced_control",
+      "cargo test -p starclock-mode-universe --test battle_materialization",
+      "node tools/goal07/verify-content-partition.mjs --partition G07-P5-M15-S12",
+      "node tools/repository-check/run.mjs"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S12.json",
+        "sha256": "f6e1f075138c38e6a07dc54b9fdaa5a43aade3b0e3aee6d9817dd7731ca48107",
+        "git_blob_sha1": "3ce2a38a1b9e82f4a72f22eaca601ec747659d08"
+      },
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/source-reviews/G07-P5-M15-S12.json",
+        "sha256": "c1c148ebf97c7670097bf84d74b98dd08ee4e65c02259964bc9193c538e46d9a",
+        "git_blob_sha1": "410d494f2e3bd0df21d6ee485f30511ed97ff1e5"
+      }
+    ]
+  }
+}

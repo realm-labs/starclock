@@ -413,7 +413,13 @@
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          }
         }
       },
       {
@@ -450,13 +456,7 @@
           "targets": {
             "List": [
               {
-                "String": "Blessing"
-              },
-              {
                 "String": "HP"
-              },
-              {
-                "String": "Character"
               }
             ]
           }

@@ -43,7 +43,7 @@ const EXPECTED_SNAPSHOT_DATE: &str = "2026-07-22";
 const EXPECTED_CONTENT_MANIFEST: &str =
     "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216";
 const EXPECTED_PACK_DIGEST: &str =
-    "66c5f07b89e3f71f40c2d86b5616f8e080d09ce674b1019484aef276fdfa11e3";
+    "e620b9e4371f41afb43967a0537f8e705a33ae70f6e8ede0468b80f3444cd933";
 const EXPECTED_CORE_DATA_REVISION: &str = "core-combat-v1-phase7-l11";
 const EXPECTED_CORE_RULES_REVISION: &str = "core-combat-rules-v1";
 const EXPECTED_NUMERIC_REVISION: &str = "fixed-i64-6dp-v1";
@@ -51,12 +51,12 @@ const EXPECTED_RNG_REVISION: &str = "chacha8-rand-0.10.2-intmap-v1";
 const EXPECTED_STATE_HASH_REVISION: &str = "sha256-v5";
 
 const EXPECTED_CORE_BUNDLE: [u8; 32] = [
-    0x87, 0x59, 0x36, 0xda, 0x8c, 0x01, 0x59, 0x35, 0x85, 0x38, 0x95, 0x63, 0xfc, 0xb3, 0xd0, 0xc4,
-    0x33, 0x4b, 0xdb, 0x14, 0xd8, 0x5a, 0x3e, 0x7f, 0xfb, 0x9f, 0xb0, 0xdc, 0xc0, 0x18, 0x95, 0x3b,
+    0xa6, 0xc6, 0xc6, 0x79, 0x13, 0x68, 0x5c, 0xca, 0xab, 0x5e, 0x05, 0x66, 0x5b, 0xb4, 0x0b, 0x92,
+    0x00, 0x1b, 0x33, 0x88, 0xe6, 0xbe, 0x49, 0x77, 0xe2, 0x5d, 0xd9, 0xcd, 0x02, 0x9c, 0xb3, 0x00,
 ];
 const EXPECTED_UNIVERSE_BUNDLE: UniverseBundleDigest = UniverseBundleDigest::new([
-    0x1c, 0x67, 0xb5, 0x9a, 0xea, 0x4e, 0x80, 0xc7, 0xd7, 0x7d, 0x58, 0x23, 0xff, 0xc6, 0xf7, 0x27,
-    0xa9, 0x0e, 0x39, 0xa0, 0x29, 0xb1, 0x9b, 0x27, 0x77, 0xf1, 0x1f, 0xa3, 0x24, 0xe4, 0x66, 0xbf,
+    0x5e, 0x52, 0x34, 0xee, 0x39, 0x77, 0xf7, 0x94, 0xae, 0x9b, 0x1b, 0x83, 0x33, 0x72, 0xf5, 0x1c,
+    0x38, 0x40, 0x8c, 0x20, 0x51, 0x05, 0xc4, 0x64, 0xf1, 0x18, 0x27, 0xe9, 0xe9, 0xae, 0x6a, 0x75,
 ]);
 
 /// Generated-row-free compatibility identity for one catalog composition.
@@ -809,7 +809,7 @@ mod tests {
                 .flat_map(|value| value.outcomes())
                 .filter(|value| value.random_policy().is_some())
                 .count(),
-            125
+            127
         );
         assert_eq!(catalog.services().len(), 94);
         assert_eq!(
@@ -956,8 +956,8 @@ mod tests {
         assert_eq!(
             catalog.identity().run_definitions_digest().bytes(),
             [
-                86, 10, 164, 228, 23, 26, 11, 14, 63, 55, 105, 232, 249, 113, 55, 54, 224, 97, 223,
-                154, 1, 244, 110, 242, 249, 168, 109, 157, 130, 37, 27, 149,
+                177, 201, 219, 41, 126, 113, 135, 229, 217, 199, 16, 6, 127, 9, 190, 174, 85, 5,
+                131, 151, 186, 98, 51, 201, 18, 45, 54, 160, 166, 42, 2, 110,
             ]
         );
         assert_eq!(
@@ -970,22 +970,22 @@ mod tests {
         assert_eq!(
             catalog.identity().definitions_digest().bytes(),
             [
-                102, 182, 240, 180, 53, 159, 178, 55, 12, 66, 36, 69, 232, 112, 106, 20, 216, 121,
-                235, 206, 233, 73, 117, 209, 11, 134, 245, 114, 90, 23, 120, 34,
+                120, 190, 196, 196, 192, 213, 164, 29, 203, 115, 129, 13, 40, 28, 227, 231, 104,
+                126, 149, 212, 102, 134, 210, 15, 137, 244, 199, 104, 237, 30, 183, 242,
             ]
         );
         assert_eq!(
             catalog.identity().configuration_digest().bytes(),
             [
-                242, 24, 12, 188, 101, 151, 169, 102, 52, 17, 246, 170, 252, 144, 84, 13, 33, 101,
-                209, 83, 18, 171, 27, 187, 120, 137, 201, 167, 4, 242, 87, 100,
+                185, 133, 203, 241, 83, 234, 123, 40, 7, 232, 239, 9, 169, 52, 179, 165, 71, 96,
+                69, 233, 14, 115, 90, 50, 31, 253, 204, 128, 84, 118, 83, 105,
             ]
         );
         assert_eq!(
             catalog.identity().profile_digest().bytes(),
             [
-                159, 143, 252, 162, 26, 246, 98, 109, 62, 131, 119, 43, 114, 138, 206, 2, 181, 55,
-                103, 195, 165, 168, 3, 159, 21, 235, 44, 123, 76, 49, 142, 28,
+                20, 52, 22, 185, 103, 86, 246, 218, 188, 110, 246, 17, 14, 147, 183, 141, 126, 27,
+                228, 181, 134, 70, 233, 227, 34, 232, 22, 63, 73, 192, 164, 174,
             ]
         );
     }

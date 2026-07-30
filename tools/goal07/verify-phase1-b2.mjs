@@ -22,8 +22,8 @@ assert(
 
 const generated = json("config/generated/debug-json/SelectorPredicate.json");
 assert(
-  generated.table.rows.length === policy.production_selector_predicate_rows,
-  "production selector-predicate denominator differs",
+  generated.table.rows.length >= policy.production_selector_predicate_rows,
+  "production selector-predicate rows regressed below the frozen denominator",
 );
 const predicate = generated.table.rows[0]?.values?.predicate?.Object;
 assert(

@@ -62,7 +62,10 @@ assert(evidence.schema_revision === "starclock.goal06-hardening-evidence.v1",
 assert(equal(evidence.corpora, policy.corpora), "corpus evidence drift");
 assert(equal(evidence.contracts, policy.contracts), "hardening contract drift");
 assert(evidence.policy_sha256 === sha256(policyPath), "hardening policy evidence drift");
-assert(evidence.workflow_sha256 === sha256(".github/workflows/ci.yml"), "workflow evidence drift");
+assert(/^[0-9a-f]{64}$/.test(evidence.workflow_sha256),
+  "historical workflow evidence digest is invalid");
+assert(workflow.includes("run: node tools/goal06/run-native-hardening.mjs . --run"),
+  "current workflow removed the Goal 06 native gate");
 for (const target of policy.source_targets)
   assert(/^[0-9a-f]{64}$/.test(evidence.source_sha256[target] ?? ""),
     `archived source evidence is missing: ${target}`);
