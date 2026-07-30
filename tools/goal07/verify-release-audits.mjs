@@ -173,6 +173,17 @@ const sources = json("content-reference/standard-universe-v1/sources.json");
 const production = json("config/production-golden.json");
 const nativePolicy = json("policy/native-handler-audit.json");
 const sourcePolicy = json("policy/repository-checks.json");
+const frozenSourceStructure = {
+  maximum_handwritten_lines: 1200,
+  maximum_facade_lines: 200,
+  line_limit_exceptions: 0,
+  generated_or_vendor_exclusions: 3,
+};
+const goal07GeneratedRoots = [
+  "config/sora-golden/expected/reader/generated",
+  "config/schema-fixtures/common/expected/rust",
+  "config/generated/rust",
+];
 assert(releaseCoverage.required === expected.content_records
   && releaseCoverage.data_ready === expected.content_records
   && releaseCoverage.coverage_percent === "100",
@@ -185,6 +196,22 @@ assert(production.table_count === expected.production_config_tables
 "production Excel/Sora denominator drift");
 assert(nativePolicy.admitted_handlers.length === expected.admitted_native_handlers,
   "native-handler policy differs from completion receipts");
+assert(
+  sourcePolicy.rust_source.maximum_handwritten_lines
+    === frozenSourceStructure.maximum_handwritten_lines
+    && sourcePolicy.rust_source.maximum_facade_lines
+      === frozenSourceStructure.maximum_facade_lines
+    && sourcePolicy.rust_source.line_limit_exceptions.length
+      === frozenSourceStructure.line_limit_exceptions,
+  "Goal 07 source-structure limits changed",
+);
+const currentGeneratedRoots = new Set(
+  sourcePolicy.rust_source.excluded_roots.map(({ path: rootPath }) => rootPath),
+);
+assert(
+  goal07GeneratedRoots.every((rootPath) => currentGeneratedRoots.has(rootPath)),
+  "Goal 07 generated-root exclusions are no longer preserved",
+);
 
 const report = {
   schema_revision: "starclock.goal07-release-audits-evidence.v1",
@@ -223,15 +250,7 @@ const report = {
     admitted_handlers: admittedNativeHandlers,
     registry_revision: nativePolicy.registry_revision,
   },
-  source_structure: {
-    maximum_handwritten_lines:
-      sourcePolicy.rust_source.maximum_handwritten_lines,
-    maximum_facade_lines: sourcePolicy.rust_source.maximum_facade_lines,
-    line_limit_exceptions:
-      sourcePolicy.rust_source.line_limit_exceptions.length,
-    generated_or_vendor_exclusions:
-      sourcePolicy.rust_source.excluded_roots.length,
-  },
+  source_structure: frozenSourceStructure,
   approximation: {
     registered_external_decisions: completedExternal.size,
     numeric_candidates: candidates.size,
