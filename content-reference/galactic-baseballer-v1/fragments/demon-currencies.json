@@ -1,0 +1,316 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.currency.cosmic-reputation",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Currency",
+    "name_en": "Cosmic Reputation",
+    "name_zh_cn": "银河声望",
+    "summary_en": "Reference-only 20-rank progression currency; reward payloads remain excluded account locators.",
+    "summary_zh_cn": "仅供资料使用的 20 级进度货币；奖励内容继续作为排除的账号定位信息。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "currency",
+      "demon-king",
+      "reputation"
+    ],
+    "state_owner": "profile-persistent account progression",
+    "offering_type": 8,
+    "maximum_balance": 500000,
+    "rank_count": 20,
+    "account_reward_payloads_imported": false,
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.currency.raccoon-gold",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Currency",
+    "name_en": "Raccoon Gold Coin",
+    "name_zh_cn": "浣熊金币",
+    "summary_en": "Persistent Demon King shop currency with exact item ID, enemy/chest income vectors and maximum balance.",
+    "summary_zh_cn": "魔王篇持久商店货币，含精确物品 ID、敌人/宝箱收入向量与余额上限。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.39ef85912b06b440",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=20;ConstValueName=EvolveBuildSC_Gold_Basic_Normal1",
+        "sha256": "39ef85912b06b440f00687d9c5a1387fbc57df60226f68c4082b603a4c59eb73",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.263fd561a7a07080",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=21;ConstValueName=EvolveBuildSC_Gold_Basic_Normal2",
+        "sha256": "263fd561a7a07080faf2eef4b285d1a9c86b8b6128edecc3ebf6f13baf3f4a11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.7672f15a8479866c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=22;ConstValueName=EvolveBuildSC_Gold_Basic_Elite",
+        "sha256": "7672f15a8479866c3c2dac35d1a5dba6d0a52767d71054f3676fd6dbd83ff35c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.053eebe69b888d07",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=23;ConstValueName=EvolveBuildSC_Gold_Basic_Boss",
+        "sha256": "053eebe69b888d07d5178e8c9bc71bae54ac539d4ca5e0dd9a466f39e6df9416",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.c5f018d227e32d16",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=24;ConstValueName=EvolveBuildSC_Gold_Basic_Chest",
+        "sha256": "c5f018d227e32d160c0f18126aee1594e10e7af877df613ae8f681ba2d43fd56",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.54266e52a7e4aa53",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=25;ConstValueName=EvolveBuildSC_Gold_MaxLevel",
+        "sha256": "54266e52a7e4aa5327445e21474020f004aead1fe16bc5783d23fceb2f6d1c89",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.4d5d6d67e0815ecd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=26;ConstValueName=EvolveBuildSC_Chest_Basic_Gold",
+        "sha256": "4d5d6d67e0815ecd9b9de8b555b6091c8df38f57f764a0ac93f4414acd03b87e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.9dff1a79b15b6f38",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=27;ConstValueName=EvolveBuildSC_Chest_Alter_Gold",
+        "sha256": "9dff1a79b15b6f38690e62e28f1e2750e97884cdcfbc37c011ceb1b546129e7e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.e01a8ad04f861a29",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=28;ConstValueName=EvolveBuildSC_Chest_Probability",
+        "sha256": "e01a8ad04f861a29616dc05abc1c8059565752517fe129cd66717f4b563d2f7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.f2be8eb4bf8cf48b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=29;ConstValueName=EvolveBuildSC_Chest_Probability_Step",
+        "sha256": "f2be8eb4bf8cf48bc2478d0b469d851d13fb3fbd09b21ecb6eb326f7279c987c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.dc2dc2b526a16119",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=36;ConstValueName=EvolveBuildSC_Coin_ItemID",
+        "sha256": "dc2dc2b526a16119993029f92d065d4c52a6c5e71874a7854767f9470566d6ec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.8bd5c91a2bca590e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=74;ConstValueName=EvolveBuildSC_Gold_MaxLimit",
+        "sha256": "8bd5c91a2bca590e91663d5fe9cebbcf6a2666d6c1fd8dbb99ec76fa95d5975c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.wiki.432557.29b02a0c03",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Store",
+        "revision_or_access_date": "432557",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Store",
+        "locator": "==Stat Boost==",
+        "sha256": "dab75538eb116743c18e7e23effd8c81514dfe42d8f123b90b8ee5d704e98fd7",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned store identity/effect cross-check"
+      }
+    ],
+    "tags": [
+      "currency",
+      "demon-king",
+      "shop"
+    ],
+    "state_owner": "profile-persistent Demon King progression",
+    "source_item_id": "281027",
+    "maximum_balance": 500000,
+    "enemy_income": {
+      "normal_1": 5,
+      "normal_2": 5,
+      "elite": 20,
+      "boss": 200
+    },
+    "chest_income_by_authored_ordinal": [
+      {
+        "ordinal": 0,
+        "value": 300
+      },
+      {
+        "ordinal": 1,
+        "value": 800
+      },
+      {
+        "ordinal": 2,
+        "value": 1200
+      }
+    ],
+    "chest_probability_vector": [
+      {
+        "ordinal": 0,
+        "value": "0.6"
+      },
+      {
+        "ordinal": 1,
+        "value": "0.3"
+      },
+      {
+        "ordinal": 2,
+        "value": "0.1"
+      }
+    ],
+    "chest_probability_step_vector": [
+      {
+        "ordinal": 0,
+        "value": "-0.15"
+      },
+      {
+        "ordinal": 1,
+        "value": "0"
+      },
+      {
+        "ordinal": 2,
+        "value": "0.15"
+      }
+    ],
+    "probability_ordinal_mapping_status": "Unspecified: exact vectors retained without naming hidden ordinal meanings"
+  }
+]

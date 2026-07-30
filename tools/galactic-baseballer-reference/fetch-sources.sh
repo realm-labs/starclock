@@ -8,6 +8,7 @@ fi
 
 cache_root="$1"
 seed_root="${2:-}"
+script_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 turn_remote="https://gitlab.com/Dimbreath/turnbasedgamedata.git"
 res_remote="https://github.com/Mar-7th/StarRailRes.git"
 turn_revision="fd978d6ef09f941fba644c731ab54abd6f7c3568"
@@ -117,5 +118,8 @@ done
 
 [[ "$(git -C "${turn_target}" rev-parse HEAD)" == "${turn_revision}" ]]
 [[ "$(git -C "${res_target}" rev-parse HEAD)" == "${res_revision}" ]]
+
+node "${script_root}/cache-public-revisions.mjs" \
+  --cache "${cache_root}/public-revisions"
 
 echo "Pinned Goal 16 source cache is ready at ${cache_root}"
