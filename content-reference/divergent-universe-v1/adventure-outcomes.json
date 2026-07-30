@@ -1,0 +1,2764 @@
+[
+  {
+    "id": "divergent-universe.adventure-outcome.11098010.RogueTurntable",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueTurntable Room 11098010",
+    "name_zh_cn": "RogueTurntable 房间 11098010",
+    "summary_en": "RogueTurntable room 11098010 binds parameter group 4001 to 3 exact settlement program row(s).",
+    "summary_zh_cn": "RogueTurntable 房间 11098010 将参数组 4001 绑定到 3 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "7",
+        "sha256": "7f57508337e9dccf6645fa168d97d9a8678c0e3bae64bde71d9f5bc9b3baa752",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "3",
+        "sha256": "728de9580b7e6497382410469f1717e17df6b332a97e4849eccd65668f6ef17e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "4",
+        "sha256": "98ec0ecb81d4e9ad426faca93c7b646f8eb0ef606b4b927c5bc9a4d059da6b5c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "5",
+        "sha256": "85ef0afeaac4a16df2d06a6395014fa83ab3fcc4da096a7e82ad97f8d614232d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueTurntable",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "11098010:RogueTurntable",
+    "room_id": "11098010",
+    "adventure_type": "RogueTurntable",
+    "parameter_group_id": "4001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3",
+        "RewardLevel": "High"
+      },
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3",
+        "RewardLevel": "Medium"
+      },
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3"
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RewardTierSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.11098030.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 11098030",
+    "name_zh_cn": "RogueDestroyProp 房间 11098030",
+    "summary_en": "RogueDestroyProp room 11098030 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 11098030 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "3",
+        "sha256": "0f6be7f72ceeb15115b82751621f63f427e3f1a0a27fbd4f8c8ff2a1d324638d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "5",
+        "sha256": "7f2cd057aef39098113b396b09884099dfa814c073d289f187808f3b1c220e63",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "11098030:RogueDestroyProp",
+    "room_id": "11098030",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.11098040.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 11098040",
+    "name_zh_cn": "RogueCaptureMonster 房间 11098040",
+    "summary_en": "RogueCaptureMonster room 11098040 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 11098040 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "1",
+        "sha256": "b8f3ddeb69e8bdb577f625cf4b4f9631d60d86b18c63277f8b251f246994c031",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "11098040:RogueCaptureMonster",
+    "room_id": "11098040",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.11098050.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 11098050",
+    "name_zh_cn": "RogueDestroyProp 房间 11098050",
+    "summary_en": "RogueDestroyProp room 11098050 binds parameter group 301002 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 11098050 将参数组 301002 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "4",
+        "sha256": "1065135ea4d2b42116b0d4bab554574657ba0c2782cb08c90bf67b867d052272",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "6",
+        "sha256": "6fe6c5cfb0cfc32ed1cdbea58dc70e5ad0e8ea946d1b5f98b0d05033fcbe581a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "11098050:RogueDestroyProp",
+    "room_id": "11098050",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "301002",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301002",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.11098060.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 11098060",
+    "name_zh_cn": "RogueCaptureMonster 房间 11098060",
+    "summary_en": "RogueCaptureMonster room 11098060 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 11098060 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "2",
+        "sha256": "23c8a36e6d26a6a20cfa6d6e6728d11e97364c89107c5fa90ff5313394417743",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "11098060:RogueCaptureMonster",
+    "room_id": "11098060",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.11098070.RogueEscapeLaser",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueEscapeLaser Room 11098070",
+    "name_zh_cn": "RogueEscapeLaser 房间 11098070",
+    "summary_en": "RogueEscapeLaser room 11098070 binds parameter group 5001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueEscapeLaser 房间 11098070 将参数组 5001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "8",
+        "sha256": "7e8474bd47d0ee026068d40973a117b1dbfa30be0813d7857268ba65967e45b7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueescapelaser-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueEscapeLaser.json",
+        "locator": "1",
+        "sha256": "baa8363efdd077211174d7b1f407a1399e0b0599cbd7761b7fecc1e45ef4ae1a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueEscapeLaser",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "11098070:RogueEscapeLaser",
+    "room_id": "11098070",
+    "adventure_type": "RogueEscapeLaser",
+    "parameter_group_id": "5001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "5001",
+        "PrepareTime": "3",
+        "GameTimeperRound": "5",
+        "TotalRounds": "6",
+        "ScoreperWave": "100",
+        "ScoreperRound": [
+          "100",
+          "200",
+          "300",
+          "400",
+          "500"
+        ],
+        "ScoreRange": [
+          "0",
+          "400",
+          "600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundScoreSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.11098080.RogueWolfGun",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueWolfGun Room 11098080",
+    "name_zh_cn": "RogueWolfGun 房间 11098080",
+    "summary_en": "RogueWolfGun room 11098080 publishes unresolved parameter group 101; only the external-result boundary is retained.",
+    "summary_zh_cn": "RogueWolfGun 房间 11098080 发布未解析参数组 101；仅保留外部结果边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "9",
+        "sha256": "c1d49c030e3140fd0d0dae9b68c0e981f0dfbac7741e39cc5bdb9a411deb8f05",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "wolf-gun-parameter-groups",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournAdventureRoom references RogueWolfGun parameter groups 101 and 102, but no released parameter-group table identifies those programs. RogueWolfGunMiracleTarget has no parameter-group key and cannot prove the join.",
+        "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results."
+      }
+    ],
+    "tags": [
+      "RogueWolfGun",
+      "abstract-outcome",
+      "adventure",
+      "parameter-missing"
+    ],
+    "source_id": "11098080:RogueWolfGun",
+    "room_id": "11098080",
+    "adventure_type": "RogueWolfGun",
+    "parameter_group_id": "101",
+    "parameter_program": [],
+    "abstract_outcome": {
+      "kind": "ExternalAdventureResult",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200101.RogueTurntable",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueTurntable Room 200101",
+    "name_zh_cn": "RogueTurntable 房间 200101",
+    "summary_en": "RogueTurntable room 200101 binds parameter group 4001 to 3 exact settlement program row(s).",
+    "summary_zh_cn": "RogueTurntable 房间 200101 将参数组 4001 绑定到 3 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "16",
+        "sha256": "993db2afd92aedfb4b77b3f5747ba40b9aba0e66ea68747ddc3f68c94c6a86f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "3",
+        "sha256": "728de9580b7e6497382410469f1717e17df6b332a97e4849eccd65668f6ef17e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "4",
+        "sha256": "98ec0ecb81d4e9ad426faca93c7b646f8eb0ef606b4b927c5bc9a4d059da6b5c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "5",
+        "sha256": "85ef0afeaac4a16df2d06a6395014fa83ab3fcc4da096a7e82ad97f8d614232d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueTurntable",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200101:RogueTurntable",
+    "room_id": "200101",
+    "adventure_type": "RogueTurntable",
+    "parameter_group_id": "4001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3",
+        "RewardLevel": "High"
+      },
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3",
+        "RewardLevel": "Medium"
+      },
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3"
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RewardTierSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200102.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 200102",
+    "name_zh_cn": "RogueCaptureMonster 房间 200102",
+    "summary_en": "RogueCaptureMonster room 200102 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 200102 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "11",
+        "sha256": "938886b00af1151c5752e30103c384ed23bbdeaa70fa33dfb59b796e85dc7773",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200102:RogueCaptureMonster",
+    "room_id": "200102",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200103.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 200103",
+    "name_zh_cn": "RogueCaptureMonster 房间 200103",
+    "summary_en": "RogueCaptureMonster room 200103 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 200103 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "12",
+        "sha256": "4b8c671222afc00ba910091f5f95b5726acc61d43a6c024bfc81a68fea7e23f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200103:RogueCaptureMonster",
+    "room_id": "200103",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200104.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 200104",
+    "name_zh_cn": "RogueCaptureMonster 房间 200104",
+    "summary_en": "RogueCaptureMonster room 200104 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 200104 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "13",
+        "sha256": "201ef52ed981d48001453719b6e2c31885f935bb1e7a8c68cdcbc23c7bb38f60",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200104:RogueCaptureMonster",
+    "room_id": "200104",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200105.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 200105",
+    "name_zh_cn": "RogueDestroyProp 房间 200105",
+    "summary_en": "RogueDestroyProp room 200105 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 200105 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "14",
+        "sha256": "2e5d8be8054c825b9692410eeddddfbb35cbfef054a8d8c222818bddd7d986a3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "5",
+        "sha256": "7f2cd057aef39098113b396b09884099dfa814c073d289f187808f3b1c220e63",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200105:RogueDestroyProp",
+    "room_id": "200105",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200106.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 200106",
+    "name_zh_cn": "RogueDestroyProp 房间 200106",
+    "summary_en": "RogueDestroyProp room 200106 binds parameter group 301002 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 200106 将参数组 301002 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "15",
+        "sha256": "577fc09514d23fe888fc5b872b995012d7339620b599112f930725f90de4c57c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "6",
+        "sha256": "6fe6c5cfb0cfc32ed1cdbea58dc70e5ad0e8ea946d1b5f98b0d05033fcbe581a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200106:RogueDestroyProp",
+    "room_id": "200106",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "301002",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301002",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200107.RogueEscapeLaser",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueEscapeLaser Room 200107",
+    "name_zh_cn": "RogueEscapeLaser 房间 200107",
+    "summary_en": "RogueEscapeLaser room 200107 binds parameter group 5001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueEscapeLaser 房间 200107 将参数组 5001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "17",
+        "sha256": "61107b137103a73c7b9cda1b486fca94650b38f159dceed5896122d97f93b1f3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueescapelaser-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueEscapeLaser.json",
+        "locator": "1",
+        "sha256": "baa8363efdd077211174d7b1f407a1399e0b0599cbd7761b7fecc1e45ef4ae1a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueEscapeLaser",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200107:RogueEscapeLaser",
+    "room_id": "200107",
+    "adventure_type": "RogueEscapeLaser",
+    "parameter_group_id": "5001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "5001",
+        "PrepareTime": "3",
+        "GameTimeperRound": "5",
+        "TotalRounds": "6",
+        "ScoreperWave": "100",
+        "ScoreperRound": [
+          "100",
+          "200",
+          "300",
+          "400",
+          "500"
+        ],
+        "ScoreRange": [
+          "0",
+          "400",
+          "600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundScoreSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200108.RogueWolfGun",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueWolfGun Room 200108",
+    "name_zh_cn": "RogueWolfGun 房间 200108",
+    "summary_en": "RogueWolfGun room 200108 publishes unresolved parameter group 101; only the external-result boundary is retained.",
+    "summary_zh_cn": "RogueWolfGun 房间 200108 发布未解析参数组 101；仅保留外部结果边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "18",
+        "sha256": "80df6e208f6e1a690cac4fbba28231193601f9072e0c33c6edf3ac794e3a2b3f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "wolf-gun-parameter-groups",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournAdventureRoom references RogueWolfGun parameter groups 101 and 102, but no released parameter-group table identifies those programs. RogueWolfGunMiracleTarget has no parameter-group key and cannot prove the join.",
+        "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results."
+      }
+    ],
+    "tags": [
+      "RogueWolfGun",
+      "abstract-outcome",
+      "adventure",
+      "parameter-missing"
+    ],
+    "source_id": "200108:RogueWolfGun",
+    "room_id": "200108",
+    "adventure_type": "RogueWolfGun",
+    "parameter_group_id": "101",
+    "parameter_program": [],
+    "abstract_outcome": {
+      "kind": "ExternalAdventureResult",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200109.RogueWolfGun",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueWolfGun Room 200109",
+    "name_zh_cn": "RogueWolfGun 房间 200109",
+    "summary_en": "RogueWolfGun room 200109 publishes unresolved parameter group 102; only the external-result boundary is retained.",
+    "summary_zh_cn": "RogueWolfGun 房间 200109 发布未解析参数组 102；仅保留外部结果边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "19",
+        "sha256": "12a401b2e6dfbbf801665988ddfdb90d92165011d214da7c5aceb4bfef4aaf04",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "wolf-gun-parameter-groups",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournAdventureRoom references RogueWolfGun parameter groups 101 and 102, but no released parameter-group table identifies those programs. RogueWolfGunMiracleTarget has no parameter-group key and cannot prove the join.",
+        "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results."
+      }
+    ],
+    "tags": [
+      "RogueWolfGun",
+      "abstract-outcome",
+      "adventure",
+      "parameter-missing"
+    ],
+    "source_id": "200109:RogueWolfGun",
+    "room_id": "200109",
+    "adventure_type": "RogueWolfGun",
+    "parameter_group_id": "102",
+    "parameter_program": [],
+    "abstract_outcome": {
+      "kind": "ExternalAdventureResult",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200110.RogueCandyCrash",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCandyCrash Room 200110",
+    "name_zh_cn": "RogueCandyCrash 房间 200110",
+    "summary_en": "RogueCandyCrash room 200110 binds parameter group 4001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCandyCrash 房间 200110 将参数组 4001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "20",
+        "sha256": "30cc43651451dd27659442ffea97d9fd62a4accf1aa152daff9f1ca388bdbb59",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecandycrash-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCandyCrash.json",
+        "locator": "0",
+        "sha256": "1e9aa7c6720f0e6a71b5d931027d5ce26b92e457585d7edc1846918cd88b22a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCandyCrash",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200110:RogueCandyCrash",
+    "room_id": "200110",
+    "adventure_type": "RogueCandyCrash",
+    "parameter_group_id": "4001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3",
+        "TotalTime": "35",
+        "TotalRounds": "3",
+        "RoundRange": [
+          "0",
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.200111.RogueCandyCrash",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCandyCrash Room 200111",
+    "name_zh_cn": "RogueCandyCrash 房间 200111",
+    "summary_en": "RogueCandyCrash room 200111 binds parameter group 4002 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCandyCrash 房间 200111 将参数组 4002 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "21",
+        "sha256": "360b06418a605fb51ec7338ad0cb44d26917d962c81e55bc6bd0ad16e31292b2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecandycrash-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCandyCrash.json",
+        "locator": "1",
+        "sha256": "432695316882975a3299e319b022e13d50d15cbf8cd4d3ea61085e1d6980e38b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCandyCrash",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "200111:RogueCandyCrash",
+    "room_id": "200111",
+    "adventure_type": "RogueCandyCrash",
+    "parameter_group_id": "4002",
+    "parameter_program": [
+      {
+        "ParamGroupID": "4002",
+        "PrepareTime": "3",
+        "TotalTime": "35",
+        "TotalRounds": "3",
+        "RoundRange": [
+          "0",
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.21098010.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 21098010",
+    "name_zh_cn": "RogueCaptureMonster 房间 21098010",
+    "summary_en": "RogueCaptureMonster room 21098010 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 21098010 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "0",
+        "sha256": "7bf59a6bd662e6efef3645ee13fdb09d72feb639efaaa7801322d5f293ebf46a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "21098010:RogueCaptureMonster",
+    "room_id": "21098010",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.21098080.RogueWolfGun",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueWolfGun Room 21098080",
+    "name_zh_cn": "RogueWolfGun 房间 21098080",
+    "summary_en": "RogueWolfGun room 21098080 publishes unresolved parameter group 102; only the external-result boundary is retained.",
+    "summary_zh_cn": "RogueWolfGun 房间 21098080 发布未解析参数组 102；仅保留外部结果边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "10",
+        "sha256": "51f44498b87f73130a48d30a3b92c1c5fa228f70f9d5fe7c888d495ebb838436",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "wolf-gun-parameter-groups",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournAdventureRoom references RogueWolfGun parameter groups 101 and 102, but no released parameter-group table identifies those programs. RogueWolfGunMiracleTarget has no parameter-group key and cannot prove the join.",
+        "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results."
+      }
+    ],
+    "tags": [
+      "RogueWolfGun",
+      "abstract-outcome",
+      "adventure",
+      "parameter-missing"
+    ],
+    "source_id": "21098080:RogueWolfGun",
+    "room_id": "21098080",
+    "adventure_type": "RogueWolfGun",
+    "parameter_group_id": "102",
+    "parameter_program": [],
+    "abstract_outcome": {
+      "kind": "ExternalAdventureResult",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.299900.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 299900",
+    "name_zh_cn": "RogueDestroyProp 房间 299900",
+    "summary_en": "RogueDestroyProp room 299900 binds parameter group 302002 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 299900 将参数组 302002 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "6",
+        "sha256": "e15e8d67030c35599813563f5d2ccbc5f69d2bfe5a2e48b224312812861642ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "9",
+        "sha256": "c382c1351cb363c510ffc73f35ceca4e15817afd7157125b6fbce01e7b071272",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "299900:RogueDestroyProp",
+    "room_id": "299900",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "302002",
+    "parameter_program": [
+      {
+        "ParamGroupID": "302002",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "5",
+          "10"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.299901.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 299901",
+    "name_zh_cn": "RogueDestroyProp 房间 299901",
+    "summary_en": "RogueDestroyProp room 299901 binds parameter group 302001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 299901 将参数组 302001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "5",
+        "sha256": "09c278bd1928f362d592c4da0257a220408028819255895f6900dc304ff32b8d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "8",
+        "sha256": "dc26aea6c3f6f821bd0e0bf13e8f55079775cd2cc451c3768dd130fa8b62a299",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "299901:RogueDestroyProp",
+    "room_id": "299901",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "302001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "302001",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100101.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 804100101",
+    "name_zh_cn": "RogueCaptureMonster 房间 804100101",
+    "summary_en": "RogueCaptureMonster room 804100101 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 804100101 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "22",
+        "sha256": "f69e370ac6d316933195b112170dd44589f4ef993b38c8fd0c0e853f9d5538a8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100101:RogueCaptureMonster",
+    "room_id": "804100101",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100301.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 804100301",
+    "name_zh_cn": "RogueDestroyProp 房间 804100301",
+    "summary_en": "RogueDestroyProp room 804100301 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 804100301 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "23",
+        "sha256": "dad80bc39faa5d7e0378bea866b4d3d940bd5c48f0795d17ca55117c2d965bfe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "5",
+        "sha256": "7f2cd057aef39098113b396b09884099dfa814c073d289f187808f3b1c220e63",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100301:RogueDestroyProp",
+    "room_id": "804100301",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100401.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 804100401",
+    "name_zh_cn": "RogueCaptureMonster 房间 804100401",
+    "summary_en": "RogueCaptureMonster room 804100401 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 804100401 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "24",
+        "sha256": "99ac24a927ce8ca5ca03be7f0aaa55a5dd8a342944a010b64a55a330c0fcb31a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100401:RogueCaptureMonster",
+    "room_id": "804100401",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100501.RogueDestroyProp",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueDestroyProp Room 804100501",
+    "name_zh_cn": "RogueDestroyProp 房间 804100501",
+    "summary_en": "RogueDestroyProp room 804100501 binds parameter group 301002 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueDestroyProp 房间 804100501 将参数组 301002 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "25",
+        "sha256": "93a463fbc8ccd48a6f15f1dd1f1feb801af182f4dd6eeb752151efcb503497d5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguedestroyprop-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDestroyProp.json",
+        "locator": "6",
+        "sha256": "6fe6c5cfb0cfc32ed1cdbea58dc70e5ad0e8ea946d1b5f98b0d05033fcbe581a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueDestroyProp",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100501:RogueDestroyProp",
+    "room_id": "804100501",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "301002",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301002",
+        "PrepareTime": "3",
+        "GameTime": "35",
+        "ScoreRange": [
+          "0",
+          "15",
+          "30"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100601.RogueCaptureMonster",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCaptureMonster Room 804100601",
+    "name_zh_cn": "RogueCaptureMonster 房间 804100601",
+    "summary_en": "RogueCaptureMonster room 804100601 binds parameter group 301001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCaptureMonster 房间 804100601 将参数组 301001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "26",
+        "sha256": "890d09a3133c3ff7266a990ecbffee7cf64ff7a553f14a852621fc9439104090",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "462fc2748546f4f94be739a3862c730d9ffd404cf104ab62dba3bb620fd669d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCaptureMonster",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100601:RogueCaptureMonster",
+    "room_id": "804100601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "301001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "301001",
+        "PrepareTime": "3",
+        "GameTime": "40",
+        "MonsterNum": "16",
+        "ScoreRange": [
+          "0",
+          "2000",
+          "3600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "ScoreThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100701.RogueEscapeLaser",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueEscapeLaser Room 804100701",
+    "name_zh_cn": "RogueEscapeLaser 房间 804100701",
+    "summary_en": "RogueEscapeLaser room 804100701 binds parameter group 5001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueEscapeLaser 房间 804100701 将参数组 5001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "27",
+        "sha256": "34e3e921480bb11aab672165d4a8af8180559566481cb948957debca343f1227",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueescapelaser-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueEscapeLaser.json",
+        "locator": "1",
+        "sha256": "baa8363efdd077211174d7b1f407a1399e0b0599cbd7761b7fecc1e45ef4ae1a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueEscapeLaser",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100701:RogueEscapeLaser",
+    "room_id": "804100701",
+    "adventure_type": "RogueEscapeLaser",
+    "parameter_group_id": "5001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "5001",
+        "PrepareTime": "3",
+        "GameTimeperRound": "5",
+        "TotalRounds": "6",
+        "ScoreperWave": "100",
+        "ScoreperRound": [
+          "100",
+          "200",
+          "300",
+          "400",
+          "500"
+        ],
+        "ScoreRange": [
+          "0",
+          "400",
+          "600"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundScoreSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100801.RogueWolfGun",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueWolfGun Room 804100801",
+    "name_zh_cn": "RogueWolfGun 房间 804100801",
+    "summary_en": "RogueWolfGun room 804100801 publishes unresolved parameter group 101; only the external-result boundary is retained.",
+    "summary_zh_cn": "RogueWolfGun 房间 804100801 发布未解析参数组 101；仅保留外部结果边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "28",
+        "sha256": "8c932a582906d060e8e0329af5821a82d03f2704fa95a68f608c041505a24a33",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "wolf-gun-parameter-groups",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournAdventureRoom references RogueWolfGun parameter groups 101 and 102, but no released parameter-group table identifies those programs. RogueWolfGunMiracleTarget has no parameter-group key and cannot prove the join.",
+        "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results."
+      }
+    ],
+    "tags": [
+      "RogueWolfGun",
+      "abstract-outcome",
+      "adventure",
+      "parameter-missing"
+    ],
+    "source_id": "804100801:RogueWolfGun",
+    "room_id": "804100801",
+    "adventure_type": "RogueWolfGun",
+    "parameter_group_id": "101",
+    "parameter_program": [],
+    "abstract_outcome": {
+      "kind": "ExternalAdventureResult",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100802.RogueWolfGun",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueWolfGun Room 804100802",
+    "name_zh_cn": "RogueWolfGun 房间 804100802",
+    "summary_en": "RogueWolfGun room 804100802 publishes unresolved parameter group 102; only the external-result boundary is retained.",
+    "summary_zh_cn": "RogueWolfGun 房间 804100802 发布未解析参数组 102；仅保留外部结果边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "29",
+        "sha256": "a0b63271223826f653e784260b993b4bc339a504b3a640d91e70cef7b25de6cc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "wolf-gun-parameter-groups",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournAdventureRoom references RogueWolfGun parameter groups 101 and 102, but no released parameter-group table identifies those programs. RogueWolfGunMiracleTarget has no parameter-group key and cannot prove the join.",
+        "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results."
+      }
+    ],
+    "tags": [
+      "RogueWolfGun",
+      "abstract-outcome",
+      "adventure",
+      "parameter-missing"
+    ],
+    "source_id": "804100802:RogueWolfGun",
+    "room_id": "804100802",
+    "adventure_type": "RogueWolfGun",
+    "parameter_group_id": "102",
+    "parameter_program": [],
+    "abstract_outcome": {
+      "kind": "ExternalAdventureResult",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804100901.RogueCandyCrash",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCandyCrash Room 804100901",
+    "name_zh_cn": "RogueCandyCrash 房间 804100901",
+    "summary_en": "RogueCandyCrash room 804100901 binds parameter group 4001 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCandyCrash 房间 804100901 将参数组 4001 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "30",
+        "sha256": "ff4d6bf9441de52d03cab4c49923aefdec26f98a98dc93d7081430e925f57dd6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecandycrash-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCandyCrash.json",
+        "locator": "0",
+        "sha256": "1e9aa7c6720f0e6a71b5d931027d5ce26b92e457585d7edc1846918cd88b22a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCandyCrash",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804100901:RogueCandyCrash",
+    "room_id": "804100901",
+    "adventure_type": "RogueCandyCrash",
+    "parameter_group_id": "4001",
+    "parameter_program": [
+      {
+        "ParamGroupID": "4001",
+        "PrepareTime": "3",
+        "TotalTime": "35",
+        "TotalRounds": "3",
+        "RoundRange": [
+          "0",
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.adventure-outcome.804101001.RogueCandyCrash",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAdventureOutcome",
+    "name_en": "RogueCandyCrash Room 804101001",
+    "name_zh_cn": "RogueCandyCrash 房间 804101001",
+    "summary_en": "RogueCandyCrash room 804101001 binds parameter group 4002 to 1 exact settlement program row(s).",
+    "summary_zh_cn": "RogueCandyCrash 房间 804101001 将参数组 4002 绑定到 1 条精确结算程序记录。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "31",
+        "sha256": "365d05d093d07b7f26f4a8f14d4a8cf5b9bd09b799ac39ba301f02ad84164fd0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguecandycrash-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCandyCrash.json",
+        "locator": "1",
+        "sha256": "432695316882975a3299e319b022e13d50d15cbf8cd4d3ea61085e1d6980e38b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      }
+    ],
+    "tags": [
+      "RogueCandyCrash",
+      "abstract-outcome",
+      "adventure",
+      "parameter-program"
+    ],
+    "source_id": "804101001:RogueCandyCrash",
+    "room_id": "804101001",
+    "adventure_type": "RogueCandyCrash",
+    "parameter_group_id": "4002",
+    "parameter_program": [
+      {
+        "ParamGroupID": "4002",
+        "PrepareTime": "3",
+        "TotalTime": "35",
+        "TotalRounds": "3",
+        "RoundRange": [
+          "0",
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "abstract_outcome": {
+      "kind": "RoundThresholdSettlement",
+      "input": "AcceptedExternalAdventureResult",
+      "ordered_operations": [
+        "ValidateResult",
+        "ApplyAuthoredSettlement"
+      ]
+    },
+    "action_gameplay": "Excluded",
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  }
+]

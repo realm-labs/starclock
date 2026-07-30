@@ -1,0 +1,471 @@
+{
+  "table": {
+    "name": "DivergentUniverseServiceRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "currency_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseServiceRule"
+          },
+          "name_en": {
+            "String": "Enhancing Blessings service rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福强化服务规则"
+          },
+          "ordered_operations": {
+            "String": "[\"Consume:OwnedBaseBlessing\",\"Produce:SameIdentityEnhancedBlessing\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"currency_id\":\"divergent-universe.currency.workbench-heat\",\"fallback\":\"RejectWithoutMutation\",\"ordered_operations\":[\"Consume:OwnedBaseBlessing\",\"Produce:SameIdentityEnhancedBlessing\"],\"price\":\"UnspecifiedAmount\",\"runtime_lowered\":false,\"service_kind\":\"BuffEnhance\"}"
+          },
+          "price": {
+            "String": "UnspecifiedAmount"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "service_kind": {
+            "String": "BuffEnhance"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6848
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.service-rule.workbench.1"
+          },
+          "summary_en": {
+            "String": "BuffEnhance applies one accepted transformation and rejects if no legal target exists."
+          },
+          "summary_zh_cn": {
+            "String": "BuffEnhance 应用一次已接受转换；无合法目标时拒绝。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "buffenhance"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "currency_id": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseServiceRule"
+          },
+          "name_en": {
+            "String": "Select Weighted Curio service rule"
+          },
+          "name_zh_cn": {
+            "String": "选择加权奇物服务规则"
+          },
+          "ordered_operations": {
+            "String": "[\"Consume:OwnedWeightedCurioLoadout\",\"Produce:AdjustedWeightedCurioLoadout\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"currency_id\":\"\",\"fallback\":\"RejectWithoutMutation\",\"ordered_operations\":[\"Consume:OwnedWeightedCurioLoadout\",\"Produce:AdjustedWeightedCurioLoadout\"],\"price\":\"Unspecified\",\"runtime_lowered\":false,\"service_kind\":\"HexEquipment\"}"
+          },
+          "price": {
+            "String": "Unspecified"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "service_kind": {
+            "String": "HexEquipment"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6853
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.service-rule.workbench.11"
+          },
+          "summary_en": {
+            "String": "HexEquipment applies one accepted transformation and rejects if no legal target exists."
+          },
+          "summary_zh_cn": {
+            "String": "HexEquipment 应用一次已接受转换；无合法目标时拒绝。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "hexequipment"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "currency_id": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseServiceRule"
+          },
+          "name_en": {
+            "String": "Overwrite Blessing service rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福覆写服务规则"
+          },
+          "ordered_operations": {
+            "String": "[\"Consume:OwnedBlessing\",\"Produce:DifferentBlessing\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"currency_id\":\"\",\"fallback\":\"RejectWithoutMutation\",\"ordered_operations\":[\"Consume:OwnedBlessing\",\"Produce:DifferentBlessing\"],\"price\":\"IncreasesWithAcceptedOverwriteCount\",\"runtime_lowered\":false,\"service_kind\":\"BuffReforge\"}"
+          },
+          "price": {
+            "String": "IncreasesWithAcceptedOverwriteCount"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "service_kind": {
+            "String": "BuffReforge"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6849
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.service-rule.workbench.2"
+          },
+          "summary_en": {
+            "String": "BuffReforge applies one accepted transformation and rejects if no legal target exists."
+          },
+          "summary_zh_cn": {
+            "String": "BuffReforge 应用一次已接受转换；无合法目标时拒绝。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "buffreforge"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "currency_id": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseServiceRule"
+          },
+          "name_en": {
+            "String": "Overwrite Equation service rule"
+          },
+          "name_zh_cn": {
+            "String": "方程覆写服务规则"
+          },
+          "ordered_operations": {
+            "String": "[\"Consume:OwnedEquation\",\"Produce:DifferentEquationOfIdenticalQuality\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"currency_id\":\"\",\"fallback\":\"RejectWithoutMutation\",\"ordered_operations\":[\"Consume:OwnedEquation\",\"Produce:DifferentEquationOfIdenticalQuality\"],\"price\":\"IncreasesWithAcceptedOverwriteCount\",\"runtime_lowered\":false,\"service_kind\":\"FormulaReforge\"}"
+          },
+          "price": {
+            "String": "IncreasesWithAcceptedOverwriteCount"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "service_kind": {
+            "String": "FormulaReforge"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6850
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.service-rule.workbench.3"
+          },
+          "summary_en": {
+            "String": "FormulaReforge applies one accepted transformation and rejects if no legal target exists."
+          },
+          "summary_zh_cn": {
+            "String": "FormulaReforge 应用一次已接受转换；无合法目标时拒绝。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formulareforge"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "currency_id": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseServiceRule"
+          },
+          "name_en": {
+            "String": "Curio Synthesize service rule"
+          },
+          "name_zh_cn": {
+            "String": "奇物合成服务规则"
+          },
+          "ordered_operations": {
+            "String": "[\"Consume:EqualRarityCurios\",\"Produce:RandomCurioOfSameOrHigherRarity\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"currency_id\":\"\",\"fallback\":\"RejectWithoutMutation\",\"ordered_operations\":[\"Consume:EqualRarityCurios\",\"Produce:RandomCurioOfSameOrHigherRarity\"],\"price\":\"UnspecifiedInputCount\",\"runtime_lowered\":false,\"service_kind\":\"MiracleCompose\"}"
+          },
+          "price": {
+            "String": "UnspecifiedInputCount"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "service_kind": {
+            "String": "MiracleCompose"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6851
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.service-rule.workbench.4"
+          },
+          "summary_en": {
+            "String": "MiracleCompose applies one accepted transformation and rejects if no legal target exists."
+          },
+          "summary_zh_cn": {
+            "String": "MiracleCompose 应用一次已接受转换；无合法目标时拒绝。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "miraclecompose"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "currency_id": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseServiceRule"
+          },
+          "name_en": {
+            "String": "Overwrite Weighted Curios service rule"
+          },
+          "name_zh_cn": {
+            "String": "加权奇物覆写服务规则"
+          },
+          "ordered_operations": {
+            "String": "[\"Consume:OwnedWeightedCurio\",\"Produce:DifferentWeightedCurio\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"currency_id\":\"\",\"fallback\":\"RejectWithoutMutation\",\"ordered_operations\":[\"Consume:OwnedWeightedCurio\",\"Produce:DifferentWeightedCurio\"],\"price\":\"UnspecifiedAmount\",\"runtime_lowered\":false,\"service_kind\":\"MiracleReforge\"}"
+          },
+          "price": {
+            "String": "UnspecifiedAmount"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "service_kind": {
+            "String": "MiracleReforge"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6852
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.service-rule.workbench.5"
+          },
+          "summary_en": {
+            "String": "MiracleReforge applies one accepted transformation and rejects if no legal target exists."
+          },
+          "summary_zh_cn": {
+            "String": "MiracleReforge 应用一次已接受转换；无合法目标时拒绝。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "miraclereforge"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

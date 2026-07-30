@@ -1,0 +1,5054 @@
+[
+  {
+    "id": "divergent-universe.titan-boon.10101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Connected Infinite Gates",
+    "name_zh_cn": "万径相连",
+    "summary_en": "Level 1 Ianos Boon bound to pre-battle StageAbility StageAbility_634020.",
+    "summary_zh_cn": "Ianos 的 1 级祝颂，绑定战前 StageAbility StageAbility_634020。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "0",
+        "sha256": "56f083d3b1fa19109745fc45ab4b569b9f62c4a886999076ddbf5ba79de44872",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1222",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1222",
+        "sha256": "0a775f36b4fc1866d07557e0bb458c9e63f48d80259f946e12a71ddba484c0bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-1"
+    ],
+    "source_id": "10101",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 1,
+    "maze_buff_id": "634020",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634020",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634020",
+    "parameters": [
+      "0.25"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.10201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "A Fairytale About Dawn",
+    "name_zh_cn": "童话，关于黎明",
+    "summary_en": "Level 2 Ianos Boon bound to pre-battle StageAbility StageAbility_634021.",
+    "summary_zh_cn": "Ianos 的 2 级祝颂，绑定战前 StageAbility StageAbility_634021。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "1",
+        "sha256": "0994da768afe7b1ca9e3929985ad4cd20d7ca8ad54a35e711eb78ffbeebd906a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1223",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1223",
+        "sha256": "1e11b64571a4037c72b9dac2648054c276fd107a98aa1b940015e79cf5ed50b5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-2"
+    ],
+    "source_id": "10201",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 2,
+    "maze_buff_id": "634021",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634021",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634021",
+    "parameters": [
+      "0.25",
+      "0.2"
+    ],
+    "authored_ratio": "50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.10202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "A Fairytale About The Past",
+    "name_zh_cn": "童话，关于往昔",
+    "summary_en": "Level 2 Ianos Boon bound to pre-battle StageAbility StageAbility_634022.",
+    "summary_zh_cn": "Ianos 的 2 级祝颂，绑定战前 StageAbility StageAbility_634022。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "2",
+        "sha256": "34a462ee1e3fb1a5a80db840ae3c2b7f434fb4bb68c030b194df2e8e3ce826c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1224",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1224",
+        "sha256": "8b25098c37ab0abd6a2df01c1ed469e2605d586dd08f2be68ce12b7209541eca",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-2"
+    ],
+    "source_id": "10202",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 2,
+    "maze_buff_id": "634022",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634022",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634022",
+    "parameters": [
+      "0.5"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.10203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "A Fairytale About Us",
+    "name_zh_cn": "童话，关于我们",
+    "summary_en": "Level 2 Ianos Boon bound to pre-battle StageAbility StageAbility_634023.",
+    "summary_zh_cn": "Ianos 的 2 级祝颂，绑定战前 StageAbility StageAbility_634023。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "3",
+        "sha256": "d835101bef11dc6c378d55616dd34d310947a2edc5dc8d0644deeee79864a66c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1225",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1225",
+        "sha256": "29cc1437307228adad66f9f50d5b8a7c485d3e1bf1fd49c6f7521d3e2957390a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-2"
+    ],
+    "source_id": "10203",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 2,
+    "maze_buff_id": "634023",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634023",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634023",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.10301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "A Prophecy Bringing Strife",
+    "name_zh_cn": "预言，带来纷争",
+    "summary_en": "Level 3 Ianos Boon bound to pre-battle StageAbility StageAbility_634026.",
+    "summary_zh_cn": "Ianos 的 3 级祝颂，绑定战前 StageAbility StageAbility_634026。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "4",
+        "sha256": "135c3f32842df4b968131c52b7d526b88525eb6818aee93660285fde805f059d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1226",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1226",
+        "sha256": "08649dc8aff1eaab8ed74bbde772aa05e59c033f0a5e0e240832770e8a630592",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-3"
+    ],
+    "source_id": "10301",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 3,
+    "maze_buff_id": "634026",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634026",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634026",
+    "parameters": [
+      "0.25",
+      "0.25"
+    ],
+    "authored_ratio": "50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.10302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "A Prophecy Leaving Hope",
+    "name_zh_cn": "预言，留下希望",
+    "summary_en": "Level 3 Ianos Boon bound to pre-battle StageAbility StageAbility_634027.",
+    "summary_zh_cn": "Ianos 的 3 级祝颂，绑定战前 StageAbility StageAbility_634027。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "5",
+        "sha256": "6504b750b982d9c608515e7eee3d8769cfdaea15211128ca2e9c8e186bbeb448",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1227",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1227",
+        "sha256": "3527e2d27af7b3708847fa858ac5974a50fca89e0dfa3e46769a1436cd15b175",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-3"
+    ],
+    "source_id": "10302",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 3,
+    "maze_buff_id": "634027",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634027",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634027",
+    "parameters": [
+      "0.06",
+      "10"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.10303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "A Prophecy Continuing Myths",
+    "name_zh_cn": "预言，再续神话",
+    "summary_en": "Level 3 Ianos Boon bound to pre-battle StageAbility StageAbility_634028.",
+    "summary_zh_cn": "Ianos 的 3 级祝颂，绑定战前 StageAbility StageAbility_634028。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "6",
+        "sha256": "eef2891bf9f2e80d992b84c3c7c26406dafdcc67c05721a5f24ee4fec9a177c3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1228",
+        "sha256": "45afa7cf8017d80e18ddb71fb7f43c3bf7aa4d7a65ea38a8631064f32c4bdad9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "ianos",
+      "level-3"
+    ],
+    "source_id": "10303",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 3,
+    "maze_buff_id": "634028",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634028",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634028",
+    "parameters": [
+      "0.04",
+      "0.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.10303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Phantom Strider",
+    "name_zh_cn": "捷足飞贼",
+    "summary_en": "Level 1 Zagreus Boon bound to pre-battle StageAbility StageAbility_634060.",
+    "summary_zh_cn": "Zagreus 的 1 级祝颂，绑定战前 StageAbility StageAbility_634060。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "7",
+        "sha256": "52858a7a505138fe4e0a7b17513d49ec10ceedadeba2f02dd36d7e6eeb5df099",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1328",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1328",
+        "sha256": "206f752e14f58b153bc904ddf2ec0d51d80f361eef7bd9aeeb1193254978fb55",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "zagreus"
+    ],
+    "source_id": "11101",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 1,
+    "maze_buff_id": "634060",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634060",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634060",
+    "parameters": [
+      "50",
+      "0.3",
+      "0.1"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Unblinking in Lies",
+    "name_zh_cn": "扯谎不眨眼",
+    "summary_en": "Level 2 Zagreus Boon bound to pre-battle StageAbility StageAbility_634061.",
+    "summary_zh_cn": "Zagreus 的 2 级祝颂，绑定战前 StageAbility StageAbility_634061。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "8",
+        "sha256": "95b571f1fd69f46ff14dc06fe72ca04d84d66d575329488b2abeed2cd40ee4e7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1329",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1329",
+        "sha256": "f6d7279cb2a573d12ac70de871ff7fb695ba5c7419b5dffadcf1efff66cb993a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "zagreus"
+    ],
+    "source_id": "11201",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 2,
+    "maze_buff_id": "634061",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634061",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634061",
+    "parameters": [
+      "0.25",
+      "35"
+    ],
+    "authored_ratio": "-50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Unflinching in Tricks",
+    "name_zh_cn": "行骗不露怯",
+    "summary_en": "Level 2 Zagreus Boon bound to pre-battle StageAbility StageAbility_634062.",
+    "summary_zh_cn": "Zagreus 的 2 级祝颂，绑定战前 StageAbility StageAbility_634062。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "9",
+        "sha256": "eeda41dd09969f93fc912f51009c82e9e4a2e1518cb15d1e55e8e59d299283db",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1250",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1250",
+        "sha256": "13d98ddeaf308f631bdf93610c9dbfeb3386446d3392815d8536a04a8ae6c676",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "zagreus"
+    ],
+    "source_id": "11202",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 2,
+    "maze_buff_id": "634062",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634062",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634062",
+    "parameters": [
+      "500",
+      "0.8"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Perfect in Fraud",
+    "name_zh_cn": "诈窃不留痕",
+    "summary_en": "Level 2 Zagreus Boon bound to pre-battle StageAbility StageAbility_634063.",
+    "summary_zh_cn": "Zagreus 的 2 级祝颂，绑定战前 StageAbility StageAbility_634063。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "10",
+        "sha256": "43f01ce7e54d8b9a0f244269ebdf5757ff3687b3d89bf8ebcaf7447a0e93da87",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1330",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1330",
+        "sha256": "eef41d99426ac950dd80124fbbc3d4d425e8f8a1f0f650ee17ca85c66a7ed4fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "zagreus"
+    ],
+    "source_id": "11203",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 2,
+    "maze_buff_id": "634063",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634063",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634063",
+    "parameters": [
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Long Night Blesses Thieves",
+    "name_zh_cn": "长夜利好偷儿",
+    "summary_en": "Level 3 Zagreus Boon bound to pre-battle StageAbility StageAbility_634066.",
+    "summary_zh_cn": "Zagreus 的 3 级祝颂，绑定战前 StageAbility StageAbility_634066。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "11",
+        "sha256": "a779a16aa34c348069dc9ee4763ed32c9db7af79ac96ba399ef0569cd715f132",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1251",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1251",
+        "sha256": "9137d5e16e2ae7ca5a73eebe997ee1cbeb9098064b214e640b8a44a65890a3ac",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "zagreus"
+    ],
+    "source_id": "11301",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 3,
+    "maze_buff_id": "634066",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634066",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634066",
+    "parameters": [
+      "0.25",
+      "0.4"
+    ],
+    "authored_ratio": "-50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Sealed Vault Welcomes Traitors",
+    "name_zh_cn": "宝库难防家贼",
+    "summary_en": "Level 3 Zagreus Boon bound to pre-battle StageAbility StageAbility_634067.",
+    "summary_zh_cn": "Zagreus 的 3 级祝颂，绑定战前 StageAbility StageAbility_634067。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "12",
+        "sha256": "b46f5b845d8c1d57878ad5620ea71152f2904ebfb1e0002f3e5510c091274463",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1331",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1331",
+        "sha256": "46d0873e5cbd199ee92e3ef042b2806dfd531eef1af023fd25c5dcf97e86a888",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "zagreus"
+    ],
+    "source_id": "11302",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 3,
+    "maze_buff_id": "634067",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634067",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634067",
+    "parameters": [
+      "100"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.11303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Even Lies Require Skill",
+    "name_zh_cn": "谎言亦需雕琢",
+    "summary_en": "Level 3 Zagreus Boon bound to pre-battle StageAbility StageAbility_634068.",
+    "summary_zh_cn": "Zagreus 的 3 级祝颂，绑定战前 StageAbility StageAbility_634068。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "13",
+        "sha256": "324ffcc08626e01f9c029b01260c8296fd6713b0d300dd586f43d8d7e03f7ac8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1252",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1252",
+        "sha256": "af500548653391fe91cc43b2e53e6d33c226d678d6ec8eebe5a255ec8dbb3159",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "zagreus"
+    ],
+    "source_id": "11303",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 3,
+    "maze_buff_id": "634068",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634068",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634068",
+    "parameters": [
+      "0.4"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.11303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Crowned in Blood",
+    "name_zh_cn": "沐血而冠",
+    "summary_en": "Level 1 Nikadory Boon bound to pre-battle StageAbility StageAbility_634040.",
+    "summary_zh_cn": "Nikadory 的 1 级祝颂，绑定战前 StageAbility StageAbility_634040。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "14",
+        "sha256": "da945081d56eaf94137fe8cfea376ad0e7df5c1fbe10d00d7986f651dfc20a8e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1236",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1236",
+        "sha256": "9beb86be84b7343cdc627b5775cf9455a18ee93f677ef11aa2ce64f22d69f861",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "nikadory"
+    ],
+    "source_id": "12101",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 1,
+    "maze_buff_id": "634040",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634040",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634040",
+    "parameters": [
+      "0.5",
+      "0.2",
+      "0.25"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Lance of Divine Fury",
+    "name_zh_cn": "矛为神怒",
+    "summary_en": "Level 2 Nikadory Boon bound to pre-battle StageAbility StageAbility_634041.",
+    "summary_zh_cn": "Nikadory 的 2 级祝颂，绑定战前 StageAbility StageAbility_634041。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "15",
+        "sha256": "b85a51bb7c9030287a9457c2b2fca40b9e5d64bbd08eeb624651a402feacc36b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1237",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1237",
+        "sha256": "c64c1e0b0f84a525c75fec03fb9b302e859df05b49bbadba78ed1b6f871c256b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "nikadory"
+    ],
+    "source_id": "12201",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 2,
+    "maze_buff_id": "634041",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634041",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634041",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Blade of Human Rage",
+    "name_zh_cn": "剑为人怨",
+    "summary_en": "Level 2 Nikadory Boon bound to pre-battle StageAbility StageAbility_634042.",
+    "summary_zh_cn": "Nikadory 的 2 级祝颂，绑定战前 StageAbility StageAbility_634042。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "16",
+        "sha256": "7c9b455dbf2ccc0ba14cf8afc67293165a29dd94280989038588241bf73cc36e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1238",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1238",
+        "sha256": "3d1c854e26d157165d5bc634d60410b915c65e2978660a141c16296eb3c7cb27",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "nikadory"
+    ],
+    "source_id": "12202",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 2,
+    "maze_buff_id": "634042",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634042",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634042",
+    "parameters": [
+      "0.4",
+      "0.3"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Shield of Triumphant Return",
+    "name_zh_cn": "盾为凯旋",
+    "summary_en": "Level 2 Nikadory Boon bound to pre-battle StageAbility StageAbility_634043.",
+    "summary_zh_cn": "Nikadory 的 2 级祝颂，绑定战前 StageAbility StageAbility_634043。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "17",
+        "sha256": "9aeb1927e22913e967bb70ac95cb18314eee2a1b0d3098e9b568f49d50890097",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1239",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1239",
+        "sha256": "6856c268ed2ffe63c48ee2be69d54803a44f74d771ab476073c88964c81210b4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "nikadory"
+    ],
+    "source_id": "12203",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 2,
+    "maze_buff_id": "634043",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634043",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634043",
+    "parameters": [
+      "0.25",
+      "1",
+      "5",
+      "0.3"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Slay the Thousand Foes",
+    "name_zh_cn": "弑杀，万千仇敌",
+    "summary_en": "Level 3 Nikadory Boon bound to pre-battle StageAbility StageAbility_634046.",
+    "summary_zh_cn": "Nikadory 的 3 级祝颂，绑定战前 StageAbility StageAbility_634046。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "18",
+        "sha256": "cce5b608956d30def60a2ad5879e5a679be34d8cea923c4bda5d157cd5641d33",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1240",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1240",
+        "sha256": "f68d541a008792c7a98c5ac8f8bbf76fff50a8e9cf85408061b88e40ca93238f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "nikadory"
+    ],
+    "source_id": "12301",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 3,
+    "maze_buff_id": "634046",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634046",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634046",
+    "parameters": [
+      "0.25",
+      "0.4"
+    ],
+    "authored_ratio": "-50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Slay the Honorless Tyrant",
+    "name_zh_cn": "弑杀，无道暴君",
+    "summary_en": "Level 3 Nikadory Boon bound to pre-battle StageAbility StageAbility_634047.",
+    "summary_zh_cn": "Nikadory 的 3 级祝颂，绑定战前 StageAbility StageAbility_634047。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "19",
+        "sha256": "d4b3297d9a8618c51d031b25a06db93770c75a5ff5aed19b9cf45c14fe3eb261",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1241",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1241",
+        "sha256": "cdeea75a55338940303be471816aa9efcc2b20e4dd0fb53bc8da6a355861a83d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "nikadory"
+    ],
+    "source_id": "12302",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 3,
+    "maze_buff_id": "634047",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634047",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634047",
+    "parameters": [
+      "0.01",
+      "0.01",
+      "0.4",
+      "0.4"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.12303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Slay the Maddened God",
+    "name_zh_cn": "弑杀，狂乱神明",
+    "summary_en": "Level 3 Nikadory Boon bound to pre-battle StageAbility StageAbility_634048.",
+    "summary_zh_cn": "Nikadory 的 3 级祝颂，绑定战前 StageAbility StageAbility_634048。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "20",
+        "sha256": "d9cc6738a97a0e4fe918422680c17dcee79d8620fa6a36b609f59cdc0db25177",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1242",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1242",
+        "sha256": "7055cac9cb562397bc5d6b51e844182354d5752f2fb733197af0dabf319119ce",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "nikadory"
+    ],
+    "source_id": "12303",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 3,
+    "maze_buff_id": "634048",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634048",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634048",
+    "parameters": [
+      "0.16"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.12303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Meeting Death's Palm",
+    "name_zh_cn": "与死合掌",
+    "summary_en": "Level 1 Xenatos Boon bound to pre-battle StageAbility StageAbility_634030.",
+    "summary_zh_cn": "Xenatos 的 1 级祝颂，绑定战前 StageAbility StageAbility_634030。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "21",
+        "sha256": "f4a32b233d1c5b204a2f65e1ea9702ed71f97035c920ab13af52ca7572b44582",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1229",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1229",
+        "sha256": "0ee60f72023ff873f77b75608531447d1d7adafd300d986580aacf70c8863108",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "xenatos"
+    ],
+    "source_id": "13101",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 1,
+    "maze_buff_id": "634030",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634030",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634030",
+    "parameters": [
+      "0.3",
+      "0.5"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Fated to Decay",
+    "name_zh_cn": "终凋零的",
+    "summary_en": "Level 2 Xenatos Boon bound to pre-battle StageAbility StageAbility_634031.",
+    "summary_zh_cn": "Xenatos 的 2 级祝颂，绑定战前 StageAbility StageAbility_634031。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "22",
+        "sha256": "96592d127bd83a7133b9724e90399d0af1e8385bdfa6a02a67974c4b224e26e1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1230",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1230",
+        "sha256": "18d2527c30dd00cf9e2130fc6cfc066cd45f7d1e6bcabf2221d1e90150561591",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "xenatos"
+    ],
+    "source_id": "13201",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 2,
+    "maze_buff_id": "634031",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634031",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634031",
+    "parameters": [
+      "0.25",
+      "0.4"
+    ],
+    "authored_ratio": "-50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Fated to Wither",
+    "name_zh_cn": "终枯萎的",
+    "summary_en": "Level 2 Xenatos Boon bound to pre-battle StageAbility StageAbility_634032.",
+    "summary_zh_cn": "Xenatos 的 2 级祝颂，绑定战前 StageAbility StageAbility_634032。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "23",
+        "sha256": "1ac350e37a2227fb0000e2f77211b6960423bf69da1da2459d1f2830d9ce5117",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1231",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1231",
+        "sha256": "123d74a17ff086491a81febd119ac64bfe54da06fbf0bbe998493a72910999c0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "xenatos"
+    ],
+    "source_id": "13202",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 2,
+    "maze_buff_id": "634032",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634032",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634032",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Fated to Perish",
+    "name_zh_cn": "终逝去的",
+    "summary_en": "Level 2 Xenatos Boon bound to pre-battle StageAbility StageAbility_634033.",
+    "summary_zh_cn": "Xenatos 的 2 级祝颂，绑定战前 StageAbility StageAbility_634033。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "24",
+        "sha256": "cd7a679c0ea247d28a8f5d5ce3e359351779a141880189c586598b751d00ca57",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1232",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1232",
+        "sha256": "41d9c327e1c12d3e039c4d6b58d08b943003cf40b126245f4ee6d9dc0f7c926b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "xenatos"
+    ],
+    "source_id": "13203",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 2,
+    "maze_buff_id": "634033",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634033",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634033",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Blooms Before Unnamed Graves",
+    "name_zh_cn": "荒冢前的繁花",
+    "summary_en": "Level 3 Xenatos Boon bound to pre-battle StageAbility StageAbility_634036.",
+    "summary_zh_cn": "Xenatos 的 3 级祝颂，绑定战前 StageAbility StageAbility_634036。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "25",
+        "sha256": "85cc79ebe356c7fc05ccec3528d28611e587894dff7cfcf45d3cc24dc9aa22af",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1233",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1233",
+        "sha256": "7c64645a61e4e4800a7964e798801e47beed3871bcf38295ef1f3cae40479fca",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "xenatos"
+    ],
+    "source_id": "13301",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 3,
+    "maze_buff_id": "634036",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634036",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634036",
+    "parameters": [
+      "0.25",
+      "0.45"
+    ],
+    "authored_ratio": "-50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "New Sprout on Dead Branch",
+    "name_zh_cn": "枯枝发的新芽",
+    "summary_en": "Level 3 Xenatos Boon bound to pre-battle StageAbility StageAbility_634037.",
+    "summary_zh_cn": "Xenatos 的 3 级祝颂，绑定战前 StageAbility StageAbility_634037。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "26",
+        "sha256": "f0f36194e020c601c560910090d801723e5da94cd4bb7aa5a17a6f256159de89",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1234",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1234",
+        "sha256": "c04509f673b65af5e79b914868d5b77308c0c2028f1f4cc517d6f1778ade2850",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "xenatos"
+    ],
+    "source_id": "13302",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 3,
+    "maze_buff_id": "634037",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634037",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634037",
+    "parameters": [
+      "0.5",
+      "0.05",
+      "0.65"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.13303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Butterflies on the Returning Road",
+    "name_zh_cn": "归途上的蝴蝶",
+    "summary_en": "Level 3 Xenatos Boon bound to pre-battle StageAbility StageAbility_634038.",
+    "summary_zh_cn": "Xenatos 的 3 级祝颂，绑定战前 StageAbility StageAbility_634038。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "27",
+        "sha256": "dd556534b235777334fe4db79c622b9835c50c0c2db80eefb05a340ec0e67c81",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1235",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1235",
+        "sha256": "c4e30e914aa820db499675d2e405d3ddcfa645257e462811043582db2fb2b00d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "xenatos"
+    ],
+    "source_id": "13303",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 3,
+    "maze_buff_id": "634038",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634038",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634038",
+    "parameters": [
+      "0.02",
+      "0.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.13303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Dreamlike Goldweaver",
+    "name_zh_cn": "金织如梦",
+    "summary_en": "Level 1 Moneta Boon bound to pre-battle StageAbility StageAbility_634010.",
+    "summary_zh_cn": "Moneta 的 1 级祝颂，绑定战前 StageAbility StageAbility_634010。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "28",
+        "sha256": "33d6329e0fe3ceeaf2525e435466cb8df120752e2558f0f320b03497364c7224",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1215",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1215",
+        "sha256": "c634d1893c8eafa5bdb6c7b73652ca029fe153b9048a62b474058229752a7651",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "moneta"
+    ],
+    "source_id": "14101",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 1,
+    "maze_buff_id": "634010",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634010",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634010",
+    "parameters": [
+      "8",
+      "0.4"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Flawless Finery",
+    "name_zh_cn": "无缺的华服",
+    "summary_en": "Level 2 Moneta Boon bound to pre-battle StageAbility StageAbility_634011.",
+    "summary_zh_cn": "Moneta 的 2 级祝颂，绑定战前 StageAbility StageAbility_634011。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "29",
+        "sha256": "fb3c5ac8bbe0b35666bb56a7c4c66fbd16ce21a83ebed63c7b8ed84eb5de955a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1216",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1216",
+        "sha256": "6387ba8e4ae282dc4c49aaf860e7a7dcb7154743fbd7827159825090265e3e6c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "moneta"
+    ],
+    "source_id": "14201",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 2,
+    "maze_buff_id": "634011",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634011",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634011",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Rondo Finery",
+    "name_zh_cn": "轮舞的华服",
+    "summary_en": "Level 2 Moneta Boon bound to pre-battle StageAbility StageAbility_634012.",
+    "summary_zh_cn": "Moneta 的 2 级祝颂，绑定战前 StageAbility StageAbility_634012。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "30",
+        "sha256": "b0c39db383fb5775b627c0d44ec7dad2f35b2313023a45f8542fc5916c848132",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1217",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1217",
+        "sha256": "717091cffdb8b120ef3e031294f857408e4d081111aec12c71e65fc05ef2eb6c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "moneta"
+    ],
+    "source_id": "14202",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 2,
+    "maze_buff_id": "634012",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634012",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634012",
+    "parameters": [
+      "6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Bloodstained Finery",
+    "name_zh_cn": "染血的华服",
+    "summary_en": "Level 2 Moneta Boon bound to pre-battle StageAbility StageAbility_634013.",
+    "summary_zh_cn": "Moneta 的 2 级祝颂，绑定战前 StageAbility StageAbility_634013。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "31",
+        "sha256": "12a91088ac115290ff0a92963d59285ca0f867bae7241183023780e91bf1db45",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1218",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1218",
+        "sha256": "f806b78db6ddd34a21a4b1293bcfdb2b881f9bfa18cdb88aaab78b309aebfd0b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "moneta"
+    ],
+    "source_id": "14203",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 2,
+    "maze_buff_id": "634013",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634013",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634013",
+    "parameters": [
+      "8",
+      "0.5"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Weave Threads of Romance",
+    "name_zh_cn": "纺织浪漫之丝",
+    "summary_en": "Level 3 Moneta Boon bound to pre-battle StageAbility StageAbility_634016.",
+    "summary_zh_cn": "Moneta 的 3 级祝颂，绑定战前 StageAbility StageAbility_634016。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "32",
+        "sha256": "cf360e59fdf3dd998fd635f81eb3ebee736c836b0b6d7d9c3701338e99b7c3d4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1219",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1219",
+        "sha256": "c5893ce3c7a8ca91dcaa65de3f5420dfe523a12818985e643c174daeb8645459",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "moneta"
+    ],
+    "source_id": "14301",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 3,
+    "maze_buff_id": "634016",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634016",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634016",
+    "parameters": [
+      "0.25",
+      "0.3"
+    ],
+    "authored_ratio": "50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Weave Threads of Beauty",
+    "name_zh_cn": "纺织美丽之丝",
+    "summary_en": "Level 3 Moneta Boon bound to pre-battle StageAbility StageAbility_634017.",
+    "summary_zh_cn": "Moneta 的 3 级祝颂，绑定战前 StageAbility StageAbility_634017。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "33",
+        "sha256": "310a2b9afd6bf1e85271ef6c6ab0617964f40b8b920a232afd3f4c4020ed1d40",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1220",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1220",
+        "sha256": "74c3bd658cb298c5f49981ca869c17915fd6b58369d42248cdc2d03f811f4aab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "moneta"
+    ],
+    "source_id": "14302",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 3,
+    "maze_buff_id": "634017",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634017",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634017",
+    "parameters": [
+      "0.02",
+      "0.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.14303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Weave Threads of Fate",
+    "name_zh_cn": "纺织命运之丝",
+    "summary_en": "Level 3 Moneta Boon bound to pre-battle StageAbility StageAbility_634018.",
+    "summary_zh_cn": "Moneta 的 3 级祝颂，绑定战前 StageAbility StageAbility_634018。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "34",
+        "sha256": "faae886d268c1f0385b88fd43b5e1d819093d892ec1d9d0e8d8dffd7e7053026",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1221",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1221",
+        "sha256": "055d38935aa1aadf1434b0edea23d23c35d9932e0e2ff800fb97e6356c72caf1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "moneta"
+    ],
+    "source_id": "14303",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 3,
+    "maze_buff_id": "634018",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634018",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634018",
+    "parameters": [
+      "0.2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.14303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Endless Feasting",
+    "name_zh_cn": "无休欢宴",
+    "summary_en": "Level 1 Phageina Boon bound to pre-battle StageAbility StageAbility_634050.",
+    "summary_zh_cn": "Phageina 的 1 级祝颂，绑定战前 StageAbility StageAbility_634050。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "35",
+        "sha256": "2001b4f7c0f0ff2b9888a8e8d19e070c519a358c9a03f2a686093dd76150157b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1243",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1243",
+        "sha256": "b51c48d7bdc51e5b6f40293ed48b5e06ef9385bc23166fe5d839adcaca712b68",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "phageina"
+    ],
+    "source_id": "15101",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 1,
+    "maze_buff_id": "634050",
+    "maze_buff_level": 1,
+    "effect_ids": [
+      "61000500"
+    ],
+    "modifier_name": "ADV_StageAbility_634050",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634050",
+    "parameters": [
+      "0.25",
+      "4"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Unending Carnival",
+    "name_zh_cn": "永续的狂欢",
+    "summary_en": "Level 2 Phageina Boon bound to pre-battle StageAbility StageAbility_634051.",
+    "summary_zh_cn": "Phageina 的 2 级祝颂，绑定战前 StageAbility StageAbility_634051。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "36",
+        "sha256": "d1e479ec08fcc67420a090d1e4ae45afbd7d23ac1af61d63e9b0fcf7580df045",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1244",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1244",
+        "sha256": "a048d821007f8c04167b3bc84c21707425d72fd3232941dbbbb15f175aff3771",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "phageina"
+    ],
+    "source_id": "15201",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 2,
+    "maze_buff_id": "634051",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634051",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634051",
+    "parameters": [
+      "0.25",
+      "0.2"
+    ],
+    "authored_ratio": "50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Unwaking Slumber",
+    "name_zh_cn": "不醒的酣眠",
+    "summary_en": "Level 2 Phageina Boon bound to pre-battle StageAbility StageAbility_634052.",
+    "summary_zh_cn": "Phageina 的 2 级祝颂，绑定战前 StageAbility StageAbility_634052。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "37",
+        "sha256": "3604b501f945e99345d1a99883026bbd6b42b0811d1f31179bd0e5e4ba2de3a2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1245",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1245",
+        "sha256": "5d0e735d783e00d82ec5cdbd52ba209fc302944bd5aac6c12552567e4b7a02ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "phageina"
+    ],
+    "source_id": "15202",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 2,
+    "maze_buff_id": "634052",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634052",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634052",
+    "parameters": [
+      "1"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Unceasing Poems",
+    "name_zh_cn": "流转的诗篇",
+    "summary_en": "Level 2 Phageina Boon bound to pre-battle StageAbility StageAbility_634053.",
+    "summary_zh_cn": "Phageina 的 2 级祝颂，绑定战前 StageAbility StageAbility_634053。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "38",
+        "sha256": "b1286729bccfd34d5a17df9535166fcb140be03e9943ba775c4c66242ddb6576",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1246",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1246",
+        "sha256": "96c769ef14c06e6e002c2c3995a0198e584faae011754b74504b641083d5c62a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "phageina"
+    ],
+    "source_id": "15203",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 2,
+    "maze_buff_id": "634053",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634053",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634053",
+    "parameters": [
+      "1"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "The Besotted's Elegy",
+    "name_zh_cn": "沉醉者的挽歌",
+    "summary_en": "Level 3 Phageina Boon bound to pre-battle StageAbility StageAbility_634056.",
+    "summary_zh_cn": "Phageina 的 3 级祝颂，绑定战前 StageAbility StageAbility_634056。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "39",
+        "sha256": "925bfe2610a44f139aba8df83e88aed4246c0f4f15fecfed450f52935c48df91",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1247",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1247",
+        "sha256": "d6f9992fb0027ad0b6440cda8a2bd7c22e620346d5ff4f4685dd4339a74937da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "phageina"
+    ],
+    "source_id": "15301",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 3,
+    "maze_buff_id": "634056",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634056",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634056",
+    "parameters": [
+      "0.25",
+      "0.25"
+    ],
+    "authored_ratio": "50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "The Sorrowful's Elegy",
+    "name_zh_cn": "离愁者的挽歌",
+    "summary_en": "Level 3 Phageina Boon bound to pre-battle StageAbility StageAbility_634057.",
+    "summary_zh_cn": "Phageina 的 3 级祝颂，绑定战前 StageAbility StageAbility_634057。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "40",
+        "sha256": "0122e858ea7950e3de71a29261b230907546ce4242ae1da750da038baa495b00",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1248",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1248",
+        "sha256": "7fbb52cb4e847720cac20e0168ab1159194acf09b53c8e8dae108d7072a77e18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "phageina"
+    ],
+    "source_id": "15302",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 3,
+    "maze_buff_id": "634057",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634057",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634057",
+    "parameters": [
+      "0.05",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.15303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "The Lost's Elegy",
+    "name_zh_cn": "无归者的挽歌",
+    "summary_en": "Level 3 Phageina Boon bound to pre-battle StageAbility StageAbility_634058.",
+    "summary_zh_cn": "Phageina 的 3 级祝颂，绑定战前 StageAbility StageAbility_634058。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "41",
+        "sha256": "14e3b3e3a992b1c49954eb2ebc3edc0aa65e827cebb0cf9cf4dc66027ca48e79",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1249",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1249",
+        "sha256": "8e738c5e4a766f250db37e5450815d8d1eb7816f0bbec3dbbc3af0db3f7f4039",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "phageina"
+    ],
+    "source_id": "15303",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 3,
+    "maze_buff_id": "634058",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634058",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634058",
+    "parameters": [
+      "0.5",
+      "4"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.15303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Whispers of the Rainbow",
+    "name_zh_cn": "虹的轻语",
+    "summary_en": "Level 1 Aigle Boon bound to pre-battle StageAbility StageAbility_634080.",
+    "summary_zh_cn": "Aigle 的 1 级祝颂，绑定战前 StageAbility StageAbility_634080。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "42",
+        "sha256": "b15e0d5bb7b025e5a101d13c792ce30a94e411a6520a163bdfda779ba84f91b1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1277",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1277",
+        "sha256": "3aef6876dbdbf67381498d99d60aa9cd04bd6faf1b2717a774b0521b94ccb602",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-1"
+    ],
+    "source_id": "16101",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 1,
+    "maze_buff_id": "634080",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634080",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634080",
+    "parameters": [
+      "60",
+      "0.05",
+      "0.2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "O Rain, Hydrate All",
+    "name_zh_cn": "雨啊，润泽万物",
+    "summary_en": "Level 2 Aigle Boon bound to pre-battle StageAbility StageAbility_634081.",
+    "summary_zh_cn": "Aigle 的 2 级祝颂，绑定战前 StageAbility StageAbility_634081。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "43",
+        "sha256": "a267054771e1ba6da64ad0061f655af4a066cce6556310c3d52dd198b1fc9376",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1278",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1278",
+        "sha256": "12305ae4d21912a97a2c7847383f3fa2450b5af338ed3c27731d86b1f1d4817a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "16201",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 2,
+    "maze_buff_id": "634081",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634081",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634081",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.2",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "O Wind, Caress the Woods",
+    "name_zh_cn": "风啊，轻抚林木",
+    "summary_en": "Level 2 Aigle Boon bound to pre-battle StageAbility StageAbility_634082.",
+    "summary_zh_cn": "Aigle 的 2 级祝颂，绑定战前 StageAbility StageAbility_634082。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.44",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "44",
+        "sha256": "aa4d11777c08e165c2cf5a4e6a88e895eeeac73c6a7c25345f3d402514c149bc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1279",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1279",
+        "sha256": "4fb17b1919a7f043c9124a08001943deb2bd5070650ffe02e12f03b4c3ee0582",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "16202",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 2,
+    "maze_buff_id": "634082",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634082",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634082",
+    "parameters": [
+      "30",
+      "0.03"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "O Light, Illuminate the Pure Land",
+    "name_zh_cn": "光啊，照耀净土",
+    "summary_en": "Level 2 Aigle Boon bound to pre-battle StageAbility StageAbility_634083.",
+    "summary_zh_cn": "Aigle 的 2 级祝颂，绑定战前 StageAbility StageAbility_634083。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "45",
+        "sha256": "960833d487a9d283560496de348dc8a651b781f9023995ceb77823d1394d229b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1280",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1280",
+        "sha256": "1b69b8d4ee8b62c9019cf82db85ae33d0a97f6cc54fc4957d53125b65d973c06",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "16203",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 2,
+    "maze_buff_id": "634083",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634083",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634083",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "O Lightning, Pierce the Skies",
+    "name_zh_cn": "雷霆，刺穿苍穹",
+    "summary_en": "Level 3 Aigle Boon bound to pre-battle StageAbility StageAbility_634086.",
+    "summary_zh_cn": "Aigle 的 3 级祝颂，绑定战前 StageAbility StageAbility_634086。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "46",
+        "sha256": "09c6762bfa9c0d8578fa1a4846f69db31927eb04179d4110f6d2c1d501df5349",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1281",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1281",
+        "sha256": "4c7888e9f77c319042fdb325fb972d66ec4ffebf2d0c6f3f2f05d2a8f5665ea9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "16301",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 3,
+    "maze_buff_id": "634086",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634086",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634086",
+    "parameters": [
+      "0.25",
+      "0.25"
+    ],
+    "authored_ratio": "50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "O Rainbow, Connect the Ends",
+    "name_zh_cn": "彩虹，连接彼端",
+    "summary_en": "Level 3 Aigle Boon bound to pre-battle StageAbility StageAbility_634087.",
+    "summary_zh_cn": "Aigle 的 3 级祝颂，绑定战前 StageAbility StageAbility_634087。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "47",
+        "sha256": "f94e6e583d08158854ca5f55ce60792220f75d5d3c4cf10baf70903cf74e6fc0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1282",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1282",
+        "sha256": "50bbf9ccc0e1758cd4f7b7ec23dc13c993b4be0df05047053405f2a7c2cd8712",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "16302",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 3,
+    "maze_buff_id": "634087",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634087",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634087",
+    "parameters": [
+      "0.35"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.16303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "O Sky, Gaze Upon Lives",
+    "name_zh_cn": "天空，注视众生",
+    "summary_en": "Level 3 Aigle Boon bound to pre-battle StageAbility StageAbility_634088.",
+    "summary_zh_cn": "Aigle 的 3 级祝颂，绑定战前 StageAbility StageAbility_634088。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "48",
+        "sha256": "d7ef5f91d53958272e4718f99f040b2cce1183e1f9b49e8c649298c3f295ed43",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1283",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1283",
+        "sha256": "bb7bb118bf631e761cdd94a469a0b022e181fd1dbf1cf7767fa865914096fce5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "16303",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 3,
+    "maze_buff_id": "634088",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634088",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634088",
+    "parameters": [
+      "10",
+      "0"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.16303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Factors Elucidation",
+    "name_zh_cn": "诸因解明",
+    "summary_en": "Level 1 Cerces Boon bound to pre-battle StageAbility StageAbility_634090.",
+    "summary_zh_cn": "Cerces 的 1 级祝颂，绑定战前 StageAbility StageAbility_634090。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "49",
+        "sha256": "6ca376750c45262ae6498fc41ecab9d4e7a64ad5a11bc607deeaa8168aa1ef55",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1284",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1284",
+        "sha256": "c119c1cade004d2ac621c8a9ef32d3f5270e45dca69413dc6c75101562647f18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-1"
+    ],
+    "source_id": "17101",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 1,
+    "maze_buff_id": "634090",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634090",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634090",
+    "parameters": [
+      "35",
+      "5",
+      "0.25",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Art of Cause and Effect",
+    "name_zh_cn": "因与果之术",
+    "summary_en": "Level 2 Cerces Boon bound to pre-battle StageAbility StageAbility_634091.",
+    "summary_zh_cn": "Cerces 的 2 级祝颂，绑定战前 StageAbility StageAbility_634091。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.50",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "50",
+        "sha256": "d5034155c1a6475ad0ad38d6c6f5d3b8c95b1c660d4fed5ec03719e87292b0d3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1285",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1285",
+        "sha256": "30deedb283ff5b05c3d6c01f57bec2c934f1829f41da2045cec1fd7ebdbcda01",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "17201",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 2,
+    "maze_buff_id": "634091",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634091",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634091",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.25",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Art of Soul and Flesh",
+    "name_zh_cn": "魂与肉之术",
+    "summary_en": "Level 2 Cerces Boon bound to pre-battle StageAbility StageAbility_634092.",
+    "summary_zh_cn": "Cerces 的 2 级祝颂，绑定战前 StageAbility StageAbility_634092。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.51",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "51",
+        "sha256": "633da3d040de4cadcc95b043315f8c2ff3ea264b686048e6bf6fb299f0723431",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1286",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1286",
+        "sha256": "dabc55dce5d512e8e6d2da13cee32182ff5ca4e1d7ceb7c1bb938df4ed3426ab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "17202",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 2,
+    "maze_buff_id": "634092",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634092",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634092",
+    "parameters": [
+      "45"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Art of Reason and Madness",
+    "name_zh_cn": "智与狂之术",
+    "summary_en": "Level 2 Cerces Boon bound to pre-battle StageAbility StageAbility_634093.",
+    "summary_zh_cn": "Cerces 的 2 级祝颂，绑定战前 StageAbility StageAbility_634093。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "52",
+        "sha256": "506d227c05c3671acb2bd75626cdcb68dad8c8660c5eff7b2568581a21dfed31",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1287",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1287",
+        "sha256": "075150e0bd0b388dc1e2aa943192ab446a633c6362d972afb3abce11fda8f425",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "17203",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 2,
+    "maze_buff_id": "634093",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634093",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634093",
+    "parameters": [
+      "5",
+      "1",
+      "0.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Profound Comprehension",
+    "name_zh_cn": "乃通达至理",
+    "summary_en": "Level 3 Cerces Boon bound to pre-battle StageAbility StageAbility_634096.",
+    "summary_zh_cn": "Cerces 的 3 级祝颂，绑定战前 StageAbility StageAbility_634096。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.53",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "53",
+        "sha256": "5075cff947e1d59b3e85cf675af1434c54689e3e91707bad0afb2122baab2426",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1288",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1288",
+        "sha256": "e6c85c2a7f75077bdbb14a6f1a1e798b0868fedcb9723c3e801cbc4adb7a0f38",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "17301",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 3,
+    "maze_buff_id": "634096",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634096",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634096",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.3",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Introspective Clarity",
+    "name_zh_cn": "乃明晰自我",
+    "summary_en": "Level 3 Cerces Boon bound to pre-battle StageAbility StageAbility_634097.",
+    "summary_zh_cn": "Cerces 的 3 级祝颂，绑定战前 StageAbility StageAbility_634097。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "54",
+        "sha256": "6420ea67b7fbfdc2883a95306719a2ca910a955e6543a378491eafa2791a2b34",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1289",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1289",
+        "sha256": "2bb6d84275c1cd7ede3bf89df6e79de0df51251aa681d7c57ddc9e55293a628a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "17302",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 3,
+    "maze_buff_id": "634097",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634097",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634097",
+    "parameters": [
+      "100",
+      "0.12"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.17303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Divine Dismantling",
+    "name_zh_cn": "乃解体诸神",
+    "summary_en": "Level 3 Cerces Boon bound to pre-battle StageAbility StageAbility_634098.",
+    "summary_zh_cn": "Cerces 的 3 级祝颂，绑定战前 StageAbility StageAbility_634098。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "55",
+        "sha256": "5113d322cb071d35eecc5c7689d44c6f116bc71fb3af532f4c364e340ff3502c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1290",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1290",
+        "sha256": "f500516c669374c6747320b417381c2f08ac1689ccd7d72ad0eac5c3d5f310f7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "cerces",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "17303",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 3,
+    "maze_buff_id": "634098",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634098",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634098",
+    "parameters": [
+      "3",
+      "1"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.17303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Worldbearing Sword",
+    "name_zh_cn": "负世之剑",
+    "summary_en": "Level 1 Kephale Boon bound to pre-battle StageAbility StageAbility_634070.",
+    "summary_zh_cn": "Kephale 的 1 级祝颂，绑定战前 StageAbility StageAbility_634070。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "56",
+        "sha256": "d2fe1343399c4f0a34c8efa9c3004249d9f3e3d4099e0549006c9f9bce5af7dc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1270",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1270",
+        "sha256": "80fc3a9d1cbcf14f601ecf1458e4feae0f1513e0264c491dda19b8c1a21fdfea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-1"
+    ],
+    "source_id": "18101",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 1,
+    "maze_buff_id": "634070",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634070",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634070",
+    "parameters": [
+      "1",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Departure of the Sinless",
+    "name_zh_cn": "无罪者的启程",
+    "summary_en": "Level 2 Kephale Boon bound to pre-battle StageAbility StageAbility_634071.",
+    "summary_zh_cn": "Kephale 的 2 级祝颂，绑定战前 StageAbility StageAbility_634071。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "57",
+        "sha256": "58a91fb9fa3a072fc1c4ce6a2ba7cc4688376814e26337e343a27b4f362c5e3f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1271",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1271",
+        "sha256": "de9dd19297dd8c68c4c97fcd938756c18a8fcc6a432e79e335cf56ea39b765f4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-2"
+    ],
+    "source_id": "18201",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 2,
+    "maze_buff_id": "634071",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634071",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634071",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.25",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Suffering of the Lost",
+    "name_zh_cn": "失却者的苦难",
+    "summary_en": "Level 2 Kephale Boon bound to pre-battle StageAbility StageAbility_634072.",
+    "summary_zh_cn": "Kephale 的 2 级祝颂，绑定战前 StageAbility StageAbility_634072。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.58",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "58",
+        "sha256": "718e13ee016a65b03caf1cbf5b7d1d807ec9e2a77930915530e5f7890aca5e20",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1272",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1272",
+        "sha256": "4be8e44f616f6bda89524d2e5d75f5093f6d5435371050488d5ba51b95567b98",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-2"
+    ],
+    "source_id": "18202",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 2,
+    "maze_buff_id": "634072",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634072",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634072",
+    "parameters": [
+      "0.8"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Summon of the Pathfinder",
+    "name_zh_cn": "寻道者的召唤",
+    "summary_en": "Level 2 Kephale Boon bound to pre-battle StageAbility StageAbility_634073.",
+    "summary_zh_cn": "Kephale 的 2 级祝颂，绑定战前 StageAbility StageAbility_634073。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "59",
+        "sha256": "0a92f2227e2b632386566bbc1d3beadcde7db38dcde6a372f3bc0fad5991920f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1273",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1273",
+        "sha256": "5afc687ef78df7a8b9798e0a6c12d31e8e226518d0efb3d1566844c2b90cb123",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-2"
+    ],
+    "source_id": "18203",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 2,
+    "maze_buff_id": "634073",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634073",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634073",
+    "parameters": [
+      "1.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Trial of the Worldbearer",
+    "name_zh_cn": "负世者的试炼",
+    "summary_en": "Level 3 Kephale Boon bound to pre-battle StageAbility StageAbility_634076.",
+    "summary_zh_cn": "Kephale 的 3 级祝颂，绑定战前 StageAbility StageAbility_634076。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "60",
+        "sha256": "7080997fd4284dfb3c25f42d1dc618bf86ae87da1d2f4d35b91a49d8a03f3564",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1274",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1274",
+        "sha256": "d019970ceec49a961b4d1d4ebb8eb939526ebb90dbb3ff1ce8bfc9424e8d74f5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-3"
+    ],
+    "source_id": "18301",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 3,
+    "maze_buff_id": "634076",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634076",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634076",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.3",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Transcendence of the Worldbearer",
+    "name_zh_cn": "负世者的跨越",
+    "summary_en": "Level 3 Kephale Boon bound to pre-battle StageAbility StageAbility_634077.",
+    "summary_zh_cn": "Kephale 的 3 级祝颂，绑定战前 StageAbility StageAbility_634077。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "61",
+        "sha256": "a566899e63f7c00f6d23cfe20631d966ca05657ee0a7b0184be90a91b0cdc55f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1275",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1275",
+        "sha256": "a115c8f7bc1c3921d341d71d792a575944f1ef4fbf8dca885196c2eea8186116",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-3"
+    ],
+    "source_id": "18302",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 3,
+    "maze_buff_id": "634077",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634077",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634077",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.18303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Return of the Worldbearer",
+    "name_zh_cn": "负世者的归返",
+    "summary_en": "Level 3 Kephale Boon bound to pre-battle StageAbility StageAbility_634078.",
+    "summary_zh_cn": "Kephale 的 3 级祝颂，绑定战前 StageAbility StageAbility_634078。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "62",
+        "sha256": "0fd2e440e9fe83b29029c3a2673bef7d21fac4845e4d7da8aefa0097666c8188",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1276",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1276",
+        "sha256": "0663b11043dcea5cd4a7c494130c54b54279cb13a718acb98acd601d0eb3ab53",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "kephale",
+      "level-3"
+    ],
+    "source_id": "18303",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 3,
+    "maze_buff_id": "634078",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634078",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634078",
+    "parameters": [
+      "0.16"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.18303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Gambit by the Flame",
+    "name_zh_cn": "于火执棋",
+    "summary_en": "Level 1 Talentum Boon bound to pre-battle StageAbility StageAbility_634100.",
+    "summary_zh_cn": "Talentum 的 1 级祝颂，绑定战前 StageAbility StageAbility_634100。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.63",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "63",
+        "sha256": "80d50e8329c6e0f20a4c1c8f4ebbf61d96127960674fd655befa61566abac40f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1291",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1291",
+        "sha256": "6e7b3eee3a2bdd424cbfa958aaee81575dc73fa25decbd66595c103a9a295d17",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "talentum"
+    ],
+    "source_id": "19101",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 1,
+    "maze_buff_id": "634100",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634100",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634100",
+    "parameters": [
+      "2",
+      "0.1"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Sieging Pawn",
+    "name_zh_cn": "攻城的「兵」",
+    "summary_en": "Level 2 Talentum Boon bound to pre-battle StageAbility StageAbility_634101.",
+    "summary_zh_cn": "Talentum 的 2 级祝颂，绑定战前 StageAbility StageAbility_634101。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.64",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "64",
+        "sha256": "a4be4f6b86b0e563bec35ef5b64cfbcbbeef8794755035778421ab88b45a0a91",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1292",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1292",
+        "sha256": "1f0c1e183de469d72ec7af0305e57faa05e3df36ec20152c17419d29f83cfda1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "talentum"
+    ],
+    "source_id": "19201",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 2,
+    "maze_buff_id": "634101",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634101",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634101",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.25",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Double-Crossing Bishop",
+    "name_zh_cn": "倒戈的「象」",
+    "summary_en": "Level 2 Talentum Boon bound to pre-battle StageAbility StageAbility_634102.",
+    "summary_zh_cn": "Talentum 的 2 级祝颂，绑定战前 StageAbility StageAbility_634102。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.65",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "65",
+        "sha256": "6cf017fac70be4dc1a5b077efeb6c2af8a03ecaaecb9be2fe944df6e8c84b03f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1293",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1293",
+        "sha256": "88c212193d4898a591ab405325513b444a75549a8ddc1fd29a60bbf79e0236eb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "talentum"
+    ],
+    "source_id": "19202",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 2,
+    "maze_buff_id": "634102",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634102",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634102",
+    "parameters": [
+      "0.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Rampaging Knight",
+    "name_zh_cn": "横行的「马」",
+    "summary_en": "Level 2 Talentum Boon bound to pre-battle StageAbility StageAbility_634103.",
+    "summary_zh_cn": "Talentum 的 2 级祝颂，绑定战前 StageAbility StageAbility_634103。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.66",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "66",
+        "sha256": "d7a546ea31d3e9f42bd088afd1663a213a079e650fdaef0f46a7b2acccdd0432",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1294",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1294",
+        "sha256": "d44e1259a13050ff0abf4a589942fa9e135c073b15edd7378923520930a26849",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "talentum"
+    ],
+    "source_id": "19203",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 2,
+    "maze_buff_id": "634103",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634103",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634103",
+    "parameters": [
+      "1"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Rule-Sundering King",
+    "name_zh_cn": "斩碎旧律的「王」",
+    "summary_en": "Level 3 Talentum Boon bound to pre-battle StageAbility StageAbility_634106.",
+    "summary_zh_cn": "Talentum 的 3 级祝颂，绑定战前 StageAbility StageAbility_634106。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.67",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "67",
+        "sha256": "b9484c6fc69547e9e1bba2b528e9257a15d0acbe4e559f1a06e5cb9ddb1456b7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1295",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1295",
+        "sha256": "caa0df42aa2644e328385fb8967341d8490e05ca769214f9923840bd49b3729f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "talentum"
+    ],
+    "source_id": "19301",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 3,
+    "maze_buff_id": "634106",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634106",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634106",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.3",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Arbitrating King",
+    "name_zh_cn": "衡量此世的「王」",
+    "summary_en": "Level 3 Talentum Boon bound to pre-battle StageAbility StageAbility_634107.",
+    "summary_zh_cn": "Talentum 的 3 级祝颂，绑定战前 StageAbility StageAbility_634107。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.68",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "68",
+        "sha256": "aaef74f06f99432619041d600f3820f2f7d6364d2be9dea644d53729cdf5cb0c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1296",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1296",
+        "sha256": "19d5ecd6c635690643a156bfaa30b19fa2c3fc5ca323146ea80912f38a1cccd9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "talentum"
+    ],
+    "source_id": "19302",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 3,
+    "maze_buff_id": "634107",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634107",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634107",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.19303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Fire-Crowned King",
+    "name_zh_cn": "火中戴冠的「王」",
+    "summary_en": "Level 3 Talentum Boon bound to pre-battle StageAbility StageAbility_634108.",
+    "summary_zh_cn": "Talentum 的 3 级祝颂，绑定战前 StageAbility StageAbility_634108。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.69",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "69",
+        "sha256": "1655280afa95c3cc2572956a6d675afd74d5c013eb4294ab97aebcd952b60b9f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1297",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1297",
+        "sha256": "69d1d1705a124a49379f623a368f021171ae76f76b1873424ea89038a112d4df",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "talentum"
+    ],
+    "source_id": "19303",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 3,
+    "maze_buff_id": "634108",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634108",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634108",
+    "parameters": [
+      "0.05",
+      "0.8"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.19303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Dreams of Long Night",
+    "name_zh_cn": "长夜有梦",
+    "summary_en": "Level 1 Olonyx Boon bound to pre-battle StageAbility StageAbility_634110.",
+    "summary_zh_cn": "Olonyx 的 1 级祝颂，绑定战前 StageAbility StageAbility_634110。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "70",
+        "sha256": "af1c11798664d9954b5b5cf9b9a00893cb6cf2a5d23184f0e46f7526d32092c7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1298",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1298",
+        "sha256": "ef4dec5a2f2c51ba9df2010650c8699d91a060f42356ff5ff5de3642e67e117a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-1",
+      "olonyx"
+    ],
+    "source_id": "20101",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 1,
+    "maze_buff_id": "634110",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634110",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634110",
+    "parameters": [
+      "0.05",
+      "0.4"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Silence of Dawn Stars",
+    "name_zh_cn": "晨星已缄默",
+    "summary_en": "Level 2 Olonyx Boon bound to pre-battle StageAbility StageAbility_634111.",
+    "summary_zh_cn": "Olonyx 的 2 级祝颂，绑定战前 StageAbility StageAbility_634111。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "71",
+        "sha256": "07abbd390fad88bc050707316efba27c407bd1864dc5e8a764b0a27ac771209f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1299",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1299",
+        "sha256": "e8d929f094c4c5d8d38f65ae5eb00914ff7defc83bb25560652fcb91b06a9773",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "olonyx"
+    ],
+    "source_id": "20201",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 2,
+    "maze_buff_id": "634111",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634111",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634111",
+    "parameters": [
+      "0.25",
+      "0.2"
+    ],
+    "authored_ratio": "-50",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Dwell of Night Breeze",
+    "name_zh_cn": "晚风正驻足",
+    "summary_en": "Level 2 Olonyx Boon bound to pre-battle StageAbility StageAbility_634112.",
+    "summary_zh_cn": "Olonyx 的 2 级祝颂，绑定战前 StageAbility StageAbility_634112。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "72",
+        "sha256": "298224be06a949be6cba1f263b149a188a9b02e9f14fb5f687ec45da9c28e3a3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1300",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1300",
+        "sha256": "e4e78f820a40452a0de0a97592e3eb06695baa3d81ac8bbafebaa6fb6c96da74",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "olonyx"
+    ],
+    "source_id": "20202",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 2,
+    "maze_buff_id": "634112",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634112",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634112",
+    "parameters": [
+      "0.08",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Weeping of Night Veil",
+    "name_zh_cn": "夜帷仍啜泣",
+    "summary_en": "Level 2 Olonyx Boon bound to pre-battle StageAbility StageAbility_634113.",
+    "summary_zh_cn": "Olonyx 的 2 级祝颂，绑定战前 StageAbility StageAbility_634113。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.73",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "73",
+        "sha256": "2b9b737dc757bb9977746a80d8062472a710d29c17885377bdd312e7ab9aaa33",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1301",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1301",
+        "sha256": "2013e6c91b34a3eb5ca57506bcf04f5e67403535d741b7c57152ca5a7db25aa1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-2",
+      "olonyx"
+    ],
+    "source_id": "20203",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 2,
+    "maze_buff_id": "634113",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634113",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634113",
+    "parameters": [
+      "0.18"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Dream of Futuresight",
+    "name_zh_cn": "探访未来之梦",
+    "summary_en": "Level 3 Olonyx Boon bound to pre-battle StageAbility StageAbility_634116.",
+    "summary_zh_cn": "Olonyx 的 3 级祝颂，绑定战前 StageAbility StageAbility_634116。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.74",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "74",
+        "sha256": "62e0e5075f2b7faad5f6fd09d88c4c87aee8b0b57f2cfd8e91de7533f5c382fc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1302",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1302",
+        "sha256": "2989db5e9795b0e656151ce32083aa6937586dace947893fec2d07579848b99e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "olonyx"
+    ],
+    "source_id": "20301",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 3,
+    "maze_buff_id": "634116",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634116",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634116",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.3",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Dream of Retrosight",
+    "name_zh_cn": "探访过去之梦",
+    "summary_en": "Level 3 Olonyx Boon bound to pre-battle StageAbility StageAbility_634117.",
+    "summary_zh_cn": "Olonyx 的 3 级祝颂，绑定战前 StageAbility StageAbility_634117。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.75",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "75",
+        "sha256": "78fe5a035a972e83c5c657271284d4cb29fa595ca32dc5083748adf0b2b42c4e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1303",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1303",
+        "sha256": "e9a84cb2a468b34cefe979423df2b5dba8da0dc305f74f56512c68ca0494d6b1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "olonyx"
+    ],
+    "source_id": "20302",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 3,
+    "maze_buff_id": "634117",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634117",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634117",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.20303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Dream of Atonement",
+    "name_zh_cn": "探访救赎之梦",
+    "summary_en": "Level 3 Olonyx Boon bound to pre-battle StageAbility StageAbility_634118.",
+    "summary_zh_cn": "Olonyx 的 3 级祝颂，绑定战前 StageAbility StageAbility_634118。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.76",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "76",
+        "sha256": "30aaa71f3c1de1ebb27c6e53e2a7e5d2a7eaa570ed68c3239603925ae63e6803",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1304",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1304",
+        "sha256": "b8f4f77829414587103d5ff422129ab5efc54ecef613b3d5b675a57d80141b7c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "golden-blood-boon",
+      "level-3",
+      "olonyx"
+    ],
+    "source_id": "20303",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 3,
+    "maze_buff_id": "634118",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634118",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634118",
+    "parameters": [
+      "0.15",
+      "0.6"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.20303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Seismic Upheaval",
+    "name_zh_cn": "连山掣地",
+    "summary_en": "Level 1 Georia Boon bound to pre-battle StageAbility StageAbility_634120.",
+    "summary_zh_cn": "Georia 的 1 级祝颂，绑定战前 StageAbility StageAbility_634120。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "77",
+        "sha256": "f41854f6e6068b5522f70c309f4de8d931672c174f52a28a8d09997e6a192de4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1305",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1305",
+        "sha256": "b1c34ae99a6657ea614f36b9967458ea54f3ba3d4718cd1c09a9c931b0c682b5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-1"
+    ],
+    "source_id": "21101",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 1,
+    "maze_buff_id": "634120",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634120",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634120",
+    "parameters": [
+      "0.75",
+      "0.5"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Bedrock Biter",
+    "name_zh_cn": "啃噬磐岩之牙",
+    "summary_en": "Level 2 Georia Boon bound to pre-battle StageAbility StageAbility_634121.",
+    "summary_zh_cn": "Georia 的 2 级祝颂，绑定战前 StageAbility StageAbility_634121。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "78",
+        "sha256": "d3a09f8693094413421b20fb7c3eb4af3b51015de500eb258d0fc9da1203b551",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1306",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1306",
+        "sha256": "6de35b91c9f2cfbc63577d41ff464d09dc6a0ab9dc657bfa15f4c75375c8078c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "21201",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 2,
+    "maze_buff_id": "634121",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634121",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634121",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.25",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Kindling Igniter",
+    "name_zh_cn": "点燃星火之息",
+    "summary_en": "Level 2 Georia Boon bound to pre-battle StageAbility StageAbility_634122.",
+    "summary_zh_cn": "Georia 的 2 级祝颂，绑定战前 StageAbility StageAbility_634122。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "79",
+        "sha256": "9dea9151eb4f9231cfd3b9977177aa8483284fdcb7f7b99beec9756042440cdd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1307",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1307",
+        "sha256": "6509f7baf6ae92cb76d9d41002d17581ad1dc77396e4d32f8306b7d454e82f8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "21202",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 2,
+    "maze_buff_id": "634122",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634122",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634122",
+    "parameters": [
+      "2",
+      "1",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Primeval Seer",
+    "name_zh_cn": "洞察亘古之瞳",
+    "summary_en": "Level 2 Georia Boon bound to pre-battle StageAbility StageAbility_634123.",
+    "summary_zh_cn": "Georia 的 2 级祝颂，绑定战前 StageAbility StageAbility_634123。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.80",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "80",
+        "sha256": "4a8ab6d60d02b37ff10023675e7dbb8d596c53fac5f94d8ce65da4e710a7938f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1308",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1308",
+        "sha256": "5aebe95368389a216adb5dcae94ff82edc9d6024375d38cbec63e573fabe576f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-2"
+    ],
+    "source_id": "21203",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 2,
+    "maze_buff_id": "634123",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634123",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634123",
+    "parameters": [
+      "0.03",
+      "0.24"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Terrestrial Chaser",
+    "name_zh_cn": "奔袭尘世之踵",
+    "summary_en": "Level 3 Georia Boon bound to pre-battle StageAbility StageAbility_634126.",
+    "summary_zh_cn": "Georia 的 3 级祝颂，绑定战前 StageAbility StageAbility_634126。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.81",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "81",
+        "sha256": "02d56b348dd63f5f65e4495fa827d56d52c15baacab33e50f635b24634aa1036",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1309",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1309",
+        "sha256": "f9630624535ac8721d1aaf44e9afc5432e60a2c3e0d03e6132fd305c9edc0c48",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "21301",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 3,
+    "maze_buff_id": "634126",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634126",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634126",
+    "parameters": [
+      "0.25",
+      "0.5",
+      "0.3",
+      "2"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Summit Ripper",
+    "name_zh_cn": "撕裂群山之爪",
+    "summary_en": "Level 3 Georia Boon bound to pre-battle StageAbility StageAbility_634127.",
+    "summary_zh_cn": "Georia 的 3 级祝颂，绑定战前 StageAbility StageAbility_634127。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.82",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "82",
+        "sha256": "02911f21b585cb71a26423e76e020f2a3bae2c3f006269d04d1b0e3afe8b64ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1310",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1310",
+        "sha256": "53a5bc65d441e0b33b6eddfe8dc33264a2a364be2919dc65749c2488e126edc6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "21302",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 3,
+    "maze_buff_id": "634127",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634127",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634127",
+    "parameters": [],
+    "authored_ratio": "",
+    "battle_display_categories": [
+      "Day",
+      "Night"
+    ],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-boon.21303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanBoon",
+    "name_en": "Land Mender",
+    "name_zh_cn": "填补大地之心",
+    "summary_en": "Level 3 Georia Boon bound to pre-battle StageAbility StageAbility_634128.",
+    "summary_zh_cn": "Georia 的 3 级祝颂，绑定战前 StageAbility StageAbility_634128。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.83",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "83",
+        "sha256": "ac350e583bbb61e7994a7e9de659c22ba57dc09ba97c4cb77e1fb83f6595a045",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1311",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1311",
+        "sha256": "f21f47261222bf5221c9c35377c48160918dba4c558355acdd5697b46561678e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "georia",
+      "golden-blood-boon",
+      "level-3"
+    ],
+    "source_id": "21303",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 3,
+    "maze_buff_id": "634128",
+    "maze_buff_level": 1,
+    "effect_ids": [],
+    "modifier_name": "ADV_StageAbility_634128",
+    "binding_type": "StageAbilityBeforeCharacterBorn",
+    "binding_key": "StageAbility_634128",
+    "parameters": [
+      "0.5"
+    ],
+    "authored_ratio": "",
+    "battle_display_categories": [],
+    "contribution_id": "divergent-universe.titan-contribution.boon.21303",
+    "runtime_lowered": false
+  }
+]

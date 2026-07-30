@@ -1,0 +1,174 @@
+[
+  {
+    "id": "divergent-universe.equation-transition.acquire",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationReplacementRule",
+    "name_en": "Acquire Equation",
+    "name_zh_cn": "获得方程",
+    "summary_en": "Add the accepted Equation as Unexpanded, then recompute its recipe progress.",
+    "summary_zh_cn": "将已接受方程以未展开状态加入，再重新计算配方进度。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.equation-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-transitions",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released rows define recipes and effects but not offer timing, reroll cost, replacement target order, discard carry or no-legal-candidate behavior.",
+        "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+      }
+    ],
+    "tags": [
+      "equation",
+      "project-policy",
+      "transition"
+    ],
+    "operation": "acquire",
+    "candidate_policy": "ExplicitStableIDSelection",
+    "ordered_operations": [
+      "AddUnexpandedEquation",
+      "RecomputeRecipeProgress",
+      "ActivateIfSatisfied"
+    ],
+    "preserved_state": "AllAuthoritativeStateOnRejection",
+    "no_legal_candidate": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-transition.discard",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationReplacementRule",
+    "name_en": "Discard Equation",
+    "name_zh_cn": "舍弃方程",
+    "summary_en": "Remove the explicitly selected Equation and its derived expansion state.",
+    "summary_zh_cn": "移除明确选择的方程及其派生展开状态。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.equation-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-transitions",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released rows define recipes and effects but not offer timing, reroll cost, replacement target order, discard carry or no-legal-candidate behavior.",
+        "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+      }
+    ],
+    "tags": [
+      "equation",
+      "project-policy",
+      "transition"
+    ],
+    "operation": "discard",
+    "candidate_policy": "ExplicitStableIDSelection",
+    "ordered_operations": [
+      "ValidateOwnedInput",
+      "RemoveEquation",
+      "RemoveDerivedState"
+    ],
+    "preserved_state": "AllAuthoritativeStateOnRejection",
+    "no_legal_candidate": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-transition.owned-blessing-refresh",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationReplacementRule",
+    "name_en": "Refresh Equation Contribution",
+    "name_zh_cn": "刷新方程贡献",
+    "summary_en": "After the owned Blessing set changes, recompute every Equation in stable ID order.",
+    "summary_zh_cn": "持有祝福集合变化后，按稳定 ID 顺序重新计算全部方程。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.equation-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-transitions",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released rows define recipes and effects but not offer timing, reroll cost, replacement target order, discard carry or no-legal-candidate behavior.",
+        "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+      }
+    ],
+    "tags": [
+      "equation",
+      "project-policy",
+      "transition"
+    ],
+    "operation": "owned-blessing-refresh",
+    "candidate_policy": "ExplicitStableIDSelection",
+    "ordered_operations": [
+      "SortEquationsByStableId",
+      "RecomputeRecipeProgress",
+      "ApplyStateTransitions"
+    ],
+    "preserved_state": "AllAuthoritativeStateOnRejection",
+    "no_legal_candidate": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-transition.replace",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationReplacementRule",
+    "name_en": "Replace Equation",
+    "name_zh_cn": "替换方程",
+    "summary_en": "Replace only an explicitly selected owned Equation; preserve state when no legal candidate exists.",
+    "summary_zh_cn": "仅替换明确选择的已持有方程；没有合法候选时保持状态。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.equation-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-transitions",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released rows define recipes and effects but not offer timing, reroll cost, replacement target order, discard carry or no-legal-candidate behavior.",
+        "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+      }
+    ],
+    "tags": [
+      "equation",
+      "project-policy",
+      "transition"
+    ],
+    "operation": "replace",
+    "candidate_policy": "ExplicitStableIDSelection",
+    "ordered_operations": [
+      "ValidateOwnedInput",
+      "ValidateOfferedOutput",
+      "CommitReplacement"
+    ],
+    "preserved_state": "AllAuthoritativeStateOnRejection",
+    "no_legal_candidate": "RejectWithoutMutation",
+    "runtime_lowered": false
+  }
+]

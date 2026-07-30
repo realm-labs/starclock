@@ -1,0 +1,591 @@
+[
+  {
+    "id": "divergent-universe.workbench.101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 101",
+    "name_zh_cn": "工作台 101",
+    "summary_en": "Workbench 101 exposes 2 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 101 提供 2 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "0",
+        "sha256": "1b89d933d43bd01fbbc436f86a8c727d28bf11ed6c961b426c8dd6ec78b92b9e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "101",
+    "function_ids": [
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.102",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 102",
+    "name_zh_cn": "工作台 102",
+    "summary_en": "Workbench 102 exposes 3 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 102 提供 3 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "1",
+        "sha256": "143d760b7fff3b5a23c8ce021c9bda953bd5146eae5b5fa16315e4d1e6c4d01c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "102",
+    "function_ids": [
+      "divergent-universe.workbench-function.3",
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.103",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 103",
+    "name_zh_cn": "工作台 103",
+    "summary_en": "Workbench 103 exposes 3 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 103 提供 3 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "2",
+        "sha256": "ee4e0905069565c872d839366aa34a84e1a21524aacda72b131eb9e55ce69fcd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "103",
+    "function_ids": [
+      "divergent-universe.workbench-function.3",
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.104",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 104",
+    "name_zh_cn": "工作台 104",
+    "summary_en": "Workbench 104 exposes 3 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 104 提供 3 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "3",
+        "sha256": "541cb42e9ca6956aaecd8be01b524e5b95f3ae514f06820df243703a0335efcd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "104",
+    "function_ids": [
+      "divergent-universe.workbench-function.3",
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.105",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 105",
+    "name_zh_cn": "工作台 105",
+    "summary_en": "Workbench 105 exposes 3 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 105 提供 3 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "4",
+        "sha256": "6cffd4eef92a3cc306733fdb4476df87ca2ef76ef352a9c26167b5f7a3863f5b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "105",
+    "function_ids": [
+      "divergent-universe.workbench-function.3",
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.106",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 106",
+    "name_zh_cn": "工作台 106",
+    "summary_en": "Workbench 106 exposes 2 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 106 提供 2 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "5",
+        "sha256": "d9f6c8a70698f1c0db61f17b8f30eaad64041406041ab2cd6f654b608935bead",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "106",
+    "function_ids": [
+      "divergent-universe.workbench-function.4",
+      "divergent-universe.workbench-function.5"
+    ],
+    "currency_ids": [],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.107",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 107",
+    "name_zh_cn": "工作台 107",
+    "summary_en": "Workbench 107 exposes 2 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 107 提供 2 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "6",
+        "sha256": "67444a91811fba3d1cb8a9e2491d19a480db506adaa1821fde8bcd21e90e9e8e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "107",
+    "function_ids": [
+      "divergent-universe.workbench-function.4",
+      "divergent-universe.workbench-function.5"
+    ],
+    "currency_ids": [],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.108",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 108",
+    "name_zh_cn": "工作台 108",
+    "summary_en": "Workbench 108 exposes 2 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 108 提供 2 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "7",
+        "sha256": "2fc9d73731ca8e637fd0cb821c27d97fcb1ecb2d8d9f07797e34b1306ba8edd9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "108",
+    "function_ids": [
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.109",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 109",
+    "name_zh_cn": "工作台 109",
+    "summary_en": "Workbench 109 exposes 1 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 109 提供 1 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "8",
+        "sha256": "9ea3591e6a0fbb734c4930ff6d79b875a6b3800440d59cd2c60b42ee6a29ef54",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "109",
+    "function_ids": [
+      "divergent-universe.workbench-function.11"
+    ],
+    "currency_ids": [],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.110",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 110",
+    "name_zh_cn": "工作台 110",
+    "summary_en": "Workbench 110 exposes 3 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 110 提供 3 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "9",
+        "sha256": "3cd658761a07d300ff65b3b41d227ff0f082f88e495ba223dc2f83e6b2e022df",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "110",
+    "function_ids": [
+      "divergent-universe.workbench-function.3",
+      "divergent-universe.workbench-function.2",
+      "divergent-universe.workbench-function.1"
+    ],
+    "currency_ids": [
+      "divergent-universe.currency.workbench-heat"
+    ],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench.111",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbench",
+    "name_en": "Workbench 111",
+    "name_zh_cn": "工作台 111",
+    "summary_en": "Workbench 111 exposes 1 ordered function(s); location and unlock availability are not published by this row.",
+    "summary_zh_cn": "工作台 111 提供 1 个有序功能；该行未发布地点与解锁可用性。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "10",
+        "sha256": "7ebc525d6f27fa469c98760daca98def02c71c02106197254c2783f3f67dfe69",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "availability-unresolved",
+      "workbench"
+    ],
+    "source_id": "111",
+    "function_ids": [
+      "divergent-universe.workbench-function.4"
+    ],
+    "currency_ids": [],
+    "availability": "Unspecified",
+    "runtime_lowered": false
+  }
+]

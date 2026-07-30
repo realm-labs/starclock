@@ -1,0 +1,3499 @@
+{
+  "table": {
+    "name": "DivergentUniverseTitanChoices",
+    "rows": [
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 43
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Aigle level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Aigle 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.16101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.aigle\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6421
+              },
+              {
+                "Integer": 6330
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.aigle.1"
+          },
+          "summary_en": {
+            "String": "Aigle level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Aigle 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "aigle"
+              },
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 44
+              },
+              {
+                "Integer": 45
+              },
+              {
+                "Integer": 46
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Aigle level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Aigle 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.16201\",\"divergent-universe.titan-boon.16202\",\"divergent-universe.titan-boon.16203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.aigle\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6421
+              },
+              {
+                "Integer": 6331
+              },
+              {
+                "Integer": 6332
+              },
+              {
+                "Integer": 6333
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.aigle.2"
+          },
+          "summary_en": {
+            "String": "Aigle level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Aigle 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "aigle"
+              },
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 47
+              },
+              {
+                "Integer": 48
+              },
+              {
+                "Integer": 49
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Aigle level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Aigle 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.16301\",\"divergent-universe.titan-boon.16302\",\"divergent-universe.titan-boon.16303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.aigle\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6421
+              },
+              {
+                "Integer": 6334
+              },
+              {
+                "Integer": 6335
+              },
+              {
+                "Integer": 6336
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.aigle.3"
+          },
+          "summary_en": {
+            "String": "Aigle level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Aigle 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "aigle"
+              },
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 50
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Cerces level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Cerces 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.17101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.cerces\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6422
+              },
+              {
+                "Integer": 6337
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.cerces.1"
+          },
+          "summary_en": {
+            "String": "Cerces level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Cerces 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cerces"
+              },
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 52
+              },
+              {
+                "Integer": 53
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Cerces level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Cerces 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.17201\",\"divergent-universe.titan-boon.17202\",\"divergent-universe.titan-boon.17203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.cerces\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6422
+              },
+              {
+                "Integer": 6339
+              },
+              {
+                "Integer": 6340
+              },
+              {
+                "Integer": 6341
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.cerces.2"
+          },
+          "summary_en": {
+            "String": "Cerces level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Cerces 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cerces"
+              },
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 54
+              },
+              {
+                "Integer": 55
+              },
+              {
+                "Integer": 56
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Cerces level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Cerces 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.17301\",\"divergent-universe.titan-boon.17302\",\"divergent-universe.titan-boon.17303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.cerces\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6422
+              },
+              {
+                "Integer": 6342
+              },
+              {
+                "Integer": 6343
+              },
+              {
+                "Integer": 6344
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.cerces.3"
+          },
+          "summary_en": {
+            "String": "Cerces level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Cerces 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cerces"
+              },
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 78
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Georia level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Georia 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.21101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.georia\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6416
+              },
+              {
+                "Integer": 6368
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.georia.1"
+          },
+          "summary_en": {
+            "String": "Georia level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Georia 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "georia"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 79
+              },
+              {
+                "Integer": 80
+              },
+              {
+                "Integer": 81
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Georia level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Georia 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.21201\",\"divergent-universe.titan-boon.21202\",\"divergent-universe.titan-boon.21203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.georia\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6416
+              },
+              {
+                "Integer": 6369
+              },
+              {
+                "Integer": 6370
+              },
+              {
+                "Integer": 6372
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.georia.2"
+          },
+          "summary_en": {
+            "String": "Georia level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Georia 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "georia"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 82
+              },
+              {
+                "Integer": 83
+              },
+              {
+                "Integer": 84
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Georia level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Georia 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.21301\",\"divergent-universe.titan-boon.21302\",\"divergent-universe.titan-boon.21303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.georia\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6416
+              },
+              {
+                "Integer": 6373
+              },
+              {
+                "Integer": 6374
+              },
+              {
+                "Integer": 6375
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.georia.3"
+          },
+          "summary_en": {
+            "String": "Georia level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Georia 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "georia"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Ianos level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Ianos 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.10101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.ianos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6414
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.ianos.1"
+          },
+          "summary_en": {
+            "String": "Ianos level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Ianos 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "ianos"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 2
+              },
+              {
+                "Integer": 3
+              },
+              {
+                "Integer": 4
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Ianos level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Ianos 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.10201\",\"divergent-universe.titan-boon.10202\",\"divergent-universe.titan-boon.10203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.ianos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6414
+              },
+              {
+                "Integer": 6294
+              },
+              {
+                "Integer": 6305
+              },
+              {
+                "Integer": 6316
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.ianos.2"
+          },
+          "summary_en": {
+            "String": "Ianos level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Ianos 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "ianos"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              },
+              {
+                "Integer": 7
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Ianos level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Ianos 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.10301\",\"divergent-universe.titan-boon.10302\",\"divergent-universe.titan-boon.10303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.ianos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6414
+              },
+              {
+                "Integer": 6327
+              },
+              {
+                "Integer": 6338
+              },
+              {
+                "Integer": 6349
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.ianos.3"
+          },
+          "summary_en": {
+            "String": "Ianos level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Ianos 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "ianos"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 57
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Kephale level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Kephale 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.18101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.kephale\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6423
+              },
+              {
+                "Integer": 6345
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.kephale.1"
+          },
+          "summary_en": {
+            "String": "Kephale level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Kephale 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "kephale"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 58
+              },
+              {
+                "Integer": 59
+              },
+              {
+                "Integer": 60
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Kephale level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Kephale 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.18201\",\"divergent-universe.titan-boon.18202\",\"divergent-universe.titan-boon.18203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.kephale\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6423
+              },
+              {
+                "Integer": 6346
+              },
+              {
+                "Integer": 6347
+              },
+              {
+                "Integer": 6348
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.kephale.2"
+          },
+          "summary_en": {
+            "String": "Kephale level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Kephale 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "kephale"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 61
+              },
+              {
+                "Integer": 62
+              },
+              {
+                "Integer": 63
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Kephale level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Kephale 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.18301\",\"divergent-universe.titan-boon.18302\",\"divergent-universe.titan-boon.18303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.kephale\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6423
+              },
+              {
+                "Integer": 6350
+              },
+              {
+                "Integer": 6351
+              },
+              {
+                "Integer": 6352
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.kephale.3"
+          },
+          "summary_en": {
+            "String": "Kephale level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Kephale 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "kephale"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 29
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Moneta level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Moneta 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.14101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.moneta\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6413
+              },
+              {
+                "Integer": 6314
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.moneta.1"
+          },
+          "summary_en": {
+            "String": "Moneta level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Moneta 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "moneta"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 30
+              },
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 32
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Moneta level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Moneta 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.14201\",\"divergent-universe.titan-boon.14202\",\"divergent-universe.titan-boon.14203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.moneta\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6413
+              },
+              {
+                "Integer": 6315
+              },
+              {
+                "Integer": 6317
+              },
+              {
+                "Integer": 6318
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.moneta.2"
+          },
+          "summary_en": {
+            "String": "Moneta level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Moneta 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "moneta"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 34
+              },
+              {
+                "Integer": 35
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Moneta level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Moneta 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.14301\",\"divergent-universe.titan-boon.14302\",\"divergent-universe.titan-boon.14303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.moneta\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6413
+              },
+              {
+                "Integer": 6319
+              },
+              {
+                "Integer": 6320
+              },
+              {
+                "Integer": 6321
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.moneta.3"
+          },
+          "summary_en": {
+            "String": "Moneta level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Moneta 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "moneta"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Nikadory level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Nikadory 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.12101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.nikadory\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6419
+              },
+              {
+                "Integer": 6299
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.nikadory.1"
+          },
+          "summary_en": {
+            "String": "Nikadory level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Nikadory 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "nikadory"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 16
+              },
+              {
+                "Integer": 17
+              },
+              {
+                "Integer": 18
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Nikadory level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Nikadory 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.12201\",\"divergent-universe.titan-boon.12202\",\"divergent-universe.titan-boon.12203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.nikadory\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6419
+              },
+              {
+                "Integer": 6300
+              },
+              {
+                "Integer": 6301
+              },
+              {
+                "Integer": 6302
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.nikadory.2"
+          },
+          "summary_en": {
+            "String": "Nikadory level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Nikadory 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "nikadory"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 19
+              },
+              {
+                "Integer": 20
+              },
+              {
+                "Integer": 21
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Nikadory level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Nikadory 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.12301\",\"divergent-universe.titan-boon.12302\",\"divergent-universe.titan-boon.12303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.nikadory\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6419
+              },
+              {
+                "Integer": 6303
+              },
+              {
+                "Integer": 6304
+              },
+              {
+                "Integer": 6306
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.nikadory.3"
+          },
+          "summary_en": {
+            "String": "Nikadory level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Nikadory 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "nikadory"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 71
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Olonyx level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Olonyx 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.20101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.olonyx\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6424
+              },
+              {
+                "Integer": 6361
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.olonyx.1"
+          },
+          "summary_en": {
+            "String": "Olonyx level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Olonyx 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "olonyx"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 72
+              },
+              {
+                "Integer": 73
+              },
+              {
+                "Integer": 74
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Olonyx level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Olonyx 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.20201\",\"divergent-universe.titan-boon.20202\",\"divergent-universe.titan-boon.20203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.olonyx\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6424
+              },
+              {
+                "Integer": 6362
+              },
+              {
+                "Integer": 6363
+              },
+              {
+                "Integer": 6364
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.olonyx.2"
+          },
+          "summary_en": {
+            "String": "Olonyx level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Olonyx 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "olonyx"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 75
+              },
+              {
+                "Integer": 76
+              },
+              {
+                "Integer": 77
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Olonyx level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Olonyx 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.20301\",\"divergent-universe.titan-boon.20302\",\"divergent-universe.titan-boon.20303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.olonyx\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6424
+              },
+              {
+                "Integer": 6365
+              },
+              {
+                "Integer": 6366
+              },
+              {
+                "Integer": 6367
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.olonyx.3"
+          },
+          "summary_en": {
+            "String": "Olonyx level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Olonyx 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "olonyx"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 36
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Phageina level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Phageina 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.15101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.phageina\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6417
+              },
+              {
+                "Integer": 6322
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.phageina.1"
+          },
+          "summary_en": {
+            "String": "Phageina level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Phageina 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "phageina"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 37
+              },
+              {
+                "Integer": 38
+              },
+              {
+                "Integer": 39
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Phageina level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Phageina 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.15201\",\"divergent-universe.titan-boon.15202\",\"divergent-universe.titan-boon.15203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.phageina\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6417
+              },
+              {
+                "Integer": 6323
+              },
+              {
+                "Integer": 6324
+              },
+              {
+                "Integer": 6325
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.phageina.2"
+          },
+          "summary_en": {
+            "String": "Phageina level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Phageina 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "phageina"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 40
+              },
+              {
+                "Integer": 41
+              },
+              {
+                "Integer": 42
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Phageina level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Phageina 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.15301\",\"divergent-universe.titan-boon.15302\",\"divergent-universe.titan-boon.15303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.phageina\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6417
+              },
+              {
+                "Integer": 6326
+              },
+              {
+                "Integer": 6328
+              },
+              {
+                "Integer": 6329
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.phageina.3"
+          },
+          "summary_en": {
+            "String": "Phageina level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Phageina 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "phageina"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 64
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Talentum level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Talentum 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.19101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.talentum\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6415
+              },
+              {
+                "Integer": 6353
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.talentum.1"
+          },
+          "summary_en": {
+            "String": "Talentum level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Talentum 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "talentum"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 65
+              },
+              {
+                "Integer": 66
+              },
+              {
+                "Integer": 67
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Talentum level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Talentum 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.19201\",\"divergent-universe.titan-boon.19202\",\"divergent-universe.titan-boon.19203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.talentum\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6415
+              },
+              {
+                "Integer": 6354
+              },
+              {
+                "Integer": 6355
+              },
+              {
+                "Integer": 6356
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.talentum.2"
+          },
+          "summary_en": {
+            "String": "Talentum level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Talentum 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "talentum"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 68
+              },
+              {
+                "Integer": 69
+              },
+              {
+                "Integer": 70
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Talentum level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Talentum 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.19301\",\"divergent-universe.titan-boon.19302\",\"divergent-universe.titan-boon.19303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.talentum\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6415
+              },
+              {
+                "Integer": 6357
+              },
+              {
+                "Integer": 6358
+              },
+              {
+                "Integer": 6359
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.talentum.3"
+          },
+          "summary_en": {
+            "String": "Talentum level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Talentum 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "talentum"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 22
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Xenatos level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Xenatos 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.13101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.xenatos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6420
+              },
+              {
+                "Integer": 6307
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.xenatos.1"
+          },
+          "summary_en": {
+            "String": "Xenatos level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Xenatos 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "xenatos"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 23
+              },
+              {
+                "Integer": 24
+              },
+              {
+                "Integer": 25
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Xenatos level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Xenatos 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.13201\",\"divergent-universe.titan-boon.13202\",\"divergent-universe.titan-boon.13203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.xenatos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6420
+              },
+              {
+                "Integer": 6308
+              },
+              {
+                "Integer": 6309
+              },
+              {
+                "Integer": 6310
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.xenatos.2"
+          },
+          "summary_en": {
+            "String": "Xenatos level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Xenatos 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "xenatos"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 27
+              },
+              {
+                "Integer": 28
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Xenatos level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Xenatos 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.13301\",\"divergent-universe.titan-boon.13302\",\"divergent-universe.titan-boon.13303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.xenatos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6420
+              },
+              {
+                "Integer": 6311
+              },
+              {
+                "Integer": 6312
+              },
+              {
+                "Integer": 6313
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.xenatos.3"
+          },
+          "summary_en": {
+            "String": "Xenatos level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Xenatos 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "xenatos"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 8
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "TitanTypeActivated"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Zagreus level 1 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Zagreus 1 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.11101\"],\"eligibility\":\"TitanTypeActivated\",\"fallback\":\"RejectWithoutMutation\",\"level\":1,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.zagreus\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6418
+              },
+              {
+                "Integer": 6360
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.zagreus.1"
+          },
+          "summary_en": {
+            "String": "Zagreus level 1 groups 1 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Zagreus 1 级归组 1 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "zagreus"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel1Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Zagreus level 2 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Zagreus 2 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.11201\",\"divergent-universe.titan-boon.11202\",\"divergent-universe.titan-boon.11203\"],\"eligibility\":\"PriorBoonLevel1Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":2,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.zagreus\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6418
+              },
+              {
+                "Integer": 6371
+              },
+              {
+                "Integer": 6376
+              },
+              {
+                "Integer": 6295
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.zagreus.2"
+          },
+          "summary_en": {
+            "String": "Zagreus level 2 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Zagreus 2 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "zagreus"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "eligibility": {
+            "String": "PriorBoonLevel2Accepted"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "RejectWithoutMutation"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanChoice"
+          },
+          "name_en": {
+            "String": "Zagreus level 3 Boon choice"
+          },
+          "name_zh_cn": {
+            "String": "Zagreus 3 级祝颂选择"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[\"divergent-universe.titan-boon.11301\",\"divergent-universe.titan-boon.11302\",\"divergent-universe.titan-boon.11303\"],\"eligibility\":\"PriorBoonLevel2Accepted\",\"fallback\":\"RejectWithoutMutation\",\"level\":3,\"ordering\":\"StableCandidateId\",\"reroll\":\"Unspecified\",\"runtime_lowered\":false,\"selection_count\":1,\"titan_type\":\"divergent-universe.titan-type.zagreus\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_count": {
+            "String": "1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6418
+              },
+              {
+                "Integer": 6296
+              },
+              {
+                "Integer": 6297
+              },
+              {
+                "Integer": 6298
+              },
+              {
+                "Integer": 7145
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-choice.zagreus.3"
+          },
+          "summary_en": {
+            "String": "Zagreus level 3 groups 3 exact source candidate(s); offer timing remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "Zagreus 3 级归组 3 个精确源候选；提供时机仍受策略约束。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "choice"
+              },
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "zagreus"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 12
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+[
+  {
+    "id": "divergent-universe.profile.v1",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProfile",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙•乐园漫记",
+    "summary_en": "Version 4.4 Candidate reference profile for the permanent TournRogue activity; runtime lowering is absent.",
+    "summary_zh_cn": "4.4 版本常驻 TournRogue 玩法的 Candidate 资料档案；不包含运行时降级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "One isolated reference profile binds the exact released TournRogue activity and module 6002201.",
+        "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity."
+      }
+    ],
+    "tags": [
+      "candidate-reference",
+      "tourn-rogue"
+    ],
+    "sub_mode": "TournRogue",
+    "tourn_mode": "Tourn3",
+    "game_version": "4.4",
+    "runtime_enabled": false,
+    "entry_refs": [
+      "divergent-universe.entry.activity.105",
+      "divergent-universe.entry.title.tournrogue"
+    ],
+    "module_id": "divergent-universe.module.6002201",
+    "initial_resources": [],
+    "initial_resources_resolution": "Unspecified",
+    "finish_condition_ids": [
+      "divergent-universe.finish.3000311",
+      "divergent-universe.finish.3000312",
+      "divergent-universe.finish.3000313",
+      "divergent-universe.finish.3000314",
+      "divergent-universe.finish.3000315",
+      "divergent-universe.finish.3000316",
+      "divergent-universe.finish.3000317",
+      "divergent-universe.finish.3000318",
+      "divergent-universe.finish.3000319",
+      "divergent-universe.finish.3000320",
+      "divergent-universe.finish.3000321",
+      "divergent-universe.finish.3001304",
+      "divergent-universe.finish.3001305"
+    ]
+  }
+]

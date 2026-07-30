@@ -1,0 +1,153 @@
+{
+  "table": {
+    "name": "DivergentUniverseStarPioneerPractice",
+    "rows": [
+      {
+        "values": {
+          "available_content": {
+            "String": "[\"UnlockedThresholdProtocolsWithinDivisionCap\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_rules": {
+            "String": "[\"UnlockAfterOrdinaryDifficulty5\",\"ChooseAnyProtocolUpToCurrentDivisionMaximum\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseStarPioneerPractice"
+          },
+          "mode_kind": {
+            "String": "Practice"
+          },
+          "name_en": {
+            "String": "Practice Mode"
+          },
+          "name_zh_cn": {
+            "String": "演练模式"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"available_content\":[\"UnlockedThresholdProtocolsWithinDivisionCap\"],\"entry_rules\":[\"UnlockAfterOrdinaryDifficulty5\",\"ChooseAnyProtocolUpToCurrentDivisionMaximum\"],\"mode_kind\":\"Practice\",\"reset_rules\":[\"DoesNotChangeAstronomicalDivision\",\"DoesNotChangeCognoculi\"],\"runtime_lowered\":false}"
+          },
+          "reset_rules": {
+            "String": "[\"DoesNotChangeAstronomicalDivision\",\"DoesNotChangeCognoculi\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7611
+              },
+              {
+                "Integer": 7374
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-mode.practice"
+          },
+          "summary_en": {
+            "String": "Practice Mode has 2 entry rule(s) and 2 progression rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "演练模式 具有 2 条进入规则和 2 条进度规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "practice"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "available_content": {
+            "String": "[\"CurrentDivisionThresholdProtocol\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_rules": {
+            "String": "[\"UnlockAfterOrdinaryDifficulty5\",\"ProtocolLevelEqualsCurrentAstronomicalDivision\",\"DifficultyCannotBeLowered\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseStarPioneerPractice"
+          },
+          "mode_kind": {
+            "String": "StarPioneer"
+          },
+          "name_en": {
+            "String": "Star-Pioneer Mode"
+          },
+          "name_zh_cn": {
+            "String": "开拓模式"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"available_content\":[\"CurrentDivisionThresholdProtocol\"],\"entry_rules\":[\"UnlockAfterOrdinaryDifficulty5\",\"ProtocolLevelEqualsCurrentAstronomicalDivision\",\"DifficultyCannotBeLowered\"],\"mode_kind\":\"StarPioneer\",\"reset_rules\":[\"SuccessfulFinalizationLightsCognoculi\",\"UnsuccessfulFinalizationMayExtinguishCognoculi\",\"AstronomicalDivisionNeverDecreases\",\"DivisionRetentionHintsApply\"],\"runtime_lowered\":false}"
+          },
+          "reset_rules": {
+            "String": "[\"SuccessfulFinalizationLightsCognoculi\",\"UnsuccessfulFinalizationMayExtinguishCognoculi\",\"AstronomicalDivisionNeverDecreases\",\"DivisionRetentionHintsApply\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7611
+              },
+              {
+                "Integer": 7374
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-mode.star-pioneer"
+          },
+          "summary_en": {
+            "String": "Star-Pioneer Mode has 3 entry rule(s) and 4 progression rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "开拓模式 具有 3 条进入规则和 4 条进度规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "star-pioneer"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

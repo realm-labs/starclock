@@ -1,0 +1,439 @@
+[
+  {
+    "id": "divergent-universe.astronomical-division.1",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Gear Group",
+    "name_zh_cn": "齿轮组",
+    "summary_en": "Division 1 uses progress boundary 1 and Protocol 1.",
+    "summary_zh_cn": "差分等级 1 使用进度边界 1，对应协议 1。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "0",
+        "sha256": "ab9c6e6853b1482f421f193c0753614667691606967d751c94254e9a0b9d69f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "0",
+        "sha256": "962646b69f7500322b2f6cd04df910cd9b7f7e553bad6912201422a484af59a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-1"
+    ],
+    "source_id": "1",
+    "division_level": 1,
+    "progress_boundary": "1",
+    "effect_ids": [
+      "divergent-universe.protocol.1"
+    ],
+    "cognoculi_retention": "NoPublishedRetentionHint",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.2",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Clockwork Soldier",
+    "name_zh_cn": "发条兵人",
+    "summary_en": "Division 2 uses progress boundary 1 and Protocol 2.",
+    "summary_zh_cn": "差分等级 2 使用进度边界 1，对应协议 2。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "1",
+        "sha256": "fd79a4602b388836089c8c60132429e8612530166f62ddb40b18888ee43d9e7f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "1",
+        "sha256": "616aced66f0d3c81cd4cb53e4e27ddb57327a8609c43473b9f54ac4974daa3a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-2"
+    ],
+    "source_id": "2",
+    "division_level": 2,
+    "progress_boundary": "1",
+    "effect_ids": [
+      "divergent-universe.protocol.2"
+    ],
+    "cognoculi_retention": "NoPublishedRetentionHint",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.3",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Automatic Puppet",
+    "name_zh_cn": "自动人偶",
+    "summary_en": "Division 3 uses progress boundary 2 and Protocol 3.",
+    "summary_zh_cn": "差分等级 3 使用进度边界 2，对应协议 3。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "2",
+        "sha256": "939f4f808dcebc1b3ef57af78c3b34f66fb85405cb30089a88e44130179cf17c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "2",
+        "sha256": "9c760af060ebb50bcc3533b4c163010d01fa060144799b2e100e2ea85e407ca0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-3"
+    ],
+    "source_id": "3",
+    "division_level": 3,
+    "progress_boundary": "2",
+    "effect_ids": [
+      "divergent-universe.protocol.3"
+    ],
+    "cognoculi_retention": "NeverExtinguish",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.4",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Iterated Mech",
+    "name_zh_cn": "迭代机甲",
+    "summary_en": "Division 4 uses progress boundary 2 and Protocol 4.",
+    "summary_zh_cn": "差分等级 4 使用进度边界 2，对应协议 4。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "3",
+        "sha256": "b5843b488358e24e5f72d080d72f019be74d1cbc755c41cbc827375979b07900",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "3",
+        "sha256": "f9889b5464f8f70e4c220c9b4b00c2b6761c3530e70d6785d0838c4565e477bd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-4"
+    ],
+    "source_id": "4",
+    "division_level": 4,
+    "progress_boundary": "2",
+    "effect_ids": [
+      "divergent-universe.protocol.4"
+    ],
+    "cognoculi_retention": "NeverExtinguish",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.5",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Decision-Making AI",
+    "name_zh_cn": "决策智能",
+    "summary_en": "Division 5 uses progress boundary 3 and Protocol 5.",
+    "summary_zh_cn": "差分等级 5 使用进度边界 3，对应协议 5。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "4",
+        "sha256": "84a5432e7da6f1e01a2475670232b39e0b9b16f4fd5257a36321d8a7cf50d14c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "4",
+        "sha256": "cafa05fbc01025c5140d2763144537ec11273620b4d3def33bdf7e532caac96e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-5"
+    ],
+    "source_id": "5",
+    "division_level": 5,
+    "progress_boundary": "3",
+    "effect_ids": [
+      "divergent-universe.protocol.5"
+    ],
+    "cognoculi_retention": "RetainAfterFirstPlaneClear",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.6",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Mechanical Aristocrat",
+    "name_zh_cn": "机械贵族",
+    "summary_en": "Division 6 uses progress boundary 3 and Protocol 6.",
+    "summary_zh_cn": "差分等级 6 使用进度边界 3，对应协议 6。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "5",
+        "sha256": "3bda1feb8683111645b5b073f2dbd0f655950090c0dc838bc2bcd23e9762dd12",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "5",
+        "sha256": "e545b9cc2e8964168253d59a7427d64760dba9a7af06d81a10c086bc0385fc65",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-6"
+    ],
+    "source_id": "6",
+    "division_level": 6,
+    "progress_boundary": "3",
+    "effect_ids": [
+      "divergent-universe.protocol.6"
+    ],
+    "cognoculi_retention": "RetainAfterFirstPlaneClear",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.7",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Inorganic General",
+    "name_zh_cn": "无机统帅",
+    "summary_en": "Division 7 uses progress boundary 4 and Protocol 7.",
+    "summary_zh_cn": "差分等级 7 使用进度边界 4，对应协议 7。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "6",
+        "sha256": "1ff5344da7bcc5a5cb8bd097081fd8ed9baeba90597e071b9794755e8739884f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "6",
+        "sha256": "39efd08019df1ad044c6b98ecf9281b58858a6bd70d398e500e3b167d0503f7d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-7"
+    ],
+    "source_id": "7",
+    "division_level": 7,
+    "progress_boundary": "4",
+    "effect_ids": [
+      "divergent-universe.protocol.7"
+    ],
+    "cognoculi_retention": "RetainAfterSecondPlaneClear",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.8",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Intellitron Monarch",
+    "name_zh_cn": "智械君王",
+    "summary_en": "Division 8 uses progress boundary 5 and Protocol 8.",
+    "summary_zh_cn": "差分等级 8 使用进度边界 5，对应协议 8。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "7",
+        "sha256": "5fb5d23add72ce2fc2f803b01839bd8b793618356a6627155375c98926c8574b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "7",
+        "sha256": "e810e56c68cb5c52765ce8167c2865b13e3fb7cd7b4ea03bc6e51308d9c4a51a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-8"
+    ],
+    "source_id": "8",
+    "division_level": 8,
+    "progress_boundary": "5",
+    "effect_ids": [
+      "divergent-universe.protocol.8"
+    ],
+    "cognoculi_retention": "NoPublishedRetentionHint",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-division.9",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseAstronomicalDivision",
+    "name_en": "Intellitron Emperor",
+    "name_zh_cn": "智械帝皇",
+    "summary_en": "Division 9 uses progress boundary terminal and no published Protocol effect row.",
+    "summary_zh_cn": "差分等级 9 使用进度边界 终点，没有公开的协议效果行。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "8",
+        "sha256": "e523430d8ba0b7b806db9efa34731fbbe8140cedb0e7e99779b900258bf3c35e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "level-9",
+      "terminal"
+    ],
+    "source_id": "9",
+    "division_level": 9,
+    "progress_boundary": "Terminal",
+    "effect_ids": [],
+    "cognoculi_retention": "TerminalDivision",
+    "runtime_lowered": false
+  }
+]

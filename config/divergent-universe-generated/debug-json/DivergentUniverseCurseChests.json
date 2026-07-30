@@ -1,0 +1,2443 @@
+{
+  "table": {
+    "name": "DivergentUniverseCurseChests",
+    "rows": [
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"1\",\"3\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"1\",\"3\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3564
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1001"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1001 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1001 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"500\",\"minimum\":\"50\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"50\",\"500\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"500\",\"minimum\":\"50\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"50\",\"500\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3565
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3544
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1002"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1002 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1002 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"1\",\"3\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"1\",\"3\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3576
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3545
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1003"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1003 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1003 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"3\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"3\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3586
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3546
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1006"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1006 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1006 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"3\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"3\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3587
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3547
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1007"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1007 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1007 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"100\",\"500\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"100\",\"500\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1008"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3588
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3548
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1008"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1008 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1008 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum_count\":\"5\",\"operation\":\"OverwriteRandomBlessings\",\"pool\":\"Unspecified\"},{\"count\":\"1\",\"operation\":\"GainRandomEquations\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Overwrite up to #1 random Blessing(s)"
+          },
+          "name_zh_cn": {
+            "String": "覆写最多#1个随机祝福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"5\",\"\",\"1\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum_count\":\"5\",\"operation\":\"OverwriteRandomBlessings\",\"pool\":\"Unspecified\"},{\"count\":\"1\",\"operation\":\"GainRandomEquations\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"5\",\"\",\"1\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1009"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3589
+              },
+              {
+                "Integer": 3542
+              },
+              {
+                "Integer": 3549
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.1009"
+          },
+          "summary_en": {
+            "String": "Treasure chest 1009 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 1009 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"1\",\"3\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"1\",\"3\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3590
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21001"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21001 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21001 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"500\",\"minimum\":\"50\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"50\",\"500\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"500\",\"minimum\":\"50\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"50\",\"500\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3591
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3544
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21002"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21002 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21002 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"1\",\"3\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"1\",\"3\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3592
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3545
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21003"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21003 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21003 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"3\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"3\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3566
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3546
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21006"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21006 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21006 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"3\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"3\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3567
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3547
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21007"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21007 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21007 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"100\",\"500\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"100\",\"500\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21008"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3568
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3548
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21008"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21008 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21008 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum_count\":\"5\",\"operation\":\"OverwriteRandomBlessings\",\"pool\":\"Unspecified\"},{\"count\":\"1\",\"operation\":\"GainRandomEquations\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Overwrite up to #1 random Blessing(s)"
+          },
+          "name_zh_cn": {
+            "String": "覆写最多#1个随机祝福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"5\",\"\",\"1\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum_count\":\"5\",\"operation\":\"OverwriteRandomBlessings\",\"pool\":\"Unspecified\"},{\"count\":\"1\",\"operation\":\"GainRandomEquations\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"5\",\"\",\"1\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21009"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3569
+              },
+              {
+                "Integer": 3542
+              },
+              {
+                "Integer": 3549
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21009"
+          },
+          "summary_en": {
+            "String": "Treasure chest 21009 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 21009 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Destruction\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Sky\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Destruction\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Sky\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3570
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3553
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21010"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21010 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21010 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Nihility\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Death\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Nihility\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Death\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3571
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3554
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21011"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21011 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21011 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Elation\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Trickery\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Elation\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Trickery\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21012"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3572
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3555
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21012"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21012 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21012 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"TheHunt\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Strife\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"TheHunt\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Strife\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21013"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3573
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3556
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21013"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21013 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21013 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Remembrance\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Time\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Remembrance\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Time\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21014"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3574
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3557
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21014"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21014 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21014 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Propagation\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Romance\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Propagation\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Romance\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21015"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3575
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3558
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21015"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21015 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21015 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Harmony\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Passage\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Harmony\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Passage\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21016"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3577
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3559
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21016"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21016 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21016 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Fountain"
+          },
+          "choice_program": {
+            "String": "[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Erudition\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Reason\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Receive the Titans' Benediction"
+          },
+          "name_zh_cn": {
+            "String": "接受泰坦的赐福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"\",\"\",\"\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Fountain\",\"choice_program\":[{\"operation\":\"ReplaceAllEquationsAndBlessings\",\"preferred_path\":\"Erudition\",\"weights\":\"Unspecified\"},{\"operation\":\"GainBenedictionShard\",\"shard\":\"Reason\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"\",\"\",\"\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21017"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3578
+              },
+              {
+                "Integer": 3550
+              },
+              {
+                "Integer": 3560
+              },
+              {
+                "Integer": 3551
+              },
+              {
+                "Integer": 3552
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.21017"
+          },
+          "summary_en": {
+            "String": "Fountain chest 21017 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Fountain 宝箱 21017 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "fountain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"1\",\"3\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"1\",\"3\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3579
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31001"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31001 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31001 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"500\",\"minimum\":\"50\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"50\",\"500\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"500\",\"minimum\":\"50\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"50\",\"500\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3580
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3544
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31002"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31002 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31002 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\""
+          },
+          "name_zh_cn": {
+            "String": "获得#1个随机负面效果的奇物：绝对失败处方"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"1\",\"\",\"1\",\"3\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"count\":\"1\",\"operation\":\"GainRandomNegativeCurio\",\"pool\":\"Unspecified\"},{\"maximum\":\"3\",\"minimum\":\"1\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"1\",\"\",\"1\",\"3\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3581
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3545
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31003"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31003 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31003 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"3\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomCurios\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"3\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3582
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3546
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31006"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31006 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31006 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"3\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"count\":\"3\",\"operation\":\"GainRandomBlessings\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"3\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3583
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3547
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31007"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31007 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31007 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Lose #1–#2 Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "失去#1~#2宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"100\",\"500\",\"100\",\"500\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"LoseCosmicFragments\"},{\"maximum\":\"500\",\"minimum\":\"100\",\"operation\":\"GainCosmicFragments\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"100\",\"500\",\"100\",\"500\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31008"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3584
+              },
+              {
+                "Integer": 3541
+              },
+              {
+                "Integer": 3548
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31008"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31008 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31008 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "chest_type": {
+            "String": "Treasure"
+          },
+          "choice_program": {
+            "String": "[{\"maximum_count\":\"5\",\"operation\":\"OverwriteRandomBlessings\",\"pool\":\"Unspecified\"},{\"count\":\"1\",\"operation\":\"GainRandomEquations\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DivergentUniverseCurseChest"
+          },
+          "name_en": {
+            "String": "Overwrite up to #1 random Blessing(s)"
+          },
+          "name_zh_cn": {
+            "String": "覆写最多#1个随机祝福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameters": {
+            "String": "[\"5\",\"\",\"1\",\"\"]"
+          },
+          "payload_json": {
+            "String": "{\"chest_type\":\"Treasure\",\"choice_program\":[{\"maximum_count\":\"5\",\"operation\":\"OverwriteRandomBlessings\",\"pool\":\"Unspecified\"},{\"count\":\"1\",\"operation\":\"GainRandomEquations\",\"pool\":\"Unspecified\"},{\"operation\":\"LeaveWithoutMutation\"}],\"fallback\":\"LeaveWithoutMutation\",\"parameters\":[\"5\",\"\",\"1\",\"\"],\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "31009"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3585
+              },
+              {
+                "Integer": 3542
+              },
+              {
+                "Integer": 3549
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 7105
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.curse-chest.31009"
+          },
+          "summary_en": {
+            "String": "Treasure chest 31009 publishes 3 ordered choice operation(s); random pools remain unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "Treasure 宝箱 31009 发布 3 个有序选择操作；随机池仍未解析。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curse-chest"
+              },
+              {
+                "String": "treasure"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

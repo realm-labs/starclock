@@ -1,0 +1,2789 @@
+[
+  {
+    "id": "divergent-universe.permanent-talent.100",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Trait Unlock",
+    "name_zh_cn": "特性解锁",
+    "summary_en": "Trait Unlock contributes Enable keyword_path_trait under Permanent; prerequisite direction is not published.",
+    "summary_zh_cn": "特性解锁 在 Permanent 条件下贡献 Enable keyword_path_trait；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "0",
+        "sha256": "71c9f983811c83a68cb53d242bd8b6a9f50eacffc7ac16f70852907ff25e588a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "100",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "100"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.101",
+      "divergent-universe.permanent-talent.301",
+      "divergent-universe.permanent-talent.501"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.100"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Enable",
+      "metric": "keyword_path_trait",
+      "condition": "Permanent",
+      "parameters": [],
+      "description_hash": "6247385609997241073"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "1",
+        "sha256": "5ce1dc54c3b05e1f929d2480dd7ca4df9b5a2c18838a6d1d0737dd097bfea0c5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "101",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.102"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.101"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "8490878790397033185"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.102",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Planar Reboot",
+    "name_zh_cn": "位面再启动",
+    "summary_en": "Planar Reboot contributes DealFixedMaxHpDamage all_enemies under FirstFourNonBossBattlesFirstPlane; prerequisite direction is not published.",
+    "summary_zh_cn": "位面再启动 在 FirstFourNonBossBattlesFirstPlane 条件下贡献 DealFixedMaxHpDamage all_enemies；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "2",
+        "sha256": "8f11d17e10f201bbc83ad075e3eb9c106b9b66b33464ef66510328d5b3ee3cbb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "102",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "120"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.101",
+      "divergent-universe.permanent-talent.103",
+      "divergent-universe.permanent-talent.201"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.102"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "DealFixedMaxHpDamage",
+      "metric": "all_enemies",
+      "condition": "FirstFourNonBossBattlesFirstPlane",
+      "parameters": [
+        "4",
+        "0.99"
+      ],
+      "description_hash": "17679722501675702127"
+    },
+    "scope": "Battle",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.103",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DMG Mitigation Boost",
+    "name_zh_cn": "伤害减免强化",
+    "summary_en": "DMG Mitigation Boost contributes Decrease damage_taken under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "伤害减免强化 在 Always 条件下贡献 Decrease damage_taken；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "3",
+        "sha256": "002042b804f09e224aa3b525eb9b2b409edd588c5c2d33753f06d6d0fd6204e7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "103",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.102",
+      "divergent-universe.permanent-talent.104"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.103"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Decrease",
+      "metric": "damage_taken",
+      "condition": "Always",
+      "parameters": [
+        "0.03"
+      ],
+      "description_hash": "18424602661656069961"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.104",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Break Effect Boost",
+    "name_zh_cn": "击破特攻强化",
+    "summary_en": "Break Effect Boost contributes Increase break_effect under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "击破特攻强化 在 Always 条件下贡献 Increase break_effect；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "4",
+        "sha256": "5bed6541aa5216a34c837ecb7d9c0b94055981e6d7b13e31aa2ddbe2f3701951",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "104",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.103",
+      "divergent-universe.permanent-talent.105",
+      "divergent-universe.permanent-talent.205"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.104"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "break_effect",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "17521802184576173977"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.105",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "SPD Boost",
+    "name_zh_cn": "速度强化",
+    "summary_en": "SPD Boost contributes Increase speed under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "速度强化 在 Always 条件下贡献 Increase speed；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "5",
+        "sha256": "d7c3992c9d84c6cd045c84095aee17c49aa6bf32f84310ca816173248b542215",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "105",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.104",
+      "divergent-universe.permanent-talent.106"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.105"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "speed",
+      "condition": "Always",
+      "parameters": [
+        "0.03"
+      ],
+      "description_hash": "12071747148827011799"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.106",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "CRIT Rate Boost contributes Increase critical_rate under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "暴击率强化 在 Always 条件下贡献 Increase critical_rate；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "6",
+        "sha256": "ac380001612aa4a74ddc29a31e95d4b527c7c7b4c9b31ce8f4ac96bc0eba6987",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "106",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.105",
+      "divergent-universe.permanent-talent.107",
+      "divergent-universe.permanent-talent.206"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.106"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "critical_rate",
+      "condition": "Always",
+      "parameters": [
+        "0.03"
+      ],
+      "description_hash": "3640986879682611389"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.107",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Blessing Level Up Boost",
+    "name_zh_cn": "祝福升级强化",
+    "summary_en": "Blessing Level Up Boost contributes Increase workbench_heat under EachWorkbench; prerequisite direction is not published.",
+    "summary_zh_cn": "祝福升级强化 在 EachWorkbench 条件下贡献 Increase workbench_heat；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "7",
+        "sha256": "85e963abb29e132523e049ef24559e32d9096abe6e1362cabc4157583a0e00f5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "107",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "180"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.106"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.107"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "workbench_heat",
+      "condition": "EachWorkbench",
+      "parameters": [
+        "1"
+      ],
+      "description_hash": "8192628896083438032"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Break Effect Boost",
+    "name_zh_cn": "击破特攻强化",
+    "summary_en": "Break Effect Boost contributes Increase break_effect under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "击破特攻强化 在 Always 条件下贡献 Increase break_effect；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "8",
+        "sha256": "46f596707f51ee7e06168c5adec4309e81f5d4e88a14de910fcec84fa83bf9e2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "201",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.102",
+      "divergent-universe.permanent-talent.202",
+      "divergent-universe.permanent-talent.301"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.201"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "break_effect",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "11896023374151797434"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Effect Hit Rate Boost",
+    "name_zh_cn": "效果命中强化",
+    "summary_en": "Effect Hit Rate Boost contributes Increase effect_hit_rate under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "效果命中强化 在 Always 条件下贡献 Increase effect_hit_rate；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "9",
+        "sha256": "37a5160be4e0b391c9d9e7fe7994e43883e37288b55dbe21fb88572f0c50b7ae",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "202",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.201",
+      "divergent-universe.permanent-talent.203"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.202"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "effect_hit_rate",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "6940349460006081215"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "10",
+        "sha256": "6a40ccc304a22e8feba94de9e03e5fa935206e2352d3db77b62597f2e9be7fc2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "203",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.202",
+      "divergent-universe.permanent-talent.204"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.203"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "11429978791028095523"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.204",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Initial Resources",
+    "name_zh_cn": "起始资源",
+    "summary_en": "Initial Resources contributes Increase starting_cosmic_fragments under RunEntry; prerequisite direction is not published.",
+    "summary_zh_cn": "起始资源 在 RunEntry 条件下贡献 Increase starting_cosmic_fragments；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "11",
+        "sha256": "2535009d37b10515c3de39415ea6cb5e898810eb45153508a50cded83b679e41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "204",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "120"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.203",
+      "divergent-universe.permanent-talent.205",
+      "divergent-universe.permanent-talent.206",
+      "divergent-universe.permanent-talent.207"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.204"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "starting_cosmic_fragments",
+      "condition": "RunEntry",
+      "parameters": [
+        "30"
+      ],
+      "description_hash": "6793160255738183634"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.205",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "CRIT DMG Boost contributes Increase critical_damage under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "暴击伤害强化 在 Always 条件下贡献 Increase critical_damage；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "12",
+        "sha256": "fdf4803f47b37849bb318a2cfcaac0e102a94e4a01208fbe7b7e7dda707330ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "205",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.104",
+      "divergent-universe.permanent-talent.204"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.205"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "critical_damage",
+      "condition": "Always",
+      "parameters": [
+        "0.06"
+      ],
+      "description_hash": "518437086253368039"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.206",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "13",
+        "sha256": "f5d491d41b490f3ce4810ca113a70d06c038c4fc2520c4d6b49d9dd3bfe6a302",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "206",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.106",
+      "divergent-universe.permanent-talent.204"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.206"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "12362547770360538458"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.207",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "14",
+        "sha256": "c731d47b1044e9fcb79d745bcfa21a648f42c863fbb53da7179bdc2e8fb798d2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "207",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.204",
+      "divergent-universe.permanent-talent.208"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.207"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "defense",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "3314758160086380955"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.208",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "15",
+        "sha256": "98fbd038f8d5ea4c81b346052012fab8a755946fdd69e6ec60143a5a37fcc0be",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "208",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.207",
+      "divergent-universe.permanent-talent.305"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.208"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "8056814645307325499"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "16",
+        "sha256": "41379c7dc880c1dfd5b0d538737018066c1d8fa7d2eb306fb0f1aa21ea1e2601",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "301",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.201",
+      "divergent-universe.permanent-talent.302"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.301"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "defense",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "16176930790982153435"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "CRIT Rate Boost contributes Increase critical_rate under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "暴击率强化 在 Always 条件下贡献 Increase critical_rate；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "17",
+        "sha256": "662a756f54080297bfe3f38b850d046f2f43ae618d208b74826714550d8ff54f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "302",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.301",
+      "divergent-universe.permanent-talent.303"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.302"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "critical_rate",
+      "condition": "Always",
+      "parameters": [
+        "0.03"
+      ],
+      "description_hash": "15644702451664609810"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Food On-The-Go",
+    "name_zh_cn": "便携食品",
+    "summary_en": "Food On-The-Go contributes Enable consumable_use under ThresholdProtocolInactive; prerequisite direction is not published.",
+    "summary_zh_cn": "便携食品 在 ThresholdProtocolInactive 条件下贡献 Enable consumable_use；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "18",
+        "sha256": "27e89e2c8b18bb3b7168eb7cef501f0df42e3554b9646836a433f5355b892f49",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "303",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "120"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.302",
+      "divergent-universe.permanent-talent.304",
+      "divergent-universe.permanent-talent.402"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.303"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Enable",
+      "metric": "consumable_use",
+      "condition": "ThresholdProtocolInactive",
+      "parameters": [],
+      "description_hash": "1485802231219485930"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.304",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Effect RES Boost",
+    "name_zh_cn": "效果抵抗强化",
+    "summary_en": "Effect RES Boost contributes Increase effect_resistance under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "效果抵抗强化 在 Always 条件下贡献 Increase effect_resistance；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "19",
+        "sha256": "e233c8e230bbaba238d814342e1174c59e712e428d3bcb183e0ae10e92d454c3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "304",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.303",
+      "divergent-universe.permanent-talent.305",
+      "divergent-universe.permanent-talent.404"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.304"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "effect_resistance",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "17624336524824711712"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.305",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "20",
+        "sha256": "f502f9999c8c2d307b770f4ae4d16908e9f6d23dbbf596d1ab8d3e7d47439fb3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "305",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.208",
+      "divergent-universe.permanent-talent.304",
+      "divergent-universe.permanent-talent.306"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.305"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "9269353107409091468"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.306",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DMG Boost",
+    "name_zh_cn": "伤害强化",
+    "summary_en": "DMG Boost contributes Increase damage_dealt under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "伤害强化 在 Always 条件下贡献 Increase damage_dealt；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "21",
+        "sha256": "b7bb31a6d71550985224a215b88cde549fa57c27380ebc72813bed5366ba89fe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "306",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.305",
+      "divergent-universe.permanent-talent.307",
+      "divergent-universe.permanent-talent.407"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.306"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "damage_dealt",
+      "condition": "Always",
+      "parameters": [
+        "0.04"
+      ],
+      "description_hash": "8400648437876297300"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.307",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Store Revamp",
+    "name_zh_cn": "商店改装",
+    "summary_en": "Store Revamp contributes Increase store_curio_and_blessing_slots under StoreDomain; prerequisite direction is not published.",
+    "summary_zh_cn": "商店改装 在 StoreDomain 条件下贡献 Increase store_curio_and_blessing_slots；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "22",
+        "sha256": "9fd8921eedc5da307e81511ddfea99e56c8c3824edc59d90449b40b2186df063",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "307",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "180"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.306"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.307"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "store_curio_and_blessing_slots",
+      "condition": "StoreDomain",
+      "parameters": [
+        "1",
+        "1"
+      ],
+      "description_hash": "13170095873814605092"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.401",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DMG Boost",
+    "name_zh_cn": "伤害强化",
+    "summary_en": "DMG Boost contributes Increase damage_dealt under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "伤害强化 在 Always 条件下贡献 Increase damage_dealt；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "23",
+        "sha256": "b220c079acfda548e252eacc63c475f9c010c4c7be1f91d027d6c2dd21287704",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "401",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.402",
+      "divergent-universe.permanent-talent.503"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.401"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "damage_dealt",
+      "condition": "Always",
+      "parameters": [
+        "0.04"
+      ],
+      "description_hash": "17529409590515405977"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.402",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "24",
+        "sha256": "af78ec765a18fe6fb612135e82140199dba2f605b354b5898e1892bfc1bfeed5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "402",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.303",
+      "divergent-universe.permanent-talent.401",
+      "divergent-universe.permanent-talent.403"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.402"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "defense",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "18250399067157512031"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.403",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Pleasant Surprise",
+    "name_zh_cn": "意外之喜",
+    "summary_en": "Pleasant Surprise contributes Enable random_treasure_and_game_machine_types under DomainGeneration; prerequisite direction is not published.",
+    "summary_zh_cn": "意外之喜 在 DomainGeneration 条件下贡献 Enable random_treasure_and_game_machine_types；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "25",
+        "sha256": "27e3cc8625301b1524926bc19241d3fb4fd97acabb342fa8e3ac3022144adc41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "403",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "120"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.402",
+      "divergent-universe.permanent-talent.404",
+      "divergent-universe.permanent-talent.405"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.403"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Enable",
+      "metric": "random_treasure_and_game_machine_types",
+      "condition": "DomainGeneration",
+      "parameters": [],
+      "description_hash": "3261946066583220275"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.404",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "26",
+        "sha256": "619a08b903b0d85af5af50bbef130c9a5c17e38153aa8748b21157e38436aebb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "404",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.304",
+      "divergent-universe.permanent-talent.403",
+      "divergent-universe.permanent-talent.407"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.404"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "15764084180668421222"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.405",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DMG Mitigation Boost",
+    "name_zh_cn": "伤害减免强化",
+    "summary_en": "DMG Mitigation Boost contributes Decrease damage_taken under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "伤害减免强化 在 Always 条件下贡献 Decrease damage_taken；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "27",
+        "sha256": "d972fce45aa6d8c51fecc992dc5956d93e3f99e806d6334f85371c645383bf08",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "405",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.403",
+      "divergent-universe.permanent-talent.406"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.405"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Decrease",
+      "metric": "damage_taken",
+      "condition": "Always",
+      "parameters": [
+        "0.03"
+      ],
+      "description_hash": "9957783933840810209"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.406",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "28",
+        "sha256": "50d4618fdcd5729adb7e81ee8e8ea985d0da8052005a8827e97f7a1a447422a5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "406",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.405",
+      "divergent-universe.permanent-talent.409",
+      "divergent-universe.permanent-talent.506"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.406"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "1395261966179823977"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.407",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "CRIT DMG Boost contributes Increase critical_damage under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "暴击伤害强化 在 Always 条件下贡献 Increase critical_damage；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "29",
+        "sha256": "d7bb566f4487f9b98cb896662c599f5167e9ec15b95a09c69b9c390448424671",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "407",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.306",
+      "divergent-universe.permanent-talent.404"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.407"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "critical_damage",
+      "condition": "Always",
+      "parameters": [
+        "0.06"
+      ],
+      "description_hash": "4216959902774999017"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.409",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Probability Fixation",
+    "name_zh_cn": "概率固着",
+    "summary_en": "Probability Fixation contributes Decrease discarded_or_unselected_equation_reappearance under PerWorkbench; prerequisite direction is not published.",
+    "summary_zh_cn": "概率固着 在 PerWorkbench 条件下贡献 Decrease discarded_or_unselected_equation_reappearance；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "30",
+        "sha256": "c7254f08a84119ffe3db75fce76d917c0d45ffff21da2eeb0f9700499ec5a1b8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "409",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "180"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.406"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.409"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Decrease",
+      "metric": "discarded_or_unselected_equation_reappearance",
+      "condition": "PerWorkbench",
+      "parameters": [],
+      "description_hash": "949003070109394730"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.501",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "31",
+        "sha256": "e2a772fffc293d3cc8e6831ce15efcda1b8cca2f5ac070b24c49badca8cfdc0b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "501",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.502"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.501"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "9312290377446757989"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.502",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Extra Blessings",
+    "name_zh_cn": "额外祝福",
+    "summary_en": "Extra Blessings contributes Increase first_battle_victory_blessing_selection under FirstBattleVictory; prerequisite direction is not published.",
+    "summary_zh_cn": "额外祝福 在 FirstBattleVictory 条件下贡献 Increase first_battle_victory_blessing_selection；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "32",
+        "sha256": "f8583fed104531151d4d057f450a68af2ece45cbea83420df172839cac91ec2d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "502",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "120"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.501",
+      "divergent-universe.permanent-talent.503"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.502"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "first_battle_victory_blessing_selection",
+      "condition": "FirstBattleVictory",
+      "parameters": [],
+      "description_hash": "4669464146580536963"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.503",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "33",
+        "sha256": "cf8e54dd367e3f8336cd9f6ca0c7e26f14cfc67d0a760e664ca2c48a633c03f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "503",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.401",
+      "divergent-universe.permanent-talent.502",
+      "divergent-universe.permanent-talent.504"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.503"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "11866214237328495435"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.504",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "SPD Boost",
+    "name_zh_cn": "速度强化",
+    "summary_en": "SPD Boost contributes Increase speed under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "速度强化 在 Always 条件下贡献 Increase speed；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "34",
+        "sha256": "5c04720af56ad94d065f81842fd3a397b0c03bf721e5b0afbb6666c374650dc9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "504",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.503",
+      "divergent-universe.permanent-talent.505"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.504"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "speed",
+      "condition": "Always",
+      "parameters": [
+        "0.03"
+      ],
+      "description_hash": "33474488350561210"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.505",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Break Effect Boost",
+    "name_zh_cn": "击破特攻强化",
+    "summary_en": "Break Effect Boost contributes Increase break_effect under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "击破特攻强化 在 Always 条件下贡献 Increase break_effect；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "35",
+        "sha256": "d83a11dab0905e79cc3731ad452e7e126e9db263a40765b83d26d28463d45dd5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "505",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.504",
+      "divergent-universe.permanent-talent.506"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.505"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "break_effect",
+      "condition": "Always",
+      "parameters": [
+        "0.1"
+      ],
+      "description_hash": "15051089883744296710"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.506",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published.",
+    "summary_zh_cn": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "36",
+        "sha256": "ec5851fa60064ae0ca942ad78f437a4fe838422343342bb9f2eeda1487befd6f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent"
+    ],
+    "source_id": "506",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "40"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.406",
+      "divergent-universe.permanent-talent.505",
+      "divergent-universe.permanent-talent.507"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.506"
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "defense",
+      "condition": "Always",
+      "parameters": [
+        "0.05"
+      ],
+      "description_hash": "2241922851048286438"
+    },
+    "scope": "Battle",
+    "important": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.permanent-talent.507",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniversePermanentTalent",
+    "name_en": "Boundary Equation",
+    "name_zh_cn": "临界方程",
+    "summary_en": "Boundary Equation contributes Enable boundary_equation under SixteenSamePathBlessings; prerequisite direction is not published.",
+    "summary_zh_cn": "临界方程 在 SixteenSamePathBlessings 条件下贡献 Enable boundary_equation；先决方向未公开。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "37",
+        "sha256": "f65c60aaa77da858d59ce0c1328077f554789525921066ac589f39715a069f90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      }
+    ],
+    "tags": [
+      "activity",
+      "important-node",
+      "permanent-talent"
+    ],
+    "source_id": "507",
+    "cost": [
+      {
+        "item_id": "281018",
+        "amount": "180"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "UnavailableInBidirectionalAdjacency",
+    "adjacent_talent_ids": [
+      "divergent-universe.permanent-talent.506"
+    ],
+    "effect_ids": [
+      "divergent-universe.progression-effect.talent.507"
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Enable",
+      "metric": "boundary_equation",
+      "condition": "SixteenSamePathBlessings",
+      "parameters": [
+        "16"
+      ],
+      "description_hash": "17161161306611360605"
+    },
+    "scope": "Activity",
+    "important": true,
+    "runtime_lowered": false
+  }
+]

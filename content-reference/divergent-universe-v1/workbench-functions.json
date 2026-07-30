@@ -1,0 +1,344 @@
+[
+  {
+    "id": "divergent-universe.workbench-function.1",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbenchFunction",
+    "name_en": "Enhancing Blessings",
+    "name_zh_cn": "祝福强化",
+    "summary_en": "Enhancing Blessings transforms OwnedBaseBlessing into SameIdentityEnhancedBlessing; unpublished price and candidate fields remain explicit.",
+    "summary_zh_cn": "祝福强化 将 OwnedBaseBlessing 转换为 SameIdentityEnhancedBlessing；未公开的价格和候选字段保持明确。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "7e59f8ea49bbae72c3ebe57699ac0bf30082cfb2478c888800c3e7e74b11148e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "buffenhance",
+      "workbench"
+    ],
+    "source_id": "1",
+    "function_type": "BuffEnhance",
+    "input_policy": "OwnedBaseBlessing",
+    "output_policy": "SameIdentityEnhancedBlessing",
+    "price_rule": {
+      "currency": "WorkbenchHeat",
+      "formula": "UnspecifiedAmount",
+      "reset": "HeatResetsAtEachWorkbench"
+    },
+    "candidate_ids": [],
+    "weights": [],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench-function.11",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbenchFunction",
+    "name_en": "Select Weighted Curio",
+    "name_zh_cn": "选择加权奇物",
+    "summary_en": "Select Weighted Curio transforms OwnedWeightedCurioLoadout into AdjustedWeightedCurioLoadout; unpublished price and candidate fields remain explicit.",
+    "summary_zh_cn": "选择加权奇物 将 OwnedWeightedCurioLoadout 转换为 AdjustedWeightedCurioLoadout；未公开的价格和候选字段保持明确。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "5",
+        "sha256": "f9256bf7b3995b0a9f34f5899606b7fe734b08f4a1162708d4067982e28abdf5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "hexequipment",
+      "workbench"
+    ],
+    "source_id": "11",
+    "function_type": "HexEquipment",
+    "input_policy": "OwnedWeightedCurioLoadout",
+    "output_policy": "AdjustedWeightedCurioLoadout",
+    "price_rule": {
+      "currency": "Unspecified",
+      "formula": "Unspecified",
+      "reset": "NotApplicable"
+    },
+    "candidate_ids": [],
+    "weights": [],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench-function.2",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbenchFunction",
+    "name_en": "Overwrite Blessing",
+    "name_zh_cn": "祝福覆写",
+    "summary_en": "Overwrite Blessing transforms OwnedBlessing into DifferentBlessing; unpublished price and candidate fields remain explicit.",
+    "summary_zh_cn": "祝福覆写 将 OwnedBlessing 转换为 DifferentBlessing；未公开的价格和候选字段保持明确。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "1",
+        "sha256": "d84abb2db7b5717435e73cd753d6f3abcd46058c5a5b810e34171973fa7adef6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "buffreforge",
+      "workbench"
+    ],
+    "source_id": "2",
+    "function_type": "BuffReforge",
+    "input_policy": "OwnedBlessing",
+    "output_policy": "DifferentBlessing",
+    "price_rule": {
+      "currency": "UnspecifiedCurrency",
+      "formula": "IncreasesWithAcceptedOverwriteCount",
+      "reset": "Unspecified"
+    },
+    "candidate_ids": [],
+    "weights": [],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench-function.3",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbenchFunction",
+    "name_en": "Overwrite Equation",
+    "name_zh_cn": "方程覆写",
+    "summary_en": "Overwrite Equation transforms OwnedEquation into DifferentEquationOfIdenticalQuality; unpublished price and candidate fields remain explicit.",
+    "summary_zh_cn": "方程覆写 将 OwnedEquation 转换为 DifferentEquationOfIdenticalQuality；未公开的价格和候选字段保持明确。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "2",
+        "sha256": "5beb3dfdb396b832020b67242ea2334603adecb8122d0ef89bac96bb7c62967b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "formulareforge",
+      "workbench"
+    ],
+    "source_id": "3",
+    "function_type": "FormulaReforge",
+    "input_policy": "OwnedEquation",
+    "output_policy": "DifferentEquationOfIdenticalQuality",
+    "price_rule": {
+      "currency": "UnspecifiedCurrency",
+      "formula": "IncreasesWithAcceptedOverwriteCount",
+      "reset": "Unspecified"
+    },
+    "candidate_ids": [],
+    "weights": [],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench-function.4",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbenchFunction",
+    "name_en": "Curio Synthesize",
+    "name_zh_cn": "奇物合成",
+    "summary_en": "Curio Synthesize transforms EqualRarityCurios into RandomCurioOfSameOrHigherRarity; unpublished price and candidate fields remain explicit.",
+    "summary_zh_cn": "奇物合成 将 EqualRarityCurios 转换为 RandomCurioOfSameOrHigherRarity；未公开的价格和候选字段保持明确。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "3",
+        "sha256": "9d7513cc150ff0eafb91efdbed736526f46f926fc0ebdefbf7b45ee687fcc455",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "miraclecompose",
+      "workbench"
+    ],
+    "source_id": "4",
+    "function_type": "MiracleCompose",
+    "input_policy": "EqualRarityCurios",
+    "output_policy": "RandomCurioOfSameOrHigherRarity",
+    "price_rule": {
+      "currency": "InputCurios",
+      "formula": "UnspecifiedInputCount",
+      "reset": "NotApplicable"
+    },
+    "candidate_ids": [],
+    "weights": [],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.workbench-function.5",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseWorkbenchFunction",
+    "name_en": "Overwrite Weighted Curios",
+    "name_zh_cn": "加权奇物覆写",
+    "summary_en": "Overwrite Weighted Curios transforms OwnedWeightedCurio into DifferentWeightedCurio; unpublished price and candidate fields remain explicit.",
+    "summary_zh_cn": "加权奇物覆写 将 OwnedWeightedCurio 转换为 DifferentWeightedCurio；未公开的价格和候选字段保持明确。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fe8c268baffed08c35b046d06a23bfdb2efa13aa1bdf647ff6bfc418d8dca871",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "miraclereforge",
+      "workbench"
+    ],
+    "source_id": "5",
+    "function_type": "MiracleReforge",
+    "input_policy": "OwnedWeightedCurio",
+    "output_policy": "DifferentWeightedCurio",
+    "price_rule": {
+      "currency": "UnspecifiedCurrency",
+      "formula": "UnspecifiedAmount",
+      "reset": "Unspecified"
+    },
+    "candidate_ids": [],
+    "weights": [],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  }
+]

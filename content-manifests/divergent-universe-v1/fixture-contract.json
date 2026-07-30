@@ -1,0 +1,282 @@
+{
+  "schema_revision": "starclock.divergent-universe-fixture-contract.v1",
+  "goal_id": "divergent-universe-reference-v1",
+  "bound_content_manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+  "fixture_role": "reference semantics only; fixtures do not claim runtime lowering or playability",
+  "required_fields": [
+    "id",
+    "family_id",
+    "name_en",
+    "name_zh_cn",
+    "source_record_ids",
+    "preconditions",
+    "input",
+    "ordered_operations",
+    "expected_facts",
+    "evidence_refs",
+    "evidence_quality"
+  ],
+  "field_contracts": {
+    "source_record_ids": "nonempty sorted stable IDs resolving through pack-index.json",
+    "preconditions": "typed ordered state facts; no untyped value maps",
+    "input": "typed decision, transition, trigger or abstract Adventure result",
+    "ordered_operations": "reference operations in asserted semantic order; never runtime handlers",
+    "expected_facts": "exact state/event/contribution observations with canonical decimals",
+    "evidence_refs": "ordered source IDs resolving to sources.json and carrying field quality"
+  },
+  "minimum_cases_per_family": 1,
+  "required_families": [
+    {
+      "id": "adventure-abstract-outcome",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offered abstract result",
+        "eligibility",
+        "no action gameplay simulation"
+      ]
+    },
+    {
+      "id": "area-difficulty-layer-transition",
+      "minimum_cases": 1,
+      "must_cover": [
+        "ordered stage flow",
+        "legal and rejected transition",
+        "difficulty binding"
+      ]
+    },
+    {
+      "id": "arithmetic-mapping-eligibility",
+      "minimum_cases": 1,
+      "must_cover": [
+        "eligible character",
+        "ineligible character",
+        "stronger account build boundary"
+      ]
+    },
+    {
+      "id": "arithmetic-mapping-refresh-and-teardown",
+      "minimum_cases": 1,
+      "must_cover": [
+        "refresh timing",
+        "temporary substitution",
+        "account state unchanged"
+      ]
+    },
+    {
+      "id": "astronomical-division",
+      "minimum_cases": 1,
+      "must_cover": [
+        "progress boundary",
+        "effect activation",
+        "scope"
+      ]
+    },
+    {
+      "id": "battle-visible-and-cross-battle-contribution",
+      "minimum_cases": 1,
+      "must_cover": [
+        "BattleSpec contribution",
+        "BattleResult handoff",
+        "cross-battle lifecycle"
+      ]
+    },
+    {
+      "id": "curio-weight-charge-destruction-repair",
+      "minimum_cases": 1,
+      "must_cover": [
+        "weighted eligibility",
+        "charge change",
+        "destroy and repair"
+      ]
+    },
+    {
+      "id": "divergent-blessing-level-and-transform",
+      "minimum_cases": 1,
+      "must_cover": [
+        "level state",
+        "enhancement or rewrite",
+        "Equation contribution"
+      ]
+    },
+    {
+      "id": "encounter-wave-and-boss-binding",
+      "minimum_cases": 1,
+      "must_cover": [
+        "group selection",
+        "ordered waves",
+        "boss alternative"
+      ]
+    },
+    {
+      "id": "equation-offer-recipe-progress-expansion",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offer candidate set",
+        "recipe counts",
+        "progress and expansion transition"
+      ]
+    },
+    {
+      "id": "equation-replacement-and-contribution",
+      "minimum_cases": 1,
+      "must_cover": [
+        "replacement",
+        "Blessing ownership change",
+        "contribution refresh"
+      ]
+    },
+    {
+      "id": "finish-and-cross-battle-reset",
+      "minimum_cases": 1,
+      "must_cover": [
+        "terminal condition",
+        "carry state",
+        "reset state"
+      ]
+    },
+    {
+      "id": "gamble-offer-outcome-and-fallback",
+      "minimum_cases": 1,
+      "must_cover": [
+        "candidate set",
+        "selected outcome",
+        "no legal candidate"
+      ]
+    },
+    {
+      "id": "golden-blood-titan-choice-and-level",
+      "minimum_cases": 1,
+      "must_cover": [
+        "choice candidates",
+        "level transition",
+        "run and battle contribution"
+      ]
+    },
+    {
+      "id": "grand-miracle-eligibility-and-lifecycle",
+      "minimum_cases": 1,
+      "must_cover": [
+        "character Path and element eligibility",
+        "activation",
+        "teardown"
+      ]
+    },
+    {
+      "id": "no-legal-candidate-fallback",
+      "minimum_cases": 1,
+      "must_cover": [
+        "empty candidate set",
+        "explicit fallback",
+        "authoritative state preservation"
+      ]
+    },
+    {
+      "id": "occurrence-choice-cost-and-outcome",
+      "minimum_cases": 1,
+      "must_cover": [
+        "choice condition",
+        "cost",
+        "ordered outcome"
+      ]
+    },
+    {
+      "id": "ordinary-and-cyclical-entry",
+      "minimum_cases": 1,
+      "must_cover": [
+        "entry eligibility",
+        "initial resources",
+        "weekly modifier binding"
+      ]
+    },
+    {
+      "id": "permanent-talent-and-unlock",
+      "minimum_cases": 1,
+      "must_cover": [
+        "prerequisite",
+        "unlock transition",
+        "mechanical effect"
+      ]
+    },
+    {
+      "id": "profile-and-module-selection",
+      "minimum_cases": 1,
+      "must_cover": [
+        "TournRogue entry",
+        "module 6002201",
+        "rejected historical module"
+      ]
+    },
+    {
+      "id": "simultaneous-trigger-order",
+      "minimum_cases": 1,
+      "must_cover": [
+        "same-phase triggers",
+        "stable priority",
+        "ordered contributions"
+      ]
+    },
+    {
+      "id": "star-pioneer-practice-and-cognoculi",
+      "minimum_cases": 1,
+      "must_cover": [
+        "mode eligibility",
+        "available content",
+        "mechanical Cognoculus boundary"
+      ]
+    },
+    {
+      "id": "threshold-protocol",
+      "minimum_cases": 1,
+      "must_cover": [
+        "entry boundary",
+        "difficulty change",
+        "enemy or numeric contribution"
+      ]
+    },
+    {
+      "id": "weekly-modifier-and-room-service",
+      "minimum_cases": 1,
+      "must_cover": [
+        "modifier activation",
+        "service eligibility",
+        "cross-battle scope"
+      ]
+    },
+    {
+      "id": "workbench-operation-and-price",
+      "minimum_cases": 1,
+      "must_cover": [
+        "legal operation",
+        "currency and price",
+        "rejected operation"
+      ]
+    }
+  ],
+  "coverage_rule": {
+    "family_coverage": "every required family has at least minimum_cases",
+    "source_coverage": "every distinct mechanic rule references at least one fixture",
+    "manifest_coverage": "every source obligation reaches DataReady or an explicit nonblocking approximation with replacement condition",
+    "candidate_coverage": "every SharedCandidate obligation is promoted by exact proof or explicitly excluded before DataReady",
+    "reconciliation_coverage": "every overlapping Goal 08/09/10 locator has a non-conflicting receipt",
+    "blocking_gap": "no fixture can satisfy a Blocked manifest obligation"
+  },
+  "determinism": {
+    "random_selection": "explicit seed plus ordered candidate stable IDs",
+    "ties": "stable ID ascending unless released authored order is exact",
+    "no_legal_target": "explicit expected fallback; never silent no-op",
+    "operation_order": "asserted as part of expected_facts",
+    "decimal_values": "canonical decimal strings",
+    "external_outcomes": "record the offered abstract Adventure result and eligibility only"
+  },
+  "approximation": {
+    "allowed_labels": [
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "required_fields": [
+      "note",
+      "replacement_condition"
+    ],
+    "exact_claim_forbidden": true
+  }
+}

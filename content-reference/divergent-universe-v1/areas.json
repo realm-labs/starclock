@@ -1,0 +1,1338 @@
+[
+  {
+    "id": "divergent-universe.area.103",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Roam 1",
+    "name_zh_cn": "差分宇宙：乐园漫游1",
+    "summary_en": "Guide area 103 binds 1 difficulty source row(s) and 1 ordered layer(s).",
+    "summary_zh_cn": "Guide 区域 103 绑定 1 个难度源行与 1 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "2",
+        "sha256": "edd0054cc66554c778f981775155bf3b71179866a6d4907f39b63b651c92d30c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "guide",
+      "tourn3"
+    ],
+    "source_id": "103",
+    "area_type": "Guide",
+    "area_group": "",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.1001"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.103"
+    ],
+    "map_entry_id": "3001302",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001302"
+  },
+  {
+    "id": "divergent-universe.area.104",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Roam 2",
+    "name_zh_cn": "差分宇宙：乐园漫游2",
+    "summary_en": "Guide area 104 binds 1 difficulty source row(s) and 1 ordered layer(s).",
+    "summary_zh_cn": "Guide 区域 104 绑定 1 个难度源行与 1 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "3",
+        "sha256": "4e44d1fd5a0c1ea722c2ced7bf625b2296f52f5dda1db7ecbf126a559612a550",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "guide",
+      "tourn3"
+    ],
+    "source_id": "104",
+    "area_type": "Guide",
+    "area_group": "",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.1001"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.104"
+    ],
+    "map_entry_id": "3001304",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001304"
+  },
+  {
+    "id": "divergent-universe.area.20401",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20401 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20401 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "70",
+        "sha256": "64f01335a4f99f5e3b6c102696a115cceb2826877ea7699113c179a0df6e5e83",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20401",
+    "area_type": "WeekChallenge",
+    "area_group": "3",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3011",
+      "divergent-universe.difficulty.3012",
+      "divergent-universe.difficulty.3013"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3001306",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001306"
+  },
+  {
+    "id": "divergent-universe.area.20402",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20402 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20402 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "71",
+        "sha256": "b7bef474112d03b560084c1a90b1963893cb83c04b5bde200739e7d03fcffaf4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20402",
+    "area_type": "WeekChallenge",
+    "area_group": "4",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3021",
+      "divergent-universe.difficulty.3022",
+      "divergent-universe.difficulty.3023"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000510",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000510"
+  },
+  {
+    "id": "divergent-universe.area.20403",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20403 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20403 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "72",
+        "sha256": "5e017615f2fdf17935df0b4b9041591b284b1f70b94aae70b738450d3a6ed5c9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20403",
+    "area_type": "WeekChallenge",
+    "area_group": "5",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3031",
+      "divergent-universe.difficulty.3032",
+      "divergent-universe.difficulty.3033"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000511",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000511"
+  },
+  {
+    "id": "divergent-universe.area.20404",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20404 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20404 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.73",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "73",
+        "sha256": "fc253cdc03d464dfb913a6502df9496b0fbca503b2951ff4665af506aac50ccd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20404",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3041",
+      "divergent-universe.difficulty.3042",
+      "divergent-universe.difficulty.3043"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000512",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000512"
+  },
+  {
+    "id": "divergent-universe.area.20405",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20405 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20405 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.74",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "74",
+        "sha256": "7eb466f5d658d89679537126abb71d706fd18c0a5e639c285736b2138f6377ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20405",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3051",
+      "divergent-universe.difficulty.3052",
+      "divergent-universe.difficulty.3053"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000513",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000513"
+  },
+  {
+    "id": "divergent-universe.area.20406",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20406 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20406 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.75",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "75",
+        "sha256": "5688abfe75af7ba2eff5786eabc5187208c2d11c0f8e594f24a3d2ca566efa7c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20406",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3061",
+      "divergent-universe.difficulty.3062",
+      "divergent-universe.difficulty.3063"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3011",
+      "divergent-universe.layer.3012",
+      "divergent-universe.layer.3013"
+    ],
+    "map_entry_id": "3000315",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000315"
+  },
+  {
+    "id": "divergent-universe.area.20407",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20407 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20407 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.76",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "76",
+        "sha256": "0e204676c7819045723d36e443f0d625043e88f808d0f3018d05865d7d5038f7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20407",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3061",
+      "divergent-universe.difficulty.3062",
+      "divergent-universe.difficulty.3063"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3011",
+      "divergent-universe.layer.3012",
+      "divergent-universe.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.20408",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20408 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20408 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "77",
+        "sha256": "ab6c7dd603c253727e3263e5156916e590b1c1e167df8c624c6ca987381d1e3f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20408",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3061",
+      "divergent-universe.difficulty.3062",
+      "divergent-universe.difficulty.3063"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3011",
+      "divergent-universe.layer.3012",
+      "divergent-universe.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.20409",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20409 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20409 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "78",
+        "sha256": "c9c922f8bfae6e342f3a3c03fc9be7de7e417b7503f7cd81cd9a2937b2c59f7e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20409",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.20410",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20410 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20410 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "79",
+        "sha256": "bf2a10f4847b370e4bf51c2af77d09973511368041d3f1f3070b1ece88d93289",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20410",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.20411",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20411 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20411 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.80",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "80",
+        "sha256": "8d84bbb7e59810a1baddd5ca4b4022e91c95f71071e688b28fff4c736e1dbe0a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20411",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.20412",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20412 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20412 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.81",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "81",
+        "sha256": "9aaa97a1e6ebde4a193be0cc3942aad66780fa8285f9ce2f055230132cc1e2ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20412",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.20413",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20413 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20413 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.82",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "82",
+        "sha256": "f92a64baa2516cf32f2af24eafc6ebd77c5aabd6a4c6f71014cfd4f3c0cce141",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20413",
+    "area_type": "WeekChallenge",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.401",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 401 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 401 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "21",
+        "sha256": "ce39eeb4f92beffcdb073fd83435097ebfa09fb006039ea926908f700e2e0b60",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "401",
+    "area_type": "Formal",
+    "area_group": "3",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3011",
+      "divergent-universe.difficulty.3012",
+      "divergent-universe.difficulty.3013"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3001306",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001306"
+  },
+  {
+    "id": "divergent-universe.area.402",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 402 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 402 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "22",
+        "sha256": "29b3f3bc1f4740459dfc7119e2cde6bf69c7f956d914fd426d1ccc14674e6b8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "402",
+    "area_type": "Formal",
+    "area_group": "4",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3021",
+      "divergent-universe.difficulty.3022",
+      "divergent-universe.difficulty.3023"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000510",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000510"
+  },
+  {
+    "id": "divergent-universe.area.403",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 403 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 403 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "23",
+        "sha256": "a1f9530cc97677b5e0d169a7fc3c1f2672883bdda84c010291082dd1175d8c22",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "403",
+    "area_type": "Formal",
+    "area_group": "5",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3031",
+      "divergent-universe.difficulty.3032",
+      "divergent-universe.difficulty.3033"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000511",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000511"
+  },
+  {
+    "id": "divergent-universe.area.404",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 404 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 404 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "24",
+        "sha256": "c316a09019c9f03f0a4229e7c1804f7d2a8a501eee3c72f9f72cb9ca51ca4158",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "404",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3041",
+      "divergent-universe.difficulty.3042",
+      "divergent-universe.difficulty.3043"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000512",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000512"
+  },
+  {
+    "id": "divergent-universe.area.405",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 405 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 405 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "25",
+        "sha256": "eb25f661483dba61b613990c94d76a14eb947468fff183f356f5b9c29df472ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "405",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3051",
+      "divergent-universe.difficulty.3052",
+      "divergent-universe.difficulty.3053"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3001",
+      "divergent-universe.layer.3002",
+      "divergent-universe.layer.3003"
+    ],
+    "map_entry_id": "3000513",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000513"
+  },
+  {
+    "id": "divergent-universe.area.406",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 406 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 406 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "26",
+        "sha256": "88ec6735eaebfd3a0d3e376dd60c1e3c1d4b5fc73017d5d4010d8606b976bf99",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "406",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3061",
+      "divergent-universe.difficulty.3062",
+      "divergent-universe.difficulty.3063"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3011",
+      "divergent-universe.layer.3012",
+      "divergent-universe.layer.3013"
+    ],
+    "map_entry_id": "3000315",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000315"
+  },
+  {
+    "id": "divergent-universe.area.407",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 407 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 407 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "27",
+        "sha256": "8e46ced7f302420e92b993de57d5250df3a148a99e20276c908e7c42360d7670",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "407",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3061",
+      "divergent-universe.difficulty.3062",
+      "divergent-universe.difficulty.3063"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3011",
+      "divergent-universe.layer.3012",
+      "divergent-universe.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.408",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 408 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 408 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "28",
+        "sha256": "cd68e5dbf76196989ce21de0232103f336de69371914acac24181d69b382fcb1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "408",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3061",
+      "divergent-universe.difficulty.3062",
+      "divergent-universe.difficulty.3063"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3011",
+      "divergent-universe.layer.3012",
+      "divergent-universe.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.409",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 409 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 409 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "29",
+        "sha256": "19529fa6962221157a196da97294e8d26001564e1fcbffc3fde0d43e04d6b3c6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "409",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.410",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 410 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 410 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "30",
+        "sha256": "4ec2d6028fd31646f91a4c36fa7a4ac86d7ff6d739b4641accfb6d89919c7684",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "410",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.411",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 411 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 411 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "31",
+        "sha256": "21e42cb69ce0c63e521506815d432d89a2a53cd98675c210d9d5efc08332cecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "411",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.412",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 412 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 412 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "32",
+        "sha256": "5561210a1dfb9353f2deac3dec4f086be7dc5eeb94dcd27b77885770248846b2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "412",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "divergent-universe.area.413",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 413 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 413 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "33",
+        "sha256": "f04cd65fc370b7b628074cf384fbcd58452afae2c1d53e7c68878b8c550775ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "413",
+    "area_type": "Formal",
+    "area_group": "6",
+    "difficulty_ids": [
+      "divergent-universe.difficulty.3071",
+      "divergent-universe.difficulty.3072",
+      "divergent-universe.difficulty.3073"
+    ],
+    "layer_ids": [
+      "divergent-universe.layer.3021",
+      "divergent-universe.layer.3022",
+      "divergent-universe.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  }
+]

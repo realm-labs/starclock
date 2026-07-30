@@ -1,0 +1,2611 @@
+{
+  "table": {
+    "name": "DivergentUniverseAdventureOutcomes",
+    "rows": [
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RewardTierSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueTurntable"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueTurntable Room 11098010"
+          },
+          "name_zh_cn": {
+            "String": "RogueTurntable 房间 11098010"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "4001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RewardTierSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueTurntable\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"4001\",\"parameter_program\":[{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"High\"},{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"Medium\"},{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\"}],\"room_id\":\"11098010\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098010:RogueTurntable"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2359
+              },
+              {
+                "Integer": 6854
+              },
+              {
+                "Integer": 6855
+              },
+              {
+                "Integer": 6856
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098010.RogueTurntable"
+          },
+          "summary_en": {
+            "String": "RogueTurntable room 11098010 binds parameter group 4001 to 3 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueTurntable 房间 11098010 将参数组 4001 绑定到 3 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueTurntable"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 11098030"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 11098030"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"11098030\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098030:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2353
+              },
+              {
+                "Integer": 766
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098030.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 11098030 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 11098030 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 11098040"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 11098040"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"11098040\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098040:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2331
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098040.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 11098040 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 11098040 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 11098050"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 11098050"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301002"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301002\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"301002\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"11098050\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098050:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2356
+              },
+              {
+                "Integer": 767
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098050.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 11098050 binds parameter group 301002 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 11098050 将参数组 301002 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 11098060"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 11098060"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"11098060\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098060:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2342
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098060.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 11098060 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 11098060 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundScoreSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueEscapeLaser"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueEscapeLaser Room 11098070"
+          },
+          "name_zh_cn": {
+            "String": "RogueEscapeLaser 房间 11098070"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "5001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundScoreSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueEscapeLaser\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"5001\",\"parameter_program\":[{\"GameTimeperRound\":\"5\",\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"400\",\"600\"],\"ScoreperRound\":[\"100\",\"200\",\"300\",\"400\",\"500\"],\"ScoreperWave\":\"100\",\"TotalRounds\":\"6\"}],\"room_id\":\"11098070\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098070:RogueEscapeLaser"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2360
+              },
+              {
+                "Integer": 770
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098070.RogueEscapeLaser"
+          },
+          "summary_en": {
+            "String": "RogueEscapeLaser room 11098070 binds parameter group 5001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueEscapeLaser 房间 11098070 将参数组 5001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueEscapeLaser"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Room 11098080"
+          },
+          "name_zh_cn": {
+            "String": "RogueWolfGun 房间 11098080"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "101"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueWolfGun\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"101\",\"parameter_program\":[],\"room_id\":\"11098080\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11098080:RogueWolfGun"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2361
+              },
+              {
+                "Integer": 7097
+              },
+              {
+                "Integer": 7149
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.11098080.RogueWolfGun"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun room 11098080 publishes unresolved parameter group 101; only the external-result boundary is retained."
+          },
+          "summary_zh_cn": {
+            "String": "RogueWolfGun 房间 11098080 发布未解析参数组 101；仅保留外部结果边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueWolfGun"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-missing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RewardTierSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueTurntable"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueTurntable Room 200101"
+          },
+          "name_zh_cn": {
+            "String": "RogueTurntable 房间 200101"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "4001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RewardTierSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueTurntable\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"4001\",\"parameter_program\":[{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"High\"},{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\",\"RewardLevel\":\"Medium\"},{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\"}],\"room_id\":\"200101\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200101:RogueTurntable"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2338
+              },
+              {
+                "Integer": 6854
+              },
+              {
+                "Integer": 6855
+              },
+              {
+                "Integer": 6856
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200101.RogueTurntable"
+          },
+          "summary_en": {
+            "String": "RogueTurntable room 200101 binds parameter group 4001 to 3 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueTurntable 房间 200101 将参数组 4001 绑定到 3 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueTurntable"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 200102"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 200102"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"200102\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200102:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2333
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200102.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 200102 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 200102 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 200103"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 200103"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"200103\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200103:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2334
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200103.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 200103 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 200103 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 200104"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 200104"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"200104\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200104:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2335
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200104.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 200104 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 200104 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 200105"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 200105"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"200105\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200105:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2336
+              },
+              {
+                "Integer": 766
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200105.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 200105 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 200105 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 200106"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 200106"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301002"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301002\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"301002\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"200106\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200106:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2337
+              },
+              {
+                "Integer": 767
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200106.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 200106 binds parameter group 301002 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 200106 将参数组 301002 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundScoreSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueEscapeLaser"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueEscapeLaser Room 200107"
+          },
+          "name_zh_cn": {
+            "String": "RogueEscapeLaser 房间 200107"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "5001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundScoreSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueEscapeLaser\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"5001\",\"parameter_program\":[{\"GameTimeperRound\":\"5\",\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"400\",\"600\"],\"ScoreperRound\":[\"100\",\"200\",\"300\",\"400\",\"500\"],\"ScoreperWave\":\"100\",\"TotalRounds\":\"6\"}],\"room_id\":\"200107\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200107:RogueEscapeLaser"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2339
+              },
+              {
+                "Integer": 770
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200107.RogueEscapeLaser"
+          },
+          "summary_en": {
+            "String": "RogueEscapeLaser room 200107 binds parameter group 5001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueEscapeLaser 房间 200107 将参数组 5001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueEscapeLaser"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Room 200108"
+          },
+          "name_zh_cn": {
+            "String": "RogueWolfGun 房间 200108"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "101"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueWolfGun\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"101\",\"parameter_program\":[],\"room_id\":\"200108\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200108:RogueWolfGun"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2340
+              },
+              {
+                "Integer": 7097
+              },
+              {
+                "Integer": 7149
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200108.RogueWolfGun"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun room 200108 publishes unresolved parameter group 101; only the external-result boundary is retained."
+          },
+          "summary_zh_cn": {
+            "String": "RogueWolfGun 房间 200108 发布未解析参数组 101；仅保留外部结果边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueWolfGun"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-missing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Room 200109"
+          },
+          "name_zh_cn": {
+            "String": "RogueWolfGun 房间 200109"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "102"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueWolfGun\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"102\",\"parameter_program\":[],\"room_id\":\"200109\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200109:RogueWolfGun"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2341
+              },
+              {
+                "Integer": 7097
+              },
+              {
+                "Integer": 7149
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200109.RogueWolfGun"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun room 200109 publishes unresolved parameter group 102; only the external-result boundary is retained."
+          },
+          "summary_zh_cn": {
+            "String": "RogueWolfGun 房间 200109 发布未解析参数组 102；仅保留外部结果边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueWolfGun"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-missing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCandyCrash"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCandyCrash Room 200110"
+          },
+          "name_zh_cn": {
+            "String": "RogueCandyCrash 房间 200110"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "4001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCandyCrash\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"4001\",\"parameter_program\":[{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\",\"RoundRange\":[\"0\",\"1\",\"3\"],\"TotalRounds\":\"3\",\"TotalTime\":\"35\"}],\"room_id\":\"200110\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200110:RogueCandyCrash"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2343
+              },
+              {
+                "Integer": 762
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200110.RogueCandyCrash"
+          },
+          "summary_en": {
+            "String": "RogueCandyCrash room 200110 binds parameter group 4001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCandyCrash 房间 200110 将参数组 4001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCandyCrash"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCandyCrash"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCandyCrash Room 200111"
+          },
+          "name_zh_cn": {
+            "String": "RogueCandyCrash 房间 200111"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "4002"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCandyCrash\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"4002\",\"parameter_program\":[{\"ParamGroupID\":\"4002\",\"PrepareTime\":\"3\",\"RoundRange\":[\"0\",\"1\",\"3\"],\"TotalRounds\":\"3\",\"TotalTime\":\"35\"}],\"room_id\":\"200111\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "200111:RogueCandyCrash"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2344
+              },
+              {
+                "Integer": 763
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.200111.RogueCandyCrash"
+          },
+          "summary_en": {
+            "String": "RogueCandyCrash room 200111 binds parameter group 4002 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCandyCrash 房间 200111 将参数组 4002 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCandyCrash"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 21098010"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 21098010"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"21098010\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21098010:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2330
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.21098010.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 21098010 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 21098010 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Room 21098080"
+          },
+          "name_zh_cn": {
+            "String": "RogueWolfGun 房间 21098080"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "102"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueWolfGun\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"102\",\"parameter_program\":[],\"room_id\":\"21098080\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "21098080:RogueWolfGun"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2332
+              },
+              {
+                "Integer": 7097
+              },
+              {
+                "Integer": 7149
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.21098080.RogueWolfGun"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun room 21098080 publishes unresolved parameter group 102; only the external-result boundary is retained."
+          },
+          "summary_zh_cn": {
+            "String": "RogueWolfGun 房间 21098080 发布未解析参数组 102；仅保留外部结果边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueWolfGun"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-missing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 299900"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 299900"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "302002"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"302002\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"302002\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"5\",\"10\"]}],\"room_id\":\"299900\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "299900:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2358
+              },
+              {
+                "Integer": 769
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.299900.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 299900 binds parameter group 302002 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 299900 将参数组 302002 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 299901"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 299901"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "302001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"302001\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"302001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"299901\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "299901:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2357
+              },
+              {
+                "Integer": 768
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.299901.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 299901 binds parameter group 302001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 299901 将参数组 302001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 804100101"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 804100101"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"804100101\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100101:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2345
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100101.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 804100101 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 804100101 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 804100301"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 804100301"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"804100301\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100301:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2346
+              },
+              {
+                "Integer": 766
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100301.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 804100301 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 804100301 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 804100401"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 804100401"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"804100401\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100401:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2347
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100401.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 804100401 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 804100401 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueDestroyProp Room 804100501"
+          },
+          "name_zh_cn": {
+            "String": "RogueDestroyProp 房间 804100501"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301002"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueDestroyProp\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301002\",\"parameter_program\":[{\"GameTime\":\"35\",\"ParamGroupID\":\"301002\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"15\",\"30\"]}],\"room_id\":\"804100501\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100501:RogueDestroyProp"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2348
+              },
+              {
+                "Integer": 767
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100501.RogueDestroyProp"
+          },
+          "summary_en": {
+            "String": "RogueDestroyProp room 804100501 binds parameter group 301002 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueDestroyProp 房间 804100501 将参数组 301002 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueDestroyProp"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCaptureMonster Room 804100601"
+          },
+          "name_zh_cn": {
+            "String": "RogueCaptureMonster 房间 804100601"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "301001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ScoreThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCaptureMonster\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"301001\",\"parameter_program\":[{\"GameTime\":\"40\",\"MonsterNum\":\"16\",\"ParamGroupID\":\"301001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"2000\",\"3600\"]}],\"room_id\":\"804100601\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100601:RogueCaptureMonster"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2349
+              },
+              {
+                "Integer": 764
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100601.RogueCaptureMonster"
+          },
+          "summary_en": {
+            "String": "RogueCaptureMonster room 804100601 binds parameter group 301001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCaptureMonster 房间 804100601 将参数组 301001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCaptureMonster"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundScoreSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueEscapeLaser"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueEscapeLaser Room 804100701"
+          },
+          "name_zh_cn": {
+            "String": "RogueEscapeLaser 房间 804100701"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "5001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundScoreSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueEscapeLaser\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"5001\",\"parameter_program\":[{\"GameTimeperRound\":\"5\",\"ParamGroupID\":\"5001\",\"PrepareTime\":\"3\",\"ScoreRange\":[\"0\",\"400\",\"600\"],\"ScoreperRound\":[\"100\",\"200\",\"300\",\"400\",\"500\"],\"ScoreperWave\":\"100\",\"TotalRounds\":\"6\"}],\"room_id\":\"804100701\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100701:RogueEscapeLaser"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2350
+              },
+              {
+                "Integer": 770
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100701.RogueEscapeLaser"
+          },
+          "summary_en": {
+            "String": "RogueEscapeLaser room 804100701 binds parameter group 5001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueEscapeLaser 房间 804100701 将参数组 5001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueEscapeLaser"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Room 804100801"
+          },
+          "name_zh_cn": {
+            "String": "RogueWolfGun 房间 804100801"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "101"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueWolfGun\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"101\",\"parameter_program\":[],\"room_id\":\"804100801\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100801:RogueWolfGun"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2351
+              },
+              {
+                "Integer": 7097
+              },
+              {
+                "Integer": 7149
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100801.RogueWolfGun"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun room 804100801 publishes unresolved parameter group 101; only the external-result boundary is retained."
+          },
+          "summary_zh_cn": {
+            "String": "RogueWolfGun 房间 804100801 发布未解析参数组 101；仅保留外部结果边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueWolfGun"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-missing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueWolfGun"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueWolfGun Room 804100802"
+          },
+          "name_zh_cn": {
+            "String": "RogueWolfGun 房间 804100802"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "102"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"ExternalAdventureResult\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueWolfGun\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"102\",\"parameter_program\":[],\"room_id\":\"804100802\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100802:RogueWolfGun"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2352
+              },
+              {
+                "Integer": 7097
+              },
+              {
+                "Integer": 7149
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100802.RogueWolfGun"
+          },
+          "summary_en": {
+            "String": "RogueWolfGun room 804100802 publishes unresolved parameter group 102; only the external-result boundary is retained."
+          },
+          "summary_zh_cn": {
+            "String": "RogueWolfGun 房间 804100802 发布未解析参数组 102；仅保留外部结果边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueWolfGun"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-missing"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCandyCrash"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCandyCrash Room 804100901"
+          },
+          "name_zh_cn": {
+            "String": "RogueCandyCrash 房间 804100901"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "4001"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCandyCrash\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"4001\",\"parameter_program\":[{\"ParamGroupID\":\"4001\",\"PrepareTime\":\"3\",\"RoundRange\":[\"0\",\"1\",\"3\"],\"TotalRounds\":\"3\",\"TotalTime\":\"35\"}],\"room_id\":\"804100901\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804100901:RogueCandyCrash"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2354
+              },
+              {
+                "Integer": 762
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804100901.RogueCandyCrash"
+          },
+          "summary_en": {
+            "String": "RogueCandyCrash room 804100901 binds parameter group 4001 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCandyCrash 房间 804100901 将参数组 4001 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCandyCrash"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "abstract_outcome": {
+            "String": "{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]}"
+          },
+          "adventure_type": {
+            "String": "RogueCandyCrash"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "DivergentUniverseAdventureOutcome"
+          },
+          "name_en": {
+            "String": "RogueCandyCrash Room 804101001"
+          },
+          "name_zh_cn": {
+            "String": "RogueCandyCrash 房间 804101001"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "parameter_group_id": {
+            "String": "4002"
+          },
+          "payload_json": {
+            "String": "{\"abstract_outcome\":{\"input\":\"AcceptedExternalAdventureResult\",\"kind\":\"RoundThresholdSettlement\",\"ordered_operations\":[\"ValidateResult\",\"ApplyAuthoredSettlement\"]},\"action_gameplay\":\"Excluded\",\"adventure_type\":\"RogueCandyCrash\",\"fallback\":\"RejectWithoutMutation\",\"parameter_group_id\":\"4002\",\"parameter_program\":[{\"ParamGroupID\":\"4002\",\"PrepareTime\":\"3\",\"RoundRange\":[\"0\",\"1\",\"3\"],\"TotalRounds\":\"3\",\"TotalTime\":\"35\"}],\"room_id\":\"804101001\",\"runtime_lowered\":false}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "804101001:RogueCandyCrash"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2355
+              },
+              {
+                "Integer": 763
+              },
+              {
+                "Integer": 7097
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.adventure-outcome.804101001.RogueCandyCrash"
+          },
+          "summary_en": {
+            "String": "RogueCandyCrash room 804101001 binds parameter group 4002 to 1 exact settlement program row(s)."
+          },
+          "summary_zh_cn": {
+            "String": "RogueCandyCrash 房间 804101001 将参数组 4002 绑定到 1 条精确结算程序记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RogueCandyCrash"
+              },
+              {
+                "String": "abstract-outcome"
+              },
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "parameter-program"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

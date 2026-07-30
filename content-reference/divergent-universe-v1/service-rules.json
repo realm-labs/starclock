@@ -1,0 +1,326 @@
+[
+  {
+    "id": "divergent-universe.service-rule.workbench.1",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseServiceRule",
+    "name_en": "Enhancing Blessings service rule",
+    "name_zh_cn": "祝福强化服务规则",
+    "summary_en": "BuffEnhance applies one accepted transformation and rejects if no legal target exists.",
+    "summary_zh_cn": "BuffEnhance 应用一次已接受转换；无合法目标时拒绝。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "7e59f8ea49bbae72c3ebe57699ac0bf30082cfb2478c888800c3e7e74b11148e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "buffenhance",
+      "service",
+      "workbench"
+    ],
+    "service_kind": "BuffEnhance",
+    "currency_id": "divergent-universe.currency.workbench-heat",
+    "price": "UnspecifiedAmount",
+    "ordered_operations": [
+      "Consume:OwnedBaseBlessing",
+      "Produce:SameIdentityEnhancedBlessing"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.service-rule.workbench.11",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseServiceRule",
+    "name_en": "Select Weighted Curio service rule",
+    "name_zh_cn": "选择加权奇物服务规则",
+    "summary_en": "HexEquipment applies one accepted transformation and rejects if no legal target exists.",
+    "summary_zh_cn": "HexEquipment 应用一次已接受转换；无合法目标时拒绝。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "5",
+        "sha256": "f9256bf7b3995b0a9f34f5899606b7fe734b08f4a1162708d4067982e28abdf5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "hexequipment",
+      "service",
+      "workbench"
+    ],
+    "service_kind": "HexEquipment",
+    "currency_id": "",
+    "price": "Unspecified",
+    "ordered_operations": [
+      "Consume:OwnedWeightedCurioLoadout",
+      "Produce:AdjustedWeightedCurioLoadout"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.service-rule.workbench.2",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseServiceRule",
+    "name_en": "Overwrite Blessing service rule",
+    "name_zh_cn": "祝福覆写服务规则",
+    "summary_en": "BuffReforge applies one accepted transformation and rejects if no legal target exists.",
+    "summary_zh_cn": "BuffReforge 应用一次已接受转换；无合法目标时拒绝。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "1",
+        "sha256": "d84abb2db7b5717435e73cd753d6f3abcd46058c5a5b810e34171973fa7adef6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "buffreforge",
+      "service",
+      "workbench"
+    ],
+    "service_kind": "BuffReforge",
+    "currency_id": "",
+    "price": "IncreasesWithAcceptedOverwriteCount",
+    "ordered_operations": [
+      "Consume:OwnedBlessing",
+      "Produce:DifferentBlessing"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.service-rule.workbench.3",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseServiceRule",
+    "name_en": "Overwrite Equation service rule",
+    "name_zh_cn": "方程覆写服务规则",
+    "summary_en": "FormulaReforge applies one accepted transformation and rejects if no legal target exists.",
+    "summary_zh_cn": "FormulaReforge 应用一次已接受转换；无合法目标时拒绝。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "2",
+        "sha256": "5beb3dfdb396b832020b67242ea2334603adecb8122d0ef89bac96bb7c62967b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "formulareforge",
+      "service",
+      "workbench"
+    ],
+    "service_kind": "FormulaReforge",
+    "currency_id": "",
+    "price": "IncreasesWithAcceptedOverwriteCount",
+    "ordered_operations": [
+      "Consume:OwnedEquation",
+      "Produce:DifferentEquationOfIdenticalQuality"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.service-rule.workbench.4",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseServiceRule",
+    "name_en": "Curio Synthesize service rule",
+    "name_zh_cn": "奇物合成服务规则",
+    "summary_en": "MiracleCompose applies one accepted transformation and rejects if no legal target exists.",
+    "summary_zh_cn": "MiracleCompose 应用一次已接受转换；无合法目标时拒绝。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "3",
+        "sha256": "9d7513cc150ff0eafb91efdbed736526f46f926fc0ebdefbf7b45ee687fcc455",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "miraclecompose",
+      "service",
+      "workbench"
+    ],
+    "service_kind": "MiracleCompose",
+    "currency_id": "",
+    "price": "UnspecifiedInputCount",
+    "ordered_operations": [
+      "Consume:EqualRarityCurios",
+      "Produce:RandomCurioOfSameOrHigherRarity"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.service-rule.workbench.5",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseServiceRule",
+    "name_en": "Overwrite Weighted Curios service rule",
+    "name_zh_cn": "加权奇物覆写服务规则",
+    "summary_en": "MiracleReforge applies one accepted transformation and rejects if no legal target exists.",
+    "summary_zh_cn": "MiracleReforge 应用一次已接受转换；无合法目标时拒绝。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fe8c268baffed08c35b046d06a23bfdb2efa13aa1bdf647ff6bfc418d8dca871",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "miraclereforge",
+      "service",
+      "workbench"
+    ],
+    "service_kind": "MiracleReforge",
+    "currency_id": "",
+    "price": "UnspecifiedAmount",
+    "ordered_operations": [
+      "Consume:OwnedWeightedCurio",
+      "Produce:DifferentWeightedCurio"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "runtime_lowered": false
+  }
+]

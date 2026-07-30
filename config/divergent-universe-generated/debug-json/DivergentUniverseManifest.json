@@ -1,0 +1,91 @@
+{
+  "table": {
+    "name": "DivergentUniverseManifest",
+    "rows": [
+      {
+        "values": {
+          "content_manifest_sha256": {
+            "String": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseReferenceManifest"
+          },
+          "name_en": {
+            "String": "Divergent Universe Version 4.4 Reference Manifest"
+          },
+          "name_zh_cn": {
+            "String": "差分宇宙 4.4 版本资料清单"
+          },
+          "normalized_files": {
+            "String": "[\"adventure-outcomes.json\",\"areas.json\",\"arithmetic-mapping-builds.json\",\"arithmetic-mapping-eligibility.json\",\"arithmetic-mapping-rules.json\",\"astronomical-divisions.json\",\"blessing-equation-contributions.json\",\"blessing-groups.json\",\"blessing-levels.json\",\"blessing-paths.json\",\"blessing-rewrite-rules.json\",\"blessings.json\",\"boss-pools.json\",\"cognoculi.json\",\"common-constants.json\",\"coverage.json\",\"curio-groups.json\",\"curio-lifecycle-rules.json\",\"curio-pool-membership.json\",\"curio-states.json\",\"curios.json\",\"currencies.json\",\"curse-chests.json\",\"cyclical-challenges.json\",\"difficulties.json\",\"encounter-groups.json\",\"encounter-source-obligations.json\",\"encounter-waves.json\",\"enemy-slots.json\",\"entries.json\",\"equation-categories.json\",\"equation-effects.json\",\"equation-expansion-states.json\",\"equation-offers.json\",\"equation-progress.json\",\"equation-recipes.json\",\"equation-replacement-rules.json\",\"equations.json\",\"finish-conditions.json\",\"gamble-groups.json\",\"gamble-units.json\",\"grand-miracle-eligibility.json\",\"grand-miracle-states.json\",\"grand-miracles.json\",\"layer-rooms.json\",\"layers.json\",\"manifest.json\",\"mechanic-rules.json\",\"mechanic-source-files.json\",\"mode-service-npcs.json\",\"modules.json\",\"occurrence-choices.json\",\"occurrence-variants.json\",\"occurrences.json\",\"pack-index.json\",\"permanent-talents.json\",\"pool-membership.json\",\"profiles.json\",\"progression-effects.json\",\"protocols.json\",\"reconciliation-receipts.json\",\"research-gaps.json\",\"review-fixtures.json\",\"room-marks.json\",\"rooms.json\",\"semantic-fixture-families.json\",\"service-offer-rules.json\",\"service-rules.json\",\"sources.json\",\"stage-flow.json\",\"star-pioneer-practice.json\",\"titan-boons.json\",\"titan-choices.json\",\"titan-contributions.json\",\"titan-talents.json\",\"titan-types.json\",\"unlocks.json\",\"weekly-modifiers.json\",\"workbench-functions.json\",\"workbenches.json\"]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"authoring_target\":\"ExcelOpenPyxlThenSora030\",\"bilingual_index_revision\":\"7b349e39ee0f6f3bf814567995829b99c95e7a93\",\"blocking_research_gap_count\":0,\"candidate_quality\":true,\"content_manifest_sha256\":\"5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e\",\"coverage_percent\":\"100\",\"data_ready_source_obligations\":6215,\"frozen_source_obligations\":6215,\"goal_id\":\"divergent-universe-reference-v1\",\"mechanic_rule_count\":669,\"mechanic_source_count\":669,\"nonblocking_research_gap_count\":25,\"normalized_files\":[\"adventure-outcomes.json\",\"areas.json\",\"arithmetic-mapping-builds.json\",\"arithmetic-mapping-eligibility.json\",\"arithmetic-mapping-rules.json\",\"astronomical-divisions.json\",\"blessing-equation-contributions.json\",\"blessing-groups.json\",\"blessing-levels.json\",\"blessing-paths.json\",\"blessing-rewrite-rules.json\",\"blessings.json\",\"boss-pools.json\",\"cognoculi.json\",\"common-constants.json\",\"coverage.json\",\"curio-groups.json\",\"curio-lifecycle-rules.json\",\"curio-pool-membership.json\",\"curio-states.json\",\"curios.json\",\"currencies.json\",\"curse-chests.json\",\"cyclical-challenges.json\",\"difficulties.json\",\"encounter-groups.json\",\"encounter-source-obligations.json\",\"encounter-waves.json\",\"enemy-slots.json\",\"entries.json\",\"equation-categories.json\",\"equation-effects.json\",\"equation-expansion-states.json\",\"equation-offers.json\",\"equation-progress.json\",\"equation-recipes.json\",\"equation-replacement-rules.json\",\"equations.json\",\"finish-conditions.json\",\"gamble-groups.json\",\"gamble-units.json\",\"grand-miracle-eligibility.json\",\"grand-miracle-states.json\",\"grand-miracles.json\",\"layer-rooms.json\",\"layers.json\",\"manifest.json\",\"mechanic-rules.json\",\"mechanic-source-files.json\",\"mode-service-npcs.json\",\"modules.json\",\"occurrence-choices.json\",\"occurrence-variants.json\",\"occurrences.json\",\"pack-index.json\",\"permanent-talents.json\",\"pool-membership.json\",\"profiles.json\",\"progression-effects.json\",\"protocols.json\",\"reconciliation-receipts.json\",\"research-gaps.json\",\"review-fixtures.json\",\"room-marks.json\",\"rooms.json\",\"semantic-fixture-families.json\",\"service-offer-rules.json\",\"service-rules.json\",\"sources.json\",\"stage-flow.json\",\"star-pioneer-practice.json\",\"titan-boons.json\",\"titan-choices.json\",\"titan-contributions.json\",\"titan-talents.json\",\"titan-types.json\",\"unlocks.json\",\"weekly-modifiers.json\",\"workbench-functions.json\",\"workbenches.json\"],\"normalized_schema_sha256\":\"d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f\",\"reconciliation_receipt_count\":102,\"record_counts\":{\"adventure-outcomes.json\":32,\"areas.json\":28,\"arithmetic-mapping-builds.json\":95,\"arithmetic-mapping-eligibility.json\":84,\"arithmetic-mapping-rules.json\":7,\"astronomical-divisions.json\":9,\"blessing-equation-contributions.json\":414,\"blessing-groups.json\":118,\"blessing-levels.json\":828,\"blessing-paths.json\":8,\"blessing-rewrite-rules.json\":416,\"blessings.json\":414,\"boss-pools.json\":618,\"cognoculi.json\":9,\"common-constants.json\":34,\"coverage.json\":6215,\"curio-groups.json\":286,\"curio-lifecycle-rules.json\":179,\"curio-pool-membership.json\":235,\"curio-states.json\":235,\"curios.json\":179,\"currencies.json\":2,\"curse-chests.json\":29,\"cyclical-challenges.json\":13,\"difficulties.json\":22,\"encounter-groups.json\":43,\"encounter-source-obligations.json\":877,\"encounter-waves.json\":176,\"enemy-slots.json\":385,\"entries.json\":2,\"equation-categories.json\":4,\"equation-effects.json\":25,\"equation-expansion-states.json\":160,\"equation-offers.json\":136,\"equation-progress.json\":80,\"equation-recipes.json\":80,\"equation-replacement-rules.json\":4,\"equations.json\":80,\"finish-conditions.json\":13,\"gamble-groups.json\":126,\"gamble-units.json\":89,\"grand-miracle-eligibility.json\":74,\"grand-miracle-states.json\":34,\"grand-miracles.json\":17,\"layer-rooms.json\":0,\"layers.json\":11,\"manifest.json\":1,\"mechanic-rules.json\":669,\"mechanic-source-files.json\":669,\"mode-service-npcs.json\":23,\"modules.json\":1,\"occurrence-choices.json\":0,\"occurrence-variants.json\":97,\"occurrences.json\":118,\"pack-index.json\":1,\"permanent-talents.json\":38,\"pool-membership.json\":3044,\"profiles.json\":1,\"progression-effects.json\":38,\"protocols.json\":8,\"reconciliation-receipts.json\":102,\"research-gaps.json\":25,\"review-fixtures.json\":25,\"room-marks.json\":24,\"rooms.json\":848,\"semantic-fixture-families.json\":25,\"service-offer-rules.json\":161,\"service-rules.json\":6,\"sources.json\":7624,\"stage-flow.json\":111,\"star-pioneer-practice.json\":2,\"titan-boons.json\":84,\"titan-choices.json\":36,\"titan-contributions.json\":120,\"titan-talents.json\":36,\"titan-types.json\":12,\"unlocks.json\":97,\"weekly-modifiers.json\":103,\"workbench-functions.json\":6,\"workbenches.json\":11},\"runtime_loading\":\"ForbiddenReferenceOnly\",\"semantic_fixture_family_count\":25,\"source_evidence_count\":7624,\"source_inventory_sha256\":\"60d9a9cd6798a2a68ce146bcecefe2edb5b5d54fcba4873b03dbe8d5201b6dc4\",\"structured_source_revision\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\"}"
+          },
+          "record_counts": {
+            "String": "{\"adventure-outcomes.json\":32,\"areas.json\":28,\"arithmetic-mapping-builds.json\":95,\"arithmetic-mapping-eligibility.json\":84,\"arithmetic-mapping-rules.json\":7,\"astronomical-divisions.json\":9,\"blessing-equation-contributions.json\":414,\"blessing-groups.json\":118,\"blessing-levels.json\":828,\"blessing-paths.json\":8,\"blessing-rewrite-rules.json\":416,\"blessings.json\":414,\"boss-pools.json\":618,\"cognoculi.json\":9,\"common-constants.json\":34,\"coverage.json\":6215,\"curio-groups.json\":286,\"curio-lifecycle-rules.json\":179,\"curio-pool-membership.json\":235,\"curio-states.json\":235,\"curios.json\":179,\"currencies.json\":2,\"curse-chests.json\":29,\"cyclical-challenges.json\":13,\"difficulties.json\":22,\"encounter-groups.json\":43,\"encounter-source-obligations.json\":877,\"encounter-waves.json\":176,\"enemy-slots.json\":385,\"entries.json\":2,\"equation-categories.json\":4,\"equation-effects.json\":25,\"equation-expansion-states.json\":160,\"equation-offers.json\":136,\"equation-progress.json\":80,\"equation-recipes.json\":80,\"equation-replacement-rules.json\":4,\"equations.json\":80,\"finish-conditions.json\":13,\"gamble-groups.json\":126,\"gamble-units.json\":89,\"grand-miracle-eligibility.json\":74,\"grand-miracle-states.json\":34,\"grand-miracles.json\":17,\"layer-rooms.json\":0,\"layers.json\":11,\"manifest.json\":1,\"mechanic-rules.json\":669,\"mechanic-source-files.json\":669,\"mode-service-npcs.json\":23,\"modules.json\":1,\"occurrence-choices.json\":0,\"occurrence-variants.json\":97,\"occurrences.json\":118,\"pack-index.json\":1,\"permanent-talents.json\":38,\"pool-membership.json\":3044,\"profiles.json\":1,\"progression-effects.json\":38,\"protocols.json\":8,\"reconciliation-receipts.json\":102,\"research-gaps.json\":25,\"review-fixtures.json\":25,\"room-marks.json\":24,\"rooms.json\":848,\"semantic-fixture-families.json\":25,\"service-offer-rules.json\":161,\"service-rules.json\":6,\"sources.json\":7624,\"stage-flow.json\":111,\"star-pioneer-practice.json\":2,\"titan-boons.json\":84,\"titan-choices.json\":36,\"titan-contributions.json\":120,\"titan-talents.json\":36,\"titan-types.json\":12,\"unlocks.json\":97,\"weekly-modifiers.json\":103,\"workbench-functions.json\":6,\"workbenches.json\":11}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "divergent-universe-reference-v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7092
+              },
+              {
+                "Integer": 7096
+              },
+              {
+                "Integer": 7094
+              },
+              {
+                "Integer": 7093
+              },
+              {
+                "Integer": 7095
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.reference-manifest.v1"
+          },
+          "summary_en": {
+            "String": "Candidate manifest accounts exactly once for 6215 frozen obligations across 50 categories without runtime publication."
+          },
+          "summary_zh_cn": {
+            "String": "Candidate 清单对 50 个类别中的 6215 个冻结义务完成逐一对账，且不发布运行时内容。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate"
+              },
+              {
+                "String": "manifest"
+              },
+              {
+                "String": "reference-only"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

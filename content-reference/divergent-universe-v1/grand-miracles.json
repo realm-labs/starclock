@@ -1,0 +1,1215 @@
+[
+  {
+    "id": "divergent-universe.grand-miracle.1001",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Ten Light-Years' Foresight",
+    "name_zh_cn": "十光年不晚",
+    "summary_en": "Ten Light-Years' Foresight is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633401.",
+    "summary_zh_cn": "十光年不晚 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633401。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "0",
+        "sha256": "23fa430601bf7bd69ae83f9636ab5809fddadde7792f54cf399298257ef31925",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "13",
+        "sha256": "7147e4d3f987b703380164f65aa1067f01876c7c276016f6bd7309ad89ab711d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1001",
+    "display_id": "1014",
+    "maze_buff_id": "633401",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1001"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1001.inactive",
+      "divergent-universe.grand-miracle-state.1001.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1002",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Silent Song",
+    "name_zh_cn": "静谧的歌声",
+    "summary_en": "Silent Song is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633402.",
+    "summary_zh_cn": "静谧的歌声 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633402。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "1",
+        "sha256": "cba0bcfc5cbf3601d305a7095b3f779d54cd3acdb9fc6ea529fe06ee1c40bffb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "14",
+        "sha256": "278a4af129deb39b9e298268a936e16d258b807d461dcfd046bb250f6b5907aa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1002",
+    "display_id": "1015",
+    "maze_buff_id": "633402",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1002"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1002.inactive",
+      "divergent-universe.grand-miracle-state.1002.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1003",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Mock Crimson Moon",
+    "name_zh_cn": "拟赤月",
+    "summary_en": "Mock Crimson Moon is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633403.",
+    "summary_zh_cn": "拟赤月 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633403。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "2",
+        "sha256": "efc206cf8c88a8f8a68f2832a0d926bd2aa1599569467e4091abbaa8f7df04ca",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "15",
+        "sha256": "63b016ffeefdae33a515cabff7b00ab2dda0de5b9754cddd133e494810de1cf4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1003",
+    "display_id": "1016",
+    "maze_buff_id": "633403",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1003"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1003.inactive",
+      "divergent-universe.grand-miracle-state.1003.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1004",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Road of Prayers",
+    "name_zh_cn": "祈祷之路",
+    "summary_en": "Road of Prayers is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633404.",
+    "summary_zh_cn": "祈祷之路 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633404。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "3",
+        "sha256": "399b1dbd26c2df5f1ef7d277b74aa144453211158a9cfd047bed76af159b5da2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "21",
+        "sha256": "2604805137d5c9911a501a0003f482c9d14f8f7fd15392dea81339f828782633",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1004",
+    "display_id": "1022",
+    "maze_buff_id": "633404",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1004"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1004.inactive",
+      "divergent-universe.grand-miracle-state.1004.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1005",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Converse of Entropy",
+    "name_zh_cn": "熵的逆命题",
+    "summary_en": "Converse of Entropy is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633405.",
+    "summary_zh_cn": "熵的逆命题 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633405。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "4",
+        "sha256": "3e59e91335b994ec324d616044df4f142d05294be6610b1be1ea0bb8760922c9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "17",
+        "sha256": "46e45628572b6b6f914cc8383963a613a7b8543407d013f481196078574435a3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1005",
+    "display_id": "1018",
+    "maze_buff_id": "633405",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1005"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1005.inactive",
+      "divergent-universe.grand-miracle-state.1005.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1006",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Genius' Confusion",
+    "name_zh_cn": "天才的迷茫时间",
+    "summary_en": "Genius' Confusion is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633406.",
+    "summary_zh_cn": "天才的迷茫时间 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633406。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "5",
+        "sha256": "567a45f594d00eeb441e66ee27b0bf2792973ac0906919115383647bdb6d11f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "10",
+        "sha256": "a0f128afdb92ee4f3ef94f3390b24246930a16e9c00c6898098600249432d06d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1006",
+    "display_id": "1011",
+    "maze_buff_id": "633406",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1006"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1006.inactive",
+      "divergent-universe.grand-miracle-state.1006.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1007",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Revitalization-310",
+    "name_zh_cn": "醒觉-310",
+    "summary_en": "Revitalization-310 is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633407.",
+    "summary_zh_cn": "醒觉-310 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633407。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "6",
+        "sha256": "d581ff209d5b8ee45468c5d5a92ead4f5de428058e26f887f82ce46eeb3f5f69",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "4",
+        "sha256": "d281869d3fe26e212d91d3905173c87d33b144250fd2c8c15442ffb2e3d2559c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1007",
+    "display_id": "1005",
+    "maze_buff_id": "633407",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [
+      "61000500"
+    ],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1007"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1007.inactive",
+      "divergent-universe.grand-miracle-state.1007.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1008",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Encouragement for You",
+    "name_zh_cn": "给你鼓励",
+    "summary_en": "Encouragement for You is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633408.",
+    "summary_zh_cn": "给你鼓励 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633408。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "7",
+        "sha256": "343af82e2f37001b36d07c3210a0cd6881c775bcd3301364633aab1f5acdd827",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "28",
+        "sha256": "2f4b318c196fd5e27a5f88d5cb347b7f3ed3359253912638b0ea39091b2558be",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1008",
+    "display_id": "1029",
+    "maze_buff_id": "633408",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1008"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1008.inactive",
+      "divergent-universe.grand-miracle-state.1008.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1009",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Dignity and Passion",
+    "name_zh_cn": "尊严与热忱",
+    "summary_en": "Dignity and Passion is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633409.",
+    "summary_zh_cn": "尊严与热忱 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633409。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "8",
+        "sha256": "87960132e1f4ceb6f98f17d3146d5d681ee35d91c19bbf2c7aa164705cd0e6ce",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "1",
+        "sha256": "79b583b50a877ee3837d05db44294a5cd2b2a361aeb5332db481f87a9fd390a6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1009",
+    "display_id": "1002",
+    "maze_buff_id": "633409",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1009"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1009.inactive",
+      "divergent-universe.grand-miracle-state.1009.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1010",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Love-Seeking Golden Dart",
+    "name_zh_cn": "寻爱金镖",
+    "summary_en": "Love-Seeking Golden Dart is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633410.",
+    "summary_zh_cn": "寻爱金镖 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633410。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "9",
+        "sha256": "3921d7dbf81e3b7a10537cf2f78389eb4c0b399178b49dd2dc4620a520764880",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "27",
+        "sha256": "4501d7751633b2d1df72ab33a6cfcbd718c6213bc54df99d2a645e13ab76d1b3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1010",
+    "display_id": "1028",
+    "maze_buff_id": "633410",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1010"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1010.inactive",
+      "divergent-universe.grand-miracle-state.1010.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1011",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Footstep of Gods",
+    "name_zh_cn": "神之足迹",
+    "summary_en": "Footstep of Gods is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633411.",
+    "summary_zh_cn": "神之足迹 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633411。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "10",
+        "sha256": "45bfaff9e2d4e3bee44e7375c6a4c281e4529037b60ba5d1a3a1c76b5b30df8b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "22",
+        "sha256": "673d9eb23d57dcf44b4c1f68c4a0e754aa29ee941fa1f7b3b5b8887d779fdcc9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1011",
+    "display_id": "1023",
+    "maze_buff_id": "633411",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1011"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1011.inactive",
+      "divergent-universe.grand-miracle-state.1011.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1012",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Most Raucous",
+    "name_zh_cn": "喧哗上等",
+    "summary_en": "Most Raucous is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633412.",
+    "summary_zh_cn": "喧哗上等 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633412。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "11",
+        "sha256": "4778b7b91f7c41e989a1b137539a22788f4cfb60d0a1558bd50d023d476f305f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "7",
+        "sha256": "b20bd5c86a6721424c3c08eaeb0f8754b088488de8814a365e5ec20b6a80d261",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1012",
+    "display_id": "1008",
+    "maze_buff_id": "633412",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [
+      "61000500"
+    ],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1012"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1012.inactive",
+      "divergent-universe.grand-miracle-state.1012.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1013",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Self-Amusement",
+    "name_zh_cn": "自娱自乐",
+    "summary_en": "Self-Amusement is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633413.",
+    "summary_zh_cn": "自娱自乐 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633413。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "12",
+        "sha256": "bbde27be28f01eb1b938b2bb95bf11344e10fd78642fff6e792f2afb7d063903",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "25",
+        "sha256": "eb117795d39fa1f26d705b718021da9001f1f6bfcc462aedf7421cc4c7c50f75",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1013",
+    "display_id": "1026",
+    "maze_buff_id": "633413",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1013"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1013.inactive",
+      "divergent-universe.grand-miracle-state.1013.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1014",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Automated Experience",
+    "name_zh_cn": "自动化体验",
+    "summary_en": "Automated Experience is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633414.",
+    "summary_zh_cn": "自动化体验 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633414。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "13",
+        "sha256": "b7b1b6546e9e0bf42770e2f8e4e9a45ed36326ece7d335e36beba11a5f25c8f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "20",
+        "sha256": "bbabb66cfbfacb24a783491f0bfc6797aaa988a2c9d420f116f2158cf38cf13c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1014",
+    "display_id": "1021",
+    "maze_buff_id": "633414",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1014"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1014.inactive",
+      "divergent-universe.grand-miracle-state.1014.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1015",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Sapient Pen",
+    "name_zh_cn": "智多笔",
+    "summary_en": "Sapient Pen is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633415.",
+    "summary_zh_cn": "智多笔 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633415。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "14",
+        "sha256": "f911b4cb00af74770f4ff20949f892897e5df6a092bb90a1010d5c530b2f017d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "26",
+        "sha256": "6abc62e6774e204dcacd48258b4614c8d57be5f56d6520a548584ac8285dea83",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1015",
+    "display_id": "1027",
+    "maze_buff_id": "633415",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1015"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1015.inactive",
+      "divergent-universe.grand-miracle-state.1015.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1016",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "Parallel Universe Walkie-Talkie",
+    "name_zh_cn": "平行宇宙对讲机",
+    "summary_en": "Parallel Universe Walkie-Talkie is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633416.",
+    "summary_zh_cn": "平行宇宙对讲机 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633416。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "15",
+        "sha256": "b869404b9257c2fbc467a1fbfe89db50ca26932bfae400176e4bcd26e22c3017",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "6",
+        "sha256": "61a43cdadfcb26aa5a14c40899ad6ac015b10b8f9df9a97b0bc0e00e9b5f62c7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1016",
+    "display_id": "1007",
+    "maze_buff_id": "633416",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [
+      "61000500"
+    ],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1016"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1016.inactive",
+      "divergent-universe.grand-miracle-state.1016.active"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.grand-miracle.1017",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseGrandMiracle",
+    "name_en": "The Story Presently",
+    "name_zh_cn": "故事的现在时",
+    "summary_en": "The Story Presently is a Tourn3 Hex definition with exact inline character eligibility and unresolved referenced MazeBuff 633417.",
+    "summary_zh_cn": "故事的现在时 是 Tourn3 Hex 定义，具有精确的行内角色资格，并引用尚未解析的 MazeBuff 633417。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "16",
+        "sha256": "559132afb85b5090d896cfc184b18e634f98d58f739a1cedd70b35d5b0b7a61e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "19",
+        "sha256": "05520d30ea8641c1cf2650435b76e7050a6e35b05db1853675a4f61c11208865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      }
+    ],
+    "tags": [
+      "effect-unresolved",
+      "grand-miracle",
+      "hex",
+      "tourn3"
+    ],
+    "source_id": "1017",
+    "display_id": "1020",
+    "maze_buff_id": "633417",
+    "maze_buff_resolution": "MissingReleasedRogueMazeBuffRow",
+    "effect_ids": [],
+    "eligibility_rule_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1017"
+    ],
+    "state_ids": [
+      "divergent-universe.grand-miracle-state.1017.inactive",
+      "divergent-universe.grand-miracle-state.1017.active"
+    ],
+    "runtime_lowered": false
+  }
+]

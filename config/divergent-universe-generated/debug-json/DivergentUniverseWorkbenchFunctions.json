@@ -1,0 +1,457 @@
+{
+  "table": {
+    "name": "DivergentUniverseWorkbenchFunctions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "function_type": {
+            "String": "BuffEnhance"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_policy": {
+            "String": "OwnedBaseBlessing"
+          },
+          "kind": {
+            "String": "DivergentUniverseWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Enhancing Blessings"
+          },
+          "name_zh_cn": {
+            "String": "祝福强化"
+          },
+          "output_policy": {
+            "String": "SameIdentityEnhancedBlessing"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[],\"fallback\":\"RejectWithoutMutation\",\"function_type\":\"BuffEnhance\",\"input_policy\":\"OwnedBaseBlessing\",\"output_policy\":\"SameIdentityEnhancedBlessing\",\"price_rule\":{\"currency\":\"WorkbenchHeat\",\"formula\":\"UnspecifiedAmount\",\"reset\":\"HeatResetsAtEachWorkbench\"},\"runtime_lowered\":false,\"weights\":[]}"
+          },
+          "price_rule": {
+            "String": "{\"currency\":\"WorkbenchHeat\",\"formula\":\"UnspecifiedAmount\",\"reset\":\"HeatResetsAtEachWorkbench\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6848
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.workbench-function.1"
+          },
+          "summary_en": {
+            "String": "Enhancing Blessings transforms OwnedBaseBlessing into SameIdentityEnhancedBlessing; unpublished price and candidate fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "祝福强化 将 OwnedBaseBlessing 转换为 SameIdentityEnhancedBlessing；未公开的价格和候选字段保持明确。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "buffenhance"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "function_type": {
+            "String": "HexEquipment"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_policy": {
+            "String": "OwnedWeightedCurioLoadout"
+          },
+          "kind": {
+            "String": "DivergentUniverseWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Select Weighted Curio"
+          },
+          "name_zh_cn": {
+            "String": "选择加权奇物"
+          },
+          "output_policy": {
+            "String": "AdjustedWeightedCurioLoadout"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[],\"fallback\":\"RejectWithoutMutation\",\"function_type\":\"HexEquipment\",\"input_policy\":\"OwnedWeightedCurioLoadout\",\"output_policy\":\"AdjustedWeightedCurioLoadout\",\"price_rule\":{\"currency\":\"Unspecified\",\"formula\":\"Unspecified\",\"reset\":\"NotApplicable\"},\"runtime_lowered\":false,\"weights\":[]}"
+          },
+          "price_rule": {
+            "String": "{\"currency\":\"Unspecified\",\"formula\":\"Unspecified\",\"reset\":\"NotApplicable\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "11"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6853
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.workbench-function.11"
+          },
+          "summary_en": {
+            "String": "Select Weighted Curio transforms OwnedWeightedCurioLoadout into AdjustedWeightedCurioLoadout; unpublished price and candidate fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "选择加权奇物 将 OwnedWeightedCurioLoadout 转换为 AdjustedWeightedCurioLoadout；未公开的价格和候选字段保持明确。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "hexequipment"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "function_type": {
+            "String": "BuffReforge"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input_policy": {
+            "String": "OwnedBlessing"
+          },
+          "kind": {
+            "String": "DivergentUniverseWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Overwrite Blessing"
+          },
+          "name_zh_cn": {
+            "String": "祝福覆写"
+          },
+          "output_policy": {
+            "String": "DifferentBlessing"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[],\"fallback\":\"RejectWithoutMutation\",\"function_type\":\"BuffReforge\",\"input_policy\":\"OwnedBlessing\",\"output_policy\":\"DifferentBlessing\",\"price_rule\":{\"currency\":\"UnspecifiedCurrency\",\"formula\":\"IncreasesWithAcceptedOverwriteCount\",\"reset\":\"Unspecified\"},\"runtime_lowered\":false,\"weights\":[]}"
+          },
+          "price_rule": {
+            "String": "{\"currency\":\"UnspecifiedCurrency\",\"formula\":\"IncreasesWithAcceptedOverwriteCount\",\"reset\":\"Unspecified\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6849
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.workbench-function.2"
+          },
+          "summary_en": {
+            "String": "Overwrite Blessing transforms OwnedBlessing into DifferentBlessing; unpublished price and candidate fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "祝福覆写 将 OwnedBlessing 转换为 DifferentBlessing；未公开的价格和候选字段保持明确。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "buffreforge"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "function_type": {
+            "String": "FormulaReforge"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input_policy": {
+            "String": "OwnedEquation"
+          },
+          "kind": {
+            "String": "DivergentUniverseWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Overwrite Equation"
+          },
+          "name_zh_cn": {
+            "String": "方程覆写"
+          },
+          "output_policy": {
+            "String": "DifferentEquationOfIdenticalQuality"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[],\"fallback\":\"RejectWithoutMutation\",\"function_type\":\"FormulaReforge\",\"input_policy\":\"OwnedEquation\",\"output_policy\":\"DifferentEquationOfIdenticalQuality\",\"price_rule\":{\"currency\":\"UnspecifiedCurrency\",\"formula\":\"IncreasesWithAcceptedOverwriteCount\",\"reset\":\"Unspecified\"},\"runtime_lowered\":false,\"weights\":[]}"
+          },
+          "price_rule": {
+            "String": "{\"currency\":\"UnspecifiedCurrency\",\"formula\":\"IncreasesWithAcceptedOverwriteCount\",\"reset\":\"Unspecified\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6850
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.workbench-function.3"
+          },
+          "summary_en": {
+            "String": "Overwrite Equation transforms OwnedEquation into DifferentEquationOfIdenticalQuality; unpublished price and candidate fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "方程覆写 将 OwnedEquation 转换为 DifferentEquationOfIdenticalQuality；未公开的价格和候选字段保持明确。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formulareforge"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "function_type": {
+            "String": "MiracleCompose"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input_policy": {
+            "String": "EqualRarityCurios"
+          },
+          "kind": {
+            "String": "DivergentUniverseWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Curio Synthesize"
+          },
+          "name_zh_cn": {
+            "String": "奇物合成"
+          },
+          "output_policy": {
+            "String": "RandomCurioOfSameOrHigherRarity"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[],\"fallback\":\"RejectWithoutMutation\",\"function_type\":\"MiracleCompose\",\"input_policy\":\"EqualRarityCurios\",\"output_policy\":\"RandomCurioOfSameOrHigherRarity\",\"price_rule\":{\"currency\":\"InputCurios\",\"formula\":\"UnspecifiedInputCount\",\"reset\":\"NotApplicable\"},\"runtime_lowered\":false,\"weights\":[]}"
+          },
+          "price_rule": {
+            "String": "{\"currency\":\"InputCurios\",\"formula\":\"UnspecifiedInputCount\",\"reset\":\"NotApplicable\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6851
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.workbench-function.4"
+          },
+          "summary_en": {
+            "String": "Curio Synthesize transforms EqualRarityCurios into RandomCurioOfSameOrHigherRarity; unpublished price and candidate fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "奇物合成 将 EqualRarityCurios 转换为 RandomCurioOfSameOrHigherRarity；未公开的价格和候选字段保持明确。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "miraclecompose"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "function_type": {
+            "String": "MiracleReforge"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input_policy": {
+            "String": "OwnedWeightedCurio"
+          },
+          "kind": {
+            "String": "DivergentUniverseWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Overwrite Weighted Curios"
+          },
+          "name_zh_cn": {
+            "String": "加权奇物覆写"
+          },
+          "output_policy": {
+            "String": "DifferentWeightedCurio"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_ids\":[],\"fallback\":\"RejectWithoutMutation\",\"function_type\":\"MiracleReforge\",\"input_policy\":\"OwnedWeightedCurio\",\"output_policy\":\"DifferentWeightedCurio\",\"price_rule\":{\"currency\":\"UnspecifiedCurrency\",\"formula\":\"UnspecifiedAmount\",\"reset\":\"Unspecified\"},\"runtime_lowered\":false,\"weights\":[]}"
+          },
+          "price_rule": {
+            "String": "{\"currency\":\"UnspecifiedCurrency\",\"formula\":\"UnspecifiedAmount\",\"reset\":\"Unspecified\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6852
+              },
+              {
+                "Integer": 7150
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.workbench-function.5"
+          },
+          "summary_en": {
+            "String": "Overwrite Weighted Curios transforms OwnedWeightedCurio into DifferentWeightedCurio; unpublished price and candidate fields remain explicit."
+          },
+          "summary_zh_cn": {
+            "String": "加权奇物覆写 将 OwnedWeightedCurio 转换为 DifferentWeightedCurio；未公开的价格和候选字段保持明确。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "miraclereforge"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

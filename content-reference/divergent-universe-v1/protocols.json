@@ -1,0 +1,440 @@
+[
+  {
+    "id": "divergent-universe.protocol.1",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 1",
+    "name_zh_cn": "阈值协议 1",
+    "summary_en": "Protocol 1 applies 3 plane-scaled enemy maximum modifier(s) and 3 additional rule(s).",
+    "summary_zh_cn": "协议 1 应用 3 个随位面缩放的敌方最大修正和 3 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "0",
+        "sha256": "962646b69f7500322b2f6cd04df910cd9b7f7e553bad6912201422a484af59a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-1",
+      "threshold-protocol"
+    ],
+    "source_id": "1",
+    "protocol_level": 1,
+    "entry_rules": [],
+    "difficulty_changes": [
+      "IncreaseDomainCount",
+      "EnableSecondPlaneConversionDomains",
+      "IncreaseEquationRandomness"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "0.32",
+        "max_hp": "2",
+        "speed": "0.16"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": []
+    },
+    "source_parameters": [
+      "0.32",
+      "2",
+      "0.16"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.2",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 2",
+    "name_zh_cn": "阈值协议 2",
+    "summary_en": "Protocol 2 applies 3 plane-scaled enemy maximum modifier(s) and 2 additional rule(s).",
+    "summary_zh_cn": "协议 2 应用 3 个随位面缩放的敌方最大修正和 2 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "1",
+        "sha256": "616aced66f0d3c81cd4cb53e4e27ddb57327a8609c43473b9f54ac4974daa3a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-2",
+      "threshold-protocol"
+    ],
+    "source_id": "2",
+    "protocol_level": 2,
+    "entry_rules": [],
+    "difficulty_changes": [
+      "IncreaseMaskWishpowerRequirement",
+      "IncreaseEquationBlessingRequirement"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "0.64",
+        "max_hp": "6",
+        "speed": "0.32"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": []
+    },
+    "source_parameters": [
+      "0.64",
+      "6",
+      "0.32"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.3",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 3",
+    "name_zh_cn": "阈值协议 3",
+    "summary_en": "Protocol 3 applies 3 plane-scaled enemy maximum modifier(s) and 3 additional rule(s).",
+    "summary_zh_cn": "协议 3 应用 3 个随位面缩放的敌方最大修正和 3 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "2",
+        "sha256": "9c760af060ebb50bcc3533b4c163010d01fa060144799b2e100e2ea85e407ca0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-3",
+      "threshold-protocol"
+    ],
+    "source_id": "3",
+    "protocol_level": 3,
+    "entry_rules": [],
+    "difficulty_changes": [
+      "ReplaceFirstAndSecondPlaneBosses",
+      "AdvanceBerserkOnset",
+      "IncreaseBerserkStackRate"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "0.96",
+        "max_hp": "12",
+        "speed": "0.48"
+      },
+      "first_second_plane_boss_identity": "ChangedIdentityDeferredToP2B5",
+      "berserk_changes": [
+        "EarlierOnset",
+        "FasterStacking"
+      ]
+    },
+    "source_parameters": [
+      "0.96",
+      "12",
+      "0.48"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.4",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 4",
+    "name_zh_cn": "阈值协议 4",
+    "summary_en": "Protocol 4 applies 3 plane-scaled enemy maximum modifier(s) and 1 additional rule(s).",
+    "summary_zh_cn": "协议 4 应用 3 个随位面缩放的敌方最大修正和 1 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "3",
+        "sha256": "f9889b5464f8f70e4c220c9b4b00c2b6761c3530e70d6785d0838c4565e477bd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-4",
+      "threshold-protocol"
+    ],
+    "source_id": "4",
+    "protocol_level": 4,
+    "entry_rules": [],
+    "difficulty_changes": [
+      "FurtherIncreaseDomainCount"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "1.28",
+        "max_hp": "20",
+        "speed": "0.64"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": []
+    },
+    "source_parameters": [
+      "1.28",
+      "20",
+      "0.64"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.5",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 5",
+    "name_zh_cn": "阈值协议 5",
+    "summary_en": "Protocol 5 applies 3 plane-scaled enemy maximum modifier(s) and 3 additional rule(s).",
+    "summary_zh_cn": "协议 5 应用 3 个随位面缩放的敌方最大修正和 3 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "4",
+        "sha256": "cafa05fbc01025c5140d2763144537ec11273620b4d3def33bdf7e532caac96e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-5",
+      "threshold-protocol"
+    ],
+    "source_id": "5",
+    "protocol_level": 5,
+    "entry_rules": [
+      "GrantOneGrandMiracleAtFirstPlaneEntry"
+    ],
+    "difficulty_changes": [
+      "GrantOneGrandMiracleAtFirstPlaneEntry",
+      "IncreaseMaskWishpowerRequirement",
+      "IncreaseEquationBlessingRequirement"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "1.6",
+        "max_hp": "32",
+        "speed": "0.8"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": []
+    },
+    "source_parameters": [
+      "1.6",
+      "32",
+      "0.8"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.6",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 6",
+    "name_zh_cn": "阈值协议 6",
+    "summary_en": "Protocol 6 applies 4 plane-scaled enemy maximum modifier(s) and 4 additional rule(s).",
+    "summary_zh_cn": "协议 6 应用 4 个随位面缩放的敌方最大修正和 4 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "5",
+        "sha256": "e545b9cc2e8964168253d59a7427d64760dba9a7af06d81a10c086bc0385fc65",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-6",
+      "threshold-protocol"
+    ],
+    "source_id": "6",
+    "protocol_level": 6,
+    "entry_rules": [],
+    "difficulty_changes": [
+      "AdvanceBerserkEnemyAfterAttacked",
+      "IncreaseAllyDamageAfterBerserk",
+      "DecreaseAllyHealingAfterBerserk",
+      "DecreaseAllyShieldAfterBerserk"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "1.92",
+        "max_hp": "48",
+        "speed": "0.96",
+        "max_toughness": "0.2"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": [
+        "AdvanceAfterAttacked"
+      ]
+    },
+    "source_parameters": [
+      "1.92",
+      "48",
+      "0.96",
+      "0.2"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.7",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 7",
+    "name_zh_cn": "阈值协议 7",
+    "summary_en": "Protocol 7 applies 4 plane-scaled enemy maximum modifier(s) and 2 additional rule(s).",
+    "summary_zh_cn": "协议 7 应用 4 个随位面缩放的敌方最大修正和 2 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "6",
+        "sha256": "39efd08019df1ad044c6b98ecf9281b58858a6bd70d398e500e3b167d0503f7d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-7",
+      "threshold-protocol"
+    ],
+    "source_id": "7",
+    "protocol_level": 7,
+    "entry_rules": [
+      "GrantTwoRandomLevelOneDomainsAtFirstPlaneEntry"
+    ],
+    "difficulty_changes": [
+      "IncreaseStorePriceBy0.25",
+      "GrantTwoRandomLevelOneDomainsAtFirstPlaneEntry"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "2.24",
+        "max_hp": "70",
+        "speed": "1.12",
+        "max_toughness": "0.3"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": []
+    },
+    "source_parameters": [
+      "2.24",
+      "70",
+      "1.12",
+      "0.3",
+      "0.25",
+      "2"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.protocol.8",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseProtocol",
+    "name_en": "Threshold Protocol 8",
+    "name_zh_cn": "阈值协议 8",
+    "summary_en": "Protocol 8 applies 4 plane-scaled enemy maximum modifier(s) and 1 additional rule(s).",
+    "summary_zh_cn": "协议 8 应用 4 个随位面缩放的敌方最大修正和 1 个附加规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "7",
+        "sha256": "e810e56c68cb5c52765ce8167c2865b13e3fb7cd7b4ea03bc6e51308d9c4a51a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "level-8",
+      "threshold-protocol"
+    ],
+    "source_id": "8",
+    "protocol_level": 8,
+    "entry_rules": [
+      "GrantRandomSpecialAbsoluteFailurePrescriptionAtFirstPlaneEntry"
+    ],
+    "difficulty_changes": [
+      "GrantRandomSpecialAbsoluteFailurePrescriptionAtFirstPlaneEntry"
+    ],
+    "enemy_changes": {
+      "plane_scaled_maximum_increase": {
+        "attack": "2.56",
+        "max_hp": "100",
+        "speed": "1.28",
+        "max_toughness": "0.5"
+      },
+      "first_second_plane_boss_identity": "UnchangedByThisProtocolText",
+      "berserk_changes": []
+    },
+    "source_parameters": [
+      "2.56",
+      "100",
+      "1.28",
+      "0.5"
+    ],
+    "runtime_lowered": false
+  }
+]
