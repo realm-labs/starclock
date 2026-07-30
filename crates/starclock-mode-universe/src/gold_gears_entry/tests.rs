@@ -536,3 +536,16 @@ fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
             .all(|binding| binding.path().len() == 3)
     );
 }
+
+pub(super) fn compiled_fixture(
+    factory: &GoldAndGearsRuntimeFactory,
+) -> GoldAndGearsRuntimeInstance {
+    factory
+        .compile_entry(entry(
+            factory,
+            "gold-gears.area.401",
+            &factory.unique.paths[0].identity.stable_key,
+            &factory.unique.dice[0],
+        ))
+        .expect("compiled fixture")
+}

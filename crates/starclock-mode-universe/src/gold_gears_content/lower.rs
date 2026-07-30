@@ -3,15 +3,19 @@ use crate::{
     gold_gears_content::{
         GoldAndGearsContentCatalog, GoldAndGearsContentError, GoldAndGearsContentErrorKind,
         types::{
-            AdventureOutcome, Blessing, BlessingLevel, BlockCreateRule, CatalogCoverage, Curio,
-            CurioState, EncounterGroup, EncounterWave, EnemySlot, JsonPayload, MapEvent,
-            MechanicRule, Occurrence, OccurrenceChoice, OccurrenceVariant, Service, StableIndexRow,
-            StableKey,
+            AdventureOutcome, BeaconWeight, Blessing, BlessingLevel, BlockCreateRule,
+            CatalogCoverage, CreateCountWeight, Curio, CurioState, EncounterGroup, EncounterWave,
+            EnemySlot, JsonPayload, MapEvent, MapEventEffect, MapEventTrigger, MechanicRule,
+            Occurrence, OccurrenceChoice, OccurrenceVariant, Service, StableIndexRow, StableKey,
         },
         validate,
     },
-    gold_gears_generated::{SoraConfig, gold_gears_ownership::GoldGearsOwnership},
+    gold_gears_generated::{
+        SoraConfig, gold_gears_block_create_rule::GoldGearsBlockCreateRule,
+        gold_gears_map_event::GoldGearsMapEvent, gold_gears_ownership::GoldGearsOwnership,
+    },
 };
+use serde::Deserialize;
 
 pub(super) fn lower(
     bundle: GoldAndGearsBundleSummary,
@@ -186,38 +190,18 @@ pub(super) fn lower(
                     boss_choices: optional_keys(row.boss_choice_ids.as_deref()),
                 })
             }))?,
-            map_events: collect(source.gold_gears_map_event().ordered_rows().map(|row| {
-                Ok(MapEvent {
-                    id: row.id,
-                    key: key(&row.stable_key),
-                    chessboard_id: row.chessboard_id,
-                    parameters: [
-                        row.trigger_params.as_deref().unwrap_or_default(),
-                        row.effect_params.as_deref().unwrap_or_default(),
-                        row.secondary_effect_params.as_deref().unwrap_or_default(),
-                    ]
-                    .into_iter()
-                    .flatten()
-                    .chain([&row.trigger_type, &row.effect_type, &row.weight])
-                    .map(|value| value.as_str().into())
-                    .collect::<Vec<_>>()
-                    .into_boxed_slice(),
-                })
-            }))?,
-            block_create_rules: collect(source.gold_gears_block_create_rule().ordered_rows().map(
-                |row| {
-                    Ok(BlockCreateRule {
-                        id: row.id,
-                        key: key(&row.stable_key),
-                        chessboard_id: row.chessboard_id,
-                        domain_id: row.domain_id,
-                        payloads: jsons(
-                            [&row.create_count_weights_json, &row.beacon_weights_json],
-                            &row.stable_key,
-                        )?,
-                    })
-                },
-            ))?,
+            map_events: collect(
+                source
+                    .gold_gears_map_event()
+                    .ordered_rows()
+                    .map(lower_map_event),
+            )?,
+            block_create_rules: collect(
+                source
+                    .gold_gears_block_create_rule()
+                    .ordered_rows()
+                    .map(lower_block_create_rule),
+            )?,
             mechanic_rules: collect(source.gold_gears_mechanic_rule().ordered_rows().map(|row| {
                 Ok(MechanicRule {
                     id: row.id,
@@ -327,6 +311,185 @@ fn keys(values: &[String]) -> Box<[StableKey]> {
 
 fn optional_keys(values: Option<&[String]>) -> Box<[StableKey]> {
     values.map_or_else(|| Box::new([]), keys)
+}
+
+fn lower_map_event(row: &GoldGearsMapEvent) -> Result<MapEvent, GoldAndGearsContentError> {
+    let trigger = match row.trigger_type.as_str() {
+        "EnterChessRogueCell" => MapEventTrigger::EnterCell,
+        "EnterChessRogueRow" => MapEventTrigger::EnterRow,
+        _ => return invalid_metadata(&row.stable_key),
+    };
+    let effect = match row.effect_type.as_str() {
+        "AddActionPointOnStart" => MapEventEffect::AddActionPoint,
+        "GetRogueMiracle" => MapEventEffect::GrantCurio,
+        "RandomGenMark" => MapEventEffect::GenerateMark,
+        "RandomReplaceBlock" => MapEventEffect::RandomReplace,
+        "ReplaceBlock" => MapEventEffect::Replace,
+        "TriggerAreaShuffle" => MapEventEffect::Shuffle,
+        _ => return invalid_metadata(&row.stable_key),
+    };
+    Ok(MapEvent {
+        id: row.id,
+        key: key(&row.stable_key),
+        chessboard_id: row.chessboard_id,
+        trigger,
+        trigger_parameters: numeric_parameters(
+            row.trigger_params.as_deref().unwrap_or_default(),
+            &row.stable_key,
+        )?,
+        effect,
+        effect_parameters: numeric_parameters(
+            row.effect_params.as_deref().unwrap_or_default(),
+            &row.stable_key,
+        )?,
+        secondary_effect_parameters: numeric_parameters(
+            row.secondary_effect_params.as_deref().unwrap_or_default(),
+            &row.stable_key,
+        )?,
+        weight: positive_weight(&row.weight, &row.stable_key)?,
+    })
+}
+
+fn lower_block_create_rule(
+    row: &GoldGearsBlockCreateRule,
+) -> Result<BlockCreateRule, GoldAndGearsContentError> {
+    Ok(BlockCreateRule {
+        id: row.id,
+        key: key(&row.stable_key),
+        chessboard_id: row.chessboard_id,
+        group_id: nonempty(&row.group_id, &row.stable_key)?,
+        order: u16::try_from(row.order).map_err(|_| metadata_error(&row.stable_key))?,
+        domain_id: row.domain_id,
+        create_counts: parse_create_counts(&row.create_count_weights_json, &row.stable_key)?,
+        beacons: parse_beacons(&row.beacon_weights_json, &row.stable_key)?,
+    })
+}
+
+#[derive(Deserialize)]
+struct RawCreateCount {
+    order: i32,
+    create_count: i32,
+    weight: String,
+}
+
+#[derive(Deserialize)]
+struct RawBeacon {
+    order: i32,
+    beacon_id: String,
+    weight: String,
+}
+
+#[derive(Deserialize)]
+#[serde(untagged)]
+enum OneOrMany<T> {
+    One(T),
+    Many(Vec<T>),
+}
+
+impl<T> OneOrMany<T> {
+    fn into_vec(self) -> Vec<T> {
+        match self {
+            Self::One(value) => vec![value],
+            Self::Many(values) => values,
+        }
+    }
+}
+
+fn parse_create_counts(
+    value: &str,
+    owner: &str,
+) -> Result<Box<[CreateCountWeight]>, GoldAndGearsContentError> {
+    let values = serde_json::from_str::<OneOrMany<RawCreateCount>>(value)
+        .map_err(|_| json_error(owner))?
+        .into_vec();
+    validate_orders(values.iter().map(|value| value.order), owner)?;
+    values
+        .into_iter()
+        .map(|value| {
+            Ok(CreateCountWeight {
+                count: u16::try_from(value.create_count).map_err(|_| metadata_error(owner))?,
+                weight: positive_weight(&value.weight, owner)?,
+            })
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .map(Vec::into_boxed_slice)
+}
+
+fn parse_beacons(
+    value: &str,
+    owner: &str,
+) -> Result<Box<[BeaconWeight]>, GoldAndGearsContentError> {
+    let values = serde_json::from_str::<OneOrMany<RawBeacon>>(value)
+        .map_err(|_| json_error(owner))?
+        .into_vec();
+    validate_orders(values.iter().map(|value| value.order), owner)?;
+    values
+        .into_iter()
+        .map(|value| {
+            Ok(BeaconWeight {
+                beacon: (!value.beacon_id.is_empty()).then(|| key(&value.beacon_id)),
+                weight: positive_weight(&value.weight, owner)?,
+            })
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .map(Vec::into_boxed_slice)
+}
+
+fn validate_orders(
+    values: impl Iterator<Item = i32>,
+    owner: &str,
+) -> Result<(), GoldAndGearsContentError> {
+    if values
+        .enumerate()
+        .any(|(index, value)| i32::try_from(index).ok().is_none_or(|index| index != value))
+    {
+        return invalid_metadata(owner);
+    }
+    Ok(())
+}
+
+fn numeric_parameters(
+    values: &[String],
+    owner: &str,
+) -> Result<Box<[u32]>, GoldAndGearsContentError> {
+    values
+        .iter()
+        .map(|value| value.parse::<u32>().map_err(|_| metadata_error(owner)))
+        .collect::<Result<Vec<_>, _>>()
+        .map(Vec::into_boxed_slice)
+}
+
+fn positive_weight(value: &str, owner: &str) -> Result<u64, GoldAndGearsContentError> {
+    value
+        .parse::<u64>()
+        .ok()
+        .filter(|weight| *weight > 0)
+        .ok_or_else(|| metadata_error(owner))
+}
+
+fn nonempty(value: &str, owner: &str) -> Result<Box<str>, GoldAndGearsContentError> {
+    if value.is_empty() {
+        return invalid_metadata(owner);
+    }
+    Ok(value.into())
+}
+
+fn invalid_metadata<T>(owner: &str) -> Result<T, GoldAndGearsContentError> {
+    Err(metadata_error(owner))
+}
+
+fn metadata_error(owner: &str) -> GoldAndGearsContentError {
+    GoldAndGearsContentError {
+        kind: GoldAndGearsContentErrorKind::Metadata,
+        key: owner.into(),
+    }
+}
+
+fn json_error(owner: &str) -> GoldAndGearsContentError {
+    GoldAndGearsContentError {
+        kind: GoldAndGearsContentErrorKind::Json,
+        key: owner.into(),
+    }
 }
 
 fn json(value: &str, owner: &str) -> Result<JsonPayload, GoldAndGearsContentError> {

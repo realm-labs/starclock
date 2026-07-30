@@ -33,6 +33,12 @@ pub enum GoldAndGearsEntryError {
     MissingPlane(Box<str>),
     MissingChessboard(Box<str>),
     InvalidTopology,
+    InvalidMapRuntime,
+    UnknownChessboard(Box<str>),
+    UnknownDomain(Box<str>),
+    UnknownBeacon(Box<str>),
+    MissingMapEvent,
+    MapCapacityExceeded,
 }
 
 impl core::fmt::Display for GoldAndGearsEntryError {

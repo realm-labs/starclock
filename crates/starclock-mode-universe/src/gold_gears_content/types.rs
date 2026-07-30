@@ -1,12 +1,12 @@
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd)]
-pub(super) struct StableKey(Box<str>);
+pub(crate) struct StableKey(Box<str>);
 
 impl StableKey {
-    pub(super) fn new(value: &str) -> Self {
+    pub(crate) fn new(value: &str) -> Self {
         Self(value.into())
     }
 
-    pub(super) fn as_str(&self) -> &str {
+    pub(crate) fn as_str(&self) -> &str {
         &self.0
     }
 }
@@ -135,21 +135,57 @@ pub(super) struct EnemySlot {
     pub(super) boss_choices: Box<[StableKey]>,
 }
 
-#[derive(Debug)]
-pub(super) struct MapEvent {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) chessboard_id: i32,
-    pub(super) parameters: Box<[Box<str>]>,
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum MapEventTrigger {
+    EnterCell,
+    EnterRow,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum MapEventEffect {
+    AddActionPoint,
+    GrantCurio,
+    GenerateMark,
+    RandomReplace,
+    Replace,
+    Shuffle,
 }
 
 #[derive(Debug)]
-pub(super) struct BlockCreateRule {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) chessboard_id: i32,
-    pub(super) domain_id: i32,
-    pub(super) payloads: Box<[JsonPayload]>,
+pub(crate) struct MapEvent {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) chessboard_id: i32,
+    pub(crate) trigger: MapEventTrigger,
+    pub(crate) trigger_parameters: Box<[u32]>,
+    pub(crate) effect: MapEventEffect,
+    pub(crate) effect_parameters: Box<[u32]>,
+    pub(crate) secondary_effect_parameters: Box<[u32]>,
+    pub(crate) weight: u64,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct CreateCountWeight {
+    pub(crate) count: u16,
+    pub(crate) weight: u64,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct BeaconWeight {
+    pub(crate) beacon: Option<StableKey>,
+    pub(crate) weight: u64,
+}
+
+#[derive(Debug)]
+pub(crate) struct BlockCreateRule {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) chessboard_id: i32,
+    pub(crate) group_id: Box<str>,
+    pub(crate) order: u16,
+    pub(crate) domain_id: i32,
+    pub(crate) create_counts: Box<[CreateCountWeight]>,
+    pub(crate) beacons: Box<[BeaconWeight]>,
 }
 
 #[derive(Debug)]

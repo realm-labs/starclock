@@ -2,10 +2,15 @@
 
 use std::sync::Arc;
 
-use starclock_activity::{ActivityGraphDefinition, ActivityStateDefinition, ParticipantLock};
+use starclock_activity::{
+    ActivityEdgeId, ActivityGraphDefinition, ActivityProgramDefinition, ActivityRngStreams,
+    ActivitySlotId, ActivityStateDefinition, ActivityTransactionState, ActivityValue, NodeId,
+    ParticipantLock,
+};
 
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
+    map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     state::compile_state,
     topology::compile_topology,
     validate::{
@@ -14,6 +19,7 @@ use super::{
     },
 };
 use crate::{
+    gold_gears_content::GoldAndGearsContentCatalog,
     gold_gears_structural::{AreaDefinition, AreaGroup, GoldAndGearsStructuralCatalog},
     gold_gears_unique::GoldAndGearsUniqueCatalog,
 };
@@ -150,6 +156,7 @@ impl GoldAndGearsEntry {
 pub struct GoldAndGearsRuntimeFactory {
     pub(super) structural: Arc<GoldAndGearsStructuralCatalog>,
     pub(super) unique: Arc<GoldAndGearsUniqueCatalog>,
+    pub(super) map: Arc<MapRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -162,7 +169,10 @@ impl GoldAndGearsRuntimeFactory {
             .map_err(|_| GoldAndGearsEntryError::InvalidCatalog)?;
         let unique = GoldAndGearsUniqueCatalog::load(bytes)
             .map_err(|_| GoldAndGearsEntryError::InvalidCatalog)?;
+        let content = GoldAndGearsContentCatalog::load(bytes)
+            .map_err(|_| GoldAndGearsEntryError::InvalidCatalog)?;
         if structural.bundle != unique.bundle
+            || structural.bundle != content.bundle
             || !structural
                 .profiles
                 .iter()
@@ -170,9 +180,11 @@ impl GoldAndGearsRuntimeFactory {
         {
             return Err(GoldAndGearsEntryError::InvalidCatalog);
         }
+        let map = MapRuntimeCatalog::compile(&structural, &content)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
+            map: Arc::new(map),
         })
     }
 
@@ -284,6 +296,7 @@ impl GoldAndGearsRuntimeFactory {
                 .map(|plane| plane.chessboard_key.clone())
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
+            map: Arc::clone(&self.map),
         })
     }
 
@@ -321,6 +334,7 @@ pub struct GoldAndGearsRuntimeInstance {
     graph: ActivityGraphDefinition,
     planes: Box<[Box<str>]>,
     chessboards: Box<[Box<str>]>,
+    map: Arc<MapRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeInstance {
@@ -392,6 +406,93 @@ impl GoldAndGearsRuntimeInstance {
     #[must_use]
     pub fn chessboards(&self) -> impl ExactSizeIterator<Item = &str> {
         self.chessboards.iter().map(Box::as_ref)
+    }
+
+    /// Compiles deterministic initial node/domain/beacon overlay operations for
+    /// one authored plane. Random choices use only the caller's Activity Graph
+    /// stream and canonical authored candidate order.
+    pub fn compile_plane_creation(
+        &self,
+        plane_ordinal: usize,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        let board = self
+            .chessboards
+            .get(plane_ordinal)
+            .ok_or(GoldAndGearsEntryError::InvalidPlaneCount)?;
+        self.map.compile_creation(board, rng)
+    }
+
+    /// Applies the selected released map event before compiling the same
+    /// plane's block-creation operations.
+    pub fn compile_map_event_then_creation(
+        &self,
+        plane_ordinal: usize,
+        trigger: &str,
+        parameter: u32,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        let board = self
+            .chessboards
+            .get(plane_ordinal)
+            .ok_or(GoldAndGearsEntryError::InvalidPlaneCount)?;
+        self.map
+            .compile_event_then_creation(board, trigger, parameter, rng)
+    }
+
+    /// Compiles an exact node replacement through ordinary bounded counters.
+    pub fn compile_node_replacement(
+        &self,
+        target: NodeId,
+        domain: &str,
+        beacon: Option<&str>,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.map.compile_replacement(target, domain, beacon)
+    }
+
+    /// Compiles an exact domain/beacon copy from one immutable graph node to another.
+    pub fn compile_node_copy(
+        &self,
+        source: NodeId,
+        target: NodeId,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.map.compile_copy(source, target)
+    }
+
+    /// Compiles an exact blanking operation without editing the immutable graph.
+    pub fn compile_node_blanking(
+        &self,
+        target: NodeId,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        self.map.compile_blank(target)
+    }
+
+    /// Returns canonical static outgoing edges whose targets are not blanked
+    /// by the current bounded board overlay.
+    #[must_use]
+    pub fn legal_routes(
+        &self,
+        state: &ActivityTransactionState,
+        source: NodeId,
+    ) -> Box<[ActivityEdgeId]> {
+        self.graph
+            .outgoing(source)
+            .filter(|edge| !node_is_blanked(state, edge.to()))
+            .map(|edge| edge.id())
+            .collect::<Vec<_>>()
+            .into_boxed_slice()
+    }
+}
+
+fn node_is_blanked(state: &ActivityTransactionState, node: NodeId) -> bool {
+    let slot = ActivitySlotId::new(super::state_layout::BOARD_NODE_STATE_SLOT)
+        .expect("static Gold and Gears slot is non-zero");
+    match state.slot(slot) {
+        Some(ActivityValue::BoundedCounterMap(values)) => values
+            .binary_search_by_key(&u64::from(node.get()), |(key, _)| *key)
+            .ok()
+            .is_some_and(|index| values[index].1 == NODE_STATE_BLANKED),
+        _ => false,
     }
 }
 

@@ -2,6 +2,7 @@
 
 mod api;
 mod error;
+mod map_overlay;
 mod state;
 mod state_layout;
 mod topology;
@@ -16,5 +17,7 @@ pub use error::GoldAndGearsEntryError;
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
+#[cfg(test)]
+mod map_overlay_tests;
 #[cfg(test)]
 mod tests;

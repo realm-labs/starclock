@@ -9,11 +9,12 @@ use crate::{
         GoldAndGearsBundleLoadError, GoldAndGearsBundleSummary, load_gold_and_gears_bundle,
     },
     gold_gears_content::types::{
-        AdventureOutcome, Blessing, BlessingLevel, BlockCreateRule, CatalogCoverage, Curio,
-        CurioState, EncounterGroup, EncounterWave, EnemySlot, MapEvent, MechanicRule, Occurrence,
-        OccurrenceChoice, OccurrenceVariant, Service, StableIndexRow,
+        AdventureOutcome, Blessing, BlessingLevel, CatalogCoverage, Curio, CurioState,
+        EncounterGroup, EncounterWave, EnemySlot, MechanicRule, Occurrence, OccurrenceChoice,
+        OccurrenceVariant, Service, StableIndexRow,
     },
 };
+pub(crate) use types::{BlockCreateRule, MapEvent, MapEventEffect, MapEventTrigger};
 
 pub(crate) const EXPECTED_CONTENT_ROWS: usize = 20_056;
 
@@ -71,8 +72,8 @@ pub(crate) struct GoldAndGearsContentCatalog {
     encounter_groups: Box<[EncounterGroup]>,
     encounter_waves: Box<[EncounterWave]>,
     enemy_slots: Box<[EnemySlot]>,
-    map_events: Box<[MapEvent]>,
-    block_create_rules: Box<[BlockCreateRule]>,
+    pub(crate) map_events: Box<[MapEvent]>,
+    pub(crate) block_create_rules: Box<[BlockCreateRule]>,
     mechanic_rules: Box<[MechanicRule]>,
     source_records: Box<[StableIndexRow]>,
     coverage: Box<[CatalogCoverage]>,
@@ -114,44 +115,4 @@ impl GoldAndGearsContentCatalog {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
-    #[test]
-    fn lowers_all_remaining_tables_and_closes_cross_catalog_references() {
-        let catalog = GoldAndGearsContentCatalog::load(BUNDLE).unwrap();
-        let counts = [
-            catalog.blessings.len(),
-            catalog.blessing_levels.len(),
-            catalog.curios.len(),
-            catalog.curio_states.len(),
-            catalog.occurrences.len(),
-            catalog.occurrence_variants.len(),
-            catalog.occurrence_choices.len(),
-            catalog.services.len(),
-            catalog.adventure_outcomes.len(),
-            catalog.encounter_groups.len(),
-            catalog.encounter_waves.len(),
-            catalog.enemy_slots.len(),
-            catalog.map_events.len(),
-            catalog.block_create_rules.len(),
-            catalog.mechanic_rules.len(),
-            catalog.source_records.len(),
-            catalog.coverage.len(),
-            catalog.research_gaps.len(),
-            catalog.gap_affected_records.len(),
-            catalog.review_fixtures.len(),
-            catalog.pack_index.len(),
-        ];
-        assert_eq!(
-            counts,
-            [
-                162, 324, 80, 80, 62, 65, 257, 15, 8, 181, 478, 1_513, 332, 1_091, 1_224, 9_082,
-                42, 16, 5_025, 18, 1
-            ]
-        );
-        assert_eq!(catalog.row_count(), EXPECTED_CONTENT_ROWS);
-    }
-}
+mod tests;

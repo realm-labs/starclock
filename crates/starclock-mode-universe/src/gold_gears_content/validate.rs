@@ -240,12 +240,6 @@ fn json_payloads(catalog: &GoldAndGearsContentCatalog) -> Result<(), GoldAndGear
         .chain(catalog.encounter_waves.iter().map(|row| &row.payload))
         .chain(
             catalog
-                .block_create_rules
-                .iter()
-                .flat_map(|row| row.payloads.iter()),
-        )
-        .chain(
-            catalog
                 .mechanic_rules
                 .iter()
                 .flat_map(|row| row.payloads.iter()),
@@ -500,10 +494,15 @@ fn encounter_references(
         .ordered_rows()
         .map(|row| row.id)
         .collect::<BTreeSet<_>>();
+    let beacons = source
+        .gold_gears_beacon()
+        .ordered_rows()
+        .map(|row| row.stable_key.as_str())
+        .collect::<BTreeSet<_>>();
     for row in &catalog.map_events {
         require_ref(chessboards.contains(&row.chessboard_id), &row.key)?;
         require(
-            !row.parameters.is_empty() && row.parameters.iter().all(|value| !value.is_empty()),
+            row.weight > 0,
             GoldAndGearsContentErrorKind::Metadata,
             row.key.as_str(),
         )?;
@@ -511,6 +510,19 @@ fn encounter_references(
     for row in &catalog.block_create_rules {
         require_ref(chessboards.contains(&row.chessboard_id), &row.key)?;
         require_ref(domains.contains(&row.domain_id), &row.key)?;
+        require(
+            !row.group_id.is_empty()
+                && row.create_counts.iter().all(|value| value.weight > 0)
+                && row.beacons.iter().all(|value| {
+                    value.weight > 0
+                        && value
+                            .beacon
+                            .as_ref()
+                            .is_none_or(|beacon| beacons.contains(beacon.as_str()))
+                }),
+            GoldAndGearsContentErrorKind::Metadata,
+            row.key.as_str(),
+        )?;
     }
     Ok(())
 }
