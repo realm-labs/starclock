@@ -1,0 +1,608 @@
+[
+  {
+    "id": "swarm-disaster.path-binding.universe-path-preservation",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Preservation",
+    "name_zh_cn": "存护",
+    "summary_en": "Swarm Disaster exposes the shared Preservation Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的存护命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "0",
+        "sha256": "888a93f8735683c2957a88634f065ab0386fe20c67005122cab413a56c053a3f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "0",
+        "sha256": "2b12054f75d72e50923c1cbbc523e0ac2f2f8c12818899465e783ebf56286fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "1",
+    "shared_path_id": "universe.path.preservation",
+    "selectable": true,
+    "sort": 1,
+    "audience_die_id": "swarm-disaster.audience-die.1",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000018",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612020",
+    "formation_ids": [
+      "universe.resonance.612021",
+      "universe.resonance.612022",
+      "universe.resonance.612023"
+    ],
+    "battle_event_groups": [
+      "12004",
+      "12005"
+    ],
+    "extra_effect_ids": [
+      "61000002",
+      "61000018",
+      "61000019"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-remembrance",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Remembrance",
+    "name_zh_cn": "记忆",
+    "summary_en": "Swarm Disaster exposes the shared Remembrance Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的记忆命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.1",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "1",
+        "sha256": "b81e7ad04abee0ff1c34d0f5785fb41a1670a8c6237e519dc6b75f6428caf898",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "1",
+        "sha256": "428eebe80448e9224b579e20cf6305036e33d8f84b1c2361420e5b7210bfb785",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "2",
+    "shared_path_id": "universe.path.remembrance",
+    "selectable": true,
+    "sort": 2,
+    "audience_die_id": "swarm-disaster.audience-die.2",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000016",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612120",
+    "formation_ids": [
+      "universe.resonance.612121",
+      "universe.resonance.612122",
+      "universe.resonance.612123"
+    ],
+    "battle_event_groups": [
+      "12104",
+      "12105"
+    ],
+    "extra_effect_ids": [
+      "61000004"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-elation",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Elation",
+    "name_zh_cn": "欢愉",
+    "summary_en": "Swarm Disaster exposes the shared Elation Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的欢愉命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.2",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "2",
+        "sha256": "8462fd4ed5f94ff6e179afab9c3aea4a480bfe1bea5e6f7bbfbacdbbdc9994dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "6",
+        "sha256": "21ad0e4c8194de02ba6d2946923af48f32443bc132a4f6636779ba42d0aa1465",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "7",
+    "shared_path_id": "universe.path.elation",
+    "selectable": true,
+    "sort": 3,
+    "audience_die_id": "swarm-disaster.audience-die.7",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000015",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612620",
+    "formation_ids": [
+      "universe.resonance.612621",
+      "universe.resonance.612622",
+      "universe.resonance.612623"
+    ],
+    "battle_event_groups": [
+      "12604",
+      "12605"
+    ],
+    "extra_effect_ids": [
+      "61000018",
+      "61000019"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-hunt",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "The Hunt",
+    "name_zh_cn": "巡猎",
+    "summary_en": "Swarm Disaster exposes the shared The Hunt Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的巡猎命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.3",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "3",
+        "sha256": "7315e5965552d019fcd635a4537b348062e4bcd7e5c1f13f1307e7464370f2a2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "4",
+        "sha256": "b75e3a84ba2f3511509a7a9eddee131910e879ccc34edef9d9f7eee2a3b6ef16",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "5",
+    "shared_path_id": "universe.path.hunt",
+    "selectable": true,
+    "sort": 4,
+    "audience_die_id": "swarm-disaster.audience-die.5",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000017",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612420",
+    "formation_ids": [
+      "universe.resonance.612421",
+      "universe.resonance.612422",
+      "universe.resonance.612423"
+    ],
+    "battle_event_groups": [
+      "12404",
+      "12405"
+    ],
+    "extra_effect_ids": [
+      "61000007",
+      "61000008"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-destruction",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Destruction",
+    "name_zh_cn": "毁灭",
+    "summary_en": "Swarm Disaster exposes the shared Destruction Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的毁灭命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.4",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "4",
+        "sha256": "2508b121cd9c78da0fbb0b54ddfd3985755c0220966f1f5bc4be3eb50e1f4c6c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "5",
+        "sha256": "4594115cb03874577d4769d2ed4a6dd2d0b2ffcb6f213fad052676500b22dac6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "6",
+    "shared_path_id": "universe.path.destruction",
+    "selectable": true,
+    "sort": 5,
+    "audience_die_id": "swarm-disaster.audience-die.6",
+    "mode_unlock_id": "",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612520",
+    "formation_ids": [
+      "universe.resonance.612521",
+      "universe.resonance.612522",
+      "universe.resonance.612523"
+    ],
+    "battle_event_groups": [
+      "12504",
+      "12505"
+    ],
+    "extra_effect_ids": [
+      "61000013"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-nihility",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Nihility",
+    "name_zh_cn": "虚无",
+    "summary_en": "Swarm Disaster exposes the shared Nihility Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的虚无命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.5",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "5",
+        "sha256": "f485b54f51b0ac5bc6918db70726642715b05f1b0691433215ef623252569f60",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "2",
+        "sha256": "ac3d2f0f541267fa60878b1c8410dcb17888834bd1b35ec82f4b8170f7ecb879",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "3",
+    "shared_path_id": "universe.path.nihility",
+    "selectable": true,
+    "sort": 6,
+    "audience_die_id": "swarm-disaster.audience-die.3",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000013",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612220",
+    "formation_ids": [
+      "universe.resonance.612221",
+      "universe.resonance.612222",
+      "universe.resonance.612223"
+    ],
+    "battle_event_groups": [
+      "12204",
+      "12205"
+    ],
+    "extra_effect_ids": [
+      "61000009"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-abundance",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Abundance",
+    "name_zh_cn": "丰饶",
+    "summary_en": "Swarm Disaster exposes the shared Abundance Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的丰饶命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.6",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "6",
+        "sha256": "f25e3c2daeaa1619f31a1307d6c42d2584addd2198d154b4b652ff589daf2dd9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "3",
+        "sha256": "c726d5f89c4beadb248d27281604123f28d0bf5c65d94a4f89e804abb3e894b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "shared"
+    ],
+    "source_id": "4",
+    "shared_path_id": "universe.path.abundance",
+    "selectable": true,
+    "sort": 7,
+    "audience_die_id": "swarm-disaster.audience-die.4",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000014",
+    "propagation_unlock": {
+      "is_propagation": false,
+      "required_unlock_id": "",
+      "unlock_state": "NotApplicable"
+    },
+    "resonance_id": "universe.resonance.612320",
+    "formation_ids": [
+      "universe.resonance.612321",
+      "universe.resonance.612322",
+      "universe.resonance.612323"
+    ],
+    "battle_event_groups": [
+      "12304",
+      "12305"
+    ],
+    "extra_effect_ids": [
+      "61000003"
+    ]
+  },
+  {
+    "id": "swarm-disaster.path-binding.universe-path-propagation",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBinding",
+    "name_en": "Propagation",
+    "name_zh_cn": "繁育",
+    "summary_en": "Swarm Disaster exposes the shared Propagation Path with its released Audience Die and Resonance groups.",
+    "summary_zh_cn": "寰宇蝗灾提供共享的繁育命途及其已发布的觐见之骰与回响组。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.7",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "7",
+        "sha256": "650e0fcc09c0ca909b163fd8da00840ee4780f9f13a5d6e14c87371335472018",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "7",
+        "sha256": "2e7c287aacf25a7391e592772ee75b14d3bfa30aa803eb4d3bbd3091af427205",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "path-binding",
+      "project-policy",
+      "propagation",
+      "shared"
+    ],
+    "source_id": "8",
+    "shared_path_id": "universe.path.propagation",
+    "selectable": true,
+    "sort": 8,
+    "audience_die_id": "swarm-disaster.audience-die.8",
+    "mode_unlock_id": "swarm-disaster.pathstrider-unlock.1000008",
+    "propagation_unlock": {
+      "is_propagation": true,
+      "required_unlock_id": "swarm-disaster.pathstrider-unlock.1000008",
+      "unlock_state": "ReleasedUnlockRowBound"
+    },
+    "resonance_id": "universe.resonance.612720",
+    "formation_ids": [
+      "universe.resonance.612721",
+      "universe.resonance.612722",
+      "universe.resonance.612723"
+    ],
+    "battle_event_groups": [
+      "12704",
+      "12705"
+    ],
+    "extra_effect_ids": [
+      "61000012",
+      "61000017"
+    ]
+  }
+]

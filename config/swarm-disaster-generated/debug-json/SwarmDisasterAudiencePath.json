@@ -1,0 +1,921 @@
+{
+  "table": {
+    "name": "SwarmDisasterAudiencePath",
+    "rows": [
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "battle_event_buff_group": {
+            "String": "12004"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12005"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "2"
+              },
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000002"
+              },
+              {
+                "String": "source-effect.61000018"
+              },
+              {
+                "String": "source-effect.61000019"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641200\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Preservation"
+          },
+          "name_zh_cn": {
+            "String": "存护"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"ProtectCellNoCollapse\",\"order\":0,\"parameters\":[\"0\",\"2\"],\"secondary_parameters\":[\"200620\",\"3\",\"10003\"]}]"
+          },
+          "path_id": {
+            "String": "universe.path.preservation"
+          },
+          "rogue_buff_type": {
+            "String": "120"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.1"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, apply Cornerstone to #1[i] random domain(s). Passive Effect: When entering a Boss or Boss: Swarm domain, obtain rewards based on the number of domains with the Cornerstone effect in the current plane. For every domain with Cornerstone, increase the amount of Shield Effect received by all allies by #2[i]%. For every #3[i] different type(s) of domains with Cornerstone, obtain 1 Blessing."
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，为#1[i]个随机区域附加【基石】效果。 被动效果：进入【首领】或【首领•虫群】区域时，根据当前位面带有【基石】效果的区域数量获得奖励：每存在1个区域使我方全体获得的护盾量提高#2[i]%，每存在#3[i]种不同类型的区域获得1次祝福。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "preservation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000018"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "battle_event_buff_group": {
+            "String": "12104"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12105"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "2"
+              },
+              {
+                "String": "0.25"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000004"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641210\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Remembrance"
+          },
+          "name_zh_cn": {
+            "String": "记忆"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"ExtraMoneyAndRandomSwap\",\"order\":0,\"parameters\":[\"0\",\"2\"],\"secondary_parameters\":[]}]"
+          },
+          "path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "rogue_buff_type": {
+            "String": "121"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.2"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, randomly copy #1[i] domain(s) and apply Recollection to it. Passive Effect: Every time allies enter 1 domain with Recollection applied, Effect Hit Rate for all allies increase by #2[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，随机复制#1[i]个区域并为其附加【追忆】效果。 被动效果：每进入过1个带有【追忆】效果的区域，我方全体效果命中提高#2[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remembrance"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000016"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "battle_event_buff_group": {
+            "String": "12604"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12605"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000018"
+              },
+              {
+                "String": "source-effect.61000019"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 3
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641260\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Elation"
+          },
+          "name_zh_cn": {
+            "String": "欢愉"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"GetHelpOnEnterCell\",\"order\":0,\"parameters\":[\"200620\",\"3\",\"10004\"],\"secondary_parameters\":[\"20002\",\"3\"]}]"
+          },
+          "path_id": {
+            "String": "universe.path.elation"
+          },
+          "rogue_buff_type": {
+            "String": "126"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.7"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, some surprising effects will be applied. Passive Effect: When allies enter a Boss or Boss: Swarm domain, obtain 1 random Happiness. (For every domain that allies enter, the Follow-Up ATK DMG dealt by all allies receive random stat increases.)"
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，产生一些令人惊讶的效果。 被动效果：进入【首领】与【首领•虫群】区域时，获得1个随机的「快乐」。（每进入过1个区域，我方全体的追加伤害获得随机数值提高）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "elation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000015"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "battle_event_buff_group": {
+            "String": "12404"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12405"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "0.3"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000007"
+              },
+              {
+                "String": "source-effect.61000008"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 4
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641240\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "The Hunt"
+          },
+          "name_zh_cn": {
+            "String": "巡猎"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"ExtraMarkAndRandomSwap\",\"order\":0,\"parameters\":[\"1\",\"1\"],\"secondary_parameters\":[\"2\",\"5\"]}]"
+          },
+          "path_id": {
+            "String": "universe.path.hunt"
+          },
+          "rogue_buff_type": {
+            "String": "124"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.5"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, generates 1 extra Blessing Trotter and 1 Curio Trotter beacon. Passive Effect: Every time allies move to a domain, all domains currently with the Blessing Trotter or Curio Trotter beacon will swap their positions with an adjacent domain. (For every Trotter defeated in battle, all allies' CRIT DMG increases by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，额外生成1个【祝福扑满】与1个【奇物扑满】信标。 被动效果：每次移动后，所有带有【祝福扑满】与【奇物扑满】信标的区域会与随机相邻区域互换位置。（战斗中每击败1只扑满，我方全体暴击伤害提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "hunt"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000017"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "battle_event_buff_group": {
+            "String": "12504"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12505"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "2"
+              },
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000013"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 5
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641250\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Destruction"
+          },
+          "name_zh_cn": {
+            "String": "毁灭"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"DestroyAeonGain\",\"order\":0,\"parameters\":[\"2\",\"5\"],\"secondary_parameters\":[\"200720\",\"3\",\"10007\"]}]"
+          },
+          "path_id": {
+            "String": "universe.path.destruction"
+          },
+          "rogue_buff_type": {
+            "String": "125"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.6"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, turns #1[i] random domain(s) into an Elite domain. Passive Effect: After achieving victory in an Elite domain, obtain Blessings #3[i] extra time(s). (For every battle won, increases DMG dealt by all allies by #2[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，将#1[i]个随机区域替换为【精英】区域。 被动效果：在【精英】区域战斗胜利后，可额外获得#3[i]次祝福。（每获得1场战斗的胜利，我方全体造成的伤害提高#2[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "destruction"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": "Null",
+          "unlock_policy_json": {
+            "String": "\"AvailableWithoutAuthoredUnlock\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "battle_event_buff_group": {
+            "String": "12204"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12205"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "2"
+              },
+              {
+                "String": "0.18"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000009"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 6
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641220\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Nihility"
+          },
+          "name_zh_cn": {
+            "String": "虚无"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"ReRandomEmptyCell\",\"order\":0,\"parameters\":[\"2\"],\"secondary_parameters\":[]}]"
+          },
+          "path_id": {
+            "String": "universe.path.nihility"
+          },
+          "rogue_buff_type": {
+            "String": "122"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 6
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.3"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, turn #1[i] random domain(s) into a Blank domain. Passive Effect: When allies enter a Blank domain, its content will be immediately replaced with a domain of a random type. (For every Blank domain that allies have entered, DoT dealt by all allies increases by #2[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，将#1[i]个随机区域替换为【空白】区域。 被动效果：进入【空白】区域时，【空白】区域的内容将立即被替换为随机区域类型。（每进入过1个【空白】区域，我方全体造成的持续伤害提高#2[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "nihility"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000013"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "battle_event_buff_group": {
+            "String": "12304"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12305"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "2"
+              },
+              {
+                "String": "0.05"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000003"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 7
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641230\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Abundance"
+          },
+          "name_zh_cn": {
+            "String": "丰饶"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"FertileAeonGain\",\"order\":0,\"parameters\":[\"1\",\"2\"],\"secondary_parameters\":[\"2\"]}]"
+          },
+          "path_id": {
+            "String": "universe.path.abundance"
+          },
+          "rogue_buff_type": {
+            "String": "123"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 7
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.4"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, applies Mercy to #1[i] random domain(s). Passive Effect: Countdown is reduced by #4[i] extra count(s). When entering a domain with the Mercy effect, countdown will instead increase #3[i] point(s). (Every countdown point increases all allies' Outgoing Healing by #2[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，为#1[i]个随机区域附加【慈怀】效果。 被动效果：倒计时额外消耗#4[i]点；进入带有【慈怀】效果的区域时，改为增加#3[i]点倒计时。（每点倒计时使我方全体治疗量提高#2[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abundance"
+              },
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000014"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "battle_event_buff_group": {
+            "String": "12704"
+          },
+          "battle_event_enhance_buff_group": {
+            "String": "12705"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_parameters": {
+            "List": [
+              {
+                "String": "0.2"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000012"
+              },
+              {
+                "String": "source-effect.61000017"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 8
+          },
+          "initial_effects_json": {
+            "String": "[{\"application_boundary\":\"RunStart\",\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641270\"],\"secondary_parameters\":[\"0\"]}]"
+          },
+          "kind": {
+            "String": "AudiencePath"
+          },
+          "name_en": {
+            "String": "Propagation"
+          },
+          "name_zh_cn": {
+            "String": "繁育"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_effects_json": {
+            "String": "[{\"application_boundary\":\"AcceptedActivityOperation\",\"operation\":\"RandomGenSwarm\",\"order\":0,\"parameters\":[\"610031\"],\"secondary_parameters\":[]}]"
+          },
+          "path_id": {
+            "String": "universe.path.propagation"
+          },
+          "rogue_buff_type": {
+            "String": "127"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 8
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-path.8"
+          },
+          "summary_en": {
+            "String": "Initial Effect: When the first or second plane begins, turn 2 random domains into Combat: Swarm and Occurrence: Swarm domain. Passive Effect: When allies enter Combat: Swarm or Occurrence: Swarm domain, they will receive a special effect of Propagation. (For every Combat: Swarm or Occurrence: Swarm domain that allies enter, the DMG dealt by all allies' Basic ATK increases by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "初始效果：第一、二位面开始时，将2个随机区域替换为【战斗•虫群】与【事件•虫群】区域。 被动效果：进入【战斗•虫群】与【事件•虫群】区域时获得「繁育」的特殊效果。（每进入过1个【战斗•虫群】或【事件•虫群】区域，我方全体施放普攻造成的伤害提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-path"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "propagation"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000008"
+          },
+          "unlock_policy_json": {
+            "String": "\"RequireAuthoredUnlockId\""
+          }
+        }
+      }
+    ]
+  }
+}

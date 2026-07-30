@@ -1,0 +1,373 @@
+[
+  {
+    "id": "swarm-disaster.trailblaze-bonus.101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmTrailblazeBonus",
+    "name_en": "Fragmented Universe",
+    "name_zh_cn": "破碎宇宙",
+    "summary_en": "At run start, gain 150 Cosmic Fragments.",
+    "summary_zh_cn": "开局时获得 150 枚宇宙碎片。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "6",
+        "sha256": "e73388d9e8aafd32dbb46b0bb4d6ac11fd3da579d52024909d3558f95f57b50a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "trailblaze-bonus"
+    ],
+    "source_id": "101",
+    "bonus_event": "1010",
+    "effect_program": {
+      "transaction": "AtomicAcceptedActivityOperations",
+      "operations": [
+        {
+          "order": 0,
+          "operation": "AddCosmicFragments",
+          "value": "150"
+        }
+      ],
+      "random_stream": "swarm-disaster.trailblaze-bonus.101",
+      "source_description_sha256_en": "b8293f58f66669edfaa943ce9cf52370c1696118adf5b4bd0fd7789ab7129b2a",
+      "source_description_sha256_zh_cn": "33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177"
+    },
+    "application_boundary": "AfterTrailblazeBonusSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.trailblaze-bonus.102",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmTrailblazeBonus",
+    "name_en": "Blessing Universe",
+    "name_zh_cn": "祝福宇宙",
+    "summary_en": "At run start, gain one random 1- or 2-star Blessing.",
+    "summary_zh_cn": "开局时获得一个随机 1 星或 2 星祝福。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "7",
+        "sha256": "dd6500b1e491a40b23533e7e30349ad446ec718de524e5488cb6fb8f47268541",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "trailblaze-bonus"
+    ],
+    "source_id": "102",
+    "bonus_event": "1020",
+    "effect_program": {
+      "transaction": "AtomicAcceptedActivityOperations",
+      "operations": [
+        {
+          "order": 0,
+          "operation": "GrantRandomBlessings",
+          "count": "1",
+          "minimum_rarity": "1",
+          "maximum_rarity": "2",
+          "pool_binding_state": "DeferredToG09P2B1"
+        }
+      ],
+      "random_stream": "swarm-disaster.trailblaze-bonus.102",
+      "source_description_sha256_en": "8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf",
+      "source_description_sha256_zh_cn": "1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400"
+    },
+    "application_boundary": "AfterTrailblazeBonusSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.trailblaze-bonus.103",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmTrailblazeBonus",
+    "name_en": "Miracle Universe",
+    "name_zh_cn": "神奇宇宙",
+    "summary_en": "At run start, gain one random eligible Curio.",
+    "summary_zh_cn": "开局时获得一个随机可用奇物。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "8",
+        "sha256": "e0f6fd1f446ceb2f818e04bd08913c41ce5feef35daf59a9958a1760bd3ca983",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "trailblaze-bonus"
+    ],
+    "source_id": "103",
+    "bonus_event": "1030",
+    "effect_program": {
+      "transaction": "AtomicAcceptedActivityOperations",
+      "operations": [
+        {
+          "order": 0,
+          "operation": "GrantRandomCurios",
+          "count": "1",
+          "category": "AnyEligible",
+          "pool_binding_state": "DeferredToG09P2B2"
+        }
+      ],
+      "random_stream": "swarm-disaster.trailblaze-bonus.103",
+      "source_description_sha256_en": "22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35",
+      "source_description_sha256_zh_cn": "68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530"
+    },
+    "application_boundary": "AfterTrailblazeBonusSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.trailblaze-bonus.104",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmTrailblazeBonus",
+    "name_en": "Orderly Universe",
+    "name_zh_cn": "有序宇宙",
+    "summary_en": "Atomically spend 100 Cosmic Fragments and gain one random Error Code Curio.",
+    "summary_zh_cn": "以原子操作消耗 100 枚宇宙碎片，并获得一个随机错误代码奇物。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "9",
+        "sha256": "316661a3bdec9fa67993df6ea7e5bfbdea439243fba56f56230941e70e95ac6e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "trailblaze-bonus"
+    ],
+    "source_id": "104",
+    "bonus_event": "1040",
+    "effect_program": {
+      "transaction": "AtomicAcceptedActivityOperations",
+      "operations": [
+        {
+          "order": 0,
+          "operation": "SpendCosmicFragments",
+          "value": "100"
+        },
+        {
+          "order": 1,
+          "operation": "GrantRandomCurios",
+          "count": "1",
+          "category": "ErrorCode",
+          "pool_binding_state": "DeferredToG09P2B2"
+        }
+      ],
+      "random_stream": "swarm-disaster.trailblaze-bonus.104",
+      "source_description_sha256_en": "60184464a89ef4f5cab315a90f44a0962747bee506c6eb59f9607cd2f2097cec",
+      "source_description_sha256_zh_cn": "d1de4711c7bded188b43aa2889cc189efa6f67b46526f79b000632f67c89e79f"
+    },
+    "application_boundary": "AfterTrailblazeBonusSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.trailblaze-bonus.105",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmTrailblazeBonus",
+    "name_en": "Hungry Universe",
+    "name_zh_cn": "巨胃宇宙",
+    "summary_en": "At run start, gain two random eligible Curios and one random Negative Curio.",
+    "summary_zh_cn": "开局时获得两个随机可用奇物和一个随机负面奇物。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "10",
+        "sha256": "e728726a81294c223ea6029fd6b807eee99edccd2ab057b5903a5b8dd580aab9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "trailblaze-bonus"
+    ],
+    "source_id": "105",
+    "bonus_event": "1050",
+    "effect_program": {
+      "transaction": "AtomicAcceptedActivityOperations",
+      "operations": [
+        {
+          "order": 0,
+          "operation": "GrantRandomCurios",
+          "count": "2",
+          "category": "AnyEligible",
+          "pool_binding_state": "DeferredToG09P2B2"
+        },
+        {
+          "order": 1,
+          "operation": "GrantRandomCurios",
+          "count": "1",
+          "category": "Negative",
+          "pool_binding_state": "DeferredToG09P2B2"
+        }
+      ],
+      "random_stream": "swarm-disaster.trailblaze-bonus.105",
+      "source_description_sha256_en": "57a8c414ff87d863d1efba0cf4abb5d346cf1f94cea861bb12c43968737f0181",
+      "source_description_sha256_zh_cn": "2db00348b60e27fb39ceaa87f645ee0ccffcba5f2352eb807246ee753e1cb7b1"
+    },
+    "application_boundary": "AfterTrailblazeBonusSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.trailblaze-bonus.106",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmTrailblazeBonus",
+    "name_en": "Bloodthirsty Universe",
+    "name_zh_cn": "嗜血宇宙",
+    "summary_en": "At run start, reduce Countdown by 2 and gain three random 1- or 2-star Blessings.",
+    "summary_zh_cn": "开局时倒计时减少 2，并获得三个随机 1 星或 2 星祝福。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "11",
+        "sha256": "1e84c5f545fd4af31885a5d9e424eb0c85bbd16035e57b5df48cab91df78a2b6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "trailblaze-bonus"
+    ],
+    "source_id": "106",
+    "bonus_event": "1060",
+    "effect_program": {
+      "transaction": "AtomicAcceptedActivityOperations",
+      "operations": [
+        {
+          "order": 0,
+          "operation": "AdjustCountdown",
+          "value": "-2"
+        },
+        {
+          "order": 1,
+          "operation": "GrantRandomBlessings",
+          "count": "3",
+          "minimum_rarity": "1",
+          "maximum_rarity": "2",
+          "pool_binding_state": "DeferredToG09P2B1"
+        }
+      ],
+      "random_stream": "swarm-disaster.trailblaze-bonus.106",
+      "source_description_sha256_en": "48bcaf0ddb74a6d667ac165959cae6d8d4528a3f65867d9ec78a27d42de8100c",
+      "source_description_sha256_zh_cn": "8913811e433c3010fe76fc46630c26d79646731a4cf9fac06f115340627f24ec"
+    },
+    "application_boundary": "AfterTrailblazeBonusSelectionAtRunStart"
+  }
+]

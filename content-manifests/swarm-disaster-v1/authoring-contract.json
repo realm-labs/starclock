@@ -1,0 +1,169 @@
+{
+  "schema_revision": "starclock.swarm-disaster-authoring-contract.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "authority": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "editor_version": "3.1.5",
+    "schema_exporter": "sora-cli",
+    "schema_exporter_version": "0.3.0",
+    "production_artifact": "sora",
+    "json_role": "research-staging-debug-only",
+    "runtime_loading": false
+  },
+  "isolation": {
+    "project": "config/swarm-disaster/project.toml",
+    "workbook_root": "config/swarm-disaster/data",
+    "generated_root": "config/swarm-disaster-generated",
+    "normalized_root": "content-reference/swarm-disaster-v1",
+    "forbidden_outputs": [
+      "config/data",
+      "config/generated",
+      "config/universe-generated",
+      "config/gold-and-gears",
+      "config/gold-and-gears-generated",
+      "config/unknowable-domain",
+      "config/unknowable-domain-generated",
+      "content-reference/standard-universe-v1",
+      "content-reference/gold-and-gears-v1",
+      "content-reference/unknowable-domain-v1"
+    ]
+  },
+  "generation": {
+    "complete_workbook_set": true,
+    "overwrite_existing_target": false,
+    "patch_designer_workbook": false,
+    "fixed_document_timestamps": true,
+    "double_generation_byte_identical": true,
+    "formula_cells": "reject",
+    "excel_error_cells": "reject",
+    "unknown_columns": "reject",
+    "unknown_sheets": "reject"
+  },
+  "sheet_contract": {
+    "sora_metadata_rows": "preserve rows 1 through 7 exactly",
+    "data_start_row": 8,
+    "freeze_panes": "A8",
+    "auto_filter": true,
+    "header_style": "goal09-header-v1",
+    "alternating_rows": true,
+    "wrapped_text": true,
+    "deterministic_widths": true,
+    "data_validation": true,
+    "typed_references": true,
+    "canonical_decimal_cells": "text"
+  },
+  "workbooks": [
+    {
+      "file": "SwarmDisaster.xlsx",
+      "purpose": "profile, topology, countdown, Planar Disarray and Audience Dice",
+      "normalized_files": [
+        "profiles.json",
+        "areas.json",
+        "difficulty-segments.json",
+        "planes.json",
+        "chessboards.json",
+        "map-columns.json",
+        "map-nodes.json",
+        "map-edges.json",
+        "map-events.json",
+        "block-create-rules.json",
+        "rooms.json",
+        "domains.json",
+        "beacons.json",
+        "boss-choices.json",
+        "topology-consequences.json",
+        "countdown-and-disarray.json",
+        "boss-decay-levels.json",
+        "audience-paths.json",
+        "audience-dice.json",
+        "dice-faces.json",
+        "dice-rarities.json",
+        "dice-target-rules.json",
+        "dice-roll-controls.json"
+      ]
+    },
+    {
+      "file": "SwarmDisasterProgression.xlsx",
+      "purpose": "Communing Device and Trail, Pathstrider, Paths, Resonances and Interplays",
+      "normalized_files": [
+        "communing-choices.json",
+        "pathstrider-cabinets.json",
+        "communing-dimensions.json",
+        "communing-point-adjustments.json",
+        "communing-trail-nodes.json",
+        "communing-trail-prerequisites.json",
+        "communing-trail-effects.json",
+        "pathstrider-objectives.json",
+        "pathstrider-finish-conditions.json",
+        "pathstrider-unlocks.json",
+        "mechanical-chapter-locators.json",
+        "paths.json",
+        "resonances.json",
+        "path-boosts.json",
+        "resonance-interplays.json",
+        "bonuses.json"
+      ]
+    },
+    {
+      "file": "SwarmDisasterContent.xlsx",
+      "purpose": "shared pools, mode copies, services, Adventure and encounters",
+      "normalized_files": [
+        "blessings.json",
+        "blessing-levels.json",
+        "pool-membership.json",
+        "curios.json",
+        "curio-states.json",
+        "curio-rules.json",
+        "occurrences.json",
+        "occurrence-variants.json",
+        "occurrence-choices.json",
+        "services.json",
+        "adventure-outcomes.json",
+        "currencies.json",
+        "service-rules.json",
+        "encounter-groups.json",
+        "encounter-waves.json",
+        "enemy-slots.json",
+        "boss-pools.json"
+      ]
+    },
+    {
+      "file": "SwarmDisasterEvidence.xlsx",
+      "purpose": "rules, provenance, coverage, gaps, reconciliation, fixtures and pack identity",
+      "normalized_files": [
+        "mechanic-rules.json",
+        "sources.json",
+        "coverage.json",
+        "research-gaps.json",
+        "review-fixtures.json",
+        "reconciliation-receipts.json",
+        "manifest.json",
+        "pack-index.json"
+      ]
+    }
+  ],
+  "table_family_contract": {
+    "one_primary_table_per_normalized_file": true,
+    "child_tables": "allowed only for repeated typed fields; every child row carries parent stable ID and deterministic ordinal",
+    "table_names": "SwarmDisaster plus PascalCase normalized file stem; child tables append semantic role",
+    "sheet_names": "explicit in Sora schema and at most 31 characters",
+    "numeric_keys": "private workbook identities only",
+    "stable_keys": "required for every cross-workbook or inherited reference"
+  },
+  "reconciliation_sheet": {
+    "workbook": "SwarmDisasterEvidence.xlsx",
+    "normalized_file": "reconciliation-receipts.json",
+    "goal08_checkpoint_commit": "457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd",
+    "join_key": "source path plus row locator plus evidence SHA-256",
+    "conflict_behavior": "Block Goal 09 publication; do not edit Goal 08 workbooks or manifests"
+  },
+  "acceptance": {
+    "schema_check": "sora check --project config/swarm-disaster/project.toml",
+    "schema_build": "sora build --project config/swarm-disaster/project.toml",
+    "export": "sora export --project config/swarm-disaster/project.toml",
+    "reader_load": "every generated table and row",
+    "visual_review": "render and inspect every authored sheet",
+    "semantic_digest": "canonical cell values, types, formulas, validations, sheet order and table identity"
+  }
+}

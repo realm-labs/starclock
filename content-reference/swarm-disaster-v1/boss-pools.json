@@ -1,0 +1,1242 @@
+[
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_1.final-boss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_1 FinalBoss Pool",
+    "name_zh_cn": "Difficulty_1 FinalBoss 候选池",
+    "summary_en": "Difficulty_1 binds 1 FinalBoss encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_1 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "c6069b9d4731da4f865b8436365bf55a3294da356b932f5e9a84ee21b91e79fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FinalBoss",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_1",
+    "area_id": "swarm-disaster.area.201",
+    "pool_tier": "FinalBoss",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.123001"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8024010",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.123001"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Imaginary",
+            "Quantum"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_1.first-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_1 FirstPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_1 FirstPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_1 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_1 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FirstPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_1",
+    "area_id": "swarm-disaster.area.201",
+    "pool_tier": "FirstPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.120001",
+      "swarm-disaster.encounter-group.120002",
+      "swarm-disaster.encounter-group.120003",
+      "swarm-disaster.encounter-group.120004",
+      "swarm-disaster.encounter-group.120005",
+      "swarm-disaster.encounter-group.120006",
+      "swarm-disaster.encounter-group.120007",
+      "swarm-disaster.encounter-group.120008",
+      "swarm-disaster.encounter-group.120009",
+      "swarm-disaster.encounter-group.120010",
+      "swarm-disaster.encounter-group.120011",
+      "swarm-disaster.encounter-group.120012",
+      "swarm-disaster.encounter-group.120013",
+      "swarm-disaster.encounter-group.120014",
+      "swarm-disaster.encounter-group.120015",
+      "swarm-disaster.encounter-group.121001",
+      "swarm-disaster.encounter-group.121002",
+      "swarm-disaster.encounter-group.121003",
+      "swarm-disaster.encounter-group.121004",
+      "swarm-disaster.encounter-group.121005",
+      "swarm-disaster.encounter-group.121006",
+      "swarm-disaster.encounter-group.121007",
+      "swarm-disaster.encounter-group.121008",
+      "swarm-disaster.encounter-group.121009",
+      "swarm-disaster.encounter-group.121010",
+      "swarm-disaster.encounter-group.121011",
+      "swarm-disaster.encounter-group.121012",
+      "swarm-disaster.encounter-group.121013",
+      "swarm-disaster.encounter-group.121014",
+      "swarm-disaster.encounter-group.121015"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8003051",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.121011"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Fire",
+            "Ice",
+            "Imaginary"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_1.second-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_1 SecondPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_1 SecondPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_1 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_1 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      }
+    ],
+    "tags": [
+      "SecondPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_1",
+    "area_id": "swarm-disaster.area.201",
+    "pool_tier": "SecondPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.122001",
+      "swarm-disaster.encounter-group.122002",
+      "swarm-disaster.encounter-group.122003",
+      "swarm-disaster.encounter-group.122004",
+      "swarm-disaster.encounter-group.122005"
+    ],
+    "choice_consequences": [],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_2.final-boss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_2 FinalBoss Pool",
+    "name_zh_cn": "Difficulty_2 FinalBoss 候选池",
+    "summary_en": "Difficulty_2 binds 1 FinalBoss encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_2 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "4",
+        "sha256": "73d94dadf0c661998f2cac431b7d46fa8cffba23c674c9aa09265ee512f1a78b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "c6069b9d4731da4f865b8436365bf55a3294da356b932f5e9a84ee21b91e79fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FinalBoss",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_2",
+    "area_id": "swarm-disaster.area.202",
+    "pool_tier": "FinalBoss",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.123001"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8024010",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.123001"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Imaginary",
+            "Quantum"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_2.first-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_2 FirstPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_2 FirstPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_2 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_2 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "4",
+        "sha256": "73d94dadf0c661998f2cac431b7d46fa8cffba23c674c9aa09265ee512f1a78b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FirstPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_2",
+    "area_id": "swarm-disaster.area.202",
+    "pool_tier": "FirstPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.120001",
+      "swarm-disaster.encounter-group.120002",
+      "swarm-disaster.encounter-group.120003",
+      "swarm-disaster.encounter-group.120004",
+      "swarm-disaster.encounter-group.120005",
+      "swarm-disaster.encounter-group.120006",
+      "swarm-disaster.encounter-group.120007",
+      "swarm-disaster.encounter-group.120008",
+      "swarm-disaster.encounter-group.120009",
+      "swarm-disaster.encounter-group.120010",
+      "swarm-disaster.encounter-group.120011",
+      "swarm-disaster.encounter-group.120012",
+      "swarm-disaster.encounter-group.120013",
+      "swarm-disaster.encounter-group.120014",
+      "swarm-disaster.encounter-group.120015",
+      "swarm-disaster.encounter-group.121001",
+      "swarm-disaster.encounter-group.121002",
+      "swarm-disaster.encounter-group.121003",
+      "swarm-disaster.encounter-group.121004",
+      "swarm-disaster.encounter-group.121005",
+      "swarm-disaster.encounter-group.121006",
+      "swarm-disaster.encounter-group.121007",
+      "swarm-disaster.encounter-group.121008",
+      "swarm-disaster.encounter-group.121009",
+      "swarm-disaster.encounter-group.121010",
+      "swarm-disaster.encounter-group.121011",
+      "swarm-disaster.encounter-group.121012",
+      "swarm-disaster.encounter-group.121013",
+      "swarm-disaster.encounter-group.121014",
+      "swarm-disaster.encounter-group.121015"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8003051",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.121011"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Fire",
+            "Ice",
+            "Imaginary"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_2.second-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_2 SecondPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_2 SecondPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_2 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_2 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "4",
+        "sha256": "73d94dadf0c661998f2cac431b7d46fa8cffba23c674c9aa09265ee512f1a78b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      }
+    ],
+    "tags": [
+      "SecondPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_2",
+    "area_id": "swarm-disaster.area.202",
+    "pool_tier": "SecondPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.122001",
+      "swarm-disaster.encounter-group.122002",
+      "swarm-disaster.encounter-group.122003",
+      "swarm-disaster.encounter-group.122004",
+      "swarm-disaster.encounter-group.122005"
+    ],
+    "choice_consequences": [],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_3.final-boss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_3 FinalBoss Pool",
+    "name_zh_cn": "Difficulty_3 FinalBoss 候选池",
+    "summary_en": "Difficulty_3 binds 1 FinalBoss encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_3 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "5",
+        "sha256": "fd167f8877f9acda38ae18484daa4d16afef190284ae3581628cecc683f0d1c1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "c6069b9d4731da4f865b8436365bf55a3294da356b932f5e9a84ee21b91e79fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FinalBoss",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_3",
+    "area_id": "swarm-disaster.area.203",
+    "pool_tier": "FinalBoss",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.123001"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8024010",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.123001"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Imaginary",
+            "Quantum"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_3.first-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_3 FirstPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_3 FirstPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_3 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_3 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "5",
+        "sha256": "fd167f8877f9acda38ae18484daa4d16afef190284ae3581628cecc683f0d1c1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FirstPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_3",
+    "area_id": "swarm-disaster.area.203",
+    "pool_tier": "FirstPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.120001",
+      "swarm-disaster.encounter-group.120002",
+      "swarm-disaster.encounter-group.120003",
+      "swarm-disaster.encounter-group.120004",
+      "swarm-disaster.encounter-group.120005",
+      "swarm-disaster.encounter-group.120006",
+      "swarm-disaster.encounter-group.120007",
+      "swarm-disaster.encounter-group.120008",
+      "swarm-disaster.encounter-group.120009",
+      "swarm-disaster.encounter-group.120010",
+      "swarm-disaster.encounter-group.120011",
+      "swarm-disaster.encounter-group.120012",
+      "swarm-disaster.encounter-group.120013",
+      "swarm-disaster.encounter-group.120014",
+      "swarm-disaster.encounter-group.120015",
+      "swarm-disaster.encounter-group.121001",
+      "swarm-disaster.encounter-group.121002",
+      "swarm-disaster.encounter-group.121003",
+      "swarm-disaster.encounter-group.121004",
+      "swarm-disaster.encounter-group.121005",
+      "swarm-disaster.encounter-group.121006",
+      "swarm-disaster.encounter-group.121007",
+      "swarm-disaster.encounter-group.121008",
+      "swarm-disaster.encounter-group.121009",
+      "swarm-disaster.encounter-group.121010",
+      "swarm-disaster.encounter-group.121011",
+      "swarm-disaster.encounter-group.121012",
+      "swarm-disaster.encounter-group.121013",
+      "swarm-disaster.encounter-group.121014",
+      "swarm-disaster.encounter-group.121015"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8003051",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.121011"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Fire",
+            "Ice",
+            "Imaginary"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_3.second-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_3 SecondPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_3 SecondPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_3 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_3 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "5",
+        "sha256": "fd167f8877f9acda38ae18484daa4d16afef190284ae3581628cecc683f0d1c1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      }
+    ],
+    "tags": [
+      "SecondPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_3",
+    "area_id": "swarm-disaster.area.203",
+    "pool_tier": "SecondPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.122001",
+      "swarm-disaster.encounter-group.122002",
+      "swarm-disaster.encounter-group.122003",
+      "swarm-disaster.encounter-group.122004",
+      "swarm-disaster.encounter-group.122005"
+    ],
+    "choice_consequences": [],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_4.final-boss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_4 FinalBoss Pool",
+    "name_zh_cn": "Difficulty_4 FinalBoss 候选池",
+    "summary_en": "Difficulty_4 binds 1 FinalBoss encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_4 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "6",
+        "sha256": "c20c82058d689d94e02e47edc19e18126ca2deb2a6f46516c063d6c3235ae28a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "c6069b9d4731da4f865b8436365bf55a3294da356b932f5e9a84ee21b91e79fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FinalBoss",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_4",
+    "area_id": "swarm-disaster.area.204",
+    "pool_tier": "FinalBoss",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.123001"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8024010",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.123001"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Imaginary",
+            "Quantum"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_4.first-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_4 FirstPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_4 FirstPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_4 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_4 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "6",
+        "sha256": "c20c82058d689d94e02e47edc19e18126ca2deb2a6f46516c063d6c3235ae28a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FirstPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_4",
+    "area_id": "swarm-disaster.area.204",
+    "pool_tier": "FirstPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.120001",
+      "swarm-disaster.encounter-group.120002",
+      "swarm-disaster.encounter-group.120003",
+      "swarm-disaster.encounter-group.120004",
+      "swarm-disaster.encounter-group.120005",
+      "swarm-disaster.encounter-group.120006",
+      "swarm-disaster.encounter-group.120007",
+      "swarm-disaster.encounter-group.120008",
+      "swarm-disaster.encounter-group.120009",
+      "swarm-disaster.encounter-group.120010",
+      "swarm-disaster.encounter-group.120011",
+      "swarm-disaster.encounter-group.120012",
+      "swarm-disaster.encounter-group.120013",
+      "swarm-disaster.encounter-group.120014",
+      "swarm-disaster.encounter-group.120015",
+      "swarm-disaster.encounter-group.121001",
+      "swarm-disaster.encounter-group.121002",
+      "swarm-disaster.encounter-group.121003",
+      "swarm-disaster.encounter-group.121004",
+      "swarm-disaster.encounter-group.121005",
+      "swarm-disaster.encounter-group.121006",
+      "swarm-disaster.encounter-group.121007",
+      "swarm-disaster.encounter-group.121008",
+      "swarm-disaster.encounter-group.121009",
+      "swarm-disaster.encounter-group.121010",
+      "swarm-disaster.encounter-group.121011",
+      "swarm-disaster.encounter-group.121012",
+      "swarm-disaster.encounter-group.121013",
+      "swarm-disaster.encounter-group.121014",
+      "swarm-disaster.encounter-group.121015"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8003051",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.121011"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Fire",
+            "Ice",
+            "Imaginary"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_4.second-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_4 SecondPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_4 SecondPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_4 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_4 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "6",
+        "sha256": "c20c82058d689d94e02e47edc19e18126ca2deb2a6f46516c063d6c3235ae28a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      }
+    ],
+    "tags": [
+      "SecondPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_4",
+    "area_id": "swarm-disaster.area.204",
+    "pool_tier": "SecondPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.122001",
+      "swarm-disaster.encounter-group.122002",
+      "swarm-disaster.encounter-group.122003",
+      "swarm-disaster.encounter-group.122004",
+      "swarm-disaster.encounter-group.122005"
+    ],
+    "choice_consequences": [],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_5.final-boss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_5 FinalBoss Pool",
+    "name_zh_cn": "Difficulty_5 FinalBoss 候选池",
+    "summary_en": "Difficulty_5 binds 1 FinalBoss encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_5 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "7",
+        "sha256": "7955200838ee93d1562e122211c00fd6b3bd220bf384f9c0d1a2df5cd6a1097f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "c6069b9d4731da4f865b8436365bf55a3294da356b932f5e9a84ee21b91e79fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FinalBoss",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_5",
+    "area_id": "swarm-disaster.area.205",
+    "pool_tier": "FinalBoss",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.123001"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8024010",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.123001"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Imaginary",
+            "Quantum"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_5.first-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_5 FirstPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_5 FirstPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_5 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_5 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "7",
+        "sha256": "7955200838ee93d1562e122211c00fd6b3bd220bf384f9c0d1a2df5cd6a1097f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "FirstPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_5",
+    "area_id": "swarm-disaster.area.205",
+    "pool_tier": "FirstPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.120001",
+      "swarm-disaster.encounter-group.120002",
+      "swarm-disaster.encounter-group.120003",
+      "swarm-disaster.encounter-group.120004",
+      "swarm-disaster.encounter-group.120005",
+      "swarm-disaster.encounter-group.120006",
+      "swarm-disaster.encounter-group.120007",
+      "swarm-disaster.encounter-group.120008",
+      "swarm-disaster.encounter-group.120009",
+      "swarm-disaster.encounter-group.120010",
+      "swarm-disaster.encounter-group.120011",
+      "swarm-disaster.encounter-group.120012",
+      "swarm-disaster.encounter-group.120013",
+      "swarm-disaster.encounter-group.120014",
+      "swarm-disaster.encounter-group.120015",
+      "swarm-disaster.encounter-group.121001",
+      "swarm-disaster.encounter-group.121002",
+      "swarm-disaster.encounter-group.121003",
+      "swarm-disaster.encounter-group.121004",
+      "swarm-disaster.encounter-group.121005",
+      "swarm-disaster.encounter-group.121006",
+      "swarm-disaster.encounter-group.121007",
+      "swarm-disaster.encounter-group.121008",
+      "swarm-disaster.encounter-group.121009",
+      "swarm-disaster.encounter-group.121010",
+      "swarm-disaster.encounter-group.121011",
+      "swarm-disaster.encounter-group.121012",
+      "swarm-disaster.encounter-group.121013",
+      "swarm-disaster.encounter-group.121014",
+      "swarm-disaster.encounter-group.121015"
+    ],
+    "choice_consequences": [
+      {
+        "boss_choice_id": "swarm-disaster.boss-choice.8003051",
+        "encounter_group_ids": [
+          "swarm-disaster.encounter-group.121011"
+        ],
+        "weakness_consequence": {
+          "kind": "IntrinsicWeaknessSet",
+          "elements": [
+            "Fire",
+            "Ice",
+            "Imaginary"
+          ]
+        },
+        "later_boss_consequence": {
+          "kind": "TypedBossDecayReference",
+          "resolution_state": "DeferredToG09-P1-B3",
+          "unresolved_reference_policy": "RejectAtPackCompilation"
+        }
+      }
+    ],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-pool.Difficulty_5.second-plane-boss-alternative",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBossPool",
+    "name_en": "Difficulty_5 SecondPlaneBossAlternative Pool",
+    "name_zh_cn": "Difficulty_5 SecondPlaneBossAlternative 候选池",
+    "summary_en": "Difficulty_5 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order.",
+    "summary_zh_cn": "Difficulty_5 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "7",
+        "sha256": "7955200838ee93d1562e122211c00fd6b3bd220bf384f9c0d1a2df5cd6a1097f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      }
+    ],
+    "tags": [
+      "SecondPlaneBossAlternative",
+      "boss-pool"
+    ],
+    "difficulty_id": "Difficulty_5",
+    "area_id": "swarm-disaster.area.205",
+    "pool_tier": "SecondPlaneBossAlternative",
+    "candidate_ids": [
+      "swarm-disaster.encounter-group.122001",
+      "swarm-disaster.encounter-group.122002",
+      "swarm-disaster.encounter-group.122003",
+      "swarm-disaster.encounter-group.122004",
+      "swarm-disaster.encounter-group.122005"
+    ],
+    "choice_consequences": [],
+    "candidate_order": "source-group-id-ascending",
+    "selection_policy": {
+      "randomness": "seeded-activity-stream",
+      "unresolved_behavior": "FailClosed"
+    }
+  }
+]

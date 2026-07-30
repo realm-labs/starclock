@@ -1,0 +1,629 @@
+[
+  {
+    "id": "swarm-disaster.audience-die.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Preservation Audience Die",
+    "name_zh_cn": "存护觐见行迹骰",
+    "summary_en": "When entering a Boss or Boss: Swarm domain, obtain rewards based on the number of domains in the current plane that have the Cornerstone effect. For every domain with Cornerstone, increase the amount of Shield Effect received by all allies by #1[i]%. For every #2[i] different type(s) of domains with Cornerstone, obtain 1 Blessing.",
+    "summary_zh_cn": "进入【首领】或【首领•虫群】区域时，根据当前位面带有【基石】效果的区域数量获得奖励：每存在1个区域使我方全体获得的护盾量提高#1[i]%，每存在#2[i]种不同类型的区域获得1次祝福。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "0",
+        "sha256": "1c01a02ee3f70c82303a56afc8a8968e50af1b5b6f3095ddda7d470c8f0681d4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "0",
+        "sha256": "2b12054f75d72e50923c1cbbc523e0ac2f2f8c12818899465e783ebf56286fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "preservation",
+      "project-policy"
+    ],
+    "source_id": "1",
+    "path_id": "universe.path.preservation",
+    "audience_path_id": "swarm-disaster.audience-path.1",
+    "face_ids": [
+      "swarm-disaster.dice-face.102",
+      "swarm-disaster.dice-face.104",
+      "swarm-disaster.dice-face.101",
+      "swarm-disaster.dice-face.103",
+      "swarm-disaster.dice-face.105"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000018",
+    "initial_effect_summary_en": "Applies Cornerstone to #1 random Domain(s)",
+    "initial_effect_summary_zh_cn": "为#1个随机区域附加【基石】效果",
+    "initial_effect_parameters": [
+      "2"
+    ],
+    "passive_description_parameters": [
+      "0.04",
+      "1"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000002",
+      "source-effect.61000018",
+      "source-effect.61000019"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Remembrance Audience Die",
+    "name_zh_cn": "记忆觐见行迹骰",
+    "summary_en": "For every domain with Recollection that allies enter, increase all allies' Effect Hit Rate by #1[i]%.",
+    "summary_zh_cn": "每进入过1个带有【追忆】效果的区域，我方全体效果命中提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "1",
+        "sha256": "2f413ffb487eb25c961dfa2af34510548ee8407e415a3c7e20a999bd2d23863f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "1",
+        "sha256": "428eebe80448e9224b579e20cf6305036e33d8f84b1c2361420e5b7210bfb785",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "project-policy",
+      "remembrance"
+    ],
+    "source_id": "2",
+    "path_id": "universe.path.remembrance",
+    "audience_path_id": "swarm-disaster.audience-path.2",
+    "face_ids": [
+      "swarm-disaster.dice-face.204",
+      "swarm-disaster.dice-face.205",
+      "swarm-disaster.dice-face.203",
+      "swarm-disaster.dice-face.202",
+      "swarm-disaster.dice-face.201"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000016",
+    "initial_effect_summary_en": "Randomly copies #1 Domain(s) and applies Recollection to it",
+    "initial_effect_summary_zh_cn": "随机复制#1个区域并为其附加【追忆】效果",
+    "initial_effect_parameters": [
+      "2"
+    ],
+    "passive_description_parameters": [
+      "0.25"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000004"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Nihility Audience Die",
+    "name_zh_cn": "虚无觐见行迹骰",
+    "summary_en": "The content of a Blank domain will be replaced with a domain of a random type when allies enter it. (For every Blank domain that allies enter, DoT dealt by all allies increases by #1[i]%.)",
+    "summary_zh_cn": "进入【空白】区域时，【空白】区域的内容将立即被替换为随机区域类型。（每进入过1个【空白】区域，我方全体造成的持续伤害提高#1[i]%）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "2",
+        "sha256": "0af58e3b7cf363a1a813a51a4b65100861ced045ba246c059cab5bf70b7a590b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "2",
+        "sha256": "ac3d2f0f541267fa60878b1c8410dcb17888834bd1b35ec82f4b8170f7ecb879",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "nihility",
+      "project-policy"
+    ],
+    "source_id": "3",
+    "path_id": "universe.path.nihility",
+    "audience_path_id": "swarm-disaster.audience-path.3",
+    "face_ids": [
+      "swarm-disaster.dice-face.305",
+      "swarm-disaster.dice-face.301",
+      "swarm-disaster.dice-face.302",
+      "swarm-disaster.dice-face.303",
+      "swarm-disaster.dice-face.304",
+      "swarm-disaster.dice-face.306"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000013",
+    "initial_effect_summary_en": "Turn #1 random domain(s) into Blank domain",
+    "initial_effect_summary_zh_cn": "将#1个随机区域替换为【空白】区域",
+    "initial_effect_parameters": [
+      "2"
+    ],
+    "passive_description_parameters": [
+      "0.18"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000009"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.4",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Abundance Audience Die",
+    "name_zh_cn": "丰饶觐见行迹骰",
+    "summary_en": "Countdown is additionally reduced by #3[i] point(s). When entering a domain with the Mercy effect, countdown will instead increase #2[i] point(s). (Every countdown point increases all allies' Outgoing Healing by #1[i]%.)",
+    "summary_zh_cn": "倒计时额外消耗#3[i]点；进入带有【慈怀】效果的区域时，改为增加#2[i]点倒计时。（每点倒计时使我方全体治疗量提高#1[i]%）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "3",
+        "sha256": "e3ae351ade824a6b5ad878f6f5c94f358f4fbc9bce576aa740a0bc3f5db63663",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "3",
+        "sha256": "c726d5f89c4beadb248d27281604123f28d0bf5c65d94a4f89e804abb3e894b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "abundance",
+      "audience-die",
+      "project-policy"
+    ],
+    "source_id": "4",
+    "path_id": "universe.path.abundance",
+    "audience_path_id": "swarm-disaster.audience-path.4",
+    "face_ids": [
+      "swarm-disaster.dice-face.405",
+      "swarm-disaster.dice-face.403",
+      "swarm-disaster.dice-face.406",
+      "swarm-disaster.dice-face.402",
+      "swarm-disaster.dice-face.401",
+      "swarm-disaster.dice-face.404"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000014",
+    "initial_effect_summary_en": "Applies Mercy to #1 random Domain(s)",
+    "initial_effect_summary_zh_cn": "为#1个随机区域附加【慈怀】效果",
+    "initial_effect_parameters": [
+      "2"
+    ],
+    "passive_description_parameters": [
+      "0.05",
+      "1",
+      "2"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000003"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "The Hunt Audience Die",
+    "name_zh_cn": "巡猎觐见行迹骰",
+    "summary_en": "Every time allies move to a domain, all domains currently with the Blessing Trotter or Curio Trotter beacon will swap their positions with an adjacent domain. (For every Trotter defeated in battle, all allies' CRIT DMG increases by #1[i]%.)",
+    "summary_zh_cn": "每次移动后，所有带有【祝福扑满】与【奇物扑满】信标的区域会与随机相邻区域互换位置。（战斗中每击败1只扑满，我方全体暴击伤害提高#1[i]%）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "4",
+        "sha256": "282dd49d9c256ac8e6477baddfea6de91f5c089c7e573d70d601fcb0aa2dc2b7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "4",
+        "sha256": "b75e3a84ba2f3511509a7a9eddee131910e879ccc34edef9d9f7eee2a3b6ef16",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "hunt",
+      "project-policy"
+    ],
+    "source_id": "5",
+    "path_id": "universe.path.hunt",
+    "audience_path_id": "swarm-disaster.audience-path.5",
+    "face_ids": [
+      "swarm-disaster.dice-face.502",
+      "swarm-disaster.dice-face.504",
+      "swarm-disaster.dice-face.503",
+      "swarm-disaster.dice-face.501",
+      "swarm-disaster.dice-face.505"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000017",
+    "initial_effect_summary_en": "Additionally generates 1 Blessing Trotter Beacon and 1 Curio Trotter Beacon",
+    "initial_effect_summary_zh_cn": "额外生成1个【祝福扑满】与1个【奇物扑满】信标",
+    "initial_effect_parameters": [],
+    "passive_description_parameters": [
+      "0.3"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000007",
+      "source-effect.61000008"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.6",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Destruction Audience Die",
+    "name_zh_cn": "毁灭觐见行迹骰",
+    "summary_en": "After achieving victory in an Elite domain, obtain #2[i] extra Blessing(s). (For every battle won, increases DMG dealt by all allies by #1[i]%.)",
+    "summary_zh_cn": "在【精英】区域战斗胜利后，可额外获得#2[i]次祝福。（每获得1场战斗的胜利，我方全体造成的伤害提高#1[i]%）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "5",
+        "sha256": "d720889b8b8d852cf52578c9d203513fb2911a59a16fdcd2bc2a1267001bc5d1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "5",
+        "sha256": "4594115cb03874577d4769d2ed4a6dd2d0b2ffcb6f213fad052676500b22dac6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "destruction",
+      "project-policy"
+    ],
+    "source_id": "6",
+    "path_id": "universe.path.destruction",
+    "audience_path_id": "swarm-disaster.audience-path.6",
+    "face_ids": [
+      "swarm-disaster.dice-face.601",
+      "swarm-disaster.dice-face.602",
+      "swarm-disaster.dice-face.604",
+      "swarm-disaster.dice-face.605",
+      "swarm-disaster.dice-face.603"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "",
+    "initial_effect_summary_en": "Turns #1 random Domain(s) into Domain — Elite",
+    "initial_effect_summary_zh_cn": "将#1个随机区域替换为【精英】区域",
+    "initial_effect_parameters": [
+      "2"
+    ],
+    "passive_description_parameters": [
+      "0.08",
+      "1"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000013"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.7",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Elation Audience Die",
+    "name_zh_cn": "欢愉觐见行迹骰",
+    "summary_en": "When allies enter a Boss or Boss: Swarm domain, obtain 1 random Happiness. (For every domain that allies enter, the Follow-Up ATK DMG dealt by all allies receive random stat increases.)",
+    "summary_zh_cn": "进入【首领】与【首领•虫群】区域时，获得1个随机的「快乐」。（每进入过1个区域，我方全体的追加伤害获得随机数值提高）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "6",
+        "sha256": "db10664adab18a8d0c10ba2940143dcb2088cf905e5cd679303df7198fc6a2cb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "6",
+        "sha256": "21ad0e4c8194de02ba6d2946923af48f32443bc132a4f6636779ba42d0aa1465",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "elation",
+      "project-policy"
+    ],
+    "source_id": "7",
+    "path_id": "universe.path.elation",
+    "audience_path_id": "swarm-disaster.audience-path.7",
+    "face_ids": [
+      "swarm-disaster.dice-face.706",
+      "swarm-disaster.dice-face.705",
+      "swarm-disaster.dice-face.701",
+      "swarm-disaster.dice-face.702",
+      "swarm-disaster.dice-face.703"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000015",
+    "initial_effect_summary_en": "Generates some surprising effects",
+    "initial_effect_summary_zh_cn": "产生一些令人惊讶的效果",
+    "initial_effect_parameters": [],
+    "passive_description_parameters": [],
+    "extra_effect_refs": [
+      "source-effect.61000018",
+      "source-effect.61000019"
+    ]
+  },
+  {
+    "id": "swarm-disaster.audience-die.8",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "AudienceDie",
+    "name_en": "Propagation Audience Die",
+    "name_zh_cn": "繁育觐见行迹骰",
+    "summary_en": "When allies enter a Combat: Swarm or Occurrence: Swarm domain, they will receive a special effect of Propagation. (For every Combat: Swarm or Occurrence: Swarm domain that allies enter, the DMG dealt by all allies' Basic ATK increases by #1[i]%.)",
+    "summary_zh_cn": "进入【战斗•虫群】与【事件•虫群】区域时获得「繁育」的特殊效果。（每进入过1个【战斗•虫群】或【事件•虫群】区域，我方全体施放普攻造成的伤害提高#1[i]%）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "7",
+        "sha256": "cd080e084d56256e548f0365c11778fdc5fc98f1b73d10ea88d099661e281955",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "7",
+        "sha256": "2e7c287aacf25a7391e592772ee75b14d3bfa30aa803eb4d3bbd3091af427205",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die",
+      "project-policy",
+      "propagation"
+    ],
+    "source_id": "8",
+    "path_id": "universe.path.propagation",
+    "audience_path_id": "swarm-disaster.audience-path.8",
+    "face_ids": [
+      "swarm-disaster.dice-face.805",
+      "swarm-disaster.dice-face.801",
+      "swarm-disaster.dice-face.802",
+      "swarm-disaster.dice-face.803",
+      "swarm-disaster.dice-face.804"
+    ],
+    "roll_policy": {
+      "candidate_order": "AuthoredSortThenStableFaceId",
+      "empty_face_set": "Reject",
+      "control_rule_source": "G09-P1-B5"
+    },
+    "unlock_id": "1000008",
+    "initial_effect_summary_en": "Turns 2 random Domains to Domain — Combat: The Swarm and Domain — Occurrence: The Swarm",
+    "initial_effect_summary_zh_cn": "将2个随机区域替换为【战斗•虫群】与【事件•虫群】区域",
+    "initial_effect_parameters": [],
+    "passive_description_parameters": [
+      "0.2"
+    ],
+    "extra_effect_refs": [
+      "source-effect.61000012",
+      "source-effect.61000017"
+    ]
+  }
+]

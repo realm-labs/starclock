@@ -1,0 +1,135 @@
+{
+  "schema_revision": "starclock.goal09-foundation.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "batch": "G09-P0-B1",
+  "planned_phases": 5,
+  "fixed_batches": 29,
+  "required_snapshot": {
+    "goal_id": "standard-universe-reference-v1",
+    "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+    "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+    "release_policy_sha256": "7b3cf717aef891af5a6c1538f6b2850ac690364b320269145eaae5ce2bbcc02d",
+    "release_evidence_sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75"
+  },
+  "source_snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "repositories": [
+      {
+        "cache_path": ".cache/content-reference/turnbasedgamedata",
+        "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+      },
+      {
+        "cache_path": ".cache/content-reference/StarRailRes",
+        "remote": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+      }
+    ],
+    "fetch_contract": "tools/content-reference/fetch-sources.ps1"
+  },
+  "inherited_reference": {
+    "source_inventory_path": "content-manifests/standard-universe-v1/source-inventory.json",
+    "source_inventory_sha256": "1d5c7b03fb11f7cae7c7dad3086b6d4feb5cfd8a056ced60db558a4ac3599e7d",
+    "source_manifest_sha256": "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216",
+    "normalized_pack_index_sha256": "31b1ec5978fb910df65471f486feb446a754b8d1d041a6ddf93e1b1d9674e542",
+    "rogue_dlc_seed_rows": 32,
+    "rogue_dlc_seed_family": "other_mode",
+    "source_inventory_encoding": "accept-exact-or-lf-to-crlf-equivalent",
+    "universe_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "preserved_core_runtime_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "goal08_checkpoint": {
+    "commit": "457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd",
+    "tree": "4540243ba89d8961eb26d0d1834b450be507485e",
+    "source_inventory_path": "content-manifests/gold-and-gears-v1/source-inventory.json",
+    "source_inventory_sha256": "39ab554ce600fa9932efa1517978db16d51683e93f4de1be68a88b68f26bcece",
+    "content_manifest_path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+    "content_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+    "manifest_schema_revision": "starclock.gold-and-gears-content-manifest.v1",
+    "records": 7913,
+    "gold_owned": 7199,
+    "shared": 714,
+    "reachability_boundary": "committed-manifest-only"
+  },
+  "parallel_boundary": {
+    "branch_prefix": "codex/goal09-",
+    "separate_branch_required": true,
+    "goal07_goal08_goal10_worktrees_may_run_concurrently": true,
+    "shared_generated_output_mutation": false,
+    "owned_roots": [
+      "content-manifests/swarm-disaster-v1/",
+      "content-reference/swarm-disaster-v1/",
+      "config/swarm-disaster/",
+      "config/swarm-disaster-generated/",
+      "tools/swarm-disaster-reference/",
+      "evidence/swarm-disaster-reference-v1/"
+    ],
+    "protected_roots": [
+      "content-manifests/standard-universe-v1/",
+      "content-reference/standard-universe-v1/",
+      "content-manifests/gold-and-gears-v1/",
+      "content-reference/gold-and-gears-v1/",
+      "config/gold-and-gears/",
+      "config/gold-and-gears-generated/",
+      "content-manifests/unknowable-domain-v1/",
+      "content-reference/unknowable-domain-v1/",
+      "config/unknowable-domain/",
+      "config/unknowable-domain-generated/",
+      "config/universe-generated/",
+      "config/generated/",
+      "evidence/standard-universe-reference-v1/",
+      "evidence/gold-and-gears-reference-v1/",
+      "evidence/unknowable-domain-reference-v1/",
+      "tools/gold-and-gears-reference/",
+      "tools/unknowable-domain-reference/",
+      "tools/goal07/"
+    ]
+  },
+  "scope": {
+    "result": "candidate-reference-bundle",
+    "includes": [
+      "released-source inventory and row-level provenance",
+      "Swarm Disaster unique systems and mechanically relevant progression",
+      "reachable shared and mode-owned content pools",
+      "encounter identities and abstract Adventure outcomes",
+      "semantic review fixtures",
+      "isolated Sora schemas, readers, exports and openpyxl workbooks"
+    ],
+    "excludes": [
+      "runtime lowering or runtime release",
+      "shared runtime operation changes",
+      "shared schema or generated-reader changes",
+      "story prose and dialogue presentation",
+      "account and collection rewards except mechanical unlock locators",
+      "Gold and Gears, Unknowable Domain and Divergent Universe ownership"
+    ]
+  },
+  "authoring_contract": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "exporter": "sora-cli-0.3.0",
+    "production_artifact": "sora",
+    "json_role": "staging-and-debug-only"
+  },
+  "documents": [
+    "docs/goals/09-swarm-disaster-reference-data.md",
+    "docs/goals/09-swarm-disaster-reference-data-status.md",
+    "docs/goals/09-swarm-disaster-reference-data-prompt.md",
+    "docs/goal-09-foundation.md"
+  ],
+  "contracts": {
+    "goal03_snapshot_is_immutable": true,
+    "goal03_source_hashes_allow_only_checkout_eol_equivalence": true,
+    "rogue_dlc_seed_is_not_the_denominator": true,
+    "shared_dlc_rows_require_chess_rogue_reachability": true,
+    "goal08_checkpoint_is_commit_backed": true,
+    "shared_rows_reconcile_by_locator_and_digest": true,
+    "ownership_is_explicit_and_fail_closed": true,
+    "source_rows_and_mechanics_require_provenance": true,
+    "exact_and_approximate_evidence_are_distinct": true,
+    "excel_is_the_only_authoritative_content_surface": true,
+    "goal09_artifacts_are_path_isolated": true,
+    "runtime_work_is_deferred": true
+  }
+}

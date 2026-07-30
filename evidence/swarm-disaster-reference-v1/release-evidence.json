@@ -1,0 +1,106 @@
+{
+  "schema_revision": "starclock.swarm-disaster-reference-release.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "result": "CandidateReferenceComplete",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "profile": "swarm-disaster.profile.v1"
+  },
+  "commits": {
+    "foundation": "3abe9a80adbba314d780f8c3c963c37af69aed92",
+    "authoring": "6ffd6cf7d3c6d23141f6ce425170d9d59d94dbaa",
+    "sora_and_visual": "820a3423db0e3b54b83695381741809376a6b64f",
+    "release_audit": "b8da6744a63cd92554b45f8e780d79a1be131f50",
+    "semantic_fixtures": "93261e6b437c5334fed608275e2e1ea8dad76250",
+    "integration_acceptance": "fc3f8a92f0c6f865e2d9fec14e4fbc44ad69196f"
+  },
+  "content": {
+    "source_inventory_files": 2882,
+    "manifest_categories": 42,
+    "manifest_obligations": 6963,
+    "data_ready": 6963,
+    "coverage_percent": "100",
+    "normalized_files": 64,
+    "normalized_records": 27820,
+    "bilingual_records": 19617,
+    "provenance_rows": 8139,
+    "nonblocking_boundaries": 31,
+    "blocking_boundaries": 0
+  },
+  "semantics": {
+    "mechanic_families": 23,
+    "mechanic_rules": 23,
+    "fixtures": 23,
+    "ordered_operations": 85,
+    "expected_facts": 108,
+    "affected_record_bindings": 5560,
+    "affected_fixture_bindings": 47
+  },
+  "reconciliation": {
+    "goal08_commit": "457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd",
+    "receipts": 609,
+    "conflicts": 0,
+    "ownership_pairs": {
+      "Shared->Shared": 604,
+      "SwarmDisaster->GoldAndGears": 5
+    }
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "schema_export_authority": "sora-cli==0.3.0",
+    "workbooks": 4,
+    "primary_tables": 64,
+    "repeated_field_child_tables": 1,
+    "workbook_rows": 33380,
+    "workbook_semantic_sha256": "63c7d1ede0b08b3205545316e94840105b270d23fcd338d9cd288068c2b75a92",
+    "visual_review_sheets": 65,
+    "visual_review_contact_sheets": 10,
+    "visual_defects": 0
+  },
+  "digests": {
+    "source_inventory_sha256": "fe52861f70081d74ff3ac8154b23035a8861e388a80237d04764797404b207dc",
+    "content_manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+    "normalized_pack_sha256": "82f3ffc444a1cdcd8bcba5a946bee3a3c8d58527b93a1c9d77f285697401b2d8",
+    "schema_lock_sha256": "6c97a1d1b5b588fb6206c237070124b09a7c47651f93e59f8d2c6c45a2736307",
+    "swarm_candidate_bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "swarm_candidate_bundle_bytes": 9440844,
+    "debug_tree_sha256": "9ecb4ffd41b45aadb11745171f24fc7a0eb5de9a914afc1f87041bdaa9e54a8d",
+    "release_audit_sha256": "fc253747e2436678af83b48a72afe7190417e717df33c6f53e4ba44a53db0555",
+    "semantic_fixture_audit_sha256": "cc01075d259379edd9f1192dc83e124c23e95e447a81c1da30fe856582288c6c",
+    "integration_acceptance_sha256": "eb756ecbf8e148688f185d45cb3b6cd51b25fa1643f9d31e52ec092efded048e",
+    "visual_review_sha256": "70b467cb08fb36b37d4bbab421933906a2f3b2a755416f18d537a0a6a6e598a3"
+  },
+  "preserved": {
+    "goal03_release_policy_sha256": "7b3cf717aef891af5a6c1538f6b2850ac690364b320269145eaae5ce2bbcc02d",
+    "goal03_release_evidence_sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75",
+    "goal03_recorded_standard_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "goal03_recorded_production_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+    "standard_staging_bundle_sha256": "1c67b59aea4e80c7d77d5823ffc6f727a90e39a029b19b2777f11fa324e466bf",
+    "production_bundle_sha256": "875936da8c01593585389563fcb3d0c4334bdb14d85a3e7ffb9fb0dcc018953b"
+  },
+  "runtime_boundary": {
+    "release_lane": "Candidate",
+    "bundle_role": "AuthoringAndReviewOnly",
+    "runtime_loading": "ForbiddenReferenceOnly",
+    "runtime_lowering": false,
+    "json_runtime_path": false,
+    "standard_gold_or_production_mutation": false
+  },
+  "acceptance": {
+    "source_cache_command": "node tools/swarm-disaster-reference/run-acceptance.mjs --with-source-cache",
+    "source_cache_commands": 47,
+    "clean_checkout_command": "node tools/swarm-disaster-reference/run-clean-checkout.mjs",
+    "clean_checkout_commands": 11,
+    "clean_checkout_fresh_target": true,
+    "clean_checkout_inherited_source_cache": false,
+    "repository_quick_gate": "pass",
+    "repository_full_gate_external_boundary": "Goal 06 Cargo.lock baseline differs before Goal 09 generated checks"
+  },
+  "publication": {
+    "remote": "origin",
+    "branch": "codex/goal09-swarm-disaster-reference",
+    "published_through": "fc3f8a92f0c6f865e2d9fec14e4fbc44ad69196f",
+    "completion_commit": "This row's containing commit (G09-P4-B4)"
+  }
+}

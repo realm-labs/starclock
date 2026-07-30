@@ -1,0 +1,1472 @@
+[
+  {
+    "id": "swarm-disaster.communing-choice.441",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Preservation Choice 441",
+    "name_zh_cn": "存护选择 441",
+    "summary_en": "Story-stage 4 branch records one Preservation alignment choice through NPC 116.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 116 记录一次存护倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "7",
+        "sha256": "2b8e8bf3f3ec99ba6c2e7312d7c65376bfaf7e57699c598b69f1633900ed8abf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "preservation",
+      "project-policy"
+    ],
+    "source_id": "441",
+    "story_stage": 4,
+    "aeon_id": "1",
+    "path_id": "universe.path.preservation",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.1",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:441"
+      }
+    ],
+    "rogue_npc_id": "116"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.461",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Remembrance Choice 461",
+    "name_zh_cn": "记忆选择 461",
+    "summary_en": "Story-stage 4 branch records one Remembrance alignment choice through NPC 118.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 118 记录一次记忆倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "9",
+        "sha256": "150d520aa02663d1e2070a5b974d935a495d6791a33db45052df1d35cd361138",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "1",
+        "sha256": "fa4c9980b72514fec2809b0ad367726881f4bdbd450dfa530067d7440ea65581",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "project-policy",
+      "remembrance"
+    ],
+    "source_id": "461",
+    "story_stage": 4,
+    "aeon_id": "2",
+    "path_id": "universe.path.remembrance",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.2",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:461"
+      }
+    ],
+    "rogue_npc_id": "118"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.421",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Nihility Choice 421",
+    "name_zh_cn": "虚无选择 421",
+    "summary_en": "Story-stage 4 branch records one Nihility alignment choice through NPC 114.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 114 记录一次虚无倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "5",
+        "sha256": "b40d1fab88858d15a038ae6b57f6a24c55e9577e2bb18aea7ea60b4c91295e3a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "2",
+        "sha256": "2aefa05ec30f366b3ee8a4f9fe2aa75ceda48152b3d523217807ba91c67f2019",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "nihility",
+      "project-policy"
+    ],
+    "source_id": "421",
+    "story_stage": 4,
+    "aeon_id": "3",
+    "path_id": "universe.path.nihility",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.3",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:421"
+      }
+    ],
+    "rogue_npc_id": "114"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.431",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Abundance Choice 431",
+    "name_zh_cn": "丰饶选择 431",
+    "summary_en": "Story-stage 4 branch records one Abundance alignment choice through NPC 115.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 115 记录一次丰饶倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "6",
+        "sha256": "28c6c63a73b83199f6c5c96da138d37c9dfaaf0acda330af61946d477080ddb8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "3",
+        "sha256": "0d1b94a368884de9eef20c729e248d82c0b21f236d5a9203594091cf80646c0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "abundance",
+      "communing-choice",
+      "project-policy"
+    ],
+    "source_id": "431",
+    "story_stage": 4,
+    "aeon_id": "4",
+    "path_id": "universe.path.abundance",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.4",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:431"
+      }
+    ],
+    "rogue_npc_id": "115"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.411",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "The Hunt Choice 411",
+    "name_zh_cn": "巡猎选择 411",
+    "summary_en": "Story-stage 4 branch records one The Hunt alignment choice through NPC 113.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 113 记录一次巡猎倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "4",
+        "sha256": "b12f6803e46565266c05d6c96c35c6fb0b77293e15ffaade6d12e3b780e1b611",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "4",
+        "sha256": "99e875a8803e768c38745dbf738548a105fa4604f5fc1217379bfb60af31808c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "project-policy",
+      "the-hunt"
+    ],
+    "source_id": "411",
+    "story_stage": 4,
+    "aeon_id": "5",
+    "path_id": "universe.path.hunt",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.5",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:411"
+      }
+    ],
+    "rogue_npc_id": "113"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.451",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Destruction Choice 451",
+    "name_zh_cn": "毁灭选择 451",
+    "summary_en": "Story-stage 4 branch records one Destruction alignment choice through NPC 117.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 117 记录一次毁灭倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "8",
+        "sha256": "d404eb4c7596a0246c4ecaabbdb8f062dd5bfe1dc41319a9e9fae0e4622e6518",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "5",
+        "sha256": "9af7091113cbc3162bedf00051db9a7d6855145386af52cb20a00dc0717688b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "destruction",
+      "project-policy"
+    ],
+    "source_id": "451",
+    "story_stage": 4,
+    "aeon_id": "6",
+    "path_id": "universe.path.destruction",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.6",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:451"
+      }
+    ],
+    "rogue_npc_id": "117"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Elation Choice 401",
+    "name_zh_cn": "欢愉选择 401",
+    "summary_en": "Story-stage 4 branch records one Elation alignment choice through NPC 103.",
+    "summary_zh_cn": "故事阶段 4 分支通过 NPC 103 记录一次欢愉倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "3",
+        "sha256": "4eb9898fa1a1647476ffc08e3622bab97ddb1e10ba2ea410639962923e09471d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "6",
+        "sha256": "a580691815530243d4627c441fc126b69855f99cb10401d736739e61dff20007",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "elation",
+      "project-policy"
+    ],
+    "source_id": "401",
+    "story_stage": 4,
+    "aeon_id": "7",
+    "path_id": "universe.path.elation",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 4
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.7",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:401"
+      }
+    ],
+    "rogue_npc_id": "103"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.641",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Preservation Choice 641",
+    "name_zh_cn": "存护选择 641",
+    "summary_en": "Story-stage 6 branch records one Preservation alignment choice through NPC 122.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 122 记录一次存护倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "16",
+        "sha256": "6a819fd3192a417a88ecc8ed38201882546baecd92f37e000397bdbd209a8ce1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "preservation",
+      "project-policy"
+    ],
+    "source_id": "641",
+    "story_stage": 6,
+    "aeon_id": "1",
+    "path_id": "universe.path.preservation",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.1",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:641"
+      }
+    ],
+    "rogue_npc_id": "122"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.661",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Remembrance Choice 661",
+    "name_zh_cn": "记忆选择 661",
+    "summary_en": "Story-stage 6 branch records one Remembrance alignment choice through NPC 124.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 124 记录一次记忆倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "18",
+        "sha256": "13168c3f36fccfce6b265412d9456da737b01afd0dfc4d078c17aa3560450e77",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "1",
+        "sha256": "fa4c9980b72514fec2809b0ad367726881f4bdbd450dfa530067d7440ea65581",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "project-policy",
+      "remembrance"
+    ],
+    "source_id": "661",
+    "story_stage": 6,
+    "aeon_id": "2",
+    "path_id": "universe.path.remembrance",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.2",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:661"
+      }
+    ],
+    "rogue_npc_id": "124"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.621",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Nihility Choice 621",
+    "name_zh_cn": "虚无选择 621",
+    "summary_en": "Story-stage 6 branch records one Nihility alignment choice through NPC 120.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 120 记录一次虚无倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "14",
+        "sha256": "884ea0175d0f5817d8e6cf2d34ef102db1bea63012ac78daea8bfbae06e10988",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "2",
+        "sha256": "2aefa05ec30f366b3ee8a4f9fe2aa75ceda48152b3d523217807ba91c67f2019",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "nihility",
+      "project-policy"
+    ],
+    "source_id": "621",
+    "story_stage": 6,
+    "aeon_id": "3",
+    "path_id": "universe.path.nihility",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.3",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:621"
+      }
+    ],
+    "rogue_npc_id": "120"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.631",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Abundance Choice 631",
+    "name_zh_cn": "丰饶选择 631",
+    "summary_en": "Story-stage 6 branch records one Abundance alignment choice through NPC 121.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 121 记录一次丰饶倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "15",
+        "sha256": "cab9c04737713ddd229b08b1e565aa09fc10aa4b0d06e67667fdfc1e8e473b09",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "3",
+        "sha256": "0d1b94a368884de9eef20c729e248d82c0b21f236d5a9203594091cf80646c0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "abundance",
+      "communing-choice",
+      "project-policy"
+    ],
+    "source_id": "631",
+    "story_stage": 6,
+    "aeon_id": "4",
+    "path_id": "universe.path.abundance",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.4",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:631"
+      }
+    ],
+    "rogue_npc_id": "121"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.611",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "The Hunt Choice 611",
+    "name_zh_cn": "巡猎选择 611",
+    "summary_en": "Story-stage 6 branch records one The Hunt alignment choice through NPC 119.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 119 记录一次巡猎倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "13",
+        "sha256": "db50d6d225cef9237ae24bbbe0a3273405bef05c8d6b5ddc8a764e939996c260",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "4",
+        "sha256": "99e875a8803e768c38745dbf738548a105fa4604f5fc1217379bfb60af31808c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "project-policy",
+      "the-hunt"
+    ],
+    "source_id": "611",
+    "story_stage": 6,
+    "aeon_id": "5",
+    "path_id": "universe.path.hunt",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.5",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:611"
+      }
+    ],
+    "rogue_npc_id": "119"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.651",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Destruction Choice 651",
+    "name_zh_cn": "毁灭选择 651",
+    "summary_en": "Story-stage 6 branch records one Destruction alignment choice through NPC 123.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 123 记录一次毁灭倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "17",
+        "sha256": "c40e13c90248c368202daf282b972bbbd2fc75fbedc20a9de0a9a2a1f05e3431",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "5",
+        "sha256": "9af7091113cbc3162bedf00051db9a7d6855145386af52cb20a00dc0717688b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "destruction",
+      "project-policy"
+    ],
+    "source_id": "651",
+    "story_stage": 6,
+    "aeon_id": "6",
+    "path_id": "universe.path.destruction",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.6",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:651"
+      }
+    ],
+    "rogue_npc_id": "123"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Elation Choice 601",
+    "name_zh_cn": "欢愉选择 601",
+    "summary_en": "Story-stage 6 branch records one Elation alignment choice through NPC 105.",
+    "summary_zh_cn": "故事阶段 6 分支通过 NPC 105 记录一次欢愉倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "12",
+        "sha256": "9ffc5c25f02ab3492c49d81bec8637c64f3f1cde95665313e3e6ccccd699350f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "6",
+        "sha256": "a580691815530243d4627c441fc126b69855f99cb10401d736739e61dff20007",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "elation",
+      "project-policy"
+    ],
+    "source_id": "601",
+    "story_stage": 6,
+    "aeon_id": "7",
+    "path_id": "universe.path.elation",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 6
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.7",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:601"
+      }
+    ],
+    "rogue_npc_id": "105"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.741",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Preservation Choice 741",
+    "name_zh_cn": "存护选择 741",
+    "summary_en": "Story-stage 7 branch records one Preservation alignment choice through NPC 128.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 128 记录一次存护倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "24",
+        "sha256": "44ed43db2991da31e0c914aefa1203f8618939b20210f1d304332b5cff50ffc3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "preservation",
+      "project-policy"
+    ],
+    "source_id": "741",
+    "story_stage": 7,
+    "aeon_id": "1",
+    "path_id": "universe.path.preservation",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.1",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:741"
+      }
+    ],
+    "rogue_npc_id": "128"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.761",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Remembrance Choice 761",
+    "name_zh_cn": "记忆选择 761",
+    "summary_en": "Story-stage 7 branch records one Remembrance alignment choice through NPC 130.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 130 记录一次记忆倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "26",
+        "sha256": "714ad51b7087b5605733b5ebe099381e6496a74e692af4b6ee7e5a6254c4983f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "1",
+        "sha256": "fa4c9980b72514fec2809b0ad367726881f4bdbd450dfa530067d7440ea65581",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "project-policy",
+      "remembrance"
+    ],
+    "source_id": "761",
+    "story_stage": 7,
+    "aeon_id": "2",
+    "path_id": "universe.path.remembrance",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.2",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:761"
+      }
+    ],
+    "rogue_npc_id": "130"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.721",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Nihility Choice 721",
+    "name_zh_cn": "虚无选择 721",
+    "summary_en": "Story-stage 7 branch records one Nihility alignment choice through NPC 126.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 126 记录一次虚无倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "22",
+        "sha256": "2c280942115cc4ea64016c74bf2ead9a66828c36b7c85e758db44c49899c9421",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "2",
+        "sha256": "2aefa05ec30f366b3ee8a4f9fe2aa75ceda48152b3d523217807ba91c67f2019",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "nihility",
+      "project-policy"
+    ],
+    "source_id": "721",
+    "story_stage": 7,
+    "aeon_id": "3",
+    "path_id": "universe.path.nihility",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.3",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:721"
+      }
+    ],
+    "rogue_npc_id": "126"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.731",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Abundance Choice 731",
+    "name_zh_cn": "丰饶选择 731",
+    "summary_en": "Story-stage 7 branch records one Abundance alignment choice through NPC 127.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 127 记录一次丰饶倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "23",
+        "sha256": "5b8cb4e6017e78559163b7b458e27397f780bd765512c510de55dcdd08e94b14",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "3",
+        "sha256": "0d1b94a368884de9eef20c729e248d82c0b21f236d5a9203594091cf80646c0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "abundance",
+      "communing-choice",
+      "project-policy"
+    ],
+    "source_id": "731",
+    "story_stage": 7,
+    "aeon_id": "4",
+    "path_id": "universe.path.abundance",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.4",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:731"
+      }
+    ],
+    "rogue_npc_id": "127"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.711",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "The Hunt Choice 711",
+    "name_zh_cn": "巡猎选择 711",
+    "summary_en": "Story-stage 7 branch records one The Hunt alignment choice through NPC 125.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 125 记录一次巡猎倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "21",
+        "sha256": "56dc002d24f94171814898fbf3a8055c2f694061fe306a1172668f5032a049e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "4",
+        "sha256": "99e875a8803e768c38745dbf738548a105fa4604f5fc1217379bfb60af31808c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "project-policy",
+      "the-hunt"
+    ],
+    "source_id": "711",
+    "story_stage": 7,
+    "aeon_id": "5",
+    "path_id": "universe.path.hunt",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.5",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:711"
+      }
+    ],
+    "rogue_npc_id": "125"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.751",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Destruction Choice 751",
+    "name_zh_cn": "毁灭选择 751",
+    "summary_en": "Story-stage 7 branch records one Destruction alignment choice through NPC 129.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 129 记录一次毁灭倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "25",
+        "sha256": "11aac1c98208b550136206cd0d9bed8f2a6814151c755dce9399662ac14a69d1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "5",
+        "sha256": "9af7091113cbc3162bedf00051db9a7d6855145386af52cb20a00dc0717688b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "destruction",
+      "project-policy"
+    ],
+    "source_id": "751",
+    "story_stage": 7,
+    "aeon_id": "6",
+    "path_id": "universe.path.destruction",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.6",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:751"
+      }
+    ],
+    "rogue_npc_id": "129"
+  },
+  {
+    "id": "swarm-disaster.communing-choice.701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningChoice",
+    "name_en": "Elation Choice 701",
+    "name_zh_cn": "欢愉选择 701",
+    "summary_en": "Story-stage 7 branch records one Elation alignment choice through NPC 106.",
+    "summary_zh_cn": "故事阶段 7 分支通过 NPC 106 记录一次欢愉倾向选择。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "20",
+        "sha256": "7e8c6deac48f2fea476a518c191d18508613c595c63ffcf0b0e9a3ba7a60d6ce",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "6",
+        "sha256": "a580691815530243d4627c441fc126b69855f99cb10401d736739e61dff20007",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "elation",
+      "project-policy"
+    ],
+    "source_id": "701",
+    "story_stage": 7,
+    "aeon_id": "7",
+    "path_id": "universe.path.elation",
+    "eligibility": {
+      "branch_available": true,
+      "story_stage": 7
+    },
+    "point_deltas": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "IncrementAeonChoiceCounter",
+        "counter_id": "swarm-disaster.aeon-choice-counter.7",
+        "delta": "1",
+        "once_scope": "MainStoryBranch:701"
+      }
+    ],
+    "rogue_npc_id": "106"
+  }
+]

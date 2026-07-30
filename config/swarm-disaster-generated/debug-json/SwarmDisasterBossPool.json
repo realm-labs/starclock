@@ -1,0 +1,1762 @@
+{
+  "table": {
+    "name": "SwarmDisasterBossPool",
+    "rows": [
+      {
+        "values": {
+          "area_id": {
+            "Integer": 1
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.123001"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8024010\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.123001\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Imaginary\",\"Quantum\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_1"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_1 FinalBoss Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_1 FinalBoss 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FinalBoss"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_1.final-boss"
+          },
+          "summary_en": {
+            "String": "Difficulty_1 binds 1 FinalBoss encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_1 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FinalBoss"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 1
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.120001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120015"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121015"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8003051\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.121011\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Fire\",\"Ice\",\"Imaginary\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_1"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_1 FirstPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_1 FirstPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FirstPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_1.first-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_1 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_1 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FirstPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 1
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.122001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122005"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_1"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_1 SecondPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_1 SecondPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "SecondPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_1.second-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_1 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_1 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SecondPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.123001"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8024010\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.123001\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Imaginary\",\"Quantum\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_2"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_2 FinalBoss Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_2 FinalBoss 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FinalBoss"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_2.final-boss"
+          },
+          "summary_en": {
+            "String": "Difficulty_2 binds 1 FinalBoss encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_2 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FinalBoss"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.120001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120015"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121015"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8003051\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.121011\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Fire\",\"Ice\",\"Imaginary\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_2"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_2 FirstPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_2 FirstPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FirstPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_2.first-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_2 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_2 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FirstPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.122001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122005"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_2"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_2 SecondPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_2 SecondPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "SecondPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_2.second-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_2 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_2 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SecondPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.123001"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8024010\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.123001\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Imaginary\",\"Quantum\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_3"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_3 FinalBoss Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_3 FinalBoss 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FinalBoss"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_3.final-boss"
+          },
+          "summary_en": {
+            "String": "Difficulty_3 binds 1 FinalBoss encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_3 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FinalBoss"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.120001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120015"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121015"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8003051\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.121011\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Fire\",\"Ice\",\"Imaginary\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_3"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_3 FirstPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_3 FirstPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FirstPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_3.first-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_3 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_3 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FirstPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.122001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122005"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_3"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_3 SecondPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_3 SecondPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "SecondPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_3.second-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_3 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_3 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SecondPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.123001"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8024010\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.123001\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Imaginary\",\"Quantum\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_4"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_4 FinalBoss Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_4 FinalBoss 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FinalBoss"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_4.final-boss"
+          },
+          "summary_en": {
+            "String": "Difficulty_4 binds 1 FinalBoss encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_4 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FinalBoss"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.120001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120015"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121015"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8003051\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.121011\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Fire\",\"Ice\",\"Imaginary\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_4"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_4 FirstPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_4 FirstPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FirstPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_4.first-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_4 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_4 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FirstPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.122001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122005"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_4"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_4 SecondPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_4 SecondPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "SecondPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_4.second-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_4 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_4 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SecondPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.123001"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8024010\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.123001\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Imaginary\",\"Quantum\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_5"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_5 FinalBoss Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_5 FinalBoss 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FinalBoss"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_5.final-boss"
+          },
+          "summary_en": {
+            "String": "Difficulty_5 binds 1 FinalBoss encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_5 以稳定源遭遇组顺序绑定 1 个 FinalBoss 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FinalBoss"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.120001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120015"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121005"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121006"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121007"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121008"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121009"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121010"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121011"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121012"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121013"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121014"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.121015"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[{\"boss_choice_id\":\"swarm-disaster.boss-choice.8003051\",\"encounter_group_ids\":[\"swarm-disaster.encounter-group.121011\"],\"later_boss_consequence\":{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"},\"weakness_consequence\":{\"elements\":[\"Fire\",\"Ice\",\"Imaginary\"],\"kind\":\"IntrinsicWeaknessSet\"}}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_5"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_5 FirstPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_5 FirstPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "FirstPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_5.first-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_5 binds 30 FirstPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_5 以稳定源遭遇组顺序绑定 30 个 FirstPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "FirstPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "candidate_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.encounter-group.122001"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122002"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122003"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122004"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.122005"
+              }
+            ]
+          },
+          "candidate_order": {
+            "String": "source-group-id-ascending"
+          },
+          "choice_consequences_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_id": {
+            "String": "Difficulty_5"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "SwarmBossPool"
+          },
+          "name_en": {
+            "String": "Difficulty_5 SecondPlaneBossAlternative Pool"
+          },
+          "name_zh_cn": {
+            "String": "Difficulty_5 SecondPlaneBossAlternative 候选池"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_tier": {
+            "String": "SecondPlaneBossAlternative"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"randomness\":\"seeded-activity-stream\",\"unresolved_behavior\":\"FailClosed\"}"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-pool.Difficulty_5.second-plane-boss-alternative"
+          },
+          "summary_en": {
+            "String": "Difficulty_5 binds 5 SecondPlaneBossAlternative encounter candidate(s) in stable source-group order."
+          },
+          "summary_zh_cn": {
+            "String": "Difficulty_5 以稳定源遭遇组顺序绑定 5 个 SecondPlaneBossAlternative 候选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SecondPlaneBossAlternative"
+              },
+              {
+                "String": "boss-pool"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

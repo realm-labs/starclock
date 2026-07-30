@@ -1,0 +1,133 @@
+[
+  {
+    "id": "swarm-disaster.boss-choice.8003051",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossChoice",
+    "name_en": "Stormbringer (Bug)",
+    "name_zh_cn": "兴风者（错误）",
+    "summary_en": "Displayed ChessRogue boss candidate 8003051 at first released display level 56.",
+    "summary_zh_cn": "ChessRogue 展示首领候选 8003051，首次发布展示等级为 56。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "0",
+        "sha256": "0667c9293e6aa382b61d4319b00277c97719154f21a9c1e98f345ea80687659f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-monsterconfig-json.2277",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "2277",
+        "sha256": "f9b59d416c7947ca5ba5b410789ba5877a85339c05cfa57f9a5e3581e6067bfa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss_choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3.",
+        "replacement_condition": "Replace the unresolved consequence only when an exact released boss-choice-to-decay join is available."
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "project-policy"
+    ],
+    "source_id": "8003051",
+    "display_level": 56,
+    "enemy_variant_id": "8003051",
+    "weakness_consequence": {
+      "kind": "IntrinsicWeaknessSet",
+      "elements": [
+        "Fire",
+        "Ice",
+        "Imaginary"
+      ]
+    },
+    "later_boss_consequence": {
+      "kind": "TypedBossDecayReference",
+      "resolution_state": "DeferredToG09-P1-B3",
+      "unresolved_reference_policy": "RejectAtPackCompilation"
+    }
+  },
+  {
+    "id": "swarm-disaster.boss-choice.8024010",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossChoice",
+    "name_en": "Swarm: True Sting (Complete)",
+    "name_zh_cn": "虫群•真蛰虫（完整）",
+    "summary_en": "Displayed ChessRogue boss candidate 8024010 at first released display level 60.",
+    "summary_zh_cn": "ChessRogue 展示首领候选 8024010，首次发布展示等级为 60。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "1",
+        "sha256": "6829f5f11b8af22bada2fa315578a421985e41c1c116dbb3ce4e3f31a19c2580",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-monsterconfig-json.2495",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "2495",
+        "sha256": "0dee96c02ebf1df7840a74949d734459ce76620253d0ec87aa99aed35b246fc3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss_choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3.",
+        "replacement_condition": "Replace the unresolved consequence only when an exact released boss-choice-to-decay join is available."
+      }
+    ],
+    "tags": [
+      "boss-choice",
+      "project-policy"
+    ],
+    "source_id": "8024010",
+    "display_level": 60,
+    "enemy_variant_id": "8024010",
+    "weakness_consequence": {
+      "kind": "IntrinsicWeaknessSet",
+      "elements": [
+        "Imaginary",
+        "Quantum"
+      ]
+    },
+    "later_boss_consequence": {
+      "kind": "TypedBossDecayReference",
+      "resolution_state": "DeferredToG09-P1-B3",
+      "unresolved_reference_policy": "RejectAtPackCompilation"
+    }
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "swarm-disaster.beacon.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBeacon",
+    "name_en": "Enhance",
+    "name_zh_cn": "强化",
+    "summary_en": "Shared DLC beacon 1 is reachable from ChessRogue block-creation weights.",
+    "summary_zh_cn": "共享 DLC 信标 1 可由 ChessRogue 区块创建权重生成。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "1",
+        "sha256": "e536c099711155e797462c152e7a68ce61982fc1c30bd18ff153edf26a58e77a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      }
+    ],
+    "tags": [
+      "beacon",
+      "project-policy"
+    ],
+    "source_id": "1",
+    "block_intro_id": "14",
+    "application_stage": "TopologyMutationResolution",
+    "copy_policy": "OnlyWhenExplicitlyRequestedByTypedEffect",
+    "blanking_policy": "PreserveUnlessExplicitlyRequestedByTypedEffect"
+  },
+  {
+    "id": "swarm-disaster.beacon.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBeacon",
+    "name_en": "Blessing Trotter",
+    "name_zh_cn": "祝福扑满",
+    "summary_en": "Shared DLC beacon 2 is reachable from ChessRogue block-creation weights.",
+    "summary_zh_cn": "共享 DLC 信标 2 可由 ChessRogue 区块创建权重生成。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "2",
+        "sha256": "e91e5ca68270fc747add6afd3106f7d04f4e61368b191ad8df9cf010c7e24465",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      }
+    ],
+    "tags": [
+      "beacon",
+      "project-policy"
+    ],
+    "source_id": "2",
+    "block_intro_id": "17",
+    "application_stage": "TopologyMutationResolution",
+    "copy_policy": "OnlyWhenExplicitlyRequestedByTypedEffect",
+    "blanking_policy": "PreserveUnlessExplicitlyRequestedByTypedEffect"
+  },
+  {
+    "id": "swarm-disaster.beacon.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBeacon",
+    "name_en": "Mutation",
+    "name_zh_cn": "异化",
+    "summary_en": "Shared DLC beacon 3 is reachable from ChessRogue block-creation weights.",
+    "summary_zh_cn": "共享 DLC 信标 3 可由 ChessRogue 区块创建权重生成。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "3",
+        "sha256": "ab1611e7c0585d64100c421741f1d3464636259d12e4f5a17efcfd7581747fb3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      }
+    ],
+    "tags": [
+      "beacon",
+      "project-policy"
+    ],
+    "source_id": "3",
+    "block_intro_id": "15",
+    "application_stage": "TopologyMutationResolution",
+    "copy_policy": "OnlyWhenExplicitlyRequestedByTypedEffect",
+    "blanking_policy": "PreserveUnlessExplicitlyRequestedByTypedEffect"
+  },
+  {
+    "id": "swarm-disaster.beacon.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmBeacon",
+    "name_en": "Curio Trotter",
+    "name_zh_cn": "奇物扑满",
+    "summary_en": "Shared DLC beacon 5 is reachable from ChessRogue block-creation weights.",
+    "summary_zh_cn": "共享 DLC 信标 5 可由 ChessRogue 区块创建权重生成。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "5",
+        "sha256": "4e3db998e0ba60216919c897cab3333133707876ccfe98e9e599b3df80517aea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      }
+    ],
+    "tags": [
+      "beacon",
+      "project-policy"
+    ],
+    "source_id": "5",
+    "block_intro_id": "18",
+    "application_stage": "TopologyMutationResolution",
+    "copy_policy": "OnlyWhenExplicitlyRequestedByTypedEffect",
+    "blanking_policy": "PreserveUnlessExplicitlyRequestedByTypedEffect"
+  }
+]

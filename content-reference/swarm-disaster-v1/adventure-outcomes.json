@@ -1,0 +1,374 @@
+[
+  {
+    "id": "swarm-disaster.adventure-outcome.1210601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmAdventureOutcome",
+    "name_en": "Trotter Catch — Room 1210601",
+    "name_zh_cn": "扑满捕捉挑战·房间 1210601",
+    "summary_en": "Trotter Catch is represented as a validated external three-tier outcome; action input is excluded.",
+    "summary_zh_cn": "扑满捕捉挑战表示为经验证的外部三档结果，不包含动作输入。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "1",
+        "sha256": "349dbe0189b019b2032f182cad8df1f7070a3bc1e615c0acc077d922591e0929",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "external-outcome",
+      "project-policy",
+      "roguecapturemonster"
+    ],
+    "source_id": "1210601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "2001",
+    "tier": "ExternalTieredResult",
+    "offered_result": {
+      "accepted_values": [
+        "Tier1",
+        "Tier2",
+        "Tier3"
+      ],
+      "cumulative": true,
+      "input_simulation": "Excluded"
+    },
+    "reward_program": {
+      "operation": "ApplyValidatedExternalAdventureReward",
+      "payload_schema": "swarm-disaster.external-adventure-reward.v1",
+      "unresolved_payload": "RejectWithoutMutation",
+      "blessing_pool_id": "swarm-disaster.pool.blessings",
+      "curio_pool_prefix": "swarm-disaster.curio-pool."
+    }
+  },
+  {
+    "id": "swarm-disaster.adventure-outcome.2110601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmAdventureOutcome",
+    "name_en": "Trotter Catch — Room 2110601",
+    "name_zh_cn": "扑满捕捉挑战·房间 2110601",
+    "summary_en": "Trotter Catch is represented as a validated external three-tier outcome; action input is excluded.",
+    "summary_zh_cn": "扑满捕捉挑战表示为经验证的外部三档结果，不包含动作输入。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "2",
+        "sha256": "b0691bfdd1fc1206f0d917039c2f4fe555f68a4347f343f7418e43dabc514cf2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "external-outcome",
+      "project-policy",
+      "roguecapturemonster"
+    ],
+    "source_id": "2110601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "2001",
+    "tier": "ExternalTieredResult",
+    "offered_result": {
+      "accepted_values": [
+        "Tier1",
+        "Tier2",
+        "Tier3"
+      ],
+      "cumulative": true,
+      "input_simulation": "Excluded"
+    },
+    "reward_program": {
+      "operation": "ApplyValidatedExternalAdventureReward",
+      "payload_schema": "swarm-disaster.external-adventure-reward.v1",
+      "unresolved_payload": "RejectWithoutMutation",
+      "blessing_pool_id": "swarm-disaster.pool.blessings",
+      "curio_pool_prefix": "swarm-disaster.curio-pool."
+    }
+  },
+  {
+    "id": "swarm-disaster.adventure-outcome.2320601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmAdventureOutcome",
+    "name_en": "Trotter Catch — Room 2320601",
+    "name_zh_cn": "扑满捕捉挑战·房间 2320601",
+    "summary_en": "Trotter Catch is represented as a validated external three-tier outcome; action input is excluded.",
+    "summary_zh_cn": "扑满捕捉挑战表示为经验证的外部三档结果，不包含动作输入。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "0",
+        "sha256": "a6af97a8ba3d5a2409de3f7051923fd5a186147b01fc7a3d181a6aae3fb4bff3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "external-outcome",
+      "project-policy",
+      "roguecapturemonster"
+    ],
+    "source_id": "2320601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "2001",
+    "tier": "ExternalTieredResult",
+    "offered_result": {
+      "accepted_values": [
+        "Tier1",
+        "Tier2",
+        "Tier3"
+      ],
+      "cumulative": true,
+      "input_simulation": "Excluded"
+    },
+    "reward_program": {
+      "operation": "ApplyValidatedExternalAdventureReward",
+      "payload_schema": "swarm-disaster.external-adventure-reward.v1",
+      "unresolved_payload": "RejectWithoutMutation",
+      "blessing_pool_id": "swarm-disaster.pool.blessings",
+      "curio_pool_prefix": "swarm-disaster.curio-pool."
+    }
+  },
+  {
+    "id": "swarm-disaster.adventure-outcome.1210602",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmAdventureOutcome",
+    "name_en": "Barrel Breaker Challenge — Room 1210602",
+    "name_zh_cn": "破坏物挑战·房间 1210602",
+    "summary_en": "Barrel Breaker Challenge is represented as a validated external three-tier outcome; action input is excluded.",
+    "summary_zh_cn": "破坏物挑战表示为经验证的外部三档结果，不包含动作输入。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "4",
+        "sha256": "48136511af14769af7f64e4a388cc95f3aeffed1fdf2af17aa023c61f0e1265d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "external-outcome",
+      "project-policy",
+      "roguedestroyprop"
+    ],
+    "source_id": "1210602",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "1002",
+    "tier": "ExternalTieredResult",
+    "offered_result": {
+      "accepted_values": [
+        "Tier1",
+        "Tier2",
+        "Tier3"
+      ],
+      "cumulative": true,
+      "input_simulation": "Excluded"
+    },
+    "reward_program": {
+      "operation": "ApplyValidatedExternalAdventureReward",
+      "payload_schema": "swarm-disaster.external-adventure-reward.v1",
+      "unresolved_payload": "RejectWithoutMutation",
+      "blessing_pool_id": "swarm-disaster.pool.blessings",
+      "curio_pool_prefix": "swarm-disaster.curio-pool."
+    }
+  },
+  {
+    "id": "swarm-disaster.adventure-outcome.1310601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmAdventureOutcome",
+    "name_en": "Barrel Breaker Challenge — Room 1310601",
+    "name_zh_cn": "破坏物挑战·房间 1310601",
+    "summary_en": "Barrel Breaker Challenge is represented as a validated external three-tier outcome; action input is excluded.",
+    "summary_zh_cn": "破坏物挑战表示为经验证的外部三档结果，不包含动作输入。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "5",
+        "sha256": "b02ed7122d1ca0af376351999e1faf0670b35485068c13e9ef2057053c12093c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "external-outcome",
+      "project-policy",
+      "roguedestroyprop"
+    ],
+    "source_id": "1310601",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "1003",
+    "tier": "ExternalTieredResult",
+    "offered_result": {
+      "accepted_values": [
+        "Tier1",
+        "Tier2",
+        "Tier3"
+      ],
+      "cumulative": true,
+      "input_simulation": "Excluded"
+    },
+    "reward_program": {
+      "operation": "ApplyValidatedExternalAdventureReward",
+      "payload_schema": "swarm-disaster.external-adventure-reward.v1",
+      "unresolved_payload": "RejectWithoutMutation",
+      "blessing_pool_id": "swarm-disaster.pool.blessings",
+      "curio_pool_prefix": "swarm-disaster.curio-pool."
+    }
+  },
+  {
+    "id": "swarm-disaster.adventure-outcome.2000601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmAdventureOutcome",
+    "name_en": "Barrel Breaker Challenge — Room 2000601",
+    "name_zh_cn": "破坏物挑战·房间 2000601",
+    "summary_en": "Barrel Breaker Challenge is represented as a validated external three-tier outcome; action input is excluded.",
+    "summary_zh_cn": "破坏物挑战表示为经验证的外部三档结果，不包含动作输入。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "3",
+        "sha256": "637632cd238057b5b494651cf35d21efcf0130486842e21cda9d7c05ca96a40d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "external-outcome",
+      "project-policy",
+      "roguedestroyprop"
+    ],
+    "source_id": "2000601",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "1001",
+    "tier": "ExternalTieredResult",
+    "offered_result": {
+      "accepted_values": [
+        "Tier1",
+        "Tier2",
+        "Tier3"
+      ],
+      "cumulative": true,
+      "input_simulation": "Excluded"
+    },
+    "reward_program": {
+      "operation": "ApplyValidatedExternalAdventureReward",
+      "payload_schema": "swarm-disaster.external-adventure-reward.v1",
+      "unresolved_payload": "RejectWithoutMutation",
+      "blessing_pool_id": "swarm-disaster.pool.blessings",
+      "curio_pool_prefix": "swarm-disaster.curio-pool."
+    }
+  }
+]

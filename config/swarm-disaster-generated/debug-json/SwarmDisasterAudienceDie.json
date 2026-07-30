@@ -1,0 +1,1006 @@
+{
+  "table": {
+    "name": "SwarmDisasterAudienceDie",
+    "rows": [
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000002"
+              },
+              {
+                "String": "source-effect.61000018"
+              },
+              {
+                "String": "source-effect.61000019"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.102"
+              },
+              {
+                "String": "swarm-disaster.dice-face.104"
+              },
+              {
+                "String": "swarm-disaster.dice-face.101"
+              },
+              {
+                "String": "swarm-disaster.dice-face.103"
+              },
+              {
+                "String": "swarm-disaster.dice-face.105"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_effect_parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "initial_effect_summary_en": {
+            "String": "Applies Cornerstone to #1 random Domain(s)"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "为#1个随机区域附加【基石】效果"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Preservation Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "存护觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.preservation"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.1"
+          },
+          "summary_en": {
+            "String": "When entering a Boss or Boss: Swarm domain, obtain rewards based on the number of domains in the current plane that have the Cornerstone effect. For every domain with Cornerstone, increase the amount of Shield Effect received by all allies by #1[i]%. For every #2[i] different type(s) of domains with Cornerstone, obtain 1 Blessing."
+          },
+          "summary_zh_cn": {
+            "String": "进入【首领】或【首领•虫群】区域时，根据当前位面带有【基石】效果的区域数量获得奖励：每存在1个区域使我方全体获得的护盾量提高#1[i]%，每存在#2[i]种不同类型的区域获得1次祝福。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "preservation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000018"
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000004"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.204"
+              },
+              {
+                "String": "swarm-disaster.dice-face.205"
+              },
+              {
+                "String": "swarm-disaster.dice-face.203"
+              },
+              {
+                "String": "swarm-disaster.dice-face.202"
+              },
+              {
+                "String": "swarm-disaster.dice-face.201"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_effect_parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "initial_effect_summary_en": {
+            "String": "Randomly copies #1 Domain(s) and applies Recollection to it"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "随机复制#1个区域并为其附加【追忆】效果"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Remembrance Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "记忆觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.25"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.2"
+          },
+          "summary_en": {
+            "String": "For every domain with Recollection that allies enter, increase all allies' Effect Hit Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "每进入过1个带有【追忆】效果的区域，我方全体效果命中提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remembrance"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000016"
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000009"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.305"
+              },
+              {
+                "String": "swarm-disaster.dice-face.301"
+              },
+              {
+                "String": "swarm-disaster.dice-face.302"
+              },
+              {
+                "String": "swarm-disaster.dice-face.303"
+              },
+              {
+                "String": "swarm-disaster.dice-face.304"
+              },
+              {
+                "String": "swarm-disaster.dice-face.306"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 3
+          },
+          "initial_effect_parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "initial_effect_summary_en": {
+            "String": "Turn #1 random domain(s) into Blank domain"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "将#1个随机区域替换为【空白】区域"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Nihility Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "虚无觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.18"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.nihility"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.3"
+          },
+          "summary_en": {
+            "String": "The content of a Blank domain will be replaced with a domain of a random type when allies enter it. (For every Blank domain that allies enter, DoT dealt by all allies increases by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "进入【空白】区域时，【空白】区域的内容将立即被替换为随机区域类型。（每进入过1个【空白】区域，我方全体造成的持续伤害提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "nihility"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000013"
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000003"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.405"
+              },
+              {
+                "String": "swarm-disaster.dice-face.403"
+              },
+              {
+                "String": "swarm-disaster.dice-face.406"
+              },
+              {
+                "String": "swarm-disaster.dice-face.402"
+              },
+              {
+                "String": "swarm-disaster.dice-face.401"
+              },
+              {
+                "String": "swarm-disaster.dice-face.404"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 4
+          },
+          "initial_effect_parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "initial_effect_summary_en": {
+            "String": "Applies Mercy to #1 random Domain(s)"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "为#1个随机区域附加【慈怀】效果"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Abundance Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "丰饶觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.05"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.abundance"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.4"
+          },
+          "summary_en": {
+            "String": "Countdown is additionally reduced by #3[i] point(s). When entering a domain with the Mercy effect, countdown will instead increase #2[i] point(s). (Every countdown point increases all allies' Outgoing Healing by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "倒计时额外消耗#3[i]点；进入带有【慈怀】效果的区域时，改为增加#2[i]点倒计时。（每点倒计时使我方全体治疗量提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abundance"
+              },
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000014"
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000007"
+              },
+              {
+                "String": "source-effect.61000008"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.502"
+              },
+              {
+                "String": "swarm-disaster.dice-face.504"
+              },
+              {
+                "String": "swarm-disaster.dice-face.503"
+              },
+              {
+                "String": "swarm-disaster.dice-face.501"
+              },
+              {
+                "String": "swarm-disaster.dice-face.505"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 5
+          },
+          "initial_effect_parameters": "Null",
+          "initial_effect_summary_en": {
+            "String": "Additionally generates 1 Blessing Trotter Beacon and 1 Curio Trotter Beacon"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "额外生成1个【祝福扑满】与1个【奇物扑满】信标"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "The Hunt Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "巡猎觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.3"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.hunt"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.5"
+          },
+          "summary_en": {
+            "String": "Every time allies move to a domain, all domains currently with the Blessing Trotter or Curio Trotter beacon will swap their positions with an adjacent domain. (For every Trotter defeated in battle, all allies' CRIT DMG increases by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "每次移动后，所有带有【祝福扑满】与【奇物扑满】信标的区域会与随机相邻区域互换位置。（战斗中每击败1只扑满，我方全体暴击伤害提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "hunt"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000017"
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000013"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.601"
+              },
+              {
+                "String": "swarm-disaster.dice-face.602"
+              },
+              {
+                "String": "swarm-disaster.dice-face.604"
+              },
+              {
+                "String": "swarm-disaster.dice-face.605"
+              },
+              {
+                "String": "swarm-disaster.dice-face.603"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 6
+          },
+          "initial_effect_parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "initial_effect_summary_en": {
+            "String": "Turns #1 random Domain(s) into Domain — Elite"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "将#1个随机区域替换为【精英】区域"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Destruction Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "毁灭觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.destruction"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.6"
+          },
+          "summary_en": {
+            "String": "After achieving victory in an Elite domain, obtain #2[i] extra Blessing(s). (For every battle won, increases DMG dealt by all allies by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "在【精英】区域战斗胜利后，可额外获得#2[i]次祝福。（每获得1场战斗的胜利，我方全体造成的伤害提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "destruction"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000018"
+              },
+              {
+                "String": "source-effect.61000019"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.706"
+              },
+              {
+                "String": "swarm-disaster.dice-face.705"
+              },
+              {
+                "String": "swarm-disaster.dice-face.701"
+              },
+              {
+                "String": "swarm-disaster.dice-face.702"
+              },
+              {
+                "String": "swarm-disaster.dice-face.703"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 7
+          },
+          "initial_effect_parameters": "Null",
+          "initial_effect_summary_en": {
+            "String": "Generates some surprising effects"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "产生一些令人惊讶的效果"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Elation Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "欢愉觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": "Null",
+          "path_id": {
+            "String": "universe.path.elation"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.7"
+          },
+          "summary_en": {
+            "String": "When allies enter a Boss or Boss: Swarm domain, obtain 1 random Happiness. (For every domain that allies enter, the Follow-Up ATK DMG dealt by all allies receive random stat increases.)"
+          },
+          "summary_zh_cn": {
+            "String": "进入【首领】与【首领•虫群】区域时，获得1个随机的「快乐」。（每进入过1个区域，我方全体的追加伤害获得随机数值提高）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "elation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000015"
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_path_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_refs": {
+            "List": [
+              {
+                "String": "source-effect.61000012"
+              },
+              {
+                "String": "source-effect.61000017"
+              }
+            ]
+          },
+          "face_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.805"
+              },
+              {
+                "String": "swarm-disaster.dice-face.801"
+              },
+              {
+                "String": "swarm-disaster.dice-face.802"
+              },
+              {
+                "String": "swarm-disaster.dice-face.803"
+              },
+              {
+                "String": "swarm-disaster.dice-face.804"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 8
+          },
+          "initial_effect_parameters": "Null",
+          "initial_effect_summary_en": {
+            "String": "Turns 2 random Domains to Domain — Combat: The Swarm and Domain — Occurrence: The Swarm"
+          },
+          "initial_effect_summary_zh_cn": {
+            "String": "将2个随机区域替换为【战斗•虫群】与【事件•虫群】区域"
+          },
+          "kind": {
+            "String": "AudienceDie"
+          },
+          "name_en": {
+            "String": "Propagation Audience Die"
+          },
+          "name_zh_cn": {
+            "String": "繁育觐见行迹骰"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "passive_description_parameters": {
+            "List": [
+              {
+                "String": "0.2"
+              }
+            ]
+          },
+          "path_id": {
+            "String": "universe.path.propagation"
+          },
+          "roll_policy_json": {
+            "String": "{\"candidate_order\":\"AuthoredSortThenStableFaceId\",\"control_rule_source\":\"G09-P1-B5\",\"empty_face_set\":\"Reject\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.audience-die.8"
+          },
+          "summary_en": {
+            "String": "When allies enter a Combat: Swarm or Occurrence: Swarm domain, they will receive a special effect of Propagation. (For every Combat: Swarm or Occurrence: Swarm domain that allies enter, the DMG dealt by all allies' Basic ATK increases by #1[i]%.)"
+          },
+          "summary_zh_cn": {
+            "String": "进入【战斗•虫群】与【事件•虫群】区域时获得「繁育」的特殊效果。（每进入过1个【战斗•虫群】或【事件•虫群】区域，我方全体施放普攻造成的伤害提高#1[i]%）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "propagation"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000008"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,691 @@
+[
+  {
+    "id": "swarm-disaster.mechanical-chapter.4",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Nihility I",
+    "name_zh_cn": "虚无Ⅰ",
+    "summary_en": "Chapter 4 becomes available on plane 1 at Communing dimension 3 threshold 6.",
+    "summary_zh_cn": "章节 4 在第 1 位面、觐见维度 3 达到 6 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "3",
+        "sha256": "f1da2ddcc77b1aee19ae937d03e6ee103113b1092b143d3686480437459f421e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "4",
+    "layer": "1",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "point_threshold": "6",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.4",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.8",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Destruction II",
+    "name_zh_cn": "毁灭Ⅱ",
+    "summary_en": "Chapter 8 becomes available on plane 1 at Communing dimension 6 threshold 5.",
+    "summary_zh_cn": "章节 8 在第 1 位面、觐见维度 6 达到 5 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "7",
+        "sha256": "07dfe926630b5d1fb7540fbfef31138ad809606d7a43bd6d03552d07ad6e49d4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "8",
+    "layer": "1",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "point_threshold": "5",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.8",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.10",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Elation II",
+    "name_zh_cn": "欢愉Ⅱ",
+    "summary_en": "Chapter 10 becomes available on plane 2 at Communing dimension 7 threshold 10.",
+    "summary_zh_cn": "章节 10 在第 2 位面、觐见维度 7 达到 10 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "9",
+        "sha256": "33d45f7b380a5a979b69cf872b81064d8dadeb71c2d13f9c0566164608d69ca8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "10",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "point_threshold": "10",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.10",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.11",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Abundance I",
+    "name_zh_cn": "丰饶Ⅰ",
+    "summary_en": "Chapter 11 becomes available on plane 2 at Communing dimension 4 threshold 5.",
+    "summary_zh_cn": "章节 11 在第 2 位面、觐见维度 4 达到 5 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "10",
+        "sha256": "e0a44a17abb1fa70f11ac9e84df783fc7ebdb55d4ef01c50989a15ce74814e1e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "11",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "point_threshold": "5",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.11",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Preservation I",
+    "name_zh_cn": "存护Ⅰ",
+    "summary_en": "Chapter 2 becomes available on plane 2 at Communing dimension 1 threshold 8.",
+    "summary_zh_cn": "章节 2 在第 2 位面、觐见维度 1 达到 8 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "1",
+        "sha256": "3d6c76be121f4616e878c1cb5b4116fe546bd91fbbe5c3849a991441e3a42840",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "bonus-declared",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "2",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "point_threshold": "8",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.2",
+      "bonus_declared": true,
+      "bonus_payload": "",
+      "presentation_toast_type": "Buff",
+      "simulation_payload_status": "UnresolvedFailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Remembrance I",
+    "name_zh_cn": "记忆Ⅰ",
+    "summary_en": "Chapter 5 becomes available on plane 2 at Communing dimension 2 threshold 2.",
+    "summary_zh_cn": "章节 5 在第 2 位面、觐见维度 2 达到 2 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "4",
+        "sha256": "34a95de2191dbe36594f6ae8cae2dc6323a9c775959da38aeba33e5f45c59e69",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "bonus-declared",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "5",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "point_threshold": "2",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.5",
+      "bonus_declared": true,
+      "bonus_payload": "",
+      "presentation_toast_type": "Buff",
+      "simulation_payload_status": "UnresolvedFailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.6",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Remembrance II",
+    "name_zh_cn": "记忆Ⅱ",
+    "summary_en": "Chapter 6 becomes available on plane 2 at Communing dimension 2 threshold 7.",
+    "summary_zh_cn": "章节 6 在第 2 位面、觐见维度 2 达到 7 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "5",
+        "sha256": "3c05dd7efa0a19acd96a5c2ffbd4aa5fec5aa26c8ca31958252214a935f41ad7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "6",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "point_threshold": "7",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.6",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.7",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Destruction I",
+    "name_zh_cn": "毁灭Ⅰ",
+    "summary_en": "Chapter 7 becomes available on plane 2 at Communing dimension 6 threshold 3.",
+    "summary_zh_cn": "章节 7 在第 2 位面、觐见维度 6 达到 3 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "6",
+        "sha256": "97eefa7a1444b8c3033266abbaab710f21f7d149868226610bd6d96a36b4c17e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "bonus-declared",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "7",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "point_threshold": "3",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.7",
+      "bonus_declared": true,
+      "bonus_payload": "",
+      "presentation_toast_type": "Buff",
+      "simulation_payload_status": "UnresolvedFailClosed"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.9",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Elation I",
+    "name_zh_cn": "欢愉Ⅰ",
+    "summary_en": "Chapter 9 becomes available on plane 2 at Communing dimension 7 threshold 8.",
+    "summary_zh_cn": "章节 9 在第 2 位面、觐见维度 7 达到 8 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "8",
+        "sha256": "054cc72e60a3eb4193924778b6874d4b3e4415cac3f400b17fd9edae4611e77f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "9",
+    "layer": "2",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "point_threshold": "8",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.9",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "The Hunt I",
+    "name_zh_cn": "巡猎Ⅰ",
+    "summary_en": "Chapter 1 becomes available on plane 3 at Communing dimension 5 threshold 2.",
+    "summary_zh_cn": "章节 1 在第 3 位面、觐见维度 5 达到 2 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "0",
+        "sha256": "c47111d7a8709dd9fd985617fbaccb61966d4e0a48c17657516d9ec6e344f678",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "1",
+    "layer": "3",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "point_threshold": "2",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.1",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.12",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Abundance II",
+    "name_zh_cn": "丰饶Ⅱ",
+    "summary_en": "Chapter 12 becomes available on plane 3 at Communing dimension 4 threshold 8.",
+    "summary_zh_cn": "章节 12 在第 3 位面、觐见维度 4 达到 8 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "11",
+        "sha256": "fa57d6edd94a6a774a09adf15f0e3d961989eb12514af26cd870ba510011cd59",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "12",
+    "layer": "3",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "point_threshold": "8",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.12",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.13",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Order",
+    "name_zh_cn": "序",
+    "summary_en": "Chapter 13 has no released Communing threshold.",
+    "summary_zh_cn": "章节 13 没有已发布的觐见维度阈值。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "12",
+        "sha256": "96330b6e5f2ca83b8e4f26e027d6bdf26965e498b29a7e2a178c9f142c5d6f50",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "13",
+    "layer": "3",
+    "dimension_id": "",
+    "point_threshold": "",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.13",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  },
+  {
+    "id": "swarm-disaster.mechanical-chapter.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "MechanicalChapterLocator",
+    "name_en": "Preservation II",
+    "name_zh_cn": "存护Ⅱ",
+    "summary_en": "Chapter 3 becomes available on plane 3 at Communing dimension 1 threshold 13.",
+    "summary_zh_cn": "章节 3 在第 3 位面、觐见维度 1 达到 13 时可用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "2",
+        "sha256": "1f124e5642c0933820e7b7948e0b25e0166e47868f010311fd6bcbedbf155172",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "chapter-availability",
+      "mechanical-chapter-locator",
+      "project-policy"
+    ],
+    "source_id": "3",
+    "layer": "3",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "point_threshold": "13",
+    "mechanical_unlock": {
+      "operation": "MakeMechanicalChapterAvailable",
+      "chapter_id": "swarm-disaster.mechanical-chapter.3",
+      "bonus_declared": false,
+      "bonus_payload": "",
+      "presentation_toast_type": "Effect",
+      "simulation_payload_status": "ChapterAvailabilityOnly"
+    }
+  }
+]

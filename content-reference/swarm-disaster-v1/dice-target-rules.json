@@ -1,0 +1,2156 @@
+[
+  {
+    "id": "swarm-disaster.dice-target.101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Preservation: Cornerstone's Spirit Target Rule",
+    "name_zh_cn": "【存护•基石意志】目标规则",
+    "summary_en": "Typed SelectCellToProtect candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectCellToProtect 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "0",
+        "sha256": "3a8d541eb569829752e6a43da878fc77cc0f3899444e632531a55273c4bdc90e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectCellToProtect",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "101",
+    "candidate_filter": {
+      "effect_type": "SelectCellToProtect",
+      "authored_parameters": [
+        "11",
+        "12"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.102",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Preservation: Collective Shelter Target Rule",
+    "name_zh_cn": "【存护•复聚庇护】目标规则",
+    "summary_en": "Typed ProtectCollaspeCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 ProtectCollaspeCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "1",
+        "sha256": "143276f384940ffb618042f791ce39f97ba4aa615e8eede0131b8c4ce69934ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "ProtectCollaspeCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "102",
+    "candidate_filter": {
+      "effect_type": "ProtectCollaspeCell",
+      "authored_parameters": [
+        "0"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.103",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Preservation: Charioteer's Forge Target Rule",
+    "name_zh_cn": "【存护•战车凿筑】目标规则",
+    "summary_en": "Typed ProtectCollaspeCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 ProtectCollaspeCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "2",
+        "sha256": "2cd3f5b3366652768f53dfc7f496ea09fcbab6ea8df4bb3f8a50005a7f27d242",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "ProtectCollaspeCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "103",
+    "candidate_filter": {
+      "effect_type": "ProtectCollaspeCell",
+      "authored_parameters": [
+        "1"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.104",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Preservation: Credit Bias Target Rule",
+    "name_zh_cn": "【存护•信用倾向】目标规则",
+    "summary_en": "Typed GetMoneyByProtectCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 GetMoneyByProtectCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "3",
+        "sha256": "ec26b2fe9776def17e1ffb4841544b4a6c3147e4072160a5d701d3d5025649dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "GetMoneyByProtectCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "104",
+    "candidate_filter": {
+      "effect_type": "GetMoneyByProtectCell",
+      "authored_parameters": [
+        "25"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.105",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Preservation: Proof of Commandment Target Rule",
+    "name_zh_cn": "【存护•原旨实证】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "4",
+        "sha256": "674d2910dc22d1c8c284a9e18c41d54f280f0613926c1f77211f78ef0bce9312",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "105",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641201"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Remembrance: Confusion and Causality Target Rule",
+    "name_zh_cn": "【记忆•料惑和因果】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "5",
+        "sha256": "81123a26cb7e006d3422cad0aeb022c1bef109f6ff6d062388888fee2b123683",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "201",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641211"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.202",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Remembrance: Inner Sensory Organ Target Rule",
+    "name_zh_cn": "【记忆•内感官】目标规则",
+    "summary_en": "Typed ReplicateLastCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 ReplicateLastCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "6",
+        "sha256": "895c2c11ef198253d89640e0590507f909e8e90f160f8a674ea705fa708c6e9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "ReplicateLastCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "202",
+    "candidate_filter": {
+      "effect_type": "ReplicateLastCell",
+      "authored_parameters": [
+        "11",
+        "12"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.203",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Remembrance: Darkness and Greed Target Rule",
+    "name_zh_cn": "【记忆•叆叇与质欲】目标规则",
+    "summary_en": "Typed ReplicateCellToAround candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 ReplicateCellToAround 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "7",
+        "sha256": "ca64b64f2734fb33329d77d5bf92401d5d75174f44b9289cd566fcd1bc8a31aa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "ReplicateCellToAround",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "203",
+    "candidate_filter": {
+      "effect_type": "ReplicateCellToAround",
+      "authored_parameters": [
+        "11",
+        "12"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.204",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Remembrance: Genesis of Intellect Target Rule",
+    "name_zh_cn": "【记忆•知性发生】目标规则",
+    "summary_en": "Typed ReplicateAllAroundCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 ReplicateAllAroundCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "8",
+        "sha256": "0f418309b5b1b210de7f2fbe90ae2dc3dcb8f2dc3edd4427c3bb0e25f2ae0615",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "ReplicateAllAroundCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "204",
+    "candidate_filter": {
+      "effect_type": "ReplicateAllAroundCell",
+      "authored_parameters": []
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.205",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Remembrance: Body, Beyond, Remade Target Rule",
+    "name_zh_cn": "【记忆•躯体、异域、再塑】目标规则",
+    "summary_en": "Typed AllowMoveToReplicateCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AllowMoveToReplicateCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "9",
+        "sha256": "2f9bd521f0fc5e1a2cca5c70d2948a21c79462f9550c3c1faae972653df6092b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AllowMoveToReplicateCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "205",
+    "candidate_filter": {
+      "effect_type": "AllowMoveToReplicateCell",
+      "authored_parameters": []
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Nihility: Form Target Rule",
+    "name_zh_cn": "【虚无•形】目标规则",
+    "summary_en": "Typed SelectMiracleToEmpty candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectMiracleToEmpty 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "10",
+        "sha256": "0d59651ced21807e1f86168e2e16050f0802436c12c0529872af433680a4584a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectMiracleToEmpty",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "301",
+    "candidate_filter": {
+      "effect_type": "SelectMiracleToEmpty",
+      "authored_parameters": [
+        "7",
+        "20002",
+        "3"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.302",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Nihility: Shadow Target Rule",
+    "name_zh_cn": "【虚无•影】目标规则",
+    "summary_en": "Typed SelectBuffToEmpty candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectBuffToEmpty 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "11",
+        "sha256": "424cb5d3c5451ec06e53aaa0746248630e7c9f9491d9d1eee2ddd4410cb3963d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectBuffToEmpty",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "302",
+    "candidate_filter": {
+      "effect_type": "SelectBuffToEmpty",
+      "authored_parameters": [
+        "5",
+        "200620",
+        "3",
+        "10001"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.303",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Nihility: Void Target Rule",
+    "name_zh_cn": "【虚无•空】目标规则",
+    "summary_en": "Typed TurnFightCellToEmpty candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 TurnFightCellToEmpty 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "12",
+        "sha256": "28b5ba752f2daf48522edd9c6fcfa6b0cfbb98d8ba739f07f8cc5ef524a29cd6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "TurnFightCellToEmpty",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "303",
+    "candidate_filter": {
+      "effect_type": "TurnFightCellToEmpty",
+      "authored_parameters": []
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.304",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Nihility: Dormancy Target Rule",
+    "name_zh_cn": "【虚无•眠】目标规则",
+    "summary_en": "Typed TurnEventCellToEmpty candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 TurnEventCellToEmpty 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "13",
+        "sha256": "1d5038e4d38b441f12984557247fa43c92fef0097224301a33773284775e7859",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "TurnEventCellToEmpty",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "304",
+    "candidate_filter": {
+      "effect_type": "TurnEventCellToEmpty",
+      "authored_parameters": []
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.305",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Nihility: Transition Target Rule",
+    "name_zh_cn": "【虚无•转】目标规则",
+    "summary_en": "Typed TrunEmptyToReward candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 TrunEmptyToReward 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "14",
+        "sha256": "d10989500847093ec3a2d8571f33e45c3579c204388d6240760d281bb9cc713e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "TrunEmptyToReward",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "305",
+    "candidate_filter": {
+      "effect_type": "TrunEmptyToReward",
+      "authored_parameters": []
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.306",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Nihility: Nothingness Target Rule",
+    "name_zh_cn": "【虚无•无】目标规则",
+    "summary_en": "Typed EnterEmptyGetMoney candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 EnterEmptyGetMoney 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "15",
+        "sha256": "0ca4d96a8f16b9e855296148616726a538069f0c3f943f9bfbc4aace3a0849f8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "EnterEmptyGetMoney",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "306",
+    "candidate_filter": {
+      "effect_type": "EnterEmptyGetMoney",
+      "authored_parameters": [
+        "10"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Abundance: Odium Target Rule",
+    "name_zh_cn": "【丰饶•可憎】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "16",
+        "sha256": "5e24cc5503eaf3244baad18226d0e9982eb029c58ee62523aba7733281f3f563",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "401",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641231"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.402",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Abundance: Mercy Target Rule",
+    "name_zh_cn": "【丰饶•慈怀】目标规则",
+    "summary_en": "Typed SetSpecialType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetSpecialType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "17",
+        "sha256": "97f0cc743cbe8f118d1f91ecde8520bca30dbfbdd6d5b004d6ba5c19b641cde5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetSpecialType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "402",
+    "candidate_filter": {
+      "effect_type": "SetSpecialType",
+      "authored_parameters": [
+        "4"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.403",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Abundance: Benevolence Target Rule",
+    "name_zh_cn": "【丰饶•为善】目标规则",
+    "summary_en": "Typed BenefitsBySeed candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 BenefitsBySeed 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "18",
+        "sha256": "5a158e093f10dbfba986d9309e2409e4a0932783af6bdda911c0efa9a9dfd0be",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "BenefitsBySeed",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "403",
+    "candidate_filter": {
+      "effect_type": "BenefitsBySeed",
+      "authored_parameters": [
+        "1",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.404",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Abundance: Homebound Target Rule",
+    "name_zh_cn": "【丰饶•归心】目标规则",
+    "summary_en": "Typed RandomSetSpecialType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 RandomSetSpecialType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "19",
+        "sha256": "33fd03d55dfa0a097550238c32fdb419765de25e57c16f84170e8329003c77bc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "RandomSetSpecialType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "404",
+    "candidate_filter": {
+      "effect_type": "RandomSetSpecialType",
+      "authored_parameters": [
+        "1",
+        "4"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.405",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Abundance: Sustenance Target Rule",
+    "name_zh_cn": "【丰饶•浇灌】目标规则",
+    "summary_en": "Typed RandomNeighborSpecialType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 RandomNeighborSpecialType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "20",
+        "sha256": "8006dce88b9d4c89a8fb08def0a974151fe125e634eae350a281a5551135475c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "RandomNeighborSpecialType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "405",
+    "candidate_filter": {
+      "effect_type": "RandomNeighborSpecialType",
+      "authored_parameters": [
+        "4"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.406",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Abundance: Prescription Target Rule",
+    "name_zh_cn": "【丰饶•对症】目标规则",
+    "summary_en": "Typed SetNeighborSpecialType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetNeighborSpecialType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "21",
+        "sha256": "110e7eb70ec69aa0207da2a8c71dd8c0c1258f6ecc53511907354a281f8ecbb7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetNeighborSpecialType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "406",
+    "candidate_filter": {
+      "effect_type": "SetNeighborSpecialType",
+      "authored_parameters": [
+        "4"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "The Hunt: Restraint Target Rule",
+    "name_zh_cn": "【巡猎•制约】目标规则",
+    "summary_en": "Typed LockMarkCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 LockMarkCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "22",
+        "sha256": "eb1ffa87d160f9d840b7831b092bcaa512ef03e9db313258e1c7d125c59fbded",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "LockMarkCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "501",
+    "candidate_filter": {
+      "effect_type": "LockMarkCell",
+      "authored_parameters": [
+        "2",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.502",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "The Hunt: Swiftness Target Rule",
+    "name_zh_cn": "【巡猎•疾速】目标规则",
+    "summary_en": "Typed MoveMarkCellUpgradeReward candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 MoveMarkCellUpgradeReward 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "23",
+        "sha256": "c34c359b35c026eaceda5b96e4afb0e5544cad732346938020fbd3d0a805b485",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "MoveMarkCellUpgradeReward",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "502",
+    "candidate_filter": {
+      "effect_type": "MoveMarkCellUpgradeReward",
+      "authored_parameters": [
+        "2",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.503",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "The Hunt: Vengeance Target Rule",
+    "name_zh_cn": "【巡猎•誓仇】目标规则",
+    "summary_en": "Typed SetColCanMove candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetColCanMove 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "24",
+        "sha256": "b0af2bd0d9c4a730b485f10419e6fe674d83fd22df63c9a131d314b52db886dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetColCanMove",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "503",
+    "candidate_filter": {
+      "effect_type": "SetColCanMove",
+      "authored_parameters": [
+        "3"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.504",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "The Hunt: Resolve Target Rule",
+    "name_zh_cn": "【巡猎•决断】目标规则",
+    "summary_en": "Typed SetMarkToRandomCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetMarkToRandomCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "25",
+        "sha256": "0f2920b656a3d31c1d40b5da5bf1050f6ff640195f34bd78e692e00ec5728590",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetMarkToRandomCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "504",
+    "candidate_filter": {
+      "effect_type": "SetMarkToRandomCell",
+      "authored_parameters": [
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.505",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "The Hunt: Quelled Fury Target Rule",
+    "name_zh_cn": "【巡猎•制暴】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "26",
+        "sha256": "74f4d4dcf0af97c165927be1b2e9556aad655f434138e9e71d49e23268e53a08",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "505",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641241"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Destruction: Scorched Subjugation Target Rule",
+    "name_zh_cn": "【毁灭•焦土征服】目标规则",
+    "summary_en": "Typed SetCellTypeAndTakeReward candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetCellTypeAndTakeReward 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "27",
+        "sha256": "e6929636c19cbce6c54fe3fdddced2641722496b7dccca666a17e7fd10c996b1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetCellTypeAndTakeReward",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "601",
+    "candidate_filter": {
+      "effect_type": "SetCellTypeAndTakeReward",
+      "authored_parameters": [
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.602",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Destruction: War Worship Target Rule",
+    "name_zh_cn": "【毁灭•战争崇拜】目标规则",
+    "summary_en": "Typed SetMarkType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetMarkType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "28",
+        "sha256": "06a39d60e9203a311ec1249da916ce358e656ece2c1dafdb0952487fb8eb1a9d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetMarkType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "602",
+    "candidate_filter": {
+      "effect_type": "SetMarkType",
+      "authored_parameters": [
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.603",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Destruction: Corporeal Monarch Target Rule",
+    "name_zh_cn": "【毁灭•肉体帝侯】目标规则",
+    "summary_en": "Typed SelectAndToFightCell candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectAndToFightCell 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "29",
+        "sha256": "a21680ff0cd31f7994ab11769bd9e3870f0daf88cb11e778352c42ea9d42a286",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectAndToFightCell",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "603",
+    "candidate_filter": {
+      "effect_type": "SelectAndToFightCell",
+      "authored_parameters": [
+        "3"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.604",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Destruction: Spiritual Suicide Target Rule",
+    "name_zh_cn": "【毁灭•精神自毁】目标规则",
+    "summary_en": "Typed EnterCellTriggerBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 EnterCellTriggerBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "30",
+        "sha256": "c3ffbe253e682935bf6a8c69541427483ed8df193e203ee5802c0e02b83e3f2e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "EnterCellTriggerBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "604",
+    "candidate_filter": {
+      "effect_type": "EnterCellTriggerBuff",
+      "authored_parameters": [
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.605",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Destruction: Blood Like Water Target Rule",
+    "name_zh_cn": "【毁灭•血溶于水】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "31",
+        "sha256": "7e0ce545dfc20b8a59586ad072458d7203a7265d57742fce0a0af55138000e3b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "605",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641251"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Elation: Measured Mockery Target Rule",
+    "name_zh_cn": "【欢愉•严谨的讽刺艺术】目标规则",
+    "summary_en": "Typed SelectCellGetHelp candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectCellGetHelp 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "32",
+        "sha256": "4683d45bf4a7540ae7a2beeda27cfdcfb54cede4036ca7c651e0253020afa1b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectCellGetHelp",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "701",
+    "candidate_filter": {
+      "effect_type": "SelectCellGetHelp",
+      "authored_parameters": [
+        "3"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.702",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Elation: Mischief Master Target Rule",
+    "name_zh_cn": "【欢愉•奸笑专家】目标规则",
+    "summary_en": "Typed SelectCellGetHelp candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectCellGetHelp 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "33",
+        "sha256": "484497b4993bb8807b84a707605122e7cb85a6222bb404f04360e5b4edb79ac8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectCellGetHelp",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "702",
+    "candidate_filter": {
+      "effect_type": "SelectCellGetHelp",
+      "authored_parameters": [
+        "5"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.703",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Elation: Always Amazed, Never Dismayed Target Rule",
+    "name_zh_cn": "【欢愉•惊奇永不失望】目标规则",
+    "summary_en": "Typed SelectCellGetHelp candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectCellGetHelp 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "34",
+        "sha256": "4fe4d2aa8a5f136a3466ca8951bbe554e0fc02d959ea5836d2f1f5777cea8fda",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectCellGetHelp",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "703",
+    "candidate_filter": {
+      "effect_type": "SelectCellGetHelp",
+      "authored_parameters": [
+        "8"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.705",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Elation: Head Harbinger of Havoc Target Rule",
+    "name_zh_cn": "【欢愉•首席猖獗分子】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "35",
+        "sha256": "5490deaf34ff5debef63df7240a40ce18597f9d4ca7e9db3516bd5668bade44d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "705",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641261"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.706",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Elation: Spirit of Chaos Target Rule",
+    "name_zh_cn": "【欢愉•胡作非为】目标规则",
+    "summary_en": "Typed SelectExceptCellGetHelp candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SelectExceptCellGetHelp 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "36",
+        "sha256": "180acee4e2a2e75062678a6735e162fb530bd1649063207202dd186a16aedc0d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SelectExceptCellGetHelp",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "706",
+    "candidate_filter": {
+      "effect_type": "SelectExceptCellGetHelp",
+      "authored_parameters": [
+        "11",
+        "12"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Propagation: Dissociated Id Target Rule",
+    "name_zh_cn": "【繁育•癔症本我】目标规则",
+    "summary_en": "Typed SetAroundBlockType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 SetAroundBlockType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "37",
+        "sha256": "521839f9abdbbd0352711ef0e9dab34f19ba6e0c0979db8b2f1284cd5c6631a3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "SetAroundBlockType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "801",
+    "candidate_filter": {
+      "effect_type": "SetAroundBlockType",
+      "authored_parameters": [
+        "4",
+        "9"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.802",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Propagation: Caged Madman of Corrosion Target Rule",
+    "name_zh_cn": "【繁育•克制的腐蚀狂人】目标规则",
+    "summary_en": "Typed TriggerMark candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 TriggerMark 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "38",
+        "sha256": "1d08fcea5db2c4c7839452e5c53840ad435a358dcc686072aad04ff76aae8ec4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "TriggerMark",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "802",
+    "candidate_filter": {
+      "effect_type": "TriggerMark",
+      "authored_parameters": [
+        "4"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.803",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Propagation: Spinal Cord Regrown Target Rule",
+    "name_zh_cn": "【繁育•脊髓再生】目标规则",
+    "summary_en": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "39",
+        "sha256": "adda838a938808e82473218af36e8422d033fd7c284c4b70061e9a83ba098972",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "AddMazeBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "803",
+    "candidate_filter": {
+      "effect_type": "AddMazeBuff",
+      "authored_parameters": [
+        "641271"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.804",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Propagation: The Devil, Pain, and Love Target Rule",
+    "name_zh_cn": "【繁育•魔鬼与痛楚与爱】目标规则",
+    "summary_en": "Typed ToRandomBlockType candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 ToRandomBlockType 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "40",
+        "sha256": "1912f457804e2f6594a3e270c62a0468147ea5fe00b28b9aa847f23718725be8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "ToRandomBlockType",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "804",
+    "candidate_filter": {
+      "effect_type": "ToRandomBlockType",
+      "authored_parameters": [
+        "1"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  },
+  {
+    "id": "swarm-disaster.dice-target.805",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceTargetRule",
+    "name_en": "Propagation: Inorganic Embers Target Rule",
+    "name_zh_cn": "【繁育•无机质火花】目标规则",
+    "summary_en": "Typed MoveToSwarmGetBuff candidates use stable ordering and an explicit empty-target fallback.",
+    "summary_zh_cn": "类型化 MoveToSwarmGetBuff 候选使用稳定排序与显式空目标回退。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "41",
+        "sha256": "625b9786f1dfb6067324d179ea34f733ed7019761bfb7609e849272e0298d9be",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "MoveToSwarmGetBuff",
+      "dice-target",
+      "project-policy"
+    ],
+    "source_id": "805",
+    "candidate_filter": {
+      "effect_type": "MoveToSwarmGetBuff",
+      "authored_parameters": [
+        "1270"
+      ]
+    },
+    "ordering": "StableDomainThenNodeId",
+    "cardinality": "AuthoredEffectDefined",
+    "no_legal_target": "NoOp"
+  }
+]

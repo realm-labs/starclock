@@ -1,0 +1,760 @@
+[
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.202",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Remembrance: Inner Sensory Organ",
+    "name_zh_cn": "【记忆•内感官】",
+    "summary_en": "Immediately copy the domain the characters occupy to a random location on the current plane and apply Recollection to it",
+    "summary_zh_cn": "立即将自身所在区域复制到当前位面随机位置，并附加【追忆】效果",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "6",
+        "sha256": "895c2c11ef198253d89640e0590507f909e8e90f160f8a674ea705fa708c6e9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "ReplicateLastCell",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "202",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "ReplicateLastCell",
+        "parameters": [
+          "11",
+          "12"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "2",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.203",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Remembrance: Darkness and Greed",
+    "name_zh_cn": "【记忆•叆叇与质欲】",
+    "summary_en": "Select 1 domain (except Boss or Boss: Swarm), copy it to an adjacent location, and apply Recollection to it",
+    "summary_zh_cn": "选择1个区域，将该区域复制到其相邻位置，并附加【追忆】效果（【首领】与【首领•虫群】区域除外）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "7",
+        "sha256": "ca64b64f2734fb33329d77d5bf92401d5d75174f44b9289cd566fcd1bc8a31aa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "ReplicateCellToAround",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "203",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "ReplicateCellToAround",
+        "parameters": [
+          "11",
+          "12"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "2",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.204",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Remembrance: Genesis of Intellect",
+    "name_zh_cn": "【记忆•知性发生】",
+    "summary_en": "Immediately copy all domains on the current plane with the Recollection effect to their adjacent domains",
+    "summary_zh_cn": "立即令当前位面所有带有【追忆】效果的区域复制到其相邻位置",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "8",
+        "sha256": "0f418309b5b1b210de7f2fbe90ae2dc3dcb8f2dc3edd4427c3bb0e25f2ae0615",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "ReplicateAllAroundCell",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "204",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "ReplicateAllAroundCell",
+        "parameters": [],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "2",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Nihility: Form",
+    "name_zh_cn": "【虚无•形】",
+    "summary_en": "Immediately obtain 1 Curio and turn all Reward domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)",
+    "summary_zh_cn": "立即获得1个奇物，并使所有【奖励】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "10",
+        "sha256": "0d59651ced21807e1f86168e2e16050f0802436c12c0529872af433680a4584a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "SelectMiracleToEmpty",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "301",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "SelectMiracleToEmpty",
+        "parameters": [
+          "7",
+          "20002",
+          "3"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "3",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.302",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Nihility: Shadow",
+    "name_zh_cn": "【虚无•影】",
+    "summary_en": "Immediately obtain 1 Blessing and turn all Elite domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)",
+    "summary_zh_cn": "立即获得1次祝福，并使所有【精英】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "11",
+        "sha256": "424cb5d3c5451ec06e53aaa0746248630e7c9f9491d9d1eee2ddd4410cb3963d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "SelectBuffToEmpty",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "302",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "SelectBuffToEmpty",
+        "parameters": [
+          "5",
+          "200620",
+          "3",
+          "10001"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "3",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.303",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Nihility: Void",
+    "name_zh_cn": "【虚无•空】",
+    "summary_en": "Immediately turn all Combat domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)",
+    "summary_zh_cn": "立即使所有【战斗】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "12",
+        "sha256": "28b5ba752f2daf48522edd9c6fcfa6b0cfbb98d8ba739f07f8cc5ef524a29cd6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "TurnFightCellToEmpty",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "303",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "TurnFightCellToEmpty",
+        "parameters": [],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "3",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.304",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Nihility: Dormancy",
+    "name_zh_cn": "【虚无•眠】",
+    "summary_en": "Immediately turn all Occurrence domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)",
+    "summary_zh_cn": "立即使所有【事件】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "13",
+        "sha256": "1d5038e4d38b441f12984557247fa43c92fef0097224301a33773284775e7859",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "TurnEventCellToEmpty",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "304",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "TurnEventCellToEmpty",
+        "parameters": [],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "3",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.305",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Nihility: Transition",
+    "name_zh_cn": "【虚无•转】",
+    "summary_en": "The content of Blank domain entered during this movement will be replaced by Reward domain",
+    "summary_zh_cn": "本次进入的【空白】区域的内容将被替换为【奖励】区域",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "14",
+        "sha256": "d10989500847093ec3a2d8571f33e45c3579c204388d6240760d281bb9cc713e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "TrunEmptyToReward",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "305",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "TrunEmptyToReward",
+        "parameters": [],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "3",
+    "active_stage": 2
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.504",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "The Hunt: Resolve",
+    "name_zh_cn": "【巡猎•决断】",
+    "summary_en": "Immediately generates 1 Blessing Trotter Beacon in a Combat, Combat: The Swarm, or Elite domain",
+    "summary_zh_cn": "立即随机在【战斗】、【战斗•虫群】或【精英】区域生成1个【祝福扑满】信标",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "25",
+        "sha256": "0f2920b656a3d31c1d40b5da5bf1050f6ff640195f34bd78e692e00ec5728590",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "SetMarkToRandomCell",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "504",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "SetMarkToRandomCell",
+        "parameters": [
+          "3",
+          "4",
+          "5"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "5",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.602",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Destruction: War Worship",
+    "name_zh_cn": "【毁灭•战争崇拜】",
+    "summary_en": "Select a Combat, Combat: Swarm, or Elite domain and immediately give it an Enhance beacon",
+    "summary_zh_cn": "选择1个【战斗】、【战斗•虫群】或【精英】区域，立即使其获得【强化】信标",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "28",
+        "sha256": "06a39d60e9203a311ec1249da916ce358e656ece2c1dafdb0952487fb8eb1a9d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "SetMarkType",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "602",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "SetMarkType",
+        "parameters": [
+          "3",
+          "4",
+          "5"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "6",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Propagation: Dissociated Id",
+    "name_zh_cn": "【繁育•癔症本我】",
+    "summary_en": "Select a Combat: Swarm or Occurrence: Swarm domain, and make all domains adjacent to it randomly become either Combat: Swarm or Occurrence: Swarm domain",
+    "summary_zh_cn": "选择1个【战斗•虫群】或【事件•虫群】区域，将其所有相邻区域随机替换为【战斗•虫群】或【事件•虫群】区域",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "37",
+        "sha256": "521839f9abdbbd0352711ef0e9dab34f19ba6e0c0979db8b2f1284cd5c6631a3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "SetAroundBlockType",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "801",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "SetAroundBlockType",
+        "parameters": [
+          "4",
+          "9"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "8",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.802",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Propagation: Caged Madman of Corrosion",
+    "name_zh_cn": "【繁育•克制的腐蚀狂人】",
+    "summary_en": "Immediately generate #1 random beacon in Combat: Swarm domain",
+    "summary_zh_cn": "立即随机在【战斗•虫群】区域生成#1个随机信标",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "38",
+        "sha256": "1d08fcea5db2c4c7839452e5c53840ad435a358dcc686072aad04ff76aae8ec4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "TriggerMark",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "802",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "TriggerMark",
+        "parameters": [
+          "4"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "8",
+    "active_stage": 1
+  },
+  {
+    "id": "swarm-disaster.topology-consequence.dice-face.804",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "TopologyConsequence",
+    "name_en": "Propagation: The Devil, Pain, and Love",
+    "name_zh_cn": "【繁育•魔鬼与痛楚与爱】",
+    "summary_en": "Immediately changes #1 random domain(s) to Combat: Swarm or Occurrence: Swarm domain",
+    "summary_zh_cn": "立即将#1个随机区域替换为【战斗•虫群】或【事件•虫群】区域",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "40",
+        "sha256": "1912f457804e2f6594a3e270c62a0468147ea5fe00b28b9aa847f23718725be8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "ToRandomBlockType",
+      "project-policy",
+      "topology-consequence"
+    ],
+    "source_id": "804",
+    "trigger_kind": "AudienceDiceFace",
+    "scope": "CurrentPlane",
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ExecuteAuthoredTopologyEffect",
+        "effect_type": "ToRandomBlockType",
+        "parameters": [
+          "1"
+        ],
+        "target_order": "StableNodeId",
+        "no_legal_target": "NoOp"
+      }
+    ],
+    "aeon_dice_id": "8",
+    "active_stage": 1
+  }
+]

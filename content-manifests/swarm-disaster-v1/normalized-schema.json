@@ -1,0 +1,718 @@
+{
+  "schema_revision": "starclock.swarm-disaster-normalized-schema.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "bound_content_manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.swarm-disaster-row.v1"
+    },
+    "kind": {
+      "type": "string",
+      "closed_by_file_contract": true
+    },
+    "name_en": {
+      "type": "string",
+      "nonempty": true
+    },
+    "name_zh_cn": {
+      "type": "string",
+      "nonempty": true
+    },
+    "summary_en": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "summary_zh_cn": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "ownership": {
+      "enum": [
+        "SwarmDisaster",
+        "Shared"
+      ]
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_hash": {
+      "storage": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve identifiers and TextMap hashes beyond JavaScript safe integer range"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "access_date",
+        "evidence_quality"
+      ],
+      "optional_fields": [
+        "note",
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require both note and replacement_condition"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "closed pack index or explicit inherited Goal 03 stable-ID set",
+      "unknown_behavior": "reject"
+    },
+    "ordered_child": {
+      "required_fields": [
+        "parent_id",
+        "ordinal"
+      ],
+      "ordinal_type": "unsigned fixed-width integer",
+      "duplicate_behavior": "reject"
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit file ordering_keys; never filesystem or object iteration order",
+    "unicode_normalization": "NFC",
+    "null_policy": "omit optional absent values; never use null as a second absence representation",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only",
+    "digest_policy": "SHA-256 over encoded bytes; pack digest excludes pack-index.json itself"
+  },
+  "manifest_mapping": {
+    "source_obligations": "every manifest category must be consumed by at least one normalized file and every manifest record must close exactly once in coverage.json",
+    "derived_files": "a derived file may reuse a parent category but cannot create or remove a source obligation",
+    "child_rows": "typed child rows carry the parent stable ID and deterministic ordinal",
+    "unknown_reference": "reject"
+  },
+  "topology_policy": {
+    "edge_evidence_quality": "ProjectPolicy",
+    "algorithm": "forward-nearest-column-within-one-row-v1",
+    "steps": [
+      "Within one chessboard, order distinct PosX columns numerically.",
+      "For each node, consider nodes in the next greater authored PosX column.",
+      "Treat absent PosY as zero and retain candidates whose absolute PosY difference is at most one.",
+      "If no candidate remains, retain every next-column node at the minimum absolute PosY difference.",
+      "Order outgoing targets by numeric PosY, then source node ID; remove duplicate pairs.",
+      "The authored EndGridItemID has no outgoing edge."
+    ],
+    "reason": "released ChessRogue chessboard files expose nodes and coordinates but no explicit edge list",
+    "replacement_condition": "replace the policy when a released explicit edge relation or verified engine graph builder becomes available",
+    "empty_block_type_policy": {
+      "value": "Unspecified",
+      "resolution": "ordered block-create rules for the active chessboard and node",
+      "no_legal_candidate": "preserve Unspecified and emit a review gap; never choose another mode's domain"
+    }
+  },
+  "reconciliation_policy": {
+    "checkpoint_commit": "457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd",
+    "checkpoint_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+    "join_key": [
+      "source_path",
+      "row_locator",
+      "evidence_sha256"
+    ],
+    "outcomes": [
+      "MatchedShared",
+      "SwarmOnly",
+      "GoldOnly",
+      "DivergentRepresentation",
+      "Conflict"
+    ],
+    "conflict_behavior": "Blocked; never overwrite or mutate Goal 08 artifacts",
+    "required_receipt_fields": [
+      "id",
+      "source_path",
+      "row_locator",
+      "evidence_sha256",
+      "goal08_checkpoint_commit",
+      "goal08_ownership",
+      "goal09_ownership",
+      "outcome",
+      "note"
+    ]
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "SwarmProfile",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["profiles", "entry_points"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["entry_refs", "formal_difficulty_ids", "bonus_ids"]
+    },
+    {
+      "file": "areas.json",
+      "record_kind": "SwarmArea",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["guide_areas", "formal_difficulties"],
+      "ordering_keys": ["area_kind", "difficulty", "id"],
+      "required_domain_fields": ["area_kind", "difficulty_segment_ids", "plane_ids"]
+    },
+    {
+      "file": "difficulty-segments.json",
+      "record_kind": "DifficultySegment",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["difficulty_segments"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["cut_list", "level_list"]
+    },
+    {
+      "file": "planes.json",
+      "record_kind": "SwarmPlane",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["planes"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["plane_number", "chessboard_ids", "terminal_policy"]
+    },
+    {
+      "file": "chessboards.json",
+      "record_kind": "SwarmChessboard",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["chessboards"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["source_config_path", "start_node_id", "end_node_id"]
+    },
+    {
+      "file": "map-columns.json",
+      "record_kind": "MapColumn",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_columns"],
+      "ordering_keys": ["chessboard_id", "position_x", "id"],
+      "required_domain_fields": ["chessboard_id", "position_x"]
+    },
+    {
+      "file": "map-nodes.json",
+      "record_kind": "MapNode",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_nodes"],
+      "ordering_keys": ["chessboard_id", "position_x", "position_y", "id"],
+      "required_domain_fields": ["chessboard_id", "position_x", "position_y", "domain_candidates"]
+    },
+    {
+      "file": "map-edges.json",
+      "record_kind": "MapEdge",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_nodes"],
+      "ordering_keys": ["chessboard_id", "from_node_id", "to_node_id"],
+      "required_domain_fields": ["from_node_id", "to_node_id", "policy_id"]
+    },
+    {
+      "file": "map-events.json",
+      "record_kind": "MapEvent",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_events"],
+      "ordering_keys": ["chessboard_id", "id"],
+      "required_domain_fields": ["trigger", "weight", "ordered_effects"]
+    },
+    {
+      "file": "block-create-rules.json",
+      "record_kind": "BlockCreateRule",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["block_create_rules"],
+      "ordering_keys": ["chessboard_id", "id"],
+      "required_domain_fields": ["domain_id", "count", "mark_candidates"]
+    },
+    {
+      "file": "rooms.json",
+      "record_kind": "SwarmRoom",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["room_bindings"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["section_ids", "domain_id", "encounter_pool_ids"]
+    },
+    {
+      "file": "domains.json",
+      "record_kind": "SwarmDomain",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["domains"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["selection_policy", "replacement_policy"]
+    },
+    {
+      "file": "beacons.json",
+      "record_kind": "SwarmBeacon",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["beacons"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["application_stage", "copy_policy", "blanking_policy"]
+    },
+    {
+      "file": "boss-choices.json",
+      "record_kind": "BossChoice",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["boss_choices"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["enemy_variant_id", "weakness_consequence", "later_boss_consequence"]
+    },
+    {
+      "file": "topology-consequences.json",
+      "record_kind": "TopologyConsequence",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["boss_choices", "block_create_rules"],
+      "ordering_keys": ["trigger_kind", "source_id", "id"],
+      "required_domain_fields": ["trigger_kind", "ordered_operations", "scope"]
+    },
+    {
+      "file": "countdown-and-disarray.json",
+      "record_kind": "CountdownPolicy",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["mode_constants"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["initial_value", "movement_delta", "carry_policy", "transition_boundary"]
+    },
+    {
+      "file": "boss-decay-levels.json",
+      "record_kind": "BossDecayLevel",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["boss_decay_levels"],
+      "ordering_keys": ["tier", "id"],
+      "required_domain_fields": ["tier", "threshold", "effect_refs", "stacking_policy"]
+    },
+    {
+      "file": "audience-paths.json",
+      "record_kind": "AudiencePath",
+      "phase": "P1-B4",
+      "manifest_category_inputs": ["audience_paths"],
+      "ordering_keys": ["sort", "id"],
+      "required_domain_fields": ["path_id", "audience_die_id", "initial_effects", "passive_effects"]
+    },
+    {
+      "file": "audience-dice.json",
+      "record_kind": "AudienceDie",
+      "phase": "P1-B4",
+      "manifest_category_inputs": ["audience_dice"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["path_id", "face_ids", "roll_policy", "unlock_id"]
+    },
+    {
+      "file": "dice-faces.json",
+      "record_kind": "AudienceDieFace",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["dice_faces"],
+      "ordering_keys": ["audience_die_id", "sort", "id"],
+      "required_domain_fields": ["rarity_id", "activation_stage", "target_rule_id", "effect_program"]
+    },
+    {
+      "file": "dice-rarities.json",
+      "record_kind": "DiceFaceRarity",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["dice_rarities"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["rank"]
+    },
+    {
+      "file": "dice-target-rules.json",
+      "record_kind": "DiceTargetRule",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["dice_faces"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["candidate_filter", "ordering", "cardinality", "no_legal_target"]
+    },
+    {
+      "file": "dice-roll-controls.json",
+      "record_kind": "DiceRollControl",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["dice_faces"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["operation", "resource_cost", "result_order", "fallback_policy"]
+    },
+    {
+      "file": "communing-choices.json",
+      "record_kind": "CommuningChoice",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["communing_choices"],
+      "ordering_keys": ["story_stage", "aeon_id", "id"],
+      "required_domain_fields": ["aeon_id", "eligibility", "point_deltas", "ordered_operations"]
+    },
+    {
+      "file": "pathstrider-cabinets.json",
+      "record_kind": "PathstriderCabinet",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["pathstrider_cabinets"],
+      "ordering_keys": ["sort", "id"],
+      "required_domain_fields": ["cabinet_type", "prerequisite_ids", "objective_id", "point_deltas"]
+    },
+    {
+      "file": "communing-dimensions.json",
+      "record_kind": "CommuningDimension",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["communing_dimensions"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["path_id", "max_points", "carry_policy"]
+    },
+    {
+      "file": "communing-point-adjustments.json",
+      "record_kind": "CommuningPointAdjustment",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["communing_choices", "pathstrider_cabinets"],
+      "ordering_keys": ["source_kind", "source_id", "ordinal"],
+      "required_domain_fields": ["dimension_id", "delta", "clamp_policy", "operation_order"]
+    },
+    {
+      "file": "communing-trail-nodes.json",
+      "record_kind": "CommuningTrailNode",
+      "phase": "P1-B7",
+      "manifest_category_inputs": ["communing_trail_nodes"],
+      "ordering_keys": ["dimension_id", "threshold", "id"],
+      "required_domain_fields": ["dimension_id", "threshold", "prerequisite_ids", "effect_ids"]
+    },
+    {
+      "file": "communing-trail-prerequisites.json",
+      "record_kind": "CommuningTrailPrerequisite",
+      "phase": "P1-B7",
+      "manifest_category_inputs": ["communing_trail_nodes"],
+      "ordering_keys": ["node_id", "ordinal"],
+      "required_domain_fields": ["node_id", "required_node_id", "required_points"]
+    },
+    {
+      "file": "communing-trail-effects.json",
+      "record_kind": "CommuningTrailEffect",
+      "phase": "P1-B7",
+      "manifest_category_inputs": ["communing_trail_nodes"],
+      "ordering_keys": ["node_id", "ordinal"],
+      "required_domain_fields": ["node_id", "domain", "ordered_operations", "battle_projection"]
+    },
+    {
+      "file": "pathstrider-objectives.json",
+      "record_kind": "PathstriderObjective",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["pathstrider_cabinets"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["finish_condition_id", "progress_policy", "unlock_ids"]
+    },
+    {
+      "file": "pathstrider-finish-conditions.json",
+      "record_kind": "PathstriderFinishCondition",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["pathstrider_finish_conditions"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["finish_type", "comparison", "parameters", "target_progress"]
+    },
+    {
+      "file": "pathstrider-unlocks.json",
+      "record_kind": "PathstriderUnlock",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["pathstrider_unlocks"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["finish_condition_id", "unlock_consequence", "evaluation_boundary"]
+    },
+    {
+      "file": "mechanical-chapter-locators.json",
+      "record_kind": "MechanicalChapterLocator",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["mechanical_chapter_locators"],
+      "ordering_keys": ["layer", "id"],
+      "required_domain_fields": ["layer", "dimension_id", "point_threshold", "mechanical_unlock"]
+    },
+    {
+      "file": "paths.json",
+      "record_kind": "SwarmPathBinding",
+      "phase": "P1-B9",
+      "manifest_category_inputs": ["paths"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["shared_path_id", "selectable", "propagation_unlock"]
+    },
+    {
+      "file": "resonances.json",
+      "record_kind": "SwarmResonanceBinding",
+      "phase": "P1-B9",
+      "manifest_category_inputs": ["resonances"],
+      "ordering_keys": ["path_id", "kind", "id"],
+      "required_domain_fields": ["shared_resonance_id", "path_id", "kind"]
+    },
+    {
+      "file": "path-boosts.json",
+      "record_kind": "SwarmPathBoost",
+      "phase": "P1-B9",
+      "manifest_category_inputs": ["path_boosts"],
+      "ordering_keys": ["path_id", "id"],
+      "required_domain_fields": ["path_id", "effect_program", "application_boundary"]
+    },
+    {
+      "file": "resonance-interplays.json",
+      "record_kind": "ResonanceInterplay",
+      "phase": "P1-B9",
+      "manifest_category_inputs": ["resonance_interplays"],
+      "ordering_keys": ["main_path_id", "sub_path_id", "id"],
+      "required_domain_fields": ["main_path_id", "sub_path_id", "thresholds", "effect_program"]
+    },
+    {
+      "file": "bonuses.json",
+      "record_kind": "SwarmTrailblazeBonus",
+      "phase": "P1-B9",
+      "manifest_category_inputs": ["trailblaze_bonuses"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["bonus_event", "effect_program", "application_boundary"]
+    },
+    {
+      "file": "blessings.json",
+      "record_kind": "SwarmBlessingBinding",
+      "phase": "P2-B1",
+      "manifest_category_inputs": ["blessings"],
+      "ordering_keys": ["path_id", "rarity", "id"],
+      "required_domain_fields": ["shared_blessing_id", "path_id", "pool_rules"]
+    },
+    {
+      "file": "blessing-levels.json",
+      "record_kind": "SwarmBlessingLevelBinding",
+      "phase": "P2-B1",
+      "manifest_category_inputs": ["blessing_levels"],
+      "ordering_keys": ["blessing_id", "level", "id"],
+      "required_domain_fields": ["blessing_id", "level", "parameter_values"]
+    },
+    {
+      "file": "pool-membership.json",
+      "record_kind": "SwarmPoolMembership",
+      "phase": "P2-B1",
+      "manifest_category_inputs": ["paths", "resonances", "blessings"],
+      "ordering_keys": ["pool_id", "member_kind", "member_id"],
+      "required_domain_fields": ["pool_id", "member_id", "eligibility", "weight_policy"]
+    },
+    {
+      "file": "curios.json",
+      "record_kind": "SwarmCurio",
+      "phase": "P2-B2",
+      "manifest_category_inputs": ["curios"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["handbook_id", "mode_copy_id", "pool_rules"]
+    },
+    {
+      "file": "curio-states.json",
+      "record_kind": "SwarmCurioState",
+      "phase": "P2-B2",
+      "manifest_category_inputs": ["curio_states"],
+      "ordering_keys": ["curio_id", "state", "id"],
+      "required_domain_fields": ["curio_id", "state", "charges", "effect_program"]
+    },
+    {
+      "file": "curio-rules.json",
+      "record_kind": "SwarmCurioRule",
+      "phase": "P2-B2",
+      "manifest_category_inputs": ["curio_states"],
+      "ordering_keys": ["curio_id", "trigger_phase", "id"],
+      "required_domain_fields": ["curio_id", "trigger", "lifecycle", "replacement_policy"]
+    },
+    {
+      "file": "occurrences.json",
+      "record_kind": "SwarmOccurrence",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["occurrences"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["handbook_id", "variant_ids", "pool_rules"]
+    },
+    {
+      "file": "occurrence-variants.json",
+      "record_kind": "SwarmOccurrenceVariant",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["occurrence_variants"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["occurrence_ids", "choice_ids", "graph_refs"]
+    },
+    {
+      "file": "occurrence-choices.json",
+      "record_kind": "SwarmOccurrenceChoice",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["occurrence_variants"],
+      "ordering_keys": ["variant_id", "ordinal", "id"],
+      "required_domain_fields": ["variant_id", "conditions", "costs", "ordered_outcomes"]
+    },
+    {
+      "file": "services.json",
+      "record_kind": "SwarmService",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["shared_services"],
+      "ordering_keys": ["service_kind", "id"],
+      "required_domain_fields": ["shared_service_id", "eligibility", "price_policy"]
+    },
+    {
+      "file": "adventure-outcomes.json",
+      "record_kind": "SwarmAdventureOutcome",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["adventure_outcomes"],
+      "ordering_keys": ["adventure_type", "tier", "id"],
+      "required_domain_fields": ["adventure_type", "tier", "offered_result", "reward_program"]
+    },
+    {
+      "file": "currencies.json",
+      "record_kind": "SwarmCurrency",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["shared_services", "trailblaze_bonuses"],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["resource_id", "initial_value", "cap_policy"]
+    },
+    {
+      "file": "service-rules.json",
+      "record_kind": "SwarmServiceRule",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["shared_services", "beacons"],
+      "ordering_keys": ["service_id", "id"],
+      "required_domain_fields": ["service_id", "conditions", "costs", "ordered_operations"]
+    },
+    {
+      "file": "encounter-groups.json",
+      "record_kind": "SwarmEncounterGroup",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["room_bindings"],
+      "ordering_keys": ["room_id", "id"],
+      "required_domain_fields": ["room_id", "weight_policy", "wave_ids"]
+    },
+    {
+      "file": "encounter-waves.json",
+      "record_kind": "SwarmEncounterWave",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["room_bindings"],
+      "ordering_keys": ["encounter_group_id", "ordinal", "id"],
+      "required_domain_fields": ["encounter_group_id", "ordinal", "enemy_slot_ids"]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "SwarmEnemySlot",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["room_bindings"],
+      "ordering_keys": ["wave_id", "formation_index", "id"],
+      "required_domain_fields": ["wave_id", "formation_index", "enemy_variant_id"]
+    },
+    {
+      "file": "boss-pools.json",
+      "record_kind": "SwarmBossPool",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["boss_choices"],
+      "ordering_keys": ["difficulty_id", "id"],
+      "required_domain_fields": ["difficulty_id", "candidate_ids", "choice_consequences"]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "SwarmMechanicRule",
+      "phase": "P2-B6",
+      "manifest_category_inputs": ["semantic_fixture_families"],
+      "ordering_keys": ["domain", "id"],
+      "required_domain_fields": ["domain", "triggers", "state_slots", "program"]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "SourceRecord",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["repository", "revision", "path", "sha256"]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "CoverageRecord",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["manifest_category", "manifest_record_id"],
+      "required_domain_fields": ["manifest_category", "manifest_record_id", "coverage_state", "normalized_refs"]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "ResearchGap",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["state", "id"],
+      "required_domain_fields": ["field", "known_facts", "selected_policy", "replacement_condition"]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "SemanticReviewFixture",
+      "phase": "P2-B6",
+      "manifest_category_inputs": ["semantic_fixture_families"],
+      "ordering_keys": ["family_id", "id"],
+      "required_domain_fields": ["family_id", "preconditions", "input", "ordered_operations", "expected_facts"]
+    },
+    {
+      "file": "reconciliation-receipts.json",
+      "record_kind": "Goal08ReconciliationReceipt",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["source_path", "row_locator", "id"],
+      "required_domain_fields": ["source_path", "row_locator", "evidence_sha256", "outcome"]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "PackManifest",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["id"],
+      "required_domain_fields": ["source_manifest_sha256", "content_manifest_sha256", "files"]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "PackIndex",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["file"],
+      "required_domain_fields": ["file", "bytes", "sha256"]
+    }
+  ]
+}

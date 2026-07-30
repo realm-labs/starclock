@@ -1,0 +1,1021 @@
+{
+  "table": {
+    "name": "SwarmDisasterTopologyConsequence",
+    "rows": [
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Remembrance: Inner Sensory Organ"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•内感官】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"ReplicateLastCell\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"11\",\"12\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.202"
+          },
+          "summary_en": {
+            "String": "Immediately copy the domain the characters occupy to a random location on the current plane and apply Recollection to it"
+          },
+          "summary_zh_cn": {
+            "String": "立即将自身所在区域复制到当前位面随机位置，并附加【追忆】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateLastCell"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Remembrance: Darkness and Greed"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•叆叇与质欲】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"ReplicateCellToAround\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"11\",\"12\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.203"
+          },
+          "summary_en": {
+            "String": "Select 1 domain (except Boss or Boss: Swarm), copy it to an adjacent location, and apply Recollection to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，将该区域复制到其相邻位置，并附加【追忆】效果（【首领】与【首领•虫群】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateCellToAround"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Remembrance: Genesis of Intellect"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•知性发生】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"ReplicateAllAroundCell\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.204"
+          },
+          "summary_en": {
+            "String": "Immediately copy all domains on the current plane with the Recollection effect to their adjacent domains"
+          },
+          "summary_zh_cn": {
+            "String": "立即令当前位面所有带有【追忆】效果的区域复制到其相邻位置"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateAllAroundCell"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Nihility: Form"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•形】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"SelectMiracleToEmpty\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"7\",\"20002\",\"3\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.301"
+          },
+          "summary_en": {
+            "String": "Immediately obtain 1 Curio and turn all Reward domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即获得1个奇物，并使所有【奖励】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectMiracleToEmpty"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Nihility: Shadow"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•影】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"SelectBuffToEmpty\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"5\",\"200620\",\"3\",\"10001\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.302"
+          },
+          "summary_en": {
+            "String": "Immediately obtain 1 Blessing and turn all Elite domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即获得1次祝福，并使所有【精英】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectBuffToEmpty"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Nihility: Void"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•空】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"TurnFightCellToEmpty\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.303"
+          },
+          "summary_en": {
+            "String": "Immediately turn all Combat domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即使所有【战斗】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TurnFightCellToEmpty"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Nihility: Dormancy"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•眠】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"TurnEventCellToEmpty\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "304"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.304"
+          },
+          "summary_en": {
+            "String": "Immediately turn all Occurrence domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即使所有【事件】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TurnEventCellToEmpty"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 2
+          },
+          "aeon_dice_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Nihility: Transition"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•转】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"TrunEmptyToReward\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "305"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.305"
+          },
+          "summary_en": {
+            "String": "The content of Blank domain entered during this movement will be replaced by Reward domain"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入的【空白】区域的内容将被替换为【奖励】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TrunEmptyToReward"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "The Hunt: Resolve"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•决断】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"SetMarkToRandomCell\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"3\",\"4\",\"5\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "504"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.25"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.504"
+          },
+          "summary_en": {
+            "String": "Immediately generates 1 Blessing Trotter Beacon in a Combat, Combat: The Swarm, or Elite domain"
+          },
+          "summary_zh_cn": {
+            "String": "立即随机在【战斗】、【战斗•虫群】或【精英】区域生成1个【祝福扑满】信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetMarkToRandomCell"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "6"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Destruction: War Worship"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•战争崇拜】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"SetMarkType\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"3\",\"4\",\"5\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.28"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.602"
+          },
+          "summary_en": {
+            "String": "Select a Combat, Combat: Swarm, or Elite domain and immediately give it an Enhance beacon"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【战斗】、【战斗•虫群】或【精英】区域，立即使其获得【强化】信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetMarkType"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "8"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Propagation: Dissociated Id"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•癔症本我】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"SetAroundBlockType\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"4\",\"9\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.37"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.801"
+          },
+          "summary_en": {
+            "String": "Select a Combat: Swarm or Occurrence: Swarm domain, and make all domains adjacent to it randomly become either Combat: Swarm or Occurrence: Swarm domain"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【战斗•虫群】或【事件•虫群】区域，将其所有相邻区域随机替换为【战斗•虫群】或【事件•虫群】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetAroundBlockType"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "8"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Propagation: Caged Madman of Corrosion"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•克制的腐蚀狂人】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"TriggerMark\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"4\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "802"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.38"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.802"
+          },
+          "summary_en": {
+            "String": "Immediately generate #1 random beacon in Combat: Swarm domain"
+          },
+          "summary_zh_cn": {
+            "String": "立即随机在【战斗•虫群】区域生成#1个随机信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TriggerMark"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      },
+      {
+        "values": {
+          "active_stage": {
+            "Integer": 1
+          },
+          "aeon_dice_id": {
+            "String": "8"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "TopologyConsequence"
+          },
+          "name_en": {
+            "String": "Propagation: The Devil, Pain, and Love"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•魔鬼与痛楚与爱】"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"effect_type\":\"ToRandomBlockType\",\"no_legal_target\":\"NoOp\",\"operation\":\"ExecuteAuthoredTopologyEffect\",\"order\":0,\"parameters\":[\"1\"],\"target_order\":\"StableNodeId\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "scope": {
+            "String": "CurrentPlane"
+          },
+          "source_id": {
+            "String": "804"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.40"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.topology-consequence.dice-face.804"
+          },
+          "summary_en": {
+            "String": "Immediately changes #1 random domain(s) to Combat: Swarm or Occurrence: Swarm domain"
+          },
+          "summary_zh_cn": {
+            "String": "立即将#1个随机区域替换为【战斗•虫群】或【事件•虫群】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ToRandomBlockType"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "topology-consequence"
+              }
+            ]
+          },
+          "trigger_kind": {
+            "String": "AudienceDiceFace"
+          }
+        }
+      }
+    ]
+  }
+}

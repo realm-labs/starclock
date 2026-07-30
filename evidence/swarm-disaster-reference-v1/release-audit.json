@@ -1,0 +1,58 @@
+{
+  "schema_revision": "starclock.swarm-disaster-release-audit.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "snapshot": "Version 4.4",
+  "normalized_schema_sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+  "content_manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+  "denominators": {
+    "normalized_files": 64,
+    "normalized_records": 27820,
+    "common_envelope_records": 19617,
+    "frozen_manifest_obligations": 6963,
+    "coverage_records": 6963,
+    "source_records": 8139,
+    "source_reference_occurrences": 32546,
+    "bilingual_records": 19617
+  },
+  "ownership": {
+    "Shared": 1929,
+    "SwarmDisaster": 17688
+  },
+  "evidence_quality": {
+    "ApproximateFromReleasedText": 1,
+    "ExactStructured": 15503,
+    "ProjectPolicy": 4113
+  },
+  "references": {
+    "local_resolved_occurrences": 72682,
+    "local_declared_boundary_occurrences": 650,
+    "inherited_resolved_occurrences": 3979,
+    "inherited_declared_locator_occurrences": 96,
+    "enemy_resolved_occurrences": 1070
+  },
+  "fail_closed_boundaries": {
+    "gold_finish_conditions_disabled": 45,
+    "gold_unlocks_disabled": 51,
+    "unresolved_shared_finish_conditions_disabled": 42,
+    "unresolved_shared_unlocks_disabled": 44,
+    "unproven_shared_boss_decay_rows_disabled": 27
+  },
+  "checks": {
+    "exact_once_coverage": true,
+    "global_ids_unique": true,
+    "local_references_resolve_or_are_declared_boundaries": true,
+    "inherited_references_resolve_or_are_declared_locators": true,
+    "source_references_resolve": true,
+    "orphan_sources": 0,
+    "bilingual_fields_complete": true,
+    "ownership_labels_closed": true,
+    "evidence_quality_labels_closed": true,
+    "approximation_sources_replaceable": true,
+    "gold_rows_enabled_for_swarm": 0,
+    "unresolved_shared_dlc_rows_enabled_for_swarm": 0,
+    "gold_topology_rows": 0,
+    "gold_encounter_namespaces": 0,
+    "erudition_references": 0,
+    "unknowable_or_divergent_rows": 0
+  }
+}

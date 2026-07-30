@@ -1,0 +1,6337 @@
+{
+  "table": {
+    "name": "SwarmDisasterOccurrence",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "10"
+          },
+          "handbook_order": {
+            "Integer": 67
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Aha Stuffed Toy"
+          },
+          "name_zh_cn": {
+            "String": "阿哈玩偶"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "10"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.29"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.10"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "12"
+          },
+          "handbook_order": {
+            "Integer": 69
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "I.O.U. Dispenser (II)"
+          },
+          "name_zh_cn": {
+            "String": "谢债发行机（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "12"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.31"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.12"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "13"
+          },
+          "handbook_order": {
+            "Integer": 70
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Statue"
+          },
+          "name_zh_cn": {
+            "String": "雕像"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "13"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.32"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.13"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "14"
+          },
+          "handbook_order": {
+            "Integer": 71
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Insect Nest"
+          },
+          "name_zh_cn": {
+            "String": "虫巢"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "14"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.33"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.14"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111101"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "15"
+          },
+          "handbook_order": {
+            "Integer": 72
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Ruan Mei"
+          },
+          "name_zh_cn": {
+            "String": "阮•梅"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "15"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.34"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.15"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "16"
+          },
+          "handbook_order": {
+            "Integer": 74
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Three Little Pigs"
+          },
+          "name_zh_cn": {
+            "String": "三只小猪"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "16"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.36"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.15"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.16"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111301"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "17"
+          },
+          "handbook_order": {
+            "Integer": 75
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Unending Darkness"
+          },
+          "name_zh_cn": {
+            "String": "无尽黑暗"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "17"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.37"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.16"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.17"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111401"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "18"
+          },
+          "handbook_order": {
+            "Integer": 76
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Architects"
+          },
+          "name_zh_cn": {
+            "String": "筑城者"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "18"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.38"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.17"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.18"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "19"
+          },
+          "handbook_order": {
+            "Integer": 77
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Kindling of the Self-Annihilator"
+          },
+          "name_zh_cn": {
+            "String": "自灭者的火种"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "19"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.18"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.19"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111601"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "2"
+          },
+          "handbook_order": {
+            "Integer": 58
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Nomadic Miners"
+          },
+          "name_zh_cn": {
+            "String": "游牧矿工"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.21"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.2"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110101"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "20"
+          },
+          "handbook_order": {
+            "Integer": 78
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Cosmic Merchant (I)"
+          },
+          "name_zh_cn": {
+            "String": "银河商人（其一）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "20"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.40"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.19"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.20"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111701"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "21"
+          },
+          "handbook_order": {
+            "Integer": 79
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Cosmic Con Job (II)"
+          },
+          "name_zh_cn": {
+            "String": "银河忽悠（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "21"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.41"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.20"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.21"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111701"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "22"
+          },
+          "handbook_order": {
+            "Integer": 80
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Cosmic Altruist (III)"
+          },
+          "name_zh_cn": {
+            "String": "银河好人（其三）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "22"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.42"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.21"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.22"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111701"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "23"
+          },
+          "handbook_order": {
+            "Integer": 81
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Societal Dreamscape"
+          },
+          "name_zh_cn": {
+            "String": "社会性梦境"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "23"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.43"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.22"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.23"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "24"
+          },
+          "handbook_order": {
+            "Integer": 82
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Saleo (I)"
+          },
+          "name_zh_cn": {
+            "String": "萨里奥（其一）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "24"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.44"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.23"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.24"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "25"
+          },
+          "handbook_order": {
+            "Integer": 83
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Sal (II)"
+          },
+          "name_zh_cn": {
+            "String": "萨里（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "25"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.45"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.24"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.25"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "26"
+          },
+          "handbook_order": {
+            "Integer": 84
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Leo (III)"
+          },
+          "name_zh_cn": {
+            "String": "里奥（其三）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "26"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.46"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.25"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.26"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.111901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "27"
+          },
+          "handbook_order": {
+            "Integer": 85
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Bounty Hunter"
+          },
+          "name_zh_cn": {
+            "String": "赏金猎人"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "27"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.47"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.26"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.27"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "28"
+          },
+          "handbook_order": {
+            "Integer": 86
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Implement of Error"
+          },
+          "name_zh_cn": {
+            "String": "错误道具"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "28"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.48"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.27"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.28"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112101"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "29"
+          },
+          "handbook_order": {
+            "Integer": 87
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "We Are Cowboys"
+          },
+          "name_zh_cn": {
+            "String": "我们是牛仔"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "29"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.49"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.28"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.29"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 2 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含2个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113301"
+              },
+              {
+                "String": "swarm-disaster.occurrence-variant.113302"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "30"
+          },
+          "handbook_order": {
+            "Integer": 88
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Nildis (Lightfish)"
+          },
+          "name_zh_cn": {
+            "String": "尼尔迪斯牌（灯鱼篇）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "30"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.50"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.29"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.30"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "31"
+          },
+          "handbook_order": {
+            "Integer": 89
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Nildis (Wildboar)"
+          },
+          "name_zh_cn": {
+            "String": "尼尔迪斯牌（野猪篇）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "31"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.51"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.30"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.31"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113502"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "32"
+          },
+          "handbook_order": {
+            "Integer": 90
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Nildis (Robot)"
+          },
+          "name_zh_cn": {
+            "String": "尼尔迪斯牌（机械篇）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "32"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.52"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.31"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.32"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113503"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "33"
+          },
+          "handbook_order": {
+            "Integer": 91
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Rock, Paper, Scissors"
+          },
+          "name_zh_cn": {
+            "String": "猜拳游戏"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.encounter\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Encounter"
+          },
+          "source_id": {
+            "String": "33"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.53"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.32"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.33"
+          },
+          "summary_en": {
+            "String": "Shared Encounter Occurrence with 2 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含2个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113401"
+              },
+              {
+                "String": "swarm-disaster.occurrence-variant.113402"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "34"
+          },
+          "handbook_order": {
+            "Integer": 92
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Tavern"
+          },
+          "name_zh_cn": {
+            "String": "酒馆"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.encounter\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Encounter"
+          },
+          "source_id": {
+            "String": "34"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.54"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.33"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.34"
+          },
+          "summary_en": {
+            "String": "Shared Encounter Occurrence with 3 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含3个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113601"
+              },
+              {
+                "String": "swarm-disaster.occurrence-variant.113602"
+              },
+              {
+                "String": "swarm-disaster.occurrence-variant.113603"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "35"
+          },
+          "handbook_order": {
+            "Integer": 93
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Periodic Demon Lord"
+          },
+          "name_zh_cn": {
+            "String": "周期性大魔王"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.encounter\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Encounter"
+          },
+          "source_id": {
+            "String": "35"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.55"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.34"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.35"
+          },
+          "summary_en": {
+            "String": "Shared Encounter Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113701"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "36"
+          },
+          "handbook_order": {
+            "Integer": 94
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Let's Exchange Gifts"
+          },
+          "name_zh_cn": {
+            "String": "来交换礼物吧"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.deal\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Deal"
+          },
+          "source_id": {
+            "String": "36"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.56"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.35"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.36"
+          },
+          "summary_en": {
+            "String": "Shared Deal Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "37"
+          },
+          "handbook_order": {
+            "Integer": 95
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Make A Wish"
+          },
+          "name_zh_cn": {
+            "String": "许个愿吧"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.deal\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Deal"
+          },
+          "source_id": {
+            "String": "37"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.57"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.36"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.37"
+          },
+          "summary_en": {
+            "String": "Shared Deal Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "38"
+          },
+          "handbook_order": {
+            "Integer": 96
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Robot Sales Terminal"
+          },
+          "name_zh_cn": {
+            "String": "机器人销售终端"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.deal\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Deal"
+          },
+          "source_id": {
+            "String": "38"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.58"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.37"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.38"
+          },
+          "summary_en": {
+            "String": "Shared Deal Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "39"
+          },
+          "handbook_order": {
+            "Integer": 19
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Knights of Beauty to the Rescue"
+          },
+          "name_zh_cn": {
+            "String": "纯美骑士的帮助"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "39"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.38"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.39"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "4"
+          },
+          "handbook_order": {
+            "Integer": 60
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "History Fictionologists (II)"
+          },
+          "name_zh_cn": {
+            "String": "虚构史学家（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.23"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.4"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "40"
+          },
+          "handbook_order": {
+            "Integer": 20
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Cosmic Crescendo"
+          },
+          "name_zh_cn": {
+            "String": "天外大合唱"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "40"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.39"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.40"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112301"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "41"
+          },
+          "handbook_order": {
+            "Integer": 21
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Genius Society #55 Yu Qingtu"
+          },
+          "name_zh_cn": {
+            "String": "天才俱乐部#55余清涂"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "41"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.40"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.41"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112401"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "42"
+          },
+          "handbook_order": {
+            "Integer": 22
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Beast Horde: Voracious Catastrophe"
+          },
+          "name_zh_cn": {
+            "String": "兽群•贪饕灾厄"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "42"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.41"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.42"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "43"
+          },
+          "handbook_order": {
+            "Integer": 23
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Curio Fixer"
+          },
+          "name_zh_cn": {
+            "String": "奇物修理专家"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "43"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.42"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.43"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112601"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "44"
+          },
+          "handbook_order": {
+            "Integer": 24
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Showman's Sleight"
+          },
+          "name_zh_cn": {
+            "String": "伶人戏法"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "44"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.43"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.44"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112701"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "45"
+          },
+          "handbook_order": {
+            "Integer": 25
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Double Lottery Experience"
+          },
+          "name_zh_cn": {
+            "String": "双乐透体验"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "45"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.44"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.45"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "46"
+          },
+          "handbook_order": {
+            "Integer": 73
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Ruan Mei (II)"
+          },
+          "name_zh_cn": {
+            "String": "阮•梅（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "46"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.35"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.45"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.46"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.112901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "47"
+          },
+          "handbook_order": {
+            "Integer": 26
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The *Perfect* Grand Challenge!"
+          },
+          "name_zh_cn": {
+            "String": "*完美*大挑战！"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "47"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.46"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.47"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.113001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "48"
+          },
+          "handbook_order": {
+            "Integer": 27
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The IPC Promotion Saga (I)"
+          },
+          "name_zh_cn": {
+            "String": "星际和平公司「升职记」（其一）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "48"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.47"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.48"
+          },
+          "summary_en": {
+            "String": "Swarm-owned Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "49"
+          },
+          "handbook_order": {
+            "Integer": 28
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The IPC Promotion Saga (II)"
+          },
+          "name_zh_cn": {
+            "String": "星际和平公司「升职记」（其二）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "49"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.48"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.49"
+          },
+          "summary_en": {
+            "String": "Swarm-owned Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "5"
+          },
+          "handbook_order": {
+            "Integer": 61
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Jim Hulk and Jim Hall"
+          },
+          "name_zh_cn": {
+            "String": "杰姆·哈克与杰姆·哈尔"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.24"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.5"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110301"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "50"
+          },
+          "handbook_order": {
+            "Integer": 29
+          },
+          "id": {
+            "Integer": 43
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The IPC Promotion Saga (III)"
+          },
+          "name_zh_cn": {
+            "String": "星际和平公司「升职记」（其三）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "50"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.49"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.50"
+          },
+          "summary_en": {
+            "String": "Swarm-owned Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "51"
+          },
+          "handbook_order": {
+            "Integer": 30
+          },
+          "id": {
+            "Integer": 44
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The IPC Promotion Saga (IV)"
+          },
+          "name_zh_cn": {
+            "String": "星际和平公司「升职记」（其四）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "51"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.50"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.51"
+          },
+          "summary_en": {
+            "String": "Swarm-owned Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "52"
+          },
+          "handbook_order": {
+            "Integer": 31
+          },
+          "id": {
+            "Integer": 45
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Ka-ching! IPC Banking (I)"
+          },
+          "name_zh_cn": {
+            "String": "咔嚓——星际和平银行！（其一）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "52"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.51"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.52"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114301"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "53"
+          },
+          "handbook_order": {
+            "Integer": 32
+          },
+          "id": {
+            "Integer": 46
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Ka-ching! IPC Banking (II)"
+          },
+          "name_zh_cn": {
+            "String": "咔嚓——星际和平银行！（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "53"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.52"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.53"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114301"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "54"
+          },
+          "handbook_order": {
+            "Integer": 33
+          },
+          "id": {
+            "Integer": 47
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Loneliness, Cosmic Beauty Bugs, Simulated Universe (I)"
+          },
+          "name_zh_cn": {
+            "String": "孤独，太空美虫，模拟宇宙（其一）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "54"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.53"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.54"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114401"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "55"
+          },
+          "handbook_order": {
+            "Integer": 34
+          },
+          "id": {
+            "Integer": 48
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Loneliness, Cosmic Beauty Bugs, Simulated Universe (II)"
+          },
+          "name_zh_cn": {
+            "String": "孤独，太空美虫，模拟宇宙（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "55"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.54"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.55"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114401"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "56"
+          },
+          "handbook_order": {
+            "Integer": 35
+          },
+          "id": {
+            "Integer": 49
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Ace Trash Digger"
+          },
+          "name_zh_cn": {
+            "String": "掏垃圾桶大师"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "56"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.55"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.56"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.114501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "57"
+          },
+          "handbook_order": {
+            "Integer": 36
+          },
+          "id": {
+            "Integer": 50
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Slumbering Overlord (First Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•沉睡领主（一级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "57"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.56"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.57"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.118801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "58"
+          },
+          "handbook_order": {
+            "Integer": 42
+          },
+          "id": {
+            "Integer": 51
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Nest Exploration (First Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•虫巢探险（一级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "58"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.57"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.58"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "59"
+          },
+          "handbook_order": {
+            "Integer": 47
+          },
+          "id": {
+            "Integer": 52
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Mind of the Domain (First Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•区域脑体（一级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "59"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.58"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.59"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "6"
+          },
+          "handbook_order": {
+            "Integer": 62
+          },
+          "id": {
+            "Integer": 53
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Shopping Channel"
+          },
+          "name_zh_cn": {
+            "String": "电视购物频道"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.25"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.6"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110401"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "60"
+          },
+          "handbook_order": {
+            "Integer": 50
+          },
+          "id": {
+            "Integer": 54
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Insights from the Universal Dancer"
+          },
+          "name_zh_cn": {
+            "String": "寰宇舞者的启示"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "60"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.59"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.60"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119301"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "61"
+          },
+          "handbook_order": {
+            "Integer": 66
+          },
+          "id": {
+            "Integer": 55
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Pixel World: Hidden Stage"
+          },
+          "name_zh_cn": {
+            "String": "像素世界•隐藏关"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "61"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.60"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.61"
+          },
+          "summary_en": {
+            "String": "Swarm-owned Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119401"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "62"
+          },
+          "handbook_order": {
+            "Integer": 51
+          },
+          "id": {
+            "Integer": 56
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Mirror of Transcendence (I)"
+          },
+          "name_zh_cn": {
+            "String": "超验之镜（其一）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "62"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.61"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.62"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "63"
+          },
+          "handbook_order": {
+            "Integer": 54
+          },
+          "id": {
+            "Integer": 57
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Cuckoo Clock Fanatic (I)"
+          },
+          "name_zh_cn": {
+            "String": "咕咕钟狂热粉丝（其一）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "63"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.62"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.63"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119601"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "64"
+          },
+          "handbook_order": {
+            "Integer": 55
+          },
+          "id": {
+            "Integer": 58
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Cuckoo Clock Fanatic (II)"
+          },
+          "name_zh_cn": {
+            "String": "咕咕钟狂热粉丝（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "64"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.63"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.64"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119601"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "65"
+          },
+          "handbook_order": {
+            "Integer": 56
+          },
+          "id": {
+            "Integer": 59
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Cuckoo Clock Fanatic (III)"
+          },
+          "name_zh_cn": {
+            "String": "咕咕钟狂热粉丝（其三）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "65"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.19"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.64"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.65"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119601"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "66"
+          },
+          "handbook_order": {
+            "Integer": 37
+          },
+          "id": {
+            "Integer": 60
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Slumbering Overlord (Second Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•沉睡领主（二级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "66"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.65"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.66"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.118801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "67"
+          },
+          "handbook_order": {
+            "Integer": 38
+          },
+          "id": {
+            "Integer": 61
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Slumbering Overlord (Third Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•沉睡领主（三级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "67"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.66"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.67"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.118801"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "68"
+          },
+          "handbook_order": {
+            "Integer": 39
+          },
+          "id": {
+            "Integer": 62
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Propagation: Slumbering Overlord (First Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "繁育•沉睡领主（一级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "68"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.67"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.68"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.118901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "69"
+          },
+          "handbook_order": {
+            "Integer": 40
+          },
+          "id": {
+            "Integer": 63
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Propagation: Slumbering Overlord (Second Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "繁育•沉睡领主（二级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "69"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.68"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.69"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.118901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "7"
+          },
+          "handbook_order": {
+            "Integer": 63
+          },
+          "id": {
+            "Integer": 64
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "The Cremators"
+          },
+          "name_zh_cn": {
+            "String": "焚化工"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.26"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.7"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "70"
+          },
+          "handbook_order": {
+            "Integer": 41
+          },
+          "id": {
+            "Integer": 65
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Propagation: Slumbering Overlord (Third Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "繁育•沉睡领主（三级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "70"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.69"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.70"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.118901"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "71"
+          },
+          "handbook_order": {
+            "Integer": 43
+          },
+          "id": {
+            "Integer": 66
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Nest Exploration (Second Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•虫巢探险（二级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "71"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.70"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.71"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "72"
+          },
+          "handbook_order": {
+            "Integer": 44
+          },
+          "id": {
+            "Integer": 67
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Nest Exploration (Third Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•虫巢探险（三级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "72"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.71"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.72"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "73"
+          },
+          "handbook_order": {
+            "Integer": 45
+          },
+          "id": {
+            "Integer": 68
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Propagation: Nest Exploration (First Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "繁育•虫巢探险（一级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "73"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.72"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.73"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119101"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "74"
+          },
+          "handbook_order": {
+            "Integer": 46
+          },
+          "id": {
+            "Integer": 69
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Propagation: Nest Exploration (Second Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "繁育•虫巢探险（二级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "74"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.73"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.74"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119101"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "75"
+          },
+          "handbook_order": {
+            "Integer": 48
+          },
+          "id": {
+            "Integer": 70
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Mind of the Domain (Second Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•区域脑体（二级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "75"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.74"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.75"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "76"
+          },
+          "handbook_order": {
+            "Integer": 49
+          },
+          "id": {
+            "Integer": 71
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Swarm: Mind of the Domain (Third Praetorian)"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•区域脑体（三级卫戍）"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.the-swarm\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "The Swarm"
+          },
+          "source_id": {
+            "String": "76"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.75"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.76"
+          },
+          "summary_en": {
+            "String": "Swarm-owned The Swarm Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "蝗灾专属事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119201"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "77"
+          },
+          "handbook_order": {
+            "Integer": 52
+          },
+          "id": {
+            "Integer": 72
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Mirror of Transcendence (II)"
+          },
+          "name_zh_cn": {
+            "String": "超验之镜（其二）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "77"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.76"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.77"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "78"
+          },
+          "handbook_order": {
+            "Integer": 53
+          },
+          "id": {
+            "Integer": 73
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Mirror of Transcendence (III)"
+          },
+          "name_zh_cn": {
+            "String": "超验之镜（其三）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "78"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.77"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.78"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.119501"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "8"
+          },
+          "handbook_order": {
+            "Integer": 64
+          },
+          "id": {
+            "Integer": 74
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Interactive Arts"
+          },
+          "name_zh_cn": {
+            "String": "互动艺术"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.27"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.8"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110601"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "handbook_id": {
+            "String": "9"
+          },
+          "handbook_order": {
+            "Integer": 65
+          },
+          "id": {
+            "Integer": 75
+          },
+          "kind": {
+            "String": "SwarmOccurrence"
+          },
+          "name_en": {
+            "String": "Pixel World"
+          },
+          "name_zh_cn": {
+            "String": "像素世界"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "pool_rules_json": {
+            "String": "{\"eligibility\":\"OwningDomainOrServiceBindingRequired\",\"pool_id\":\"swarm-disaster.occurrence-pool.occurrence\",\"unresolved_offer_behavior\":\"FailClosed\",\"weight_policy\":\"OwningBindingMustProvideWeight\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_event_type": {
+            "String": "Occurrence"
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-occurrences-json.28"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence.9"
+          },
+          "summary_en": {
+            "String": "Shared Occurrence Occurrence with 1 reachable Swarm variant(s)."
+          },
+          "summary_zh_cn": {
+            "String": "共享事件，包含1个可达蝗灾变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "variant_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-variant.110701"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1949 @@
+[
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Qlipoth Faith Dissolution Crisis",
+    "name_zh_cn": "克里珀信仰虚构危机",
+    "summary_en": "Obtain #1[i] Cosmic Fragment(s)",
+    "summary_zh_cn": "累计获得#1[i]宇宙碎片",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "0",
+        "sha256": "c849c6bf2fffb2007d89dffc9943c7592f8ce0c648883024b1bf2a6f6e0ba887",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "1",
+    "sort": 1,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.4",
+      "swarm-disaster.pathstrider-cabinet.7"
+    ],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013201",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "750"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.4",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Cosmic Spending Record",
+    "name_zh_cn": "银河最高消费记录",
+    "summary_en": "Complete a total of #1[i] Combat domain(s)",
+    "summary_zh_cn": "累计完成#1[i]个【战斗】区域",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "3",
+        "sha256": "a26d33cd010f78bc42ffd60af5bd017cd6386c6b00ad9ac3f58a02ff9bdbb291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "4",
+    "sort": 2,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.6",
+      "swarm-disaster.pathstrider-cabinet.10"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.1"
+    ],
+    "objective_id": "6013204",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "6"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.7",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Biology Big Bang",
+    "name_zh_cn": "生物学大爆炸",
+    "summary_en": "Obtain a total of #1[i] enhanced Blessing(s)",
+    "summary_zh_cn": "累计获得#1[i]次升级后的祝福",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "6",
+        "sha256": "5464ec0789c0039a5a0bf27bbda504346e0fa48525d92e6583667177a8580b8e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "7",
+    "sort": 3,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.2",
+      "swarm-disaster.pathstrider-cabinet.6"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.1"
+    ],
+    "objective_id": "6013207",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "10"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.6",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Final Countdown of the Universe!",
+    "name_zh_cn": "「宇宙末日倒计时！」",
+    "summary_en": "Trigger Planar Disarray #1[i] time(s) (at Difficulty 2 or higher)",
+    "summary_zh_cn": "触发#1[i]次【位面紊乱！】（第二难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "5",
+        "sha256": "c0a0a6c6161d4f6245f3c5368c3f2ca6e831683e03379788ed7f15812b247b69",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "6",
+    "sort": 4,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.12"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.4",
+      "swarm-disaster.pathstrider-cabinet.7"
+    ],
+    "objective_id": "6013206",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "3"
+      }
+    ],
+    "description_parameters": [
+      "2"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.10",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "A Wave of Anti-Organic Equation Research",
+    "name_zh_cn": "反有机方程研究学潮",
+    "summary_en": "Complete a total of #1[i] domain(s) with any beacon (at Difficulty 2 or higher)",
+    "summary_zh_cn": "累计完成#1[i]个带有任意信标的区域（第二难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "9",
+        "sha256": "18c6a615a46e02df8359d8d1e84867f1cf523f974dc02bd32085a9f79cd67ff8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "10",
+    "sort": 5,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.11"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.4"
+    ],
+    "objective_id": "6013210",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "6"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Watchers at the Exchange",
+    "name_zh_cn": "交易所的守望者",
+    "summary_en": "Enter and complete a Transaction domain for a total of #1[i] times (at Difficulty 2 or higher)",
+    "summary_zh_cn": "累计完成#1[i]个【交易】区域（第二难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "1",
+        "sha256": "01b5e70f01c668477088e600457b03f8769fba581a5b267bc3ec90ded1deed2d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "2",
+    "sort": 6,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.8",
+      "swarm-disaster.pathstrider-cabinet.12"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.7"
+    ],
+    "objective_id": "6013202",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "3"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.12",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Three Revelations",
+    "name_zh_cn": "三个「启示」",
+    "summary_en": "Obtain a total of #1[i] Curios (at Difficulty 2 or higher)",
+    "summary_zh_cn": "累计获得#1[i]个奇物（第二难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "11",
+        "sha256": "cf178ff05c79936d40c60cf421071a699947ba4a556ff2240bbd82bc0700486a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "12",
+    "sort": 7,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.5",
+      "swarm-disaster.pathstrider-cabinet.9"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.6",
+      "swarm-disaster.pathstrider-cabinet.2"
+    ],
+    "objective_id": "6013212",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "10"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.8",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Battle For Trotters",
+    "name_zh_cn": "扑满大量争夺战",
+    "summary_en": "Complete domains with the Blessing Trotter beacon or the Curio Trotter beacon for a total of #1[i] time(s) (at Difficulty 3 or higher)",
+    "summary_zh_cn": "累计完成#1[i]个带有【祝福扑满】或【奇物扑满】信标的区域（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "7",
+        "sha256": "4fc835682cc7342688b44de6d7a7cd616b33518f884113ab02c41c923a9e16bb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "8",
+    "sort": 8,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.5"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.2"
+    ],
+    "objective_id": "6013208",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "4"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.11",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Beginner's Guide on the Unhinged Aha Theory",
+    "name_zh_cn": "阿哈失控论启蒙",
+    "summary_en": "Trigger Emergency a total of #1[i] times (at Difficulty 3 or higher)",
+    "summary_zh_cn": "累计触发#1[i]次突发事件（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "10",
+        "sha256": "e3d49b8d6bd96eaae4b51e385ac4ffc7d889def91bc14536accf414c29b7c828",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "11",
+    "sort": 9,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.3",
+      "swarm-disaster.pathstrider-cabinet.9"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.10"
+    ],
+    "objective_id": "6013211",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "3"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "1"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Dark Web Adventures: Golden Fever",
+    "name_zh_cn": "黑网大探险•烁金风潮",
+    "summary_en": "Complete an Adventure domain for a total of #1[i] time(s) (at Difficulty 3 or higher)",
+    "summary_zh_cn": "完成#1[i]个【冒险】区域（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "4",
+        "sha256": "1ce34a3de885d61d76e187612183c8475904347c3b0da37e973748a5841cb290",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "5",
+    "sort": 10,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.15"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.12",
+      "swarm-disaster.pathstrider-cabinet.8"
+    ],
+    "objective_id": "6013205",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "3"
+      }
+    ],
+    "description_parameters": [
+      "3"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.9",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Dual Plane Converter",
+    "name_zh_cn": "双重位面转换器",
+    "summary_en": "Complete Simulated Universe: Swarm Disaster #1[i] time(s) at Difficulty III or higher",
+    "summary_zh_cn": "完成#1[i]次第三及以上难度的「模拟宇宙：寰宇蝗灾」",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "8",
+        "sha256": "453d298ac72c9942ab027c66dbdec0053b798e2d11325660eb2e3a67ee7add52",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "9",
+    "sort": 11,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.16"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.12",
+      "swarm-disaster.pathstrider-cabinet.11"
+    ],
+    "objective_id": "6013209",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "1"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Memory Bubble Breach Disaster",
+    "name_zh_cn": "忆泡泄露大灾变",
+    "summary_en": "Obtain a total of #1[i] Resonance Formation(s) (at Difficulty 3 or higher)",
+    "summary_zh_cn": "累计获得#1[i]个回响构音（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "2",
+        "sha256": "901646a00a6181fb1b546028c9319d8c84290e0d65eb4cc258ca16bd8641facf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "3",
+    "sort": 12,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.16"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.11"
+    ],
+    "objective_id": "6013203",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "4"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.15",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Incarnation of Polychromatic Scales",
+    "name_zh_cn": "化身闪鳞之彩",
+    "summary_en": "Obtain all Resonance Interplays in the same challenge run for a total #1[i] time(s) (at Difficulty III or higher)",
+    "summary_zh_cn": "累计#1[i]次在同一次挑战中获得所有回响交错（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "14",
+        "sha256": "41878f71b67a94a42caea86dd19a04d847edfaeca31f5669e05754dfe868bbd7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "15",
+    "sort": 13,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.14"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.5"
+    ],
+    "objective_id": "6013215",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "4"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "2"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.16",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Reading a World's History of Atonement",
+    "name_zh_cn": "阅读星球的赎罪史",
+    "summary_en": "Consecutively enter Combat, Combat: Swarm, or Elite domains for #2[i] time(s), and repeat this action for #1[i] time(s) (at Difficulty 3 or higher)",
+    "summary_zh_cn": "连续#2[i]次进入【战斗】、【战斗•虫群】或【精英】区域，重复该行为#1[i]次（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "15",
+        "sha256": "29354898cfb9eab0d000af7b5960932401345dca9e3ebd4d649d7cf3fe6fe8c4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "16",
+    "sort": 14,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.14",
+      "swarm-disaster.pathstrider-cabinet.20"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.9",
+      "swarm-disaster.pathstrider-cabinet.3"
+    ],
+    "objective_id": "6013216",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "4"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "4",
+      "3"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.20",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Second Battle of Happiness",
+    "name_zh_cn": "快乐二次争夺战",
+    "summary_en": "Complete 1 domain with the Blessing Trotter beacon and 1 domain with the Curio Trotter beacon in the same plane for a total of #1[i] time(s) (at Difficulty 4 or higher)",
+    "summary_zh_cn": "累计#1[i]次在同一位面中分别完成1次带有【祝福扑满】和【奇物扑满】信标的区域（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "19",
+        "sha256": "88f627c2edbb65247580cd2c531d99c363f62f3199b514be3019789cb21c59b2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "20",
+    "sort": 15,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.18"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.16"
+    ],
+    "objective_id": "6013220",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "3"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.14",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Louis Fleming's Leather Boots",
+    "name_zh_cn": "路易斯·弗莱明的皮靴",
+    "summary_en": "Purchase #2[i] or more items in Transaction domain for a total of #1[i] times (at Difficulty 3 or higher)",
+    "summary_zh_cn": "累计#1[i]次在【交易】区域购买#2[i]个及以上商品（第三难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "13",
+        "sha256": "d3ba09061e3c20d7fcc2d20fffb56b47242523a358d2dc871c64747bb737bdf3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "14",
+    "sort": 16,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.18",
+      "swarm-disaster.pathstrider-cabinet.23"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.15",
+      "swarm-disaster.pathstrider-cabinet.16"
+    ],
+    "objective_id": "6013214",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "5"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "2",
+      "3"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.18",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Rubert III Cometh",
+    "name_zh_cn": "鲁珀特三世正在路上",
+    "summary_en": "Have the countdown at exactly 0 after entering a Boss: Swarm domain (at Difficulty 4 or higher)",
+    "summary_zh_cn": "进入【首领•虫群】区域时，倒计时恰好为0（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "17",
+        "sha256": "d61a386e67a89c6449247c762fceb6a932f888997ec64cdd2884b992df252280",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "18",
+    "sort": 17,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.19",
+      "swarm-disaster.pathstrider-cabinet.21"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.20",
+      "swarm-disaster.pathstrider-cabinet.14"
+    ],
+    "objective_id": "6013218",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "5"
+      }
+    ],
+    "description_parameters": [
+      "1"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.23",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Facade of the Renaissance",
+    "name_zh_cn": "假面文艺复兴",
+    "summary_en": "Consecutively enter different types of domains for #2[i] time(s), and repeat this operation for #1[i] time(s) (at Difficulty 4 or higher)",
+    "summary_zh_cn": "连续#2[i]次进入不同类型区域，重复该行为#1[i]次（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "22",
+        "sha256": "27874aed69f2b1f9433e3811f2b2d95472f5cc2e0cc6c71475f36a9206f7ad34",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "23",
+    "sort": 18,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.19"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.14"
+    ],
+    "objective_id": "6013223",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "4"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "1"
+      }
+    ],
+    "description_parameters": [
+      "5",
+      "4"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.21",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Empire of Destroyed Credit",
+    "name_zh_cn": "已毁的信用点帝国",
+    "summary_en": "Possess #1[i] or more Cosmic Fragments when entering a Boss: Swarm domain (at Difficulty 4 or higher)",
+    "summary_zh_cn": "进入【首领•虫群】区域时，拥有大于等于#1[i]宇宙碎片（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "20",
+        "sha256": "f92f0b0546bd1315ba89adb02e67cde3613e16cbac079a1137f7829bda3e996f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "21",
+    "sort": 19,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.17",
+      "swarm-disaster.pathstrider-cabinet.24"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.18"
+    ],
+    "objective_id": "6013221",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "3"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "5"
+      }
+    ],
+    "description_parameters": [
+      "1000"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.19",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Curatives of the Chef Ranger",
+    "name_zh_cn": "厨师游侠制药纪",
+    "summary_en": "Have the average HP percentage of the entire team be at 100% when passing through any domain for a total of #1[i] time(s) (at Difficulty 4 or higher)",
+    "summary_zh_cn": "累计#1[i]次通过任意区域时我方全体生命值百分比均等于100%（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "18",
+        "sha256": "1a9b9d5458eae54253fff7770e1bef509eb7513e6e637f0da3dd496efb029898",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "19",
+    "sort": 20,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.17"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.18",
+      "swarm-disaster.pathstrider-cabinet.23"
+    ],
+    "objective_id": "6013219",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "2"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.17",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Star-Sprinkled Entomology Exhibition",
+    "name_zh_cn": "洒满星屑的虫蝶展览",
+    "summary_en": "Enter a Blank domain for a total of #1[i] times (at Difficulty 4 or higher)",
+    "summary_zh_cn": "累计#1[i]次进入【空白】区域（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "16",
+        "sha256": "a205da27806a808fdb9dbc76b5f065c5030c1d3e93e6ea616028cd04e4e93e91",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "17",
+    "sort": 21,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.13"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.21",
+      "swarm-disaster.pathstrider-cabinet.19"
+    ],
+    "objective_id": "6013217",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "12"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.24",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Overdrafted Future",
+    "name_zh_cn": "已被透支的「未来」",
+    "summary_en": "Have the Planar Disarray's Disruption Level at level #1[i] or higher when completing the stage (at Difficulty 4 or higher)",
+    "summary_zh_cn": "通关时【位面紊乱！】的【扰动等级】大于等于#1[i]级（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "23",
+        "sha256": "c5035985f9f4f0a81c39af8e0797fd1e82a5d4a9cf2393de3937151dba69df0e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "24",
+    "sort": 22,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.22"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.21"
+    ],
+    "objective_id": "6013224",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "5"
+      }
+    ],
+    "description_parameters": [
+      "6"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.13",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Model of Chaotic Endeavors",
+    "name_zh_cn": "混沌灵感的模特",
+    "summary_en": "Obtain a total of #1[i] Cosmic Fragments through means other than battles (at Difficulty 4 or higher)",
+    "summary_zh_cn": "累计通过战斗以外的方式获得#1[i]宇宙碎片（第四难度及以上）",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "12",
+        "sha256": "63adad7718be4bfac71bc6bcbeeb34f56f865a0f233d49db49a1ce3479e36df8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "13",
+    "sort": 23,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [
+      "swarm-disaster.pathstrider-cabinet.22"
+    ],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.17"
+    ],
+    "objective_id": "6013213",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "1"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "1000"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.22",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "Era of Organic Emotional Advancement",
+    "name_zh_cn": "有机情绪大发展时代",
+    "summary_en": "Use #1[i] different Paths to complete Simulated Universe: Swarm Disaster at Difficulty 5 or higher",
+    "summary_zh_cn": "使用#1[i]个不同命途完成第五难度及以上的「模拟宇宙：寰宇蝗灾」",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "21",
+        "sha256": "e9b7d2df6c446ec7dc2da447bc75c833690bfa00fd280fb30bdc073ef2cd5178",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Normal",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "22",
+    "sort": 24,
+    "cabinet_type": "Normal",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [
+      "swarm-disaster.pathstrider-cabinet.24",
+      "swarm-disaster.pathstrider-cabinet.13"
+    ],
+    "objective_id": "6013222",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "2"
+      },
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "3"
+      }
+    ],
+    "description_parameters": [
+      "3"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Ultimate Destruction",
+    "name_zh_cn": "极致的毁灭",
+    "summary_en": "Make a total of #1[i] Choice(s) of Destruction",
+    "summary_zh_cn": "累计完成#1[i]次「毁灭」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "24",
+        "sha256": "bba452fd0442ac4b721037200531378bb41e3763822b9182b47b1b3c062e2cee",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "101",
+    "sort": 101,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013225",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.6",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.102",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Ultimate Nihility",
+    "name_zh_cn": "极致的虚无",
+    "summary_en": "Make a total of #1[i] Choice(s) of Nihility",
+    "summary_zh_cn": "累计完成#1[i]次「虚无」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "25",
+        "sha256": "3a72bbeddac491425d440fa31bc050352b571021b5ad11ce7fe7e73d99198034",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "102",
+    "sort": 102,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013226",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.3",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.103",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Ultimate Remembrance",
+    "name_zh_cn": "极致的记忆",
+    "summary_en": "Make a total of #1[i] Choice(s) of Remembrance",
+    "summary_zh_cn": "累计完成#1[i]次「记忆」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "26",
+        "sha256": "4909fa2d01dceb2d52470a4f3ba6e440eab2bf82c2d730c7e00897a2b4910af2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "103",
+    "sort": 103,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013227",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.2",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.104",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Nonchalant Elation",
+    "name_zh_cn": "随便的欢愉",
+    "summary_en": "Make a total of #1[i] Choice(s) of Elation",
+    "summary_zh_cn": "累计完成#1[i]次「欢愉」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "27",
+        "sha256": "f5273d272da27f25c19e1bb7eb48ec66f0b397c80adb1bb4c20c0a880556b867",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "104",
+    "sort": 104,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013228",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.7",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.105",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Ultimate Abundance",
+    "name_zh_cn": "极致的丰饶",
+    "summary_en": "Make a total of #1[i] Choice(s) of Abundance",
+    "summary_zh_cn": "累计完成#1[i]次「丰饶」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "28",
+        "sha256": "412e15dd478ebf1aa84eeb2ffbd6bdf0c32639856b560f522c3669ad9a9ade10",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "105",
+    "sort": 105,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013229",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.4",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.106",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Ultimate Hunt",
+    "name_zh_cn": "极致的巡猎",
+    "summary_en": "Make a total of #1[i] Choice(s) of The Hunt",
+    "summary_zh_cn": "累计完成#1[i]次「巡猎」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "29",
+        "sha256": "36f10c01042ff5856cbd99bcd39ddee02870d5e4a386ac3a7857b6602f17f7ae",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "106",
+    "sort": 106,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013230",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.5",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  },
+  {
+    "id": "swarm-disaster.pathstrider-cabinet.107",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "PathstriderCabinet",
+    "name_en": "The Ultimate Preservation",
+    "name_zh_cn": "极致的存护",
+    "summary_en": "Make a total of #1[i] Choice(s) of Preservation",
+    "summary_zh_cn": "累计完成#1[i]次「存护」的抉择",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "30",
+        "sha256": "9929802039790df83de5eb7d82855f0a84984ff8a6c3b2a0bfa09813665d4e25",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "Hide",
+      "pathstrider-cabinet",
+      "project-policy"
+    ],
+    "source_id": "107",
+    "sort": 107,
+    "cabinet_type": "Hide",
+    "prerequisite_ids": [],
+    "unlocks_cabinet_ids": [],
+    "objective_id": "6013231",
+    "point_deltas": [
+      {
+        "dimension_id": "swarm-disaster.communing-dimension.1",
+        "delta": "4"
+      }
+    ],
+    "description_parameters": [
+      "20"
+    ]
+  }
+]

@@ -1,0 +1,2438 @@
+{
+  "table": {
+    "name": "SwarmDisasterPathObjective",
+    "rows": [
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013201"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Qlipoth Faith Dissolution Crisis"
+          },
+          "name_zh_cn": {
+            "String": "克里珀信仰虚构危机"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"750\"],\"once_scope\":\"PathstriderQuest:6013201\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013201"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.1"
+          },
+          "summary_en": {
+            "String": "Obtain 750 Cosmic Fragment(s)"
+          },
+          "summary_zh_cn": {
+            "String": "累计获得750宇宙碎片"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013210"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "A Wave of Anti-Organic Equation Research"
+          },
+          "name_zh_cn": {
+            "String": "反有机方程研究学潮"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"6\"],\"once_scope\":\"PathstriderQuest:6013210\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013210"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.10"
+          },
+          "summary_en": {
+            "String": "Complete a total of 6 domain(s) with any beacon (at Difficulty 2 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成6个带有任意信标的区域（第二难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.4"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 25
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013225"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Ultimate Destruction"
+          },
+          "name_zh_cn": {
+            "String": "极致的毁灭"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013225\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013225"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.24"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.101"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of Destruction"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「毁灭」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 26
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013226"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Ultimate Nihility"
+          },
+          "name_zh_cn": {
+            "String": "极致的虚无"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013226\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013226"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.25"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.102"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of Nihility"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「虚无」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 27
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013227"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Ultimate Remembrance"
+          },
+          "name_zh_cn": {
+            "String": "极致的记忆"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013227\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013227"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.26"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.103"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of Remembrance"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「记忆」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 28
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013228"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Nonchalant Elation"
+          },
+          "name_zh_cn": {
+            "String": "随便的欢愉"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013228\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013228"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.27"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.104"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of Elation"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「欢愉」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 29
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013229"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Ultimate Abundance"
+          },
+          "name_zh_cn": {
+            "String": "极致的丰饶"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013229\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013229"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.28"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.105"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of Abundance"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「丰饶」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 30
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013230"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Ultimate Hunt"
+          },
+          "name_zh_cn": {
+            "String": "极致的巡猎"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013230\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013230"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.29"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.106"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of The Hunt"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「巡猎」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 31
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013231"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Ultimate Preservation"
+          },
+          "name_zh_cn": {
+            "String": "极致的存护"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013231\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013231"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.30"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.107"
+          },
+          "summary_en": {
+            "String": "Make a total of 20 Choice(s) of Preservation"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成20次「存护」的抉择"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": "Null"
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 9
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013211"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Beginner's Guide on the Unhinged Aha Theory"
+          },
+          "name_zh_cn": {
+            "String": "阿哈失控论启蒙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"1\"],\"once_scope\":\"PathstriderQuest:6013211\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013211"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.11"
+          },
+          "summary_en": {
+            "String": "Trigger Emergency a total of 1 times (at Difficulty 3 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计触发1次突发事件（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.10"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013212"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Three Revelations"
+          },
+          "name_zh_cn": {
+            "String": "三个「启示」"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"10\"],\"once_scope\":\"PathstriderQuest:6013212\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013212"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.12"
+          },
+          "summary_en": {
+            "String": "Obtain a total of 10 Curios (at Difficulty 2 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计获得10个奇物（第二难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.6"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.2"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 23
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013213"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Model of Chaotic Endeavors"
+          },
+          "name_zh_cn": {
+            "String": "混沌灵感的模特"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"1000\"],\"once_scope\":\"PathstriderQuest:6013213\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013213"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.13"
+          },
+          "summary_en": {
+            "String": "Obtain a total of 1000 Cosmic Fragments through means other than battles (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计通过战斗以外的方式获得1000宇宙碎片（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.17"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 16
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013214"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Louis Fleming's Leather Boots"
+          },
+          "name_zh_cn": {
+            "String": "路易斯·弗莱明的皮靴"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"2\",\"3\"],\"once_scope\":\"PathstriderQuest:6013214\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013214"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.14"
+          },
+          "summary_en": {
+            "String": "Purchase 3 or more items in Transaction domain for a total of 2 times (at Difficulty 3 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计2次在【交易】区域购买3个及以上商品（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.15"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.16"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 13
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013215"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Incarnation of Polychromatic Scales"
+          },
+          "name_zh_cn": {
+            "String": "化身闪鳞之彩"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"2\"],\"once_scope\":\"PathstriderQuest:6013215\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013215"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.15"
+          },
+          "summary_en": {
+            "String": "Obtain all Resonance Interplays in the same challenge run for a total 2 time(s) (at Difficulty III or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计2次在同一次挑战中获得所有回响交错（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.5"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 14
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013216"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Reading a World's History of Atonement"
+          },
+          "name_zh_cn": {
+            "String": "阅读星球的赎罪史"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"4\",\"3\"],\"once_scope\":\"PathstriderQuest:6013216\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013216"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.15"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.16"
+          },
+          "summary_en": {
+            "String": "Consecutively enter Combat, Combat: Swarm, or Elite domains for 3 time(s), and repeat this action for 4 time(s) (at Difficulty 3 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "连续3次进入【战斗】、【战斗•虫群】或【精英】区域，重复该行为4次（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.9"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.3"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 21
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013217"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Star-Sprinkled Entomology Exhibition"
+          },
+          "name_zh_cn": {
+            "String": "洒满星屑的虫蝶展览"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"12\"],\"once_scope\":\"PathstriderQuest:6013217\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013217"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.16"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.17"
+          },
+          "summary_en": {
+            "String": "Enter a Blank domain for a total of 12 times (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计12次进入【空白】区域（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.21"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.19"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 17
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013218"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Rubert III Cometh"
+          },
+          "name_zh_cn": {
+            "String": "鲁珀特三世正在路上"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"1\"],\"once_scope\":\"PathstriderQuest:6013218\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013218"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.17"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.18"
+          },
+          "summary_en": {
+            "String": "Have the countdown at exactly 0 after entering a Boss: Swarm domain (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "进入【首领•虫群】区域时，倒计时恰好为0（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.20"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.14"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 20
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013219"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Curatives of the Chef Ranger"
+          },
+          "name_zh_cn": {
+            "String": "厨师游侠制药纪"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"20\"],\"once_scope\":\"PathstriderQuest:6013219\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013219"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.18"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.19"
+          },
+          "summary_en": {
+            "String": "Have the average HP percentage of the entire team be at 100% when passing through any domain for a total of 20 time(s) (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计20次通过任意区域时我方全体生命值百分比均等于100%（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.18"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.23"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013202"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Watchers at the Exchange"
+          },
+          "name_zh_cn": {
+            "String": "交易所的守望者"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"3\"],\"once_scope\":\"PathstriderQuest:6013202\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013202"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.2"
+          },
+          "summary_en": {
+            "String": "Enter and complete a Transaction domain for a total of 3 times (at Difficulty 2 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成3个【交易】区域（第二难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 15
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013220"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Second Battle of Happiness"
+          },
+          "name_zh_cn": {
+            "String": "快乐二次争夺战"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"3\"],\"once_scope\":\"PathstriderQuest:6013220\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013220"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.19"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.20"
+          },
+          "summary_en": {
+            "String": "Complete 1 domain with the Blessing Trotter beacon and 1 domain with the Curio Trotter beacon in the same plane for a total of 3 time(s) (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计3次在同一位面中分别完成1次带有【祝福扑满】和【奇物扑满】信标的区域（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.16"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 19
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013221"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Empire of Destroyed Credit"
+          },
+          "name_zh_cn": {
+            "String": "已毁的信用点帝国"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"1000\"],\"once_scope\":\"PathstriderQuest:6013221\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013221"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.20"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.21"
+          },
+          "summary_en": {
+            "String": "Possess 1000 or more Cosmic Fragments when entering a Boss: Swarm domain (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "进入【首领•虫群】区域时，拥有大于等于1000宇宙碎片（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.18"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 24
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013222"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Era of Organic Emotional Advancement"
+          },
+          "name_zh_cn": {
+            "String": "有机情绪大发展时代"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"3\"],\"once_scope\":\"PathstriderQuest:6013222\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013222"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.21"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.22"
+          },
+          "summary_en": {
+            "String": "Use 3 different Paths to complete Simulated Universe: Swarm Disaster at Difficulty 5 or higher"
+          },
+          "summary_zh_cn": {
+            "String": "使用3个不同命途完成第五难度及以上的「模拟宇宙：寰宇蝗灾」"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.24"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.13"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 18
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013223"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Facade of the Renaissance"
+          },
+          "name_zh_cn": {
+            "String": "假面文艺复兴"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"5\",\"4\"],\"once_scope\":\"PathstriderQuest:6013223\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013223"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.22"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.23"
+          },
+          "summary_en": {
+            "String": "Consecutively enter different types of domains for 4 time(s), and repeat this operation for 5 time(s) (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "连续4次进入不同类型区域，重复该行为5次（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.14"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 22
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013224"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Overdrafted Future"
+          },
+          "name_zh_cn": {
+            "String": "已被透支的「未来」"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"6\"],\"once_scope\":\"PathstriderQuest:6013224\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013224"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.23"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.24"
+          },
+          "summary_en": {
+            "String": "Have the Planar Disarray's Disruption Level at level 6 or higher when completing the stage (at Difficulty 4 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "通关时【位面紊乱！】的【扰动等级】大于等于6级（第四难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.21"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 12
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013203"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "The Memory Bubble Breach Disaster"
+          },
+          "name_zh_cn": {
+            "String": "忆泡泄露大灾变"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"4\"],\"once_scope\":\"PathstriderQuest:6013203\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013203"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.3"
+          },
+          "summary_en": {
+            "String": "Obtain a total of 4 Resonance Formation(s) (at Difficulty 3 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计获得4个回响构音（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.11"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013204"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Cosmic Spending Record"
+          },
+          "name_zh_cn": {
+            "String": "银河最高消费记录"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"6\"],\"once_scope\":\"PathstriderQuest:6013204\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013204"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.4"
+          },
+          "summary_en": {
+            "String": "Complete a total of 6 Combat domain(s)"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成6个【战斗】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 10
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013205"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Dark Web Adventures: Golden Fever"
+          },
+          "name_zh_cn": {
+            "String": "黑网大探险•烁金风潮"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"3\"],\"once_scope\":\"PathstriderQuest:6013205\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013205"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.5"
+          },
+          "summary_en": {
+            "String": "Complete an Adventure domain for a total of 3 time(s) (at Difficulty 3 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "完成3个【冒险】区域（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.12"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.8"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013206"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Final Countdown of the Universe!"
+          },
+          "name_zh_cn": {
+            "String": "「宇宙末日倒计时！」"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"2\"],\"once_scope\":\"PathstriderQuest:6013206\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013206"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.6"
+          },
+          "summary_en": {
+            "String": "Trigger Planar Disarray 2 time(s) (at Difficulty 2 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "触发2次【位面紊乱！】（第二难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.4"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013207"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Biology Big Bang"
+          },
+          "name_zh_cn": {
+            "String": "生物学大爆炸"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"10\"],\"once_scope\":\"PathstriderQuest:6013207\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013207"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.7"
+          },
+          "summary_en": {
+            "String": "Obtain a total of 10 enhanced Blessing(s)"
+          },
+          "summary_zh_cn": {
+            "String": "累计获得10次升级后的祝福"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013208"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Battle For Trotters"
+          },
+          "name_zh_cn": {
+            "String": "扑满大量争夺战"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"4\"],\"once_scope\":\"PathstriderQuest:6013208\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013208"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.8"
+          },
+          "summary_en": {
+            "String": "Complete domains with the Blessing Trotter beacon or the Curio Trotter beacon for a total of 4 time(s) (at Difficulty 3 or higher)"
+          },
+          "summary_zh_cn": {
+            "String": "累计完成4个带有【祝福扑满】或【奇物扑满】信标的区域（第三难度及以上）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.2"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "cabinet_id": {
+            "Integer": 11
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_id": {
+            "String": "swarm-disaster.external-quest-condition.6013209"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "PathstriderObjective"
+          },
+          "name_en": {
+            "String": "Dual Plane Converter"
+          },
+          "name_zh_cn": {
+            "String": "双重位面转换器"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "progress_policy_json": {
+            "String": "{\"comparison\":\"Completed\",\"description_parameters\":[\"1\"],\"once_scope\":\"PathstriderQuest:6013209\",\"source\":\"ExternalQuestCompletion\",\"update_boundary\":\"AfterAcceptedActivityOperation\"}"
+          },
+          "quest_id": {
+            "String": "6013209"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.pathstrider-objective.9"
+          },
+          "summary_en": {
+            "String": "Complete Simulated Universe: Swarm Disaster 1 time(s) at Difficulty III or higher"
+          },
+          "summary_zh_cn": {
+            "String": "完成1次第三及以上难度的「模拟宇宙：寰宇蝗灾」"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "external-quest"
+              },
+              {
+                "String": "pathstrider-objective"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.12"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.11"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

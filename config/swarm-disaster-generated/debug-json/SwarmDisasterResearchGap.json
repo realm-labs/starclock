@@ -1,0 +1,3279 @@
+{
+  "table": {
+    "name": "SwarmDisasterResearchGap",
+    "rows": [
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "abstract-adventure-outcome"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed."
+          },
+          "name_en": {
+            "String": "abstract-adventure-outcome Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "abstract-adventure-outcome 证据边界"
+          },
+          "note": {
+            "String": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.abstract-adventure-outcome"
+          },
+          "rationale": {
+            "String": "Keep abstract-adventure-outcome deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat abstract-adventure-outcome as exact without released evidence."
+              },
+              {
+                "String": "Borrow abstract-adventure-outcome from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.abstract-adventure-outcome"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-abstract-adventure-outcome"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.audience-die-passive"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "audience-dice"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows."
+          },
+          "name_en": {
+            "String": "audience-dice Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "audience-dice 证据边界"
+          },
+          "note": {
+            "String": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.audience-dice"
+          },
+          "rationale": {
+            "String": "Keep audience-dice deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat audience-dice as exact without released evidence."
+              },
+              {
+                "String": "Borrow audience-dice from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-audience-dice"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.audience-die-passive"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "audience-paths"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately."
+          },
+          "name_en": {
+            "String": "audience-paths Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "audience-paths 证据边界"
+          },
+          "note": {
+            "String": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.audience-paths"
+          },
+          "rationale": {
+            "String": "Keep audience-paths deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat audience-paths as exact without released evidence."
+              },
+              {
+                "String": "Borrow audience-paths from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the slot-to-lifecycle mapping if released engine evidence identifies a different application boundary."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-audience-paths"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.beacon-copy-and-blanking"
+              },
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "beacons"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation."
+          },
+          "name_en": {
+            "String": "beacons Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "beacons 证据边界"
+          },
+          "note": {
+            "String": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.beacons"
+          },
+          "rationale": {
+            "String": "Keep beacons deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat beacons as exact without released evidence."
+              },
+              {
+                "String": "Borrow beacons from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.beacons"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-beacons"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-choice-consequence"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "boss_choices"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3."
+          },
+          "name_en": {
+            "String": "boss_choices Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "boss_choices 证据边界"
+          },
+          "note": {
+            "String": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.boss-choices"
+          },
+          "rationale": {
+            "String": "Keep boss_choices deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat boss_choices as exact without released evidence."
+              },
+              {
+                "String": "Borrow boss_choices from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the unresolved consequence only when an exact released boss-choice-to-decay join is available."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.boss-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-boss-choices"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-decay-stack"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "boss-decay-levels"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation."
+          },
+          "name_en": {
+            "String": "boss-decay-levels Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "boss-decay-levels 证据边界"
+          },
+          "note": {
+            "String": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.boss-decay-levels"
+          },
+          "rationale": {
+            "String": "Keep boss-decay-levels deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat boss-decay-levels as exact without released evidence."
+              },
+              {
+                "String": "Borrow boss-decay-levels from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-boss-decay-levels"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-choice"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "communing-choices"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row."
+          },
+          "name_en": {
+            "String": "communing-choices Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "communing-choices 证据边界"
+          },
+          "note": {
+            "String": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.communing-choices"
+          },
+          "rationale": {
+            "String": "Keep communing-choices deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat communing-choices as exact without released evidence."
+              },
+              {
+                "String": "Borrow communing-choices from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-communing-choices"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-dimension-points"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "communing-dimensions"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries."
+          },
+          "name_en": {
+            "String": "communing-dimensions Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "communing-dimensions 证据边界"
+          },
+          "note": {
+            "String": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.communing-dimensions"
+          },
+          "rationale": {
+            "String": "Keep communing-dimensions deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat communing-dimensions as exact without released evidence."
+              },
+              {
+                "String": "Borrow communing-dimensions from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-communing-dimensions"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-trail-effect"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "communing-trail-prerequisites"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node."
+          },
+          "name_en": {
+            "String": "communing-trail-prerequisites Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "communing-trail-prerequisites 证据边界"
+          },
+          "note": {
+            "String": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.communing-trail-prerequisites"
+          },
+          "rationale": {
+            "String": "Keep communing-trail-prerequisites deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat communing-trail-prerequisites as exact without released evidence."
+              },
+              {
+                "String": "Borrow communing-trail-prerequisites from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-communing-trail-prerequisites"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.countdown-lifecycle"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.planar-disarray-transition"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "countdown-and-disarray"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order."
+          },
+          "name_en": {
+            "String": "countdown-and-disarray Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "countdown-and-disarray 证据边界"
+          },
+          "note": {
+            "String": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.countdown-and-disarray"
+          },
+          "rationale": {
+            "String": "Keep countdown-and-disarray deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat countdown-and-disarray as exact without released evidence."
+              },
+              {
+                "String": "Borrow countdown-and-disarray from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-countdown-and-disarray"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.curio-lifecycle"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "curio-selection-and-lifecycle"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order."
+          },
+          "name_en": {
+            "String": "curio-selection-and-lifecycle Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "curio-selection-and-lifecycle 证据边界"
+          },
+          "note": {
+            "String": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.curio-selection-and-lifecycle"
+          },
+          "rationale": {
+            "String": "Keep curio-selection-and-lifecycle deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat curio-selection-and-lifecycle as exact without released evidence."
+              },
+              {
+                "String": "Borrow curio-selection-and-lifecycle from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace offer filters, trigger ordering or replacement selection when released pool/controller evidence supplies authoritative behavior."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.curio-selection-and-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-curio-selection-and-lifecycle"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.dice-roll-reroll-cheat"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "dice-roll-controls"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation."
+          },
+          "name_en": {
+            "String": "dice-roll-controls Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "dice-roll-controls 证据边界"
+          },
+          "note": {
+            "String": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.dice-roll-controls"
+          },
+          "rationale": {
+            "String": "Keep dice-roll-controls deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat dice-roll-controls as exact without released evidence."
+              },
+              {
+                "String": "Borrow dice-roll-controls from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-dice-roll-controls"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.dice-face-targeting"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "dice-target-rules"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness."
+          },
+          "name_en": {
+            "String": "dice-target-rules Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "dice-target-rules 证据边界"
+          },
+          "note": {
+            "String": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.dice-target-rules"
+          },
+          "rationale": {
+            "String": "Keep dice-target-rules deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat dice-target-rules as exact without released evidence."
+              },
+              {
+                "String": "Borrow dice-target-rules from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-dice-target-rules"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.domain-replacement"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "domains"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op."
+          },
+          "name_en": {
+            "String": "domains Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "domains 证据边界"
+          },
+          "note": {
+            "String": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.domains"
+          },
+          "rationale": {
+            "String": "Keep domains deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat domains as exact without released evidence."
+              },
+              {
+                "String": "Borrow domains from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-domains"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "encounter-difficulty-binding"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved."
+          },
+          "name_en": {
+            "String": "encounter-difficulty-binding Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "encounter-difficulty-binding 证据边界"
+          },
+          "note": {
+            "String": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.encounter-difficulty-binding"
+          },
+          "rationale": {
+            "String": "Keep encounter-difficulty-binding deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat encounter-difficulty-binding as exact without released evidence."
+              },
+              {
+                "String": "Borrow encounter-difficulty-binding from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when released engine code exposes the exact battle-level selection and override sequence."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-encounter-difficulty-binding"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-choice-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "encounter-selection"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved."
+          },
+          "name_en": {
+            "String": "encounter-selection Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "encounter-selection 证据边界"
+          },
+          "note": {
+            "String": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.encounter-selection"
+          },
+          "rationale": {
+            "String": "Keep encounter-selection deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat encounter-selection as exact without released evidence."
+              },
+              {
+                "String": "Borrow encounter-selection from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-encounter-selection"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "mechanical-chapter-locators"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock."
+          },
+          "name_en": {
+            "String": "mechanical-chapter-locators Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "mechanical-chapter-locators 证据边界"
+          },
+          "note": {
+            "String": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.mechanical-chapter-locators"
+          },
+          "rationale": {
+            "String": "Keep mechanical-chapter-locators deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat mechanical-chapter-locators as exact without released evidence."
+              },
+              {
+                "String": "Borrow mechanical-chapter-locators from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-mechanical-chapter-locators"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.occurrence-choice"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "occurrence-pool-selection"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "An occurrence enters a domain pool only through an owning domain/service binding. The 75 handbook identities and 57 Swarm variants are the maximum eligible closure; absent an exact offer binding, selection fails closed."
+          },
+          "name_en": {
+            "String": "occurrence-pool-selection Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-pool-selection 证据边界"
+          },
+          "note": {
+            "String": "An occurrence enters a domain pool only through an owning domain/service binding. The 75 handbook identities and 57 Swarm variants are the maximum eligible closure; absent an exact offer binding, selection fails closed."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.occurrence-pool-selection"
+          },
+          "rationale": {
+            "String": "Keep occurrence-pool-selection deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat occurrence-pool-selection as exact without released evidence."
+              },
+              {
+                "String": "Borrow occurrence-pool-selection from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace offer membership and weights when released Swarm occurrence pool tables become available."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "An occurrence enters a domain pool only through an owning domain/service binding. The 75 handbook identities and 57 Swarm variants are the maximum eligible closure; absent an exact offer binding, selection fails closed."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.occurrence-pool-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-occurrence-pool-selection"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.occurrence-choice"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "occurrence-random-outcome"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Preserve released option order, text parameters and printed percentages. If an option names random selection without weights, use a labeled Activity RNG stream over stable source order; an unresolved eligible pool fails closed."
+          },
+          "name_en": {
+            "String": "occurrence-random-outcome Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-random-outcome 证据边界"
+          },
+          "note": {
+            "String": "Preserve released option order, text parameters and printed percentages. If an option names random selection without weights, use a labeled Activity RNG stream over stable source order; an unresolved eligible pool fails closed."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.occurrence-random-outcome"
+          },
+          "rationale": {
+            "String": "Keep occurrence-random-outcome deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat occurrence-random-outcome as exact without released evidence."
+              },
+              {
+                "String": "Borrow occurrence-random-outcome from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace hidden weights, candidate construction or outcome ordering when released occurrence programs or reproducible engine evidence supplies them."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Preserve released option order, text parameters and printed percentages. If an option names random selection without weights, use a labeled Activity RNG stream over stable source order; an unresolved eligible pool fails closed."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.occurrence-random-outcome"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-occurrence-random-outcome"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              },
+              {
+                "String": "swarm-disaster.fixture.resonance-interplay"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "path-resonance-boundaries"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once."
+          },
+          "name_en": {
+            "String": "path-resonance-boundaries Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "path-resonance-boundaries 证据边界"
+          },
+          "note": {
+            "String": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.path-resonance-boundaries"
+          },
+          "rationale": {
+            "String": "Keep path-resonance-boundaries deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat path-resonance-boundaries as exact without released evidence."
+              },
+              {
+                "String": "Borrow path-resonance-boundaries from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-path-resonance-boundaries"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-choice"
+              },
+              {
+                "String": "swarm-disaster.fixture.communing-dimension-points"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "pathstrider-cabinets"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum."
+          },
+          "name_en": {
+            "String": "pathstrider-cabinets Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "pathstrider-cabinets 证据边界"
+          },
+          "note": {
+            "String": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.pathstrider-cabinets"
+          },
+          "rationale": {
+            "String": "Keep pathstrider-cabinets deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat pathstrider-cabinets as exact without released evidence."
+              },
+              {
+                "String": "Borrow pathstrider-cabinets from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-cabinets"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.pathstrider-progress"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "pathstrider-objectives"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion."
+          },
+          "name_en": {
+            "String": "pathstrider-objectives Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "pathstrider-objectives 证据边界"
+          },
+          "note": {
+            "String": "Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.pathstrider-objectives"
+          },
+          "rationale": {
+            "String": "Keep pathstrider-objectives deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat pathstrider-objectives as exact without released evidence."
+              },
+              {
+                "String": "Borrow pathstrider-objectives from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace the external quest condition and commit boundary if released quest evaluator data exposes the authoritative progress event and ordering."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-objectives"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              },
+              {
+                "String": "swarm-disaster.fixture.pathstrider-progress"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "pathstrider-unlocks"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding."
+          },
+          "name_en": {
+            "String": "pathstrider-unlocks Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "pathstrider-unlocks 证据边界"
+          },
+          "note": {
+            "String": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.pathstrider-unlocks"
+          },
+          "rationale": {
+            "String": "Keep pathstrider-unlocks deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat pathstrider-unlocks as exact without released evidence."
+              },
+              {
+                "String": "Borrow pathstrider-unlocks from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace evaluation timing, revocation or mode applicability when released engine evidence and exact consumers establish those semantics."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-unlocks"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.profile-entry"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "profile"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows."
+          },
+          "name_en": {
+            "String": "profile Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "profile 证据边界"
+          },
+          "note": {
+            "String": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.profile"
+          },
+          "rationale": {
+            "String": "Keep profile deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat profile as exact without released evidence."
+              },
+              {
+                "String": "Borrow profile from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace only if a later released profile registry provides a stronger stable identity."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.profile"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-profile"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "rooms"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "RogueDLCRoom publishes room-to-section membership only. Domain and encounter-pool bindings remain empty until exact released joins are imported in G09-P2-B5."
+          },
+          "name_en": {
+            "String": "rooms Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "rooms 证据边界"
+          },
+          "note": {
+            "String": "RogueDLCRoom publishes room-to-section membership only. Domain and encounter-pool bindings remain empty until exact released joins are imported in G09-P2-B5."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.rooms"
+          },
+          "rationale": {
+            "String": "Keep rooms deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat rooms as exact without released evidence."
+              },
+              {
+                "String": "Borrow rooms from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace an empty binding only with an exact released source join; never infer it from numeric room-ID encoding."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "RogueDLCRoom publishes room-to-section membership only. Domain and encounter-pool bindings remain empty until exact released joins are imported in G09-P2-B5."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.rooms"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-rooms"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "service-transaction-boundary"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation."
+          },
+          "name_en": {
+            "String": "service-transaction-boundary Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "service-transaction-boundary 证据边界"
+          },
+          "note": {
+            "String": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.service-transaction-boundary"
+          },
+          "rationale": {
+            "String": "Keep service-transaction-boundary deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat service-transaction-boundary as exact without released evidence."
+              },
+              {
+                "String": "Borrow service-transaction-boundary from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-service-transaction-boundary"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.resonance-interplay"
+              },
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "shared-content-pool-weight"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Use stable member-ID order and equal integer weight 1 for selectable Path and Blessing candidates after exact eligibility filtering. Resonances and Formations unlock deterministically from the selected Path and inherited thresholds rather than random weighting."
+          },
+          "name_en": {
+            "String": "shared-content-pool-weight Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "shared-content-pool-weight 证据边界"
+          },
+          "note": {
+            "String": "Use stable member-ID order and equal integer weight 1 for selectable Path and Blessing candidates after exact eligibility filtering. Resonances and Formations unlock deterministically from the selected Path and inherited thresholds rather than random weighting."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.shared-content-pool-weight"
+          },
+          "rationale": {
+            "String": "Keep shared-content-pool-weight deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat shared-content-pool-weight as exact without released evidence."
+              },
+              {
+                "String": "Borrow shared-content-pool-weight from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace equal candidate weights and selected-Path weighting when released pool tables or reproducible engine observations provide authoritative weights."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Use stable member-ID order and equal integer weight 1 for selectable Path and Blessing candidates after exact eligibility filtering. Resonances and Formations unlock deterministically from the selected Path and inherited thresholds rather than random weighting."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.shared-content-pool-weight"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-shared-content-pool-weight"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.beacon-copy-and-blanking"
+              },
+              {
+                "String": "swarm-disaster.fixture.domain-replacement"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "topology-consequences"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops."
+          },
+          "name_en": {
+            "String": "topology-consequences Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "topology-consequences 证据边界"
+          },
+          "note": {
+            "String": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.topology-consequences"
+          },
+          "rationale": {
+            "String": "Keep topology-consequences deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat topology-consequences as exact without released evidence."
+              },
+              {
+                "String": "Borrow topology-consequences from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-topology-consequences"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.topology-generation"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "topology_policy"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges."
+          },
+          "name_en": {
+            "String": "topology_policy Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "topology_policy 证据边界"
+          },
+          "note": {
+            "String": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.topology-policy"
+          },
+          "rationale": {
+            "String": "Keep topology_policy deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat topology_policy as exact without released evidence."
+              },
+              {
+                "String": "Borrow topology_policy from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace when released explicit edges or a verified engine graph builder becomes available."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.topology-policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-topology-policy"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.profile-entry"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "trailblaze-bonus-boundary"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream."
+          },
+          "name_en": {
+            "String": "trailblaze-bonus-boundary Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "trailblaze-bonus-boundary 证据边界"
+          },
+          "note": {
+            "String": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+          },
+          "rationale": {
+            "String": "Keep trailblaze-bonus-boundary deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat trailblaze-bonus-boundary as exact without released evidence."
+              },
+              {
+                "String": "Borrow trailblaze-bonus-boundary from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-project-policy-trailblaze-bonus-boundary"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ProjectPolicy boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ProjectPolicy 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-decay-stack"
+              },
+              {
+                "String": "swarm-disaster.fixture.countdown-lifecycle"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.planar-disarray-transition"
+              }
+            ]
+          },
+          "blocking": {
+            "Bool": false
+          },
+          "confidence": {
+            "String": "ReleasedTextCrossCheck"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ApproximateFromReleasedText"
+          },
+          "field": {
+            "String": "Planar Disarray & Countdown / Summary of the Game Mode"
+          },
+          "gap_state": {
+            "String": "PolicyBound"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "ResearchGap"
+          },
+          "known_facts": {
+            "String": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape."
+          },
+          "name_en": {
+            "String": "Planar Disarray & Countdown / Summary of the Game Mode Evidence Boundary"
+          },
+          "name_zh_cn": {
+            "String": "Planar Disarray & Countdown / Summary of the Game Mode 证据边界"
+          },
+          "note": {
+            "String": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape."
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "policy_source_id": {
+            "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+          },
+          "rationale": {
+            "String": "Keep Planar Disarray & Countdown / Summary of the Game Mode deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat Planar Disarray & Countdown / Summary of the Game Mode as exact without released evidence."
+              },
+              {
+                "String": "Borrow Planar Disarray & Countdown / Summary of the Game Mode from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
+          },
+          "replacement_condition": {
+            "String": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selected_policy": {
+            "String": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape."
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.research-gap.source-goal09-public-hoyolab-swarm-progression-countdown"
+          },
+          "state": {
+            "String": "PolicyBound"
+          },
+          "summary_en": {
+            "String": "Nonblocking ApproximateFromReleasedText boundary with an explicit deterministic policy and replacement condition."
+          },
+          "summary_zh_cn": {
+            "String": "非阻塞的 ApproximateFromReleasedText 证据边界，具有显式确定性策略与替换条件。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "nonblocking"
+              },
+              {
+                "String": "research-gap"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

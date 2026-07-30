@@ -1,0 +1,498 @@
+[
+  {
+    "id": "swarm-disaster.path-boost.641230",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Abundance Path Boost",
+    "name_zh_cn": "丰饶命途强化",
+    "summary_en": "Selecting Abundance applies released stage ability StageAbility_641230.",
+    "summary_zh_cn": "选择丰饶后应用已发布的关卡能力 StageAbility_641230。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "3",
+        "sha256": "c726d5f89c4beadb248d27281604123f28d0bf5c65d94a4f89e804abb3e894b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[6]",
+        "sha256": "1f631d5214dc15c221bdac81aff61089409617c0521b34fccbe18e2ff6d6fb68",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641230",
+    "path_id": "universe.path.abundance",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641230",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "1f631d5214dc15c221bdac81aff61089409617c0521b34fccbe18e2ff6d6fb68"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641250",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Destruction Path Boost",
+    "name_zh_cn": "毁灭命途强化",
+    "summary_en": "Selecting Destruction applies released stage ability StageAbility_641250.",
+    "summary_zh_cn": "选择毁灭后应用已发布的关卡能力 StageAbility_641250。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "5",
+        "sha256": "4594115cb03874577d4769d2ed4a6dd2d0b2ffcb6f213fad052676500b22dac6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[10]",
+        "sha256": "c3583daf92836d4f7bdfd8a328e3c334a3be87a82ae8d172e03f1a6a1d83eb7b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641250",
+    "path_id": "universe.path.destruction",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641250",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "c3583daf92836d4f7bdfd8a328e3c334a3be87a82ae8d172e03f1a6a1d83eb7b"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641260",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Elation Path Boost",
+    "name_zh_cn": "欢愉命途强化",
+    "summary_en": "Selecting Elation applies released stage ability StageAbility_641260.",
+    "summary_zh_cn": "选择欢愉后应用已发布的关卡能力 StageAbility_641260。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "6",
+        "sha256": "21ad0e4c8194de02ba6d2946923af48f32443bc132a4f6636779ba42d0aa1465",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[14]",
+        "sha256": "4d62b6f11538288dab89b0e1c6d475a19396283e0966b6cdce7ac0c013680c13",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641260",
+    "path_id": "universe.path.elation",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641260",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "4d62b6f11538288dab89b0e1c6d475a19396283e0966b6cdce7ac0c013680c13"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641240",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "The Hunt Path Boost",
+    "name_zh_cn": "巡猎命途强化",
+    "summary_en": "Selecting The Hunt applies released stage ability StageAbility_641240.",
+    "summary_zh_cn": "选择巡猎后应用已发布的关卡能力 StageAbility_641240。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "4",
+        "sha256": "b75e3a84ba2f3511509a7a9eddee131910e879ccc34edef9d9f7eee2a3b6ef16",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[8]",
+        "sha256": "d9e04cf4d807122c785517aed5facf20d1e3ede8d40bf4493f5c08e403991f0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641240",
+    "path_id": "universe.path.hunt",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641240",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "d9e04cf4d807122c785517aed5facf20d1e3ede8d40bf4493f5c08e403991f0f"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641220",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Nihility Path Boost",
+    "name_zh_cn": "虚无命途强化",
+    "summary_en": "Selecting Nihility applies released stage ability StageAbility_641220.",
+    "summary_zh_cn": "选择虚无后应用已发布的关卡能力 StageAbility_641220。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "2",
+        "sha256": "ac3d2f0f541267fa60878b1c8410dcb17888834bd1b35ec82f4b8170f7ecb879",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[5]",
+        "sha256": "bf933d17f4c1edd051bbc7d2c901f19792a6beeb790ce4400b2d9f31d9fc148a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641220",
+    "path_id": "universe.path.nihility",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641220",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "bf933d17f4c1edd051bbc7d2c901f19792a6beeb790ce4400b2d9f31d9fc148a"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641200",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Preservation Path Boost",
+    "name_zh_cn": "存护命途强化",
+    "summary_en": "Selecting Preservation applies released stage ability StageAbility_641200.",
+    "summary_zh_cn": "选择存护后应用已发布的关卡能力 StageAbility_641200。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "0",
+        "sha256": "2b12054f75d72e50923c1cbbc523e0ac2f2f8c12818899465e783ebf56286fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[1]",
+        "sha256": "b93932949240ba4ceab3bd9ecc1fa9db4ffcd55b20acef8af9c05fdb719f328f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641200",
+    "path_id": "universe.path.preservation",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641200",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "b93932949240ba4ceab3bd9ecc1fa9db4ffcd55b20acef8af9c05fdb719f328f"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641270",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Propagation Path Boost",
+    "name_zh_cn": "繁育命途强化",
+    "summary_en": "Selecting Propagation applies released stage ability StageAbility_641270.",
+    "summary_zh_cn": "选择繁育后应用已发布的关卡能力 StageAbility_641270。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "7",
+        "sha256": "2e7c287aacf25a7391e592772ee75b14d3bfa30aa803eb4d3bbd3091af427205",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[16]",
+        "sha256": "78ce3e384ec001e09e0f052f42eda607bd2deb00ec206900502c59842bd838f6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641270",
+    "path_id": "universe.path.propagation",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641270",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "78ce3e384ec001e09e0f052f42eda607bd2deb00ec206900502c59842bd838f6"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  },
+  {
+    "id": "swarm-disaster.path-boost.641210",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmPathBoost",
+    "name_en": "Remembrance Path Boost",
+    "name_zh_cn": "记忆命途强化",
+    "summary_en": "Selecting Remembrance applies released stage ability StageAbility_641210.",
+    "summary_zh_cn": "选择记忆后应用已发布的关卡能力 StageAbility_641210。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "1",
+        "sha256": "428eebe80448e9224b579e20cf6305036e33d8f84b1c2361420e5b7210bfb785",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-configability-level-level-roguebuff-ability-dlc1-other-json.abilitylist-3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_DLC1_Other.json",
+        "locator": "AbilityList[3]",
+        "sha256": "fe7bf912c4ff169612ebe04192ea524d47e6697c6b79594ef72c25d4f5562508",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "path-boost",
+      "project-policy"
+    ],
+    "source_id": "641210",
+    "path_id": "universe.path.remembrance",
+    "effect_program": {
+      "operation": "AddMazeBuff",
+      "stage_ability": "StageAbility_641210",
+      "level_parameters": [
+        "0"
+      ],
+      "source_program_sha256": "fe7bf912c4ff169612ebe04192ea524d47e6697c6b79594ef72c25d4f5562508"
+    },
+    "application_boundary": "AfterPathSelectionAtRunStart"
+  }
+]

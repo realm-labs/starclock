@@ -1,0 +1,978 @@
+{
+  "table": {
+    "name": "SwarmDisasterMechanicalChapter",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 1
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.4\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Nihility I"
+          },
+          "name_zh_cn": {
+            "String": "虚无Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "6"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.4"
+          },
+          "summary_en": {
+            "String": "Chapter 4 becomes available on plane 1 at Communing dimension 3 threshold 6."
+          },
+          "summary_zh_cn": {
+            "String": "章节 4 在第 1 位面、觐见维度 3 达到 6 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 1
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.8\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Destruction II"
+          },
+          "name_zh_cn": {
+            "String": "毁灭Ⅱ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "5"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.8"
+          },
+          "summary_en": {
+            "String": "Chapter 8 becomes available on plane 1 at Communing dimension 6 threshold 5."
+          },
+          "summary_zh_cn": {
+            "String": "章节 8 在第 1 位面、觐见维度 6 达到 5 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.10\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Elation II"
+          },
+          "name_zh_cn": {
+            "String": "欢愉Ⅱ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "10"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "10"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.10"
+          },
+          "summary_en": {
+            "String": "Chapter 10 becomes available on plane 2 at Communing dimension 7 threshold 10."
+          },
+          "summary_zh_cn": {
+            "String": "章节 10 在第 2 位面、觐见维度 7 达到 10 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.11\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Abundance I"
+          },
+          "name_zh_cn": {
+            "String": "丰饶Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "5"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "11"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.11"
+          },
+          "summary_en": {
+            "String": "Chapter 11 becomes available on plane 2 at Communing dimension 4 threshold 5."
+          },
+          "summary_zh_cn": {
+            "String": "章节 11 在第 2 位面、觐见维度 4 达到 5 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":true,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.2\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Buff\",\"simulation_payload_status\":\"UnresolvedFailClosed\"}"
+          },
+          "name_en": {
+            "String": "Preservation I"
+          },
+          "name_zh_cn": {
+            "String": "存护Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "8"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.2"
+          },
+          "summary_en": {
+            "String": "Chapter 2 becomes available on plane 2 at Communing dimension 1 threshold 8."
+          },
+          "summary_zh_cn": {
+            "String": "章节 2 在第 2 位面、觐见维度 1 达到 8 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "bonus-declared"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":true,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.5\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Buff\",\"simulation_payload_status\":\"UnresolvedFailClosed\"}"
+          },
+          "name_en": {
+            "String": "Remembrance I"
+          },
+          "name_zh_cn": {
+            "String": "记忆Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.5"
+          },
+          "summary_en": {
+            "String": "Chapter 5 becomes available on plane 2 at Communing dimension 2 threshold 2."
+          },
+          "summary_zh_cn": {
+            "String": "章节 5 在第 2 位面、觐见维度 2 达到 2 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "bonus-declared"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.6\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Remembrance II"
+          },
+          "name_zh_cn": {
+            "String": "记忆Ⅱ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "7"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.6"
+          },
+          "summary_en": {
+            "String": "Chapter 6 becomes available on plane 2 at Communing dimension 2 threshold 7."
+          },
+          "summary_zh_cn": {
+            "String": "章节 6 在第 2 位面、觐见维度 2 达到 7 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":true,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.7\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Buff\",\"simulation_payload_status\":\"UnresolvedFailClosed\"}"
+          },
+          "name_en": {
+            "String": "Destruction I"
+          },
+          "name_zh_cn": {
+            "String": "毁灭Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "3"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.7"
+          },
+          "summary_en": {
+            "String": "Chapter 7 becomes available on plane 2 at Communing dimension 6 threshold 3."
+          },
+          "summary_zh_cn": {
+            "String": "章节 7 在第 2 位面、觐见维度 6 达到 3 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "bonus-declared"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 2
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.9\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Elation I"
+          },
+          "name_zh_cn": {
+            "String": "欢愉Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "8"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.9"
+          },
+          "summary_en": {
+            "String": "Chapter 9 becomes available on plane 2 at Communing dimension 7 threshold 8."
+          },
+          "summary_zh_cn": {
+            "String": "章节 9 在第 2 位面、觐见维度 7 达到 8 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 3
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.1\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "The Hunt I"
+          },
+          "name_zh_cn": {
+            "String": "巡猎Ⅰ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.1"
+          },
+          "summary_en": {
+            "String": "Chapter 1 becomes available on plane 3 at Communing dimension 5 threshold 2."
+          },
+          "summary_zh_cn": {
+            "String": "章节 1 在第 3 位面、觐见维度 5 达到 2 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 3
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.12\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Abundance II"
+          },
+          "name_zh_cn": {
+            "String": "丰饶Ⅱ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "8"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "12"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.12"
+          },
+          "summary_en": {
+            "String": "Chapter 12 becomes available on plane 3 at Communing dimension 4 threshold 8."
+          },
+          "summary_zh_cn": {
+            "String": "章节 12 在第 3 位面、觐见维度 4 达到 8 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 3
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.13\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Order"
+          },
+          "name_zh_cn": {
+            "String": "序"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "13"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.13"
+          },
+          "summary_en": {
+            "String": "Chapter 13 has no released Communing threshold."
+          },
+          "summary_zh_cn": {
+            "String": "章节 13 没有已发布的觐见维度阈值。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "MechanicalChapterLocator"
+          },
+          "layer": {
+            "Integer": 3
+          },
+          "mechanical_unlock_json": {
+            "String": "{\"bonus_declared\":false,\"bonus_payload\":\"\",\"chapter_id\":\"swarm-disaster.mechanical-chapter.3\",\"operation\":\"MakeMechanicalChapterAvailable\",\"presentation_toast_type\":\"Effect\",\"simulation_payload_status\":\"ChapterAvailabilityOnly\"}"
+          },
+          "name_en": {
+            "String": "Preservation II"
+          },
+          "name_zh_cn": {
+            "String": "存护Ⅱ"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "point_threshold": {
+            "String": "13"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanical-chapter.3"
+          },
+          "summary_en": {
+            "String": "Chapter 3 becomes available on plane 3 at Communing dimension 1 threshold 13."
+          },
+          "summary_zh_cn": {
+            "String": "章节 3 在第 3 位面、觐见维度 1 达到 13 时可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "chapter-availability"
+              },
+              {
+                "String": "mechanical-chapter-locator"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

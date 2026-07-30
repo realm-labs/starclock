@@ -1,0 +1,835 @@
+{
+  "table": {
+    "name": "SwarmDisasterDomain",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Adventure"
+          },
+          "name_zh_cn": {
+            "String": "冒险"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "Adventure"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.adventure"
+          },
+          "summary_en": {
+            "String": "Adventure is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Adventure 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Adventure"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Blank"
+          },
+          "name_zh_cn": {
+            "String": "空白"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "Empty"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-level1-03-json.roguechestgriditemmap-403"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.empty"
+          },
+          "summary_en": {
+            "String": "Empty is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Empty 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Empty"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Occurrence"
+          },
+          "name_zh_cn": {
+            "String": "事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "Event"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-101"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.event"
+          },
+          "summary_en": {
+            "String": "Event is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Event 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Event"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Boss"
+          },
+          "name_zh_cn": {
+            "String": "首领"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "MonsterBoss"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-204"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.monsterboss"
+          },
+          "summary_en": {
+            "String": "MonsterBoss is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterBoss 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterBoss"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Elite"
+          },
+          "name_zh_cn": {
+            "String": "精英"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "MonsterElite"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-102"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.monsterelite"
+          },
+          "summary_en": {
+            "String": "MonsterElite is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterElite 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterElite"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Combat"
+          },
+          "name_zh_cn": {
+            "String": "战斗"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "MonsterNormal"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.monsternormal"
+          },
+          "summary_en": {
+            "String": "MonsterNormal is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterNormal 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterNormal"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Combat: Swarm"
+          },
+          "name_zh_cn": {
+            "String": "战斗•虫群"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "MonsterSwarm"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-maprepo-customlevel-roguedlc-map-level1-endgame-json.roguechestgriditemmap-204"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.monsterswarm"
+          },
+          "summary_en": {
+            "String": "MonsterSwarm is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterSwarm 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterSwarm"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Boss: Swarm"
+          },
+          "name_zh_cn": {
+            "String": "首领•虫群"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "MonsterSwarmBoss"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-3-json.roguechestgriditemmap-204"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.monsterswarmboss"
+          },
+          "summary_en": {
+            "String": "MonsterSwarmBoss is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterSwarmBoss 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterSwarmBoss"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Respite"
+          },
+          "name_zh_cn": {
+            "String": "休整"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "Respite"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.respite"
+          },
+          "summary_en": {
+            "String": "Respite is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Respite 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Respite"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Reward"
+          },
+          "name_zh_cn": {
+            "String": "奖励"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "Reward"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-3-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.reward"
+          },
+          "summary_en": {
+            "String": "Reward is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Reward 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Reward"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Occurrence: Swarm"
+          },
+          "name_zh_cn": {
+            "String": "事件•虫群"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "SwarmEvent"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-maprepo-level1-roguedlc-map-level1-type1-01-json.roguechestgriditemmap-302"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.swarmevent"
+          },
+          "summary_en": {
+            "String": "SwarmEvent is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "SwarmEvent 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SwarmEvent"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SwarmDomain"
+          },
+          "name_en": {
+            "String": "Transaction"
+          },
+          "name_zh_cn": {
+            "String": "交易"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "replacement_policy_json": {
+            "String": "{\"mutation_order\":\"StableNodeId\",\"no_legal_target\":\"NoOp\",\"preserve_terminal_nodes\":true,\"preserve_unmentioned_metadata\":true,\"trigger_source\":\"TypedTopologyConsequence\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selection_policy_json": {
+            "String": "{\"candidate_order\":\"StableNodeId\",\"candidate_source\":\"AuthoredNodeCandidatesOrBlockCreationWeights\",\"no_legal_target\":\"NoOp\",\"weighted_sampling\":\"IntegerWeight\"}"
+          },
+          "source_id": {
+            "String": "Trade"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.roguechestgriditemmap-200"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.domain.trade"
+          },
+          "summary_en": {
+            "String": "Trade is reachable from an authored ChessRogue node or block-creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Trade 可由已发布的 ChessRogue 节点或区块创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Trade"
+              },
+              {
+                "String": "domain"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

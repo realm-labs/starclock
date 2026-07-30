@@ -1,0 +1,2808 @@
+[
+  {
+    "id": "swarm-disaster.boss-decay.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, it will be inflicted with Physical Weakness.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，虫群•真蛰虫（完整）获得物理属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "0",
+        "sha256": "f88ef87540aec567fb26396706a08f4dfb3b3a5ff2caece9e8416111f273f6e3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneOneBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "1",
+    "tier": "PlaneOneBossChoice",
+    "threshold": "PlaneOneBossChoice",
+    "effect_refs": [
+      "source-effect.610001"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the first plane's boss",
+    "acquisition_zh_cn": "击败第一位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, it will be inflicted with Fire Weakness.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，虫群•真蛰虫（完整）获得火属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "1",
+        "sha256": "321d416495cf4a986cfd6f8172652577a3f882fa688be34ec78bfb84d3a60259",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneOneBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "2",
+    "tier": "PlaneOneBossChoice",
+    "threshold": "PlaneOneBossChoice",
+    "effect_refs": [
+      "source-effect.610002"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the first plane's boss",
+    "acquisition_zh_cn": "击败第一位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, it will be inflicted with Ice Weakness.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，虫群•真蛰虫（完整）获得冰属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "2",
+        "sha256": "e3407d5e24d9af18f3da77cf17b8bbdcf9f4dafbea02695edcdbd532e62e4009",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneOneBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "3",
+    "tier": "PlaneOneBossChoice",
+    "threshold": "PlaneOneBossChoice",
+    "effect_refs": [
+      "source-effect.610003"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the first plane's boss",
+    "acquisition_zh_cn": "击败第一位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.4",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, it will be inflicted with Lightning Weakness.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，虫群•真蛰虫（完整）获得雷属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "3",
+        "sha256": "b2699b88e9b00b2e1c8930bd698b53cfd0df5bd1f2be0a281a3a14038ea12581",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneOneBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "4",
+    "tier": "PlaneOneBossChoice",
+    "threshold": "PlaneOneBossChoice",
+    "effect_refs": [
+      "source-effect.610004"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the first plane's boss",
+    "acquisition_zh_cn": "击败第一位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, it will be inflicted with Wind Weakness.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，虫群•真蛰虫（完整）获得风属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "4",
+        "sha256": "43e40aee5914ffd7bec56d1143d8d04a4c2da5d1de96aeda06fede7fb96fe4f8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneOneBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "5",
+    "tier": "PlaneOneBossChoice",
+    "threshold": "PlaneOneBossChoice",
+    "effect_refs": [
+      "source-effect.610005"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the first plane's boss",
+    "acquisition_zh_cn": "击败第一位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.11",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, enemies' action will be delayed by an additional #1[i]% when they become Weakness Broken.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，敌方弱点被击破时行动额外延后#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "5",
+        "sha256": "0a90e67139a43f1aa019b1d184ab80580fec6feb8e9c1bbaee506aca91891f65",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "11",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610011"
+    ],
+    "effect_parameters": [
+      "0.5"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.12",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, the chance for Swarm: True Sting (Complete) to resist Crowd Control debuffs is reduced by #1[i]%.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，虫群•真蛰虫（完整）抵抗控制类负面状态的概率降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "6",
+        "sha256": "b77845edc890d7e4a6cb87a6fcea0630c30831d314bcfa1c431a52b4efe166e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "12",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610012"
+    ],
+    "effect_parameters": [
+      "0.25"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.13",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, all enemies' SPD is reduced by #1[i]%.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，敌方全体速度降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "7",
+        "sha256": "ee1ea62cd8a0179f9e6b0897e7930940e783c1af4913716ae7e1dbdf5be14e3b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "13",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610013"
+    ],
+    "effect_parameters": [
+      "0.12"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.14",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, any ally who has their DoTs debuffs dispelled will also be granted continuous healing.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，当我方目标陷入的持续伤害类负面状态被解除时，获得持续治疗效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "8",
+        "sha256": "950d791fe198ab006de467a238d373020244b8db269a3fcccabbe9a957890bd3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "14",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610014"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.15",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, reduces all enemies' DMG dealt by #1[i]%, and causes them to prioritize attacking the ally with the highest Shield.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，敌方全体造成的伤害降低#1[i]%，并优先攻击我方护盾值最高的角色。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "9",
+        "sha256": "6d6741e241ede73b0125e8a728fe1850734dd241c86d37d7e33da48e11da299a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "15",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610015"
+    ],
+    "effect_parameters": [
+      "0.1"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.21",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, reduces Toughness of every single enemy target.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，削减敌方每个单体目标的韧性。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "10",
+        "sha256": "ba3db3c660cb8b4a1fafe4ce8efcf33f06158678b0814d39a3c875a03461fad0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "21",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610021"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.22",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, increases all enemies' DMG received by an extra amount when a True Sting receives a killing blow.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，真蛰虫群受到致命攻击时使敌方全体受到的伤害提高效果额外提高。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "11",
+        "sha256": "5707c2dfef4cfb667ea3f6bc4c1f029169bd9f8268e49849ea9b7e8667bfb550",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "22",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610022"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.23",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, allies recover #1[i] Skill Point every time an enemy receives a killing blow.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，每有1个敌方目标受到致命攻击，使我方恢复#1[i]个战技点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "12",
+        "sha256": "954c744a66203faf975c31c9509c55638e4e96aa354ff7f820d27c051fb3076f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "23",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610023"
+    ],
+    "effect_parameters": [
+      "1"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.24",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, when an enemy is hit with an attack corresponding to their Weakness Type, inflict the enemy with 1 DoT of a random Type.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，敌方受到弱点对应的属性攻击时使其陷入1个随机属性的持续伤害效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "13",
+        "sha256": "ca917e1abb4a1c180fbd8b0455257e7ca277d43ed856093a718c48675c55353e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "24",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610024"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.25",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "While battling Swarm: True Sting (Complete) in the third plane's Boss: Swarm domain, when an ally's HP percentage falls below #1[i]%, dispels all their debuffs and that ally can no longer be inflicted with debuffs.",
+    "summary_zh_cn": "在第三位面【虫群•首领】区域挑战虫群•真蛰虫（完整）的战斗中，当我方角色生命值百分比小于#1[i]%时，解除其所有负面效果并不会再陷入任何负面效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "14",
+        "sha256": "822eae4950e37f08d745c5c739bed5d23aa29fb8041bb76942134e91a4f263cf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "PlaneTwoBossChoice",
+      "boss-decay",
+      "project-policy",
+      "swarm-specific"
+    ],
+    "source_id": "25",
+    "tier": "PlaneTwoBossChoice",
+    "threshold": "PlaneTwoBossChoice",
+    "effect_refs": [
+      "source-effect.610025"
+    ],
+    "effect_parameters": [
+      "0.3"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "Obtained by defeating the second plane's boss",
+    "acquisition_zh_cn": "击败第二位面首领时获得",
+    "swarm_applicability": "EnabledByReleasedSwarmText"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the boss will be inflicted with Physical Weakness.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，首领获得物理属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "15",
+        "sha256": "790e0e85e6d5e54d542a6ed249ba71be0706cea26baef2bdf8faaa62ce0896f4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "101",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610101"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.102",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the boss will be inflicted with Fire Weakness.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，首领获得火属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "16",
+        "sha256": "2935f3fa0733d007ccd207d7ce8e21938ef9f708c7043a53e904de839082574c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "102",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610102"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.104",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the boss will be inflicted with Lightning Weakness.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，首领获得雷属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "17",
+        "sha256": "6368f2d3ae552237d567a68fafbae602a6adef75c48f1f99d8cee464f77d3ce7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "104",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610104"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.105",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the boss will be inflicted with Wind Weakness.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，首领获得风属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "18",
+        "sha256": "22e51908ec825e031fc367d1bbaa511a68c3871b4eab8b1cf422866e0cb6193d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "105",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610105"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.106",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the boss will be inflicted with Quantum Weakness.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，首领获得量子属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "19",
+        "sha256": "efeda8049095f16548d10e6d6c9214e9640a386106b8aafca9a84610c8e7fba4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "106",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610106"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.107",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the boss will be inflicted with Imaginary Weakness.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，首领获得虚数属性弱点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "20",
+        "sha256": "480f09c125dab4e3a2e5d0be256950450f6898dadcb94005e1a07e2397d77744",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "107",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610107"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.111",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, the chance for enemies to resist Crowd Control debuffs is reduced by #1[i]%.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，敌方全体抵抗控制类负面状态的概率降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "21",
+        "sha256": "a64325a4a72d04a6ac80f35028dc36511fa311b0796e6efafad0c6199adf02b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "111",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610111"
+    ],
+    "effect_parameters": [
+      "0.25"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.112",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, all enemies' SPD is reduced by #1[i]%.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，敌方全体速度降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "22",
+        "sha256": "7980feaedca017b9960147515eb82088292e7a7f47c16c53b3341acc4b023162",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "112",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610112"
+    ],
+    "effect_parameters": [
+      "0.12"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.113",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, all enemies deal #1[i]% less DMG.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，敌方全体造成的伤害降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "23",
+        "sha256": "f4de6b886768d505bb2eeeb7a62d2dd712234fc2a0eca334ebaa61359877ce97",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "113",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610113"
+    ],
+    "effect_parameters": [
+      "0.15"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.114",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, enemies' action are delayed by a further #1[i]% when they are Weakness Broken.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，敌方全体弱点被击破时行动额外延后#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "24",
+        "sha256": "e11dde0e0050d895baf93c2565a0653f86f7e7d5070eebdbf4a795c4f9ad7232",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "114",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610114"
+    ],
+    "effect_parameters": [
+      "0.5"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.115",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, enemies take #1[i]% more DMG while they are Weakness Broken.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，敌方全体处于弱点击破状态下时受到的伤害提升#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "25",
+        "sha256": "15db6d9239799a5280ffaf6ffe4868c4c588e8cbe78f3da60c5df9dd92e136b7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "115",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.610115"
+    ],
+    "effect_parameters": [
+      "0.3"
+    ],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.120",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: The Hunt",
+    "name_zh_cn": "回响推演：巡猎",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: The Hunt and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：巡猎】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "26",
+        "sha256": "c8e987b7ec66d5821e17334831fbf2dbdf36128513501de708f0c7a6baec3448",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "120",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650011",
+      "source-effect.650012"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.121",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: The Hunt",
+    "name_zh_cn": "回响推演：巡猎",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: The Hunt and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：巡猎】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "30",
+        "sha256": "8548f3734d3b4f110086b215af155d8f241bdca7dabf86df20278bc577c7e53c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "121",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650011",
+      "source-effect.650012",
+      "source-effect.650013"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.122",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: The Hunt's Formation Extrapolation: Bow and Arrow.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：巡猎】拥有的【构音推演：柘弓危矢】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "34",
+        "sha256": "ba3fb1abbbd3b3b901140e9596b2d912dd5ba2ee7014714400f28adaef56baa4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "122",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650012"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.123",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: The Hunt's Formation Extrapolation: Star Hunter.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：巡猎】拥有的【构音推演：狩星巡日】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "35",
+        "sha256": "1b803b39a12141a661df87fe980eaa99c99fc206b792f9517643437df2a378ea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "123",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650013"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.130",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: Destruction",
+    "name_zh_cn": "回响推演：毁灭",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: Destruction and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：毁灭】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "27",
+        "sha256": "6d535afa8b100c4b51d2616fa5f3e7ed1262962df36f4f88f3a7f3c83d0056ee",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "130",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650021",
+      "source-effect.650022"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.131",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: Destruction",
+    "name_zh_cn": "回响推演：毁灭",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: Destruction and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：毁灭】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "31",
+        "sha256": "62a9d3aac583edf68f21da7779167bb901ffbed040e409df190a51be76dcd8d3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "131",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650021",
+      "source-effect.650022",
+      "source-effect.650023"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.132",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: Destruction's Formation Extrapolation: Extreme Helium Flash.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：毁灭】拥有的【构音推演：极端氦闪】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "36",
+        "sha256": "aaabbbee0c8ecef55f40f1805fe4935e964d472b98548f53f6cd7219c3af6b01",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "132",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650022"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.133",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: Destruction's Formation Extrapolation: Zero Age Main Sequence.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：毁灭】拥有的【构音推演：零龄主序】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "37",
+        "sha256": "f88c6b5226a7be7ba0abba2d3fca8b53bee1abfc5579ab099371f55a59e54a43",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "133",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650023"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.140",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: Nihility",
+    "name_zh_cn": "回响推演：虚无",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: Nihility and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：虚无】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "28",
+        "sha256": "070dacf46cfb5459860e42339f1a00f653b03209cb61d9cb2bb5186e08865c5b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "140",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650031",
+      "source-effect.650032"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.141",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: Nihility",
+    "name_zh_cn": "回响推演：虚无",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: Nihility and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：虚无】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "32",
+        "sha256": "691fa2232d265b3163eb6af2faad2471d3723ce76b23abc6265f2347f18a4157",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "141",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650031",
+      "source-effect.650032",
+      "source-effect.650033"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.142",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: Nihility's Formation Extrapolation: The Doubtful Fourfold Root.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：虚无】拥有的【构音推演：怀疑的四重根】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "38",
+        "sha256": "9732b3526efa7da02248160b5c9d667f3b56c35adb2a46abcfc66b495a5ed73e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "142",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650032"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.143",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: Nihility's Formation Extrapolation: Outsider.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：虚无】拥有的【构音推演：局外人】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "39",
+        "sha256": "b325ac3fa18500d05a36439500ba2ed0e07fae464e3aa569f6275b7c46ebb46f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "143",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650033"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.150",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: Abundance",
+    "name_zh_cn": "回响推演：丰饶",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: Abundance and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：丰饶】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "29",
+        "sha256": "7776a709cb1974eedf3789597983c8083df5cd16dcf52a87b2f43012902e0d52",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "150",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650041",
+      "source-effect.650042"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.151",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Resonance Extrapolation: Abundance",
+    "name_zh_cn": "回响推演：丰饶",
+    "summary_en": "In the Third Plane's Boss Domain challenge, Resonance Extrapolation: Abundance and its corresponding Formation Extrapolation will occur.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，会出现【回响推演：丰饶】及其对应的【构音推演】。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "33",
+        "sha256": "ea471cb245791f71b4d59007ccc30e777545bf0282068cfd146ad1116dd44501",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "151",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650041",
+      "source-effect.650042",
+      "source-effect.650043"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.152",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: Abundance's Formation Extrapolation: Anicca.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：丰饶】拥有的【构音推演：诸行无常】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "40",
+        "sha256": "80776d51cea28ef7ece5138040a3cb5121fef14b22116464dc3f75df53bbb37f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "152",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650042"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  },
+  {
+    "id": "swarm-disaster.boss-decay.153",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "BossDecayLevel",
+    "name_en": "Debuff",
+    "name_zh_cn": "弱化效果",
+    "summary_en": "In the Third Plane's Boss Domain challenge, remove the effects of Resonance Extrapolation: Abundance's Formation Extrapolation: Mountain High.",
+    "summary_zh_cn": "在第三位面【首领】区域挑战首领的战斗中，移除【回响推演：丰饶】拥有的【构音推演：先照高山】的效果。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "41",
+        "sha256": "ae598001b99cc0b8a94bce73a170995a91511c02c765d7af6be817af59499bbb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "SharedDlcThirdPlaneModifier",
+      "boss-decay",
+      "project-policy",
+      "shared-dlc-unproven"
+    ],
+    "source_id": "153",
+    "tier": "SharedDlcThirdPlaneModifier",
+    "threshold": "SharedDlcThirdPlaneModifier",
+    "effect_refs": [
+      "source-effect.650043"
+    ],
+    "effect_parameters": [],
+    "stacking_policy": "SelectedRowsCoexistByStableBossDecayId",
+    "application_boundary": "FinalBossBattleSpecCreation",
+    "acquisition_en": "No released Swarm-specific acquisition text.",
+    "acquisition_zh_cn": "无已发布的蝗灾专属获取文本。",
+    "swarm_applicability": "DisabledUnprovenSharedDlcRow"
+  }
+]

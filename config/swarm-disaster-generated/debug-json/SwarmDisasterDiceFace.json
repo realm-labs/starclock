@@ -1,0 +1,3157 @@
+{
+  "table": {
+    "name": "SwarmDisasterDiceFace",
+    "rows": [
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000002\"],\"operation\":\"ProtectCollaspeCell\",\"order\":0,\"parameters\":[\"0\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Preservation: Collective Shelter"
+          },
+          "name_zh_cn": {
+            "String": "【存护•复聚庇护】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.102"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Cornerstone to all domains that are about to collapse"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为所有将要塌陷的区域附加【基石】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ProtectCollaspeCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"25\"],\"extra_effect_refs\":[\"source-effect.61000002\"],\"operation\":\"GetMoneyByProtectCell\",\"order\":0,\"parameters\":[\"25\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Preservation: Credit Bias"
+          },
+          "name_zh_cn": {
+            "String": "【存护•信用倾向】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.104"
+          },
+          "summary_en": {
+            "String": "For every domain on the current plane that has Cornerstone, immediately obtain #1[i] Cosmic Fragments"
+          },
+          "summary_zh_cn": {
+            "String": "当前位面每存在1个带有【基石】的区域，立刻获得#1[i]宇宙碎片"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "GetMoneyByProtectCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000002\",\"source-effect.61000018\",\"source-effect.61000019\"],\"operation\":\"SelectCellToProtect\",\"order\":0,\"parameters\":[\"11\",\"12\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Preservation: Cornerstone's Spirit"
+          },
+          "name_zh_cn": {
+            "String": "【存护•基石意志】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.101"
+          },
+          "summary_en": {
+            "String": "Select 1 domain (excluding Boss or Boss: Swarm) and apply Cornerstone to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，为其附加【基石】效果（【首领】与【首领•虫群】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellToProtect"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000002\"],\"operation\":\"ProtectCollaspeCell\",\"order\":0,\"parameters\":[\"1\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Preservation: Charioteer's Forge"
+          },
+          "name_zh_cn": {
+            "String": "【存护•战车凿筑】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.103"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Cornerstone to #1[i] random domain(s) about to collapse."
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为#1[i]个将要塌陷的随机区域附加【基石】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ProtectCollaspeCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"0.5\",\"3\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641201\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Preservation: Proof of Commandment"
+          },
+          "name_zh_cn": {
+            "String": "【存护•原旨实证】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.105"
+          },
+          "summary_en": {
+            "String": "At the start of the next battle, all allies receive a Shield equal to #1[i]% of their respective Max HP for #2[i] turn(s)"
+          },
+          "summary_zh_cn": {
+            "String": "本次战斗开始时，我方全体获得等同于角色生命上限#1[i]%的护盾，持续#2[i]回合"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000004\"],\"operation\":\"ReplicateAllAroundCell\",\"order\":0,\"parameters\":[]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Remembrance: Genesis of Intellect"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•知性发生】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.204"
+          },
+          "summary_en": {
+            "String": "Immediately copy all domains on the current plane with the Recollection effect to their adjacent domains"
+          },
+          "summary_zh_cn": {
+            "String": "立即令当前位面所有带有【追忆】效果的区域复制到其相邻位置"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateAllAroundCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000004\"],\"operation\":\"AllowMoveToReplicateCell\",\"order\":0,\"parameters\":[]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Remembrance: Body, Beyond, Remade"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•躯体、异域、再塑】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "205"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.9"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.205"
+          },
+          "summary_en": {
+            "String": "Can move to any domain with the Recollection effect during the current movement"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动阶段时，可以移动至任意带有【追忆】效果的区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AllowMoveToReplicateCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000004\"],\"operation\":\"ReplicateCellToAround\",\"order\":0,\"parameters\":[\"11\",\"12\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Remembrance: Darkness and Greed"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•叆叇与质欲】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.203"
+          },
+          "summary_en": {
+            "String": "Select 1 domain (except Boss or Boss: Swarm), copy it to an adjacent location, and apply Recollection to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，将该区域复制到其相邻位置，并附加【追忆】效果（【首领】与【首领•虫群】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateCellToAround"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000004\"],\"operation\":\"ReplicateLastCell\",\"order\":0,\"parameters\":[\"11\",\"12\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Remembrance: Inner Sensory Organ"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•内感官】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.202"
+          },
+          "summary_en": {
+            "String": "Immediately copy the domain the characters occupy to a random location on the current plane and apply Recollection to it"
+          },
+          "summary_zh_cn": {
+            "String": "立即将自身所在区域复制到当前位面随机位置，并附加【追忆】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateLastCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\",\"2\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641211\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Remembrance: Confusion and Causality"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•料惑和因果】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.201"
+          },
+          "summary_en": {
+            "String": "When entering the next battle, there is a #1[i]% fixed chance for all enemies to become Frozen and inflicted with Ice Weakness for #2[i] turn(s)"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入战斗时，每个敌方单体均有#1[i]%的固定概率陷入冻结状态，并获得冰属性弱点，持续#2[i]回合"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000009\",\"source-effect.61000015\"],\"operation\":\"TrunEmptyToReward\",\"order\":0,\"parameters\":[]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Nihility: Transition"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•转】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "305"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.14"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.305"
+          },
+          "summary_en": {
+            "String": "The content of Blank domain entered during this movement will be replaced by Reward domain"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入的【空白】区域的内容将被替换为【奖励】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TrunEmptyToReward"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 15
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000009\",\"source-effect.61000015\"],\"operation\":\"SelectMiracleToEmpty\",\"order\":0,\"parameters\":[\"7\",\"20002\",\"3\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Nihility: Form"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•形】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.10"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.301"
+          },
+          "summary_en": {
+            "String": "Immediately obtain 1 Curio and turn all Reward domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即获得1个奇物，并使所有【奖励】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectMiracleToEmpty"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000009\",\"source-effect.61000013\"],\"operation\":\"SelectBuffToEmpty\",\"order\":0,\"parameters\":[\"5\",\"200620\",\"3\",\"10001\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Nihility: Shadow"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•影】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.302"
+          },
+          "summary_en": {
+            "String": "Immediately obtain 1 Blessing and turn all Elite domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即获得1次祝福，并使所有【精英】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectBuffToEmpty"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000009\",\"source-effect.61000011\"],\"operation\":\"TurnFightCellToEmpty\",\"order\":0,\"parameters\":[]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Nihility: Void"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•空】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.12"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.303"
+          },
+          "summary_en": {
+            "String": "Immediately turn all Combat domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即使所有【战斗】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TurnFightCellToEmpty"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 13
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000009\",\"source-effect.61000016\"],\"operation\":\"TurnEventCellToEmpty\",\"order\":0,\"parameters\":[]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Nihility: Dormancy"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•眠】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "304"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.304"
+          },
+          "summary_en": {
+            "String": "Immediately turn all Occurrence domains into Blank domains. (This effect will no longer be generated after appearing once on each plane)"
+          },
+          "summary_zh_cn": {
+            "String": "立即使所有【事件】区域变为【空白】区域。（该效果每位面出现1次后将不再被投出）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TurnEventCellToEmpty"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 14
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"10\"],\"extra_effect_refs\":[\"source-effect.61000009\"],\"operation\":\"EnterEmptyGetMoney\",\"order\":0,\"parameters\":[\"10\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Nihility: Nothingness"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•无】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 6
+          },
+          "source_id": {
+            "String": "306"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.15"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.306"
+          },
+          "summary_en": {
+            "String": "When allies enter Blank domain this movement, immediately obtain #1[i] Cosmic Fragments"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入【空白】区域，立即获得#1[i]宇宙碎片"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "EnterEmptyGetMoney"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 16
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000003\"],\"operation\":\"RandomNeighborSpecialType\",\"order\":0,\"parameters\":[\"4\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Abundance: Sustenance"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•浇灌】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "405"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.20"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.405"
+          },
+          "summary_en": {
+            "String": "Immediately applies Mercy to #1[i] adjacent domain(s) of every domain on the current plane that already has Mercy"
+          },
+          "summary_zh_cn": {
+            "String": "立即为当前位面所有带有【慈怀】效果的区域的#1[i]个相邻区域附加【慈怀】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RandomNeighborSpecialType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 21
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\",\"5\"],\"extra_effect_refs\":[\"source-effect.61000003\"],\"operation\":\"BenefitsBySeed\",\"order\":0,\"parameters\":[\"1\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Abundance: Benevolence"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•为善】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.18"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.403"
+          },
+          "summary_en": {
+            "String": "For every domain on the current plane that has Mercy, immediately gains #1[i] point(s) in the countdown and #2[i] Cosmic Fragments"
+          },
+          "summary_zh_cn": {
+            "String": "当前位面每存在1个带有【慈怀】效果的区域，立即增加#1[i]点倒计时与#2[i]宇宙碎片"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "BenefitsBySeed"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 19
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000003\"],\"operation\":\"SetNeighborSpecialType\",\"order\":0,\"parameters\":[\"4\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Abundance: Prescription"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•对症】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "406"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.21"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.406"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Mercy to all domains that are adjacent to the domain where characters are located"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为自身所处位置的全部相邻区域附加【慈怀】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetNeighborSpecialType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 22
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000003\"],\"operation\":\"SetSpecialType\",\"order\":0,\"parameters\":[\"4\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Abundance: Mercy"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•慈怀】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.17"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.402"
+          },
+          "summary_en": {
+            "String": "Select 1 domain and apply Mercy to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，为其附加【慈怀】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetSpecialType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 18
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"0.03\",\"0.6\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641231\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Abundance: Odium"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•可憎】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.16"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.401"
+          },
+          "summary_en": {
+            "String": "When entering combat in this movement, for every point in the countdown, all enemies receive a set amount of DMG equal to #1[i]% of their respective Max HP but no more than #2[i]% of Max HP"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入战斗时，每有一点倒计时，敌方全体受到等同于各自生命上限#1[i]%的固定数值的伤害，不超过生命上限的#2[i]%"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 17
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000003\"],\"operation\":\"RandomSetSpecialType\",\"order\":0,\"parameters\":[\"1\",\"4\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Abundance: Homebound"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•归心】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 6
+          },
+          "source_id": {
+            "String": "404"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.19"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.404"
+          },
+          "summary_en": {
+            "String": "Immediately applies Mercy to #1[i] random domain(s) on the current plane that does not currently have Mercy"
+          },
+          "summary_zh_cn": {
+            "String": "立即为当前位面#1[i]个未带有【慈怀】效果的随机区域附加【慈怀】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RandomSetSpecialType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 20
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000007\",\"source-effect.61000008\"],\"operation\":\"MoveMarkCellUpgradeReward\",\"order\":0,\"parameters\":[\"2\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "The Hunt: Swiftness"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•疾速】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.23"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.502"
+          },
+          "summary_en": {
+            "String": "During this movement, can move to a domain in the closest column that contains either a Blessing Trotter beacon or Curio Trotter beacon. Rewards gained from defeating Trotters are doubled"
+          },
+          "summary_zh_cn": {
+            "String": "本次可移动至最近1列带有【祝福扑满】或【奇物扑满】信标的区域，消灭扑满的奖励将翻倍"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MoveMarkCellUpgradeReward"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 24
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000007\",\"source-effect.61000011\",\"source-effect.61000012\",\"source-effect.61000013\"],\"operation\":\"SetMarkToRandomCell\",\"order\":0,\"parameters\":[\"3\",\"4\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "The Hunt: Resolve"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•决断】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "504"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.25"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.504"
+          },
+          "summary_en": {
+            "String": "Immediately generates 1 Blessing Trotter Beacon in a Combat, Combat: The Swarm, or Elite domain"
+          },
+          "summary_zh_cn": {
+            "String": "立即随机在【战斗】、【战斗•虫群】或【精英】区域生成1个【祝福扑满】信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetMarkToRandomCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 26
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"3\"],\"extra_effect_refs\":[],\"operation\":\"SetColCanMove\",\"order\":0,\"parameters\":[\"3\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "The Hunt: Vengeance"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•誓仇】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.24"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.503"
+          },
+          "summary_en": {
+            "String": "Can move to any domain in the next #1[i] column(s) during the current movement"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动阶段，可以移动至后#1[i]列上的任意区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetColCanMove"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 25
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000001\",\"source-effect.61000007\",\"source-effect.61000008\"],\"operation\":\"LockMarkCell\",\"order\":0,\"parameters\":[\"2\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "The Hunt: Restraint"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•制约】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.22"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.501"
+          },
+          "summary_en": {
+            "String": "Immediately applies Hounding Pursuit to #1[i] domain(s) on the current plane with the Blessing Trotter or Curio Trotter beacon. Domains with Hounding Pursuit are no longer able to change location"
+          },
+          "summary_zh_cn": {
+            "String": "立即为当前位面#1[i]个带有【祝福扑满】或【奇物扑满】信标的区域附加【追猎】效果，带有【追猎】效果的区域不再变换位置"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "LockMarkCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 23
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"0.5\",\"3\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641241\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "The Hunt: Quelled Fury"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•制暴】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "505"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.26"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.505"
+          },
+          "summary_en": {
+            "String": "At the start of combat for this time, all allies' SPD increases by #1[i]% for #2[i] turn(s)"
+          },
+          "summary_zh_cn": {
+            "String": "本次战斗开始时，我方全体速度提高#1[i]%，持续#2[i]回合"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 27
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000009\",\"source-effect.61000011\",\"source-effect.61000012\",\"source-effect.61000013\"],\"operation\":\"SetCellTypeAndTakeReward\",\"order\":0,\"parameters\":[\"3\",\"4\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Destruction: Scorched Subjugation"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•焦土征服】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.27"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.601"
+          },
+          "summary_en": {
+            "String": "Select a Combat, Combat: Swarm, or Elite domain to immediately get the rewards of the domain and change it to a Blank domain (The effects of Curios do not activate simultaneously)"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【战斗】、【战斗•虫群】或【精英】区域，立即获得区域中的奖励，并将其变为【空白】区域（奇物效果不同时生效）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetCellTypeAndTakeReward"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 28
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000005\",\"source-effect.61000011\",\"source-effect.61000012\",\"source-effect.61000013\"],\"operation\":\"SetMarkType\",\"order\":0,\"parameters\":[\"3\",\"4\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Destruction: War Worship"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•战争崇拜】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.28"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.602"
+          },
+          "summary_en": {
+            "String": "Select a Combat, Combat: Swarm, or Elite domain and immediately give it an Enhance beacon"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【战斗】、【战斗•虫群】或【精英】区域，立即使其获得【强化】信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetMarkType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 29
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000011\",\"source-effect.61000012\",\"source-effect.61000013\"],\"operation\":\"EnterCellTriggerBuff\",\"order\":0,\"parameters\":[\"3\",\"4\",\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Destruction: Spiritual Suicide"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•精神自毁】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "604"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.30"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.604"
+          },
+          "summary_en": {
+            "String": "Enter a Combat, Combat: Swarm, or Elite domain during the current movement to immediately obtain #1[i] Blessing(s)"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入【战斗】、【战斗•虫群】或【精英】区域，立即获得#1[i]次祝福"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "EnterCellTriggerBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 31
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"0.5\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641251\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Destruction: Blood Like Water"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•血溶于水】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "605"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.31"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.605"
+          },
+          "summary_en": {
+            "String": "When entering combat in the current movement, all allies' DMG dealt increases by #1[i]%"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入战斗时，我方全体造成的伤害提高#1[i]%"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 32
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000011\",\"source-effect.61000018\",\"source-effect.61000019\"],\"operation\":\"SelectAndToFightCell\",\"order\":0,\"parameters\":[\"3\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Destruction: Corporeal Monarch"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•肉体帝侯】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "603"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.29"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.603"
+          },
+          "summary_en": {
+            "String": "Select 1 domain (excluding Boss or Boss: Swarm) and change it to a Combat domain"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，将其变为【战斗】区域（【首领】与【首领•虫群】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectAndToFightCell"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 30
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000018\",\"source-effect.61000019\"],\"operation\":\"SelectExceptCellGetHelp\",\"order\":0,\"parameters\":[\"11\",\"12\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Elation: Spirit of Chaos"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•胡作非为】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "706"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.36"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.706"
+          },
+          "summary_en": {
+            "String": "Select a domain (excluding Boss or Boss: Swarm) and apply 1 random Happiness to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择一个区域，使其获得1个随机的「快乐」（【首领】与【首领•虫群】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectExceptCellGetHelp"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 37
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"2\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641261\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Elation: Head Harbinger of Havoc"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•首席猖獗分子】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "705"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.35"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.705"
+          },
+          "summary_en": {
+            "String": "When entering combat in this movement, after a character uses an attack to deal damage to enemy target(s), the attack will be considered as a Follow-Up ATK for #1[i] turn(s)"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入战斗时，角色施放攻击对敌方目标造成伤害后，被视为发动了追加攻击，持续#1[i]回合"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 36
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000011\"],\"operation\":\"SelectCellGetHelp\",\"order\":0,\"parameters\":[\"3\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Elation: Measured Mockery"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•严谨的讽刺艺术】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.32"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.701"
+          },
+          "summary_en": {
+            "String": "Select 1 Combat domain and apply 1 random Happiness to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【战斗】区域，使其获得1个随机的「快乐」"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellGetHelp"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 33
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000013\"],\"operation\":\"SelectCellGetHelp\",\"order\":0,\"parameters\":[\"5\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Elation: Mischief Master"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•奸笑专家】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "702"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.33"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.702"
+          },
+          "summary_en": {
+            "String": "Select 1 Elite domain and apply 1 random Happiness to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【精英】区域，使其获得1个随机的「快乐」"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellGetHelp"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 34
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000016\"],\"operation\":\"SelectCellGetHelp\",\"order\":0,\"parameters\":[\"8\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Elation: Always Amazed, Never Dismayed"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•惊奇永不失望】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "703"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.34"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.703"
+          },
+          "summary_en": {
+            "String": "Select 1 Occurrence domain and apply 1 random Happiness to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【事件】区域，使其获得1个随机的「快乐」"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellGetHelp"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 35
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000012\",\"source-effect.61000017\",\"source-effect.61000018\",\"source-effect.61000019\"],\"operation\":\"MoveToSwarmGetBuff\",\"order\":0,\"parameters\":[\"1270\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Propagation: Inorganic Embers"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•无机质火花】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "805"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.41"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.805"
+          },
+          "summary_en": {
+            "String": "Select Boss or Boss: Swarm domain and immediately receive Blessings of Propagation equal to the number of Combat: Swarm and Occurrence: Swarm domains that exist on the current plane. (If all Blessings of Propagation have already been obtained, receive a random Blessing instead) Can only move to the selected domain for the current movement."
+          },
+          "summary_zh_cn": {
+            "String": "选择【首领】或【首领•虫群】区域，立即获得当前位面【战斗•虫群】与【事件•虫群】区域数量的「繁育」祝福。（若已获得所有「繁育」祝福，则会获得其它命途的随机祝福）本次只能将选定区域作为移动目标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MoveToSwarmGetBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 42
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[],\"extra_effect_refs\":[\"source-effect.61000012\",\"source-effect.61000017\"],\"operation\":\"SetAroundBlockType\",\"order\":0,\"parameters\":[\"4\",\"9\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Propagation: Dissociated Id"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•癔症本我】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.37"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.801"
+          },
+          "summary_en": {
+            "String": "Select a Combat: Swarm or Occurrence: Swarm domain, and make all domains adjacent to it randomly become either Combat: Swarm or Occurrence: Swarm domain"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个【战斗•虫群】或【事件•虫群】区域，将其所有相邻区域随机替换为【战斗•虫群】或【事件•虫群】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetAroundBlockType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 38
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000012\"],\"operation\":\"TriggerMark\",\"order\":0,\"parameters\":[\"4\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Propagation: Caged Madman of Corrosion"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•克制的腐蚀狂人】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "802"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.38"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.802"
+          },
+          "summary_en": {
+            "String": "Immediately generate #1 random beacon in Combat: Swarm domain"
+          },
+          "summary_zh_cn": {
+            "String": "立即随机在【战斗•虫群】区域生成#1个随机信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TriggerMark"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 39
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 3
+          },
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"3\"],\"extra_effect_refs\":[],\"operation\":\"AddMazeBuff\",\"order\":0,\"parameters\":[\"641271\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Propagation: Spinal Cord Regrown"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•脊髓再生】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "803"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.39"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.803"
+          },
+          "summary_en": {
+            "String": "When entering combat in this movement, characters will recover the same amount of Skill Point(s) as they consume for #1[i] turn(s)."
+          },
+          "summary_zh_cn": {
+            "String": "本次进入战斗时，当角色消耗战技点后，会恢复等量的战技点，持续#1[i]回合"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 40
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "[{\"description_parameters\":[\"1\"],\"extra_effect_refs\":[\"source-effect.61000012\",\"source-effect.61000017\"],\"operation\":\"ToRandomBlockType\",\"order\":0,\"parameters\":[\"1\"]}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "AudienceDieFace"
+          },
+          "name_en": {
+            "String": "Propagation: The Devil, Pain, and Love"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•魔鬼与痛楚与爱】"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "rarity_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "804"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.40"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-face.804"
+          },
+          "summary_en": {
+            "String": "Immediately changes #1 random domain(s) to Combat: Swarm or Occurrence: Swarm domain"
+          },
+          "summary_zh_cn": {
+            "String": "立即将#1个随机区域替换为【战斗•虫群】或【事件•虫群】区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ToRandomBlockType"
+              },
+              {
+                "String": "dice-face"
+              }
+            ]
+          },
+          "target_rule_id": {
+            "Integer": 41
+          }
+        }
+      }
+    ]
+  }
+}

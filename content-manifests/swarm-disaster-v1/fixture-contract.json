@@ -1,0 +1,173 @@
+{
+  "schema_revision": "starclock.swarm-disaster-fixture-contract.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "fixture_role": "normalized semantic review; no runtime executability claim",
+  "minimum_cases_per_family": 1,
+  "required_fields": [
+    "id",
+    "family_id",
+    "name_en",
+    "name_zh_cn",
+    "source_record_ids",
+    "preconditions",
+    "input",
+    "ordered_operations",
+    "expected_facts",
+    "evidence_refs",
+    "evidence_quality"
+  ],
+  "field_contracts": {
+    "id": "globally unique stable string",
+    "family_id": "one of required_families",
+    "source_record_ids": "nonempty sorted stable-ID list closing the manifest obligation",
+    "preconditions": "typed canonical facts only",
+    "input": "typed offered outcome or deterministic selection input; never simulated Adventure actions",
+    "ordered_operations": "nonempty ordered operation/fallback trace with canonical decimal strings",
+    "expected_facts": "nonempty typed assertions; no presentation prose",
+    "evidence_refs": "nonempty ordered references that resolve in sources.json",
+    "evidence_quality": "one normalized evidence label"
+  },
+  "determinism": {
+    "random_selection": "explicit seed plus ordered candidate stable IDs",
+    "ties": "stable ID ascending unless a released authored order is exact",
+    "no_legal_target": "explicit expected fallback; never silent no-op",
+    "operation_order": "asserted as part of expected_facts",
+    "decimal_values": "canonical decimal strings",
+    "external_outcomes": "record offered abstract result and eligibility only"
+  },
+  "approximation": {
+    "allowed_labels": [
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "required_fields": [
+      "note",
+      "replacement_condition"
+    ],
+    "exact_claim_forbidden": true
+  },
+  "required_families": [
+    {
+      "id": "profile-entry",
+      "minimum_cases": 1,
+      "must_cover": ["entry eligibility", "five Formal difficulties", "bonus 101-106 ownership"]
+    },
+    {
+      "id": "topology-generation",
+      "minimum_cases": 1,
+      "must_cover": ["column order", "ProjectPolicy edge derivation", "start/end behavior", "Unspecified domain fallback"]
+    },
+    {
+      "id": "topology-event-order",
+      "minimum_cases": 1,
+      "must_cover": ["trigger matching", "weight ordering", "replacement or shuffle order"]
+    },
+    {
+      "id": "domain-replacement",
+      "minimum_cases": 1,
+      "must_cover": ["eligible domain set", "replacement order", "no legal replacement"]
+    },
+    {
+      "id": "beacon-copy-and-blanking",
+      "minimum_cases": 1,
+      "must_cover": ["beacon placement", "copy target", "blanking", "simultaneous ordering"]
+    },
+    {
+      "id": "boss-choice-consequence",
+      "minimum_cases": 1,
+      "must_cover": ["boss choice", "weakness consequence", "later boss binding"]
+    },
+    {
+      "id": "countdown-lifecycle",
+      "minimum_cases": 1,
+      "must_cover": ["initial value", "movement delta", "clamp", "plane carry"]
+    },
+    {
+      "id": "planar-disarray-transition",
+      "minimum_cases": 1,
+      "must_cover": ["entry boundary", "tier selection", "single transition", "battle projection"]
+    },
+    {
+      "id": "boss-decay-stack",
+      "minimum_cases": 1,
+      "must_cover": ["tier threshold", "stacking", "cap", "boss effect order"]
+    },
+    {
+      "id": "audience-die-passive",
+      "minimum_cases": 1,
+      "must_cover": ["selected Path", "initial effect", "passive effect", "graph mutation"]
+    },
+    {
+      "id": "dice-face-targeting",
+      "minimum_cases": 1,
+      "must_cover": ["rarity", "activation stage", "ordered targets", "no legal target"]
+    },
+    {
+      "id": "dice-roll-reroll-cheat",
+      "minimum_cases": 1,
+      "must_cover": ["roll result", "reroll consumption", "cheat replacement", "result ordering"]
+    },
+    {
+      "id": "communing-choice",
+      "minimum_cases": 1,
+      "must_cover": ["Aeon eligibility", "choice order", "point changes", "simultaneous unlock"]
+    },
+    {
+      "id": "communing-dimension-points",
+      "minimum_cases": 1,
+      "must_cover": ["point addition", "cap", "carry", "dimension threshold"]
+    },
+    {
+      "id": "communing-trail-effect",
+      "minimum_cases": 1,
+      "must_cover": ["prerequisite", "threshold", "run contribution", "battle projection"]
+    },
+    {
+      "id": "pathstrider-progress",
+      "minimum_cases": 1,
+      "must_cover": ["finish condition", "progress update", "comparison", "unlock consequence"]
+    },
+    {
+      "id": "path-and-propagation-unlock",
+      "minimum_cases": 1,
+      "must_cover": ["mechanical chapter locator", "Path unlock", "Propagation availability"]
+    },
+    {
+      "id": "resonance-interplay",
+      "minimum_cases": 1,
+      "must_cover": ["main Path threshold", "sub Path threshold", "effect binding", "activation order"]
+    },
+    {
+      "id": "curio-lifecycle",
+      "minimum_cases": 1,
+      "must_cover": ["1000-series mode copy", "charges or state", "repair or replacement"]
+    },
+    {
+      "id": "occurrence-choice",
+      "minimum_cases": 1,
+      "must_cover": ["100000-series variant", "condition", "cost", "ordered result"]
+    },
+    {
+      "id": "service-and-adventure",
+      "minimum_cases": 1,
+      "must_cover": ["eligibility", "price or abstract tier", "offered result boundary"]
+    },
+    {
+      "id": "encounter-selection",
+      "minimum_cases": 1,
+      "must_cover": ["room parent", "weighted group", "wave and enemy slot", "boss alternative"]
+    },
+    {
+      "id": "final-boss-consequence",
+      "minimum_cases": 1,
+      "must_cover": ["boss pool", "prior choice state", "Propagation or Interplay contribution", "Disarray contribution"]
+    }
+  ],
+  "coverage_rule": {
+    "family_coverage": "every required family has at least its minimum_cases",
+    "source_coverage": "every distinct mechanic rule references at least one fixture",
+    "manifest_coverage": "every source obligation reaches DataReady or an explicit nonblocking approximation with replacement condition",
+    "reconciliation_coverage": "every overlapping Goal 08 locator has a non-conflicting receipt",
+    "blocking_gap": "no fixture can satisfy a Blocked manifest obligation"
+  }
+}

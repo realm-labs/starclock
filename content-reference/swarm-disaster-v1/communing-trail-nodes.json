@@ -1,0 +1,3670 @@
+[
+  {
+    "id": "swarm-disaster.communing-trail.101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "Increases all characters' DEF by #1[i]%.",
+    "summary_zh_cn": "所有角色的防御力提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "0",
+        "sha256": "974383e8280185912de908224c409496aafca9ba855390a42630bd6464c18b44",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "101",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.101.101"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.106",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "5",
+        "sha256": "82d0a67556daa623ea6c8abeae90d35bbf942fe8d4bf282ad91c3170627118a4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "4",
+        "sha256": "f07d2a462ccb8ad16bbf857b03431b1ff4aeea2c210dc5a63d1b482235c2a204",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "106",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.106.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.106.106"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.107",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Enhance Received Shield Effects",
+    "name_zh_cn": "获得护盾量强化",
+    "summary_en": "Increases the max DMG absorption of the shield received by all characters by #1[i]%.",
+    "summary_zh_cn": "所有角色获得的护盾量提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "6",
+        "sha256": "6c6ec3cda92cab1051f109015ec53e39cb69e8dbef5e8559e36097ccecbca4e0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "5",
+        "sha256": "82d0a67556daa623ea6c8abeae90d35bbf942fe8d4bf282ad91c3170627118a4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "107",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.107.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.107.107"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.108",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "Increases all characters' DEF by #1[i]%.",
+    "summary_zh_cn": "所有角色的防御力提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "7",
+        "sha256": "dc1707ccefba473ec662a1366fa1de1ae31e2a87a15267a2457ec26aea42638c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "6",
+        "sha256": "6c6ec3cda92cab1051f109015ec53e39cb69e8dbef5e8559e36097ccecbca4e0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "108",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.108.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.108.108"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.109",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Enhance Received Shield Effects",
+    "name_zh_cn": "获得护盾量强化",
+    "summary_en": "Increases the max DMG absorption of the shield received by all characters by #1[i]%.",
+    "summary_zh_cn": "所有角色获得的护盾量提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "8",
+        "sha256": "97b2a1687d72a5bc493837bf28bd441d2ab78eeda246ccbcfd5b505f28bf0ad4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "7",
+        "sha256": "dc1707ccefba473ec662a1366fa1de1ae31e2a87a15267a2457ec26aea42638c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "109",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.109.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.109.109"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.102",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "1",
+        "sha256": "0ca2cf8e042ebfbd0646139f468a4d091fbee1d70c5957654abf3f1071488d7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "0",
+        "sha256": "974383e8280185912de908224c409496aafca9ba855390a42630bd6464c18b44",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "102",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.102.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.102.102"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.103",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Enhance Received Shield Effects",
+    "name_zh_cn": "获得护盾量强化",
+    "summary_en": "Increases the max DMG absorption of the shield received by all characters by #1[i]%.",
+    "summary_zh_cn": "所有角色获得的护盾量提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "2",
+        "sha256": "deaa91c8656c7869d31eae67309e83ae5ff29f8d6de77d8d4bbddeb80f4c9440",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "1",
+        "sha256": "0ca2cf8e042ebfbd0646139f468a4d091fbee1d70c5957654abf3f1071488d7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "103",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.103.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.103.103"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.104",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Initial Resources",
+    "name_zh_cn": "起始资源",
+    "summary_en": "Increases the starting Cosmic Fragments amount by #1[i].",
+    "summary_zh_cn": "初始获得的宇宙碎片提高#1[i]。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "3",
+        "sha256": "7c47d47b8c70a72fd3116134b247a9afa8ad744a86c95bf8c06832a6697b01ed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "2",
+        "sha256": "deaa91c8656c7869d31eae67309e83ae5ff29f8d6de77d8d4bbddeb80f4c9440",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "104",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.104.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.104.104"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.105",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "Increases all characters' DEF by #1[i]%.",
+    "summary_zh_cn": "所有角色的防御力提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "4",
+        "sha256": "f07d2a462ccb8ad16bbf857b03431b1ff4aeea2c210dc5a63d1b482235c2a204",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "3",
+        "sha256": "7c47d47b8c70a72fd3116134b247a9afa8ad744a86c95bf8c06832a6697b01ed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "105",
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.105.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.105.105"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Enemy Effect RES Reduction",
+    "name_zh_cn": "敌人效果抵抗弱化",
+    "summary_en": "Decreases all enemies' Effect RES by #1[i]%.",
+    "summary_zh_cn": "所有敌人的效果抵抗降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "9",
+        "sha256": "43125f095bd7ed99bf2d44a474905d80f4563c867d89d75b69433937b7bc8927",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "201",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.201.201"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.206",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "14",
+        "sha256": "a00d9faa8457668974ff1bc63d2868344438f28962d79aa69e1d3f26ec2ab62a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "13",
+        "sha256": "fcdf2bca45d050e36a3d67a1489d5312ad1422debe245ab041ff6f5586998271",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "206",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.206.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.206.206"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.207",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Effect Hit Rate Boost",
+    "name_zh_cn": "效果命中强化",
+    "summary_en": "Increases all characters' Effect Hit Rate by #1[i]%.",
+    "summary_zh_cn": "所有角色的效果命中提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "15",
+        "sha256": "51bfd77c566415841e7155306663c715dd7d33aecaf02053ba0c239e48c383cb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "14",
+        "sha256": "a00d9faa8457668974ff1bc63d2868344438f28962d79aa69e1d3f26ec2ab62a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "207",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.207.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.207.207"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.208",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Enemy Effect RES Reduction",
+    "name_zh_cn": "敌人效果抵抗弱化",
+    "summary_en": "Decreases all enemies' Effect RES by #1[i]%.",
+    "summary_zh_cn": "所有敌人的效果抵抗降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "16",
+        "sha256": "6747bd091978a7dfcc7a50c6b4119502f9810ed14da4cfa1f379486b0823d8ac",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "15",
+        "sha256": "51bfd77c566415841e7155306663c715dd7d33aecaf02053ba0c239e48c383cb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "208",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.208.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.208.208"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.209",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Effect Hit Rate Boost",
+    "name_zh_cn": "效果命中强化",
+    "summary_en": "Increases all characters' Effect Hit Rate by #1[i]%.",
+    "summary_zh_cn": "所有角色的效果命中提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "17",
+        "sha256": "6043d33cb7f802e5263ee3b80617a93edc7686015111578725acbf1106c243ee",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "16",
+        "sha256": "6747bd091978a7dfcc7a50c6b4119502f9810ed14da4cfa1f379486b0823d8ac",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "209",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.209.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.209.209"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.202",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance Charge Boost",
+    "name_zh_cn": "回响充能强化",
+    "summary_en": "Increases Path Resonance Energy by #1[i] upon entering battle.",
+    "summary_zh_cn": "每次进入战斗时命途回响的能量提高#1[i]点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "10",
+        "sha256": "4af3148ab9aa5ecf786bcb8d86e3983b13b5c2763e9b1c3379c6c738ca8ecc5a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "9",
+        "sha256": "43125f095bd7ed99bf2d44a474905d80f4563c867d89d75b69433937b7bc8927",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "202",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.202.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.202.202"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.203",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Effect Hit Rate Boost",
+    "name_zh_cn": "效果命中强化",
+    "summary_en": "Increases all characters' Effect Hit Rate by #1[i]%.",
+    "summary_zh_cn": "所有角色的效果命中提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "11",
+        "sha256": "77734d8ce544936beca734fbb6c5d3a8dd8fd196d622ecb11345a0c76562c1b6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "10",
+        "sha256": "4af3148ab9aa5ecf786bcb8d86e3983b13b5c2763e9b1c3379c6c738ca8ecc5a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "203",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.203.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.203.203"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.204",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Unlock Cheat Function",
+    "name_zh_cn": "作弊功能解锁",
+    "summary_en": "Unlocks the Cheat function. Specify a Dice Effect and immediately obtain that effect after re-rolling. At the start of the challenge, receive #1[i] cheat attempt(s).",
+    "summary_zh_cn": "解锁作弊功能，指定一个骰面效果，重新投掷后直接获取该效果。挑战开始时获得#1[i]次作弊次数。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "12",
+        "sha256": "74a8bf47cab3f16130a574e694338c0fa390eba4c06ca6272b4613e5a87b6eeb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "11",
+        "sha256": "77734d8ce544936beca734fbb6c5d3a8dd8fd196d622ecb11345a0c76562c1b6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "204",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.204.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.204.204"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.205",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Enemy Effect RES Reduction",
+    "name_zh_cn": "敌人效果抵抗弱化",
+    "summary_en": "Decreases all enemies' Effect RES by #1[i]%.",
+    "summary_zh_cn": "所有敌人的效果抵抗降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "13",
+        "sha256": "fcdf2bca45d050e36a3d67a1489d5312ad1422debe245ab041ff6f5586998271",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "12",
+        "sha256": "74a8bf47cab3f16130a574e694338c0fa390eba4c06ca6272b4613e5a87b6eeb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "205",
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.205.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.205.205"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DoT Boost",
+    "name_zh_cn": "持续伤害强化",
+    "summary_en": "Increases DMG dealt by all characters' applied DoT by #1[i]%.",
+    "summary_zh_cn": "所有角色造成的持续伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "18",
+        "sha256": "2aa29f59e81f5124a10c4ddad2214d55628867c2b4fd08178ded29665b76bcf4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "301",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.301.301"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.306",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "23",
+        "sha256": "9d4683d691261ddda88d778bc10cd041a0d8498212c20632f42243104208e36d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "22",
+        "sha256": "9aa6cb761459255a48a8f398e175e72463243b9a2225977992dba8f6859d1101",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "306",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.306.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.306.306"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.307",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Break Effect Boost",
+    "name_zh_cn": "击破特攻强化",
+    "summary_en": "Increases all characters' Break Effect by #1[i]%.",
+    "summary_zh_cn": "所有角色的击破特攻提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "24",
+        "sha256": "7a6009395204ec89a04156a5e61d690c220bd3a3026d98df4b070fb19c17c251",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "23",
+        "sha256": "9d4683d691261ddda88d778bc10cd041a0d8498212c20632f42243104208e36d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "307",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.307.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.307.307"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.308",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DoT Boost",
+    "name_zh_cn": "持续伤害强化",
+    "summary_en": "Increases DMG dealt by all characters' applied DoT by #1[i]%.",
+    "summary_zh_cn": "所有角色造成的持续伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "25",
+        "sha256": "98ff9ef051d2b26db42b3a5720a38498b6d14cfb631311b0b84c76dab7fb6685",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "24",
+        "sha256": "7a6009395204ec89a04156a5e61d690c220bd3a3026d98df4b070fb19c17c251",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "308",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.308.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.308.308"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.309",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Break Effect Boost",
+    "name_zh_cn": "击破特攻强化",
+    "summary_en": "Increases all characters' Break Effect by #1[i]%.",
+    "summary_zh_cn": "所有角色的击破特攻提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "26",
+        "sha256": "862fc0886edad0538bb4966039f2159241e82bf8018a64f02944e4bd9f541bf2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "25",
+        "sha256": "98ff9ef051d2b26db42b3a5720a38498b6d14cfb631311b0b84c76dab7fb6685",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "309",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.309.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.309.309"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.302",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "19",
+        "sha256": "3f20357ae1c5f99bf8f5acad329d042b31e7dc0c5324b3077f56f2c6ffe83b96",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "18",
+        "sha256": "2aa29f59e81f5124a10c4ddad2214d55628867c2b4fd08178ded29665b76bcf4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "302",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.302.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.302.302"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.303",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Break Effect Boost",
+    "name_zh_cn": "击破特攻强化",
+    "summary_en": "Increases all characters' Break Effect by #1[i]%.",
+    "summary_zh_cn": "所有角色的击破特攻提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "20",
+        "sha256": "cf68dad36b0c3016116188638ab69be59e840f5894edffd492b5ec0e03d7ba82",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "19",
+        "sha256": "3f20357ae1c5f99bf8f5acad329d042b31e7dc0c5324b3077f56f2c6ffe83b96",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "303",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.303.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.303.303"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.304",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Forfeit Compensation",
+    "name_zh_cn": "放弃补偿",
+    "summary_en": "Increases the Cosmic Fragments received when giving up the choice of the dice by #1[i].",
+    "summary_zh_cn": "放弃骰面目标选择时获得的宇宙碎片提高#1[i]。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "21",
+        "sha256": "c1fa1851c4fdf9ab1781247948b8f145e2f1918ccd1c4d006514b553a4fcfe07",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "20",
+        "sha256": "cf68dad36b0c3016116188638ab69be59e840f5894edffd492b5ec0e03d7ba82",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "304",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.304.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.304.304"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.305",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DoT Boost",
+    "name_zh_cn": "持续伤害强化",
+    "summary_en": "Increases DMG dealt by all characters' applied DoT by #1[i]%.",
+    "summary_zh_cn": "所有角色造成的持续伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "22",
+        "sha256": "9aa6cb761459255a48a8f398e175e72463243b9a2225977992dba8f6859d1101",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "21",
+        "sha256": "c1fa1851c4fdf9ab1781247948b8f145e2f1918ccd1c4d006514b553a4fcfe07",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "305",
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.305.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.305.305"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "Increases all characters' Max HP by #1[i]%.",
+    "summary_zh_cn": "所有角色的生命上限提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "27",
+        "sha256": "4800d831a1bbc2edc721175c73a0272862888fed2add2573528606a63da99f0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "401",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.401.401"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.406",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance Charge Boost",
+    "name_zh_cn": "回响充能强化",
+    "summary_en": "Increases Path Resonance Energy by #1[i] upon entering battle.",
+    "summary_zh_cn": "每次进入战斗时命途回响的能量提高#1[i]点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "32",
+        "sha256": "f034c8fdada2b9f7ec675d81800d3087c1455697cc455e033c9e9feb7ab5b709",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "31",
+        "sha256": "020d48e7bd1c25d0bdf664448e7331d8da9f53330c1e30af9845607df39840b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "406",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.406.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.406.406"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.407",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "HP Restoration Boost",
+    "name_zh_cn": "回复量强化",
+    "summary_en": "All characters' HP restored increases by #1[i]%.",
+    "summary_zh_cn": "所有角色的回复量提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "33",
+        "sha256": "9d6856cd473dd3ade119312345e6996b0c8ed739e2af6cae149d10bb64784f10",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "32",
+        "sha256": "f034c8fdada2b9f7ec675d81800d3087c1455697cc455e033c9e9feb7ab5b709",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "407",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.407.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.407.407"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.408",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "Increases all characters' Max HP by #1[i]%.",
+    "summary_zh_cn": "所有角色的生命上限提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "34",
+        "sha256": "372c6c1689787c73dbd5102900b296a7c16f3c004393e28d0699332fc202730e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "33",
+        "sha256": "9d6856cd473dd3ade119312345e6996b0c8ed739e2af6cae149d10bb64784f10",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "408",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.408.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.408.408"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.409",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "HP Restoration Boost",
+    "name_zh_cn": "回复量强化",
+    "summary_en": "All characters' HP restored increases by #1[i]%.",
+    "summary_zh_cn": "所有角色的回复量提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "35",
+        "sha256": "9b28231d94e2446d6453165a682fdd295702c078cb8edd8e45aad51b42bd3c96",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "34",
+        "sha256": "372c6c1689787c73dbd5102900b296a7c16f3c004393e28d0699332fc202730e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "409",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.409.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.409.409"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.402",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance Charge Boost",
+    "name_zh_cn": "回响充能强化",
+    "summary_en": "Increases Path Resonance Energy by #1[i] upon entering battle.",
+    "summary_zh_cn": "每次进入战斗时命途回响的能量提高#1[i]点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "28",
+        "sha256": "b211e3d8ed9e03178a6e9af474a676ed9a690d37b087e8ce79b54562bb1e75cb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "27",
+        "sha256": "4800d831a1bbc2edc721175c73a0272862888fed2add2573528606a63da99f0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "402",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.402.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.402.402"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.403",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "HP Restoration Boost",
+    "name_zh_cn": "回复量强化",
+    "summary_en": "All characters' HP restored increases by #1[i]%.",
+    "summary_zh_cn": "所有角色的回复量提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "29",
+        "sha256": "8f7da581aaa5f03e394f0188ef785b57b41b6bb7e079bcb1f34090b21e60108c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "28",
+        "sha256": "b211e3d8ed9e03178a6e9af474a676ed9a690d37b087e8ce79b54562bb1e75cb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "403",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.403.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.403.403"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.404",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Start Countdown",
+    "name_zh_cn": "起始倒计时",
+    "summary_en": "Increases the initial countdown by #1[i] point(s).",
+    "summary_zh_cn": "初始获得的倒计时增加#1[i]点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "30",
+        "sha256": "52996ed9a51a1fd51981c05966046aee8872f89be7333f312e36f2bcdd268ec1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "29",
+        "sha256": "8f7da581aaa5f03e394f0188ef785b57b41b6bb7e079bcb1f34090b21e60108c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "404",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.404.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.404.404"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.405",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "Increases all characters' Max HP by #1[i]%.",
+    "summary_zh_cn": "所有角色的生命上限提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "31",
+        "sha256": "020d48e7bd1c25d0bdf664448e7331d8da9f53330c1e30af9845607df39840b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "30",
+        "sha256": "52996ed9a51a1fd51981c05966046aee8872f89be7333f312e36f2bcdd268ec1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "405",
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.405.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.405.405"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Speed Boost",
+    "name_zh_cn": "速度强化",
+    "summary_en": "Increases all characters' SPD by #1[i]%.",
+    "summary_zh_cn": "所有角色的速度提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "36",
+        "sha256": "708d5a92f48f755e77156c5262da3f08bf06aad5fbddbcc9767a43422cd22b72",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "501",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.501.501"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.506",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "41",
+        "sha256": "a69d03658731bf741e6a301772cd3e0c8afa3c5f28df5ed18c236aa47852e812",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "40",
+        "sha256": "6925f74f774b77679eb78140666a7291daea727c37ee9ba571831bc4fc099ef3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "506",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.506.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.506.506"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.507",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "Increases all characters' CRIT Rate by #1[i]%.",
+    "summary_zh_cn": "所有角色的暴击率提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "42",
+        "sha256": "cdd6af439dbf96db5c427f671ab5a13f74bd18aab107d8bd08f30665e87d8bcc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "41",
+        "sha256": "a69d03658731bf741e6a301772cd3e0c8afa3c5f28df5ed18c236aa47852e812",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "507",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.507.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.507.507"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.508",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Speed Boost",
+    "name_zh_cn": "速度强化",
+    "summary_en": "Increases all characters' SPD by #1[i]%.",
+    "summary_zh_cn": "所有角色的速度提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "43",
+        "sha256": "eeb66566b927a0f0dd3e3a47965ea47a29d1b515a9e5cafc581be2de034873c2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "42",
+        "sha256": "cdd6af439dbf96db5c427f671ab5a13f74bd18aab107d8bd08f30665e87d8bcc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "508",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.508.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.508.508"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.509",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "Increases all characters' CRIT Rate by #1[i]%.",
+    "summary_zh_cn": "所有角色的暴击率提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.44",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "44",
+        "sha256": "7cb5a73c0a704bd3786743455a8ba3d7b22f4200f8480eba11b55201ed17baff",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "43",
+        "sha256": "eeb66566b927a0f0dd3e3a47965ea47a29d1b515a9e5cafc581be2de034873c2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "509",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.509.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.509.509"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.502",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "37",
+        "sha256": "6700547ef5fad761b0cc47737e1abe6ca84c34bbf3d750cac8180be8f6e9d2bf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "36",
+        "sha256": "708d5a92f48f755e77156c5262da3f08bf06aad5fbddbcc9767a43422cd22b72",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "502",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.502.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.502.502"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.503",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "Increases all characters' CRIT Rate by #1[i]%.",
+    "summary_zh_cn": "所有角色的暴击率提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "38",
+        "sha256": "a5b4c468ae8de404ca18dafa5c9935d0d75de60a8638796fbe73a8b536344c05",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "37",
+        "sha256": "6700547ef5fad761b0cc47737e1abe6ca84c34bbf3d750cac8180be8f6e9d2bf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "503",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.503.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.503.503"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.504",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Bonus Charge",
+    "name_zh_cn": "额外充能",
+    "summary_en": "When entering Boss or Boss: Swarm domains, all allies regenerate their respective Energy to Max Energy.",
+    "summary_zh_cn": "进入【首领】与【首领•虫群】区域时，使我方全体能量恢复至各自的能量上限。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "39",
+        "sha256": "3353dae3bef3c5758b9aaa32442782275ec738f4447b14a8761ebf7aaf9ee657",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "38",
+        "sha256": "a5b4c468ae8de404ca18dafa5c9935d0d75de60a8638796fbe73a8b536344c05",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "504",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.504.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.504.504"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.505",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Speed Boost",
+    "name_zh_cn": "速度强化",
+    "summary_en": "Increases all characters' SPD by #1[i]%.",
+    "summary_zh_cn": "所有角色的速度提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "40",
+        "sha256": "6925f74f774b77679eb78140666a7291daea727c37ee9ba571831bc4fc099ef3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "39",
+        "sha256": "3353dae3bef3c5758b9aaa32442782275ec738f4447b14a8761ebf7aaf9ee657",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "505",
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.505.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.505.505"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Attack Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "Increases all characters' ATK by #1[i]%.",
+    "summary_zh_cn": "所有角色的攻击力提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "45",
+        "sha256": "6b803c8b7ffe765ac4aedf9ec5d7164b7a9763dc905dc8b9173f228c662d1d39",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "601",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.601.601"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.606",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.50",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "50",
+        "sha256": "d695ee32498e9420a5904094bde29a185a25d1ff51d083d6d845b5d348c7925f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "49",
+        "sha256": "b4ae78bdd72fc33e23735a8ba033ed38ca33b2346aba5c61895927ea0de0d10c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "606",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.606.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.606.606"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.607",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DMG Received Reduction",
+    "name_zh_cn": "受到伤害降低",
+    "summary_en": "Reduces DMG taken by all the characters by #1[i]%.",
+    "summary_zh_cn": "所有角色受到的伤害降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.51",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "51",
+        "sha256": "7744037f574c610981a63115c8273c591f845b301bc51618e55a2ec0289fe9ea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.50",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "50",
+        "sha256": "d695ee32498e9420a5904094bde29a185a25d1ff51d083d6d845b5d348c7925f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "607",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.607.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.607.607"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.608",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Attack Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "Increases all characters' ATK by #1[i]%.",
+    "summary_zh_cn": "所有角色的攻击力提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "52",
+        "sha256": "0b34756f151d8b372e460b79392714482a030b82392e152a1f51267477623fba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.51",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "51",
+        "sha256": "7744037f574c610981a63115c8273c591f845b301bc51618e55a2ec0289fe9ea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "608",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.608.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.608.608"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.609",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DMG Received Reduction",
+    "name_zh_cn": "受到伤害降低",
+    "summary_en": "Reduces DMG taken by all the characters by #1[i]%.",
+    "summary_zh_cn": "所有角色受到的伤害降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.53",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "53",
+        "sha256": "23a52b2eb7c2b4e30f437ad57ce97840c75485f11daac625956fe543ef5a1f62",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "52",
+        "sha256": "0b34756f151d8b372e460b79392714482a030b82392e152a1f51267477623fba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "609",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.609.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.609.609"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.602",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance Charge Boost",
+    "name_zh_cn": "回响充能强化",
+    "summary_en": "Increases Path Resonance Energy by #1[i] upon entering battle.",
+    "summary_zh_cn": "每次进入战斗时命途回响的能量提高#1[i]点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "46",
+        "sha256": "cd9a57df00dec9d4b2eb220d21cd97bbcaf401f8cbb26d63a6283c8ef49bb7b1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "45",
+        "sha256": "6b803c8b7ffe765ac4aedf9ec5d7164b7a9763dc905dc8b9173f228c662d1d39",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "602",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.602.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.602.602"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.603",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "DMG Received Reduction",
+    "name_zh_cn": "受到伤害降低",
+    "summary_en": "Reduces DMG taken by all the characters by #1[i]%.",
+    "summary_zh_cn": "所有角色受到的伤害降低#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "47",
+        "sha256": "9eadf429b01a8fe6d2c3c40e1ac0f09a48e272a20727179a07305160805a998f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "46",
+        "sha256": "cd9a57df00dec9d4b2eb220d21cd97bbcaf401f8cbb26d63a6283c8ef49bb7b1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "603",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.603.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.603.603"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.604",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Reboot Plane",
+    "name_zh_cn": "位面再启动",
+    "summary_en": "If you have already passed the first plane in your previous challenge, then all enemies will receive a set amount of DMG equal to #2[i]% of their respective Max HP when you enter combat for the first #1[i] battles (excluding Boss battles) in the first plane in the current Swarm Disaster challenge.",
+    "summary_zh_cn": "如果上次挑战中已通过第一位面，本次挑战中第一位面的前#1[i]场非【首领】区域的战斗，进入战斗时，敌方全体受到等同于各自生命上限#2[i]%的固定数值的伤害。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "48",
+        "sha256": "4f19b18aaef8f7e7a430404eb3120cfb23501604933bf44fdd72bade0c428d9c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "47",
+        "sha256": "9eadf429b01a8fe6d2c3c40e1ac0f09a48e272a20727179a07305160805a998f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "604",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.604.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.604.604"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.605",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Attack Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "Increases all characters' ATK by #1[i]%.",
+    "summary_zh_cn": "所有角色的攻击力提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "49",
+        "sha256": "b4ae78bdd72fc33e23735a8ba033ed38ca33b2346aba5c61895927ea0de0d10c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "48",
+        "sha256": "4f19b18aaef8f7e7a430404eb3120cfb23501604933bf44fdd72bade0c428d9c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "605",
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.605.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.605.605"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Follow-Up ATK DMG Boost",
+    "name_zh_cn": "追加攻击伤害强化",
+    "summary_en": "Increases Follow-Up ATK DMG dealt by all characters by #1[i]%.",
+    "summary_zh_cn": "所有角色造成的追加攻击伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "54",
+        "sha256": "04201242961ff916d1b3790984d13bd2d911b7d5609fac507d23788a64b9b674",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental"
+    ],
+    "source_id": "701",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "1",
+    "prerequisite_ids": [],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.701.701"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.706",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "59",
+        "sha256": "ccdc2af2d91d02eb52475cd1bb5e14f337f9103ed9e70d8af904102d7a7322d7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.58",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "58",
+        "sha256": "a8a0512724975c8d48e0c5ede8b6ca18f03a9c9b064fa74bd6d1ab7f0f19a54f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "706",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "11",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.706.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.706.706"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.707",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "Increases all characters' CRIT DMG by #1[i]%.",
+    "summary_zh_cn": "所有角色的暴击伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "60",
+        "sha256": "63e173072c5ff851650a3f82f6e1a9fed79d8d0d2c485df401b95d777bb92cca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "59",
+        "sha256": "ccdc2af2d91d02eb52475cd1bb5e14f337f9103ed9e70d8af904102d7a7322d7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "707",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "13",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.707.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.707.707"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.708",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Follow-Up ATK DMG Boost",
+    "name_zh_cn": "追加攻击伤害强化",
+    "summary_en": "Increases Follow-Up ATK DMG dealt by all characters by #1[i]%.",
+    "summary_zh_cn": "所有角色造成的追加攻击伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "61",
+        "sha256": "2cf1bad770924691f1afb9bbe4f17cecc1cc4e1c656b16a25ebf4445a2e56b6d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "60",
+        "sha256": "63e173072c5ff851650a3f82f6e1a9fed79d8d0d2c485df401b95d777bb92cca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "708",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "16",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.708.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.708.708"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.709",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "Increases all characters' CRIT DMG by #1[i]%.",
+    "summary_zh_cn": "所有角色的暴击伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "62",
+        "sha256": "d7ae4e2aa76aab8bd7ed451aceecfd8d09d2a09a99e056673d59522a2df79567",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "61",
+        "sha256": "2cf1bad770924691f1afb9bbe4f17cecc1cc4e1c656b16a25ebf4445a2e56b6d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "709",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "20",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.709.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.709.709"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.702",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Resonance DMG Boost",
+    "name_zh_cn": "回响伤害强化",
+    "summary_en": "Increases Path Resonance DMG by #1[i]%.",
+    "summary_zh_cn": "命途回响造成的伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "55",
+        "sha256": "b9afa6bad9500769a8cc66882ec8369f378f5b2aa54f6c6c863bdbe510aade0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "54",
+        "sha256": "04201242961ff916d1b3790984d13bd2d911b7d5609fac507d23788a64b9b674",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "702",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "3",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.702.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.702.702"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.703",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "Increases all characters' CRIT DMG by #1[i]%.",
+    "summary_zh_cn": "所有角色的暴击伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "56",
+        "sha256": "6c1e2d4c2106cfb639dc9508cfb73437fe184ae11beba7e1f2d528e65096ab7e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "55",
+        "sha256": "b9afa6bad9500769a8cc66882ec8369f378f5b2aa54f6c6c863bdbe510aade0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "703",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "5",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.703.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.703.703"
+    ],
+    "is_important": false
+  },
+  {
+    "id": "swarm-disaster.communing-trail.704",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Reroll Attempts",
+    "name_zh_cn": "重投次数",
+    "summary_en": "Every time the team enters the next plane, gains #1[i] more reroll attempt(s).",
+    "summary_zh_cn": "每进入下一位面时，获得#1[i]次重投次数。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "57",
+        "sha256": "231de8d247bf8487b09d3eaff664f02eb868eb4e348cda7fe1b5de3264ba40ed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "56",
+        "sha256": "6c1e2d4c2106cfb639dc9508cfb73437fe184ae11beba7e1f2d528e65096ab7e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "important",
+      "project-policy"
+    ],
+    "source_id": "704",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "7",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.704.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.704.704"
+    ],
+    "is_important": true
+  },
+  {
+    "id": "swarm-disaster.communing-trail.705",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningTrailNode",
+    "name_en": "Follow-Up ATK DMG Boost",
+    "name_zh_cn": "追加攻击伤害强化",
+    "summary_en": "Increases Follow-Up ATK DMG dealt by all characters by #1[i]%.",
+    "summary_zh_cn": "所有角色造成的追加攻击伤害提高#1[i]%。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.58",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "58",
+        "sha256": "a8a0512724975c8d48e0c5ede8b6ca18f03a9c9b064fa74bd6d1ab7f0f19a54f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "57",
+        "sha256": "231de8d247bf8487b09d3eaff664f02eb868eb4e348cda7fe1b5de3264ba40ed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-trail-prerequisites",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+        "replacement_condition": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
+      }
+    ],
+    "tags": [
+      "communing-trail",
+      "incremental",
+      "project-policy"
+    ],
+    "source_id": "705",
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "threshold": "9",
+    "prerequisite_ids": [
+      "swarm-disaster.communing-prerequisite.705.0"
+    ],
+    "effect_ids": [
+      "swarm-disaster.communing-effect.705.705"
+    ],
+    "is_important": false
+  }
+]

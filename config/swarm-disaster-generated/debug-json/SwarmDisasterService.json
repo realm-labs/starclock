@@ -1,0 +1,1448 @@
+{
+  "table": {
+    "name": "SwarmDisasterService",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.100011"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.100011"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.100011"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Blessing Shop 100011"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店100011"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "BlessingShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.100011"
+          },
+          "source_id": {
+            "String": "universe.service.shop.100011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-100011"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Blessing Shop 100011 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的祝福商店100011服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "blessingshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.101010"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.101010"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.101010"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101010"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101010"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "BlessingShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.101010"
+          },
+          "source_id": {
+            "String": "universe.service.shop.101010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-101010"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Blessing Shop 101010 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的祝福商店101010服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "blessingshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.101011"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.101011"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.101011"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101011"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101011"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "BlessingShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.101011"
+          },
+          "source_id": {
+            "String": "universe.service.shop.101011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-101011"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Blessing Shop 101011 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的祝福商店101011服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "blessingshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.101012"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.101012"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.101012"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101012"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101012"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "BlessingShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.101012"
+          },
+          "source_id": {
+            "String": "universe.service.shop.101012"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-101012"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Blessing Shop 101012 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的祝福商店101012服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "blessingshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.102011"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.102011"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.102011"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Blessing Shop 102011"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店102011"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "BlessingShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.102011"
+          },
+          "source_id": {
+            "String": "universe.service.shop.102011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-102011"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Blessing Shop 102011 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的祝福商店102011服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "blessingshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.100021"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.100021"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.100021"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Curio Shop 100021"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店100021"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "CurioShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.100021"
+          },
+          "source_id": {
+            "String": "universe.service.shop.100021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-100021"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Curio Shop 100021 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的奇物商店100021服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curioshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.101020"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.101020"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.101020"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Curio Shop 101020"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店101020"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "CurioShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.101020"
+          },
+          "source_id": {
+            "String": "universe.service.shop.101020"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-101020"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Curio Shop 101020 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的奇物商店101020服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curioshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.101021"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.101021"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.101021"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Curio Shop 101021"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店101021"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "CurioShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.101021"
+          },
+          "source_id": {
+            "String": "universe.service.shop.101021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-101021"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Curio Shop 101021 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的奇物商店101021服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curioshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.shop.102021"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.shop.102021"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.shop.102021"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Curio Shop 102021"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店102021"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "CurioShop"
+          },
+          "shared_service_id": {
+            "String": "universe.service.shop.102021"
+          },
+          "source_id": {
+            "String": "universe.service.shop.102021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-shop-102021"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Curio Shop 102021 service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的奇物商店102021服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curioshop"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "inherited_offer_pool_id": "Null",
+          "inherited_price_formula_id": "Null",
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.currency.cosmic-fragments"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "宇宙碎片"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[{\"key\":\"initial_amount\",\"value\":\"50\"}]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[{\"key\":\"initial_amount\",\"value\":\"50\"}],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "Currency"
+          },
+          "shared_service_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "source_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-currency-cosmic-fragments"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Cosmic Fragments service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的宇宙碎片服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "currency"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "inherited_offer_pool_id": "Null",
+          "inherited_price_formula_id": {
+            "String": "universe.service.downloader.price"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.downloader"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Downloader"
+          },
+          "name_zh_cn": {
+            "String": "下载装置"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[{\"key\":\"characters_per_device\",\"value\":\"1\"}]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[{\"key\":\"characters_per_device\",\"value\":\"1\"}],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "Downloader"
+          },
+          "shared_service_id": {
+            "String": "universe.service.downloader"
+          },
+          "source_id": {
+            "String": "universe.service.downloader"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-downloader"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Downloader service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的下载装置服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "downloader"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "inherited_offer_pool_id": "Null",
+          "inherited_price_formula_id": {
+            "String": "universe.service.enhance-blessing.price"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.enhance-blessing"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Enhance Blessing"
+          },
+          "name_zh_cn": {
+            "String": "强化祝福"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[{\"key\":\"max_enhancements\",\"value\":\"1\"},{\"key\":\"rarity_1_cost\",\"value\":\"100\"},{\"key\":\"rarity_2_cost\",\"value\":\"130\"},{\"key\":\"rarity_3_cost\",\"value\":\"160\"}]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[{\"key\":\"max_enhancements\",\"value\":\"1\"},{\"key\":\"rarity_1_cost\",\"value\":\"100\"},{\"key\":\"rarity_2_cost\",\"value\":\"130\"},{\"key\":\"rarity_3_cost\",\"value\":\"160\"}],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "EnhanceBlessing"
+          },
+          "shared_service_id": {
+            "String": "universe.service.enhance-blessing"
+          },
+          "source_id": {
+            "String": "universe.service.enhance-blessing"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-enhance-blessing"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Enhance Blessing service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的强化祝福服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "enhanceblessing"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "inherited_offer_pool_id": {
+            "String": "universe.pool.blessings.standard"
+          },
+          "inherited_price_formula_id": {
+            "String": "universe.price.reset-blessing"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.reset-blessing"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Reset Blessing Choice"
+          },
+          "name_zh_cn": {
+            "String": "重置祝福选择"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[{\"key\":\"source_cost_schedule\",\"value\":\"[31:30],[31:50],[31:100]\"}]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[{\"key\":\"source_cost_schedule\",\"value\":\"[31:30],[31:50],[31:100]\"}],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "ResetBlessing"
+          },
+          "shared_service_id": {
+            "String": "universe.service.reset-blessing-choice"
+          },
+          "source_id": {
+            "String": "universe.service.reset-blessing-choice"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-reset-blessing-choice"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Reset Blessing Choice service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的重置祝福选择服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "resetblessing"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "inherited_offer_pool_id": "Null",
+          "inherited_price_formula_id": {
+            "String": "universe.service.respite-offers.price"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.respite-offers"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Respite Offers"
+          },
+          "name_zh_cn": {
+            "String": "休整区交易"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[{\"key\":\"one_star_blessing_cost\",\"value\":\"80\"},{\"key\":\"curio_cost\",\"value\":\"120\"},{\"key\":\"two_random_enhancements_cost\",\"value\":\"180\"}]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[{\"key\":\"one_star_blessing_cost\",\"value\":\"80\"},{\"key\":\"curio_cost\",\"value\":\"120\"},{\"key\":\"two_random_enhancements_cost\",\"value\":\"180\"}],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "RespiteOffers"
+          },
+          "shared_service_id": {
+            "String": "universe.service.respite-offers"
+          },
+          "source_id": {
+            "String": "universe.service.respite-offers"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-respite-offers"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Respite Offers service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的休整区交易服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "respiteoffers"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"rule\":\"ServicePresentAndAcceptedActivityCommand\",\"unresolved_offer_behavior\":\"FailClosed\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "inherited_offer_pool_id": "Null",
+          "inherited_price_formula_id": {
+            "String": "universe.price.reviver"
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.service.reviver"
+              }
+            ]
+          },
+          "kind": {
+            "String": "SwarmService"
+          },
+          "name_en": {
+            "String": "Reviver"
+          },
+          "name_zh_cn": {
+            "String": "复活装置"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameters_json": {
+            "String": "[{\"key\":\"cost\",\"value\":\"80\"},{\"key\":\"restored_hp_percent\",\"value\":\"100\"}]"
+          },
+          "price_policy_json": {
+            "String": "{\"insufficient_resource\":\"RejectWithoutMutation\",\"parameter_values\":[{\"key\":\"cost\",\"value\":\"80\"},{\"key\":\"restored_hp_percent\",\"value\":\"100\"}],\"source\":\"InheritedSharedServiceParameters\"}"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_kind": {
+            "String": "Reviver"
+          },
+          "shared_service_id": {
+            "String": "universe.service.reviver"
+          },
+          "source_id": {
+            "String": "universe.service.reviver"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service.universe-service-reviver"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster reuses the shared Reviver service with inherited parameters and mode-local offer pools."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾复用共享的复活装置服务、继承参数与模式内候选池。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "reviver"
+              },
+              {
+                "String": "service"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+package = "starclock_swarm_disaster_reference_config"
+includes = [
+  "schema/core.toml",
+  "schema/progression.toml",
+  "schema/content.toml",
+  "schema/evidence.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "../swarm-disaster-generated/schema.lock"
+excel_templates = "../swarm-disaster-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "../swarm-disaster-generated/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "../swarm-disaster-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "../swarm-disaster-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"

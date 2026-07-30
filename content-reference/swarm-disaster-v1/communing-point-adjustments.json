@@ -1,0 +1,2642 @@
+[
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.1.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 1 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 1 维度 1 调整",
+    "summary_en": "Completing cabinet 1 adds 1 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 1 后，为觐见维度 1 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "0",
+        "sha256": "c849c6bf2fffb2007d89dffc9943c7592f8ce0c648883024b1bf2a6f6e0ba887",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "1",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.1.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 1 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 1 维度 3 调整",
+    "summary_en": "Completing cabinet 1 adds 2 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 1 后，为觐见维度 3 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "0",
+        "sha256": "c849c6bf2fffb2007d89dffc9943c7592f8ce0c648883024b1bf2a6f6e0ba887",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "1",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.10.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 10 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 10 维度 6 调整",
+    "summary_en": "Completing cabinet 10 adds 2 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 10 后，为觐见维度 6 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "9",
+        "sha256": "18c6a615a46e02df8359d8d1e84867f1cf523f974dc02bd32085a9f79cd67ff8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "10",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.10.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 10 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 10 维度 7 调整",
+    "summary_en": "Completing cabinet 10 adds 2 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 10 后，为觐见维度 7 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "9",
+        "sha256": "18c6a615a46e02df8359d8d1e84867f1cf523f974dc02bd32085a9f79cd67ff8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "10",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.101.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 101 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 101 维度 6 调整",
+    "summary_en": "Completing cabinet 101 adds 4 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 101 后，为觐见维度 6 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "24",
+        "sha256": "bba452fd0442ac4b721037200531378bb41e3763822b9182b47b1b3c062e2cee",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "101",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.102.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 102 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 102 维度 3 调整",
+    "summary_en": "Completing cabinet 102 adds 4 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 102 后，为觐见维度 3 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "25",
+        "sha256": "3a72bbeddac491425d440fa31bc050352b571021b5ad11ce7fe7e73d99198034",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "102",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.103.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 103 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 103 维度 2 调整",
+    "summary_en": "Completing cabinet 103 adds 4 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 103 后，为觐见维度 2 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "26",
+        "sha256": "4909fa2d01dceb2d52470a4f3ba6e440eab2bf82c2d730c7e00897a2b4910af2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "103",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.104.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 104 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 104 维度 7 调整",
+    "summary_en": "Completing cabinet 104 adds 4 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 104 后，为觐见维度 7 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "27",
+        "sha256": "f5273d272da27f25c19e1bb7eb48ec66f0b397c80adb1bb4c20c0a880556b867",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "104",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.105.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 105 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 105 维度 4 调整",
+    "summary_en": "Completing cabinet 105 adds 4 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 105 后，为觐见维度 4 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "28",
+        "sha256": "412e15dd478ebf1aa84eeb2ffbd6bdf0c32639856b560f522c3669ad9a9ade10",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "105",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.106.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 106 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 106 维度 5 调整",
+    "summary_en": "Completing cabinet 106 adds 4 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 106 后，为觐见维度 5 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "29",
+        "sha256": "36f10c01042ff5856cbd99bcd39ddee02870d5e4a386ac3a7857b6602f17f7ae",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "106",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.107.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 107 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 107 维度 1 调整",
+    "summary_en": "Completing cabinet 107 adds 4 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 107 后，为觐见维度 1 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "30",
+        "sha256": "9929802039790df83de5eb7d82855f0a84984ff8a6c3b2a0bfa09813665d4e25",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "107",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.11.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 11 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 11 维度 6 调整",
+    "summary_en": "Completing cabinet 11 adds 3 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 11 后，为觐见维度 6 增加 3 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "10",
+        "sha256": "e3d49b8d6bd96eaae4b51e385ac4ffc7d889def91bc14536accf414c29b7c828",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "11",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "3",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.11.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 11 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 11 维度 1 调整",
+    "summary_en": "Completing cabinet 11 adds 2 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 11 后，为觐见维度 1 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "10",
+        "sha256": "e3d49b8d6bd96eaae4b51e385ac4ffc7d889def91bc14536accf414c29b7c828",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "11",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.12.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 12 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 12 维度 7 调整",
+    "summary_en": "Completing cabinet 12 adds 1 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 12 后，为觐见维度 7 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "11",
+        "sha256": "cf178ff05c79936d40c60cf421071a699947ba4a556ff2240bbd82bc0700486a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "12",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.12.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 12 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 12 维度 4 调整",
+    "summary_en": "Completing cabinet 12 adds 4 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 12 后，为觐见维度 4 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "11",
+        "sha256": "cf178ff05c79936d40c60cf421071a699947ba4a556ff2240bbd82bc0700486a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "12",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.13.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 13 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 13 维度 1 调整",
+    "summary_en": "Completing cabinet 13 adds 1 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 13 后，为觐见维度 1 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "12",
+        "sha256": "63adad7718be4bfac71bc6bcbeeb34f56f865a0f233d49db49a1ce3479e36df8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "13",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.13.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 13 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 13 维度 3 调整",
+    "summary_en": "Completing cabinet 13 adds 4 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 13 后，为觐见维度 3 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "12",
+        "sha256": "63adad7718be4bfac71bc6bcbeeb34f56f865a0f233d49db49a1ce3479e36df8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "13",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.14.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 14 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 14 维度 1 调整",
+    "summary_en": "Completing cabinet 14 adds 5 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 14 后，为觐见维度 1 增加 5 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "13",
+        "sha256": "d3ba09061e3c20d7fcc2d20fffb56b47242523a358d2dc871c64747bb737bdf3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "14",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "5",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.14.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 14 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 14 维度 2 调整",
+    "summary_en": "Completing cabinet 14 adds 1 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 14 后，为觐见维度 2 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "13",
+        "sha256": "d3ba09061e3c20d7fcc2d20fffb56b47242523a358d2dc871c64747bb737bdf3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "14",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.15.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 15 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 15 维度 2 调整",
+    "summary_en": "Completing cabinet 15 adds 4 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 15 后，为觐见维度 2 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "14",
+        "sha256": "41878f71b67a94a42caea86dd19a04d847edfaeca31f5669e05754dfe868bbd7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "15",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.15.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 15 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 15 维度 5 调整",
+    "summary_en": "Completing cabinet 15 adds 1 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 15 后，为觐见维度 5 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "14",
+        "sha256": "41878f71b67a94a42caea86dd19a04d847edfaeca31f5669e05754dfe868bbd7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "15",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.16.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 16 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 16 维度 2 调整",
+    "summary_en": "Completing cabinet 16 adds 4 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 16 后，为觐见维度 2 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "15",
+        "sha256": "29354898cfb9eab0d000af7b5960932401345dca9e3ebd4d649d7cf3fe6fe8c4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "16",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.16.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 16 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 16 维度 6 调整",
+    "summary_en": "Completing cabinet 16 adds 4 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 16 后，为觐见维度 6 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "15",
+        "sha256": "29354898cfb9eab0d000af7b5960932401345dca9e3ebd4d649d7cf3fe6fe8c4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "16",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.17.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 17 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 17 维度 3 调整",
+    "summary_en": "Completing cabinet 17 adds 1 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 17 后，为觐见维度 3 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "16",
+        "sha256": "a205da27806a808fdb9dbc76b5f065c5030c1d3e93e6ea616028cd04e4e93e91",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "17",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.17.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 17 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 17 维度 5 调整",
+    "summary_en": "Completing cabinet 17 adds 4 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 17 后，为觐见维度 5 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "16",
+        "sha256": "a205da27806a808fdb9dbc76b5f065c5030c1d3e93e6ea616028cd04e4e93e91",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "17",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.18.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 18 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 18 维度 4 调整",
+    "summary_en": "Completing cabinet 18 adds 2 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 18 后，为觐见维度 4 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "17",
+        "sha256": "d61a386e67a89c6449247c762fceb6a932f888997ec64cdd2884b992df252280",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "18",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.18.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 18 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 18 维度 3 调整",
+    "summary_en": "Completing cabinet 18 adds 5 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 18 后，为觐见维度 3 增加 5 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "17",
+        "sha256": "d61a386e67a89c6449247c762fceb6a932f888997ec64cdd2884b992df252280",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "18",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "5",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.19.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 19 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 19 维度 5 调整",
+    "summary_en": "Completing cabinet 19 adds 2 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 19 后，为觐见维度 5 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "18",
+        "sha256": "1a9b9d5458eae54253fff7770e1bef509eb7513e6e637f0da3dd496efb029898",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "19",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.19.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 19 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 19 维度 4 调整",
+    "summary_en": "Completing cabinet 19 adds 2 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 19 后，为觐见维度 4 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "18",
+        "sha256": "1a9b9d5458eae54253fff7770e1bef509eb7513e6e637f0da3dd496efb029898",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "19",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.2.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 2 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 2 维度 1 调整",
+    "summary_en": "Completing cabinet 2 adds 2 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 2 后，为觐见维度 1 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "1",
+        "sha256": "01b5e70f01c668477088e600457b03f8769fba581a5b267bc3ec90ded1deed2d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "2",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.2.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 2 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 2 维度 2 调整",
+    "summary_en": "Completing cabinet 2 adds 1 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 2 后，为觐见维度 2 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "1",
+        "sha256": "01b5e70f01c668477088e600457b03f8769fba581a5b267bc3ec90ded1deed2d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "2",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.20.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 20 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 20 维度 5 调整",
+    "summary_en": "Completing cabinet 20 adds 2 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 20 后，为觐见维度 5 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "19",
+        "sha256": "88f627c2edbb65247580cd2c531d99c363f62f3199b514be3019789cb21c59b2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "20",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.20.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 20 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 20 维度 7 调整",
+    "summary_en": "Completing cabinet 20 adds 2 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 20 后，为觐见维度 7 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "19",
+        "sha256": "88f627c2edbb65247580cd2c531d99c363f62f3199b514be3019789cb21c59b2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "20",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.21.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 21 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 21 维度 6 调整",
+    "summary_en": "Completing cabinet 21 adds 3 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 21 后，为觐见维度 6 增加 3 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "20",
+        "sha256": "f92f0b0546bd1315ba89adb02e67cde3613e16cbac079a1137f7829bda3e996f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "21",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "3",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.21.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 21 Dimension 1 Adjustment",
+    "name_zh_cn": "柜节点 21 维度 1 调整",
+    "summary_en": "Completing cabinet 21 adds 5 point(s) to Communing dimension 1.",
+    "summary_zh_cn": "完成柜节点 21 后，为觐见维度 1 增加 5 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "20",
+        "sha256": "f92f0b0546bd1315ba89adb02e67cde3613e16cbac079a1137f7829bda3e996f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "21",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.1",
+    "delta": "5",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.22.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 22 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 22 维度 6 调整",
+    "summary_en": "Completing cabinet 22 adds 2 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 22 后，为觐见维度 6 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "21",
+        "sha256": "e9b7d2df6c446ec7dc2da447bc75c833690bfa00fd280fb30bdc073ef2cd5178",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "22",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.22.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 22 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 22 维度 7 调整",
+    "summary_en": "Completing cabinet 22 adds 3 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 22 后，为觐见维度 7 增加 3 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "21",
+        "sha256": "e9b7d2df6c446ec7dc2da447bc75c833690bfa00fd280fb30bdc073ef2cd5178",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "22",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "3",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.23.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 23 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 23 维度 7 调整",
+    "summary_en": "Completing cabinet 23 adds 4 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 23 后，为觐见维度 7 增加 4 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "22",
+        "sha256": "27874aed69f2b1f9433e3811f2b2d95472f5cc2e0cc6c71475f36a9206f7ad34",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "23",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "4",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.23.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 23 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 23 维度 2 调整",
+    "summary_en": "Completing cabinet 23 adds 1 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 23 后，为觐见维度 2 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "22",
+        "sha256": "27874aed69f2b1f9433e3811f2b2d95472f5cc2e0cc6c71475f36a9206f7ad34",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "23",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.24.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 24 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 24 维度 7 调整",
+    "summary_en": "Completing cabinet 24 adds 1 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 24 后，为觐见维度 7 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "23",
+        "sha256": "c5035985f9f4f0a81c39af8e0797fd1e82a5d4a9cf2393de3937151dba69df0e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "24",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.24.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 24 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 24 维度 4 调整",
+    "summary_en": "Completing cabinet 24 adds 5 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 24 后，为觐见维度 4 增加 5 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "23",
+        "sha256": "c5035985f9f4f0a81c39af8e0797fd1e82a5d4a9cf2393de3937151dba69df0e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "24",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "5",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.3.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 3 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 3 维度 2 调整",
+    "summary_en": "Completing cabinet 3 adds 2 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 3 后，为觐见维度 2 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "2",
+        "sha256": "901646a00a6181fb1b546028c9319d8c84290e0d65eb4cc258ca16bd8641facf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "3",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.3.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 3 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 3 维度 5 调整",
+    "summary_en": "Completing cabinet 3 adds 1 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 3 后，为觐见维度 5 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "2",
+        "sha256": "901646a00a6181fb1b546028c9319d8c84290e0d65eb4cc258ca16bd8641facf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "3",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.4.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 4 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 4 维度 2 调整",
+    "summary_en": "Completing cabinet 4 adds 2 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 4 后，为觐见维度 2 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "3",
+        "sha256": "a26d33cd010f78bc42ffd60af5bd017cd6386c6b00ad9ac3f58a02ff9bdbb291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "4",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.4.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 4 Dimension 6 Adjustment",
+    "name_zh_cn": "柜节点 4 维度 6 调整",
+    "summary_en": "Completing cabinet 4 adds 2 point(s) to Communing dimension 6.",
+    "summary_zh_cn": "完成柜节点 4 后，为觐见维度 6 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "3",
+        "sha256": "a26d33cd010f78bc42ffd60af5bd017cd6386c6b00ad9ac3f58a02ff9bdbb291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "4",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.6",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.5.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 5 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 5 维度 3 调整",
+    "summary_en": "Completing cabinet 5 adds 1 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 5 后，为觐见维度 3 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "4",
+        "sha256": "1ce34a3de885d61d76e187612183c8475904347c3b0da37e973748a5841cb290",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "5",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.5.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 5 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 5 维度 5 调整",
+    "summary_en": "Completing cabinet 5 adds 3 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 5 后，为觐见维度 5 增加 3 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "4",
+        "sha256": "1ce34a3de885d61d76e187612183c8475904347c3b0da37e973748a5841cb290",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "5",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "3",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.6.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 6 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 6 维度 4 调整",
+    "summary_en": "Completing cabinet 6 adds 1 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 6 后，为觐见维度 4 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "5",
+        "sha256": "c0a0a6c6161d4f6245f3c5368c3f2ca6e831683e03379788ed7f15812b247b69",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "6",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.6.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 6 Dimension 3 Adjustment",
+    "name_zh_cn": "柜节点 6 维度 3 调整",
+    "summary_en": "Completing cabinet 6 adds 3 point(s) to Communing dimension 3.",
+    "summary_zh_cn": "完成柜节点 6 后，为觐见维度 3 增加 3 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "5",
+        "sha256": "c0a0a6c6161d4f6245f3c5368c3f2ca6e831683e03379788ed7f15812b247b69",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "6",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.3",
+    "delta": "3",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.7.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 7 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 7 维度 5 调整",
+    "summary_en": "Completing cabinet 7 adds 2 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 7 后，为觐见维度 5 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "6",
+        "sha256": "5464ec0789c0039a5a0bf27bbda504346e0fa48525d92e6583667177a8580b8e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "7",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.7.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 7 Dimension 4 Adjustment",
+    "name_zh_cn": "柜节点 7 维度 4 调整",
+    "summary_en": "Completing cabinet 7 adds 2 point(s) to Communing dimension 4.",
+    "summary_zh_cn": "完成柜节点 7 后，为觐见维度 4 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "6",
+        "sha256": "5464ec0789c0039a5a0bf27bbda504346e0fa48525d92e6583667177a8580b8e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "7",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.4",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.8.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 8 Dimension 5 Adjustment",
+    "name_zh_cn": "柜节点 8 维度 5 调整",
+    "summary_en": "Completing cabinet 8 adds 1 point(s) to Communing dimension 5.",
+    "summary_zh_cn": "完成柜节点 8 后，为觐见维度 5 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "7",
+        "sha256": "4fc835682cc7342688b44de6d7a7cd616b33518f884113ab02c41c923a9e16bb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "8",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.5",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.8.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 8 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 8 维度 7 调整",
+    "summary_en": "Completing cabinet 8 adds 1 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 8 后，为觐见维度 7 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "7",
+        "sha256": "4fc835682cc7342688b44de6d7a7cd616b33518f884113ab02c41c923a9e16bb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "8",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.9.0",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 9 Dimension 7 Adjustment",
+    "name_zh_cn": "柜节点 9 维度 7 调整",
+    "summary_en": "Completing cabinet 9 adds 2 point(s) to Communing dimension 7.",
+    "summary_zh_cn": "完成柜节点 9 后，为觐见维度 7 增加 2 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "8",
+        "sha256": "453d298ac72c9942ab027c66dbdec0053b798e2d11325660eb2e3a67ee7add52",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "9",
+    "ordinal": 0,
+    "dimension_id": "swarm-disaster.communing-dimension.7",
+    "delta": "2",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 0
+  },
+  {
+    "id": "swarm-disaster.communing-adjustment.cabinet.9.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningPointAdjustment",
+    "name_en": "Cabinet 9 Dimension 2 Adjustment",
+    "name_zh_cn": "柜节点 9 维度 2 调整",
+    "summary_en": "Completing cabinet 9 adds 1 point(s) to Communing dimension 2.",
+    "summary_zh_cn": "完成柜节点 9 后，为觐见维度 2 增加 1 点。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "8",
+        "sha256": "453d298ac72c9942ab027c66dbdec0053b798e2d11325660eb2e3a67ee7add52",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "cabinet",
+      "communing-adjustment",
+      "project-policy"
+    ],
+    "source_kind": "PathstriderCabinet",
+    "source_id": "9",
+    "ordinal": 1,
+    "dimension_id": "swarm-disaster.communing-dimension.2",
+    "delta": "1",
+    "clamp_policy": "ClampToDimensionMaximumAfterOperation",
+    "operation_order": 1
+  }
+]

@@ -1,0 +1,2521 @@
+{
+  "table": {
+    "name": "SwarmDisasterMechanicRule",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "audience-die-passive"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.audience-die-passive"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "audience-die-passive Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "audience-die-passive 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewSelectedPath\",\"sequence\":1,\"source_fact\":\"selected Path\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewInitialEffect\",\"sequence\":2,\"source_fact\":\"initial effect\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPassiveEffect\",\"sequence\":3,\"source_fact\":\"passive effect\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewGraphMutation\",\"sequence\":4,\"source_fact\":\"graph mutation\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.audience-die-passive"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"selected-path\",\"owner\":\"Activity\"},{\"id\":\"audience-die\",\"owner\":\"Activity\"},{\"id\":\"plane-graph\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "audience-die-passive preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "audience-die-passive 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die-passive"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "PathSelected"
+              },
+              {
+                "String": "RunStarted"
+              },
+              {
+                "String": "MapMoveAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "beacon-copy-and-blanking"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.beacon-copy-and-blanking"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "beacon-copy-and-blanking Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "beacon-copy-and-blanking 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewBeaconPlacement\",\"sequence\":1,\"source_fact\":\"beacon placement\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewCopyTarget\",\"sequence\":2,\"source_fact\":\"copy target\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewBlanking\",\"sequence\":3,\"source_fact\":\"blanking\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewSimultaneousOrdering\",\"sequence\":4,\"source_fact\":\"simultaneous ordering\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.beacon-copy-and-blanking"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"plane-graph\",\"owner\":\"Activity\"},{\"id\":\"beacon-set\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "beacon-copy-and-blanking preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "beacon-copy-and-blanking 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "beacon-copy-and-blanking"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "DiceFaceAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "communing-choice"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-choice"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "communing-choice Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "communing-choice 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewAeonEligibility\",\"sequence\":1,\"source_fact\":\"Aeon eligibility\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewChoiceOrder\",\"sequence\":2,\"source_fact\":\"choice order\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPointChanges\",\"sequence\":3,\"source_fact\":\"point changes\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewSimultaneousUnlock\",\"sequence\":4,\"source_fact\":\"simultaneous unlock\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.communing-choice"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"aeon-choice-counters\",\"owner\":\"Activity\"},{\"id\":\"communing-cabinet\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "communing-choice preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "communing-choice 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "CommuningChoiceAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "communing-dimension-points"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-dimension-points"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "communing-dimension-points Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "communing-dimension-points 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewPointAddition\",\"sequence\":1,\"source_fact\":\"point addition\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewCap\",\"sequence\":2,\"source_fact\":\"cap\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewCarry\",\"sequence\":3,\"source_fact\":\"carry\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewDimensionThreshold\",\"sequence\":4,\"source_fact\":\"dimension threshold\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.communing-dimension-points"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"communing-dimension-points\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "communing-dimension-points preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "communing-dimension-points 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension-points"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "CommuningPointAdjustmentAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "countdown-lifecycle"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.countdown-lifecycle"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "countdown-lifecycle Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "countdown-lifecycle 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewInitialValue\",\"sequence\":1,\"source_fact\":\"initial value\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewMovementDelta\",\"sequence\":2,\"source_fact\":\"movement delta\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewClamp\",\"sequence\":3,\"source_fact\":\"clamp\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPlaneCarry\",\"sequence\":4,\"source_fact\":\"plane carry\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.countdown-lifecycle"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"countdown\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "countdown-lifecycle preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "countdown-lifecycle 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "countdown-lifecycle"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "RunStarted"
+              },
+              {
+                "String": "MapMoveAccepted"
+              },
+              {
+                "String": "PlaneTransitioned"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "dice-face-targeting"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.dice-face-targeting"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "dice-face-targeting Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "dice-face-targeting 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewRarity\",\"sequence\":1,\"source_fact\":\"rarity\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewActivationStage\",\"sequence\":2,\"source_fact\":\"activation stage\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewOrderedTargets\",\"sequence\":3,\"source_fact\":\"ordered targets\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewNoLegalTarget\",\"sequence\":4,\"source_fact\":\"no legal target\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.dice-face-targeting"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"plane-graph\",\"owner\":\"Activity\"},{\"id\":\"dice-result\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "dice-face-targeting preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "dice-face-targeting 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-face-targeting"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "DiceFaceAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "dice-roll-reroll-cheat"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.dice-roll-reroll-cheat"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "dice-roll-reroll-cheat Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "dice-roll-reroll-cheat 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewRollResult\",\"sequence\":1,\"source_fact\":\"roll result\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewRerollConsumption\",\"sequence\":2,\"source_fact\":\"reroll consumption\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewCheatReplacement\",\"sequence\":3,\"source_fact\":\"cheat replacement\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewResultOrdering\",\"sequence\":4,\"source_fact\":\"result ordering\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.dice-roll-reroll-cheat"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"dice-result\",\"owner\":\"Activity\"},{\"id\":\"reroll-charges\",\"owner\":\"Activity\"},{\"id\":\"cheat-charges\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "dice-roll-reroll-cheat preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "dice-roll-reroll-cheat 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-roll-reroll-cheat"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "DiceRolled"
+              },
+              {
+                "String": "DiceRerolled"
+              },
+              {
+                "String": "DiceCheatRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "domain-replacement"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.domain-replacement"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "domain-replacement Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "domain-replacement 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewEligibleDomainSet\",\"sequence\":1,\"source_fact\":\"eligible domain set\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewReplacementOrder\",\"sequence\":2,\"source_fact\":\"replacement order\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewNoLegalReplacement\",\"sequence\":3,\"source_fact\":\"no legal replacement\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.domain-replacement"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"plane-graph\",\"owner\":\"Activity\"},{\"id\":\"domain-kind\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "domain-replacement preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "domain-replacement 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "domain-replacement"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "DiceFaceAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "occurrence-choice"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.occurrence-choice"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "occurrence-choice Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-choice 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"Review100000SeriesVariant\",\"sequence\":1,\"source_fact\":\"100000-series variant\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewCondition\",\"sequence\":2,\"source_fact\":\"condition\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewCost\",\"sequence\":3,\"source_fact\":\"cost\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewOrderedResult\",\"sequence\":4,\"source_fact\":\"ordered result\",\"unresolved_behavior\":\"NotApplicable\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedialogueoptiondisplay-json.41"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguedialogue-event0110301-opt0110301-json.root"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110301-json.root"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.99"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.occurrence-choice"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"occurrence-graph\",\"owner\":\"Activity\"},{\"id\":\"run-inventory\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "occurrence-choice preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "occurrence-choice 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "occurrence-choice"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "OccurrenceChoiceAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "path-and-propagation-unlock"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "path-and-propagation-unlock Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "path-and-propagation-unlock 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewMechanicalChapterLocator\",\"sequence\":1,\"source_fact\":\"mechanical chapter locator\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPathUnlock\",\"sequence\":2,\"source_fact\":\"Path unlock\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPropagationAvailability\",\"sequence\":3,\"source_fact\":\"Propagation availability\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcunlock-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcfinishway-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.path-and-propagation-unlock"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"available-paths\",\"owner\":\"Activity\"},{\"id\":\"mechanical-chapters\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "path-and-propagation-unlock preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "path-and-propagation-unlock 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "path-and-propagation-unlock"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "MechanicalChapterRequirementSatisfied"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "pathstrider-progress"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.pathstrider-progress"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "pathstrider-progress Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "pathstrider-progress 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewFinishCondition\",\"sequence\":1,\"source_fact\":\"finish condition\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewProgressUpdate\",\"sequence\":2,\"source_fact\":\"progress update\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewComparison\",\"sequence\":3,\"source_fact\":\"comparison\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewUnlockConsequence\",\"sequence\":4,\"source_fact\":\"unlock consequence\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcfinishway-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcunlock-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.pathstrider-progress"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"pathstrider-progress\",\"owner\":\"Activity\"},{\"id\":\"pathstrider-unlocks\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "pathstrider-progress preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "pathstrider-progress 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "pathstrider-progress"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "ActivityOperationCommitted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "profile-entry"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.profile-entry"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "profile-entry Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewEntryEligibility\",\"sequence\":1,\"source_fact\":\"entry eligibility\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewFiveFormalDifficulties\",\"sequence\":2,\"source_fact\":\"five Formal difficulties\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewBonus101106Ownership\",\"sequence\":3,\"source_fact\":\"bonus 101-106 ownership\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.profile"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.profile-entry"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"profile\",\"owner\":\"Activity\"},{\"id\":\"difficulty\",\"owner\":\"Activity\"},{\"id\":\"entry-bonus\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "profile-entry preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "profile-entry 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "profile-entry"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "RunEntryRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "service-and-adventure"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "service-and-adventure Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "service-and-adventure 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewEligibility\",\"sequence\":1,\"source_fact\":\"eligibility\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPriceOrAbstractTier\",\"sequence\":2,\"source_fact\":\"price or abstract tier\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewOfferedResultBoundary\",\"sequence\":3,\"source_fact\":\"offered result boundary\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcadventureroom-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.abstract-adventure-outcome"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.service-and-adventure"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"cosmic-fragments\",\"owner\":\"Activity\"},{\"id\":\"run-inventory\",\"owner\":\"Activity\"},{\"id\":\"external-outcome\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "service-and-adventure preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "service-and-adventure 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "service-and-adventure"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "ServicePurchaseAccepted"
+              },
+              {
+                "String": "AdventureOutcomeOffered"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "topology-event-order"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.topology-event-order"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "topology-event-order Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "topology-event-order 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewTriggerMatching\",\"sequence\":1,\"source_fact\":\"trigger matching\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewWeightOrdering\",\"sequence\":2,\"source_fact\":\"weight ordering\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewReplacementOrShuffleOrder\",\"sequence\":3,\"source_fact\":\"replacement or shuffle order\",\"unresolved_behavior\":\"NotApplicable\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.roguechesteventmap-202"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.rogueblockcreategrouplist-1011101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.topology-event-order"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"plane-graph\",\"owner\":\"Activity\"},{\"id\":\"topology-event-queue\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "topology-event-order preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "topology-event-order 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "topology-event-order"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "TopologyEventMatched"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "Activity"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "topology-generation"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.topology-generation"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "topology-generation Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "topology-generation 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewColumnOrder\",\"sequence\":1,\"source_fact\":\"column order\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewProjectpolicyEdgeDerivation\",\"sequence\":2,\"source_fact\":\"ProjectPolicy edge derivation\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewStartEndBehavior\",\"sequence\":3,\"source_fact\":\"start/end behavior\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewUnspecifiedDomainFallback\",\"sequence\":4,\"source_fact\":\"Unspecified domain fallback\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcchessboard-json.0"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.root"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-101"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.topology-generation"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"plane-graph\",\"owner\":\"Activity\"},{\"id\":\"current-node\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "topology-generation preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "topology-generation 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "topology-generation"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "PlaneGraphRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "boss-choice-consequence"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-choice-consequence"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "boss-choice-consequence Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "boss-choice-consequence 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewBossChoice\",\"sequence\":1,\"source_fact\":\"boss choice\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewWeaknessConsequence\",\"sequence\":2,\"source_fact\":\"weakness consequence\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewLaterBossBinding\",\"sequence\":3,\"source_fact\":\"later boss binding\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-monsterconfig-json.2277"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-choices"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.boss-choice-consequence"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"boss-choice-set\",\"owner\":\"Activity\"},{\"id\":\"final-boss-contributions\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "boss-choice-consequence preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "boss-choice-consequence 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice-consequence"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "PlaneBossChoiceAccepted"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "boss-decay-stack"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-decay-stack"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "boss-decay-stack Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "boss-decay-stack 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewTierThreshold\",\"sequence\":1,\"source_fact\":\"tier threshold\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewStacking\",\"sequence\":2,\"source_fact\":\"stacking\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewCap\",\"sequence\":3,\"source_fact\":\"cap\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewBossEffectOrder\",\"sequence\":4,\"source_fact\":\"boss effect order\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.0"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.boss-decay-stack"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"boss-decay-selection-set\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "boss-decay-stack preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "boss-decay-stack 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-decay-stack"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "PlaneBossChoiceAccepted"
+              },
+              {
+                "String": "FinalBossBattleSpecRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "communing-trail-effect"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-trail-effect"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "communing-trail-effect Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "communing-trail-effect 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewPrerequisite\",\"sequence\":1,\"source_fact\":\"prerequisite\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewThreshold\",\"sequence\":2,\"source_fact\":\"threshold\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewRunContribution\",\"sequence\":3,\"source_fact\":\"run contribution\",\"unresolved_behavior\":\"NotApplicable\"},{\"operation\":\"ReviewBattleProjection\",\"sequence\":4,\"source_fact\":\"battle projection\",\"unresolved_behavior\":\"NotApplicable\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.communing-trail-effect"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"communing-trail-unlocks\",\"owner\":\"Activity\"},{\"id\":\"battle-contributions\",\"owner\":\"Battle\"}]"
+          },
+          "summary_en": {
+            "String": "communing-trail-effect preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "communing-trail-effect 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail-effect"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "CommuningTrailNodeUnlocked"
+              },
+              {
+                "String": "BattleSpecRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "curio-lifecycle"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.curio-lifecycle"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "curio-lifecycle Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "curio-lifecycle 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"Review1000SeriesModeCopy\",\"sequence\":1,\"source_fact\":\"1000-series mode copy\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewChargesOrState\",\"sequence\":2,\"source_fact\":\"charges or state\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewRepairOrReplacement\",\"sequence\":3,\"source_fact\":\"repair or replacement\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-curios-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookmiracle-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracle-json.74"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracledisplay-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracleeffect-json.72"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracleeffectdisplay-json.72"
+              },
+              {
+                "String": "source.goal09.project-policy.curio-selection-and-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.curio-lifecycle"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"curio-inventory\",\"owner\":\"Activity\"},{\"id\":\"curio-state\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "curio-lifecycle preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "curio-lifecycle 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curio-lifecycle"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "CurioGranted"
+              },
+              {
+                "String": "BattleCompleted"
+              },
+              {
+                "String": "CurioRepairRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "encounter-selection"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "encounter-selection Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "encounter-selection 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewRoomParent\",\"sequence\":1,\"source_fact\":\"room parent\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewWeightedGroup\",\"sequence\":2,\"source_fact\":\"weighted group\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewWaveAndEnemySlot\",\"sequence\":3,\"source_fact\":\"wave and enemy slot\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewBossAlternative\",\"sequence\":4,\"source_fact\":\"boss alternative\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguemonstergroup-json.351"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemonster-json.697"
+              },
+              {
+                "String": "source.goal09.exceloutput-stageconfig-json.7623"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2484"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2521"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.encounter-selection"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"resolved-domain\",\"owner\":\"Activity\"},{\"id\":\"difficulty-segment\",\"owner\":\"Activity\"},{\"id\":\"encounter-selection\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "encounter-selection preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "encounter-selection 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter-selection"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "BattleSpecRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "final-boss-consequence"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "final-boss-consequence Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "final-boss-consequence 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewBossPool\",\"sequence\":1,\"source_fact\":\"boss pool\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPriorChoiceState\",\"sequence\":2,\"source_fact\":\"prior choice state\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewPropagationOrInterplayContribution\",\"sequence\":3,\"source_fact\":\"Propagation or Interplay contribution\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewDisarrayContribution\",\"sequence\":4,\"source_fact\":\"Disarray contribution\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguemonstergroup-json.386"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncross-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuffgroup-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuff-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemazebuff-json.331"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.final-boss-consequence"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"final-boss-selection\",\"owner\":\"Activity\"},{\"id\":\"boss-decay-selection-set\",\"owner\":\"Activity\"},{\"id\":\"active-interplays\",\"owner\":\"Activity\"},{\"id\":\"planar-disarray-tier\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "final-boss-consequence preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "final-boss-consequence 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "final-boss-consequence"
+              },
+              {
+                "String": "mechanic-rule"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "FinalBossBattleSpecRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "planar-disarray-transition"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.planar-disarray-transition"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "planar-disarray-transition Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "planar-disarray-transition 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewEntryBoundary\",\"sequence\":1,\"source_fact\":\"entry boundary\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewTierSelection\",\"sequence\":2,\"source_fact\":\"tier selection\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewSingleTransition\",\"sequence\":3,\"source_fact\":\"single transition\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewBattleProjection\",\"sequence\":4,\"source_fact\":\"battle projection\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.planar-disarray-transition"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"countdown\",\"owner\":\"Activity\"},{\"id\":\"planar-disarray-tier\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "planar-disarray-transition preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "planar-disarray-transition 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "planar-disarray-transition"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "MapMoveAccepted"
+              },
+              {
+                "String": "BattleSpecRequested"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain": {
+            "String": "CrossBattle"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "execution_disposition": {
+            "String": "ReferenceOnly"
+          },
+          "family_id": {
+            "String": "resonance-interplay"
+          },
+          "fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.resonance-interplay"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "SwarmMechanicRule"
+          },
+          "name_en": {
+            "String": "resonance-interplay Mechanic Rule"
+          },
+          "name_zh_cn": {
+            "String": "resonance-interplay 机制规则"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "program_json": {
+            "String": "[{\"operation\":\"ReviewMainPathThreshold\",\"sequence\":1,\"source_fact\":\"main Path threshold\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewSubPathThreshold\",\"sequence\":2,\"source_fact\":\"sub Path threshold\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewEffectBinding\",\"sequence\":3,\"source_fact\":\"effect binding\",\"unresolved_behavior\":\"FailClosed\"},{\"operation\":\"ReviewActivationOrder\",\"sequence\":4,\"source_fact\":\"activation order\",\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "runtime_handler_id": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncross-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuffgroup-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuff-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemazebuff-json.331"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-resonances-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.mechanic-rule.resonance-interplay"
+          },
+          "state_slots_json": {
+            "String": "[{\"id\":\"blessing-inventory\",\"owner\":\"Activity\"},{\"id\":\"active-interplays\",\"owner\":\"Activity\"}]"
+          },
+          "summary_en": {
+            "String": "resonance-interplay preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled."
+          },
+          "summary_zh_cn": {
+            "String": "resonance-interplay 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanic-rule"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          },
+          "triggers": {
+            "List": [
+              {
+                "String": "BlessingInventoryMutationCommitted"
+              },
+              {
+                "String": "BattleSpecRequested"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

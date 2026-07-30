@@ -1,0 +1,4511 @@
+[
+  {
+    "id": "swarm-disaster.occurrence-variant.110101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Nomadic Miners — Swarm Variant 110101",
+    "name_zh_cn": "游牧矿工·蝗灾变体 110101",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "1",
+        "sha256": "16fa587be9554edd261cbfb6e51c2159235d1f498c7b76afdcc80cd4abb41336",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.97",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "97",
+        "sha256": "8aeaba981760a6d4a247c4e2fedcfc1e5d489b9700a7f7fe6f263556de6301d7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110101-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110101.json",
+        "locator": "root",
+        "sha256": "3eb98ce8521a65b655be462940ec86a5a04f8b5ee52b3e3e144a24c716baf709",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110101",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.2"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110101.01",
+      "swarm-disaster.occurrence-choice.110101.02",
+      "swarm-disaster.occurrence-choice.110101.03",
+      "swarm-disaster.occurrence-choice.110101.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110101.json",
+        "locator": "root",
+        "sha256": "3eb98ce8521a65b655be462940ec86a5a04f8b5ee52b3e3e144a24c716baf709"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110101/Opt0110101.json",
+        "locator": "root",
+        "sha256": "f18d3089c8019ef5b3cfdce63e0b966838e9a7d2de19c5fa2f68926fcdf6a179"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "History Fictionologists (II) — Swarm Variant 110201",
+    "name_zh_cn": "虚构史学家（其二）·蝗灾变体 110201",
+    "summary_en": "Released Swarm NPC graph with 6 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "3",
+        "sha256": "0eeaab4fba26dc20602e4c3fa7b159f768d145e4398e7c370767683790b0c43e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.98",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "98",
+        "sha256": "a8723ab31282e7623fb720c04aecdd9b49301ec754b40a16c2c8e0412b4ca0f7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110201-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110201.json",
+        "locator": "root",
+        "sha256": "24d182db381e00b6c70477f1e20e34b3df9cf23720ca41261d20097a4e02bfa6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110201",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.4"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110201.01",
+      "swarm-disaster.occurrence-choice.110201.02",
+      "swarm-disaster.occurrence-choice.110201.03",
+      "swarm-disaster.occurrence-choice.110201.04",
+      "swarm-disaster.occurrence-choice.110201.05",
+      "swarm-disaster.occurrence-choice.110201.06"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110201.json",
+        "locator": "root",
+        "sha256": "24d182db381e00b6c70477f1e20e34b3df9cf23720ca41261d20097a4e02bfa6"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110201/Opt0110201.json",
+        "locator": "root",
+        "sha256": "9d363d6f3d9e99f37619324761ea0bdef939faff2efaa65447ed0ab7e2bb52ac"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Jim Hulk and Jim Hall — Swarm Variant 110301",
+    "name_zh_cn": "杰姆·哈克与杰姆·哈尔·蝗灾变体 110301",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "4",
+        "sha256": "9d1ca3ae401e2290712ed29b96ea1b5303f74dfdc7c2ba59d961091f2fd7864f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.99",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "99",
+        "sha256": "7b3a679a6f218d41f5eceba3542f0bdd7812a05db528d80e02aa2a8b80e0a08b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110301.json",
+        "locator": "root",
+        "sha256": "f545c79e90bf6d5c9537cbb67925906e2968e7e8a9e06ae0cd6f323c0f323e0c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110301",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.5"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110301.01",
+      "swarm-disaster.occurrence-choice.110301.02",
+      "swarm-disaster.occurrence-choice.110301.03",
+      "swarm-disaster.occurrence-choice.110301.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110301.json",
+        "locator": "root",
+        "sha256": "f545c79e90bf6d5c9537cbb67925906e2968e7e8a9e06ae0cd6f323c0f323e0c"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110301/Opt0110301.json",
+        "locator": "root",
+        "sha256": "e32b7c78473ded8449d1998ff0ce5766d4282a209b6265ec63d831737c0774ca"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Shopping Channel — Swarm Variant 110401",
+    "name_zh_cn": "电视购物频道·蝗灾变体 110401",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "5",
+        "sha256": "3509022cfc50ec0b1b1726484c56adafb8453e1654cbadb2cf894daafc4d0d18",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.100",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "100",
+        "sha256": "7c0dea421b602d7ce7a26952362c5843ac40660cd5b6ac31ddf155d09a102dde",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110401-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110401.json",
+        "locator": "root",
+        "sha256": "a881b41a30d94f693dfe864b7a1b95e9773dd56ecc17a2d19a1cba6d9184c084",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110401",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.6"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110401.01",
+      "swarm-disaster.occurrence-choice.110401.02",
+      "swarm-disaster.occurrence-choice.110401.03",
+      "swarm-disaster.occurrence-choice.110401.04",
+      "swarm-disaster.occurrence-choice.110401.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110401.json",
+        "locator": "root",
+        "sha256": "a881b41a30d94f693dfe864b7a1b95e9773dd56ecc17a2d19a1cba6d9184c084"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110401/Opt0110401.json",
+        "locator": "root",
+        "sha256": "e531637ff2e91baff61e631d27a28dee36cb493f14ba700ff7bcc1b097b6dc60"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The Cremators — Swarm Variant 110501",
+    "name_zh_cn": "焚化工·蝗灾变体 110501",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "6",
+        "sha256": "8ba5a2d3d6b4a8fbf2c1bf1dbf117266bbb31354ee923b4f0b4982028ea3f239",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "101",
+        "sha256": "a142eb5671f94025b07cfdfa53481456a00ce98ee63eea82c0ad1d9d4682c5a8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110501.json",
+        "locator": "root",
+        "sha256": "287ac9b44115c0b87840a88dab129f4f4363107cf8fec02a674154032dc1b49b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110501",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.7"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110501.01",
+      "swarm-disaster.occurrence-choice.110501.02",
+      "swarm-disaster.occurrence-choice.110501.03",
+      "swarm-disaster.occurrence-choice.110501.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110501.json",
+        "locator": "root",
+        "sha256": "287ac9b44115c0b87840a88dab129f4f4363107cf8fec02a674154032dc1b49b"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110501/Opt0110501.json",
+        "locator": "root",
+        "sha256": "eb36c5e7595a17ba3669a79fb211e720461da85e88b0b1a242935387ba6cb8bc"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Interactive Arts — Swarm Variant 110601",
+    "name_zh_cn": "互动艺术·蝗灾变体 110601",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "7",
+        "sha256": "09a811d3312fc46dd50d8d6f01246021db516687b0dbd4cac6b8c7deb49a4ca8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.102",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "102",
+        "sha256": "09f2e9e7c423d4fdd7633633b2ca005e9d6a24b8d8710640fa6df92a517da0e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110601-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110601.json",
+        "locator": "root",
+        "sha256": "3b131143fc6b6595c8c4544e36db4938103ad3d8ca38afe991eb96d6c2e0d245",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110601",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.8"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110601.01",
+      "swarm-disaster.occurrence-choice.110601.02",
+      "swarm-disaster.occurrence-choice.110601.03",
+      "swarm-disaster.occurrence-choice.110601.04",
+      "swarm-disaster.occurrence-choice.110601.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110601.json",
+        "locator": "root",
+        "sha256": "3b131143fc6b6595c8c4544e36db4938103ad3d8ca38afe991eb96d6c2e0d245"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110601/Opt0110601.json",
+        "locator": "root",
+        "sha256": "bbe14d1c755499b5f8048b054aaedfcbed640720aa21defa25dc2f108e825b91"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Pixel World — Swarm Variant 110701",
+    "name_zh_cn": "像素世界·蝗灾变体 110701",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "8",
+        "sha256": "5d1ca969d928be26160d88644c60d2484911f9ab24b4cf899f84f57fbdcb0e93",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.103",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "103",
+        "sha256": "c2fa7cd8f5b041b9520297f3133e8260e1af4771f021aa21815b7c6331eb7edb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110701-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110701.json",
+        "locator": "root",
+        "sha256": "dc1e764bf18d6330ed338693a3d02a7cd4f8b7ad8290befd533b4136e2e4b326",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110701",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.9"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110701.01",
+      "swarm-disaster.occurrence-choice.110701.02",
+      "swarm-disaster.occurrence-choice.110701.03",
+      "swarm-disaster.occurrence-choice.110701.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110701.json",
+        "locator": "root",
+        "sha256": "dc1e764bf18d6330ed338693a3d02a7cd4f8b7ad8290befd533b4136e2e4b326"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110701/Opt0110701.json",
+        "locator": "root",
+        "sha256": "c89577e26d72c2ae2b5c1d332ee51678af323013ae369c99babadea23cebad2d"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Aha Stuffed Toy — Swarm Variant 110801",
+    "name_zh_cn": "阿哈玩偶·蝗灾变体 110801",
+    "summary_en": "Released Swarm NPC graph with 7 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 7 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "9",
+        "sha256": "cc3dc9bb3099547cf1687d5deca8c77255f6849f38147d94fa7dafb615f08d1f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "104",
+        "sha256": "44959438fa87c31d1be9acdc09ef42518e7097e454b3a46745a16dad5b722541",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110801-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110801.json",
+        "locator": "root",
+        "sha256": "0b27fd830ee1a14d6ec1d4d9beceb67f8d9dc02b2303c8a8a9fc7000a54eb867",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110801",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.10"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110801.01",
+      "swarm-disaster.occurrence-choice.110801.02",
+      "swarm-disaster.occurrence-choice.110801.03",
+      "swarm-disaster.occurrence-choice.110801.04",
+      "swarm-disaster.occurrence-choice.110801.05",
+      "swarm-disaster.occurrence-choice.110801.06",
+      "swarm-disaster.occurrence-choice.110801.07"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110801.json",
+        "locator": "root",
+        "sha256": "0b27fd830ee1a14d6ec1d4d9beceb67f8d9dc02b2303c8a8a9fc7000a54eb867"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110801/Opt0110801.json",
+        "locator": "root",
+        "sha256": "a9189df903b5e6e841459c10c5ae3bdf4e25e983d87f176f62b9a0631ea4d588"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.110901",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "I.O.U. Dispenser (II) — Swarm Variant 110901",
+    "name_zh_cn": "谢债发行机（其二）·蝗灾变体 110901",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "11",
+        "sha256": "efd55edca0b017f2e9397cb8c480dc8e3597f8d4cb289b30ae7154fd2601912c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.105",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "105",
+        "sha256": "824636ff8893af88df0b0a652212d19e2c23b6ef7b64f8dcc22a570f15e135e0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110901-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110901.json",
+        "locator": "root",
+        "sha256": "36aad90a2803cb886b96bfb1b4b75748871803895c37ff89afaf1fa9623c8263",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "110901",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.12"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.110901.01",
+      "swarm-disaster.occurrence-choice.110901.02",
+      "swarm-disaster.occurrence-choice.110901.03",
+      "swarm-disaster.occurrence-choice.110901.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110901.json",
+        "locator": "root",
+        "sha256": "36aad90a2803cb886b96bfb1b4b75748871803895c37ff89afaf1fa9623c8263"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110901/Opt0110901.json",
+        "locator": "root",
+        "sha256": "e5930503c6c7a0050990aa626a7fc951835d2e8d5c9b78488322711587f9af0e"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111001",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Statue — Swarm Variant 111001",
+    "name_zh_cn": "雕像·蝗灾变体 111001",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "12",
+        "sha256": "1031549f31a41bea2003b288409f91f72cd9d1467d973a4941eea3428cc1b1e0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.106",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "106",
+        "sha256": "a8e67ce9f169ef37b34ca4d2cb5c750c01a0dae95a580ecfa823ee3fac52f7ef",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111001.json",
+        "locator": "root",
+        "sha256": "beab1eb99fd783786dddcd6b21476ac36c043cb4b5cddc65dba21aee798de77b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111001",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.13"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111001.01",
+      "swarm-disaster.occurrence-choice.111001.02",
+      "swarm-disaster.occurrence-choice.111001.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111001.json",
+        "locator": "root",
+        "sha256": "beab1eb99fd783786dddcd6b21476ac36c043cb4b5cddc65dba21aee798de77b"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111001/Opt0111001.json",
+        "locator": "root",
+        "sha256": "ffd4bff4910cc5fa0dccc990203af28803a9fad4b520db68f9d75b8d9ef859ed"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Insect Nest — Swarm Variant 111101",
+    "name_zh_cn": "虫巢·蝗灾变体 111101",
+    "summary_en": "Released Swarm NPC graph with 6 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "13",
+        "sha256": "ab42df5126ca42121d9bb036bdc8172010125537b807bd0034d43f7a11facbc8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.107",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "107",
+        "sha256": "d0815f8165a11943afae66a097fceb05254a0052e0287810b4d40e09410fb699",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111101-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111101.json",
+        "locator": "root",
+        "sha256": "3d617058a9958891a3afbdca78d4e3a8b2fc7596a2c20c58bb795ae14257433c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111101",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.14"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111101.01",
+      "swarm-disaster.occurrence-choice.111101.02",
+      "swarm-disaster.occurrence-choice.111101.03",
+      "swarm-disaster.occurrence-choice.111101.04",
+      "swarm-disaster.occurrence-choice.111101.05",
+      "swarm-disaster.occurrence-choice.111101.06"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111101.json",
+        "locator": "root",
+        "sha256": "3d617058a9958891a3afbdca78d4e3a8b2fc7596a2c20c58bb795ae14257433c"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111101/Opt0111101.json",
+        "locator": "root",
+        "sha256": "5f0c20331a589027ee4240774f255360ad99253bdb1cdee7906e81b784e8ca03"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Ruan Mei — Swarm Variant 111201",
+    "name_zh_cn": "阮•梅·蝗灾变体 111201",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "14",
+        "sha256": "5f4069fe2c4c34232493c37f035075374ad817df26fd96a066559eb3d7f0c409",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.108",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "108",
+        "sha256": "ac394778abd159bc3a4a486a4b3992f3e51ddfcc3dc7532de3afc8beb5a44e62",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111201-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111201.json",
+        "locator": "root",
+        "sha256": "234baad8eb2a69f294df93df9f9139bf1a32a9d2783fd9e15efac0085bba6fb0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111201",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.15"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111201.01",
+      "swarm-disaster.occurrence-choice.111201.02",
+      "swarm-disaster.occurrence-choice.111201.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111201.json",
+        "locator": "root",
+        "sha256": "234baad8eb2a69f294df93df9f9139bf1a32a9d2783fd9e15efac0085bba6fb0"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111201/Opt0111201.json",
+        "locator": "root",
+        "sha256": "b6d7ab61a2334749b1f62798487e7873be837422363162f9770baf54aeb6c243"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Three Little Pigs — Swarm Variant 111301",
+    "name_zh_cn": "三只小猪·蝗灾变体 111301",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "15",
+        "sha256": "c63064d8bbe0682a8c4dd30c86785eb7a0bc86e7891268633c00bfa795bd8fc0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.109",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "109",
+        "sha256": "138574d0d655984fdac740ed09e30251fe0c6653cc56518c0fa39aebc7801e7b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111301.json",
+        "locator": "root",
+        "sha256": "a590ae0077322875d64bd1e490db3c7799cfdcaf0d5a028cb4ea5b356849bd1b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111301",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.16"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111301.01",
+      "swarm-disaster.occurrence-choice.111301.02",
+      "swarm-disaster.occurrence-choice.111301.03",
+      "swarm-disaster.occurrence-choice.111301.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111301.json",
+        "locator": "root",
+        "sha256": "a590ae0077322875d64bd1e490db3c7799cfdcaf0d5a028cb4ea5b356849bd1b"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111301/Opt0111301.json",
+        "locator": "root",
+        "sha256": "32e225b22edf46d67de202da071c556d4f28ff4c652060ba111ba1ce0f586ad4"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Unending Darkness — Swarm Variant 111401",
+    "name_zh_cn": "无尽黑暗·蝗灾变体 111401",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "16",
+        "sha256": "d6642d893a8c5cd4a2c294ae444fab5f9b5ade3ff370a9b108ee852fac0c7a7e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.110",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "110",
+        "sha256": "ceece54701449ddcc9d84f52af7aa6ad2ccfec702ef65d32387bcdda1d343d16",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111401-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111401.json",
+        "locator": "root",
+        "sha256": "be4b74ead016915357648b7ef68529cebeb5365c40c47752f572c0d3949f098f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111401",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.17"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111401.01",
+      "swarm-disaster.occurrence-choice.111401.02",
+      "swarm-disaster.occurrence-choice.111401.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111401.json",
+        "locator": "root",
+        "sha256": "be4b74ead016915357648b7ef68529cebeb5365c40c47752f572c0d3949f098f"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111401/Opt0111401.json",
+        "locator": "root",
+        "sha256": "ae1205c969edd3fb64b1cc9f632452a7a170d19efb53a072c4bbf1b477e83cd8"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The Architects — Swarm Variant 111501",
+    "name_zh_cn": "筑城者·蝗灾变体 111501",
+    "summary_en": "Released Swarm NPC graph with 2 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 2 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "17",
+        "sha256": "3aef3a36bba571c42dd39f7cd07268524266c7ec6e3f4c842f4b551b6565662f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.111",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "111",
+        "sha256": "c9bbeea2486adc8150358a789b3d071ff6f699c3d2b120bddb523e0f12492a57",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111501.json",
+        "locator": "root",
+        "sha256": "632b87673396767edcb4271e583eeb82a2977e5c8834a3912cdde12216dd3b87",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111501",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.18"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111501.01",
+      "swarm-disaster.occurrence-choice.111501.02"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111501.json",
+        "locator": "root",
+        "sha256": "632b87673396767edcb4271e583eeb82a2977e5c8834a3912cdde12216dd3b87"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111501/Opt0111501.json",
+        "locator": "root",
+        "sha256": "84b54e417d5125194bbdfdbb2d957de6b48135240c4f9f6efc7886db874a5f7d"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Kindling of the Self-Annihilator — Swarm Variant 111601",
+    "name_zh_cn": "自灭者的火种·蝗灾变体 111601",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "18",
+        "sha256": "bc12213806b248a1eb088f5e9453e7ba414362cef1da17ccfcbc979b774cf2cb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.112",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "112",
+        "sha256": "39ce77b12a48aaa51bdcdb63fe672aadb3d7b0e58a51835967ac44e2a88ebb8a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111601-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111601.json",
+        "locator": "root",
+        "sha256": "f59fcab851c9fd1735fdd4a43ed01799720d8f1f1a4cfc2b0e0bd8d49da7778d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111601",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.19"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111601.01",
+      "swarm-disaster.occurrence-choice.111601.02",
+      "swarm-disaster.occurrence-choice.111601.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111601.json",
+        "locator": "root",
+        "sha256": "f59fcab851c9fd1735fdd4a43ed01799720d8f1f1a4cfc2b0e0bd8d49da7778d"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111601/Opt0111601.json",
+        "locator": "root",
+        "sha256": "ffef9c4790eda3d6b8d0005c9cb5763b4b633c22d26c52d2e53cd4e7273413f1"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Cosmic Merchant (I) — Swarm Variant 111701",
+    "name_zh_cn": "银河商人（其一）·蝗灾变体 111701",
+    "summary_en": "Released Swarm NPC graph with 9 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 9 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "19",
+        "sha256": "ea67904d0ca7889887398d9b3dcb4bacce6d280a5d7fadf848ae035d765a4b9f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "20",
+        "sha256": "d2eb82491cef4207373d7161930cacbffc098468ba21db9a35287a304397e63e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "21",
+        "sha256": "8daf9604f4e0367b92caed6390238df1db9bd32c7e1cf9c9196e34fbbb6fb9bd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.113",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "113",
+        "sha256": "62e828e6370219bdb953add07dbabbcea66313d6dd243d074a544af5abf4a6c8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111701-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111701.json",
+        "locator": "root",
+        "sha256": "580c0751a5c799e3d5908378d862e1247e14976c5ff88fe912460c3dfedf9486",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111701",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.20",
+      "swarm-disaster.occurrence.21",
+      "swarm-disaster.occurrence.22"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111701.01",
+      "swarm-disaster.occurrence-choice.111701.02",
+      "swarm-disaster.occurrence-choice.111701.03",
+      "swarm-disaster.occurrence-choice.111701.04",
+      "swarm-disaster.occurrence-choice.111701.05",
+      "swarm-disaster.occurrence-choice.111701.06",
+      "swarm-disaster.occurrence-choice.111701.07",
+      "swarm-disaster.occurrence-choice.111701.08",
+      "swarm-disaster.occurrence-choice.111701.09"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111701.json",
+        "locator": "root",
+        "sha256": "580c0751a5c799e3d5908378d862e1247e14976c5ff88fe912460c3dfedf9486"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111701/Opt0111701.json",
+        "locator": "root",
+        "sha256": "de0990e8e8f51006cd08a27b128fa810d3146948e4cdca4c4fac5a5648f9f2aa"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111702/Opt0111702.json",
+        "locator": "root",
+        "sha256": "47d0847bc8e6d7a2845bbfa05b871d619e63b5cf8488bf9a74cf40c8cefefca7"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111703/Opt0111703.json",
+        "locator": "root",
+        "sha256": "71b226c63659158d2d2e5d1dc98f5f91f2a9f388ff46e76629c08d35799e3393"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Societal Dreamscape — Swarm Variant 111801",
+    "name_zh_cn": "社会性梦境·蝗灾变体 111801",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "22",
+        "sha256": "1057f7669426a6580fab7ceac47509e327658c891549278d3b7ac329d7802687",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.114",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "114",
+        "sha256": "ca86533c4d7a42b225c25ffe48ab03420eda8d50d3ea9b7d709081340bbac9d4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111801-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111801.json",
+        "locator": "root",
+        "sha256": "2f0178d7e91f593662dff34c8c478051f670a405525c05533e7102097246ef7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111801",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.23"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111801.01",
+      "swarm-disaster.occurrence-choice.111801.02",
+      "swarm-disaster.occurrence-choice.111801.03",
+      "swarm-disaster.occurrence-choice.111801.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111801.json",
+        "locator": "root",
+        "sha256": "2f0178d7e91f593662dff34c8c478051f670a405525c05533e7102097246ef7a"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111801/Opt0111801.json",
+        "locator": "root",
+        "sha256": "66ebfa9d5f3f54318792ef38c940fb83c2f20538a364db92cf1a8faf4331d0b1"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.111901",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Saleo (I) — Swarm Variant 111901",
+    "name_zh_cn": "萨里奥（其一）·蝗灾变体 111901",
+    "summary_en": "Released Swarm NPC graph with 9 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 9 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "23",
+        "sha256": "95a77edc03f72bfd6b1b254aa8ea378ae4e7685f9fb9701f8f7b8b90532b9551",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "24",
+        "sha256": "72b17b992face743b485710784b810094f3df678360f149e495ae3a1c1d0277e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "25",
+        "sha256": "9f62af3a6508147bec6deb2c2a0988d7ae5b785463e8e4545ab6bd80cd3c4ed8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.115",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "115",
+        "sha256": "41bcfe4636f83dbe4aeffd097d4e5d2bbbd0cb7e183ff51ba707a5a43cd7fea2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc111901-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111901.json",
+        "locator": "root",
+        "sha256": "1498faa6d2fd7d1156facb78ad94e5a29a2623220c8837ee2038f432ee22b869",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "111901",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.24",
+      "swarm-disaster.occurrence.25",
+      "swarm-disaster.occurrence.26"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.111901.01",
+      "swarm-disaster.occurrence-choice.111901.02",
+      "swarm-disaster.occurrence-choice.111901.03",
+      "swarm-disaster.occurrence-choice.111901.04",
+      "swarm-disaster.occurrence-choice.111901.05",
+      "swarm-disaster.occurrence-choice.111901.06",
+      "swarm-disaster.occurrence-choice.111901.07",
+      "swarm-disaster.occurrence-choice.111901.08",
+      "swarm-disaster.occurrence-choice.111901.09"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC111901.json",
+        "locator": "root",
+        "sha256": "1498faa6d2fd7d1156facb78ad94e5a29a2623220c8837ee2038f432ee22b869"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111901/Opt0111901.json",
+        "locator": "root",
+        "sha256": "34a7bce4d372d9f36a92eef86cb9a131a868187b22340f8b67ca45bfbf5d05f9"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111902/Opt0111902.json",
+        "locator": "root",
+        "sha256": "6fef5d2ef68c3aa206a42dcac8a333f7b532f3c58a1928745f92adefa51a95ed"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0111903/Opt0111903.json",
+        "locator": "root",
+        "sha256": "dba85550ac6ce9d8e9c99eef2adad2bd6230e8bbe2377cbfcb23cfd68637838f"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112001",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Bounty Hunter — Swarm Variant 112001",
+    "name_zh_cn": "赏金猎人·蝗灾变体 112001",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "26",
+        "sha256": "830139ed2b67b4b19d5ec0e83587094de7c56b501c672a1bf367a6bfe79a1c4d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.116",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "116",
+        "sha256": "6d5ab4b35b445f079b058ff0effe582fa3a7371e500ddf2fa8c172cac2f8b03f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112001.json",
+        "locator": "root",
+        "sha256": "f955b888399dbabb3bf090b1c04bc67daa27b28f674e65cab396cf4bf34bf5cf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112001",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.27"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112001.01",
+      "swarm-disaster.occurrence-choice.112001.02",
+      "swarm-disaster.occurrence-choice.112001.03",
+      "swarm-disaster.occurrence-choice.112001.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112001.json",
+        "locator": "root",
+        "sha256": "f955b888399dbabb3bf090b1c04bc67daa27b28f674e65cab396cf4bf34bf5cf"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112001/Opt0112001.json",
+        "locator": "root",
+        "sha256": "e258b524a5d1312bac379cc0649ab869141d5f37d990795ff86faa87b5134db7"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Implement of Error — Swarm Variant 112101",
+    "name_zh_cn": "错误道具·蝗灾变体 112101",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "27",
+        "sha256": "d6a97772970688652a320311e96a2f44f539865413b9953faa4745362ad1f76e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.117",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "117",
+        "sha256": "abfc8fe2ff3d8f7d00d769e09c12c2bf0996b1a91ece9cf38c47d31cca6a0246",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112101-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112101.json",
+        "locator": "root",
+        "sha256": "277d7f86427ca24b344dc2c27b0a540007f2fe8befba20b63f5f9f22abb49a21",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112101",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.28"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112101.01",
+      "swarm-disaster.occurrence-choice.112101.02",
+      "swarm-disaster.occurrence-choice.112101.03",
+      "swarm-disaster.occurrence-choice.112101.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112101.json",
+        "locator": "root",
+        "sha256": "277d7f86427ca24b344dc2c27b0a540007f2fe8befba20b63f5f9f22abb49a21"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112101/Opt0112101.json",
+        "locator": "root",
+        "sha256": "e39088a655bc799106e323e16751ef63c09cfdfae8eabde17e63a6959f3b8962"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Knights of Beauty to the Rescue — Swarm Variant 112201",
+    "name_zh_cn": "纯美骑士的帮助·蝗灾变体 112201",
+    "summary_en": "Released Swarm NPC graph with 11 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 11 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "38",
+        "sha256": "c070bdb4f0835623774a1de9b62148ee7aa0dfb40393a5f9b7785ac4e845fb4f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.136",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "136",
+        "sha256": "5cdcbc4cfd325fbfb5280a8716b4ccfca76e926d668b9832567dbe00985345ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112201-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112201.json",
+        "locator": "root",
+        "sha256": "ae1b57a58eefc2f83389f29f5073472b626587f7e22991dc70a8db5339e3b448",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112201",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.39"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112201.01",
+      "swarm-disaster.occurrence-choice.112201.02",
+      "swarm-disaster.occurrence-choice.112201.03",
+      "swarm-disaster.occurrence-choice.112201.04",
+      "swarm-disaster.occurrence-choice.112201.05",
+      "swarm-disaster.occurrence-choice.112201.06",
+      "swarm-disaster.occurrence-choice.112201.07",
+      "swarm-disaster.occurrence-choice.112201.08",
+      "swarm-disaster.occurrence-choice.112201.09",
+      "swarm-disaster.occurrence-choice.112201.10",
+      "swarm-disaster.occurrence-choice.112201.11"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112201.json",
+        "locator": "root",
+        "sha256": "ae1b57a58eefc2f83389f29f5073472b626587f7e22991dc70a8db5339e3b448"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112201/Opt0112201.json",
+        "locator": "root",
+        "sha256": "c7cf6f48e0ddc43d6d7346916546d4e0547d3555da13a6e061551504b9130474"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Cosmic Crescendo — Swarm Variant 112301",
+    "name_zh_cn": "天外大合唱·蝗灾变体 112301",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "39",
+        "sha256": "28d66ab3c4e218c0b655a2366582786d45dea0d5dc7e737c7709a4987acce45c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.137",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "137",
+        "sha256": "aa1ec2341b679cd9e879c55d69a89dc4658ecf1ee6af23a6c7294a90974f327e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112301.json",
+        "locator": "root",
+        "sha256": "aedaddec3d5ef6ff62629f95ccc6abe0265c8075a5669c334861fc29ae0cbecf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112301",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.40"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112301.01",
+      "swarm-disaster.occurrence-choice.112301.02",
+      "swarm-disaster.occurrence-choice.112301.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112301.json",
+        "locator": "root",
+        "sha256": "aedaddec3d5ef6ff62629f95ccc6abe0265c8075a5669c334861fc29ae0cbecf"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112301/Opt0112301.json",
+        "locator": "root",
+        "sha256": "30ce885c7c3f5096089c2bfbc94b6b7001e02644772bd127629e4f341947b29a"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Genius Society #55 Yu Qingtu — Swarm Variant 112401",
+    "name_zh_cn": "天才俱乐部#55余清涂·蝗灾变体 112401",
+    "summary_en": "Released Swarm NPC graph with 11 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 11 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "40",
+        "sha256": "9fcef9b262c9f3fd99dfc4e24f285fdf0ccb1b04011463a5240c1ab9a2c85205",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.138",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "138",
+        "sha256": "60e478250b2152c6ffddbc6dcc85ea22cdb5122424dda9483780ba013ab3feb1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112401-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112401.json",
+        "locator": "root",
+        "sha256": "cfe254909158baa8521fa8a53d8954c8f5d424d10d4b6807ade0e82e06b9bb4c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112401",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.41"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112401.01",
+      "swarm-disaster.occurrence-choice.112401.02",
+      "swarm-disaster.occurrence-choice.112401.03",
+      "swarm-disaster.occurrence-choice.112401.04",
+      "swarm-disaster.occurrence-choice.112401.05",
+      "swarm-disaster.occurrence-choice.112401.06",
+      "swarm-disaster.occurrence-choice.112401.07",
+      "swarm-disaster.occurrence-choice.112401.08",
+      "swarm-disaster.occurrence-choice.112401.09",
+      "swarm-disaster.occurrence-choice.112401.10",
+      "swarm-disaster.occurrence-choice.112401.11"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112401.json",
+        "locator": "root",
+        "sha256": "cfe254909158baa8521fa8a53d8954c8f5d424d10d4b6807ade0e82e06b9bb4c"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112401/Opt0112401.json",
+        "locator": "root",
+        "sha256": "98d624b7a180fff25f1c11ebaab5e19da54815ccf932294e27c624e39c8dc46b"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Beast Horde: Voracious Catastrophe — Swarm Variant 112501",
+    "name_zh_cn": "兽群•贪饕灾厄·蝗灾变体 112501",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "41",
+        "sha256": "a4aecb70aef7845da30f03f0c73f5599ac8a03b6f5f53dcfb7d3ea2f2a961fb0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.139",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "139",
+        "sha256": "caab2cdc6cd0f358bc837c2f5a829bc7154fba92a1225d78f8774cd98037d3e2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112501.json",
+        "locator": "root",
+        "sha256": "2509b588279b3ea63a92e12b3baa3ffed2e8f373ed2f74c26ce80f140bc10500",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112501",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.42"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112501.01",
+      "swarm-disaster.occurrence-choice.112501.02",
+      "swarm-disaster.occurrence-choice.112501.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112501.json",
+        "locator": "root",
+        "sha256": "2509b588279b3ea63a92e12b3baa3ffed2e8f373ed2f74c26ce80f140bc10500"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112501/Opt0112501.json",
+        "locator": "root",
+        "sha256": "b9f1fa18bfb7a75fabdca3cbc159d19852e123871c65d18679c1076b279e28c2"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The Curio Fixer — Swarm Variant 112601",
+    "name_zh_cn": "奇物修理专家·蝗灾变体 112601",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "42",
+        "sha256": "eb868971fdcce4b5206084945fc775c227fceb52a80c13a6f5497766305704a2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.140",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "140",
+        "sha256": "3917b48b84e73f605db53150a72b2b2732d927a18c825bb3b7ecde7aab3647a1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112601-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112601.json",
+        "locator": "root",
+        "sha256": "1f340040a714ef50bb6e6d2cb2b718cb5db69481d9397f1bc244f6b9f9789cae",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112601",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.43"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112601.01",
+      "swarm-disaster.occurrence-choice.112601.02",
+      "swarm-disaster.occurrence-choice.112601.03",
+      "swarm-disaster.occurrence-choice.112601.04",
+      "swarm-disaster.occurrence-choice.112601.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112601.json",
+        "locator": "root",
+        "sha256": "1f340040a714ef50bb6e6d2cb2b718cb5db69481d9397f1bc244f6b9f9789cae"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112601/Opt0112601.json",
+        "locator": "root",
+        "sha256": "bb5e868812d98a6ade8d02c42ab293331ddd657c960004c809e538c9bda7aadc"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Showman's Sleight — Swarm Variant 112701",
+    "name_zh_cn": "伶人戏法·蝗灾变体 112701",
+    "summary_en": "Released Swarm NPC graph with 2 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 2 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "43",
+        "sha256": "1f95d1e2d49d5449f6fd123eb741ecb55efad023f764dcac1271c5fa58525db8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.141",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "141",
+        "sha256": "7b2adfacc061cb5102c121440472629262ae98a30b72ed86db1f298eee956466",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112701-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112701.json",
+        "locator": "root",
+        "sha256": "0bda79b84fe606aee26b3a2896201c64e3f1d2aa9fa3bd007dfbdc5b32f5c8d9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112701",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.44"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112701.01",
+      "swarm-disaster.occurrence-choice.112701.02"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112701.json",
+        "locator": "root",
+        "sha256": "0bda79b84fe606aee26b3a2896201c64e3f1d2aa9fa3bd007dfbdc5b32f5c8d9"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112701/Opt0112701.json",
+        "locator": "root",
+        "sha256": "4a94baee27dc2bf4fe3889ea828cbc2c7a8a4d065ff621d192b13818e27fff77"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The Double Lottery Experience — Swarm Variant 112801",
+    "name_zh_cn": "双乐透体验·蝗灾变体 112801",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.44",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "44",
+        "sha256": "7e3f5fdb6647873c60dec556d659eeccf35704c1ff44bd0d06d8aae015f367f7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.142",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "142",
+        "sha256": "80e8bed798b0eefe84824be8576b3e80e8472a20c0f7ba784935bb74ada78234",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112801-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112801.json",
+        "locator": "root",
+        "sha256": "87d43b4077d324abb06b85f5e9a005f62648e18f044b8bb4f2138ea76bb3c7dc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112801",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.45"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112801.01",
+      "swarm-disaster.occurrence-choice.112801.02",
+      "swarm-disaster.occurrence-choice.112801.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112801.json",
+        "locator": "root",
+        "sha256": "87d43b4077d324abb06b85f5e9a005f62648e18f044b8bb4f2138ea76bb3c7dc"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112801/Opt0112801.json",
+        "locator": "root",
+        "sha256": "cfc602d3e34ee44227c210f5a32c16cb4bf4b3d1729b02322394d2ab4f0c2ee3"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.112901",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Ruan Mei (II) — Swarm Variant 112901",
+    "name_zh_cn": "阮•梅（其二）·蝗灾变体 112901",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "45",
+        "sha256": "f6d318d77a565aa52525e792a77a8181bb0bf88593f672ef11e303e766e280fa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.143",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "143",
+        "sha256": "7aa43b04279e57a7957df19d325deabd948b06090afa7c9e032cf33f653f8b20",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc112901-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112901.json",
+        "locator": "root",
+        "sha256": "f37f7a8221ed1f578077bccf7ad2e69886b87e90d74d5b7b05eda53fdfdb27ea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "112901",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.46"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.112901.01",
+      "swarm-disaster.occurrence-choice.112901.02",
+      "swarm-disaster.occurrence-choice.112901.03",
+      "swarm-disaster.occurrence-choice.112901.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC112901.json",
+        "locator": "root",
+        "sha256": "f37f7a8221ed1f578077bccf7ad2e69886b87e90d74d5b7b05eda53fdfdb27ea"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0112901/Opt0112901.json",
+        "locator": "root",
+        "sha256": "7f8121ffaa60126f67c52dd1bb16647ece013d90864ede15ad93ccfa0983718b"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113001",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The *Perfect* Grand Challenge! — Swarm Variant 113001",
+    "name_zh_cn": "*完美*大挑战！·蝗灾变体 113001",
+    "summary_en": "Released Swarm NPC graph with 12 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 12 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "46",
+        "sha256": "b6bd5da189da4d2cf650fe3898b55e2d0657638be7cc7edbf4b62dcba4dc75b5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.144",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "144",
+        "sha256": "6b6dc8b2175ee1e7d4531ab29d3e207ed2afd14c5d31e3f265bae6e81f5ff5aa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113001.json",
+        "locator": "root",
+        "sha256": "505332e904d04fe9376153498d6bfcbc2039999fba41a28c93143288104b31fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113001",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.47"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113001.01",
+      "swarm-disaster.occurrence-choice.113001.02",
+      "swarm-disaster.occurrence-choice.113001.03",
+      "swarm-disaster.occurrence-choice.113001.04",
+      "swarm-disaster.occurrence-choice.113001.05",
+      "swarm-disaster.occurrence-choice.113001.06",
+      "swarm-disaster.occurrence-choice.113001.07",
+      "swarm-disaster.occurrence-choice.113001.08",
+      "swarm-disaster.occurrence-choice.113001.09",
+      "swarm-disaster.occurrence-choice.113001.10",
+      "swarm-disaster.occurrence-choice.113001.11",
+      "swarm-disaster.occurrence-choice.113001.12"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113001.json",
+        "locator": "root",
+        "sha256": "505332e904d04fe9376153498d6bfcbc2039999fba41a28c93143288104b31fc"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113001/Opt0113001.json",
+        "locator": "root",
+        "sha256": "960168bec52ebcda1686676b8b6a9b430fb5a32658277cbfe559fa017c8156fb"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "We Are Cowboys — Swarm Variant 113301",
+    "name_zh_cn": "我们是牛仔·蝗灾变体 113301",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "28",
+        "sha256": "28ca77c6ec1f3fdf9bc53d22a79f06b12d8fd55c08da42ce7651566bb0743ea0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.118",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "118",
+        "sha256": "2b4f90d7fc1af8e7bde329ce94978cf77beb7dd023fa3af83e97e9a61aea47a2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113301.json",
+        "locator": "root",
+        "sha256": "d8ec527b767d0f5990e2fd09e2894f2f8aabec66046b3dee605a65c1824deb73",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113301",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.29"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113301.01",
+      "swarm-disaster.occurrence-choice.113301.02",
+      "swarm-disaster.occurrence-choice.113301.03",
+      "swarm-disaster.occurrence-choice.113301.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113301.json",
+        "locator": "root",
+        "sha256": "d8ec527b767d0f5990e2fd09e2894f2f8aabec66046b3dee605a65c1824deb73"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113301/Opt0113301.json",
+        "locator": "root",
+        "sha256": "91ecc7149118441bf660d7a57dbbe22b78fcba11bbca9ca5605301cb8d40a229"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113302",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "We Are Cowboys — Swarm Variant 113302",
+    "name_zh_cn": "我们是牛仔·蝗灾变体 113302",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "28",
+        "sha256": "28ca77c6ec1f3fdf9bc53d22a79f06b12d8fd55c08da42ce7651566bb0743ea0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.119",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "119",
+        "sha256": "836471b91f3634a44460ea6fb4d6d9d70e0ecda3809298e8b8e9ec6759e4bc6f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113302-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113302.json",
+        "locator": "root",
+        "sha256": "f118d09c319726107b0af2a537f1986e2b1918a90ff153e80eedfccc0245a136",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113302",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.29"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113302.01",
+      "swarm-disaster.occurrence-choice.113302.02",
+      "swarm-disaster.occurrence-choice.113302.03",
+      "swarm-disaster.occurrence-choice.113302.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113302.json",
+        "locator": "root",
+        "sha256": "f118d09c319726107b0af2a537f1986e2b1918a90ff153e80eedfccc0245a136"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113302/Opt0113302.json",
+        "locator": "root",
+        "sha256": "ec2507f6d873ac3cea8e25d1c090fbf6c9a7f562679b124b9e94d019456684ee"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Rock, Paper, Scissors — Swarm Variant 113401",
+    "name_zh_cn": "猜拳游戏·蝗灾变体 113401",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "32",
+        "sha256": "5ee708f5809749f8aa7692500264595ac808998b9f1bdd79f3b24b915c79d935",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.123",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "123",
+        "sha256": "0dd916fdf9c73932e40f3cfa34aca3eac2429e28f39302189047c6a51480e333",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113401-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113401.json",
+        "locator": "root",
+        "sha256": "dc6135181a90b2e63407b6cda3cc15829df6868dd3badc0af0e45e43d4423fc6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113401",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.33"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113401.01",
+      "swarm-disaster.occurrence-choice.113401.02",
+      "swarm-disaster.occurrence-choice.113401.03",
+      "swarm-disaster.occurrence-choice.113401.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113401.json",
+        "locator": "root",
+        "sha256": "dc6135181a90b2e63407b6cda3cc15829df6868dd3badc0af0e45e43d4423fc6"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113401/Opt0113401.json",
+        "locator": "root",
+        "sha256": "0b134cfe1119ebbddfcf8554cdaae6f81db9be72b8f9fc3ec8ee4a712b3c113b"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113402",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Rock, Paper, Scissors — Swarm Variant 113402",
+    "name_zh_cn": "猜拳游戏·蝗灾变体 113402",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "32",
+        "sha256": "5ee708f5809749f8aa7692500264595ac808998b9f1bdd79f3b24b915c79d935",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.124",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "124",
+        "sha256": "2dd4a96327ac075cd7e39bb0300e9480342e699e792425ffd65b0e896ef00114",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113402-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113402.json",
+        "locator": "root",
+        "sha256": "6e9daa8f021e62f3041c1c038ca3ca5158f7eec3df04598a5f84c8f529f2c4be",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113402",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.33"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113402.01",
+      "swarm-disaster.occurrence-choice.113402.02",
+      "swarm-disaster.occurrence-choice.113402.03",
+      "swarm-disaster.occurrence-choice.113402.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113402.json",
+        "locator": "root",
+        "sha256": "6e9daa8f021e62f3041c1c038ca3ca5158f7eec3df04598a5f84c8f529f2c4be"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113402/Opt0113402.json",
+        "locator": "root",
+        "sha256": "49f77613aed8b22d81b10aa64792f7993524f26332d4ff5f282c5ca05f3e538b"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Nildis (Lightfish) — Swarm Variant 113501",
+    "name_zh_cn": "尼尔迪斯牌（灯鱼篇）·蝗灾变体 113501",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "29",
+        "sha256": "9b68b6388e50cb28e454895f57ea7ca5bb5f010aeb33accf837d600b6b661df7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.120",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "120",
+        "sha256": "f31b4569a4307d1c599336d8f41e0b404b751a4031f974fba89cf04e70c60c85",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113501.json",
+        "locator": "root",
+        "sha256": "f9277d904a48a73573a09580cc45e205dd7fd5aace396c97eddc0515e07b55da",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113501",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.30"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113501.01",
+      "swarm-disaster.occurrence-choice.113501.02",
+      "swarm-disaster.occurrence-choice.113501.03",
+      "swarm-disaster.occurrence-choice.113501.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113501.json",
+        "locator": "root",
+        "sha256": "f9277d904a48a73573a09580cc45e205dd7fd5aace396c97eddc0515e07b55da"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113501/Opt0113501.json",
+        "locator": "root",
+        "sha256": "264c49bf9a50eac4004ec96993d18bde002d4d439d218d20b08a65e814ed63a1"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113502",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Nildis (Wildboar) — Swarm Variant 113502",
+    "name_zh_cn": "尼尔迪斯牌（野猪篇）·蝗灾变体 113502",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "30",
+        "sha256": "9ac8badd1fcc850665a3d9262e1213c626abcde9b2e613ac6ddcf9883718e325",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.121",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "121",
+        "sha256": "ffa032e9a8db98d6ab662d16ca0fc3b8a01c5d96669d341ecd6b9a6db8e2b00f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113502-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113502.json",
+        "locator": "root",
+        "sha256": "15b4e2238506cf3b527f87d4621ef1eff66a87da2e19c939b7b6dd5bde05ea9d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113502",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.31"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113502.01",
+      "swarm-disaster.occurrence-choice.113502.02",
+      "swarm-disaster.occurrence-choice.113502.03",
+      "swarm-disaster.occurrence-choice.113502.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113502.json",
+        "locator": "root",
+        "sha256": "15b4e2238506cf3b527f87d4621ef1eff66a87da2e19c939b7b6dd5bde05ea9d"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113502/Opt0113502.json",
+        "locator": "root",
+        "sha256": "308afe4febce536b3f4433c0131d5015497f9940b9c419ecbd9b8d3dcdd15fc5"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113503",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Nildis (Robot) — Swarm Variant 113503",
+    "name_zh_cn": "尼尔迪斯牌（机械篇）·蝗灾变体 113503",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "31",
+        "sha256": "d1c217aa9980119f2f7606cbe9161e65450d450851f2239626bfefcc9232f898",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.122",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "122",
+        "sha256": "c367369c9029e2fad7276842f4c5cc2c999ab06c2d0c183c79ae486e33c52bd9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113503-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113503.json",
+        "locator": "root",
+        "sha256": "dff9c565c6b2bf193dbf84b78c70618890881a8ac2f762032c834764eee47924",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113503",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.32"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113503.01",
+      "swarm-disaster.occurrence-choice.113503.02",
+      "swarm-disaster.occurrence-choice.113503.03",
+      "swarm-disaster.occurrence-choice.113503.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113503.json",
+        "locator": "root",
+        "sha256": "dff9c565c6b2bf193dbf84b78c70618890881a8ac2f762032c834764eee47924"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113503/Opt0113503.json",
+        "locator": "root",
+        "sha256": "d52adb23b36409fc75e28a45e0e3812339eaa7d83a0d19a169b6e15ef8686567"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Tavern — Swarm Variant 113601",
+    "name_zh_cn": "酒馆·蝗灾变体 113601",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "33",
+        "sha256": "d7a44bbe9fc607d2357165169e008ee8b7b8d037e40d127bf9cf19bf917b9dac",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.125",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "125",
+        "sha256": "dcd93ae3473a406525dcf8497aba4a0a384115e14281902e30a541a153c30c65",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113601-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113601.json",
+        "locator": "root",
+        "sha256": "a9a27cb5282e10faed313613335d77a75b6d518f6cc4732c95d892ff7e1e32c7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113601",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.34"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113601.01",
+      "swarm-disaster.occurrence-choice.113601.02",
+      "swarm-disaster.occurrence-choice.113601.03",
+      "swarm-disaster.occurrence-choice.113601.04",
+      "swarm-disaster.occurrence-choice.113601.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113601.json",
+        "locator": "root",
+        "sha256": "a9a27cb5282e10faed313613335d77a75b6d518f6cc4732c95d892ff7e1e32c7"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113601/Opt0113601.json",
+        "locator": "root",
+        "sha256": "f651a3d9e02ae05c8483c329e1e6f4326736f2d5216ffaee6364ce34af8171c9"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113602",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Tavern — Swarm Variant 113602",
+    "name_zh_cn": "酒馆·蝗灾变体 113602",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "33",
+        "sha256": "d7a44bbe9fc607d2357165169e008ee8b7b8d037e40d127bf9cf19bf917b9dac",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.126",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "126",
+        "sha256": "ae4605815b0062447faf9353afa823c0267a234d5351da99476a6527b53859d3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113602-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113602.json",
+        "locator": "root",
+        "sha256": "7df4f2483981eaa3451cda246437de2f3111d6c80ebf58b58bf205e9a518f25e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113602",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.34"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113602.01",
+      "swarm-disaster.occurrence-choice.113602.02",
+      "swarm-disaster.occurrence-choice.113602.03",
+      "swarm-disaster.occurrence-choice.113602.04",
+      "swarm-disaster.occurrence-choice.113602.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113602.json",
+        "locator": "root",
+        "sha256": "7df4f2483981eaa3451cda246437de2f3111d6c80ebf58b58bf205e9a518f25e"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113602/Opt0113602.json",
+        "locator": "root",
+        "sha256": "be334b1b5d0bddebb9e6364fe791f6989a2d6e580c5f6a2b8a4097a33b75f00e"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113603",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Tavern — Swarm Variant 113603",
+    "name_zh_cn": "酒馆·蝗灾变体 113603",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "33",
+        "sha256": "d7a44bbe9fc607d2357165169e008ee8b7b8d037e40d127bf9cf19bf917b9dac",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.127",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "127",
+        "sha256": "31675eca5d5c7f4a7ac0bdebea8c05b0350e6b333fc08cec1468fc2c76bbe152",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113603-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113603.json",
+        "locator": "root",
+        "sha256": "d6864ac368e822ff5146faf945762d1a1278870a639d7a21ea586c6e92ac4a79",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113603",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.34"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113603.01",
+      "swarm-disaster.occurrence-choice.113603.02",
+      "swarm-disaster.occurrence-choice.113603.03",
+      "swarm-disaster.occurrence-choice.113603.04",
+      "swarm-disaster.occurrence-choice.113603.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113603.json",
+        "locator": "root",
+        "sha256": "d6864ac368e822ff5146faf945762d1a1278870a639d7a21ea586c6e92ac4a79"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113603/Opt0113603.json",
+        "locator": "root",
+        "sha256": "f561f22e5243f271ac0acb077cd2e96afacd12a63d78bd1b25e0c52a21c65dd0"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113701",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Periodic Demon Lord — Swarm Variant 113701",
+    "name_zh_cn": "周期性大魔王·蝗灾变体 113701",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "34",
+        "sha256": "728dc0cdaa11c5e54da1b05bdaf3fefced61dac59dba2a4deee3929a8d99f771",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.128",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "128",
+        "sha256": "639a78da9c596d6c95920af04dfc5add0d3d917958155771289cfa7c8bfca876",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113701-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113701.json",
+        "locator": "root",
+        "sha256": "0f3524ce0192a08f182a14f83591cf3525f8285d50e28e13e409735dee497611",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113701",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.35"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113701.01",
+      "swarm-disaster.occurrence-choice.113701.02",
+      "swarm-disaster.occurrence-choice.113701.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113701.json",
+        "locator": "root",
+        "sha256": "0f3524ce0192a08f182a14f83591cf3525f8285d50e28e13e409735dee497611"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113701/Opt0113701.json",
+        "locator": "root",
+        "sha256": "85856abb29f7f83dc445d051fe5ffaf52fcdfa93a830e2385ae92aef7469904d"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Let's Exchange Gifts — Swarm Variant 113801",
+    "name_zh_cn": "来交换礼物吧·蝗灾变体 113801",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "35",
+        "sha256": "ca95a2567f03f00cae1c0f324cddba04ac9e759ba19e7e125e040934dab920b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.133",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "133",
+        "sha256": "c5bd59726c6d3d507802cef2f037ce167c837be9a349bcdf3c6abba142308362",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113801-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113801.json",
+        "locator": "root",
+        "sha256": "83c0b53b98e6baf1ed4bbc068acd3fa8850c2dbe7cc4fe4fbd71fbbc14044b01",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113801",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.36"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113801.01",
+      "swarm-disaster.occurrence-choice.113801.02",
+      "swarm-disaster.occurrence-choice.113801.03",
+      "swarm-disaster.occurrence-choice.113801.04",
+      "swarm-disaster.occurrence-choice.113801.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113801.json",
+        "locator": "root",
+        "sha256": "83c0b53b98e6baf1ed4bbc068acd3fa8850c2dbe7cc4fe4fbd71fbbc14044b01"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113801/Opt0113801.json",
+        "locator": "root",
+        "sha256": "929997694765e3fd7d76e0f5b370ec82d700620244ae059fc6b5ab8d9250a125"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.113901",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Make A Wish — Swarm Variant 113901",
+    "name_zh_cn": "许个愿吧·蝗灾变体 113901",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "36",
+        "sha256": "16b4451562e17c0500b3b38a24f159749d1b2ca342cce94bc11dcafd460cab9c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.134",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "134",
+        "sha256": "24fbd134d96a91d4f3f9baf909c5658fe9db5fb0fa5a1b971e0317ca1c8b486e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc113901-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113901.json",
+        "locator": "root",
+        "sha256": "9ba19956be21ea1643b4cc2a29b9ebfd0b4cf697f4241bb37416ca850718c174",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "113901",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.37"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.113901.01",
+      "swarm-disaster.occurrence-choice.113901.02",
+      "swarm-disaster.occurrence-choice.113901.03",
+      "swarm-disaster.occurrence-choice.113901.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC113901.json",
+        "locator": "root",
+        "sha256": "9ba19956be21ea1643b4cc2a29b9ebfd0b4cf697f4241bb37416ca850718c174"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0113901/Opt0113901.json",
+        "locator": "root",
+        "sha256": "64d7bb1394ae3ae79d93f8044a97c3707d258122ce1f7a57503022f10e0477e0"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.114001",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Robot Sales Terminal — Swarm Variant 114001",
+    "name_zh_cn": "机器人销售终端·蝗灾变体 114001",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "37",
+        "sha256": "0860f91b3b8480be94a2a786429d99b765eaa5cc6c4f03f39fbf24e62e7870d3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.135",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "135",
+        "sha256": "9d52d26e5f0519c816c014780f7a49a1d98259a7f3ac66f5a3f4df0c5e1637c1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc114001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114001.json",
+        "locator": "root",
+        "sha256": "e2bc02dffb59741aae59e39d486f6faa5221cfc40abc8780aa792c40526f45b6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "114001",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.38"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.114001.01",
+      "swarm-disaster.occurrence-choice.114001.02",
+      "swarm-disaster.occurrence-choice.114001.03",
+      "swarm-disaster.occurrence-choice.114001.04",
+      "swarm-disaster.occurrence-choice.114001.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114001.json",
+        "locator": "root",
+        "sha256": "e2bc02dffb59741aae59e39d486f6faa5221cfc40abc8780aa792c40526f45b6"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114001/Opt0114001.json",
+        "locator": "root",
+        "sha256": "651c14935a5f79de15439fb20760ce176bd646b900b8df0755c6be7f117e81d0"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.114201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The IPC Promotion Saga (I) — Swarm Variant 114201",
+    "name_zh_cn": "星际和平公司「升职记」（其一）·蝗灾变体 114201",
+    "summary_en": "Released Swarm NPC graph with 15 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 15 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "47",
+        "sha256": "2ea43a6238b9cb52ca91f50c24a00e4685eb08a1f18cb15cc0015b3c7eb54f6d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "48",
+        "sha256": "f0793da7f19af890f8c616809bcce7def595f3838806bf6e4c0a1aedd6432231",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "49",
+        "sha256": "8e2aef9407c34cf39b117ce58e7bf8a4300d7fdf5464f17ab0ef1f52f1e436d6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.50",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "50",
+        "sha256": "50215ef235b138395da281ee5cba4de80d9e3aa0c31916e37684b1cffff9eeaa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.145",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "145",
+        "sha256": "ce065b74b260c788bafeaefc6ac66b32c026b97d7b8fa0f250c987495e438cb3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc114201-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114201.json",
+        "locator": "root",
+        "sha256": "94cb3261ce5ec6466572e63698e0c57583ca957efd548a6a36a94af485786c73",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "114201",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.48",
+      "swarm-disaster.occurrence.49",
+      "swarm-disaster.occurrence.50",
+      "swarm-disaster.occurrence.51"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.114201.01",
+      "swarm-disaster.occurrence-choice.114201.02",
+      "swarm-disaster.occurrence-choice.114201.03",
+      "swarm-disaster.occurrence-choice.114201.04",
+      "swarm-disaster.occurrence-choice.114201.05",
+      "swarm-disaster.occurrence-choice.114201.06",
+      "swarm-disaster.occurrence-choice.114201.07",
+      "swarm-disaster.occurrence-choice.114201.08",
+      "swarm-disaster.occurrence-choice.114201.09",
+      "swarm-disaster.occurrence-choice.114201.10",
+      "swarm-disaster.occurrence-choice.114201.11",
+      "swarm-disaster.occurrence-choice.114201.12",
+      "swarm-disaster.occurrence-choice.114201.13",
+      "swarm-disaster.occurrence-choice.114201.14",
+      "swarm-disaster.occurrence-choice.114201.15"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114201.json",
+        "locator": "root",
+        "sha256": "94cb3261ce5ec6466572e63698e0c57583ca957efd548a6a36a94af485786c73"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114201/Opt0114201.json",
+        "locator": "root",
+        "sha256": "465904f5953de89b8a70ff5f6ca70da2b974d5b2fb051d8e9e47c18387884e19"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114202/Opt0114202.json",
+        "locator": "root",
+        "sha256": "eacbacdc2c919da56561bb591ca7b666a1243fe4e27c24f8479db28bf6c247f4"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114203/Opt0114203.json",
+        "locator": "root",
+        "sha256": "b335d510721d852bfa00d951589ceea1956ade4743cd3725e53b125fd1f553f8"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114204/Opt0114204.json",
+        "locator": "root",
+        "sha256": "3b9c6b729918cfc62a059ec7b8b17df992861e46b0c7cb314f67ff434ea16fec"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.114301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Ka-ching! IPC Banking (I) — Swarm Variant 114301",
+    "name_zh_cn": "咔嚓——星际和平银行！（其一）·蝗灾变体 114301",
+    "summary_en": "Released Swarm NPC graph with 12 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 12 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.51",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "51",
+        "sha256": "684a0e433b0a6e88a2a99954c76ddea7bda5ce342ffa4eb3bf6a0de79b9715ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "52",
+        "sha256": "fbcd94d92dbad89a4f17b9936a0f2438ae9700b8ba4ffb134d14fd994c38e85f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.146",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "146",
+        "sha256": "23d703fde25e170f9de4586c10f2134c50ca6391d48b241c61b8efc4ce67eaec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc114301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114301.json",
+        "locator": "root",
+        "sha256": "1c8483a025e823d667ceb3b467dc29d39fb216004d6272b5618abe76b66c4203",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "114301",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.52",
+      "swarm-disaster.occurrence.53"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.114301.01",
+      "swarm-disaster.occurrence-choice.114301.02",
+      "swarm-disaster.occurrence-choice.114301.03",
+      "swarm-disaster.occurrence-choice.114301.04",
+      "swarm-disaster.occurrence-choice.114301.05",
+      "swarm-disaster.occurrence-choice.114301.06",
+      "swarm-disaster.occurrence-choice.114301.07",
+      "swarm-disaster.occurrence-choice.114301.08",
+      "swarm-disaster.occurrence-choice.114301.09",
+      "swarm-disaster.occurrence-choice.114301.10",
+      "swarm-disaster.occurrence-choice.114301.11",
+      "swarm-disaster.occurrence-choice.114301.12"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114301.json",
+        "locator": "root",
+        "sha256": "1c8483a025e823d667ceb3b467dc29d39fb216004d6272b5618abe76b66c4203"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114301/Opt0114301.json",
+        "locator": "root",
+        "sha256": "424d70495e54e88b7a88cccdcec7775e98748cd386c7ca636409ebfd833aa78e"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114302/Opt0114302.json",
+        "locator": "root",
+        "sha256": "857d910fbd82b573733fd6bbafe3b68d951a664f5f867aae2e13ab39155a80e9"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114303/Opt0114303.json",
+        "locator": "root",
+        "sha256": "ebd0ec27b3398f3cfa24100b66c61acbe207ebf98f53921e55045624513ab9c0"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114304/Opt0114304.json",
+        "locator": "root",
+        "sha256": "5af2b84c3c745893b84529a9a7a46b45fe5c58f689740e57b961d977de34beb4"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.114401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Loneliness, Cosmic Beauty Bugs, Simulated Universe (I) — Swarm Variant 114401",
+    "name_zh_cn": "孤独，太空美虫，模拟宇宙（其一）·蝗灾变体 114401",
+    "summary_en": "Released Swarm NPC graph with 8 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 8 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.53",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "53",
+        "sha256": "a40b8c720c68b1fd1e561d1906b9a38f9e52a05d94d013b04123eaaad31fd870",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "54",
+        "sha256": "655636fa5a629fd484943dd9fba99d566f88dfede1c218965f0b6c64200c8bbd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.147",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "147",
+        "sha256": "27dd03819131780bf5dc1ec6e727f898c91369ed299f5dcb968afeb1141305d7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc114401-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114401.json",
+        "locator": "root",
+        "sha256": "eda27035e9e77613154a80c3c2b1d94a585a68d120850cfc46214c66415e6196",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "114401",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.54",
+      "swarm-disaster.occurrence.55"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.114401.01",
+      "swarm-disaster.occurrence-choice.114401.02",
+      "swarm-disaster.occurrence-choice.114401.03",
+      "swarm-disaster.occurrence-choice.114401.04",
+      "swarm-disaster.occurrence-choice.114401.05",
+      "swarm-disaster.occurrence-choice.114401.06",
+      "swarm-disaster.occurrence-choice.114401.07",
+      "swarm-disaster.occurrence-choice.114401.08"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114401.json",
+        "locator": "root",
+        "sha256": "eda27035e9e77613154a80c3c2b1d94a585a68d120850cfc46214c66415e6196"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114401/Opt0114401.json",
+        "locator": "root",
+        "sha256": "c91707cc23393fc0f91f2a5984b811744fc7cc22f6448c5f5647194a42889bbd"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114402/Opt0114402.json",
+        "locator": "root",
+        "sha256": "905d382347c8733c548b84feae49e04e9c2656a94d6ee5b6dc8cf67d9286e1fd"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.114501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Ace Trash Digger — Swarm Variant 114501",
+    "name_zh_cn": "掏垃圾桶大师·蝗灾变体 114501",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "55",
+        "sha256": "fce620b991efe54b4f7aa4c84090495ea15865f4432eed6b5213a887c40191e3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.148",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "148",
+        "sha256": "f3cc93caaa7553911431625452f9008326b2de4f65129d55803f99b7e1877762",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc114501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114501.json",
+        "locator": "root",
+        "sha256": "1298af9c208bb02e62d2046d96d6410266ee711a556e969f162306a6bd31946e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "114501",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.56"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.114501.01",
+      "swarm-disaster.occurrence-choice.114501.02",
+      "swarm-disaster.occurrence-choice.114501.03",
+      "swarm-disaster.occurrence-choice.114501.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC114501.json",
+        "locator": "root",
+        "sha256": "1298af9c208bb02e62d2046d96d6410266ee711a556e969f162306a6bd31946e"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0114501/Opt0114501.json",
+        "locator": "root",
+        "sha256": "0ae53dc69a05ae69e949f4d844232157fe8544d35ea35f360debe80ffd7ea0e3"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.118801",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Swarm: Slumbering Overlord (First Praetorian) — Swarm Variant 118801",
+    "name_zh_cn": "虫潮•沉睡领主（一级卫戍）·蝗灾变体 118801",
+    "summary_en": "Released Swarm NPC graph with 6 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "56",
+        "sha256": "8adcaddde9103ea3deeac165a4eef4ff9a2f903795106d365d024dea742245fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.65",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "65",
+        "sha256": "c3dfb4613bb987a2959efcceeb534d7a3877aec001db6f573815d6888e6ea6ab",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.66",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "66",
+        "sha256": "9d8a624f8bee6eea2ed4d68f6b8c1ab9118b396b81f93dc97328292d14e94118",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.149",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "149",
+        "sha256": "29cb994a8176f304afa6bac49c265cc0378775b2c76bf0807d50661a98b16e7b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc118801-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC118801.json",
+        "locator": "root",
+        "sha256": "00cfc78a84a0196f8cc3cf8aff1274c087914d1e2fbb955161073a7df6d87fe4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "118801",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.57",
+      "swarm-disaster.occurrence.66",
+      "swarm-disaster.occurrence.67"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.118801.01",
+      "swarm-disaster.occurrence-choice.118801.02",
+      "swarm-disaster.occurrence-choice.118801.03",
+      "swarm-disaster.occurrence-choice.118801.04",
+      "swarm-disaster.occurrence-choice.118801.05",
+      "swarm-disaster.occurrence-choice.118801.06"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC118801.json",
+        "locator": "root",
+        "sha256": "00cfc78a84a0196f8cc3cf8aff1274c087914d1e2fbb955161073a7df6d87fe4"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0118801/Opt0118801.json",
+        "locator": "root",
+        "sha256": "1fe119b673d65a68f644f82949459d48a56a9c8b916b4cf6dc7b9e6d9d26b79f"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0118802/Opt0118802.json",
+        "locator": "root",
+        "sha256": "4fcf2b6e6edb1fca8d468e50d384e793c419541f3ec5ff1d631f08de62d5f3de"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0118803/Opt0118803.json",
+        "locator": "root",
+        "sha256": "30beeb49c04f9db9f834327ce3b55ac4a27630cff65c9a393fe73f69da8584e8"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.118901",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Propagation: Slumbering Overlord (First Praetorian) — Swarm Variant 118901",
+    "name_zh_cn": "繁育•沉睡领主（一级卫戍）·蝗灾变体 118901",
+    "summary_en": "Released Swarm NPC graph with 6 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.67",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "67",
+        "sha256": "fbcca1d4243393e86fbe834310cbf180b16cb14605b75791d74fa5f61d8b9eb7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.68",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "68",
+        "sha256": "878eb46daf3f93299b9d87e1d6cabd4da3c0c66de90a3dd28fb52f9e8ee058d4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.69",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "69",
+        "sha256": "919664404a5936edaa662ec74421bed369fc54288c11fbb0c6cfa219104c34c4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.150",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "150",
+        "sha256": "253d3d4b42d68f08bebe1191897a6c66b17bb5d78fbb69c3ee4a91cd795d23f8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc118901-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC118901.json",
+        "locator": "root",
+        "sha256": "099c1e5aeae1f2f696f61c8a4c2c601ef35e776877e1aef375e2bae400971c0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "118901",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.68",
+      "swarm-disaster.occurrence.69",
+      "swarm-disaster.occurrence.70"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.118901.01",
+      "swarm-disaster.occurrence-choice.118901.02",
+      "swarm-disaster.occurrence-choice.118901.03",
+      "swarm-disaster.occurrence-choice.118901.04",
+      "swarm-disaster.occurrence-choice.118901.05",
+      "swarm-disaster.occurrence-choice.118901.06"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC118901.json",
+        "locator": "root",
+        "sha256": "099c1e5aeae1f2f696f61c8a4c2c601ef35e776877e1aef375e2bae400971c0f"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0118901/Opt0118901.json",
+        "locator": "root",
+        "sha256": "090dcc1256d1f3121264e8b27d3100712da77d06b54eb1bab4bd55ce96c037ab"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0118902/Opt0118902.json",
+        "locator": "root",
+        "sha256": "b901c5e267e6a38b14aea0b670b769644c11f9bdafeb16c7a997fb47d7325860"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0118903/Opt0118903.json",
+        "locator": "root",
+        "sha256": "142f391ea91409c528cc8a80cf2f82ba5e49a07ac3f1f0d3d5c09f7f0f5c2993"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119001",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Swarm: Nest Exploration (First Praetorian) — Swarm Variant 119001",
+    "name_zh_cn": "虫潮•虫巢探险（一级卫戍）·蝗灾变体 119001",
+    "summary_en": "Released Swarm NPC graph with 6 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "57",
+        "sha256": "209efba9c88539af767fc722175618502862dcb3551c2121c4f432bc153075a6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "70",
+        "sha256": "d80f5c1189dcd5f4165546edfea3742f69cd03ace0308a60b919efca3bd04c2a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "71",
+        "sha256": "de18bf11ad9bfdafacdea5a3e4a621bd7d288aeacaff5fa59333faa8eea95e00",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.151",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "151",
+        "sha256": "64583fc13584ff473d48684236be81f833b8d29e7f0649d68e192ad5bc56cebf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119001.json",
+        "locator": "root",
+        "sha256": "6646298a1848e8f1b1f083889813822141e1bc26b3a008871a2d7e2e43ba28b4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119001",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.58",
+      "swarm-disaster.occurrence.71",
+      "swarm-disaster.occurrence.72"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119001.01",
+      "swarm-disaster.occurrence-choice.119001.02",
+      "swarm-disaster.occurrence-choice.119001.03",
+      "swarm-disaster.occurrence-choice.119001.04",
+      "swarm-disaster.occurrence-choice.119001.05",
+      "swarm-disaster.occurrence-choice.119001.06"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119001.json",
+        "locator": "root",
+        "sha256": "6646298a1848e8f1b1f083889813822141e1bc26b3a008871a2d7e2e43ba28b4"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119001/Opt0119001.json",
+        "locator": "root",
+        "sha256": "ab31d9eaa43b2eab368b2ea1193678d417641e02fc33d9ddaa2547c618e9256b"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119002/Opt0119002.json",
+        "locator": "root",
+        "sha256": "4821d7e72e631ea8df572eceb31385ab27ae7d239480857ffd91369e0cd79100"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119003/Opt0119003.json",
+        "locator": "root",
+        "sha256": "52da5fc5757e09a24c09479432d82573a64f127e188c1cd98e47d6f027fbe6a0"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Propagation: Nest Exploration (First Praetorian) — Swarm Variant 119101",
+    "name_zh_cn": "繁育•虫巢探险（一级卫戍）·蝗灾变体 119101",
+    "summary_en": "Released Swarm NPC graph with 4 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "72",
+        "sha256": "dadf45a1e0d6e1c89084c0dac95f6e2e4b68b22d395ab62341e911fbd100640b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.73",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "73",
+        "sha256": "b03c6039b9e7d4f8770d99dd645432229e29b70917f221be461be64c1492c242",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.152",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "152",
+        "sha256": "c59c7b3f10dfc31586dd7725f6f11c89f9dc52d5cf6dd18b203978e5623bd427",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119101-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119101.json",
+        "locator": "root",
+        "sha256": "b6ca93195a86eb1a6fe7db2954ec4101bb3673e453519491272fd5a69e890ffd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119101",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.73",
+      "swarm-disaster.occurrence.74"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119101.01",
+      "swarm-disaster.occurrence-choice.119101.02",
+      "swarm-disaster.occurrence-choice.119101.03",
+      "swarm-disaster.occurrence-choice.119101.04"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119101.json",
+        "locator": "root",
+        "sha256": "b6ca93195a86eb1a6fe7db2954ec4101bb3673e453519491272fd5a69e890ffd"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119101/Opt0119101.json",
+        "locator": "root",
+        "sha256": "f143323c8b93a91ea668e180426c9c9793f4b3f13115a37896d861b9fa5190d4"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119102/Opt0119102.json",
+        "locator": "root",
+        "sha256": "86c29cbdcec2ab49374c77e9b8cbed593fdc4755e72445f4e1c4e0b72558b4aa"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119201",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Swarm: Mind of the Domain (First Praetorian) — Swarm Variant 119201",
+    "name_zh_cn": "虫潮•区域脑体（一级卫戍）·蝗灾变体 119201",
+    "summary_en": "Released Swarm NPC graph with 5 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.58",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "58",
+        "sha256": "efd2e76994ddc0eea8128e21d2b077150e31b3af54d033feedd948eb81bd61bf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.74",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "74",
+        "sha256": "5a60ea2b54b328317742d862a2655f877f7172d111ad80707790f458018b2c7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.75",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "75",
+        "sha256": "7b760668d3856f94689713cd76013db45e85af6c1a36812723c5746f83db41ad",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.153",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "153",
+        "sha256": "606348593d84fe3cf78bff58aec45b47acdca3f695cab9fd13d0d6af18517fec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119201-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119201.json",
+        "locator": "root",
+        "sha256": "f1be0c54a40bff28c9d784827d492eb3e238578912189bba7d45e65b5ba891e7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119201",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.59",
+      "swarm-disaster.occurrence.75",
+      "swarm-disaster.occurrence.76"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119201.01",
+      "swarm-disaster.occurrence-choice.119201.02",
+      "swarm-disaster.occurrence-choice.119201.03",
+      "swarm-disaster.occurrence-choice.119201.04",
+      "swarm-disaster.occurrence-choice.119201.05"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119201.json",
+        "locator": "root",
+        "sha256": "f1be0c54a40bff28c9d784827d492eb3e238578912189bba7d45e65b5ba891e7"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119201/Opt0119201.json",
+        "locator": "root",
+        "sha256": "e93011ec424398b7d444f099f828908558fffa244fcb8ba410c733470e3d9c37"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119202/Opt0119202.json",
+        "locator": "root",
+        "sha256": "73d1ff21c2b416c7abb52d4882d983d266e3185150237f2fdf7348b5a6fbedf2"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119203/Opt0119203.json",
+        "locator": "root",
+        "sha256": "d57fdb1b907b696eb663f4ef421d2f69bb2aa39eb5f6c59f596bc0310b611acc"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119301",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Insights from the Universal Dancer — Swarm Variant 119301",
+    "name_zh_cn": "寰宇舞者的启示·蝗灾变体 119301",
+    "summary_en": "Released Swarm NPC graph with 2 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 2 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "59",
+        "sha256": "8b8cabee35b523caa90a30a488f470feb376bc0ad7736dbb0e368e5abb60e96a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.154",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "154",
+        "sha256": "a8c757af7df3338fb6d72d1c1eaade4652eb19d195403090c4b190328f61e295",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119301.json",
+        "locator": "root",
+        "sha256": "310292b14b44b5d92b5dbe776dc38628bbfa161558f9b6cc549594edef16b6cc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119301",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.60"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119301.01",
+      "swarm-disaster.occurrence-choice.119301.02"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119301.json",
+        "locator": "root",
+        "sha256": "310292b14b44b5d92b5dbe776dc38628bbfa161558f9b6cc549594edef16b6cc"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119301/Opt0119301.json",
+        "locator": "root",
+        "sha256": "6a11a1c3993ca720551fd246aa5042d52d8c343b7abc237ca6db5931118ba298"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Pixel World: Hidden Stage — Swarm Variant 119401",
+    "name_zh_cn": "像素世界•隐藏关·蝗灾变体 119401",
+    "summary_en": "Released Swarm NPC graph with 3 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "60",
+        "sha256": "559a5baefeb23db193bb765624f060403e7c486ff318e0693a8de5dd97bb98ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.155",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "155",
+        "sha256": "50f0453fa8af6c99daa6ea27f0e927a19dfe8ac504afa3abca836d0af1c8dfe6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119401-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119401.json",
+        "locator": "root",
+        "sha256": "21a62dad11e5b83d74ed9bfc55a1817d1d781902f43c18bcbe6ad7f5988c3f87",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119401",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.61"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119401.01",
+      "swarm-disaster.occurrence-choice.119401.02",
+      "swarm-disaster.occurrence-choice.119401.03"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119401.json",
+        "locator": "root",
+        "sha256": "21a62dad11e5b83d74ed9bfc55a1817d1d781902f43c18bcbe6ad7f5988c3f87"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119401/Opt0119401.json",
+        "locator": "root",
+        "sha256": "05169e8da92cfc13a84e2fdc4f4b10a7a3f4264385f0e66a2c5fe4766c2d0aca"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "Mirror of Transcendence (I) — Swarm Variant 119501",
+    "name_zh_cn": "超验之镜（其一）·蝗灾变体 119501",
+    "summary_en": "Released Swarm NPC graph with 18 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 18 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "61",
+        "sha256": "e72e4ecaac8ee24453156fd07d9b70c9fd40028d1ed75cd79a900efdda8bf448",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.76",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "76",
+        "sha256": "7c75f782511748560046ecd725315b628759c172bf5b4d8004fe2eecec881fc0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "77",
+        "sha256": "a4f4aaed8d96bf715c79fa56c910b4614e7be88ecd88564c94a7a6e421028ecb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.156",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "156",
+        "sha256": "26cd1d7cf1c38f35918391fe47170a0140340f0683fc5714d87d6b7a1a5cd1cc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119501.json",
+        "locator": "root",
+        "sha256": "8e69db73516ab71f23fdde7a261ce91e7f27525d26b96c288a12b193ee43e25e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119501",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.62",
+      "swarm-disaster.occurrence.77",
+      "swarm-disaster.occurrence.78"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119501.01",
+      "swarm-disaster.occurrence-choice.119501.02",
+      "swarm-disaster.occurrence-choice.119501.03",
+      "swarm-disaster.occurrence-choice.119501.04",
+      "swarm-disaster.occurrence-choice.119501.05",
+      "swarm-disaster.occurrence-choice.119501.06",
+      "swarm-disaster.occurrence-choice.119501.07",
+      "swarm-disaster.occurrence-choice.119501.08",
+      "swarm-disaster.occurrence-choice.119501.09",
+      "swarm-disaster.occurrence-choice.119501.10",
+      "swarm-disaster.occurrence-choice.119501.11",
+      "swarm-disaster.occurrence-choice.119501.12",
+      "swarm-disaster.occurrence-choice.119501.13",
+      "swarm-disaster.occurrence-choice.119501.14",
+      "swarm-disaster.occurrence-choice.119501.15",
+      "swarm-disaster.occurrence-choice.119501.16",
+      "swarm-disaster.occurrence-choice.119501.17",
+      "swarm-disaster.occurrence-choice.119501.18"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119501.json",
+        "locator": "root",
+        "sha256": "8e69db73516ab71f23fdde7a261ce91e7f27525d26b96c288a12b193ee43e25e"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119501/Opt0119501.json",
+        "locator": "root",
+        "sha256": "d217da7df155ea2ec94b22f77b0f047e643ddab9517f600974beaaaba460691b"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119502/Opt0119502.json",
+        "locator": "root",
+        "sha256": "b43e4df6851bc6b4effa5685ec08cc62183d25e7b8f0f909aac60e373712f094"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119503/Opt0119503.json",
+        "locator": "root",
+        "sha256": "47b7a19dcb5357ad7489d57d03fc00867c0356b18c76c49197ca69e95d87bb14"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119504/Opt0119504.json",
+        "locator": "root",
+        "sha256": "b36fa9ce0eceddea14165e7235e9706a5b71b1e0e33b4f6d943bb970e12a689c"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119505/Opt0119505.json",
+        "locator": "root",
+        "sha256": "9dba46a31dfde2fc167648cb27ae010aa1d1b1aa57b1bfe4f27bc2381b4eeb17"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119506/Opt0119506.json",
+        "locator": "root",
+        "sha256": "f7b8931e4bc0c4a4cc1cf4055842ddf30f8391db723fe16a2468f087e20ff1d0"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119507/Opt0119507.json",
+        "locator": "root",
+        "sha256": "b36fa9ce0eceddea14165e7235e9706a5b71b1e0e33b4f6d943bb970e12a689c"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  },
+  {
+    "id": "swarm-disaster.occurrence-variant.119601",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmOccurrenceVariant",
+    "name_en": "The Cuckoo Clock Fanatic (I) — Swarm Variant 119601",
+    "name_zh_cn": "咕咕钟狂热粉丝（其一）·蝗灾变体 119601",
+    "summary_en": "Released Swarm NPC graph with 8 ordered mechanical choices.",
+    "summary_zh_cn": "已发布的蝗灾 NPC 图，包含 8 个有序机制选项。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "62",
+        "sha256": "85a17c38ce924820b9a688d3ad585938649c455c2bf3bb57a933a4a06d2541a9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.63",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "63",
+        "sha256": "eec9463a8080ce5b33fd8a1660eeee2ebdb843b753a7821d7f34877760d89dfe",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.64",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "64",
+        "sha256": "1b60547420a8093067dfc8f13c63a3dbd38aedb7cd323eb57d484551fcb119d0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.157",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "157",
+        "sha256": "17dc3278d27d50ab8f2b8eaa5a1c2314a8d9663073fd47999e45f959710a182e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc119601-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119601.json",
+        "locator": "root",
+        "sha256": "fdff0d97208730365565858c3c36bbe3a51cbb47bfefb44ac2cace41a4476ceb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-owned",
+      "occurrence-variant"
+    ],
+    "source_id": "119601",
+    "occurrence_ids": [
+      "swarm-disaster.occurrence.63",
+      "swarm-disaster.occurrence.64",
+      "swarm-disaster.occurrence.65"
+    ],
+    "choice_ids": [
+      "swarm-disaster.occurrence-choice.119601.01",
+      "swarm-disaster.occurrence-choice.119601.02",
+      "swarm-disaster.occurrence-choice.119601.03",
+      "swarm-disaster.occurrence-choice.119601.04",
+      "swarm-disaster.occurrence-choice.119601.05",
+      "swarm-disaster.occurrence-choice.119601.06",
+      "swarm-disaster.occurrence-choice.119601.07",
+      "swarm-disaster.occurrence-choice.119601.08"
+    ],
+    "graph_refs": [
+      {
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC119601.json",
+        "locator": "root",
+        "sha256": "fdff0d97208730365565858c3c36bbe3a51cbb47bfefb44ac2cace41a4476ceb"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119601/Opt0119601.json",
+        "locator": "root",
+        "sha256": "58f9fd542ff23b5ad687b8b0e25821d2069de6f3b2e6a7901425775e6de4b6ee"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119602/Opt0119602.json",
+        "locator": "root",
+        "sha256": "c9c5b48c12788438d220a15e51626597a70993ac74d3811c5eb4035d223c351a"
+      },
+      {
+        "path": "Config/Level/Rogue/RogueDialogue/Event0119603/Opt0119603.json",
+        "locator": "root",
+        "sha256": "e2f625708d1098c59f86554ef156180d7ea41b7bb1f14153d9b6826f34da5341"
+      }
+    ],
+    "source_dialogue_type": "Event"
+  }
+]

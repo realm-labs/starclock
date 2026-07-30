@@ -1,0 +1,439 @@
+{
+  "table": {
+    "name": "SwarmDisasterTrailblazeBonus",
+    "rows": [
+      {
+        "values": {
+          "application_boundary": {
+            "String": "AfterTrailblazeBonusSelectionAtRunStart"
+          },
+          "bonus_event": {
+            "String": "1010"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "{\"operations\":[{\"operation\":\"AddCosmicFragments\",\"order\":0,\"value\":\"150\"}],\"random_stream\":\"swarm-disaster.trailblaze-bonus.101\",\"source_description_sha256_en\":\"b8293f58f66669edfaa943ce9cf52370c1696118adf5b4bd0fd7789ab7129b2a\",\"source_description_sha256_zh_cn\":\"33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177\",\"transaction\":\"AtomicAcceptedActivityOperations\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmTrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fragmented Universe"
+          },
+          "name_zh_cn": {
+            "String": "破碎宇宙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.trailblaze-bonus.101"
+          },
+          "summary_en": {
+            "String": "At run start, gain 150 Cosmic Fragments."
+          },
+          "summary_zh_cn": {
+            "String": "开局时获得 150 枚宇宙碎片。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "application_boundary": {
+            "String": "AfterTrailblazeBonusSelectionAtRunStart"
+          },
+          "bonus_event": {
+            "String": "1020"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "{\"operations\":[{\"count\":\"1\",\"maximum_rarity\":\"2\",\"minimum_rarity\":\"1\",\"operation\":\"GrantRandomBlessings\",\"order\":0,\"pool_binding_state\":\"DeferredToG09P2B1\"}],\"random_stream\":\"swarm-disaster.trailblaze-bonus.102\",\"source_description_sha256_en\":\"8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf\",\"source_description_sha256_zh_cn\":\"1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400\",\"transaction\":\"AtomicAcceptedActivityOperations\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmTrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Blessing Universe"
+          },
+          "name_zh_cn": {
+            "String": "祝福宇宙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.trailblaze-bonus.102"
+          },
+          "summary_en": {
+            "String": "At run start, gain one random 1- or 2-star Blessing."
+          },
+          "summary_zh_cn": {
+            "String": "开局时获得一个随机 1 星或 2 星祝福。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "application_boundary": {
+            "String": "AfterTrailblazeBonusSelectionAtRunStart"
+          },
+          "bonus_event": {
+            "String": "1030"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "{\"operations\":[{\"category\":\"AnyEligible\",\"count\":\"1\",\"operation\":\"GrantRandomCurios\",\"order\":0,\"pool_binding_state\":\"DeferredToG09P2B2\"}],\"random_stream\":\"swarm-disaster.trailblaze-bonus.103\",\"source_description_sha256_en\":\"22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35\",\"source_description_sha256_zh_cn\":\"68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530\",\"transaction\":\"AtomicAcceptedActivityOperations\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmTrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Miracle Universe"
+          },
+          "name_zh_cn": {
+            "String": "神奇宇宙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.trailblaze-bonus.103"
+          },
+          "summary_en": {
+            "String": "At run start, gain one random eligible Curio."
+          },
+          "summary_zh_cn": {
+            "String": "开局时获得一个随机可用奇物。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "application_boundary": {
+            "String": "AfterTrailblazeBonusSelectionAtRunStart"
+          },
+          "bonus_event": {
+            "String": "1040"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "{\"operations\":[{\"operation\":\"SpendCosmicFragments\",\"order\":0,\"value\":\"100\"},{\"category\":\"ErrorCode\",\"count\":\"1\",\"operation\":\"GrantRandomCurios\",\"order\":1,\"pool_binding_state\":\"DeferredToG09P2B2\"}],\"random_stream\":\"swarm-disaster.trailblaze-bonus.104\",\"source_description_sha256_en\":\"60184464a89ef4f5cab315a90f44a0962747bee506c6eb59f9607cd2f2097cec\",\"source_description_sha256_zh_cn\":\"d1de4711c7bded188b43aa2889cc189efa6f67b46526f79b000632f67c89e79f\",\"transaction\":\"AtomicAcceptedActivityOperations\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmTrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Orderly Universe"
+          },
+          "name_zh_cn": {
+            "String": "有序宇宙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.trailblaze-bonus.104"
+          },
+          "summary_en": {
+            "String": "Atomically spend 100 Cosmic Fragments and gain one random Error Code Curio."
+          },
+          "summary_zh_cn": {
+            "String": "以原子操作消耗 100 枚宇宙碎片，并获得一个随机错误代码奇物。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "application_boundary": {
+            "String": "AfterTrailblazeBonusSelectionAtRunStart"
+          },
+          "bonus_event": {
+            "String": "1050"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "{\"operations\":[{\"category\":\"AnyEligible\",\"count\":\"2\",\"operation\":\"GrantRandomCurios\",\"order\":0,\"pool_binding_state\":\"DeferredToG09P2B2\"},{\"category\":\"Negative\",\"count\":\"1\",\"operation\":\"GrantRandomCurios\",\"order\":1,\"pool_binding_state\":\"DeferredToG09P2B2\"}],\"random_stream\":\"swarm-disaster.trailblaze-bonus.105\",\"source_description_sha256_en\":\"57a8c414ff87d863d1efba0cf4abb5d346cf1f94cea861bb12c43968737f0181\",\"source_description_sha256_zh_cn\":\"2db00348b60e27fb39ceaa87f645ee0ccffcba5f2352eb807246ee753e1cb7b1\",\"transaction\":\"AtomicAcceptedActivityOperations\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmTrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Hungry Universe"
+          },
+          "name_zh_cn": {
+            "String": "巨胃宇宙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.trailblaze-bonus.105"
+          },
+          "summary_en": {
+            "String": "At run start, gain two random eligible Curios and one random Negative Curio."
+          },
+          "summary_zh_cn": {
+            "String": "开局时获得两个随机可用奇物和一个随机负面奇物。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "application_boundary": {
+            "String": "AfterTrailblazeBonusSelectionAtRunStart"
+          },
+          "bonus_event": {
+            "String": "1060"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program_json": {
+            "String": "{\"operations\":[{\"operation\":\"AdjustCountdown\",\"order\":0,\"value\":\"-2\"},{\"count\":\"3\",\"maximum_rarity\":\"2\",\"minimum_rarity\":\"1\",\"operation\":\"GrantRandomBlessings\",\"order\":1,\"pool_binding_state\":\"DeferredToG09P2B1\"}],\"random_stream\":\"swarm-disaster.trailblaze-bonus.106\",\"source_description_sha256_en\":\"48bcaf0ddb74a6d667ac165959cae6d8d4528a3f65867d9ec78a27d42de8100c\",\"source_description_sha256_zh_cn\":\"8913811e433c3010fe76fc46630c26d79646731a4cf9fac06f115340627f24ec\",\"transaction\":\"AtomicAcceptedActivityOperations\"}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmTrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Bloodthirsty Universe"
+          },
+          "name_zh_cn": {
+            "String": "嗜血宇宙"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "106"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.trailblaze-bonus.106"
+          },
+          "summary_en": {
+            "String": "At run start, reduce Countdown by 2 and gain three random 1- or 2-star Blessings."
+          },
+          "summary_zh_cn": {
+            "String": "开局时倒计时减少 2，并获得三个随机 1 星或 2 星祝福。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

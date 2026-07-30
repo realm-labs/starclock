@@ -1,0 +1,242 @@
+[
+  {
+    "id": "swarm-disaster.dice-control.abandon",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceRollControl",
+    "name_en": "Audience Die Abandon",
+    "name_zh_cn": "觐见行迹骰放弃",
+    "summary_en": "Abandon uses a typed resource transition and stable result ordering.",
+    "summary_zh_cn": "Abandon 使用类型化资源变更与稳定结果顺序。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "9",
+        "sha256": "1d848cb8f6f95b5e0e9e8b540aae0c78806fadcaad568f600ce95409ab3bedba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-roll-controls",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-roll-controls",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
+        "replacement_condition": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+      }
+    ],
+    "tags": [
+      "abandon",
+      "dice-control",
+      "project-policy"
+    ],
+    "operation": "Abandon",
+    "resource_cost": {
+      "resource": "SelectedFace",
+      "amount": "1"
+    },
+    "result_order": "AuthoredSortThenStableFaceId",
+    "fallback_policy": "RejectWithoutSelectedFace",
+    "abandon_reward": "10",
+    "unlock_id": "1000022"
+  },
+  {
+    "id": "swarm-disaster.dice-control.cheat",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceRollControl",
+    "name_en": "Audience Die Cheat",
+    "name_zh_cn": "觐见行迹骰作弊",
+    "summary_en": "Cheat uses a typed resource transition and stable result ordering.",
+    "summary_zh_cn": "Cheat 使用类型化资源变更与稳定结果顺序。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "9",
+        "sha256": "1d848cb8f6f95b5e0e9e8b540aae0c78806fadcaad568f600ce95409ab3bedba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-roll-controls",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-roll-controls",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
+        "replacement_condition": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+      }
+    ],
+    "tags": [
+      "cheat",
+      "dice-control",
+      "project-policy"
+    ],
+    "operation": "Cheat",
+    "resource_cost": {
+      "resource": "CheatCharge",
+      "amount": "1"
+    },
+    "result_order": "AuthoredSortThenStableFaceId",
+    "fallback_policy": "RejectInsufficientChargeOrInvalidFace",
+    "abandon_reward": "0",
+    "unlock_id": ""
+  },
+  {
+    "id": "swarm-disaster.dice-control.reroll",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceRollControl",
+    "name_en": "Audience Die Reroll",
+    "name_zh_cn": "觐见行迹骰重投",
+    "summary_en": "Reroll uses a typed resource transition and stable result ordering.",
+    "summary_zh_cn": "Reroll 使用类型化资源变更与稳定结果顺序。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "9",
+        "sha256": "1d848cb8f6f95b5e0e9e8b540aae0c78806fadcaad568f600ce95409ab3bedba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-roll-controls",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-roll-controls",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
+        "replacement_condition": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+      }
+    ],
+    "tags": [
+      "dice-control",
+      "project-policy",
+      "reroll"
+    ],
+    "operation": "Reroll",
+    "resource_cost": {
+      "resource": "RerollCharge",
+      "amount": "1"
+    },
+    "result_order": "AuthoredSortThenStableFaceId",
+    "fallback_policy": "RejectInsufficientCharge",
+    "abandon_reward": "0",
+    "unlock_id": ""
+  },
+  {
+    "id": "swarm-disaster.dice-control.roll",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "DiceRollControl",
+    "name_en": "Audience Die Roll",
+    "name_zh_cn": "觐见行迹骰投掷",
+    "summary_en": "Roll uses a typed resource transition and stable result ordering.",
+    "summary_zh_cn": "Roll 使用类型化资源变更与稳定结果顺序。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "9",
+        "sha256": "1d848cb8f6f95b5e0e9e8b540aae0c78806fadcaad568f600ce95409ab3bedba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-roll-controls",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-roll-controls",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
+        "replacement_condition": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+      }
+    ],
+    "tags": [
+      "dice-control",
+      "project-policy",
+      "roll"
+    ],
+    "operation": "Roll",
+    "resource_cost": {
+      "resource": "None",
+      "amount": "0"
+    },
+    "result_order": "AuthoredSortThenStableFaceId",
+    "fallback_policy": "RejectEmptyFaceSet",
+    "abandon_reward": "0",
+    "unlock_id": ""
+  }
+]
