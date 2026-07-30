@@ -5,6 +5,7 @@ mod cognition;
 mod content_link_runtime;
 mod conundrum_policy;
 mod conundrum_runtime;
+mod conundrum_stats_modifier;
 mod curio_runtime;
 mod curio_types;
 mod dice_face;
@@ -46,6 +47,11 @@ pub use conundrum_policy::{
 pub use conundrum_runtime::{
     GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION, GoldAndGearsConundrumContribution,
     GoldAndGearsConundrumEffect, GoldAndGearsConundrumScope,
+};
+pub use conundrum_stats_modifier::{
+    GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION, GoldAndGearsStatsConundrumActivation,
+    GoldAndGearsStatsConundrumModifierBinding, GoldAndGearsStatsConundrumModifierRole,
+    GoldAndGearsStatsConundrumModifierSet,
 };
 pub use curio_runtime::{
     GOLD_AND_GEARS_CURIO_OFFER_POLICY_ACCURACY, GOLD_AND_GEARS_CURIO_OFFER_POLICY_REVISION,
@@ -113,6 +119,8 @@ mod cognition_tests;
 mod content_runtime_tests;
 #[cfg(test)]
 mod conundrum_runtime_tests;
+#[cfg(test)]
+mod conundrum_stats_modifier_tests;
 #[cfg(test)]
 mod dice_face_tests;
 #[cfg(test)]

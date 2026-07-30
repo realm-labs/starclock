@@ -42,6 +42,17 @@ pub enum StatKind {
     ///
     /// Appended to preserve the canonical discriminants of existing stats.
     ToughnessRecovery,
+    /// Effective maximum Toughness used when an upstream battle profile
+    /// projects a percentage-of-base encounter modifier.
+    ///
+    /// Appended to preserve the canonical discriminants of existing stats.
+    MaximumToughness,
+    /// Fraction of the target's action gauge advanced after it receives an
+    /// attack. A value of `0.1` means ten percent.
+    ///
+    /// This is a generic battle-profile input; the modifier source decides
+    /// whether the value is active for a particular received attack.
+    ReceivedAttackActionAdvance,
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
