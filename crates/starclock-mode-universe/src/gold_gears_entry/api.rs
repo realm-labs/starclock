@@ -2,11 +2,12 @@
 
 use std::sync::Arc;
 
-use starclock_activity::{ActivityStateDefinition, ParticipantLock};
+use starclock_activity::{ActivityGraphDefinition, ActivityStateDefinition, ParticipantLock};
 
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     state::compile_state,
+    topology::compile_topology,
     validate::{
         canonical_completed_areas, canonical_neural_network, canonical_unlocked_dice,
         parse_integer, validate_conundrum, validate_loadout, validate_participants,
@@ -19,6 +20,9 @@ use crate::{
 
 /// Entry-policy revision that resolves `G14-R01`.
 pub const GOLD_AND_GEARS_ENTRY_REVISION: &str = "gold-and-gears-entry-policy-v1";
+
+/// Versioned root-board and forward-edge topology construction policy.
+pub const GOLD_AND_GEARS_TOPOLOGY_REVISION: &str = "gold-and-gears-topology-policy-v1";
 
 /// Caller-owned selections for one Gold and Gears run.
 ///
@@ -232,6 +236,7 @@ impl GoldAndGearsRuntimeFactory {
             .ok_or(GoldAndGearsEntryError::MissingCognitionRange)?;
         let cognition_minimum = parse_integer(&cognition.minimum.0)?;
         let cognition_maximum = parse_integer(&cognition.maximum.0)?;
+        let topology = compile_topology(&self.structural, area)?;
         let state = compile_state(
             area,
             path.identity.id.0,
@@ -243,7 +248,8 @@ impl GoldAndGearsRuntimeFactory {
             trailblaze_bonus.map(|bonus| bonus.identity.id.0),
             cognition_minimum,
             cognition_maximum,
-        )?;
+        )?
+        .with_logical_scopes(topology.scopes);
 
         Ok(GoldAndGearsRuntimeInstance {
             area: area.stable_key.clone(),
@@ -265,6 +271,19 @@ impl GoldAndGearsRuntimeFactory {
             auxiliary_conundrum: entry.auxiliary_conundrum,
             trailblaze_bonus: trailblaze_bonus.map(|bonus| bonus.identity.stable_key.clone()),
             state,
+            graph: topology.graph,
+            planes: topology
+                .planes
+                .iter()
+                .map(|plane| plane.plane_key.clone())
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
+            chessboards: topology
+                .planes
+                .iter()
+                .map(|plane| plane.chessboard_key.clone())
+                .collect::<Vec<_>>()
+                .into_boxed_slice(),
         })
     }
 
@@ -284,8 +303,8 @@ impl GoldAndGearsRuntimeFactory {
 
 /// Entry-compiled immutable Activity profile.
 ///
-/// Later batches attach the bounded graph and generic runtime to this value;
-/// all entry-owned state already uses the final seventeen slot families.
+/// The immutable three-plane graph is compiled at entry. Later batches attach
+/// its generic programs, mutable overlays and runtime controller.
 #[derive(Clone, Debug)]
 pub struct GoldAndGearsRuntimeInstance {
     area: Box<str>,
@@ -299,6 +318,9 @@ pub struct GoldAndGearsRuntimeInstance {
     auxiliary_conundrum: u8,
     trailblaze_bonus: Option<Box<str>>,
     state: ActivityStateDefinition,
+    graph: ActivityGraphDefinition,
+    planes: Box<[Box<str>]>,
+    chessboards: Box<[Box<str>]>,
 }
 
 impl GoldAndGearsRuntimeInstance {
@@ -355,6 +377,21 @@ impl GoldAndGearsRuntimeInstance {
     #[must_use]
     pub const fn state_definition(&self) -> &ActivityStateDefinition {
         &self.state
+    }
+
+    #[must_use]
+    pub const fn graph_definition(&self) -> &ActivityGraphDefinition {
+        &self.graph
+    }
+
+    #[must_use]
+    pub fn planes(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.planes.iter().map(Box::as_ref)
+    }
+
+    #[must_use]
+    pub fn chessboards(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.chessboards.iter().map(Box::as_ref)
     }
 }
 

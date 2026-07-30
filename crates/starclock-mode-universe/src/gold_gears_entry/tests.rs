@@ -1,7 +1,7 @@
 use starclock_activity::{
-    ActivityScope, ActivityValue, BuildDigest, LoadoutLockScope, OpaqueParticipantBuild,
-    ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
-    ParticipantUniquenessScope, SlotValueKind,
+    ActivityScope, ActivityTerminalOutcome, ActivityValue, BuildDigest, LoadoutLockScope,
+    OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
+    ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope, SlotValueKind,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 
@@ -382,5 +382,157 @@ fn entry_revision_is_frozen() {
     assert_eq!(
         GOLD_AND_GEARS_ENTRY_REVISION,
         "gold-and-gears-entry-policy-v1"
+    );
+}
+
+#[test]
+fn formal_entry_compiles_canonical_three_plane_activity_graph() {
+    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = factory
+        .compile_entry(entry(
+            &factory,
+            "gold-gears.area.401",
+            &factory.unique.paths[0].identity.stable_key,
+            &factory.unique.dice[0],
+        ))
+        .expect("formal topology");
+    let graph = instance.graph_definition();
+
+    assert_eq!(
+        instance.planes().collect::<Vec<_>>(),
+        [
+            "gold-gears.plane.2021",
+            "gold-gears.plane.2022",
+            "gold-gears.plane.2023",
+        ]
+    );
+    assert_eq!(
+        instance.chessboards().collect::<Vec<_>>(),
+        [
+            "gold-gears.chessboard.2112021",
+            "gold-gears.chessboard.2112022",
+            "gold-gears.chessboard.2112023",
+        ]
+    );
+    assert_eq!(graph.nodes().len(), 81);
+    assert_eq!(graph.edges().len(), 122);
+    assert_eq!(graph.maximum_total_visits(), 81);
+    assert_eq!(
+        graph.digest().bytes(),
+        [
+            166, 45, 206, 77, 185, 119, 81, 90, 211, 241, 86, 198, 84, 162, 99, 232, 190, 161, 110,
+            155, 11, 62, 102, 8, 48, 152, 19, 178, 131, 24, 124, 59,
+        ]
+    );
+    assert!(
+        graph
+            .nodes()
+            .windows(2)
+            .all(|pair| pair[0].id() < pair[1].id())
+    );
+    assert!(
+        graph
+            .edges()
+            .windows(2)
+            .all(|pair| pair[0].id() < pair[1].id())
+    );
+    assert!(graph.nodes().iter().all(|node| node.maximum_visits() == 1));
+    assert!(
+        graph
+            .edges()
+            .iter()
+            .all(|edge| edge.maximum_traversals() == 1)
+    );
+    assert_eq!(
+        graph
+            .nodes()
+            .iter()
+            .filter_map(|node| node.kind().terminal())
+            .collect::<Vec<_>>(),
+        [ActivityTerminalOutcome::Completed]
+    );
+    for section in 1..=3 {
+        assert_eq!(
+            graph
+                .nodes()
+                .iter()
+                .filter(|node| node.section().get() == section)
+                .count(),
+            27
+        );
+    }
+
+    let authored_edge_count = u32::try_from(factory.structural.edges.len()).unwrap();
+    let columns = &factory.structural.columns;
+    let nodes = &factory.structural.nodes;
+    for edge in graph
+        .edges()
+        .iter()
+        .filter(|edge| edge.id().get() <= authored_edge_count)
+    {
+        let source = nodes
+            .iter()
+            .find(|node| node.id.0 == edge.from().get())
+            .unwrap();
+        let target = nodes
+            .iter()
+            .find(|node| node.id.0 == edge.to().get())
+            .unwrap();
+        let source_column = columns
+            .iter()
+            .find(|column| column.id == source.column)
+            .unwrap();
+        let target_column = columns
+            .iter()
+            .find(|column| column.id == target.column)
+            .unwrap();
+        assert_eq!(target_column.index, source_column.index + 1);
+    }
+    assert_eq!(
+        graph
+            .edges()
+            .iter()
+            .filter(|edge| edge.id().get() > authored_edge_count)
+            .count(),
+        2
+    );
+}
+
+#[test]
+fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
+    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let instance = factory
+        .compile_entry(entry(
+            &factory,
+            "gold-gears.area.405",
+            &factory.unique.paths[0].identity.stable_key,
+            &factory.unique.dice[0],
+        ))
+        .expect("formal topology");
+    let scopes = instance.state_definition().logical_scopes();
+
+    assert_eq!(
+        GOLD_AND_GEARS_TOPOLOGY_REVISION,
+        "gold-and-gears-topology-policy-v1"
+    );
+    assert_eq!(scopes.classes().len(), 3);
+    assert_eq!(scopes.bindings().len(), 81);
+    assert_eq!(
+        scopes
+            .classes()
+            .iter()
+            .map(|class| (class.id().get(), class.maximum_instances()))
+            .collect::<Vec<_>>(),
+        [
+            (super::topology::PLANE_BOARD_SCOPE_CLASS, 3),
+            (super::topology::BOARD_NODE_VISIT_SCOPE_CLASS, 2_502),
+            (super::topology::NODE_INTERACTION_SCOPE_CLASS, 8_192),
+        ]
+    );
+    assert!(
+        scopes
+            .bindings()
+            .iter()
+            .all(|binding| binding.path().len() == 3)
     );
 }

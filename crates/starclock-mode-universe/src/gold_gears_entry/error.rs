@@ -29,6 +29,10 @@ pub enum GoldAndGearsEntryError {
     UnknownTrailblazeBonus(Box<str>),
     MissingCognitionRange,
     InvalidActivityState,
+    InvalidPlaneCount,
+    MissingPlane(Box<str>),
+    MissingChessboard(Box<str>),
+    InvalidTopology,
 }
 
 impl core::fmt::Display for GoldAndGearsEntryError {

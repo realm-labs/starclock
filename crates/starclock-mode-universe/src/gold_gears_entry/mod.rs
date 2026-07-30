@@ -4,11 +4,12 @@ mod api;
 mod error;
 mod state;
 mod state_layout;
+mod topology;
 mod validate;
 
 pub use api::{
-    GOLD_AND_GEARS_ENTRY_REVISION, GoldAndGearsEntry, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GOLD_AND_GEARS_ENTRY_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry,
+    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
 };
 pub use error::GoldAndGearsEntryError;
 

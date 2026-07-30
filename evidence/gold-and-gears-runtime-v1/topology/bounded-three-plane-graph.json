@@ -1,0 +1,94 @@
+{
+  "schema_revision": "starclock.gold-and-gears-topology.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P2-B2",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "formal_areas": 5,
+    "planes": 8,
+    "chessboards": 115,
+    "columns": 1313,
+    "nodes": 2502,
+    "derived_edges": 3407
+  },
+  "compiled_formal_topology": {
+    "ordered_plane_sources": [
+      "2021",
+      "2022",
+      "2023"
+    ],
+    "ordered_root_chessboards": [
+      "gold-gears.chessboard.2112021",
+      "gold-gears.chessboard.2112022",
+      "gold-gears.chessboard.2112023"
+    ],
+    "nodes_per_plane": 27,
+    "authored_edges_per_plane": 40,
+    "nodes": 81,
+    "authored_edges": 120,
+    "plane_transition_edges": 2,
+    "edges": 122,
+    "maximum_total_visits": 81,
+    "maximum_node_visits": 1,
+    "maximum_edge_traversals": 1,
+    "terminal_nodes": 1,
+    "terminal_outcome": "Completed",
+    "graph_digest": "a62dce4db977515ad3f156c654a263e8bea16e9b0b3e6608309813b283187c3b"
+  },
+  "logical_scopes": {
+    "classes": 3,
+    "bindings": 81,
+    "path_depth": 3,
+    "plane_board_maximum_instances": 3,
+    "board_node_visit_maximum_instances": 2502,
+    "node_interaction_maximum_instances": 8192
+  },
+  "topology_policy": {
+    "register_id": "G14-R02",
+    "state": "InheritedPolicy",
+    "implemented_revision": "gold-and-gears-topology-policy-v1",
+    "accuracy": "ProjectPolicy",
+    "root_board_selection": "211{plane-source}",
+    "edge_construction": "released-derived-forward-nearest-column",
+    "plane_order": "selected-area-authored-order",
+    "plane_transition": "previous-root-end-to-next-root-start",
+    "canonical_node_order": "stable-global-node-id",
+    "canonical_edge_order": "stable-global-edge-id-then-transition-id",
+    "random_draws": 0,
+    "remaining_owner": "G14-P2-B3",
+    "remaining_question": "typed overlay mutation and route filtering",
+    "replacement_condition": "Replace when released explicit edges or a verified Version 4.4 engine graph builder becomes available."
+  },
+  "validation": {
+    "all_formal_entry_combinations_compile": 540,
+    "entry_reachability": true,
+    "terminal_reachability": true,
+    "strict_node_order": true,
+    "strict_edge_order": true,
+    "authored_routes_advance_exactly_one_column": true,
+    "immutable_graph": true,
+    "runtime_json_reads": 0,
+    "random_draws": 0
+  },
+  "tests": {
+    "entry_and_topology_unit_passed": 8,
+    "topology_specific_unit_passed": 2,
+    "clippy_passed": true,
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "172.1",
+    "quick_selected_harnesses": 53,
+    "quick_downstream_packages_checked": 3,
+    "full_gate_passed": true,
+    "full_gate_seconds": "357.4",
+    "full_workspace_harnesses": 138
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal14/verify-phase2-b2.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}
