@@ -1,0 +1,87 @@
+{
+  "schema_revision": "starclock.gold-and-gears-entry-profile.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P2-B1",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "profile": "gold-gears.profile.v1",
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "formal_areas": 5,
+    "paths": 9,
+    "custom_dice": 12,
+    "dice_slots": 6,
+    "dice_faces": 80,
+    "neural_nodes": 40,
+    "conundrum_levels": 12,
+    "trailblaze_bonuses": 5
+  },
+  "entry_policy": {
+    "register_id": "G14-R01",
+    "terminal_state": "VersionedExecutablePolicy",
+    "revision": "gold-and-gears-entry-policy-v1",
+    "accuracy": "ProjectPolicy",
+    "profile_identity": "gold-gears.profile.v1",
+    "selection_mode": "caller-explicit-fail-closed",
+    "formal_difficulty_binding": "selected-formal-area",
+    "path_default": null,
+    "custom_dice_default": null,
+    "dice_face_default": null,
+    "neural_default": "empty-prerequisite-closed-set",
+    "conundrum_default": "stats-0-auxiliary-0",
+    "trailblaze_bonus_default": null,
+    "random_draws_at_entry": 0,
+    "replacement_condition": "Replace only if a later pinned released profile registry or reproducible Version 4.4 observation provides stronger default-selection behavior."
+  },
+  "initial_resources": {
+    "cognition": 0,
+    "cosmic_fragments": 100,
+    "dice_rerolls": 1,
+    "dice_cheats": 0,
+    "policy": "gold-and-gears-entry-policy-v1",
+    "semantic_effects_deferred_to": [
+      "G14-P3-B2",
+      "G14-P4-B1",
+      "G14-P4-B2",
+      "G14-P4-B3"
+    ]
+  },
+  "validation": {
+    "compiled_formal_area_path_dice_combinations": 540,
+    "combined_conundrum_boundary": "6+6",
+    "conundrum_area": "gold-gears.area.405",
+    "conundrum_prerequisite": "ClearFormalDifficulty:gold-gears.area.405",
+    "canonical_neural_nodes": 40,
+    "typed_construction_failure_families": 25,
+    "entry_random_draws": 0
+  },
+  "activity_state": {
+    "slot_families": 17,
+    "activity_scoped": 10,
+    "section_scoped": 5,
+    "node_scoped": 1,
+    "attempt_scoped": 1,
+    "player_visible": 15,
+    "debug_visible": 2,
+    "private_visible": 0,
+    "inventories": 0,
+    "modifiers": 0
+  },
+  "tests": {
+    "entry_unit_passed": 6,
+    "clippy_passed": true,
+    "quick_gate_seconds": "96.4",
+    "quick_selected_harnesses": 53,
+    "quick_downstream_packages_checked": 3,
+    "full_gate_passed": true,
+    "full_gate_seconds": "362.3",
+    "full_workspace_harnesses": 138
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal14/verify-phase2-b1.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

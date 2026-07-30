@@ -64,7 +64,12 @@ function runQuick() {
     const directFlags = packageFlags(scope.direct);
     const directTargets = scope.directHasLibrary ? ["--lib", "--bins", "--tests"] : ["--bins", "--tests"];
     run(["cargo", "clippy", ...directFlags, ...directTargets, "--all-features", "--", "-D", "warnings"], budgetMs);
-    run(["cargo", "test", ...directFlags, ...directTargets, "--all-features"], budgetMs);
+    run([
+      "node",
+      "tools/repository-check/run-workspace-tests.mjs",
+      "--quick",
+      ...scope.direct.flatMap((entry) => ["--package", entry]),
+    ], budgetMs);
     if (scope.downstream.length > 0) {
       const downstreamTargets = scope.downstreamHasLibrary ? ["--lib", "--bins", "--tests"] : ["--bins", "--tests"];
       run(["cargo", "check", ...packageFlags(scope.downstream), ...downstreamTargets, "--all-features"], budgetMs);

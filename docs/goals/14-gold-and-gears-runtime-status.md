@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Entry, topology and Cognition |
 | Active batch | None |
-| Next unblocked batch | `G14-P2-B1` |
+| Next unblocked batch | `G14-P2-B2` |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
@@ -24,7 +24,7 @@
 |---|---|---|
 | Phase 0 — Contract, audit and execution plan | `Complete` | `G14-P0-B1`–`B4`: prerequisites, 7,913/1,224/18 assignments, APIs/state/identity, 25-run matrix, 16 policy owners, workloads, CI and release scaffold verified. |
 | Phase 1 — Bundle and catalogs | `Complete` | `G14-P1-B1`–`B5`: exact private bundle loading, component-aware identity, 29,140-row immutable lowering, shared Standard identity binding, full cross-catalog closure and 7,913/7,913 catalog coverage verified. |
-| Phase 2 — Entry, topology and Cognition | `Pending` | None |
+| Phase 2 — Entry, topology and Cognition | `InProgress` | `G14-P2-B1`: caller-explicit entry policy, participant lock, 540 formal-area/Path/dice combinations, Neural closure, Conundrum prerequisites, initial resources and 17 typed slots verified. |
 | Phase 3 — Custom Dice and Knowledge | `Pending` | None |
 | Phase 4 — Progression, content and battle contributions | `Pending` | None |
 | Phase 5 — Mechanic partitions | `Pending` | None |
@@ -48,7 +48,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G14-P1-B3` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --lib gold_gears_structural --all-features`; `cargo test -p starclock-mode-universe --test gold_gears_identity --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase1-b3.mjs`; quick gate passed; 12 private tables / 8,621 rows lowered to typed immutable definitions; 115 static graph supersets validate 1,313 columns, 2,502 exact-once nodes, 3,407 next-column edges, start-to-terminal reachability and 12-domain closure; `G14-R02` remains accurately `InheritedPolicy`. |
 | `G14-P1-B4` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --lib gold_gears_unique --all-features`; `cargo test -p starclock-mode-universe --test gold_gears_identity --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase1-b4.mjs`; quick gate passed; 18 private tables / 462 rows lowered with closed identities for 13 Cognition ranges, 20 Secrets, 12 dice, 80 faces, 22 Knowledge rules, 40 Neural nodes, 12 Conundrum levels, 9 Paths, 36 Resonances, 36 Extrapolations and 18 Interplays; canonical decimal strings remain float-free; inherited execution policies remain non-terminal. |
 | `G14-P1-B5` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --lib gold_gears_content --all-features`; `cargo test -p starclock-mode-universe --test gold_gears_identity --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase1-b5.mjs`; quick gate passed in 158.8s; full gate passed in 352.9s with 138 workspace test harnesses; 21 private tables / 20,056 rows lower shared and Gold content, 12,806 JSON payloads, 1,224 owner/fixture rule links and 90 enemy identities; 67 enemy definitions resolve through released core/Standard catalogs and 23 are explicitly owned by P6 materialization; 42 categories publish 7,913/7,913 catalog coverage without claiming runtime execution. |
-| `G14-P2-B1` | `Pending` | None | Compile run entry and selected inputs. |
+| `G14-P2-B1` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase2-b1.mjs`; quick gate passed in 96.4s with 53 selected harnesses and 3 downstream packages checked; full gate passed in 362.3s with 138 workspace harnesses after deferred policy/runner inputs; 5 formal difficulties × 9 Paths × 12 Custom Dice compile 540 explicit entries, six ordered faces validate, 40 Neural nodes canonicalize with prerequisite closure, Difficulty 5 prior-clear evidence gates both 0–6 Conundrum tracks and 6+6, and 17 final typed slot families compile; `G14-R01` is terminal as `VersionedExecutablePolicy`. |
 | `G14-P2-B2` | `Pending` | None | Compile bounded three-plane graphs. |
 | `G14-P2-B3` | `Pending` | None | Execute room/domain/beacon/map mutations. |
 | `G14-P2-B4` | `Pending` | None | Execute Cognition and Secrets. |
@@ -138,6 +138,7 @@ without a documented data revision and compatibility decision.
 | 2026-07-30 | Validate the 3,407 derived topology edges as a static graph superset while retaining `G14-R02` as `InheritedPolicy`. | Catalog closure proves safe bounded inputs; runtime generation and mutation parity are owned by P2-B2/P2-B3. |
 | 2026-07-30 | Lower canonical numeric authoring values as validated decimal strings and keep embedded programs private until their typed executor batches. | Catalog construction must reject malformed numerics without introducing floating arithmetic or confusing JSON transport validation with executable semantics. |
 | 2026-07-30 | Bind 67 Gold encounter enemy identities to released core/Standard definitions and retain the remaining 23 exact v4.4 identities as an explicit P6 materialization obligation. | P1 must close the reference catalog without falsely claiming that a stable released identity already has an executable combat definition. |
+| 2026-07-30 | Resolve `G14-R01` with caller-explicit, fail-closed entry policy revision `gold-and-gears-entry-policy-v1`. | No Path, Custom Dice, face loadout or Trailblaze Bonus is silently selected; formal difficulty is derived from the selected formal area, Neural input is prerequisite-closed, and Conundrum requires explicit prior-clear evidence. |
 
 ## Research and policy register
 
@@ -146,7 +147,7 @@ yet earned a Goal 14 runtime disposition.
 
 | ID | State | Runtime question | Owner |
 |---|---|---|---|
-| `G14-R01` | `InheritedPolicy` | Profile defaults and initial-selection policy. | P2-B1 |
+| `G14-R01` | `VersionedExecutablePolicy` | `gold-and-gears-entry-policy-v1`: explicit selections, fixed initial resource policy, zero entry draws and fail-closed validation. | P2-B1 |
 | `G14-R02` | `InheritedPolicy` | Derived chessboard edges and topology construction. | P2-B2/P2-B3 |
 | `G14-R03` | `InheritedPolicy` | Cognition adjustment, clamp, carry, reset and tie order. | P2-B4 |
 | `G14-R04` | `InheritedPolicy` | Dice numeric filter-tag to mechanical-code mapping. | P3-B1/P3-B3 |

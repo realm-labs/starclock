@@ -195,7 +195,9 @@ Daily iteration uses the pinned change-aware gate:
 node tools/repository-check/run.mjs
 ```
 
-It has a 180-second warm-cache budget. It always checks formatting and static
+It has a 180-second warm-cache budget. Direct-package lib, bin and integration
+test harnesses use the same bounded process-level dispatcher as the full gate,
+while reverse dependants are compile-checked. It always checks formatting and static
 repository policies, runs Clippy plus library/integration tests for directly
 changed crates, and compiles their reverse dependants. It reuses the workspace
 Cargo target, incremental compilation and an ignored source/toolchain-bound

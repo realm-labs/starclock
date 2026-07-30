@@ -78,6 +78,10 @@
       {
         "path": "crates/starclock-agent-api/src/session.rs",
         "reason": "Deliberate protocol-neutral session facade exposing the private registry's bounded owner, quota, clock and identity contracts to adapters."
+      },
+      {
+        "path": "crates/starclock-mode-universe/src/gold_gears_entry/mod.rs",
+        "reason": "Deliberate Gold and Gears entry facade keeping public factory, entry, instance and typed construction error paths stable while private validation and state compilation remain responsibility-split."
       }
     ],
     "forbidden_public_api_tokens": ["fixnum::", "FixedPoint", "rand::", "sha2::", "ChaCha8Rng", "sora::"]

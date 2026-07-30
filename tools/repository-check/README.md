@@ -7,11 +7,15 @@ node tools/repository-check/run.mjs
 ```
 
 It always checks dependency direction, source/visibility policy and formatting.
-For Rust changes it runs Clippy and tests only for directly changed workspace
-packages, then compiles their reverse dependants. Cargo uses the shared
-workspace `target` directory and normal incremental compilation. A successful
-Rust scope is cached under ignored `.cache/repository-check/`; an identical
-source/toolchain fingerprint skips repeated Rust execution.
+For Rust changes it runs Clippy and every lib, bin and integration-test harness
+for directly changed workspace packages, then compiles their reverse
+dependants. The same bounded process-level harness dispatcher used by the full
+gate avoids Cargo's serial integration-binary loop while retaining the smaller
+change-aware package scope. Cargo uses the shared workspace `target` directory
+and normal incremental compilation. A successful Rust scope is cached under
+ignored `.cache/repository-check/`; an identical source/toolchain fingerprint
+skips repeated Rust execution. Quick harness timings are written under ignored
+`.cache/repository-check/quick-test-timings.json`.
 
 The warm-cache budget is 180 seconds. Override it with
 `STARCLOCK_QUICK_BUDGET_SECONDS`, use `--no-cache` to ignore a prior receipt,

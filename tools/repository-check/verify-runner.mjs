@@ -20,8 +20,9 @@ for (const marker of [
   "quick-rust-receipt.json",
   'CARGO_INCREMENTAL: process.env.CARGO_INCREMENTAL ?? "1"',
   "cargo\", \"clippy\"",
-  "cargo\", \"test\"",
   "cargo\", \"check\"",
+  'run-workspace-tests.mjs",',
+  '"--quick"',
   "STARCLOCK_REPOSITORY_PROFILE === \"full\"",
   "process.env.CI === \"true\"",
   "tools/repository-check/verify-generated-drift.mjs",
@@ -36,6 +37,9 @@ for (const marker of [
   "STARCLOCK_TEST_JOBS",
   "STARCLOCK_TEST_THREADS",
   '"--workspace", "--doc", "--all-features"',
+  '"--package"',
+  'quick ? ["--lib", "--bins", "--tests"] : ["--all-targets"]',
+  "quick-test-timings.json",
   "workspace-test-timings.json",
 ]) assert(workspaceTests.includes(marker), `workspace test runner omits ${marker}`);
 assert(generatedDrift.includes('STARCLOCK_ARTIFACT_CHECK_ONLY: "1"'), "artifact verification can recursively rerun Rust tests");

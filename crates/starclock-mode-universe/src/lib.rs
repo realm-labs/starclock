@@ -42,6 +42,7 @@ pub mod erudition_runtime;
 pub mod gold_gears_catalog;
 pub mod gold_gears_components;
 mod gold_gears_content;
+pub mod gold_gears_entry;
 pub mod gold_gears_handler_bundle;
 pub mod gold_gears_identity;
 mod gold_gears_structural;

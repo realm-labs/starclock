@@ -6,7 +6,8 @@ mod types;
 use crate::gold_gears_catalog::{
     GoldAndGearsBundleLoadError, GoldAndGearsBundleSummary, load_gold_and_gears_bundle,
 };
-use types::{
+pub(crate) use types::AreaGroup;
+pub(crate) use types::{
     AreaDefinition, BeaconDefinition, BossChoiceDefinition, ChessboardDefinition,
     DifficultySegmentDefinition, DomainDefinition, MapColumnDefinition, MapEdgeDefinition,
     MapNodeDefinition, PlaneDefinition, ProfileDefinition, RoomDefinition,
