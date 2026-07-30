@@ -1,4 +1,4 @@
-use super::curio_types::GoldAndGearsCurioId;
+use super::{curio_types::GoldAndGearsCurioId, occurrence_types::GoldAndGearsOccurrenceChoiceId};
 
 /// Typed construction failures before a Gold Activity instance can start.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -71,6 +71,17 @@ pub enum GoldAndGearsEntryError {
     CurioCannotBeRepaired(GoldAndGearsCurioId),
     InvalidCurioRepairProgress(GoldAndGearsCurioId),
     InvalidCurioReplacement,
+    InvalidOccurrenceRuntime,
+    UnknownOccurrenceChoice(GoldAndGearsOccurrenceChoiceId),
+    OccurrenceChoiceIsNotRandom(GoldAndGearsOccurrenceChoiceId),
+    InvalidOccurrenceCandidates,
+    InvalidServiceRuntime,
+    UnknownService(Box<str>),
+    InvalidServiceOffer,
+    ServiceStockExhausted,
+    InvalidAdventureRuntime,
+    UnknownAdventure(u32),
+    InvalidAdventureOutcome,
     MissingCognitionRange,
     InvalidActivityState,
     InvalidPlaneCount,

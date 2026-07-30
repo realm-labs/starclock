@@ -218,6 +218,7 @@ impl GoldAndGearsCurioDefinition {
 pub struct GoldAndGearsCurioCandidate {
     pub(super) id: GoldAndGearsCurioId,
     pub(super) stable_key: Box<str>,
+    pub(super) source_id: u32,
     pub(super) category: GoldAndGearsCurioCategory,
     pub(super) shared: bool,
 }
@@ -231,6 +232,11 @@ impl GoldAndGearsCurioCandidate {
     #[must_use]
     pub fn stable_key(&self) -> &str {
         &self.stable_key
+    }
+
+    #[must_use]
+    pub const fn source_id(&self) -> u32 {
+        self.source_id
     }
 
     #[must_use]

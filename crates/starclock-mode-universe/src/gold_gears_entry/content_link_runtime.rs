@@ -21,6 +21,8 @@ use super::{
     GoldAndGearsEntryError,
     api::{GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance},
     curio_runtime::GoldAndGearsCurioRuntimeCatalog,
+    occurrence_runtime::GoldAndGearsOccurrenceRuntimeCatalog,
+    service_adventure_runtime::GoldAndGearsServiceAdventureRuntimeCatalog,
     state_layout::BLESSING_INVENTORY,
 };
 
@@ -61,6 +63,8 @@ pub(super) struct GoldAndGearsContentRuntimeCatalog {
     pub(super) paths: Arc<PathRuntimeCatalog>,
     pub(super) shared_curios: Arc<CurioRuntimeCatalog>,
     pub(super) curios: Arc<GoldAndGearsCurioRuntimeCatalog>,
+    pub(super) occurrences: Arc<GoldAndGearsOccurrenceRuntimeCatalog>,
+    pub(super) service_adventure: Arc<GoldAndGearsServiceAdventureRuntimeCatalog>,
     digests: GoldAndGearsSharedContentDigests,
 }
 
@@ -90,6 +94,10 @@ impl GoldAndGearsContentRuntimeCatalog {
             &standard,
             &shared_curios,
         )?);
+        let occurrences = Arc::new(GoldAndGearsOccurrenceRuntimeCatalog::compile(content)?);
+        let service_adventure = Arc::new(GoldAndGearsServiceAdventureRuntimeCatalog::compile(
+            content, &standard,
+        )?);
         let digests = GoldAndGearsSharedContentDigests {
             blessing: blessings.digest(),
             path: paths.digest(),
@@ -100,6 +108,8 @@ impl GoldAndGearsContentRuntimeCatalog {
             paths,
             shared_curios,
             curios,
+            occurrences,
+            service_adventure,
             digests,
         })
     }

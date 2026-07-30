@@ -1,0 +1,217 @@
+{
+  "schema_revision": "starclock.gold-and-gears-occurrence-service-adventure-runtime.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P4-B5",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "occurrences": 62,
+    "occurrence_variants": 65,
+    "occurrence_choices": 257,
+    "services": 15,
+    "adventure_outcomes": 8
+  },
+  "occurrence_runtime": {
+    "revision": "gold-and-gears-occurrence-runtime-v1",
+    "catalog_digest": "a96fa3dafbb386838519844bd2d1e91df9517912178d8687951717e91c1102ae",
+    "occurrence_variant_links": 71,
+    "variant_choice_links": 257,
+    "authored_costs": 55,
+    "numeric_parameter_references": 4,
+    "seeded_uniform_choices": 43,
+    "candidate_order": "StableNumericIdentity",
+    "runtime_json_file_reads": 0
+  },
+  "occurrence_policy": {
+    "register_id": "G14-R13",
+    "state": "VersionedExecutablePolicy",
+    "revision": "gold-and-gears-occurrence-random-outcome-policy-v1",
+    "source_policy": "occurrence-random-outcome-v1",
+    "evidence_quality": "ProjectPolicy",
+    "accuracy": "DeterministicProjectPolicyNotObservedParity",
+    "candidate_binding": "CallerExplicitReleasedEligiblePool",
+    "candidate_order": "StableNumericIdentity",
+    "selection": "UniformWithoutReplacement",
+    "rng_label": "Occurrence",
+    "rng_purpose": "0x4800PlusInternalChoiceId",
+    "empty_behavior": "ReturnEmptyWithoutDraw",
+    "invalid_behavior": "RejectBeforeDraw",
+    "rationale": "Released outcomes and printed percentages remain exact, while hidden random weights and complete eligibility are unavailable. Callers must supply an exact eligible pool and the runtime applies a stable replaceable seeded policy.",
+    "alternatives_rejected": [
+      "infer-hidden-weights",
+      "permit-unbounded-global-content-pool",
+      "use-reward-or-spawn-rng"
+    ],
+    "replacement_condition": "Replace when pinned released engine programs expose complete occurrence weights, eligibility and ordering."
+  },
+  "service_runtime": {
+    "revision": "gold-and-gears-service-runtime-v1",
+    "catalog_digest": "021e650649cf66066432e97e55baac50b4315a48aaa910779ec10fd104777252",
+    "blessing_shops": 5,
+    "curio_shops": 4,
+    "currency_services": 1,
+    "downloader_services": 1,
+    "enhance_services": 1,
+    "reset_services": 1,
+    "respite_services": 1,
+    "reviver_services": 1,
+    "blessing_shop_stock": [
+      "rarity1:100x3",
+      "rarity2:200x2",
+      "rarity3:300x1"
+    ],
+    "curio_shop_stock": [
+      "slot1:150x1",
+      "slot2:150x1",
+      "slot3:300x1"
+    ],
+    "candidate_order": "StableSourceId",
+    "selection": "UniformWithoutReplacement",
+    "rng_label": "Shop",
+    "currency_storage": "Activity.RunResources.CosmicFragments",
+    "stock_storage": "Activity.DeferredEffects.ServiceUse",
+    "settlement": "AtomicRequireCostDeductAndUseIncrement",
+    "runtime_json_file_reads": 0
+  },
+  "adventure_runtime": {
+    "revision": "gold-and-gears-adventure-runtime-v1",
+    "catalog_digest": "a6f7ed5ad7d4b5750ac17694cd8db05e528252ecbf42dfd8ee02ea4fc0403dec",
+    "capture_monster": 3,
+    "destroy_prop": 3,
+    "escape_laser": 1,
+    "turntable": 1,
+    "thresholds_per_outcome": 2,
+    "reward_tiers_per_outcome": 3,
+    "accepts_only_external_outcome": true,
+    "simulates_adventure_physics": false,
+    "settlement_storage": "Activity.DeferredEffects.AdventureSettled",
+    "settlement": "AtomicRequireFragmentsAndSettledMarker",
+    "runtime_json_file_reads": 0
+  },
+  "adventure_policy": {
+    "register_id": "G14-R14",
+    "state": "VersionedExecutablePolicy",
+    "revision": "gold-and-gears-adventure-reward-policy-v1",
+    "source_policy": "adventure-reward-selection-v1",
+    "evidence_quality": "ProjectPolicy",
+    "accuracy": "DeterministicProjectPolicyNotObservedParity",
+    "fragment_range": "100..=150",
+    "candidate_order": "StableSourceId",
+    "reward_order": [
+      "CosmicFragments",
+      "Rarity2Blessing",
+      "NormalCurio"
+    ],
+    "rng_label": "Reward",
+    "fragment_purpose": "0x4900PlusAdventureOrdinal",
+    "blessing_purpose": "0x4A00PlusAdventureOrdinal",
+    "curio_purpose": "0x4B00PlusAdventureOrdinal",
+    "unresolved_pool_behavior": "FailClosedBeforeDraw",
+    "rationale": "Released thresholds and cumulative tiers remain exact, while fragment and reward candidate selection are not published. One transactional Reward-stream plan binds stable released candidates before any draw.",
+    "alternatives_rejected": [
+      "simulate-adventure-physics",
+      "select-rewards-from-unbounded-global-pools",
+      "draw-fragments-before-validating-offer-pools"
+    ],
+    "replacement_condition": "Replace when pinned released reward tables expose fragment and candidate selection."
+  },
+  "semantic_fixtures": {
+    "occurrence_selection": {
+      "seed": 0,
+      "input_candidates": [
+        50,
+        10,
+        30
+      ],
+      "maximum": 2,
+      "selected": [
+        10,
+        30
+      ],
+      "rng_label": "Occurrence",
+      "draws": 2
+    },
+    "service_shop_selection": {
+      "seed": 7,
+      "blessing_runtime_ids": [
+        68,
+        11,
+        53
+      ],
+      "curio_source_ids": [
+        112,
+        122,
+        119
+      ],
+      "rng_label": "Shop",
+      "draws": 6
+    },
+    "adventure_reward": {
+      "seed": 0,
+      "source_id": 1210601,
+      "achieved_value": 3600,
+      "completed_objectives": 2,
+      "cosmic_fragments": 121,
+      "blessing_runtime_id": 130,
+      "curio_source_id": 205,
+      "rng_label": "Reward",
+      "draws": 3
+    },
+    "rule_partition_execution_owners": [
+      "G14-P5-M06",
+      "G14-P5-M07"
+    ]
+  },
+  "validation": {
+    "all_occurrence_graph_links_resolve": true,
+    "all_occurrence_payloads_are_typed": true,
+    "all_service_links_resolve_shared_identities": true,
+    "all_shop_pools_and_stock_are_exact": true,
+    "occurrence_service_and_adventure_rng_are_isolated": true,
+    "invalid_or_empty_candidates_fail_before_draw": true,
+    "service_cost_and_stock_settlement_is_atomic": true,
+    "adventure_reward_resolution_is_transactional": true,
+    "adventure_settlement_is_exactly_once": true,
+    "adventure_physics_remains_external": true,
+    "protected_reference_roots_unchanged": true
+  },
+  "tests": {
+    "focused_occurrence_service_tests_passed": 6,
+    "entry_suite_passed": 77,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "154.0",
+    "quick_selected_harnesses": 53,
+    "quick_selected_build_seconds": "0.7",
+    "quick_selected_execution_seconds": "144.6",
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3,
+    "quick_rust_receipt": "CacheMiss",
+    "final_quick_gate_seconds": "5.8",
+    "final_quick_rust_receipt": "CacheHit",
+    "final_quick_deferred_inputs": 2,
+    "discarded_quick_attempts": [
+      "RemainingBudgetTimeoutAfterSelectedHarnessBuildCompletedIn85.3Seconds"
+    ],
+    "full_gate_required": true,
+    "full_gate_passed": true,
+    "full_gate_seconds": "415.0",
+    "full_workspace_harnesses": 138,
+    "full_workspace_build_seconds": "159.8",
+    "full_selected_execution_seconds": "318.4",
+    "full_cache_dependent_checks_skipped": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::occurrence_service_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/goal14/verify-phase4-b5.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

@@ -17,8 +17,12 @@ mod knowledge_execution;
 mod knowledge_resolution;
 mod map_overlay;
 mod neural_runtime;
+mod occurrence_runtime;
+mod occurrence_types;
 mod plane_transition;
 mod progression_runtime;
+mod service_adventure_runtime;
+mod service_adventure_types;
 mod state;
 mod state_layout;
 mod topology;
@@ -66,6 +70,16 @@ pub use neural_runtime::{
     GoldAndGearsNeuralBattleEntry, GoldAndGearsNeuralBattleEntryContext,
     GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralStatContribution,
 };
+pub use occurrence_runtime::{
+    GOLD_AND_GEARS_OCCURRENCE_POLICY_ACCURACY, GOLD_AND_GEARS_OCCURRENCE_POLICY_REVISION,
+    GOLD_AND_GEARS_OCCURRENCE_RUNTIME_REVISION,
+};
+pub use occurrence_types::{
+    GoldAndGearsAuthoredScalar, GoldAndGearsOccurrenceChoice, GoldAndGearsOccurrenceChoiceId,
+    GoldAndGearsOccurrenceCost, GoldAndGearsOccurrenceDefinition, GoldAndGearsOccurrenceOperation,
+    GoldAndGearsOccurrenceOutcome, GoldAndGearsOccurrenceSelection, GoldAndGearsOccurrenceTarget,
+    GoldAndGearsOccurrenceVariantDefinition,
+};
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
 pub use progression_runtime::{
     GOLD_AND_GEARS_EXTRAPOLATION_POLICY_ACCURACY, GOLD_AND_GEARS_EXTRAPOLATION_POLICY_REVISION,
@@ -74,6 +88,16 @@ pub use progression_runtime::{
     GoldAndGearsPathBoostContribution, GoldAndGearsPathBoostStat,
     GoldAndGearsResonanceContribution, GoldAndGearsResonanceKind, GoldAndGearsResonanceSet,
     GoldAndGearsTrailblazeBonusPlan, GoldAndGearsTrailblazeOffer,
+};
+pub use service_adventure_runtime::{
+    GOLD_AND_GEARS_ADVENTURE_POLICY_ACCURACY, GOLD_AND_GEARS_ADVENTURE_POLICY_REVISION,
+    GOLD_AND_GEARS_ADVENTURE_RUNTIME_REVISION, GOLD_AND_GEARS_SERVICE_RUNTIME_REVISION,
+};
+pub use service_adventure_types::{
+    GoldAndGearsAdventureDefinition, GoldAndGearsAdventureExternalOutcome,
+    GoldAndGearsAdventureMetric, GoldAndGearsAdventureRewardPlan, GoldAndGearsAdventureThreshold,
+    GoldAndGearsAdventureType, GoldAndGearsServiceDefinition, GoldAndGearsServiceKind,
+    GoldAndGearsServiceOfferSelector, GoldAndGearsServiceStock, GoldAndGearsTechniqueRule,
 };
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
@@ -99,6 +123,8 @@ mod knowledge_tests;
 mod map_overlay_tests;
 #[cfg(test)]
 mod neural_runtime_tests;
+#[cfg(test)]
+mod occurrence_service_tests;
 #[cfg(test)]
 mod phase2_hardening_tests;
 #[cfg(test)]

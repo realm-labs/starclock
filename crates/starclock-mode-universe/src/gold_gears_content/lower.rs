@@ -103,6 +103,8 @@ pub(super) fn lower(
                             key: key(&row.stable_key),
                             occurrence_id: row.occurrence_id,
                             occurrence_keys: keys(&row.occurrence_ids),
+                            entry_node: key(&row.entry_node_id),
+                            conditions: boxes(row.condition_ids.as_deref()),
                             choices: keys(&row.choice_ids),
                             rule: key(&row.rule_contribution_id),
                         })
@@ -113,7 +115,12 @@ pub(super) fn lower(
                     Ok(OccurrenceChoice {
                         id: row.id,
                         key: key(&row.stable_key),
+                        source_id: row.source_id.clone().into(),
                         variant_id: row.variant_id,
+                        node_index: row.node_index,
+                        choice_index: row.choice_index,
+                        option_index: row.option_index,
+                        conditions: boxes(row.condition_ids.as_deref()),
                         next_node: row.next_node_id.as_deref().map(key),
                         rule: key(&row.rule_contribution_id),
                         payloads: jsons(
@@ -133,6 +140,9 @@ pub(super) fn lower(
                 Ok(Service {
                     id: row.id,
                     key: key(&row.stable_key),
+                    kind: row.service_kind.clone().into(),
+                    currency: row.currency_id.as_deref().map(key),
+                    price_formula: row.price_formula_id.as_deref().map(key),
                     rule: key(&row.rule_contribution_id),
                     shared: row.ownership == GoldGearsOwnership::Shared,
                     payloads: jsons(
@@ -150,6 +160,14 @@ pub(super) fn lower(
                     Ok(AdventureOutcome {
                         id: row.id,
                         key: key(&row.stable_key),
+                        source_id: row.source_id.clone().into(),
+                        adventure_type: row.adventure_type.clone().into(),
+                        objective_metric: row.objective_metric.clone().into(),
+                        objective_thresholds: boxes(Some(&row.objective_thresholds)),
+                        maximum_value: row.maximum_value.clone().into(),
+                        time_limit_seconds: row.time_limit_seconds.clone().map(Into::into),
+                        technique_rule: row.technique_rule.clone().into(),
+                        rewards_are_cumulative: row.rewards_are_cumulative,
                         downloader_service_id: row.downloader_service_id,
                         room: key(&row.room_stable_key),
                         rule: key(&row.rule_contribution_id),
@@ -324,6 +342,14 @@ fn keys(values: &[String]) -> Box<[StableKey]> {
 
 fn optional_keys(values: Option<&[String]>) -> Box<[StableKey]> {
     values.map_or_else(|| Box::new([]), keys)
+}
+
+fn boxes(values: Option<&[String]>) -> Box<[Box<str>]> {
+    values
+        .unwrap_or_default()
+        .iter()
+        .map(|value| value.as_str().into())
+        .collect()
 }
 
 fn lower_map_event(row: &GoldGearsMapEvent) -> Result<MapEvent, GoldAndGearsContentError> {

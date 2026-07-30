@@ -75,50 +75,68 @@ pub(crate) struct CurioState {
 }
 
 #[derive(Debug)]
-pub(super) struct Occurrence {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) variants: Box<[StableKey]>,
-    pub(super) rule: StableKey,
+pub(crate) struct Occurrence {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) variants: Box<[StableKey]>,
+    pub(crate) rule: StableKey,
 }
 
 #[derive(Debug)]
-pub(super) struct OccurrenceVariant {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) occurrence_id: i32,
-    pub(super) occurrence_keys: Box<[StableKey]>,
-    pub(super) choices: Box<[StableKey]>,
-    pub(super) rule: StableKey,
+pub(crate) struct OccurrenceVariant {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) occurrence_id: i32,
+    pub(crate) occurrence_keys: Box<[StableKey]>,
+    pub(crate) entry_node: StableKey,
+    pub(crate) conditions: Box<[Box<str>]>,
+    pub(crate) choices: Box<[StableKey]>,
+    pub(crate) rule: StableKey,
 }
 
 #[derive(Debug)]
-pub(super) struct OccurrenceChoice {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) variant_id: i32,
-    pub(super) next_node: Option<StableKey>,
-    pub(super) rule: StableKey,
-    pub(super) payloads: Box<[JsonPayload]>,
+pub(crate) struct OccurrenceChoice {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) source_id: Box<str>,
+    pub(crate) variant_id: i32,
+    pub(crate) node_index: i32,
+    pub(crate) choice_index: i32,
+    pub(crate) option_index: i32,
+    pub(crate) conditions: Box<[Box<str>]>,
+    pub(crate) next_node: Option<StableKey>,
+    pub(crate) rule: StableKey,
+    pub(crate) payloads: Box<[JsonPayload]>,
 }
 
 #[derive(Debug)]
-pub(super) struct Service {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) rule: StableKey,
-    pub(super) shared: bool,
-    pub(super) payloads: Box<[JsonPayload]>,
+pub(crate) struct Service {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) kind: Box<str>,
+    pub(crate) currency: Option<StableKey>,
+    pub(crate) price_formula: Option<StableKey>,
+    pub(crate) rule: StableKey,
+    pub(crate) shared: bool,
+    pub(crate) payloads: Box<[JsonPayload]>,
 }
 
 #[derive(Debug)]
-pub(super) struct AdventureOutcome {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) downloader_service_id: i32,
-    pub(super) room: StableKey,
-    pub(super) rule: StableKey,
-    pub(super) payloads: Box<[JsonPayload]>,
+pub(crate) struct AdventureOutcome {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) source_id: Box<str>,
+    pub(crate) adventure_type: Box<str>,
+    pub(crate) objective_metric: Box<str>,
+    pub(crate) objective_thresholds: Box<[Box<str>]>,
+    pub(crate) maximum_value: Box<str>,
+    pub(crate) time_limit_seconds: Option<Box<str>>,
+    pub(crate) technique_rule: Box<str>,
+    pub(crate) rewards_are_cumulative: bool,
+    pub(crate) downloader_service_id: i32,
+    pub(crate) room: StableKey,
+    pub(crate) rule: StableKey,
+    pub(crate) payloads: Box<[JsonPayload]>,
 }
 
 #[derive(Debug)]

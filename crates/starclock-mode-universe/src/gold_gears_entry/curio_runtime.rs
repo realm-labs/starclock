@@ -103,7 +103,7 @@ impl GoldAndGearsCurioRuntimeCatalog {
             .find(|definition| definition.id == id)
     }
 
-    fn candidates(
+    pub(super) fn candidates(
         &self,
         context: &GoldAndGearsCurioOfferContext,
         owned: &[GoldAndGearsCurioId],
@@ -143,6 +143,7 @@ impl GoldAndGearsCurioRuntimeCatalog {
             .map(|definition| GoldAndGearsCurioCandidate {
                 id: definition.id,
                 stable_key: definition.stable_key.clone(),
+                source_id: definition.source_id,
                 category: definition.category,
                 shared: definition.shared_curio.is_some(),
             })
