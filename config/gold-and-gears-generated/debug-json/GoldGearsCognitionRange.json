@@ -1,0 +1,1177 @@
+{
+  "table": {
+    "name": "GoldGearsCognitionRange",
+    "rows": [
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.301"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "20"
+          },
+          "minimum_cognition": {
+            "String": "-20"
+          },
+          "name_en": {
+            "String": "Area 301 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 301 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.0"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.301"
+          },
+          "summary_en": {
+            "String": "Area 301 permits inclusive Cognition values from -20 through 20."
+          },
+          "summary_zh_cn": {
+            "String": "区域 301 允许的认知值闭区间为 -20 至 20。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.302"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "20"
+          },
+          "minimum_cognition": {
+            "String": "-20"
+          },
+          "name_en": {
+            "String": "Area 302 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 302 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.1"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.302"
+          },
+          "summary_en": {
+            "String": "Area 302 permits inclusive Cognition values from -20 through 20."
+          },
+          "summary_zh_cn": {
+            "String": "区域 302 允许的认知值闭区间为 -20 至 20。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.303"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 303 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 303 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.303"
+          },
+          "summary_en": {
+            "String": "Area 303 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 303 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.401"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "20"
+          },
+          "minimum_cognition": {
+            "String": "-20"
+          },
+          "name_en": {
+            "String": "Area 401 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 401 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.3"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.401"
+          },
+          "summary_en": {
+            "String": "Area 401 permits inclusive Cognition values from -20 through 20."
+          },
+          "summary_zh_cn": {
+            "String": "区域 401 允许的认知值闭区间为 -20 至 20。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.402"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "20"
+          },
+          "minimum_cognition": {
+            "String": "-20"
+          },
+          "name_en": {
+            "String": "Area 402 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 402 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.4"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.402"
+          },
+          "summary_en": {
+            "String": "Area 402 permits inclusive Cognition values from -20 through 20."
+          },
+          "summary_zh_cn": {
+            "String": "区域 402 允许的认知值闭区间为 -20 至 20。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.403"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "30"
+          },
+          "minimum_cognition": {
+            "String": "-30"
+          },
+          "name_en": {
+            "String": "Area 403 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 403 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.403"
+          },
+          "summary_en": {
+            "String": "Area 403 permits inclusive Cognition values from -30 through 30."
+          },
+          "summary_zh_cn": {
+            "String": "区域 403 允许的认知值闭区间为 -30 至 30。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.404"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 404 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 404 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "404"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.404"
+          },
+          "summary_en": {
+            "String": "Area 404 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 404 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.405"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 405 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 405 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "405"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.405"
+          },
+          "summary_en": {
+            "String": "Area 405 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 405 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.406"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 406 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 406 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "406"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.406"
+          },
+          "summary_en": {
+            "String": "Area 406 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 406 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.407"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 407 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 407 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "407"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.9"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.407"
+          },
+          "summary_en": {
+            "String": "Area 407 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 407 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.408"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 408 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 408 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "408"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.10"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.408"
+          },
+          "summary_en": {
+            "String": "Area 408 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 408 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.409"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 409 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 409 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "409"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.409"
+          },
+          "summary_en": {
+            "String": "Area 409 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 409 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "area_stable_key": {
+            "String": "gold-gears.area.410"
+          },
+          "bounds_inclusive": {
+            "Bool": true
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "global_maximum_cognition": {
+            "String": "40"
+          },
+          "global_minimum_cognition": {
+            "String": "-40"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CognitionRange"
+          },
+          "lifecycle_json": {
+            "String": "{\"adjustment_order\":[\"apply-cognition-delta\",\"clamp-to-global-range\",\"clamp-to-selected-area-range\"],\"eligibility_order\":[\"required-area-at-or-below-selected-area\",\"current-plane-layer\",\"predecessor-secret-frontier\",\"inclusive-cognition-range\"],\"evidence_quality\":\"ProjectPolicy\",\"initial_value\":\"0\",\"multiple_match_order\":[\"minimum-cognition\",\"maximum-cognition\",\"secret-id\"],\"new_run_reset\":\"reset-to-initial-value\",\"next_plane_carry\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"no_match_result\":\"no-secret-unlocked\",\"plane_end_evaluation\":\"after-current-plane-boss-defeat\",\"policy_id\":\"cognition-lifecycle-v1\",\"replacement_condition\":\"Replace individual steps when pinned engine evidence proves exact order or different boundary behavior.\"}"
+          },
+          "maximum_cognition": {
+            "String": "40"
+          },
+          "minimum_cognition": {
+            "String": "-40"
+          },
+          "name_en": {
+            "String": "Area 410 Cognition Range"
+          },
+          "name_zh_cn": {
+            "String": "区域 410 认知值范围"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "410"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.cognition-range.410"
+          },
+          "summary_en": {
+            "String": "Area 410 permits inclusive Cognition values from -40 through 40."
+          },
+          "summary_zh_cn": {
+            "String": "区域 410 允许的认知值闭区间为 -40 至 40。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition"
+              },
+              {
+                "String": "inclusive-range"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

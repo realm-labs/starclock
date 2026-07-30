@@ -21,3 +21,9 @@ See:
 
 `pack-index.json` hashes every generated file. Goal 01 binds this digest before
 it freezes its implementation manifests.
+
+The isolated Version 4.4 Gold and Gears Candidate reference lives under
+`gold-and-gears-v1/`. It has its own manifest, normalized pack, four
+Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
+approximation register and semantic fixtures. It remains reference-only and
+does not enter the Standard profile or production runtime bundle.

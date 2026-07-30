@@ -1,0 +1,462 @@
+[
+  {
+    "id": "gold-gears.dice-face-tag.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Beacon",
+    "name_zh_cn": "信标",
+    "summary_en": "Filter tag 6 maps to mechanical face code Mark under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 6 依据可替换的项目关联策略映射到机械骰面代码 Mark。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "3",
+        "sha256": "c0473a2a4634c585bf03fe63c383fd15f2a8922acae6b871aa8522c2efc632f6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "6",
+    "sort": 1,
+    "name_text_hash": "7250833265656441078",
+    "mechanical_code": "Mark",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Knowledge",
+    "name_zh_cn": "知识",
+    "summary_en": "Filter tag 2 maps to mechanical face code SpecialType under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 2 依据可替换的项目关联策略映射到机械骰面代码 SpecialType。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "0",
+        "sha256": "ad10e800c475a7700774c1b87909abfdd2d1ac69be90a6b9de3e8b7cb6c473fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "2",
+    "sort": 2,
+    "name_text_hash": "7535031826393913187",
+    "mechanical_code": "SpecialType",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Domains",
+    "name_zh_cn": "区域",
+    "summary_en": "Filter tag 3 maps to mechanical face code BlockChange under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 3 依据可替换的项目关联策略映射到机械骰面代码 BlockChange。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "1",
+        "sha256": "c4a202bfbf75afc95c75cb7ab275a8860ea471ff0745259d4ade912d096c9491",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "3",
+    "sort": 3,
+    "name_text_hash": "13242238328931966262",
+    "mechanical_code": "BlockChange",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.11",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Copy",
+    "name_zh_cn": "复制",
+    "summary_en": "Filter tag 11 maps to mechanical face code Replicate under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 11 依据可替换的项目关联策略映射到机械骰面代码 Replicate。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "8",
+        "sha256": "711fc910516f8dfa16fa711406e06f80f4be45869cf7538d9424062d10c16d29",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "11",
+    "sort": 4,
+    "name_text_hash": "9851370910389530224",
+    "mechanical_code": "Replicate",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Blessings",
+    "name_zh_cn": "祝福",
+    "summary_en": "Filter tag 8 maps to mechanical face code BuffProMax under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 8 依据可替换的项目关联策略映射到机械骰面代码 BuffProMax。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "5",
+        "sha256": "b2623a8b7fef6a5aa81dccdbcb4b6522789c0ce81893ea1e1c6078385aca2957",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "8",
+    "sort": 5,
+    "name_text_hash": "9189562000715736156",
+    "mechanical_code": "BuffProMax",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Curios",
+    "name_zh_cn": "奇物",
+    "summary_en": "Filter tag 9 maps to mechanical face code Miracle under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 9 依据可替换的项目关联策略映射到机械骰面代码 Miracle。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "6",
+        "sha256": "c86e24bfee0d4f64df33ba69a4ea9c5684a4fde059698218b62fbddf8d4d8013",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "9",
+    "sort": 6,
+    "name_text_hash": "7969782822328756227",
+    "mechanical_code": "Miracle",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Buff",
+    "name_zh_cn": "增益",
+    "summary_en": "Filter tag 7 maps to mechanical face code Buff under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 7 依据可替换的项目关联策略映射到机械骰面代码 Buff。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "4",
+        "sha256": "6f178429db03659ab48e88bc071af2cc04c637f173efa48a89c3f985074f2b83",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "7",
+    "sort": 7,
+    "name_text_hash": "14829188480039990822",
+    "mechanical_code": "Buff",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.12",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Countdown",
+    "name_zh_cn": "倒计时",
+    "summary_en": "Filter tag 12 maps to mechanical face code ActionPoint under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 12 依据可替换的项目关联策略映射到机械骰面代码 ActionPoint。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "9",
+        "sha256": "23d662ee5b64510980d0845b0677dbd4603e4fefd78cef3542cdc017e1e1938e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "12",
+    "sort": 8,
+    "name_text_hash": "13205245051165728963",
+    "mechanical_code": "ActionPoint",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.10",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Cosmic Fragment",
+    "name_zh_cn": "宇宙碎片",
+    "summary_en": "Filter tag 10 maps to mechanical face code Coin under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 10 依据可替换的项目关联策略映射到机械骰面代码 Coin。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "7",
+        "sha256": "419bfbbc0dbdaf0315ee7c05aa84d532021061a7e8f8d8f796c014317681ca30",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "10",
+    "sort": 9,
+    "name_text_hash": "10210086987780974718",
+    "mechanical_code": "Coin",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  },
+  {
+    "id": "gold-gears.dice-face-tag.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DiceFaceTag",
+    "name_en": "Movement Distance",
+    "name_zh_cn": "移动距离",
+    "summary_en": "Filter tag 4 maps to mechanical face code Move under the replaceable project join policy.",
+    "summary_zh_cn": "筛选标签 4 依据可替换的项目关联策略映射到机械骰面代码 Move。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussurfacetag-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSurfaceTag.json",
+        "locator": "2",
+        "sha256": "31859d78451d51d71706ded4eccbb2caeb396dd90f2e825a927d33797e3bfad6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-face-tag"
+    ],
+    "source_id": "4",
+    "sort": 10,
+    "name_text_hash": "7436333047463290943",
+    "mechanical_code": "Move",
+    "mapping_evidence_quality": "ProjectPolicy",
+    "mapping_replacement_condition": "Replace when a pinned released numeric-to-code relation is available."
+  }
+]

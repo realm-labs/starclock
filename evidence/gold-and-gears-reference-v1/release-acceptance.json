@@ -1,0 +1,81 @@
+{
+  "schema_revision": "starclock.gold-and-gears-release-acceptance.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "checked_at": "2026-07-29",
+  "result": "pass",
+  "source_cache": {
+    "inventory_files": 2882,
+    "revisions": {
+      "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+    }
+  },
+  "normalized_pack": {
+    "files": 50,
+    "pack_sha256": "ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623",
+    "coverage_categories": 42,
+    "source_obligations": 7913,
+    "data_ready": 7913,
+    "semantic_fixtures": 18,
+    "nonblocking_research_gaps": 16
+  },
+  "authoring": {
+    "workbooks": {
+      "GoldAndGears.xlsx": {
+        "bytes": 1093246,
+        "sha256": "a289bd4d7463109bce04899d920275455c33a14fe3702cd8efe9416fc67d30e7"
+      },
+      "GoldAndGearsContent.xlsx": {
+        "bytes": 549958,
+        "sha256": "1c9c44797d5accb3ae696b65f717ca6d2dedd8109d4709ef5f427be902a405a3"
+      },
+      "GoldAndGearsEvidence.xlsx": {
+        "bytes": 1383967,
+        "sha256": "c9b72548f4a658ad54267fba4b085581174c64676b1af89e736d0789a85d2c0c"
+      },
+      "GoldAndGearsProgression.xlsx": {
+        "bytes": 87107,
+        "sha256": "1965aaa1811ec9e37b9adeffdab4b2f597a8575ca7d7b9201ccd58375f9efe61"
+      }
+    },
+    "tables": 52,
+    "rows": 29140,
+    "bundle": {
+      "bytes": 5108209,
+      "sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b"
+    },
+    "debug_files": 52,
+    "debug_digest": "ff739998f2038e75a4783e80c4841eabdfa1f8b8358ffb73363c8e77ea48ee17",
+    "visual_review_sha256": "747886d3a456c4da4a3463ade2c4ea55fed7d6395847b95e55ff1d15ca3f4029"
+  },
+  "protected_boundaries": {
+    "baseline_commit": "070ab224",
+    "tracked_tree_digests": {
+      "goal03_reference": "9e53d3b0800870fc9ae0b2f4f3ba1614c090cae7788e426845c3c56c2f54bd01",
+      "production_configuration": "9dac8168443833eaea2c3a27bc89d4919eaddda3dc3cd824866ed895928f619e",
+      "standard_staging": "f70d47c3c85b90829d44ab5d44f636a71b7f669d859d70120816c1f32ad94b5c"
+    },
+    "goal03_release_evidence_preserved": true,
+    "standard_staging_preserved": true,
+    "production_configuration_preserved": true
+  },
+  "dependencies": {
+    "cargo_lock_sha256": "7d518a413c182933a0f2d75b96094f40145ae2a82f8bd9dc34032d0b583a3aac",
+    "dependency_policy_sha256": "7fcac805af11fb4ebd8a3686082fdbf4244baca4aa8377aa581d359ffff5b507",
+    "release_snapshot_policy_sha256": "44181afbe9dfae408b72a7ffbc9f962c2bbc1e664c43e74b49fbc6e890512e4d",
+    "sora_toolchain_policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a"
+  },
+  "acceptance_commands": [
+    "node tools/gold-and-gears-reference/verify-inventory.mjs .",
+    "node tools/gold-and-gears-reference/verify-manifest.mjs .",
+    "node tools/gold-and-gears-reference/verify-pack.mjs .",
+    "python3 tools/gold-and-gears-reference/verify_workbooks.py --root .",
+    "node tools/gold-and-gears-reference/verify-sora-release.mjs .",
+    "node tools/gold-and-gears-reference/verify-semantic-fixtures.mjs .",
+    "node tools/gold-and-gears-reference/audit-release.mjs .",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/workspace/verify-dependencies.mjs",
+    "node tools/repository-check/verify-release-snapshots.mjs",
+    "node tools/release/run-clean-checkout.mjs"
+  ]
+}

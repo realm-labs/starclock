@@ -1,0 +1,4063 @@
+{
+  "table": {
+    "name": "GoldGearsResonance",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612321"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              },
+              {
+                "String": "defeat"
+              },
+              {
+                "String": "once-scope"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Terminal Nirvana"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：无余涅槃"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"0.15\"},{\"index\":3,\"value\":\"2\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"1\"},{\"index\":6,\"value\":\"0.1\"},{\"index\":7,\"value\":\"5\"},{\"index\":8,\"value\":\"0.3\"},{\"index\":9,\"value\":\"1\"}]"
+          },
+          "path_id": {
+            "Integer": 7
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612321"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "9a91fa3f55a78c8e91853ac523d80a9932ceca0ec41e1b2e252be580e9249022"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "de9e32af510af772e628c3a1e6d013228106c5a7e4e050926edfc3baea97b1f5"
+          },
+          "source_id": {
+            "String": "612321"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612321"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.13"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.261"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612321"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612322"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": "Null",
+          "name_en": {
+            "String": "Resonance Formation: Anicca"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：诸行无常"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"0.15\"},{\"index\":3,\"value\":\"2\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"1\"},{\"index\":6,\"value\":\"0.1\"},{\"index\":7,\"value\":\"5\"},{\"index\":8,\"value\":\"0.3\"},{\"index\":9,\"value\":\"1\"}]"
+          },
+          "path_id": {
+            "Integer": 7
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612322"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "4fd198750afa52ca28987f534d04a6830e9ed8432528b4621e84bfd1674a09a6"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "fd57ea81b33d81f10d9a5d0f338bc7dd43db23eb001f02b39174986d8de92fa4"
+          },
+          "source_id": {
+            "String": "612322"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612322"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.262"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612322"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612323"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "healing"
+              },
+              {
+                "String": "action-advance"
+              },
+              {
+                "String": "once-scope"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Anatta"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：诸法无我"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"0.15\"},{\"index\":3,\"value\":\"2\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"1\"},{\"index\":6,\"value\":\"0.1\"},{\"index\":7,\"value\":\"5\"},{\"index\":8,\"value\":\"0.3\"},{\"index\":9,\"value\":\"1\"}]"
+          },
+          "path_id": {
+            "Integer": 7
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612323"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "c96e0c20d9b50d5f29ecf2f3379eb7cd3bb23edf84330ffc1a3330b1f4b99dcf"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "abaac42969ee6d96c6acd7e5d24842c2544f600eb2dc1a80ff6c4d12fa988e35"
+          },
+          "source_id": {
+            "String": "612323"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612323"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.263"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612323"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612320"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "healing"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Abundance"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「丰饶」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"0.15\"},{\"index\":3,\"value\":\"2\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"1\"},{\"index\":6,\"value\":\"0.1\"},{\"index\":7,\"value\":\"5\"},{\"index\":8,\"value\":\"0.3\"},{\"index\":9,\"value\":\"1\"}]"
+          },
+          "path_id": {
+            "Integer": 7
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612320"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "8e64bf1f19e4aa2ee8ae151e2e6b0f1f9bf32c354325e25cdc74252e4854d739"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "76f3c834fe9abff893a541a0976940cf148789506d22ad2bc2aab8f09b07e011"
+          },
+          "source_id": {
+            "String": "612320"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612320"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.260"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612320"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612521"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "shield"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Cataclysmic Variable"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：激变变星"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.8\"},{\"index\":3,\"value\":\"0.4\"},{\"index\":4,\"value\":\"0.2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"2\"},{\"index\":7,\"value\":\"0.2\"},{\"index\":8,\"value\":\"1.25\"},{\"index\":9,\"value\":\"0.35\"},{\"index\":10,\"value\":\"2\"}]"
+          },
+          "path_id": {
+            "Integer": 5
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612521"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "7647e8df234a5b2d790ab063e48059857b6781cf6d3b0dbabc05f6646155a327"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "9d4dc12618850790b20ed5b0141f6dbdfb0dc5df127786099e3f1bfde2c6b69d"
+          },
+          "source_id": {
+            "String": "612521"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612521"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.21"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.269"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612521"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612522"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Extreme Helium Flash"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：极端氦闪"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.8\"},{\"index\":3,\"value\":\"0.4\"},{\"index\":4,\"value\":\"0.2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"2\"},{\"index\":7,\"value\":\"0.2\"},{\"index\":8,\"value\":\"1.25\"},{\"index\":9,\"value\":\"0.35\"},{\"index\":10,\"value\":\"2\"}]"
+          },
+          "path_id": {
+            "Integer": 5
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612522"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "18f54e96c3e2411a151ca01693ee9149252bad81b1370cb2a0ff6d0a7078fb23"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "3a8ae4d83073343b952cd560efb71ac13104a8d4bb4c90bd8d6cc6b2da2da9e7"
+          },
+          "source_id": {
+            "String": "612522"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612522"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.22"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.270"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612522"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612523"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "once-scope"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Event Horizon"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：事件视界"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.8\"},{\"index\":3,\"value\":\"0.4\"},{\"index\":4,\"value\":\"0.2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"2\"},{\"index\":7,\"value\":\"0.2\"},{\"index\":8,\"value\":\"1.25\"},{\"index\":9,\"value\":\"0.35\"},{\"index\":10,\"value\":\"2\"}]"
+          },
+          "path_id": {
+            "Integer": 5
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612523"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "63445a9892828d68f5a5862648084925a9d7e9aaabb91dba151905a7e53b2bbe"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "926cf975b9b3668080bcf77d3567a76418701768665aae34f6977c912b7caad9"
+          },
+          "source_id": {
+            "String": "612523"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612523"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.23"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.271"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612523"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612520"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Destruction"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「毁灭」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.8\"},{\"index\":3,\"value\":\"0.4\"},{\"index\":4,\"value\":\"0.2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"2\"},{\"index\":7,\"value\":\"0.2\"},{\"index\":8,\"value\":\"1.25\"},{\"index\":9,\"value\":\"0.35\"},{\"index\":10,\"value\":\"2\"}]"
+          },
+          "path_id": {
+            "Integer": 5
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612520"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "de6eb2556304f637a68268d0c52aad7a9ec60f872a924735e31fd00af143e46f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "999dabd39b02a6c49b802dea072fb86d6f1bcf5b9ac92b9dc6d5003214587b84"
+          },
+          "source_id": {
+            "String": "612520"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612520"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.20"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.268"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612520"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612621"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "damage"
+              },
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Doomsday Carnival"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：末日狂欢"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.25\"},{\"index\":2,\"value\":\"3\"},{\"index\":3,\"value\":\"5\"},{\"index\":4,\"value\":\"0.08\"},{\"index\":5,\"value\":\"0.2\"},{\"index\":6,\"value\":\"0.4\"},{\"index\":7,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 3
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612621"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "e0126b5ebbb7aec7e2b1c3b1184bd37b9a0be4de02d33936ae6767d289258035"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1c300685748faef36a5e21b7ab40b890168717b9197d463d82ad47eb68ee1a02"
+          },
+          "source_id": {
+            "String": "612621"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612621"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.25"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.277"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612621"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612622"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Dance of Growth"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：树苗长高舞"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.25\"},{\"index\":2,\"value\":\"3\"},{\"index\":3,\"value\":\"5\"},{\"index\":4,\"value\":\"0.08\"},{\"index\":5,\"value\":\"0.2\"},{\"index\":6,\"value\":\"0.4\"},{\"index\":7,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 3
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612622"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "8cd2e06df26bd70f622bb95bf089f3ac54f312240ce30c708370ef51db1a132e"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1a4dd511055b4aa7c0320e6561c44371a80802f7a72d5c99b7993c1cca273cb2"
+          },
+          "source_id": {
+            "String": "612622"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612622"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.26"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.278"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612622"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612623"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "follow-up"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Instant Win"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：开盖有奖"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.25\"},{\"index\":2,\"value\":\"3\"},{\"index\":3,\"value\":\"5\"},{\"index\":4,\"value\":\"0.08\"},{\"index\":5,\"value\":\"0.2\"},{\"index\":6,\"value\":\"0.4\"},{\"index\":7,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 3
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612623"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "63e4280e3270e21b51c544cddd22b15e6770011071b46b2002728e4b3bfef6a6"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "0ce0a2e2e0a93673b35a72a6853b7d042920a7704c35e499e763031417d27ef7"
+          },
+          "source_id": {
+            "String": "612623"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612623"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.27"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.279"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612623"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612620"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              },
+              {
+                "String": "follow-up"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Elation"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「欢愉」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.25\"},{\"index\":2,\"value\":\"3\"},{\"index\":3,\"value\":\"5\"},{\"index\":4,\"value\":\"0.08\"},{\"index\":5,\"value\":\"0.2\"},{\"index\":6,\"value\":\"0.4\"},{\"index\":7,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 3
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612620"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "6aaa09fa65784d3ab78897075ed0cdc06024f010427a8e0eda4fd615ebdd742f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "8c3d2f1761cd4454bffd351ee0ba3c32d310a9c94c3b1e1d86ec1898595555c7"
+          },
+          "source_id": {
+            "String": "612620"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612620"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.24"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.276"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612620"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612821"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "damage"
+              },
+              {
+                "String": "ultimate"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Melt Core"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：核心熔毁"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"}]"
+          },
+          "path_id": {
+            "Integer": 9
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612821"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "d07dfc40958018ede2fb13fcc6443d6275945eff132ab6103ff9b66bf37fd8a6"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "372f98fac9e4e7400da331ef104aec3a75d87e576b76d2772f9ab944a3f69dd9"
+          },
+          "source_id": {
+            "String": "612821"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612821"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.33"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.341"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612821"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612822"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "defeat"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Chain Contagion"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：连带传染"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2\"}]"
+          },
+          "path_id": {
+            "Integer": 9
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612822"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "7973db926b78505469f685d50ed8505538fc004edb54b6a7425dd57817fbfacb"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "bd5e07544340ffa3ef512a086395dfb946db07e5935bae96cc1cefd3414fc6b2"
+          },
+          "source_id": {
+            "String": "612822"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612822"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.34"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.342"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612822"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612823"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Memetic Inversion"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：模因逆推"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 9
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612823"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "faf997e28edb96e57df3128e9872c29f06419a848f1fcee47462526ef587c3a4"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "a5bd55329bf1d33b56bb4d952b833582e6c84b473d2ab354ec1bd05372ee1e3c"
+          },
+          "source_id": {
+            "String": "612823"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612823"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.35"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.343"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612823"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612820"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              },
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: \"Erudition\""
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「智识」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.3\"},{\"index\":2,\"value\":\"0.7\"},{\"index\":3,\"value\":\"15\"}]"
+          },
+          "path_id": {
+            "Integer": 9
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612820"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "1d54144667651de38495f8571889c09e2645ecb3ccab5d030a10335144bf2886"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1b3355f3e6d24a67701e13f4a37f298c0291c9523ec5c452f3b393ec7be440c8"
+          },
+          "source_id": {
+            "String": "612820"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612820"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.32"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.340"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612820"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612421"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": "Null",
+          "name_en": {
+            "String": "Resonance Formation: Star Hunter"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：狩星巡日"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"5.5\"},{\"index\":3,\"value\":\"0.5\"},{\"index\":4,\"value\":\"0.8\"},{\"index\":5,\"value\":\"0.5\"},{\"index\":6,\"value\":\"0.5\"},{\"index\":7,\"value\":\"0.03\"}]"
+          },
+          "path_id": {
+            "Integer": 4
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612421"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "95db2393f7f4dfb1ce83f024a37412c81ec54b53fedd40d958f8dcdbce21a59c"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "47a4551bfea1e99caa9eab2b11acadebf377746886c3fde2db4a04b12d21558c"
+          },
+          "source_id": {
+            "String": "612421"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612421"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.17"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.265"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612421"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612422"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "critical"
+              },
+              {
+                "String": "damage"
+              },
+              {
+                "String": "defeat"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Bow and Arrow"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：柘弓危矢"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"5.5\"},{\"index\":3,\"value\":\"0.5\"},{\"index\":4,\"value\":\"0.8\"},{\"index\":5,\"value\":\"0.5\"},{\"index\":6,\"value\":\"0.5\"},{\"index\":7,\"value\":\"0.03\"}]"
+          },
+          "path_id": {
+            "Integer": 4
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612422"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "c4e968b29998bb9d9ed8822a68b236e9b9ea30e0057726814b73a9acca2f6f0f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1ba2a0c58753cccda0830425ecf65931708977298aff1b2ce96fa6a31f50ca04"
+          },
+          "source_id": {
+            "String": "612422"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612422"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.18"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.266"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612422"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612423"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Perfect Aim"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：射不主皮"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"5.5\"},{\"index\":3,\"value\":\"0.5\"},{\"index\":4,\"value\":\"0.8\"},{\"index\":5,\"value\":\"0.5\"},{\"index\":6,\"value\":\"0.5\"},{\"index\":7,\"value\":\"0.03\"}]"
+          },
+          "path_id": {
+            "Integer": 4
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612423"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "6db51a1cabe95ca0c148ba1f88b5825f652024959d219f36907ddffa97d11550"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "ca1dc7d61670629d50a02f3508ef4e6509d63369a9c2c9d9bf00f07f8cbe66bd"
+          },
+          "source_id": {
+            "String": "612423"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612423"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.19"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.267"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612423"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612420"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: The Hunt"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「巡猎」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"5.5\"},{\"index\":3,\"value\":\"0.5\"},{\"index\":4,\"value\":\"0.8\"},{\"index\":5,\"value\":\"0.5\"},{\"index\":6,\"value\":\"0.5\"},{\"index\":7,\"value\":\"0.03\"}]"
+          },
+          "path_id": {
+            "Integer": 4
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612420"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "4cd45f4e85c8b3add4b0857b629b2eebef73661a44534710c6b8f7b7e59b419f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "bedc093b171f00c78ac28859682f2869bd7e65fa1849ee069f21031b24429d39"
+          },
+          "source_id": {
+            "String": "612420"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612420"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.16"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.264"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612420"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612221"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: The Doubtful Fourfold Root"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：怀疑的四重根"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.8\"},{\"index\":2,\"value\":\"0.1\"},{\"index\":3,\"value\":\"0.05\"},{\"index\":4,\"value\":\"2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"0.3\"},{\"index\":7,\"value\":\"0.1\"},{\"index\":8,\"value\":\"0.4\"},{\"index\":9,\"value\":\"0.02\"}]"
+          },
+          "path_id": {
+            "Integer": 6
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612221"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "61072767915b11319b4b6d49c16174d7338bb53992a8aac211ad983ee0a4e1f7"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1ae1ad2950374dd226318b3fe2aa44c8ad822e0c1d83d94fa7e3af464bc8f5e2"
+          },
+          "source_id": {
+            "String": "612221"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612221"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.9"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.257"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612221"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612222"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Suffering and Sunshine"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：苦难与阳光"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.8\"},{\"index\":2,\"value\":\"0.1\"},{\"index\":3,\"value\":\"0.05\"},{\"index\":4,\"value\":\"2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"0.3\"},{\"index\":7,\"value\":\"0.1\"},{\"index\":8,\"value\":\"0.4\"},{\"index\":9,\"value\":\"0.02\"}]"
+          },
+          "path_id": {
+            "Integer": 6
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612222"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "7171937873350902c437710b68831c81cd9339d9ff4c7fdc3382cf8dfb3616ee"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "cc7f0a72af2fc9e509b8af51221e060e87a4b0d3e16409bcc32995eb88cca434"
+          },
+          "source_id": {
+            "String": "612222"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612222"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.10"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.258"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612222"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612223"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Outsider"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：局外人"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.8\"},{\"index\":2,\"value\":\"0.1\"},{\"index\":3,\"value\":\"0.05\"},{\"index\":4,\"value\":\"2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"0.3\"},{\"index\":7,\"value\":\"0.1\"},{\"index\":8,\"value\":\"0.4\"},{\"index\":9,\"value\":\"0.02\"}]"
+          },
+          "path_id": {
+            "Integer": 6
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612223"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "a506c3c9719cebf6a2857c94f4b624d799f8812b99abad2754e104768fdcf815"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "c85a898a61429f2e6f9ae0cafca71fe3db149f7392b72ef6b669d973e5e3ed66"
+          },
+          "source_id": {
+            "String": "612223"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612223"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.259"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612223"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612220"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Nihility"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「虚无」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.8\"},{\"index\":2,\"value\":\"0.1\"},{\"index\":3,\"value\":\"0.05\"},{\"index\":4,\"value\":\"2\"},{\"index\":5,\"value\":\"2\"},{\"index\":6,\"value\":\"0.3\"},{\"index\":7,\"value\":\"0.1\"},{\"index\":8,\"value\":\"0.4\"},{\"index\":9,\"value\":\"0.02\"}]"
+          },
+          "path_id": {
+            "Integer": 6
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612220"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "484258de81e049366d9e277884840712e59d1138b41f19b1f0f0b7b80014c2b9"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "af8564692fea772a4888727d16f6b33193c6c3fe2294be4682f11402575ba512"
+          },
+          "source_id": {
+            "String": "612220"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612220"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.256"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612220"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612021"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "shield"
+              },
+              {
+                "String": "critical"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Zero-Dimensional Reinforcement"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：零维强化"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.5\"},{\"index\":3,\"value\":\"0\"},{\"index\":4,\"value\":\"0.15\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.03\"},{\"index\":7,\"value\":\"2\"},{\"index\":8,\"value\":\"0.01\"}]"
+          },
+          "path_id": {
+            "Integer": 1
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612021"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "28a2abe791e3e051d757fa93055d37343244b300dd21ca484832efe0790ba5a0"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "c53248bd8f8da7c256f13d3f1a45e4de007718207d78ef450016e3e241782db8"
+          },
+          "source_id": {
+            "String": "612021"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.1"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.253"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612021"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612022"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "shield"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Eutectic Reaction"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：共晶反应"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.5\"},{\"index\":3,\"value\":\"0\"},{\"index\":4,\"value\":\"0.15\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.03\"},{\"index\":7,\"value\":\"2\"},{\"index\":8,\"value\":\"0.01\"}]"
+          },
+          "path_id": {
+            "Integer": 1
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612022"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "fa232fa17d29b72e9a859887b6ea2537b6ad7a671c3f15d5e7f54b1bf487779d"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "e52132ca95e5d3cedd8ab75b139fc088c682895a7cb61d520fcfd807626384ab"
+          },
+          "source_id": {
+            "String": "612022"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612022"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.254"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612022"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612023"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "shield"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Isomorphous Reaction"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：均晶转变"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.5\"},{\"index\":3,\"value\":\"0\"},{\"index\":4,\"value\":\"0.15\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.03\"},{\"index\":7,\"value\":\"2\"},{\"index\":8,\"value\":\"0.01\"}]"
+          },
+          "path_id": {
+            "Integer": 1
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612023"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "b93942db63a1fda2b0863ded6e5daeb3cf732aca459c25332a1b48e092b56022"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "13b62b661c61841fbd6c3bfa10ba6802126830f3e68930f54a0955f2cab07771"
+          },
+          "source_id": {
+            "String": "612023"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612023"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.3"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.255"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612023"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612020"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "shield"
+              },
+              {
+                "String": "damage"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Preservation"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「存护」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2.5\"},{\"index\":2,\"value\":\"0.5\"},{\"index\":3,\"value\":\"0\"},{\"index\":4,\"value\":\"0.15\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.03\"},{\"index\":7,\"value\":\"2\"},{\"index\":8,\"value\":\"0.01\"}]"
+          },
+          "path_id": {
+            "Integer": 1
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612020"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "b9521d808b84f55b45af3cc78fe50938ba44a59b7bb6d8fb591378b74cc639ad"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "97fb8ba627a9b7fb143a87e09b1046bead0917acd6415cb98028e53d13323f50"
+          },
+          "source_id": {
+            "String": "612020"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612020"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.0"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.252"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612020"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612721"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "defeat"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Proboscis"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：刺吸口器"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.2\"}]"
+          },
+          "path_id": {
+            "Integer": 8
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612721"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "2e1405095d802b8a55edd2c33c19454cfb66d5b333aff0f381180fdc499036bf"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "9b3a22a61be91d5ea6091154193ba0055a9d77b3f0de3df84e753885ceb61d6d"
+          },
+          "source_id": {
+            "String": "612721"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612721"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.29"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.281"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612721"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612722"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "skill-points"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Phenol Compounds"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：酚类物质"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.01\"}]"
+          },
+          "path_id": {
+            "Integer": 8
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612722"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "abbf2a883c2fdc3f65ba69c33af209d8a1565f342f06058b8a061c6fd2a6b3af"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "ae22ea2c548a75a6ed410582d8fc0c0112a8bc27e2b1ef9f47f5054a40ef06f8"
+          },
+          "source_id": {
+            "String": "612722"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612722"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.30"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.282"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612722"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612723"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "damage"
+              },
+              {
+                "String": "once-scope"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Crystal Pincers"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：结晶螯刺"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.4\"},{\"index\":2,\"value\":\"0.8\"},{\"index\":3,\"value\":\"3\"}]"
+          },
+          "path_id": {
+            "Integer": 8
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612723"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "208bffddcdcbfa2220210db7c751e1262fe781b8a2c128e82d55615443479215"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "d10c792fa13b3cb96ec7ace28d4d145cc4aff8dbce95286fa66e6a55b312f75e"
+          },
+          "source_id": {
+            "String": "612723"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612723"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.31"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.283"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612723"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612720"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "action-advance"
+              },
+              {
+                "String": "skill-points"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Propagation"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「繁育」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"2\"},{\"index\":2,\"value\":\"0.1\"},{\"index\":3,\"value\":\"2\"}]"
+          },
+          "path_id": {
+            "Integer": 8
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612720"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "de86ab463d3bdf074ec1ccd95d612a72559e986d2db22072742155eb3221b317"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "7094ed42ac2567d0cfd9c1a03a72bd4d18a8ca8cf90ad87a218692d169ce6c65"
+          },
+          "source_id": {
+            "String": "612720"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612720"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.28"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.280"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612720"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612121"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Total Recall"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：全面回忆"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.6\"},{\"index\":2,\"value\":\"1.2\"},{\"index\":3,\"value\":\"1\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 2
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612121"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "1d1be32f295551d23d2f9a3b92b7c907d52773e28ae35caa9ad42da050a3d03b"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "79c942a31a8beb2a71a3a6ad0a00aca82e04a0be845163d47d9060eae25ebed2"
+          },
+          "source_id": {
+            "String": "612121"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612121"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.273"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612121"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612122"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: Rich Experience"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：体验的富翁"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.6\"},{\"index\":2,\"value\":\"1.2\"},{\"index\":3,\"value\":\"1\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 2
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612122"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "9c3596c262aa7611bb158474ab33d46194bfc1856457e72b1bfd70cf4c95d121"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "11a799861aae13d763213db25df1261bdca81a91249d0fdf2efff732c6358700"
+          },
+          "source_id": {
+            "String": "612122"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612122"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.274"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612122"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "0"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612123"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Resonance Formation: First Love Once More"
+          },
+          "name_zh_cn": {
+            "String": "回响构音：第二次初恋"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.6\"},{\"index\":2,\"value\":\"1.2\"},{\"index\":3,\"value\":\"1\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 2
+          },
+          "resonance_kind": {
+            "String": "Formation"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612123"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "1c18b9b05798b98ed748a9b43f865e631c9ac6036f00982a2b9bab0139f0c2d4"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "d5e2eab66bbda966748b3c1c68697cfa311305297627e5d55908e4739730465c"
+          },
+          "source_id": {
+            "String": "612123"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612123"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.275"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612123"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared formation through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享回响构音。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "formation"
+              },
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 0
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "energy_max": {
+            "String": "100"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "inherited_rule_ids": {
+            "List": [
+              {
+                "String": "universe.rule.resonance.612120"
+              }
+            ]
+          },
+          "initial_energy": {
+            "String": "0"
+          },
+          "kind": {
+            "String": "Resonance"
+          },
+          "mechanic_tags": {
+            "List": [
+              {
+                "String": "energy"
+              },
+              {
+                "String": "damage"
+              },
+              {
+                "String": "effect-application"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "Path Resonance: Remembrance"
+          },
+          "name_zh_cn": {
+            "String": "命途回响：「记忆」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_values_json": {
+            "String": "[{\"index\":1,\"value\":\"0.6\"},{\"index\":2,\"value\":\"1.2\"},{\"index\":3,\"value\":\"1\"},{\"index\":4,\"value\":\"1\"},{\"index\":5,\"value\":\"0.4\"},{\"index\":6,\"value\":\"0.05\"}]"
+          },
+          "path_id": {
+            "Integer": 2
+          },
+          "resonance_kind": {
+            "String": "Resonance"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612120"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "2ea1022493fa0941cdeb817d9fb32340e78eb4a699c3915ce195a1fa290e8623"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "6543376fa8a38daa011f663fd4c85954516899c2ed3ff48fcd45dbd06bb54ca0"
+          },
+          "source_id": {
+            "String": "612120"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612120"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-resonances-json.4"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.272"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.resonance.612120"
+          },
+          "summary_en": {
+            "String": "Gold and Gears exposes this shared resonance through its selected-Path BattleEvent group."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械通过所选命途的战斗事件组提供该共享命途回响。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "threshold": {
+            "Integer": 3
+          }
+        }
+      }
+    ]
+  }
+}

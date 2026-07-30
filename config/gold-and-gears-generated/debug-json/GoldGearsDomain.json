@@ -1,0 +1,691 @@
+{
+  "table": {
+    "name": "GoldGearsDomain",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Adventure"
+          },
+          "name_zh_cn": {
+            "String": "冒险"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "Adventure"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-100"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.adventure"
+          },
+          "summary_en": {
+            "String": "Adventure is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Adventure 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Adventure"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Blank"
+          },
+          "name_zh_cn": {
+            "String": "空白"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "Empty"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.rogueblockcreategrouplist-111201112"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.empty"
+          },
+          "summary_en": {
+            "String": "Empty is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Empty 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Empty"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Occurrence"
+          },
+          "name_zh_cn": {
+            "String": "事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "Event"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-104"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.event"
+          },
+          "summary_en": {
+            "String": "Event is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Event 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Event"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Boss"
+          },
+          "name_zh_cn": {
+            "String": "首领"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "MonsterBoss"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-205"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.monsterboss"
+          },
+          "summary_en": {
+            "String": "MonsterBoss is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterBoss 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterBoss"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Elite"
+          },
+          "name_zh_cn": {
+            "String": "精英"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "MonsterElite"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-103"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.monsterelite"
+          },
+          "summary_en": {
+            "String": "MonsterElite is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterElite 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterElite"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Combat"
+          },
+          "name_zh_cn": {
+            "String": "战斗"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "MonsterNormal"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-201"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.monsternormal"
+          },
+          "summary_en": {
+            "String": "MonsterNormal is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterNormal 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterNormal"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Resonance Extrapolation Boss"
+          },
+          "name_zh_cn": {
+            "String": "回响推演首领"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "MonsterNousBoss"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.rogueblockcreategrouplist-911101101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.monsternousboss"
+          },
+          "summary_en": {
+            "String": "MonsterNousBoss is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "MonsterNousBoss 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MonsterNousBoss"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Cognition Event"
+          },
+          "name_zh_cn": {
+            "String": "认知事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "NousEvent"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.nousevent"
+          },
+          "summary_en": {
+            "String": "NousEvent is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "NousEvent 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "NousEvent"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Cognition Special Event"
+          },
+          "name_zh_cn": {
+            "String": "特殊认知事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "NousSpecialEvent"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-102"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.nousspecialevent"
+          },
+          "summary_en": {
+            "String": "NousSpecialEvent is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "NousSpecialEvent 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "NousSpecialEvent"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Respite"
+          },
+          "name_zh_cn": {
+            "String": "休整"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "Respite"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-200"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.respite"
+          },
+          "summary_en": {
+            "String": "Respite is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Respite 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Respite"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Reward"
+          },
+          "name_zh_cn": {
+            "String": "奖励"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "Reward"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.reward"
+          },
+          "summary_en": {
+            "String": "Reward is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Reward 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Reward"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "Domain"
+          },
+          "name_en": {
+            "String": "Transaction"
+          },
+          "name_zh_cn": {
+            "String": "交易"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "Trade"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.domain.trade"
+          },
+          "summary_en": {
+            "String": "Trade is reachable from at least one authored Gold and Gears node or creation rule."
+          },
+          "summary_zh_cn": {
+            "String": "Trade 可由至少一个已发布的黄金与机械节点或创建规则到达。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "Trade"
+              },
+              {
+                "String": "domain"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

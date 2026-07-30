@@ -1,0 +1,1456 @@
+{
+  "table": {
+    "name": "GoldGearsPathBoost",
+    "rows": [
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650103"
+          },
+          "aeon_source_id": {
+            "String": "4"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.02"
+              },
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.24"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "OutgoingHealing"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17817693805871156297"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.4"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.4"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Abundance Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "丰饶命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 7
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650103"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "7ad11e2dfb594b767babbd9738740ffde7258e79e980c80fd1cdf9d64593fe31"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "f39f0211aa8f53981843dc3a5a87be063342e0fa51a4d6462c34a0f374e4d5ef"
+          },
+          "source_id": {
+            "String": "650103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.3"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-19"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650103"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Abundance boost to OutgoingHealing."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选丰饶命途的OutgoingHealing强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "HealTakenRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650105"
+          },
+          "aeon_source_id": {
+            "String": "6"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.02"
+              },
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.24"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "DamageDealt"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "16457656832267968106"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.6"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.6"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Destruction Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "毁灭命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 5
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650105"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "b80bd6cf1c9828c106f6f63057c52e7e96a721f9af4a45e79a73e01c51206253"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "e36a8d79aa53aca7c0dd970faffb78945ee35ee3377e939c38b966273755cd82"
+          },
+          "source_id": {
+            "String": "650105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.5"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-21"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650105"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Destruction boost to DamageDealt."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选毁灭命途的DamageDealt强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "AllDamageTypeAddedRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650106"
+          },
+          "aeon_source_id": {
+            "String": "7"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.16"
+              },
+              {
+                "String": "0.24"
+              },
+              {
+                "String": "0.48"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "FollowUpAttackDamage"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "4217466223035948990"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.7"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.7"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Elation Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "欢愉命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 3
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650106"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "79c8a3dd344da1568e6fe8bf3e93953c3a9435e910224040990a605bf0875c00"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "32b3c78c25b03371aefca5f4028ed282493a922fb0ef8d0d05088a73cb2f8ee2"
+          },
+          "source_id": {
+            "String": "650106"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.6"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-22"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650106"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Elation boost to FollowUpAttackDamage."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选欢愉命途的FollowUpAttackDamage强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "FollowUpAttackDamageRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650108"
+          },
+          "aeon_source_id": {
+            "String": "9"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.16"
+              },
+              {
+                "String": "0.24"
+              },
+              {
+                "String": "0.48"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "UltimateDamage"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "3501904234252314423"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.9"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.9"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Erudition Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "智识命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 9
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650108"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "6aa8544a7f395ec09cc0c7d5cbd3bfa93e822e63e4d96846df7ec5e0cdf9b63f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "83ba7ae04ba038352ae81980121a996fe49d0d8d40896b670617ddc4cf3154a5"
+          },
+          "source_id": {
+            "String": "650108"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.8"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-24"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650108"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Erudition boost to UltimateDamage."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选智识命途的UltimateDamage强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "UltimateDamageRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650104"
+          },
+          "aeon_source_id": {
+            "String": "5"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.03"
+              },
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.09"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.18"
+              },
+              {
+                "String": "0.36"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "CriticalDamage"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "16827519751170273786"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.5"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.5"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "The Hunt Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "巡猎命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 4
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650104"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "eda771187c465e2426d9384ae019b7f9a93cf44aa0623989aa46eed4a56bfaf0"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "5363ada98924cc7675629c87154515e287d1b1323239934f54161adfe38d9820"
+          },
+          "source_id": {
+            "String": "650104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.4"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-20"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650104"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected The Hunt boost to CriticalDamage."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选巡猎命途的CriticalDamage强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "CriticalDamageBase"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650102"
+          },
+          "aeon_source_id": {
+            "String": "3"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.03"
+              },
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.09"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.18"
+              },
+              {
+                "String": "0.36"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "DamageOverTime"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "14446600285760634133"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.3"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.3"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Nihility Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "虚无命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 6
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650102"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "9cff005f6de7f8ea35b5d759d33654df1a12acd0a02da71481bbef14bbd0fb5f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "9bc196be00d1dc18a652a3455a702535b1530a369fdfe961ada5a33047cdc15c"
+          },
+          "source_id": {
+            "String": "650102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.2"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-18"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650102"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Nihility boost to DamageOverTime."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选虚无命途的DamageOverTime强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "DotDamageAddedRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650100"
+          },
+          "aeon_source_id": {
+            "String": "1"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.02"
+              },
+              {
+                "String": "0.04"
+              },
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.08"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.24"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "ShieldGain"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "10800985423518996997"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.1"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.1"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Preservation Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "存护命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 1
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650100"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "b1df3c4ffbf820328ddcc83fe5ea5848b41a6c7711cb87aebb3c07bfb5629276"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "84c0054524cd7f478b076b24a7dc560e2fb706a0e89cd6564e6768040fafc56d"
+          },
+          "source_id": {
+            "String": "650100"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.0"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-16"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650100"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Preservation boost to ShieldGain."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选存护命途的ShieldGain强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "ShieldTakenRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650107"
+          },
+          "aeon_source_id": {
+            "String": "8"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.03"
+              },
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.09"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.18"
+              },
+              {
+                "String": "0.36"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "BasicAttackDamage"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "2393518094430044734"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.8"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.8"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Propagation Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "繁育命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 8
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650107"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "c50de2ee66be241e2ae49b766636b9430fb97bc122f58fbc6461d3e22d8150ec"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "a05eb940ed2af6a6d7be9697f56a96b6402bd4ecfc67b743d69a312046d2cea0"
+          },
+          "source_id": {
+            "String": "650107"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.7"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-23"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650107"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Propagation boost to BasicAttackDamage."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选繁育命途的BasicAttackDamage强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "BasicAttackDamageRatio"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      },
+      {
+        "values": {
+          "ability_name": {
+            "String": "StageAbility_650101"
+          },
+          "aeon_source_id": {
+            "String": "2"
+          },
+          "allowed_increment_values": {
+            "List": [
+              {
+                "String": "0.06"
+              },
+              {
+                "String": "0.12"
+              },
+              {
+                "String": "0.18"
+              },
+              {
+                "String": "0.24"
+              },
+              {
+                "String": "0.36"
+              },
+              {
+                "String": "0.72"
+              }
+            ]
+          },
+          "boost_stat": {
+            "String": "EffectHitRate"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "2871884702681042981"
+          },
+          "dice_path_value_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-path-value.101.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.102.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.103.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.201.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.202.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.203.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.301.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.302.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.303.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.401.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.402.2"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.2"
+              }
+            ]
+          },
+          "effect_type": {
+            "String": "AddMazeBuff"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "PathBoost"
+          },
+          "name_en": {
+            "String": "Remembrance Path Boost"
+          },
+          "name_zh_cn": {
+            "String": "记忆命途强化"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "path_id": {
+            "Integer": 2
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.path-boost.650101"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "86d950547cebd3169c336a309b6713bfd3a2a4e148ab0f74135420bf411006c6"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "066b28a685882ead932ae7bbc6b6cca31a2f9bf355162ee92b0057577cec4614"
+          },
+          "source_id": {
+            "String": "650101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.1"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-17"
+              }
+            ]
+          },
+          "source_value_conversion": {
+            "String": "PercentInputDividedBy100ByStageAbility"
+          },
+          "stable_key": {
+            "String": "gold-gears.path-boost.650101"
+          },
+          "stacking": {
+            "String": "AdditiveContribution"
+          },
+          "summary_en": {
+            "String": "Custom Dice passive triggers add the selected Remembrance boost to EffectHitRate."
+          },
+          "summary_zh_cn": {
+            "String": "自定义骰被动触发时，叠加所选记忆命途的EffectHitRate强化。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-stat"
+              },
+              {
+                "String": "path-boost"
+              }
+            ]
+          },
+          "target_property": {
+            "String": "StatusProbabilityBase"
+          },
+          "target_team": {
+            "String": "TeamLight"
+          }
+        }
+      }
+    ]
+  }
+}

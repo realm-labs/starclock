@@ -1,0 +1,2426 @@
+{
+  "table": {
+    "name": "GoldGearsKnowledgeRule",
+    "rows": [
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 28
+          },
+          "effect_text_hash": {
+            "String": "12644704145506759512"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Domain: Self"
+          },
+          "name_zh_cn": {
+            "String": "区域•本我"
+          },
+          "operation": {
+            "String": "CopyCurrentDomainAndApplyKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Selected"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2006"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2006"
+          },
+          "summary_en": {
+            "String": "Select 1 domain (excluding Boss). Immediately copy the current domain onto the selected domain and apply the Knowledge effect"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，将自身所在区域复制到该区域，并附加【知识】效果（【首领】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "SelectedNonBossDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 29
+          },
+          "effect_text_hash": {
+            "String": "17344716532584038639"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Counteract"
+          },
+          "name_zh_cn": {
+            "String": "通用•克制"
+          },
+          "operation": {
+            "String": "CopySelectedDomainToAdjacentAndApplyKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2007"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2007"
+          },
+          "summary_en": {
+            "String": "Select 1 domain (excluding Boss). Immediately copy the selected domain onto an adjacent domain (excluding Boss) and apply the Knowledge effect"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，将该区域复制到其相邻位置，并附加【知识】效果（【首领】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AdjacentNonBossDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 59
+          },
+          "effect_text_hash": {
+            "String": "15630587278271674192"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Inspiration"
+          },
+          "name_zh_cn": {
+            "String": "通用•灵感"
+          },
+          "operation": {
+            "String": "CopySelectedDomainToPlaneAndApplyKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.9"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2010"
+          },
+          "summary_en": {
+            "String": "Select 1 domain, copy the selected domain to #1[i] random location(s) on the current plane, and apply Knowledge to it (excluding Boss)"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，将其复制到当前位面的#1[i]个随机位置，并附加【知识】效果（【首领】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomNonBossPlaneDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 6
+          },
+          "effect_text_hash": {
+            "String": "13359383905474940462"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Dialectics"
+          },
+          "name_zh_cn": {
+            "String": "通用•辩证"
+          },
+          "operation": {
+            "String": "CopyCurrentDomainToPlaneAndApplyKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2017"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2017"
+          },
+          "summary_en": {
+            "String": "Immediately copy the current domain to #1[i] random location(s) on the current plane and apply Knowledge to it (excluding Boss)"
+          },
+          "summary_zh_cn": {
+            "String": "立即将自身所在区域复制到当前位面的#1[i]个随机位置，并附加【知识】效果（【首领】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomNonBossPlaneDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 35
+          },
+          "effect_text_hash": {
+            "String": "16864594092832527097"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Query"
+          },
+          "name_en": {
+            "String": "Knowledge: Evidence"
+          },
+          "name_zh_cn": {
+            "String": "知识•实证"
+          },
+          "operation": {
+            "String": "GenerateBeaconOnKnowledgeDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2023"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.19"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2023"
+          },
+          "summary_en": {
+            "String": "Immediately generates #1[i] random beacon(s) in random domain(s) with Knowledge"
+          },
+          "summary_zh_cn": {
+            "String": "立即随机在带有【知识】效果的区域生成#1[i]个随机信标"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 61
+          },
+          "effect_text_hash": {
+            "String": "18188625336654220858"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Deduction"
+          },
+          "name_zh_cn": {
+            "String": "通用•推理"
+          },
+          "operation": {
+            "String": "ApplyKnowledgeToUnmarkedDomains"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "3"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2024"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.20"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2024"
+          },
+          "summary_en": {
+            "String": "Immediately applies Knowledge to #1[i] random domain(s) that don't yet have Knowledge on this plane"
+          },
+          "summary_zh_cn": {
+            "String": "立即为当前位面#1[i]个未带有【知识】效果的随机区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomUnmarkedPlaneDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 63
+          },
+          "effect_text_hash": {
+            "String": "8316365872437379081"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Principle"
+          },
+          "name_zh_cn": {
+            "String": "知识•原则"
+          },
+          "operation": {
+            "String": "PropagateKnowledgePerKnowledgeDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "RandomPerSource"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2026"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.22"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2026"
+          },
+          "summary_en": {
+            "String": "Immediately applies Knowledge to #1[i] domain(s) adjacent to each domain with Knowledge on this plane"
+          },
+          "summary_zh_cn": {
+            "String": "立即为当前位面所有带有【知识】效果的区域的#1[i]个相邻区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AdjacentDomainPerKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 8
+          },
+          "effect_text_hash": {
+            "String": "8847836675958335528"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Reflection"
+          },
+          "name_zh_cn": {
+            "String": "知识•思考"
+          },
+          "operation": {
+            "String": "ApplyKnowledgeToUnmarkedDomains"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2027"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.23"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2027"
+          },
+          "summary_en": {
+            "String": "Immediately applies Knowledge to #1[i] random domain(s) that don't yet have Knowledge on this plane"
+          },
+          "summary_zh_cn": {
+            "String": "立即为当前位面#1[i]个未带有【知识】效果的随机区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomUnmarkedPlaneDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 64
+          },
+          "effect_text_hash": {
+            "String": "17850262514997761816"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Arithmetic Progression"
+          },
+          "name_zh_cn": {
+            "String": "知识•等差数列"
+          },
+          "operation": {
+            "String": "PropagateKnowledgeFromSelectedDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "All"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2030"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.24"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2030"
+          },
+          "summary_en": {
+            "String": "Select 1 domain with Knowledge and apply Knowledge to all its adjacent domains"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个带有【知识】效果的区域，为其全部相邻区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AllAdjacentToSelectedKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 9
+          },
+          "effect_text_hash": {
+            "String": "3232177864185881339"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Protectiveness"
+          },
+          "name_zh_cn": {
+            "String": "知识•保护欲"
+          },
+          "operation": {
+            "String": "ProtectCollapsingDomainsWithKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2031"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.25"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2031"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Knowledge to #1[i] random domain(s) that are about to collapse."
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为#1[i]个将要塌陷的随机区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomAboutToCollapseDomain"
+          },
+          "trigger_boundary": {
+            "String": "AfterMovementBeforeCollapse"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 10
+          },
+          "effect_text_hash": {
+            "String": "8082999821254869679"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Arithmetic"
+          },
+          "name_zh_cn": {
+            "String": "通用•运算"
+          },
+          "operation": {
+            "String": "ApplyKnowledgeAdjacentToCurrentDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2032"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.26"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2032"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Knowledge to #1[i] random domain(s) adjacent to the domain where characters are located"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为自身所在区域的#1[i]个随机相邻区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomAdjacentToCurrentDomain"
+          },
+          "trigger_boundary": {
+            "String": "AfterMovement"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 36
+          },
+          "effect_text_hash": {
+            "String": "8679307081918259815"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Exponential Explosion"
+          },
+          "name_zh_cn": {
+            "String": "通用•指数爆炸"
+          },
+          "operation": {
+            "String": "ApplyKnowledgeAdjacentToCurrentDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "All"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2033"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.27"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2033"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Knowledge to all domains adjacent to the domain where characters are located"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为自身所处位置的全部相邻区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AllAdjacentToCurrentDomain"
+          },
+          "trigger_boundary": {
+            "String": "AfterMovement"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 65
+          },
+          "effect_text_hash": {
+            "String": "17020607886825290033"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Pre-sale"
+          },
+          "name_zh_cn": {
+            "String": "知识•预售"
+          },
+          "operation": {
+            "String": "ProtectCollapsingDomainsWithKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "All"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2034"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.28"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2034"
+          },
+          "summary_en": {
+            "String": "After the current movement, immediately applies Knowledge to all domains that are about to collapse"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动后，立即为所有将要塌陷的区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AllAboutToCollapseDomains"
+          },
+          "trigger_boundary": {
+            "String": "AfterMovementBeforeCollapse"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 66
+          },
+          "effect_text_hash": {
+            "String": "263872575047743558"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Query"
+          },
+          "name_en": {
+            "String": "Knowledge: Chips"
+          },
+          "name_zh_cn": {
+            "String": "知识•筹码"
+          },
+          "operation": {
+            "String": "RewardPerKnowledgeDomainType"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "3"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "CountAll"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2035"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.29"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2035"
+          },
+          "summary_en": {
+            "String": "For every type of domain that has Knowledge on the current plane, immediately obtain #1[i] random Blessing(s) (A maximum of #2[i] random Blessings can be obtained)"
+          },
+          "summary_zh_cn": {
+            "String": "当前位面每存在1种类型的带有【知识】效果的区域，立即获得#1[i]个随机祝福（最多获得#2[i]个随机祝福）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "DistinctKnowledgeDomainTypes"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 2
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 40
+          },
+          "effect_text_hash": {
+            "String": "14240938322398222230"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Extreme"
+          },
+          "name_zh_cn": {
+            "String": "知识•极限"
+          },
+          "operation": {
+            "String": "ApplyKnowledgeAfterEnteringKnowledgeDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "3"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2041"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.34"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2041"
+          },
+          "summary_en": {
+            "String": "When entering a domain with Knowledge during this movement, apply Knowledge to #1[i] random domains on the current plane"
+          },
+          "summary_zh_cn": {
+            "String": "本次进入带有【知识】效果的区域，为当前位面#1[i]个随机区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomPlaneDomain"
+          },
+          "trigger_boundary": {
+            "String": "OnEnterDuringMovement"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 43
+          },
+          "effect_text_hash": {
+            "String": "13399740778885332294"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Query"
+          },
+          "name_en": {
+            "String": "Knowledge: Grandiose Fantasy"
+          },
+          "name_zh_cn": {
+            "String": "知识•狂想"
+          },
+          "operation": {
+            "String": "OverrideMovementToKnowledgeDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Selected"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2047"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.38"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2047"
+          },
+          "summary_en": {
+            "String": "Can move to any domain with Knowledge during the current movement"
+          },
+          "summary_zh_cn": {
+            "String": "本次移动阶段，可以移动至任意带有【知识】效果的区域"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AnyKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "DuringMovementSelection"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 47
+          },
+          "effect_text_hash": {
+            "String": "11536640874611217204"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Query"
+          },
+          "name_en": {
+            "String": "Knowledge: Winning Hand"
+          },
+          "name_zh_cn": {
+            "String": "知识•推牌"
+          },
+          "operation": {
+            "String": "TransformKnowledgeDomainToAdventure"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2057"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.45"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2057"
+          },
+          "summary_en": {
+            "String": "Immediately turn 1 random domain with Knowledge into an Adventure Domain (excluding Boss Domains)"
+          },
+          "summary_zh_cn": {
+            "String": "立即将1个带有【知识】效果的随机区域变为【冒险】区域（【首领】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomNonBossKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 12
+          },
+          "effect_text_hash": {
+            "String": "1771907665974565578"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "Knowledge: Curve"
+          },
+          "name_zh_cn": {
+            "String": "知识•曲线"
+          },
+          "operation": {
+            "String": "PropagateKnowledgeFromSelectedDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Random"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2073"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.58"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2073"
+          },
+          "summary_en": {
+            "String": "Select 1 domain with Knowledge and apply Knowledge to #1[i] of its random adjacent domains"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个带有【知识】效果的区域，为其#1[i]个随机相邻区域附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "RandomAdjacentToSelectedKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 13
+          },
+          "effect_text_hash": {
+            "String": "18310319260797132691"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Apply"
+          },
+          "name_en": {
+            "String": "General: Entropy"
+          },
+          "name_zh_cn": {
+            "String": "通用•熵增"
+          },
+          "operation": {
+            "String": "ApplyKnowledgeToSelectedDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Selected"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2074"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.59"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2074"
+          },
+          "summary_en": {
+            "String": "Select 1 domain and apply Knowledge to it"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个区域，为其附加【知识】效果"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "SelectedDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 79
+          },
+          "effect_text_hash": {
+            "String": "8851045932512366579"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Remove"
+          },
+          "name_en": {
+            "String": "Knowledge: Subtraction"
+          },
+          "name_zh_cn": {
+            "String": "知识•减法"
+          },
+          "operation": {
+            "String": "RemoveKnowledgeAndRewardPerRemoval"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "All"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2077"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.60"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2077"
+          },
+          "summary_en": {
+            "String": "Select 1 domain. Make it and all its adjacent domains lose Knowledge. For every Knowledge lost in this way, receive #1[i] Cosmic Fragments"
+          },
+          "summary_zh_cn": {
+            "String": "选择一个区域，使其与全部相邻区域失去【知识】效果，每失去1个【知识】效果，获得#1[i]宇宙碎片"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "SelectedDomainAndAllAdjacent"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 80
+          },
+          "effect_text_hash": {
+            "String": "16734555710412235391"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Query"
+          },
+          "name_en": {
+            "String": "General: Topology"
+          },
+          "name_zh_cn": {
+            "String": "通用•拓扑"
+          },
+          "operation": {
+            "String": "RewardPerKnowledgeDomain"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": {
+            "List": [
+              {
+                "String": "30"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "CountAll"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2078"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.61"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2078"
+          },
+          "summary_en": {
+            "String": "For every domain on the current plane that has Knowledge, immediately obtain #1[i] Cosmic Fragments"
+          },
+          "summary_zh_cn": {
+            "String": "当前位面每存在1个带有【知识】效果的区域，立即获得#1[i]宇宙碎片"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "AllKnowledgeDomains"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      },
+      {
+        "values": {
+          "activation_stage": {
+            "Integer": 1
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "custom_dice_interactions_json": {
+            "String": "{\"collapse_prevention_behavior\":\"Knowledge domains do not collapse while that dice is active.\",\"collapse_prevention_dice_id\":\"gold-gears.custom-dice.302\",\"collapse_reward_behavior\":\"A collapsing Knowledge domain awards the released Cosmic Fragment amount while that dice is active.\",\"collapse_reward_dice_id\":\"gold-gears.custom-dice.303\",\"countdown_behavior\":\"Entering a Knowledge domain recovers the released countdown amount while that dice is active.\",\"countdown_dice_id\":\"gold-gears.custom-dice.301\",\"evidence_quality\":\"ExactStructured\"}"
+          },
+          "dice_face_id": {
+            "Integer": 52
+          },
+          "effect_text_hash": {
+            "String": "6914524439939243257"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "KnowledgeBinding"
+          },
+          "knowledge_access": {
+            "String": "Preserve"
+          },
+          "name_en": {
+            "String": "Knowledge: Transcendence"
+          },
+          "name_zh_cn": {
+            "String": "知识•超验"
+          },
+          "operation": {
+            "String": "TransformToBlankAndPreserveKnowledge"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "parameters": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "selection_mode": {
+            "String": "Selected"
+          },
+          "simultaneous_resolution_policy_json": {
+            "String": "{\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-simultaneous-resolution-v1\",\"replacement_condition\":\"Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.\",\"tie_breakers\":[\"dice-face-id\",\"target-node-id\"],\"tiers\":[\"resolve-movement-destination\",\"resolve-after-movement-face-effects\",\"apply-knowledge-state-mutations\",\"apply-active-custom-dice-entry-or-collapse-callbacks\",\"resolve-domain-collapse\",\"award-derived-resources\"]}"
+          },
+          "source_id": {
+            "String": "2079"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.62"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.knowledge-rule.2079"
+          },
+          "summary_en": {
+            "String": "Select 1 domain with Knowledge, turn it into a Blank Domain with Knowledge, and obtain Blessings 1 time (excluding Blank and Boss domains)"
+          },
+          "summary_zh_cn": {
+            "String": "选择1个带有【知识】效果的区域，将其变为带有【知识】效果的【空白】区域，并获得1次祝福（【空白】与【首领】区域除外）"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "knowledge"
+              }
+            ]
+          },
+          "target_policy_json": {
+            "String": "{\"candidate_order\":\"stable-node-id-ascending\",\"empty_candidate_behavior\":\"NoEffect\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"knowledge-target-selection-v1\",\"random_selection\":\"seeded-without-replacement\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, RNG, replacement, or empty-set behavior.\",\"selected_validation\":\"reject-outside-exact-selector\"}"
+          },
+          "target_scope": {
+            "String": "SelectedNonBlankNonBossKnowledgeDomain"
+          },
+          "trigger_boundary": {
+            "String": "Immediate"
+          }
+        }
+      }
+    ]
+  }
+}

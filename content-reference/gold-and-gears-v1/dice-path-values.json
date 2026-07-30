@@ -1,0 +1,4538 @@
+[
+  {
+    "id": "gold-gears.dice-path-value.101.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 101",
+    "name_zh_cn": "存护强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, the Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "0",
+        "sha256": "3317bf7cfc161cf1ae3e25fcda2f4547574fab050d1a08fde216184eb38c4c09",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:1",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "11858386196630117145"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 101",
+    "name_zh_cn": "记忆强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "1",
+        "sha256": "c75af22f3672c42b5135af6ffc5a8a28a51de78e2158ec16862e971640e17048",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:2",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.36",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.36"
+    ],
+    "effect_text_hash": "6057501331183835420"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 101",
+    "name_zh_cn": "虚无强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, DoT applied by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "2",
+        "sha256": "dbd13ff27285d764acf2960325f2132e3d550f7b59fd4dadad1b295c52800fc1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:3",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "15190095541763456529"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 101",
+    "name_zh_cn": "丰饶强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "3",
+        "sha256": "b0ba6100aaf87fbaee6fb5d14e5355724eec6fed486b829d02833c58848997b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:4",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "7359002438414462279"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 101",
+    "name_zh_cn": "巡猎强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "4",
+        "sha256": "9ef0f94432d9f9030973fe651605b706101c8936350a9f6886a392447cb0230b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:5",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "15021500170956756323"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 101",
+    "name_zh_cn": "毁灭强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "5",
+        "sha256": "d2cb3ad3b755fbfa7226285740689dad6eb76358397ed8239e9734a4e8b6fcfc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:6",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "1587021544570317252"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 101",
+    "name_zh_cn": "欢愉强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "6",
+        "sha256": "7eeba553e721f0ce494a6bb693356f71ebac8d01e8e2335df4279cce84ddd2f9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:7",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "4506636135824226574"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 101",
+    "name_zh_cn": "繁育强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "7",
+        "sha256": "8ca84c7dfd7ad777c6f7f663126e450ae5da75e4471c2e5c83afb391d949afc6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:8",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "10501892192146071892"
+  },
+  {
+    "id": "gold-gears.dice-path-value.101.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 101",
+    "name_zh_cn": "智识强化 — 101",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "8",
+        "sha256": "78e514960b2506429112babbca4eac4b6a30027f522d9305f0d06a4faf2a7ec2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "101:9",
+    "dice_id": "gold-gears.custom-dice.101",
+    "dice_source_id": "101",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "502622301745518666"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 102",
+    "name_zh_cn": "存护强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "9",
+        "sha256": "d24898478649f101ae887ac9979baa08a188ad9ff411dc24f2f1151b7f54ca8d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:1",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "15699856087760982900"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 102",
+    "name_zh_cn": "记忆强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "10",
+        "sha256": "a872b60824d090da107e607e0f119c30dd9c12601b0da12d66ec2e4780b57a2f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:2",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.36",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.36"
+    ],
+    "effect_text_hash": "4948491956381309799"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 102",
+    "name_zh_cn": "虚无强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "11",
+        "sha256": "2a65ae3a68f686ecb6f85ca69997d85a6c05a36ba7ad1f20d797ee62bb609402",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:3",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "804526808118646041"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 102",
+    "name_zh_cn": "丰饶强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the \"Knowledge\" effect, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "12",
+        "sha256": "580f6a3e717ec10ec3bda0a90fb360620f20d03d7c5c21cb18e5fe2aa11abe0e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:4",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "7824753841334648481"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 102",
+    "name_zh_cn": "巡猎强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "13",
+        "sha256": "6a813694f5870dc0a50ad70d3f4a3d606fe3726b37f13eaff7429ec10cefa68d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:5",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "5122734910935045494"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 102",
+    "name_zh_cn": "毁灭强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "14",
+        "sha256": "a574a602c50efc8fa22fad86e97f90bbf8f8a914cb9bef40f711b394b1d242e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:6",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "6245920449472595483"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 102",
+    "name_zh_cn": "欢愉强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the \"Knowledge\" effect, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "15",
+        "sha256": "36368cc97d81b31dbbfc637216a78532d31bd6145a0b2d2f65c0d08e8ae30683",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:7",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "4632023233136235776"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 102",
+    "name_zh_cn": "繁育强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "16",
+        "sha256": "e2d2b2d4ec287f541e473c35d31f7428e11178b48a3dd3434382fc7115d836b2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:8",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "3502325723548811621"
+  },
+  {
+    "id": "gold-gears.dice-path-value.102.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 102",
+    "name_zh_cn": "智识强化 — 102",
+    "summary_en": "Whenever allies enter a domain with the Knowledge effect, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有【知识】效果的区域，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "17",
+        "sha256": "68ebcae328310d3f5d159949bb57b67e22cdf68591191f539d9f8dff7e086898",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "102:9",
+    "dice_id": "gold-gears.custom-dice.102",
+    "dice_source_id": "102",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "4522792139191754013"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 103",
+    "name_zh_cn": "存护强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "18",
+        "sha256": "6ffb2fddb2dbc89dd97f19bbcc5ef39b38d6c8e13389807ed8b59fe3e5cb1881",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:1",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "9632668054759501858"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 103",
+    "name_zh_cn": "记忆强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "19",
+        "sha256": "3d3520db4ed05bfe8beb76d04cae68f833c2287111cef575c5dff90465f65724",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:2",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.36",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.36"
+    ],
+    "effect_text_hash": "776359108010341144"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 103",
+    "name_zh_cn": "虚无强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "20",
+        "sha256": "cfcbfc9cc8245aeeb5090eb4b694c39a12f3ad062af5c27f5bd9fa220abcf086",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:3",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "8042571266507939"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 103",
+    "name_zh_cn": "丰饶强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "21",
+        "sha256": "e50428fa662de82e2ccf3dd35e256023f99795b69ec8178217cfb919028caaf9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:4",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "14216448562012945860"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 103",
+    "name_zh_cn": "巡猎强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "22",
+        "sha256": "4778390f13c70fcdfee48debe1d1ae7587234544d65bfbe460119ca562fe5973",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:5",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "1598184737019065581"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 103",
+    "name_zh_cn": "毁灭强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "23",
+        "sha256": "4c358e38af23cd5e79fd61943e17cd9a1899880eddbad09b56dc0d2f13004e91",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:6",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "12299209533348077179"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 103",
+    "name_zh_cn": "欢愉强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "24",
+        "sha256": "882892832ad452febd7c37a894aa512852a532627d1122eed728a63e3b9a8282",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:7",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "17300932353471085993"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 103",
+    "name_zh_cn": "繁育强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "25",
+        "sha256": "ed7363797683080be9309ff72fcb8c95b905e3f8828bfc75b5c1bf7ed045519b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:8",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "7194951810833172386"
+  },
+  {
+    "id": "gold-gears.dice-path-value.103.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 103",
+    "name_zh_cn": "智识强化 — 103",
+    "summary_en": "Whenever allies enter a domain with a beacon, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入带有信标的区域，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "26",
+        "sha256": "e7d88d488b391292368e5c1c2d957d7ebd15b8ee2517fa7bdc2f0d77ba37c56a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "103:9",
+    "dice_id": "gold-gears.custom-dice.103",
+    "dice_source_id": "103",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "4286561754657922137"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 201",
+    "name_zh_cn": "存护强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "27",
+        "sha256": "15fda80561e578516883cfa7d5a74b57be92e31fe19da1320d7105f7b3d4dbe8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:1",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "4245621962190809535"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 201",
+    "name_zh_cn": "记忆强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "28",
+        "sha256": "bb05a63c629afc7f42a055b6d7cf8ee7b83f1997b8035ad6f87c6e943fcd0896",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:2",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "9025127163799192614"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 201",
+    "name_zh_cn": "虚无强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "29",
+        "sha256": "f5924f0c4bd39e4fe6ace6f48db06aa910eadedad826f47311ae66d4d76644d6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:3",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "10740970578705711223"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 201",
+    "name_zh_cn": "丰饶强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "30",
+        "sha256": "d58e87639b9fbc5d368019dd0a4387777f60069f446780a70847a9a4741002cc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:4",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "7597538915704647605"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 201",
+    "name_zh_cn": "巡猎强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "31",
+        "sha256": "63f4e7fd3501947f1101864fd8a3868854b21bbcbb9ed3a2878dfc523bae4f21",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:5",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "13524720761940009113"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 201",
+    "name_zh_cn": "毁灭强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "32",
+        "sha256": "f79900a379fd9fb1bcede8e84b925997bae67617ea94fb42db0f107dff684f0d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:6",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "6442699462995107946"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 201",
+    "name_zh_cn": "欢愉强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "33",
+        "sha256": "b32b278dd72e00a811219487a44a193ecf7f14a8d5d7482c7b6eb92998cb706e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:7",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "56668657512253057"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 201",
+    "name_zh_cn": "繁育强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "34",
+        "sha256": "42d2c632955f69653b264c757f13a2e803f1e7c3d1cec86689cebafc6be39c0c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:8",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "13221781510537768744"
+  },
+  {
+    "id": "gold-gears.dice-path-value.201.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 201",
+    "name_zh_cn": "智识强化 — 201",
+    "summary_en": "For every #1 Occurrence interaction(s) completed, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每完成#1次事件交互，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "35",
+        "sha256": "2e99ddc220a020135ecbaa04971725a9a1bbb20c06b66b63973f9c5a32c1a733",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "201:9",
+    "dice_id": "gold-gears.custom-dice.201",
+    "dice_source_id": "201",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "16183614023956896071"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 202",
+    "name_zh_cn": "存护强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.36",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "36",
+        "sha256": "c71cbc5f98c019f686a4b36c8badadc77b8802aefcae33d1f98aaba8ea93dfef",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:1",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "4732796236536211953"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 202",
+    "name_zh_cn": "记忆强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "37",
+        "sha256": "d90da3afab46e1950f91f064e19be7baffa3f2c0fb4303b561836c97d3fa29b4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:2",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "12029769990797388413"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 202",
+    "name_zh_cn": "虚无强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "38",
+        "sha256": "c651c5d69f98a37011f1945acaef11a73d9cbaf7935118778f47c7c800d53aff",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:3",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "9945641147668198831"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 202",
+    "name_zh_cn": "丰饶强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "39",
+        "sha256": "0beff4d1142ab72d41b316cb6a780551c2f258e43e259fd6139aa80b26864d27",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:4",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "11256339280470636138"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 202",
+    "name_zh_cn": "巡猎强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "40",
+        "sha256": "af2cfcd1b18f7437078f573672b94d7e4ac53379ee7612065af693e91fe80895",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:5",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "3275653557382000182"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 202",
+    "name_zh_cn": "毁灭强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "41",
+        "sha256": "228035423f3909785ef0ccb1d5c014846e26f81879ec93a127776362e3f4614e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:6",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "13206206795089390922"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 202",
+    "name_zh_cn": "欢愉强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "42",
+        "sha256": "32d713e24c74903bbd1c049b084fdb1d707a569108f097842a2f95105eb65ce7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:7",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "1050594104602421915"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 202",
+    "name_zh_cn": "繁育强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "43",
+        "sha256": "55c49bd3de696b40eeebc376d5a0561a4630b519eed4dc156e6b8d5cb41f3455",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:8",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "6713786713477580375"
+  },
+  {
+    "id": "gold-gears.dice-path-value.202.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 202",
+    "name_zh_cn": "智识强化 — 202",
+    "summary_en": "For every #1 battle victory/victories obtained, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每获得#1次战斗的胜利，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.44",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "44",
+        "sha256": "c939a557bc393844eba45db82db2aa6d9f9e8db0a0c2763a8f485ec0828637db",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "202:9",
+    "dice_id": "gold-gears.custom-dice.202",
+    "dice_source_id": "202",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "2074798497197192818"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 203",
+    "name_zh_cn": "存护强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "45",
+        "sha256": "572b007ba56be8edc483df7ba13f0b1aafa0ead9321c912d734b2f5f79af4b81",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:1",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "8780230112902743471"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 203",
+    "name_zh_cn": "记忆强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "46",
+        "sha256": "7286766aa2d9aee41a4fa32b948e2838990d656df8141f81655b2663cd062fbd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:2",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.72",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.72"
+    ],
+    "effect_text_hash": "6629594020588690216"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 203",
+    "name_zh_cn": "虚无强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "47",
+        "sha256": "0c7734b6ef5ac1c5718e622c6d7c3cc29e45fc160ab6497dd418fb58ac2f8eff",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:3",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.36",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.36"
+    ],
+    "effect_text_hash": "2032810610005940639"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 203",
+    "name_zh_cn": "丰饶强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "48",
+        "sha256": "a3daef0280a86085c05a6a912e6076321af50a15b19fb1c0ff7d38a239e4366b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:4",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "15099293164027920760"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 203",
+    "name_zh_cn": "巡猎强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "49",
+        "sha256": "9ec4eb07e72a90b36fd617e19471de268842b3fce358c265688d7a878fe4b6ee",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:5",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.36",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.36"
+    ],
+    "effect_text_hash": "3931215279474050166"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 203",
+    "name_zh_cn": "毁灭强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.50",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "50",
+        "sha256": "42606ba3767e2b8fa77022fe8e2e68215c653c3b78f147bdfe7e99d5d8ae1196",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:6",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "997589273006105812"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 203",
+    "name_zh_cn": "欢愉强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.51",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "51",
+        "sha256": "b9d57f59459b408a893b2fbfc8d2895bfa5a3449959b6428933ddaaecf6b77d4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:7",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.48",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.48"
+    ],
+    "effect_text_hash": "5286663125044163836"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 203",
+    "name_zh_cn": "繁育强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "52",
+        "sha256": "f05215d31a29cdf8a8c15fecbf880ee1762b11d56be2d2fb4ad95836f12ff503",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:8",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.36",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.36"
+    ],
+    "effect_text_hash": "11537649141871430112"
+  },
+  {
+    "id": "gold-gears.dice-path-value.203.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 203",
+    "name_zh_cn": "智识强化 — 203",
+    "summary_en": "Whenever allies enter a non-adjacent domain, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每次进入不相邻的区域，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.53",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "53",
+        "sha256": "9e112cf237789503592dba0d1be29778f72577a9f14714f87b33ce62c065eea5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "203:9",
+    "dice_id": "gold-gears.custom-dice.203",
+    "dice_source_id": "203",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.48",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.48"
+    ],
+    "effect_text_hash": "13488799762408567594"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 301",
+    "name_zh_cn": "存护强化 — 301",
+    "summary_en": "For every point of countdown remaining, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "54",
+        "sha256": "a0affc686b76eb5dea2685b827c8e428ce484a29220a8819cd242cfdb1066088",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:1",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.04",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.04"
+    ],
+    "effect_text_hash": "12770449895455674914"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 301",
+    "name_zh_cn": "记忆强化 — 301",
+    "summary_en": "For every point of countdown remaining, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "55",
+        "sha256": "1fcca179beb78815d87aafa93c74c649b43d45b6f6921a4b7b13fef93236f2d6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:2",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "16691463891881108479"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 301",
+    "name_zh_cn": "虚无强化 — 301",
+    "summary_en": "For every point of countdown remaining, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "56",
+        "sha256": "e2d7f4e5652ad04dc5ff258c4cd65a0e739df61bdd0de65af6950f7229433960",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:3",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "9478462167009791221"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 301",
+    "name_zh_cn": "丰饶强化 — 301",
+    "summary_en": "For every point of countdown remaining, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "57",
+        "sha256": "7c477557223557810732f384d006dacb1b87fc88c7a3cc7bd84a3be20dbfb645",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:4",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.04",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.04"
+    ],
+    "effect_text_hash": "9638999958248594388"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 301",
+    "name_zh_cn": "巡猎强化 — 301",
+    "summary_en": "For every point of countdown remaining, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.58",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "58",
+        "sha256": "493bbb8297742ef4c81fa2090544c90983c413fe786e1f55d3a0d35c55abb3e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:5",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "3057446880528073289"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 301",
+    "name_zh_cn": "毁灭强化 — 301",
+    "summary_en": "For every point of countdown remaining, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "59",
+        "sha256": "e44c0250d48b26418741de7791e6530f56e0210a24736774054d0e83a4378bf4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:6",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.04",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.04"
+    ],
+    "effect_text_hash": "5359251849921706634"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 301",
+    "name_zh_cn": "欢愉强化 — 301",
+    "summary_en": "For every point of countdown remaining, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "60",
+        "sha256": "d17220ca0d6dcf4c4a664dcfc028d153cd19943bfa3ad3e4d688a30fee190dda",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:7",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "10624601769107781408"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 301",
+    "name_zh_cn": "繁育强化 — 301",
+    "summary_en": "For every point of countdown remaining, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "61",
+        "sha256": "902b82ffc25026445fc1d64ef4c11218c566615e4079d1d42780afd51dbd46f3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:8",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "6484307173869535000"
+  },
+  {
+    "id": "gold-gears.dice-path-value.301.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 301",
+    "name_zh_cn": "智识强化 — 301",
+    "summary_en": "For every point of countdown remaining, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有1点倒计时，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "62",
+        "sha256": "d52f9acbb12c78d3af8a04042ddc0e1e21b5bb77719f96f889e820e03d0db683",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "301:9",
+    "dice_id": "gold-gears.custom-dice.301",
+    "dice_source_id": "301",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "6980462760145193182"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 302",
+    "name_zh_cn": "存护强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, the Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.63",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "63",
+        "sha256": "dc0e79fcf833bafa72cc1dd8c715922a974a1bd9295cf898d86fd5b89f5c389b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:1",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.02",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.02"
+    ],
+    "effect_text_hash": "2356790066111364370"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 302",
+    "name_zh_cn": "记忆强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.64",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "64",
+        "sha256": "b48435084e61b71560bfbe264a42f4fd2f957d02b541ef7fc1db09a36eabf5b4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:2",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "13212362388689070196"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 302",
+    "name_zh_cn": "虚无强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, DoT applied by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.65",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "65",
+        "sha256": "8e6ad18fc2380b3305dfbdf043b730c3101d80878d5052555da8a387e09477e2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:3",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.03",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.03"
+    ],
+    "effect_text_hash": "15690835699940492981"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 302",
+    "name_zh_cn": "丰饶强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.66",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "66",
+        "sha256": "aa44b6872520a0d26b56a22f585750d0e70ce19062f51322d2e03969b5906c14",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:4",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.02",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.02"
+    ],
+    "effect_text_hash": "6292317345177699457"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 302",
+    "name_zh_cn": "巡猎强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.67",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "67",
+        "sha256": "f8fc0868d24da35ace04c2465bea922c489f48c7656b934080214bb448548241",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:5",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.03",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.03"
+    ],
+    "effect_text_hash": "18441069146663968405"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 302",
+    "name_zh_cn": "毁灭强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.68",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "68",
+        "sha256": "4e7b88cfada030c4b792c00ebf77c35f0c5b344e0c736c7afc50fae4f35925c7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:6",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.02",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.02"
+    ],
+    "effect_text_hash": "13371714027013239820"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 302",
+    "name_zh_cn": "欢愉强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.69",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "69",
+        "sha256": "1f4e48b595e3a24c8f006d38406a6b417564509706ad0247eb5bf16778d08e3e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:7",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.04",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.04"
+    ],
+    "effect_text_hash": "8395219560599423804"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 302",
+    "name_zh_cn": "繁育强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "70",
+        "sha256": "4f02233dea33be63d7674c503a9afe9e7ffff0ff71beb88208c9c8f32ae2b38a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:8",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.03",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.03"
+    ],
+    "effect_text_hash": "995710382053500611"
+  },
+  {
+    "id": "gold-gears.dice-path-value.302.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 302",
+    "name_zh_cn": "智识强化 — 302",
+    "summary_en": "For every #1 time(s) a passive effect is triggered, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每触发#1次被动效果，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "71",
+        "sha256": "9639a93b166cc22b83b5672e297c34757af5dce5f8ae8ac62e258f7f0ba8aa6c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "302:9",
+    "dice_id": "gold-gears.custom-dice.302",
+    "dice_source_id": "302",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.04",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.04"
+    ],
+    "effect_text_hash": "4996782418021185164"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 303",
+    "name_zh_cn": "存护强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "72",
+        "sha256": "e398adfcc3d46f5c74a7c1f86746cd162b6dec39b631fcfe21bce02f4d3f631b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:1",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "10670847313238208776"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 303",
+    "name_zh_cn": "记忆强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.73",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "73",
+        "sha256": "65ab4a891f81e7564d8fdcbc92548b4553c5f58a113a89707aa92abe825c7f96",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:2",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "6113042564103155348"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 303",
+    "name_zh_cn": "虚无强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.74",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "74",
+        "sha256": "2e77beeca6ab31155a4b06b319b1a6b70ca1a5cbc3ef09062070d67517352add",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:3",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "2157083877595330692"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 303",
+    "name_zh_cn": "丰饶强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with \"Knowledge,\" all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.75",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "75",
+        "sha256": "f80a117d292a4daecad48ddd5067175919167b2c2649a6f6076aa80169545081",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:4",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "17213314278169758233"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 303",
+    "name_zh_cn": "巡猎强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.76",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "76",
+        "sha256": "db05aeed6e393f6ce79fe958c4a5fc1a129e53909d5e310f259e6ab2b64225b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:5",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "1672939068717455114"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 303",
+    "name_zh_cn": "毁灭强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "77",
+        "sha256": "894f0a543fd6185e2cdfa7fde62fe291a56e5e220221de3756cabb672a8653f4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:6",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "12403470959124522261"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 303",
+    "name_zh_cn": "欢愉强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with \"Knowledge,\" Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "78",
+        "sha256": "e230fb0e1ac4a5f32838f463abeb15fc4d64c2197302d6f706580c417e9449b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:7",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.16",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.16"
+    ],
+    "effect_text_hash": "17291162161583244664"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 303",
+    "name_zh_cn": "繁育强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "79",
+        "sha256": "0c5015a10bdd8e68a15b7e3f158bdb34273332d76f6180d7a48fd1c53ac8b279",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:8",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "16227948838962148261"
+  },
+  {
+    "id": "gold-gears.dice-path-value.303.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 303",
+    "name_zh_cn": "智识强化 — 303",
+    "summary_en": "For the collapse of every #1 domain(s) with Knowledge, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每有#1个带有【知识】效果的区域塌陷，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.80",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "80",
+        "sha256": "ff70a2d264f3833dc0d9516158b26a4e6303a9d3351a7a9eca0feeaacfe2ebed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "303:9",
+    "dice_id": "gold-gears.custom-dice.303",
+    "dice_source_id": "303",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.16",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.16"
+    ],
+    "effect_text_hash": "9570865239462752886"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 401",
+    "name_zh_cn": "存护强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.81",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "81",
+        "sha256": "5948737b67137ba4393e5dbcef343a8245e2754133370eb7d07e7d965af2e3ba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:1",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "100",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.06"
+    ],
+    "effect_text_hash": "9838862412322208114"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 401",
+    "name_zh_cn": "记忆强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.82",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "82",
+        "sha256": "b357370ce8cb37f9e836d40fdcafe2aa2702b30047e01f578952d4a3daaf46e8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:2",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "100",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.18"
+    ],
+    "effect_text_hash": "7291121430381430559"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 401",
+    "name_zh_cn": "虚无强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.83",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "83",
+        "sha256": "97548eeba94c0418b528f6faeb5f4e05aad1c3bd885a99cb700a75c546373958",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:3",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "100",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.09"
+    ],
+    "effect_text_hash": "2616700518912707704"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 401",
+    "name_zh_cn": "丰饶强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.84",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "84",
+        "sha256": "141b6a7c0b990eacfaad3c0fca69ff25c70c0aab1dded641770dcc604630e967",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:4",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "100",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.06"
+    ],
+    "effect_text_hash": "10305452739744368645"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 401",
+    "name_zh_cn": "巡猎强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.85",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "85",
+        "sha256": "e4ca2ba05f24646685a7fd9a5ae5db8ed95700fe777d33455e2942a22558a16b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:5",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "100",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.09"
+    ],
+    "effect_text_hash": "7044375448110308340"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 401",
+    "name_zh_cn": "毁灭强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.86",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "86",
+        "sha256": "8f9d5c1527d37be4d5b9c406e1febdd7cdbce3a31b33a2952ad0037df5dd8c46",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:6",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "100",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.06"
+    ],
+    "effect_text_hash": "14058476108331557759"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 401",
+    "name_zh_cn": "欢愉强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.87",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "87",
+        "sha256": "e2227782416c96edad61154b4b58f9db8970547866b5b46feec8fa0605797477",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:7",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "100",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.12"
+    ],
+    "effect_text_hash": "8616821369421970586"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 401",
+    "name_zh_cn": "繁育强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.88",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "88",
+        "sha256": "26a1a478f53eaf03e6ff86e4f95beeffb0d7f5ffc30d90b9017b1b288496630e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:8",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "100",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.09"
+    ],
+    "effect_text_hash": "5656813047181821360"
+  },
+  {
+    "id": "gold-gears.dice-path-value.401.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 401",
+    "name_zh_cn": "智识强化 — 401",
+    "summary_en": "For every #1 Cosmic Fragments consumed, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每消耗#1宇宙碎片，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.89",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "89",
+        "sha256": "15857a5e978765a2652f4bc2112de591618da5433bb92ae108abc72353f9b4ab",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "401:9",
+    "dice_id": "gold-gears.custom-dice.401",
+    "dice_source_id": "401",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "100",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "100",
+      "0.12"
+    ],
+    "effect_text_hash": "9163488109174226465"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 402",
+    "name_zh_cn": "存护强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.90",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "90",
+        "sha256": "cabc81f5c6fd758115450118c86cd32068890a030e45a3245f70d5cbfd5d4ffd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:1",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "16923286901938437154"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 402",
+    "name_zh_cn": "记忆强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.91",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "91",
+        "sha256": "1582f261bbaf022e3154a0d70ab2577e8102a31fc2977b9e5254373c00fefcaa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:2",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.18",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.18"
+    ],
+    "effect_text_hash": "5254770371079662038"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 402",
+    "name_zh_cn": "虚无强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.92",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "92",
+        "sha256": "2b86d69307eae77f0ad92fb003b8c21e77fea3b30691551b35f14dd72666766b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:3",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "5082531928969263284"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 402",
+    "name_zh_cn": "丰饶强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.93",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "93",
+        "sha256": "6da5c76872d5ad9b623b22a764c0f86b591b04e8dc1eaaecc6a8c5bfaf4dfebf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:4",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "5836470415723062205"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 402",
+    "name_zh_cn": "巡猎强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.94",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "94",
+        "sha256": "24c22e3abc6c7bf5e255454940620cad2537a4d9966e710e7ec91f397835b05d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:5",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "2795012817356895749"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 402",
+    "name_zh_cn": "毁灭强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.95",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "95",
+        "sha256": "c5a4be7aa6f4941cc288e4e7bea2e935c50e5b4b2ec57365f493aa1a980b97c6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:6",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.06",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.06"
+    ],
+    "effect_text_hash": "13062128991657237763"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 402",
+    "name_zh_cn": "欢愉强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.96",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "96",
+        "sha256": "dcfca376d472768eb5a4847cf7732dc81908b82cd82df22450d960546bbdda5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:7",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "14539299595100086224"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 402",
+    "name_zh_cn": "繁育强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.97",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "97",
+        "sha256": "4ba209e2c96d7f45167104eea823d6367e02d13406883ecb68ab37d88ebb91d3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:8",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.09",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.09"
+    ],
+    "effect_text_hash": "12109706387731919535"
+  },
+  {
+    "id": "gold-gears.dice-path-value.402.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 402",
+    "name_zh_cn": "智识强化 — 402",
+    "summary_en": "For every #1 Curio(s) in possession, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每拥有#1个奇物，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.98",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "98",
+        "sha256": "5f2b88446216abdec79c4b50ff82d43a1fdd398c6ffb2516f1bbff5fa05831bd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "402:9",
+    "dice_id": "gold-gears.custom-dice.402",
+    "dice_source_id": "402",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "14091394339759115706"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Preservation Boost — 403",
+    "name_zh_cn": "存护强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, Shield gain for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体获得的护盾量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.99",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "99",
+        "sha256": "1f889c149e26f24eeebfe78e7942d8e2e8b6db7f1b3e53fd691e1f0ef50e7092",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:1",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.preservation",
+    "path_source_id": "1",
+    "boost_stat": "ShieldGain",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "14891322358551347951"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Remembrance Boost — 403",
+    "name_zh_cn": "记忆强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, Effect Hit Rate for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体效果命中提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.100",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "100",
+        "sha256": "3c4c03d07e85cfe128ea90bd6a51cb0c8afffe1a57fd35a392fb4768fb6b437a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:2",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.remembrance",
+    "path_source_id": "2",
+    "boost_stat": "EffectHitRate",
+    "trigger_interval": "1",
+    "boost_value": "0.24",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.24"
+    ],
+    "effect_text_hash": "2387072708246810522"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Nihility Boost — 403",
+    "name_zh_cn": "虚无强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, DoT dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体持续伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "101",
+        "sha256": "a0587c34af462df1e6bc220fc6d844f60654e499e0186b6c088d76ad8e0dc4ba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:3",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.nihility",
+    "path_source_id": "3",
+    "boost_stat": "DamageOverTime",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "10940207070858102562"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Abundance Boost — 403",
+    "name_zh_cn": "丰饶强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, all allies' HP restored increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体回复量提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.102",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "102",
+        "sha256": "c3fe2e74032c72a381e5cf6e9644de07882e7a96e6b7cc426fc76419d01f17ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:4",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.abundance",
+    "path_source_id": "4",
+    "boost_stat": "OutgoingHealing",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "11805996756690303575"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "The Hunt Boost — 403",
+    "name_zh_cn": "巡猎强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, CRIT DMG for all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体暴击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.103",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "103",
+        "sha256": "c47f48c4770e27ef1022f0438d5e7d5dc066a28ed1dae4b64acf34e697629abb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:5",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.hunt",
+    "path_source_id": "5",
+    "boost_stat": "CriticalDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "3638994606246999027"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Destruction Boost — 403",
+    "name_zh_cn": "毁灭强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "104",
+        "sha256": "86be6d6d89e774c1655dd6361737bef54f1a7bdf8e50f6e91bb98493e7756803",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:6",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.destruction",
+    "path_source_id": "6",
+    "boost_stat": "DamageDealt",
+    "trigger_interval": "1",
+    "boost_value": "0.08",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.08"
+    ],
+    "effect_text_hash": "8962488206852756542"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.7",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Elation Boost — 403",
+    "name_zh_cn": "欢愉强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, Follow-Up ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体追加攻击伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.105",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "105",
+        "sha256": "4d86f9adfa5314c8bd94cadea191b0d752fc434ec8efe702c826eb9d6b5c9059",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:7",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.elation",
+    "path_source_id": "7",
+    "boost_stat": "FollowUpAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.16",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.16"
+    ],
+    "effect_text_hash": "14374233149862867909"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.8",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Propagation Boost — 403",
+    "name_zh_cn": "繁育强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, Basic ATK DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体普攻伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.106",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "106",
+        "sha256": "c5927cd0e7d5c49ff4d1f2f89720332d96b9ce20494d67c503c9423f6b075781",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:8",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.propagation",
+    "path_source_id": "8",
+    "boost_stat": "BasicAttackDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.12",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.12"
+    ],
+    "effect_text_hash": "11045436003999668052"
+  },
+  {
+    "id": "gold-gears.dice-path-value.403.9",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "DicePathValue",
+    "name_en": "Erudition Boost — 403",
+    "name_zh_cn": "智识强化 — 403",
+    "summary_en": "For every battle victory in a domain after using a \"General Buff\" die, Ultimate DMG dealt by all allies increases by #2[i]%.",
+    "summary_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，我方全体终结技伤害提升#2[i]%。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.107",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "107",
+        "sha256": "ec664c2391b64b390ca403fdcb39a7041c35db4cc4a6cd2de11927b6d85626d3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "path-boost"
+    ],
+    "source_id": "403:9",
+    "dice_id": "gold-gears.custom-dice.403",
+    "dice_source_id": "403",
+    "path_id": "universe.path.erudition",
+    "path_source_id": "9",
+    "boost_stat": "UltimateDamage",
+    "trigger_interval": "1",
+    "boost_value": "0.16",
+    "boost_value_unit": "SourceRatioFormattedAsPercent",
+    "parameters": [
+      "1",
+      "0.16"
+    ],
+    "effect_text_hash": "3348684246181278076"
+  }
+]

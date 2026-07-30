@@ -1,0 +1,2371 @@
+[
+  {
+    "id": "gold-gears.fixture.cognition-lifecycle",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "cognition-lifecycle Semantic Review Fixture",
+    "name_zh_cn": "cognition-lifecycle 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the cognition-lifecycle family; it does not claim runtime executability.",
+    "summary_zh_cn": "cognition-lifecycle 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "0",
+        "sha256": "623f071dbbddc1a780fe905d05fd8bd4c2f26e501ffd44e6bf02dbc84575a05f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition-lifecycle",
+      "review-fixture"
+    ],
+    "family_id": "cognition-lifecycle",
+    "source_record_ids": [
+      "gold-gears.cognition-range.301"
+    ],
+    "preconditions": [
+      {
+        "fact": "area_id",
+        "value": "gold-gears.area.301"
+      }
+    ],
+    "input": {
+      "cognition_delta": "1",
+      "plane_boundary": "BossDefeated"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "apply-cognition-delta"
+      },
+      {
+        "sequence": 2,
+        "operation": "clamp-to-global-range"
+      },
+      {
+        "sequence": 3,
+        "operation": "clamp-to-selected-area-range"
+      },
+      {
+        "sequence": 4,
+        "operation": "after-current-plane-boss-defeat"
+      },
+      {
+        "sequence": 5,
+        "operation": "carry-post-evaluation-value-then-clamp-to-next-area-range"
+      },
+      {
+        "sequence": 6,
+        "operation": "reset-to-initial-value"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "bounds.inclusive",
+        "operator": "equals",
+        "value": true
+      },
+      {
+        "path": "evaluation_boundary",
+        "operator": "equals",
+        "value": "CurrentPlaneBossDefeated"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousvaluearealimit-json.0",
+      "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+      "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+      "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+      "source.goal08.project-policy.cognition-lifecycle"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+    "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+  },
+  {
+    "id": "gold-gears.fixture.conundrum-auxiliary",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "conundrum-auxiliary Semantic Review Fixture",
+    "name_zh_cn": "conundrum-auxiliary 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the conundrum-auxiliary family; it does not claim runtime executability.",
+    "summary_zh_cn": "conundrum-auxiliary 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "11",
+        "sha256": "024fc4d1f5a8f9988d01f4afefd4f7ddcf2a81e2aa8e494561fa5aaeb20dfaa7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "conundrum-auxiliary",
+      "review-fixture"
+    ],
+    "family_id": "conundrum-auxiliary",
+    "source_record_ids": [
+      "gold-gears.conundrum-level.auxiliary.6"
+    ],
+    "preconditions": [
+      {
+        "fact": "formal_difficulty_cleared",
+        "value": "5"
+      }
+    ],
+    "input": {
+      "auxiliary_level": "6"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "IncludeAllPriorAuxiliaryLevels"
+      },
+      {
+        "sequence": 2,
+        "operation": "ApplyCumulativeEncounterAndBattleContributions"
+      },
+      {
+        "sequence": 3,
+        "operation": "ResolveBerserkTimingOrFailClosed"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "composition_mode",
+        "operator": "equals",
+        "value": "AllContributionsAtOrBelowSelectedLevel"
+      },
+      {
+        "path": "total_conundrum_cap",
+        "operator": "equals",
+        "value": "12"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousdifficultylevel-json.11",
+      "source.goal08.public.gold-gears-conundrum-composition"
+    ],
+    "fixture_evidence_quality": "ExactPublicText"
+  },
+  {
+    "id": "gold-gears.fixture.conundrum-stats",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "conundrum-stats Semantic Review Fixture",
+    "name_zh_cn": "conundrum-stats 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the conundrum-stats family; it does not claim runtime executability.",
+    "summary_zh_cn": "conundrum-stats 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "5",
+        "sha256": "b84150f52b0e23711f067b1dbc5946cbc87a69128aee10b8596b4d4404a6ad87",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum-stats",
+      "review-fixture"
+    ],
+    "family_id": "conundrum-stats",
+    "source_record_ids": [
+      "gold-gears.conundrum-level.stats.6"
+    ],
+    "preconditions": [
+      {
+        "fact": "formal_difficulty_cleared",
+        "value": "5"
+      }
+    ],
+    "input": {
+      "stats_level": "6"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ReplacePriorSameTagStatsTier"
+      },
+      {
+        "sequence": 2,
+        "operation": "ApplyEnemyModifierOrFailClosedNumericBinding"
+      },
+      {
+        "sequence": 3,
+        "operation": "EnforceIndependentTrackCap",
+        "value": "6"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "composition_mode",
+        "operator": "equals",
+        "value": "LatestContributionPerSourceTagAtOrBelowSelectedLevel"
+      },
+      {
+        "path": "track_cap",
+        "operator": "equals",
+        "value": "6"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousdifficultylevel-json.5",
+      "source.goal08.public.gold-gears-conundrum-composition",
+      "source.goal08.project-policy.conundrum-unreleased-numeric-bindings"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+    "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+  },
+  {
+    "id": "gold-gears.fixture.curio-lifecycle",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "curio-lifecycle Semantic Review Fixture",
+    "name_zh_cn": "curio-lifecycle 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the curio-lifecycle family; it does not claim runtime executability.",
+    "summary_zh_cn": "curio-lifecycle 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguehandbookmiracle-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandbookMiracle.json",
+        "locator": "48",
+        "sha256": "35b1f59cd581ca0a3e6b8cf18f02ad1e1c0c84ecfaa2ee9800fa15070d8d3199",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemiracledisplay-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleDisplay.json",
+        "locator": "56",
+        "sha256": "c10fc9478ce2585a57df86486ffdef07666d2bace771d93b054c3f87cd8e3cc4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemiracle-json.214",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracle.json",
+        "locator": "214",
+        "sha256": "93241fa4b13b4c12f3397445b6e394dc3fb4da716a11ade38e5d99af5290d280",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemiracleeffect-json.201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffect.json",
+        "locator": "201",
+        "sha256": "bfbd9355edb5ea36c6bce1c5e6fb9d1f09b2f96329f11161e009f9bd0096efcd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemiracleeffectdisplay-json.201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffectDisplay.json",
+        "locator": "201",
+        "sha256": "90ae131066a962689ab85d0ea57272ae2ed6f508a62e53c81ffc50fc5bda461c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-curio-category-normal",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Curio",
+        "locator": "Normal Curios",
+        "sha256": "c5881c3f2bf630f373f4aef1157f4d259fd1189c85e9f653ac4ca5afe9c33a55",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.curio-random-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "curio-random-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released handbook mode membership and public category sections define the Gold and Gears Normal, Negative and Error Code identity sets. Complete offer-specific exclusions and random candidate ordering are applied only when a source occurrence or service binds them; otherwise selection fails closed.",
+        "replacement_condition": "Replace when pinned released pool tables or engine code expose complete offer eligibility and candidate ordering."
+      }
+    ],
+    "tags": [
+      "curio-lifecycle",
+      "review-fixture"
+    ],
+    "family_id": "curio-lifecycle",
+    "source_record_ids": [
+      "gold-gears.curio-state.3105",
+      "gold-gears.curio.105"
+    ],
+    "preconditions": [
+      {
+        "fact": "mode_copy_id",
+        "value": "3105"
+      }
+    ],
+    "input": {
+      "curio_state_id": "gold-gears.curio-state.3105"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "CreateGoldModeCopy"
+      },
+      {
+        "sequence": 2,
+        "operation": "AdvanceChargeOrStateLifecycle"
+      },
+      {
+        "sequence": 3,
+        "operation": "ApplyRepairOrReplacement",
+        "target": {}
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "initial_state_id",
+        "operator": "equals",
+        "value": "gold-gears.curio-state.3105"
+      },
+      {
+        "path": "repair_target",
+        "operator": "equals",
+        "value": {}
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguehandbookmiracle-json.48",
+      "source.goal08.exceloutput-roguemiracledisplay-json.56",
+      "source.goal08.exceloutput-roguemiracle-json.214",
+      "source.goal08.exceloutput-roguemiracleeffect-json.201",
+      "source.goal08.exceloutput-roguemiracleeffectdisplay-json.201",
+      "source.goal08.public.gold-gears-curio-category-normal",
+      "source.goal08.project-policy.curio-random-selection"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released handbook mode membership and public category sections define the Gold and Gears Normal, Negative and Error Code identity sets. Complete offer-specific exclusions and random candidate ordering are applied only when a source occurrence or service binds them; otherwise selection fails closed.",
+    "replacement_condition": "Replace when pinned released pool tables or engine code expose complete offer eligibility and candidate ordering."
+  },
+  {
+    "id": "gold-gears.fixture.custom-dice-passive",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "custom-dice-passive Semantic Review Fixture",
+    "name_zh_cn": "custom-dice-passive 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the custom-dice-passive family; it does not claim runtime executability.",
+    "summary_zh_cn": "custom-dice-passive 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "11",
+        "sha256": "5f25ceaab68530f991c8fb683a8cd432b39f55b3f5190fc57bb37e6b811bf4da",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranchvalue-json.99",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranchValue.json",
+        "locator": "99",
+        "sha256": "1f889c149e26f24eeebfe78e7942d8e2e8b6db7f1b3e53fd691e1f0ef50e7092",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice-passive",
+      "review-fixture"
+    ],
+    "family_id": "custom-dice-passive",
+    "source_record_ids": [
+      "gold-gears.custom-dice.403",
+      "gold-gears.dice-path-value.403.1"
+    ],
+    "preconditions": [
+      {
+        "fact": "selected_dice_id",
+        "value": "gold-gears.custom-dice.403"
+      }
+    ],
+    "input": {
+      "selected_path_id": "universe.path.preservation"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ApplyInitialEffects",
+        "ids": [
+          "61000011",
+          "61000013"
+        ]
+      },
+      {
+        "sequence": 2,
+        "operation": "ApplyPostMovePassive",
+        "ids": [
+          "61000022"
+        ]
+      },
+      {
+        "sequence": 3,
+        "operation": "AccumulateSelectedPathBoost",
+        "value": "0.08"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "dice.source_id",
+        "operator": "equals",
+        "value": "403"
+      },
+      {
+        "path": "path_boost.value",
+        "operator": "equals",
+        "value": "0.08"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousdicebranch-json.11",
+      "source.goal08.exceloutput-roguenousdicebranchvalue-json.99"
+    ],
+    "fixture_evidence_quality": "ExactStructured"
+  },
+  {
+    "id": "gold-gears.fixture.dice-face-targeting",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "dice-face-targeting Semantic Review Fixture",
+    "name_zh_cn": "dice-face-targeting 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the dice-face-targeting family; it does not claim runtime executability.",
+    "summary_zh_cn": "dice-face-targeting 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicesurface-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceSurface.json",
+        "locator": "46",
+        "sha256": "1ce65353390fddb52aba09d1e0de5e5a9e6525dbea1f79f814c8efedcd654155",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-filter-tag-code-map",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+        "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+      },
+      {
+        "source_id": "source.goal08.project-policy.dice-face-target-resolution",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "dice-face-target-resolution",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released face text proves selectors and explicit no-effect wording for three Curio faces, but does not expose generic multi-target enumeration, equal-priority application order, duration ordering, or every empty selector case. Validate released selectors, order candidates by stable node/content identity, preserve authored operation order, and fail closed when an unpublished empty-set behavior would otherwise be required.",
+        "replacement_condition": "Replace individual targeting and ordering fields when pinned released engine evidence exposes candidate enumeration, tie order, duration order, or empty-set behavior."
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdiceslot-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceSlot.json",
+        "locator": "0",
+        "sha256": "a8642a4338b1b239d8172b0d3f926c69fa6f405995fc04aa93d671cb1b0eb603",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "dice-face-targeting",
+      "review-fixture"
+    ],
+    "family_id": "dice-face-targeting",
+    "source_record_ids": [
+      "gold-gears.dice-face.2058",
+      "gold-gears.dice-slot.1"
+    ],
+    "preconditions": [
+      {
+        "fact": "slot_id",
+        "value": "gold-gears.dice-slot.1"
+      }
+    ],
+    "input": {
+      "dice_face_id": "gold-gears.dice-face.2058",
+      "eligible_targets": []
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ValidateSlotAndDiceEligibility"
+      },
+      {
+        "sequence": 2,
+        "operation": "OrderTargetsByStableNodeIdentity"
+      },
+      {
+        "sequence": 3,
+        "operation": "ResolveNoLegalTargetAsNoEffect"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "no_legal_target_behavior",
+        "operator": "equals",
+        "value": "NoEffect"
+      },
+      {
+        "path": "slot_legal",
+        "operator": "equals",
+        "value": true
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousdicesurface-json.46",
+      "source.goal08.project-policy.dice-face-filter-tag-code-map",
+      "source.goal08.project-policy.dice-face-target-resolution",
+      "source.goal08.exceloutput-roguenousdiceslot-json.0"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released face text proves selectors and explicit no-effect wording for three Curio faces, but does not expose generic multi-target enumeration, equal-priority application order, duration ordering, or every empty selector case. Validate released selectors, order candidates by stable node/content identity, preserve authored operation order, and fail closed when an unpublished empty-set behavior would otherwise be required. The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable.",
+    "replacement_condition": "Replace individual targeting and ordering fields when pinned released engine evidence exposes candidate enumeration, tie order, duration order, or empty-set behavior. Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+  },
+  {
+    "id": "gold-gears.fixture.dice-reroll-and-cheat",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "dice-reroll-and-cheat Semantic Review Fixture",
+    "name_zh_cn": "dice-reroll-and-cheat 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the dice-reroll-and-cheat family; it does not claim runtime executability.",
+    "summary_zh_cn": "dice-reroll-and-cheat 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "11",
+        "sha256": "5f25ceaab68530f991c8fb683a8cd432b39f55b3f5190fc57bb37e6b811bf4da",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenoustalent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousTalent.json",
+        "locator": "32",
+        "sha256": "c67bcb377a483d6f0731b0f1ee36c98360c3da7df89110cf7168b707ec951fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.neural-network-reroll-empty-candidate",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "neural-network-reroll-empty-candidate",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text requires a reroll result different from the prior face but does not define the impossible empty-candidate case. Eligible faces are ordered by stable face ID after excluding the previous result; if none remain, the prior result is retained and the reroll attempt is consumed.",
+        "replacement_condition": "Replace when pinned engine evidence proves candidate ordering, draw consumption, or empty-candidate behavior."
+      }
+    ],
+    "tags": [
+      "dice-reroll-and-cheat",
+      "review-fixture"
+    ],
+    "family_id": "dice-reroll-and-cheat",
+    "source_record_ids": [
+      "gold-gears.custom-dice.403",
+      "gold-gears.neural-network-node.1701"
+    ],
+    "preconditions": [
+      {
+        "fact": "reroll_attempts",
+        "value": "1"
+      }
+    ],
+    "input": {
+      "previous_result_id": "gold-gears.dice-face.2001",
+      "eligible_results": []
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ConsumeRerollAttempt"
+      },
+      {
+        "sequence": 2,
+        "operation": "ExcludePreviousResult"
+      },
+      {
+        "sequence": 3,
+        "operation": "KeepPreviousWhenNoCandidate"
+      },
+      {
+        "sequence": 4,
+        "operation": "ApplyCheatReplacementBeforeResultOrdering"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "empty_candidate_behavior",
+        "operator": "equals",
+        "value": "KeepPreviousAndConsumeAttempt"
+      },
+      {
+        "path": "cheat_attempts_per_plane",
+        "operator": "equals",
+        "value": "1"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousdicebranch-json.11",
+      "source.goal08.exceloutput-roguenoustalent-json.32",
+      "source.goal08.project-policy.neural-network-reroll-empty-candidate"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released text requires a reroll result different from the prior face but does not define the impossible empty-candidate case. Eligible faces are ordered by stable face ID after excluding the previous result; if none remain, the prior result is retained and the reroll attempt is consumed.",
+    "replacement_condition": "Replace when pinned engine evidence proves candidate ordering, draw consumption, or empty-candidate behavior."
+  },
+  {
+    "id": "gold-gears.fixture.encounter-selection",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "encounter-selection Semantic Review Fixture",
+    "name_zh_cn": "encounter-selection 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the encounter-selection family; it does not claim runtime executability.",
+    "summary_zh_cn": "encounter-selection 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguemonstergroup-json.591",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonsterGroup.json",
+        "locator": "591",
+        "sha256": "e22b2353c89d556b83143a44d7281227cc4fc803f9bc0823f09853ca9a0d1997",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 82-series Gold encounter namespace, weighted RogueMonsterGroup membership, StageConfig waves, and boss pools. They do not expose the engine's static RogueNousRoom-to-group join. Resolve a group only after a combat-capable domain is selected, use stable source order for equal-weight candidates, and fail closed if the domain, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact RogueNousRoom/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal08.project-policy.encounter-difficulty-binding",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "encounter-difficulty-binding",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "RogueDLCArea and RogueDLCDifficulty expose exact area, plane, cut-position, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected area's ordered plane segment and fail closed when either key is unresolved.",
+        "replacement_condition": "Replace when released engine code exposes the exact battle-level selection and override sequence."
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-plane-boss-pools",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Planes: First, Second and Third Plane boss alternatives",
+        "sha256": "7b13c1d7a77e2ad40bbe405943fa95fedec142e4454ad629d751aaf16adcfee1",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemonster-json.1180",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonster.json",
+        "locator": "1180",
+        "sha256": "ff9af70e618930b07c440aa0da739e9e6aaf3084d84c0a66b53023d9ea5a9c21",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-stageconfig-json.8123",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/StageConfig.json",
+        "locator": "8123",
+        "sha256": "f1e4fc618c881c86540da930bcb782d81542c05aca8ce26cde94e0c960f3824e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.287",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "287",
+        "sha256": "d5b627bb59f56b20418c52ed27cce5d9ca150c2fd3a1b1b592fd54e61854e52a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/gold-and-gears-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "6b95b0955a1906d9b5238fc47baee214e782f0ac37af8a60e2693a73a3fd5a1a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.246",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "246",
+        "sha256": "c33463f66e1f1f41986080c9d3ccd9a4120979232f70730543258f3ae7670b51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/gold-and-gears-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "18587e55451588a732ee554e4251b58d2c0e14cb78174dcba31c9df0e0867ad5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "encounter-selection",
+      "review-fixture"
+    ],
+    "family_id": "encounter-selection",
+    "source_record_ids": [
+      "gold-gears.encounter-group.223003",
+      "gold-gears.encounter-wave.223003.2230031.1",
+      "gold-gears.encounter-wave.223003.2230031.1.slot.1",
+      "gold-gears.encounter-wave.223003.2230031.1.slot.2"
+    ],
+    "preconditions": [
+      {
+        "fact": "room_parent_scope",
+        "value": "ResolvedCombatDomain"
+      }
+    ],
+    "input": {
+      "source_group_id": "223003",
+      "seed": "0"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ResolveRoomParentOrFailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "SelectWeightedGroupMemberInStableSourceOrder"
+      },
+      {
+        "sequence": 3,
+        "operation": "ResolveAuthoredWaveAndOrderedEnemySlots"
+      },
+      {
+        "sequence": 4,
+        "operation": "BindDisplayedBossAlternatives"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "enemy_slot_count",
+        "operator": "equals",
+        "value": "2"
+      },
+      {
+        "path": "boss_choice_count",
+        "operator": "equals",
+        "value": "2"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguemonstergroup-json.591",
+      "source.goal08.project-policy.encounter-selection",
+      "source.goal08.project-policy.encounter-difficulty-binding",
+      "source.goal08.public.gold-gears-plane-boss-pools",
+      "source.goal08.exceloutput-roguemonster-json.1180",
+      "source.goal08.exceloutput-stageconfig-json.8123",
+      "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.287",
+      "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.0",
+      "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.246",
+      "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.1"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released rows expose the complete 82-series Gold encounter namespace, weighted RogueMonsterGroup membership, StageConfig waves, and boss pools. They do not expose the engine's static RogueNousRoom-to-group join. Resolve a group only after a combat-capable domain is selected, use stable source order for equal-weight candidates, and fail closed if the domain, area, or group family cannot be resolved. RogueDLCArea and RogueDLCDifficulty expose exact area, plane, cut-position, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected area's ordered plane segment and fail closed when either key is unresolved.",
+    "replacement_condition": "Replace when released engine code exposes the exact battle-level selection and override sequence. Replace when released engine code or a pinned table exposes the exact RogueNousRoom/domain/difficulty-to-RogueMonsterGroup join."
+  },
+  {
+    "id": "gold-gears.fixture.knowledge-lifecycle",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "knowledge-lifecycle Semantic Review Fixture",
+    "name_zh_cn": "knowledge-lifecycle 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the knowledge-lifecycle family; it does not claim runtime executability.",
+    "summary_zh_cn": "knowledge-lifecycle 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicesurface-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceSurface.json",
+        "locator": "5",
+        "sha256": "50cc59f927cf9463431a5ddf39c4244b978743ba728372069a4ed72720e8aa00",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "6",
+        "sha256": "5de9934f6e10ff72f899a0058d8243fcfa7098d5395470c32baf82998fd0f7a9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "7",
+        "sha256": "3a6520421ed8a2c6c8a47dfa3068145450dad79c6244df26715aa2e340b0c7dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "8",
+        "sha256": "98d0442ff582850c2d30c38117d1f93607c7ca36147cd8df3aaf110b4b50f69c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.knowledge-target-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "knowledge-target-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released face text proves candidate predicates and random/selected/all cardinality, but not engine RNG enumeration. Candidate domains are canonically ordered by stable node ID before seeded selection without replacement; an empty eligible set produces no effect.",
+        "replacement_condition": "Replace when pinned engine code or structured data proves target enumeration, RNG draw order, replacement, or empty-set behavior."
+      },
+      {
+        "source_id": "source.goal08.project-policy.knowledge-simultaneous-resolution",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "knowledge-simultaneous-resolution",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text names movement and about-to-collapse boundaries but does not fully order simultaneous Knowledge mutations. The project resolves movement, after-movement face effects, Knowledge mutation, dice-specific callbacks, collapse, then rewards; ties use face and target stable IDs.",
+        "replacement_condition": "Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering."
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicesurface-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceSurface.json",
+        "locator": "19",
+        "sha256": "8d87f9de54b150605947c15cdc77bb854667a3b51ee2638690e0f0d446fa684d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicesurface-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceSurface.json",
+        "locator": "60",
+        "sha256": "0781f8da3924b789fec5b0196b75ad79abe26e036123ebb75182e94b3fbbdbc4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicesurface-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceSurface.json",
+        "locator": "62",
+        "sha256": "28252b0a3077338359efefed81e45f7c9361da88cefc93ab19f38391a17bf940",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "knowledge-lifecycle",
+      "review-fixture"
+    ],
+    "family_id": "knowledge-lifecycle",
+    "source_record_ids": [
+      "gold-gears.knowledge-rule.2006",
+      "gold-gears.knowledge-rule.2023",
+      "gold-gears.knowledge-rule.2077",
+      "gold-gears.knowledge-rule.2079"
+    ],
+    "preconditions": [
+      {
+        "fact": "knowledge_state",
+        "value": "Absent"
+      }
+    ],
+    "input": {
+      "active_dice_ids": [
+        "gold-gears.custom-dice.301",
+        "gold-gears.custom-dice.302",
+        "gold-gears.custom-dice.303"
+      ]
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ApplyKnowledge"
+      },
+      {
+        "sequence": 2,
+        "operation": "PropagateOrQueryKnowledge"
+      },
+      {
+        "sequence": 3,
+        "operation": "ResolveCountdownInteraction"
+      },
+      {
+        "sequence": 4,
+        "operation": "ConsumeOrPreserveKnowledge"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "supported_access_modes",
+        "operator": "equals",
+        "value": [
+          "Apply",
+          "Preserve",
+          "Query",
+          "Remove"
+        ]
+      },
+      {
+        "path": "simultaneous_resolution",
+        "operator": "equals",
+        "value": "knowledge-simultaneous-resolution-v1"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousdicesurface-json.5",
+      "source.goal08.exceloutput-roguenousdicebranch-json.6",
+      "source.goal08.exceloutput-roguenousdicebranch-json.7",
+      "source.goal08.exceloutput-roguenousdicebranch-json.8",
+      "source.goal08.project-policy.knowledge-target-selection",
+      "source.goal08.project-policy.knowledge-simultaneous-resolution",
+      "source.goal08.exceloutput-roguenousdicesurface-json.19",
+      "source.goal08.exceloutput-roguenousdicesurface-json.60",
+      "source.goal08.exceloutput-roguenousdicesurface-json.62"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released face text proves candidate predicates and random/selected/all cardinality, but not engine RNG enumeration. Candidate domains are canonically ordered by stable node ID before seeded selection without replacement; an empty eligible set produces no effect. Released text names movement and about-to-collapse boundaries but does not fully order simultaneous Knowledge mutations. The project resolves movement, after-movement face effects, Knowledge mutation, dice-specific callbacks, collapse, then rewards; ties use face and target stable IDs.",
+    "replacement_condition": "Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering. Replace when pinned engine code or structured data proves target enumeration, RNG draw order, replacement, or empty-set behavior."
+  },
+  {
+    "id": "gold-gears.fixture.neural-network-effect",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "neural-network-effect Semantic Review Fixture",
+    "name_zh_cn": "neural-network-effect 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the neural-network-effect family; it does not claim runtime executability.",
+    "summary_zh_cn": "neural-network-effect 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoustalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousTalent.json",
+        "locator": "3",
+        "sha256": "b02327a4882486acd3d9853f050e26aa3b332eeaf8f2c0e47e1b3692eb75a563",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "neural-network-effect",
+      "review-fixture"
+    ],
+    "family_id": "neural-network-effect",
+    "source_record_ids": [
+      "gold-gears.neural-network-node.201"
+    ],
+    "preconditions": [
+      {
+        "fact": "prerequisite_ids",
+        "value": [
+          "gold-gears.neural-network-node.101",
+          "gold-gears.neural-network-node.102",
+          "gold-gears.neural-network-node.103"
+        ]
+      }
+    ],
+    "input": {
+      "paid_costs": [
+        {
+          "source_item_id": "281013",
+          "amount": "600"
+        }
+      ]
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ValidatePrerequisiteDag"
+      },
+      {
+        "sequence": 2,
+        "operation": "PayNeuralImpulseCost"
+      },
+      {
+        "sequence": 3,
+        "operation": "ApplyMechanicallyRelevantContribution",
+        "effects": [
+          {
+            "operation": "ApplyFixedEntryDamage",
+            "scope": "ActivityAndBattle",
+            "target": "all-enemies",
+            "timing": "BattleEntry",
+            "damage_basis": "TargetMaxHpRatio",
+            "value": "0.99",
+            "eligible_battle_limit": "4",
+            "eligible_section": "FirstPlane",
+            "excluded_battle_kind": "Boss",
+            "condition": "previous-challenge-first-plane-completed",
+            "mechanism_quality": "ExactStructured"
+          }
+        ]
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "node.disposition",
+        "operator": "equals",
+        "value": "MechanicallyRelevant"
+      },
+      {
+        "path": "node.effect_domain",
+        "operator": "equals",
+        "value": "ActivityAndBattle"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenoustalent-json.3"
+    ],
+    "fixture_evidence_quality": "ExactStructured"
+  },
+  {
+    "id": "gold-gears.fixture.occurrence-choice",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "occurrence-choice Semantic Review Fixture",
+    "name_zh_cn": "occurrence-choice 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the occurrence-choice family; it does not claim runtime executability.",
+    "summary_zh_cn": "occurrence-choice 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedialogueoptiondisplay-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "22",
+        "sha256": "ae863ce028eea1cc06990498aa0e6afaec38ba1d9edb2721823fc20c63057521",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-level-rogue-roguedialogue-event0310101-opt0310101-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/Event0310101/Opt0310101.json",
+        "locator": "root",
+        "sha256": "4714af8d50be7a58b994a8fdf30c939ab0660606ac09607ea90b10b305853093",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-level-rogue-roguenpc-roguenpc310101-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC310101.json",
+        "locator": "root",
+        "sha256": "128d257e2422e10bdb8aec405baa02ffc1b4d34b43dc688faff71a03ca0ff22d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.occurrence-random-outcome",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "occurrence-random-outcome",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released choice text and parameter vectors prove outcomes and any printed percentages. When text says random or chance without weights, candidate selection uses the seeded Activity stream over stable source order; unresolved eligible pools fail closed.",
+        "replacement_condition": "Replace when pinned released occurrence programs or engine code expose hidden weights and complete eligible-pool construction."
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedialogueoptiondisplay-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "61",
+        "sha256": "bf6e2a23d4d06d191f39985db64a071ca0ff736636446c8f1477c85571cc7f7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-level-rogue-roguedialogue-event0310501-opt0310501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/Event0310501/Opt0310501.json",
+        "locator": "root",
+        "sha256": "0b5f82e783ebe1a6999b04f8e3c8a03cdc3f280c13f61d50f6ed2a0b468dd6a6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-level-rogue-roguenpc-roguenpc310501-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC310501.json",
+        "locator": "root",
+        "sha256": "84fb7b13e3b2bcdd04289796f0f5e65d916d67ad1192a4911e623ed42876ef35",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "occurrence-choice",
+      "review-fixture"
+    ],
+    "family_id": "occurrence-choice",
+    "source_record_ids": [
+      "gold-gears.occurrence-choice.310101.01",
+      "gold-gears.occurrence-choice.310501.01"
+    ],
+    "preconditions": [
+      {
+        "fact": "condition_ids",
+        "value": []
+      }
+    ],
+    "input": {
+      "choice_id": "gold-gears.occurrence-choice.310101.01",
+      "seed": "0"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ValidateChoiceCondition"
+      },
+      {
+        "sequence": 2,
+        "operation": "ApplyCost",
+        "costs": [
+          {
+            "kind": "Discard",
+            "targets": [
+              "Blessing"
+            ],
+            "numeric_literals": [
+              "1",
+              "2",
+              "3"
+            ],
+            "parameter_refs": []
+          }
+        ]
+      },
+      {
+        "sequence": 3,
+        "operation": "OrderOutcomeProgram",
+        "outcomes": [
+          {
+            "kinds": [
+              "Enhance"
+            ],
+            "targets": [
+              "Blessing"
+            ],
+            "numeric_literals": [
+              "2"
+            ],
+            "parameter_refs": [],
+            "chance_percentages": [],
+            "probability_policy": "SeededUniformStableSourceOrder",
+            "unresolved_candidate_pool": "FailClosed"
+          }
+        ]
+      },
+      {
+        "sequence": 4,
+        "operation": "SelectUnknownWeightByStableSeededPolicy"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "unresolved_pool_behavior",
+        "operator": "equals",
+        "value": "FailClosed"
+      },
+      {
+        "path": "choice_order_preserved",
+        "operator": "equals",
+        "value": true
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguedialogueoptiondisplay-json.22",
+      "source.goal08.config-level-rogue-roguedialogue-event0310101-opt0310101-json.root",
+      "source.goal08.config-level-rogue-roguenpc-roguenpc310101-json.root",
+      "source.goal08.project-policy.occurrence-random-outcome",
+      "source.goal08.exceloutput-roguedialogueoptiondisplay-json.61",
+      "source.goal08.config-level-rogue-roguedialogue-event0310501-opt0310501-json.root",
+      "source.goal08.config-level-rogue-roguenpc-roguenpc310501-json.root"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released choice text and parameter vectors prove outcomes and any printed percentages. When text says random or chance without weights, candidate selection uses the seeded Activity stream over stable source order; unresolved eligible pools fail closed.",
+    "replacement_condition": "Replace when pinned released occurrence programs or engine code expose hidden weights and complete eligible-pool construction."
+  },
+  {
+    "id": "gold-gears.fixture.path-boost",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "path-boost Semantic Review Fixture",
+    "name_zh_cn": "path-boost 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the path-boost family; it does not claim runtime executability.",
+    "summary_zh_cn": "path-boost 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeon.json",
+        "locator": "3",
+        "sha256": "3a22eeaa50502c38449abd3a82a99597365af189feaa0a7d960f7bb165d31e4d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Nous.json",
+        "locator": "AbilityList[19]",
+        "sha256": "6c4cdf906ae929e1b51e0d2cc0a8671bc683ec90ab00f26c02832f3c8dac7bf0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-boost",
+      "review-fixture"
+    ],
+    "family_id": "path-boost",
+    "source_record_ids": [
+      "gold-gears.path-boost.650103"
+    ],
+    "preconditions": [
+      {
+        "fact": "selected_path_id",
+        "value": "universe.path.abundance"
+      }
+    ],
+    "input": {
+      "source_increment": "0.02"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ResolveSharedPathReference"
+      },
+      {
+        "sequence": 2,
+        "operation": "ConvertReleasedPercentToRatio"
+      },
+      {
+        "sequence": 3,
+        "operation": "ApplyEntryPathBoost",
+        "stat": "OutgoingHealing"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "target_team",
+        "operator": "equals",
+        "value": "TeamLight"
+      },
+      {
+        "path": "stacking",
+        "operator": "equals",
+        "value": "AdditiveContribution"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenousaeon-json.3",
+      "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-19"
+    ],
+    "fixture_evidence_quality": "ExactStructured"
+  },
+  {
+    "id": "gold-gears.fixture.profile-entry",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "profile-entry Semantic Review Fixture",
+    "name_zh_cn": "profile-entry 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the profile-entry family; it does not claim runtime executability.",
+    "summary_zh_cn": "profile-entry 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "One isolated Gold and Gears reference profile binds the released ChessRogueNous rows.",
+        "replacement_condition": "Replace only if a later released profile registry provides a stronger stable identity."
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcarea-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "11",
+        "sha256": "04470c3e942194b7a59453b4765b1cff49f318a526527f3537b4a0d775bec384",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcarea-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "12",
+        "sha256": "3a556a4ebb0f704d528491a308d6194c8f8d4be6602cab41c0d5ef238ddf4abc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcarea-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "13",
+        "sha256": "2653933fb806556d47a375f456148f18b3327377a5a25a8dce9af529d713d2a3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcarea-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "14",
+        "sha256": "1543a688ff98e025074d14053d207668efcad9993a666fc21c85c0a24362e97d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcarea-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "15",
+        "sha256": "f45b31aba8815d490e2106b89c0f313c944a7078657454baaf6f70c5d75e78ce",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "12",
+        "sha256": "81bf76524cb7d19656f2fc49d506c666172a47fdbdf1beb4f7f98e0a436ae221",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "13",
+        "sha256": "06d3a69a7798e97aff39311136a16339576d1966ae65eaac5bb12c5c14c2826d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "14",
+        "sha256": "1d2d118ab1566b3b4c5f7bc2a55f98767aecff4789b65ab82b911d1beb58f94c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "15",
+        "sha256": "9a3d3ab79ddd98e22340b779be72b83776cf7cbdde323a451b77dadcbf2c5729",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "16",
+        "sha256": "7b06acefeb6833f1bde87def6e9a2bf5833235889ae3033ee3dacab411d3cf1e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "profile-entry",
+      "review-fixture"
+    ],
+    "family_id": "profile-entry",
+    "source_record_ids": [
+      "gold-gears.area.401",
+      "gold-gears.area.402",
+      "gold-gears.area.403",
+      "gold-gears.area.404",
+      "gold-gears.area.405",
+      "gold-gears.profile.v1",
+      "gold-gears.trailblaze-bonus.201",
+      "gold-gears.trailblaze-bonus.202",
+      "gold-gears.trailblaze-bonus.203",
+      "gold-gears.trailblaze-bonus.204",
+      "gold-gears.trailblaze-bonus.205"
+    ],
+    "preconditions": [
+      {
+        "fact": "profile.runtime_enabled",
+        "value": false
+      }
+    ],
+    "input": {
+      "entry_kind": "ResidentActivity",
+      "requested_difficulty": "5"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ValidateEntryEligibility"
+      },
+      {
+        "sequence": 2,
+        "operation": "ResolveFormalDifficulty",
+        "candidate_count": "5"
+      },
+      {
+        "sequence": 3,
+        "operation": "AttachTrailblazeBonuses",
+        "source_ids": [
+          "201",
+          "202",
+          "203",
+          "204",
+          "205"
+        ]
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "formal_difficulty_count",
+        "operator": "equals",
+        "value": "5"
+      },
+      {
+        "path": "bonus_source_ids",
+        "operator": "equals",
+        "value": [
+          "201",
+          "202",
+          "203",
+          "204",
+          "205"
+        ]
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.project-policy.profile",
+      "source.goal08.exceloutput-roguedlcarea-json.11",
+      "source.goal08.exceloutput-roguedlcarea-json.12",
+      "source.goal08.exceloutput-roguedlcarea-json.13",
+      "source.goal08.exceloutput-roguedlcarea-json.14",
+      "source.goal08.exceloutput-roguedlcarea-json.15",
+      "source.goal08.exceloutput-roguebonus-json.12",
+      "source.goal08.exceloutput-roguebonus-json.13",
+      "source.goal08.exceloutput-roguebonus-json.14",
+      "source.goal08.exceloutput-roguebonus-json.15",
+      "source.goal08.exceloutput-roguebonus-json.16"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "One isolated Gold and Gears reference profile binds the released ChessRogueNous rows.",
+    "replacement_condition": "Replace only if a later released profile registry provides a stronger stable identity."
+  },
+  {
+    "id": "gold-gears.fixture.resonance-extrapolation",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "resonance-extrapolation Semantic Review Fixture",
+    "name_zh_cn": "resonance-extrapolation 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the resonance-extrapolation family; it does not claim runtime executability.",
+    "summary_zh_cn": "resonance-extrapolation 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.52",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "52",
+        "sha256": "dd7161a802569755ab3e5524f62451a26fe8265022448e950327a7d8a73b2dca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "34",
+        "sha256": "b78e2a61f247dc7cf7fc57a172732d19816433f0dde7e5d77aa5c1210726b61a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.260",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "260",
+        "sha256": "b6a0ddcde967e629abe8ad15751a66ee0b638ea43c7fb7b0ac3f6d101fb32504",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-resonance-extrapolation-boundary",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Resonance Extrapolation",
+        "sha256": "ab0a94b258e885e294881adde3f8eb5566b0ae2a56cd78c6d5b86c6d12bd408f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.resonance-extrapolation-controller",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "resonance-extrapolation-controller",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released groups prove each Path's base and enhanced BattleEvent bindings, and released text proves that Resonance Extrapolation acts during the Third Plane boss battle. The pinned rows do not expose the complete offered-Path enumeration, formation draw, action-gauge initialization, tie ordering, or the generic player-to-enemy polarity transform. Candidate ordering is by stable source tag; selected formations use the seeded Activity stream; unresolved action and polarity lowering fails closed.",
+        "replacement_condition": "Replace when pinned released engine code proves candidate enumeration, formation selection, action scheduling and target-polarity lowering."
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.53",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "53",
+        "sha256": "c595cc118c9aef92db9b6fffe9a621350f9951a5cf1ebd2a0bd3462cea2a0fd5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "35",
+        "sha256": "623422b94ee3669df74f02a5c25028c818b00daa14a6121f806229d5c2178fa1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.261",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "261",
+        "sha256": "29fb0266b905b08e94320a939ab25763bb897787f8473fd02ad54a4ce3622042",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "resonance-extrapolation",
+      "review-fixture"
+    ],
+    "family_id": "resonance-extrapolation",
+    "source_record_ids": [
+      "gold-gears.resonance-extrapolation.1232001",
+      "gold-gears.resonance-extrapolation.1232101"
+    ],
+    "preconditions": [
+      {
+        "fact": "battle_scope",
+        "value": "ThirdPlaneBossBattle"
+      }
+    ],
+    "input": {
+      "offered_path_id": "universe.path.abundance",
+      "formation_count": "1",
+      "seed": "0"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "SelectNormalResonanceGroup"
+      },
+      {
+        "sequence": 2,
+        "operation": "SelectFormationWithSeededStableOrder"
+      },
+      {
+        "sequence": 3,
+        "operation": "AddAuxiliaryConundrumFormationWhenActive"
+      },
+      {
+        "sequence": 4,
+        "operation": "FailClosedForUnresolvedChargeOrPolarityLowering"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "normal.enhanced",
+        "operator": "equals",
+        "value": false
+      },
+      {
+        "path": "formation.enhanced",
+        "operator": "equals",
+        "value": true
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguebuffgroup-json.52",
+      "source.goal08.exceloutput-roguebuff-json.34",
+      "source.goal08.exceloutput-roguemazebuff-json.260",
+      "source.goal08.public.gold-gears-resonance-extrapolation-boundary",
+      "source.goal08.project-policy.resonance-extrapolation-controller",
+      "source.goal08.exceloutput-roguebuffgroup-json.53",
+      "source.goal08.exceloutput-roguebuff-json.35",
+      "source.goal08.exceloutput-roguemazebuff-json.261"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released groups prove each Path's base and enhanced BattleEvent bindings, and released text proves that Resonance Extrapolation acts during the Third Plane boss battle. The pinned rows do not expose the complete offered-Path enumeration, formation draw, action-gauge initialization, tie ordering, or the generic player-to-enemy polarity transform. Candidate ordering is by stable source tag; selected formations use the seeded Activity stream; unresolved action and polarity lowering fails closed.",
+    "replacement_condition": "Replace when pinned released engine code proves candidate enumeration, formation selection, action scheduling and target-polarity lowering."
+  },
+  {
+    "id": "gold-gears.fixture.secret-threshold",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "secret-threshold Semantic Review Fixture",
+    "name_zh_cn": "secret-threshold 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the secret-threshold family; it does not claim runtime executability.",
+    "summary_zh_cn": "secret-threshold 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenoussubstory-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousSubStory.json",
+        "locator": "8",
+        "sha256": "6eb639e4fc8f243e060617909f859e902991c655aa3d0f6bbbeca0727b987146",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-cognition-value-tutorial",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Tutorial/Gold_and_Gears%3A_Cognition_Value",
+        "locator": "Cognition Value tutorial",
+        "sha256": "df13d61d473ae3ecf348400807b341dc12298fb90dacfbd99548c12332253fa7",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "secret-threshold"
+    ],
+    "family_id": "secret-threshold",
+    "source_record_ids": [
+      "gold-gears.secret.2023"
+    ],
+    "preconditions": [
+      {
+        "fact": "required_area",
+        "value": "gold-gears.area.401"
+      },
+      {
+        "fact": "predecessors",
+        "value": [
+          "gold-gears.secret.1002"
+        ]
+      }
+    ],
+    "input": {
+      "cognition": "-20"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ValidateAreaAndPredecessor"
+      },
+      {
+        "sequence": 2,
+        "operation": "EvaluateInclusiveCognitionRangeOnce"
+      },
+      {
+        "sequence": 3,
+        "operation": "UnlockSecretOrFailClosed"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "minimum_cognition",
+        "operator": "equals",
+        "value": "-20"
+      },
+      {
+        "path": "bounds_inclusive",
+        "operator": "equals",
+        "value": true
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguenoussubstory-json.8",
+      "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+      "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+      "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+      "source.goal08.public.gold-gears-cognition-value-tutorial",
+      "source.goal08.project-policy.cognition-lifecycle"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+    "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+  },
+  {
+    "id": "gold-gears.fixture.service-and-adventure",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "service-and-adventure Semantic Review Fixture",
+    "name_zh_cn": "service-and-adventure 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the service-and-adventure family; it does not claim runtime executability.",
+    "summary_zh_cn": "service-and-adventure 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.6",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "6",
+        "sha256": "e0d8b7c55f73ca1bb38e48cbee9e2ffbd15674dea96f145dc72231e590d33c41",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "1",
+        "sha256": "349dbe0189b019b2032f182cad8df1f7070a3bc1e615c0acc077d922591e0929",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.162",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "162",
+        "sha256": "0d40de5c7c34b2ba42de0b3f14c6369a90efca8981900b367c7ca99d7cac533d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "service-and-adventure"
+    ],
+    "family_id": "service-and-adventure",
+    "source_record_ids": [
+      "gold-gears.adventure-outcome.1210601",
+      "universe.service.shop.100011"
+    ],
+    "preconditions": [
+      {
+        "fact": "currency_id",
+        "value": "universe.currency.cosmic-fragments"
+      }
+    ],
+    "input": {
+      "service_id": "universe.service.shop.100011",
+      "completed_objectives": "2"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "ValidateOfferEligibility"
+      },
+      {
+        "sequence": 2,
+        "operation": "ApplyExactPriceOrCumulativeTier"
+      },
+      {
+        "sequence": 3,
+        "operation": "OfferAbstractResultWithoutAdventureInputSimulation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "service.inventory",
+        "operator": "equals",
+        "value": [
+          {
+            "rarity": "1",
+            "unit_cost": "100",
+            "base_stock": "3"
+          },
+          {
+            "rarity": "2",
+            "unit_cost": "200",
+            "base_stock": "2"
+          },
+          {
+            "rarity": "3",
+            "unit_cost": "300",
+            "base_stock": "1"
+          }
+        ]
+      },
+      {
+        "path": "adventure.reward_tier_count",
+        "operator": "equals",
+        "value": "3"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.inherited.content-reference-standard-universe-v1-services-json.6",
+      "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+      "source.goal08.exceloutput-roguedlcadventureroom-json.1",
+      "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.162",
+      "source.goal08.project-policy.adventure-reward-selection"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+    "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+  },
+  {
+    "id": "gold-gears.fixture.topology-event-order",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "topology-event-order Semantic Review Fixture",
+    "name_zh_cn": "topology-event-order 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the topology-event-order family; it does not claim runtime executability.",
+    "summary_zh_cn": "topology-event-order 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechesteventmap-3001",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_01.json",
+        "locator": "RogueChestEventMap/3001",
+        "sha256": "806bdddbccf38b469df35905ffc4ee7f60094a0d679468fb4719880c92ff3df2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.rogueblockcreategrouplist-211101101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_01.json",
+        "locator": "RogueBlockCreateGroupList/211101101",
+        "sha256": "08b27bbc490157e15b1c70a3d35ea8a7736f52d5ff75dcbaba43e94657449555",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "topology-event-order"
+    ],
+    "family_id": "topology-event-order",
+    "source_record_ids": [
+      "gold-gears.block-rule.2111011.211101101",
+      "gold-gears.map-event.2111011.3001"
+    ],
+    "preconditions": [
+      {
+        "fact": "chessboard_id",
+        "value": "gold-gears.chessboard.2111011"
+      }
+    ],
+    "input": {
+      "trigger_type": "EnterChessRogueCell"
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "MatchTrigger"
+      },
+      {
+        "sequence": 2,
+        "operation": "OrderWeightedCandidatesBySourceIdentity"
+      },
+      {
+        "sequence": 3,
+        "operation": "ApplyEventThenBlockCreation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "event.weight",
+        "operator": "equals",
+        "value": "100"
+      },
+      {
+        "path": "block_rule.order",
+        "operator": "equals",
+        "value": "0"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechesteventmap-3001",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.rogueblockcreategrouplist-211101101"
+    ],
+    "fixture_evidence_quality": "ExactStructured"
+  },
+  {
+    "id": "gold-gears.fixture.topology-generation",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ReviewFixture",
+    "name_en": "topology-generation Semantic Review Fixture",
+    "name_zh_cn": "topology-generation 语义审查夹具",
+    "summary_en": "Reference-only semantic fixture for the topology-generation family; it does not claim runtime executability.",
+    "summary_zh_cn": "topology-generation 机制族的仅资料语义夹具；不声称具备运行时可执行性。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcchessboard-json.103",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCChessBoard.json",
+        "locator": "103",
+        "sha256": "254dd8795abb33973091cded39fe81d83405338d8e8e63654aa54c3b215f7032",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+        "locator": "root",
+        "sha256": "6bcd44c4a9743dc6482f2c7efec80569feb223be1000c76730b86a4494cc8f19",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/201",
+        "sha256": "76de3b78fafe47b8c94b3dfdd2d920d1d6c9e4bfe380973b7f5bdcad36a03e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-202",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/202",
+        "sha256": "b49ee7d0e5349d220e4473cfc7a513989d5d7a9118345fa0983ef1b137e4a030",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-102",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/102",
+        "sha256": "f813e18a6ff55e99e5804a51e88533ac82183575043fff28caa106db91c79ced",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-203",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/203",
+        "sha256": "219455cfe875c0b64712d7d7aa3e30272cfd7629c70201d71ae3961f7d9d4375",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.project-policy.topology-policy",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "topology_policy",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges.",
+        "replacement_condition": "Replace when released explicit edges or a verified engine graph builder becomes available."
+      },
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechestgriditemmap-101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/101",
+        "sha256": "aae4ab712134b01bea560cf21841259394a089fc8a4982c1200f075a14a244d1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "topology-generation"
+    ],
+    "family_id": "topology-generation",
+    "source_record_ids": [
+      "gold-gears.chessboard.1111011",
+      "gold-gears.column.1111011.2",
+      "gold-gears.column.1111011.4",
+      "gold-gears.edge.1111011.102.203",
+      "gold-gears.node.2111011.101"
+    ],
+    "preconditions": [
+      {
+        "fact": "chessboard_id",
+        "value": "gold-gears.chessboard.1111011"
+      }
+    ],
+    "input": {
+      "authored_columns": [
+        "gold-gears.column.1111011.2",
+        "gold-gears.column.1111011.4"
+      ]
+    },
+    "ordered_operations": [
+      {
+        "sequence": 1,
+        "operation": "OrderColumnsByPositionX"
+      },
+      {
+        "sequence": 2,
+        "operation": "DeriveForwardNearestColumnEdges"
+      },
+      {
+        "sequence": 3,
+        "operation": "PreserveAuthoredStartAndEnd"
+      },
+      {
+        "sequence": 4,
+        "operation": "FailClosedForUnspecifiedDomain"
+      }
+    ],
+    "expected_facts": [
+      {
+        "path": "edge.policy.policy_id",
+        "operator": "equals"
+      },
+      {
+        "path": "unspecified_domain",
+        "operator": "equals",
+        "value": "Unspecified"
+      }
+    ],
+    "evidence_refs": [
+      "source.goal08.exceloutput-roguedlcchessboard-json.103",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.root",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-201",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-202",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-102",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-203",
+      "source.goal08.project-policy.topology-policy",
+      "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechestgriditemmap-101"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "note": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges.",
+    "replacement_condition": "Replace when released explicit edges or a verified engine graph builder becomes available."
+  }
+]

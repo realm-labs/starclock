@@ -1,0 +1,99 @@
+{
+  "schema_revision": "starclock.gold-and-gears-reference-release.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "completed_on": "2026-07-29",
+  "result": "complete",
+  "delivery_state": "Candidate",
+  "policy_sha256": "ee6ac0ffcd09d4720ef59921071a13d809379ef5f3e290a2aea7faa81435dc52",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "mode_family": "simulated-universe-gold-and-gears",
+    "profile_id": "gold-gears.profile.v1"
+  },
+  "source_revisions": {
+    "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "checkpoints": {
+    "sora_and_visual_qa": "070ab224",
+    "release_audit": "1dc125e6",
+    "semantic_fixtures": "6137398b",
+    "release_acceptance": "3b705263",
+    "release_batch": "G08-P4-B4"
+  },
+  "content": {
+    "source_inventory_files": 2882,
+    "manifest_categories": 42,
+    "source_obligations": 7913,
+    "data_ready": 7913,
+    "ownership": {
+      "GoldAndGears": 7199,
+      "Shared": 714
+    },
+    "normalized_files": 51,
+    "mechanic_rules": 1224,
+    "provenance_rows": 9082,
+    "semantic_fixture_families": 18,
+    "semantic_operations": 63,
+    "semantic_assertions": 36,
+    "research_gaps": 16,
+    "replacement_conditions_verified": 16,
+    "blocking_research_gaps": 0
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "schema_export_authority": "sora-cli==0.3.0",
+    "tables": 52,
+    "workbook_rows": 29140,
+    "workbook_semantic_sha256": "b35d3560bccc7730b54a1ec15348e2750f4f373350c147507568cb1218a83fea",
+    "workbooks": {
+      "GoldAndGears.xlsx": "a289bd4d7463109bce04899d920275455c33a14fe3702cd8efe9416fc67d30e7",
+      "GoldAndGearsContent.xlsx": "1c9c44797d5accb3ae696b65f717ca6d2dedd8109d4709ef5f427be902a405a3",
+      "GoldAndGearsEvidence.xlsx": "c9b72548f4a658ad54267fba4b085581174c64676b1af89e736d0789a85d2c0c",
+      "GoldAndGearsProgression.xlsx": "1965aaa1811ec9e37b9adeffdab4b2f597a8575ca7d7b9201ccd58375f9efe61"
+    }
+  },
+  "digests": {
+    "source_inventory_sha256": "39ab554ce600fa9932efa1517978db16d51683e93f4de1be68a88b68f26bcece",
+    "content_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+    "normalized_pack_sha256": "ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623",
+    "pack_index_file_sha256": "128c7f08a70c2bc5ca18b2f53b182393e533fa4946904a6571a7cd1594b3d935",
+    "schema_lock_sha256": "d46f31fad5e97658d096321de91c65a963775ef95ad1c88be7ea57eeb7219248",
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "debug_export_sha256": "ff739998f2038e75a4783e80c4841eabdfa1f8b8358ffb73363c8e77ea48ee17",
+    "release_audit_sha256": "63139676552f65f626f1e2267a5ed053ec23f23061d618142d81879f33cbf843",
+    "semantic_fixture_results_sha256": "4bdf60ffc493772528ca75e23d69f89479380c09bbc4842aa1e8f27c6e88b065",
+    "release_acceptance_sha256": "1f54d9bbe9ded59f7256c3f7ef2f086a431f71bcb9316aafa225153b32889e48",
+    "release_visual_review_sha256": "747886d3a456c4da4a3463ade2c4ea55fed7d6395847b95e55ff1d15ca3f4029"
+  },
+  "protected_boundaries": {
+    "baseline_commit": "070ab224",
+    "tracked_tree_digests": {
+      "goal03_reference": "9e53d3b0800870fc9ae0b2f4f3ba1614c090cae7788e426845c3c56c2f54bd01",
+      "production_configuration": "9dac8168443833eaea2c3a27bc89d4919eaddda3dc3cd824866ed895928f619e",
+      "standard_staging": "f70d47c3c85b90829d44ab5d44f636a71b7f669d859d70120816c1f32ad94b5c"
+    },
+    "goal03_release_evidence_preserved": true,
+    "standard_staging_preserved": true,
+    "production_configuration_preserved": true
+  },
+  "runtime_boundary": {
+    "delivery_lane": "CandidateReferenceOnly",
+    "runtime_loading": false,
+    "runtime_lowering": false,
+    "runtime_handlers": 0,
+    "playable_profile": false,
+    "standard_or_production_bundle_mutation": false
+  },
+  "acceptance": {
+    "focused_checks": "pass",
+    "dependency_and_workspace_checks": "pass",
+    "immutable_release_snapshots": "pass",
+    "clean_checkout": "pass",
+    "clean_checkout_staged_tree": "281e19d881edaf8036b5cd25e0e1fd3f0487aabb",
+    "full_repository_command": "node tools/repository-check/run.mjs --full --with-source-cache",
+    "full_repository_external_boundary": "pre-existing Goal 06 Cargo.lock baseline differs; Goal 08 inputs are not reached",
+    "full_repository_external_boundary_owner": "Goal06HistoricalReleaseContract"
+  }
+}

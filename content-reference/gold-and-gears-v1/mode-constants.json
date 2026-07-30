@@ -1,0 +1,776 @@
+[
+  {
+    "id": "gold-gears.mode-constant.roguenous-activity-normalfinish-mainmissionid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_Activity_NormalFinish_MainMissionID",
+    "name_zh_cn": "模式常量 RogueNous_Activity_NormalFinish_MainMissionID",
+    "summary_en": "UnlockLocator constant RogueNous_Activity_NormalFinish_MainMissionID stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_Activity_NormalFinish_MainMissionID 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "12",
+        "sha256": "84fba9d8e3beb4cec1f25e07c79a280f9561c03f09c0720d1a898b4646388e8b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_Activity_NormalFinish_MainMissionID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "Integer",
+    "values": [
+      "8013106"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-activity-unlock-mainmissionid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_Activity_Unlock_MainMissionID",
+    "name_zh_cn": "模式常量 RogueNous_Activity_Unlock_MainMissionID",
+    "summary_en": "UnlockLocator constant RogueNous_Activity_Unlock_MainMissionID stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_Activity_Unlock_MainMissionID 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "11",
+        "sha256": "56a6dc8e606760b4c96bf8243f7e8e17bd492e7f9c2889f683a030bae17d2e60",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_Activity_Unlock_MainMissionID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "Integer",
+    "values": [
+      "8013103"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-defaultbranchdicesurfacelist",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_DefaultBranchDiceSurfaceList",
+    "name_zh_cn": "模式常量 RogueNous_DefaultBranchDiceSurfaceList",
+    "summary_en": "Mechanic constant RogueNous_DefaultBranchDiceSurfaceList stores IntegerList value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_DefaultBranchDiceSurfaceList 以 IntegerList 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "17",
+        "sha256": "f867fd853eaf6626a04d26bdbf1ec07359b69f019522a0bc779cb1729922db57",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_DefaultBranchDiceSurfaceList",
+    "mechanical_role": "Mechanic",
+    "value_kind": "IntegerList",
+    "values": [
+      "2043",
+      "2012",
+      "2022",
+      "2087",
+      "2004",
+      "2084"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-defaultdicebranch",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_DefaultDiceBranch",
+    "name_zh_cn": "模式常量 RogueNous_DefaultDiceBranch",
+    "summary_en": "Mechanic constant RogueNous_DefaultDiceBranch stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_DefaultDiceBranch 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "14",
+        "sha256": "67aa73f0194b4e24130e550a382258da0f2f7a24879f0d6e5253d9f4bdee9dec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_DefaultDiceBranch",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Integer",
+    "values": [
+      "101"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-dicesurface-abandonreward",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_DiceSurface_AbandonReward",
+    "name_zh_cn": "模式常量 RogueNous_DiceSurface_AbandonReward",
+    "summary_en": "Mechanic constant RogueNous_DiceSurface_AbandonReward stores IntegerMap value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_DiceSurface_AbandonReward 以 IntegerMap 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "6",
+        "sha256": "7b610e9098a158106830d635d30e4d8f5f1561408745f9b26d5049291aa9bd81",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_DiceSurface_AbandonReward",
+    "mechanical_role": "Mechanic",
+    "value_kind": "IntegerMap",
+    "values": [
+      {
+        "key": "IntValue",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-entrance-unlock-mainmissionid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_Entrance_Unlock_MainMissionID",
+    "name_zh_cn": "模式常量 RogueNous_Entrance_Unlock_MainMissionID",
+    "summary_en": "UnlockLocator constant RogueNous_Entrance_Unlock_MainMissionID stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_Entrance_Unlock_MainMissionID 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "13",
+        "sha256": "8407f6df19050e2e3c61658d3b0a3b7bbdd18ac79f333a5c86078475959f9d4c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_Entrance_Unlock_MainMissionID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "Integer",
+    "values": [
+      "8013104"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-guidearea1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_GuideArea1",
+    "name_zh_cn": "模式常量 RogueNous_GuideArea1",
+    "summary_en": "Mechanic constant RogueNous_GuideArea1 stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_GuideArea1 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "8",
+        "sha256": "2799acbd09b3565442cffcaf256e1296d43843d6fd0194e40eee2467e8e3519c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_GuideArea1",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Integer",
+    "values": [
+      "301"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-guidearea2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_GuideArea2",
+    "name_zh_cn": "模式常量 RogueNous_GuideArea2",
+    "summary_en": "Mechanic constant RogueNous_GuideArea2 stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_GuideArea2 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "9",
+        "sha256": "bc251a36aa6d5469edf862be35da7169d6727deb77098d71b73149d7b6f7b44c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_GuideArea2",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Integer",
+    "values": [
+      "302"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-guidearea3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_GuideArea3",
+    "name_zh_cn": "模式常量 RogueNous_GuideArea3",
+    "summary_en": "Mechanic constant RogueNous_GuideArea3 stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_GuideArea3 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "10",
+        "sha256": "105c8689eda02631aea582f6928e341a23b25f3fd7de8c347fa57c1c0bc86b63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_GuideArea3",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Integer",
+    "values": [
+      "303"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-guidedice1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_GuideDice1",
+    "name_zh_cn": "模式常量 RogueNous_GuideDice1",
+    "summary_en": "Mechanic constant RogueNous_GuideDice1 stores IntegerList value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_GuideDice1 以 IntegerList 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "3",
+        "sha256": "c3696ba438ab678fa6ee5a7e363f58c42f276e91b72e5e900602ab48dae97f65",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_GuideDice1",
+    "mechanical_role": "Mechanic",
+    "value_kind": "IntegerList",
+    "values": [
+      "2043",
+      "2001",
+      "2022",
+      "2007",
+      "2004",
+      "2084"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-guidedice2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_GuideDice2",
+    "name_zh_cn": "模式常量 RogueNous_GuideDice2",
+    "summary_en": "Mechanic constant RogueNous_GuideDice2 stores IntegerList value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_GuideDice2 以 IntegerList 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "4",
+        "sha256": "3d3127140446ccb90ecfca7d3a78f1e4faf654b1f377e81485f978cf6a55d06d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_GuideDice2",
+    "mechanical_role": "Mechanic",
+    "value_kind": "IntegerList",
+    "values": [
+      "2043",
+      "2001",
+      "2050",
+      "2004",
+      "2007",
+      "2084"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-module",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_Module",
+    "name_zh_cn": "模式常量 RogueNous_Module",
+    "summary_en": "PresentationLocator constant RogueNous_Module stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "PresentationLocator 类型常量 RogueNous_Module 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "7",
+        "sha256": "a71dfa501bf1edf9addfaa44a2fc759c53efa6a9f550d7572530f002f672453b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "presentationlocator"
+    ],
+    "source_id": "RogueNous_Module",
+    "mechanical_role": "PresentationLocator",
+    "value_kind": "Integer",
+    "values": [
+      "6000302"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-nousvaluelimit-max",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_NousValueLimit_Max",
+    "name_zh_cn": "模式常量 RogueNous_NousValueLimit_Max",
+    "summary_en": "Mechanic constant RogueNous_NousValueLimit_Max stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_NousValueLimit_Max 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_NousValueLimit_Max",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Integer",
+    "values": [
+      "40"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-nousvaluelimit-min",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_NousValueLimit_Min",
+    "name_zh_cn": "模式常量 RogueNous_NousValueLimit_Min",
+    "summary_en": "Mechanic constant RogueNous_NousValueLimit_Min stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_NousValueLimit_Min 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_NousValueLimit_Min",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Integer",
+    "values": [
+      "-40"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-recommendunlock",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_RecommendUnlock",
+    "name_zh_cn": "模式常量 RogueNous_RecommendUnlock",
+    "summary_en": "UnlockLocator constant RogueNous_RecommendUnlock stores IntegerList value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_RecommendUnlock 以 IntegerList 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "18",
+        "sha256": "9f3b7605c2bae748db037896e7008edf39c2c4ff3d158ef0f1830b5362235f33",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_RecommendUnlock",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "IntegerList",
+    "values": [
+      "303",
+      "4092928",
+      "6014251"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-recover-itemcost",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_Recover_ItemCost",
+    "name_zh_cn": "模式常量 RogueNous_Recover_ItemCost",
+    "summary_en": "Mechanic constant RogueNous_Recover_ItemCost stores IntegerMap value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_Recover_ItemCost 以 IntegerMap 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "5",
+        "sha256": "01f25085e105f7eb9c55fb04797efd001ed3b6ba8fb5a8ff60a19b9cfd8ff8bb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_Recover_ItemCost",
+    "mechanical_role": "Mechanic",
+    "value_kind": "IntegerMap",
+    "values": [
+      {
+        "key": "IntValue",
+        "value": "80"
+      }
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-score-to-talent-coin-rate",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_Score_To_Talent_Coin_Rate",
+    "name_zh_cn": "模式常量 RogueNous_Score_To_Talent_Coin_Rate",
+    "summary_en": "Mechanic constant RogueNous_Score_To_Talent_Coin_Rate stores Decimal value(s) without runtime interpretation.",
+    "summary_zh_cn": "Mechanic 类型常量 RogueNous_Score_To_Talent_Coin_Rate 以 Decimal 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "15",
+        "sha256": "b26e3526661d774bb50049398ad7ec9c72755cb57e77d82623b900b0f5162f35",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic",
+      "mode-constant"
+    ],
+    "source_id": "RogueNous_Score_To_Talent_Coin_Rate",
+    "mechanical_role": "Mechanic",
+    "value_kind": "Decimal",
+    "values": [
+      "0.1"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-skiptutorial-finish-dice-unlockid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_SkipTutorial_Finish_Dice_UnlockID",
+    "name_zh_cn": "模式常量 RogueNous_SkipTutorial_Finish_Dice_UnlockID",
+    "summary_en": "UnlockLocator constant RogueNous_SkipTutorial_Finish_Dice_UnlockID stores IntegerList value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_SkipTutorial_Finish_Dice_UnlockID 以 IntegerList 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "21",
+        "sha256": "4f0fdcf5d1c220124ffd0bde747ae993c03ff3d77cbda07d4e1f896ca4637afd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_SkipTutorial_Finish_Dice_UnlockID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "IntegerList",
+    "values": [
+      "1000016",
+      "1000017"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-skiptutorial-finish-mainstorybranchid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_SkipTutorial_Finish_MainStoryBranchID",
+    "name_zh_cn": "模式常量 RogueNous_SkipTutorial_Finish_MainStoryBranchID",
+    "summary_en": "UnlockLocator constant RogueNous_SkipTutorial_Finish_MainStoryBranchID stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_SkipTutorial_Finish_MainStoryBranchID 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "20",
+        "sha256": "553b5055548c877ec0d0d82e721cafa673fec722586fc1d292871f1cf1a20ed9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_SkipTutorial_Finish_MainStoryBranchID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "Integer",
+    "values": [
+      "1301"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-skiptutorial-finish-mainstoryid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_SkipTutorial_Finish_MainStoryID",
+    "name_zh_cn": "模式常量 RogueNous_SkipTutorial_Finish_MainStoryID",
+    "summary_en": "UnlockLocator constant RogueNous_SkipTutorial_Finish_MainStoryID stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_SkipTutorial_Finish_MainStoryID 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "19",
+        "sha256": "5d70a411e5b9d50380ad5c2a5c8ba85bcb34251712afbe80769d935891b923f7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_SkipTutorial_Finish_MainStoryID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "Integer",
+    "values": [
+      "13"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-skiptutorialarea-mainmissionid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_SkipTutorialArea_MainMissionID",
+    "name_zh_cn": "模式常量 RogueNous_SkipTutorialArea_MainMissionID",
+    "summary_en": "UnlockLocator constant RogueNous_SkipTutorialArea_MainMissionID stores IntegerList value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_SkipTutorialArea_MainMissionID 以 IntegerList 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "16",
+        "sha256": "3f81b79b79e0f6e0a7b0a51e2296e2d5aa8e71ceb44864de7dad2ec3f2d10b89",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_SkipTutorialArea_MainMissionID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "IntegerList",
+    "values": [
+      "8013101",
+      "8013102",
+      "8013104"
+    ]
+  },
+  {
+    "id": "gold-gears.mode-constant.roguenous-slotrarity-unlockid",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "RogueNous_SlotRarity_UnlockID",
+    "name_zh_cn": "模式常量 RogueNous_SlotRarity_UnlockID",
+    "summary_en": "UnlockLocator constant RogueNous_SlotRarity_UnlockID stores Integer value(s) without runtime interpretation.",
+    "summary_zh_cn": "UnlockLocator 类型常量 RogueNous_SlotRarity_UnlockID 以 Integer 形式保存，不在本目标中解释为运行时逻辑。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "0",
+        "sha256": "6e1f649c52117ccdebd4544017b6a2dfb771748e829ac94f47a3303810a3fef4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-constant",
+      "unlocklocator"
+    ],
+    "source_id": "RogueNous_SlotRarity_UnlockID",
+    "mechanical_role": "UnlockLocator",
+    "value_kind": "Integer",
+    "values": [
+      "0"
+    ]
+  }
+]

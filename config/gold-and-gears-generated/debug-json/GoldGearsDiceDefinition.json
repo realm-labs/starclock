@@ -1,0 +1,2528 @@
+{
+  "table": {
+    "name": "GoldGearsDiceDefinition",
+    "rows": [
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": true
+          },
+          "category_id": {
+            "Integer": 1
+          },
+          "category_source_id": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2004"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2004"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2043"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice111.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "13876745819918922889"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, additionally generates 1 Blessing Trotter beacon and 1 Curio Trotter beacon.\",\"text_hash\":\"14790359989943718375\",\"text_zh_cn\":\"第一、二位面开始时，额外生成1个【祝福扑满】与1个【奇物扑满】信标。\"},{\"parameters\":[\"80\"],\"role\":\"PassiveEffect\",\"text_en\":\"Obtains #1[i] Cosmic Fragment(s) for each Trotter defeated.\",\"text_hash\":\"3114534170203516322\",\"text_zh_cn\":\"每击败1只扑满，获得#1[i]宇宙碎片。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every #1 time(s) a passive effect is triggered, gain the Path Boost effect of the selected Path.\",\"text_hash\":\"8729752646577383277\",\"text_zh_cn\":\"每触发#1次被动效果，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000007"
+              },
+              {
+                "String": "61000008"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "6280843551651826720"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Trotter Extrapolation"
+          },
+          "name_text_hash": {
+            "String": "11481090187541518864"
+          },
+          "name_zh_cn": {
+            "String": "扑满推演"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2014"
+              },
+              {
+                "String": "2018"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2042"
+              },
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2052"
+              },
+              {
+                "String": "2054"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 101
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.101"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "8090465823475344800"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2042"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2018"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Go over to domains with Blessing Trotter or Curio Trotter Beacon."
+          },
+          "summary_zh_cn": {
+            "String": "前往带有【祝福扑满】或【奇物扑满】信标的区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-1"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 1
+          },
+          "category_source_id": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2048"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2032"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2048"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2032"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2024"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice112.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "9919822452701633704"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).\",\"text_hash\":\"4131488934745935298\",\"text_zh_cn\":\"第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。\"},{\"parameters\":[],\"role\":\"PassiveEffect\",\"text_en\":\"When a domain receives Knowledge, a random beacon will be generated for it.\",\"text_hash\":\"4431670743118574200\",\"text_zh_cn\":\"当1个区域获得【知识】效果时，为其生成随机信标。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"Whenever allies enter a domain with the Knowledge effect, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"7939821641515091618\",\"text_zh_cn\":\"每次进入带有【知识】效果的区域，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "3224306335919356159"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Walker Symbiosis"
+          },
+          "name_text_hash": {
+            "String": "15366711401124256201"
+          },
+          "name_zh_cn": {
+            "String": "行者共生"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              },
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2014"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2040"
+              },
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2048"
+              },
+              {
+                "String": "2052"
+              },
+              {
+                "String": "2054"
+              },
+              {
+                "String": "2078"
+              },
+              {
+                "String": "2102"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 102
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.102"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "4750448699729690743"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2078"
+              },
+              {
+                "String": "2054"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2040"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Go over to domains with Knowledge."
+          },
+          "summary_zh_cn": {
+            "String": "前往带有【知识】效果的区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-1"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002101"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 1
+          },
+          "category_source_id": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2056"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2019"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2056"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2019"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2025"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice113.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "12504335695396958923"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"1\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, additionally generate #1[i] random beacon(s).\",\"text_hash\":\"13279144837191105704\",\"text_zh_cn\":\"第一、二位面开始时，额外生成#1[i]个随机信标。\"},{\"parameters\":[\"1\"],\"role\":\"PassiveEffect\",\"text_en\":\"When entering a domain with a beacon, obtain #1[i] Blessing(s). Only takes effect once for each type of beacon across each Plane.\",\"text_hash\":\"10784981317566379512\",\"text_zh_cn\":\"进入带有信标的区域时，获得#1[i]次祝福，每个位面的每种信标只生效一次。\"},{\"parameters\":[\"50\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"Whenever allies enter a domain with a beacon, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"7361736752154248266\",\"text_zh_cn\":\"每次进入带有信标的区域，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "initial_effect_extra_ids": "Null",
+          "introduction_text_hash": {
+            "String": "5290919216522443854"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Ultra-Remote Beacon"
+          },
+          "name_text_hash": {
+            "String": "12109396009021544758"
+          },
+          "name_zh_cn": {
+            "String": "超距信标"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2014"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2048"
+              },
+              {
+                "String": "2052"
+              },
+              {
+                "String": "2054"
+              },
+              {
+                "String": "2056"
+              },
+              {
+                "String": "2078"
+              },
+              {
+                "String": "2101"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 103
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.103"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "8559581985643460204"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2052"
+              },
+              {
+                "String": "2054"
+              },
+              {
+                "String": "2043"
+              },
+              {
+                "String": "2101"
+              },
+              {
+                "String": "2056"
+              },
+              {
+                "String": "2048"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Go over to domains with different beacons."
+          },
+          "summary_zh_cn": {
+            "String": "前往带有不同信标的区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-1"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002101"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 2
+          },
+          "category_source_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2101"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2005"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2002"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2101"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2005"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2002"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice211.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "3425436631570084397"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"1\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, cause #1[i] random domains to become Reward domains.\",\"text_hash\":\"8577945111856768253\",\"text_zh_cn\":\"第一、二位面开始时，将#1[i]个随机区域变为【奖励】区域。\"},{\"parameters\":[\"1\"],\"role\":\"PassiveEffect\",\"text_en\":\"When entering an Occurrence, Occurrence: Abnormal, or Reward domain, immediately obtain #1[i] Blessing(s).\",\"text_hash\":\"9076865446120668699\",\"text_zh_cn\":\"进入【事件】、【事件•异常】或【奖励】区域时，立即获得#1[i]个随机祝福。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every #1 Occurrence interaction(s) completed, gain the Path Boost effect of the selected Path.\",\"text_hash\":\"3703254823050465304\",\"text_zh_cn\":\"每完成#1次事件交互，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000015"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "15747969131674479212"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Occurrence Extrapolation"
+          },
+          "name_text_hash": {
+            "String": "14456854660797233476"
+          },
+          "name_zh_cn": {
+            "String": "事件推演"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000016"
+              },
+              {
+                "String": "61000024"
+              },
+              {
+                "String": "61000015"
+              },
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2002"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2008"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2012"
+              },
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2038"
+              },
+              {
+                "String": "2101"
+              },
+              {
+                "String": "2103"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 201
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.201"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "7361282525051632028"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2002"
+              },
+              {
+                "String": "2038"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2012"
+              },
+              {
+                "String": "2103"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Go over to Occurrence, Occurrence: Abnormal, or Reward domains."
+          },
+          "summary_zh_cn": {
+            "String": "前往【事件】，【事件•异常】或【奖励】区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-2"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002001"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 2
+          },
+          "category_source_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2103"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2011"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2103"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2011"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2010"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice212.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "16117560506670711909"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, cause #1[i] random domains to become Elite domains.\",\"text_hash\":\"18005493556606405401\",\"text_zh_cn\":\"第一、二位面开始时，将#1[i]个随机区域变为【精英】区域。\"},{\"parameters\":[\"1\"],\"role\":\"PassiveEffect\",\"text_en\":\"Achieve victory in the Elite domain to get #1[i] additional Curio(s).\",\"text_hash\":\"4563347145617698199\",\"text_zh_cn\":\"在【精英】区域战斗胜利后，可额外获得#1[i]次奇物。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every #1 battle victory/victories obtained, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"7896578517388757161\",\"text_zh_cn\":\"每获得#1次战斗的胜利，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000013"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "15167996275842608701"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Combat Extrapolation"
+          },
+          "name_text_hash": {
+            "String": "4455416130984982293"
+          },
+          "name_zh_cn": {
+            "String": "战斗推演"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000013"
+              },
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2002"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2008"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2016"
+              },
+              {
+                "String": "2017"
+              },
+              {
+                "String": "2022"
+              },
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2037"
+              },
+              {
+                "String": "2103"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 202
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.202"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "13633949943815383561"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2025"
+              },
+              {
+                "String": "2037"
+              },
+              {
+                "String": "2016"
+              },
+              {
+                "String": "2103"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Go over to Combat, or Elite domains."
+          },
+          "summary_zh_cn": {
+            "String": "前往【战斗】或【精英】区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-2"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002102"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 2
+          },
+          "category_source_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2006"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2017"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2003"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2006"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2017"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2003"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice213.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "7613338100441403625"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[],\"role\":\"InitialEffect\",\"text_en\":\"Expands the First and Third Planes.\",\"text_hash\":\"9297563675084109556\",\"text_zh_cn\":\"第一、三位面棋盘扩大。\"},{\"parameters\":[],\"role\":\"PassiveEffect\",\"text_en\":\"During the movement stage, can move to any domain of the same type as the one you are currently in.\",\"text_hash\":\"13830996442897007048\",\"text_zh_cn\":\"移动阶段，可以移动至任意与自身所在区域相同类型的区域。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"Whenever allies enter a non-adjacent domain, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"4022832580617988214\",\"text_zh_cn\":\"每次进入不相邻的区域，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "initial_effect_extra_ids": "Null",
+          "introduction_text_hash": {
+            "String": "7718828391716480544"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Pursuit"
+          },
+          "name_text_hash": {
+            "String": "7125174974984829116"
+          },
+          "name_zh_cn": {
+            "String": "追猎"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2002"
+              },
+              {
+                "String": "2003"
+              },
+              {
+                "String": "2006"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2008"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2039"
+              },
+              {
+                "String": "2046"
+              },
+              {
+                "String": "2053"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 203
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.203"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "16592477437737998461"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2003"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2006"
+              },
+              {
+                "String": "2039"
+              },
+              {
+                "String": "2046"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Go over to non-adjacent domains."
+          },
+          "summary_zh_cn": {
+            "String": "前往不相邻的区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-2"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002102"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 3
+          },
+          "category_source_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2047"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2027"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2047"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2027"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2024"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice311.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "9759359103415926105"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).\",\"text_hash\":\"17489798446622265237\",\"text_zh_cn\":\"第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。\"},{\"parameters\":[\"5\",\"1\",\"10\"],\"role\":\"PassiveEffect\",\"text_en\":\"The initial countdown is reduced by #1[i]. When entering a domain with the Knowledge effect, recover the countdown by #2[i] instead. When entering the Boss Domain, receive a Blessing for every #3[i] countdown point(s) in possession.\",\"text_hash\":\"6762298660225429275\",\"text_zh_cn\":\"初始倒计时减少#1[i]点，进入带有【知识】效果的区域时，改为回复#2[i]点倒计时，进入【首领】区域时，每#3[i]点倒计时获得1次祝福。\"},{\"parameters\":[],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every point of countdown remaining, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"8056062443007740247\",\"text_zh_cn\":\"每有1点倒计时，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "10667016135700945132"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Countdown"
+          },
+          "name_text_hash": {
+            "String": "15783049304205837210"
+          },
+          "name_zh_cn": {
+            "String": "倒计时"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              },
+              {
+                "String": "61000018"
+              },
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2030"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2035"
+              },
+              {
+                "String": "2041"
+              },
+              {
+                "String": "2047"
+              },
+              {
+                "String": "2072"
+              },
+              {
+                "String": "2077"
+              },
+              {
+                "String": "2078"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 301
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.301"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "15381414006712633853"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2078"
+              },
+              {
+                "String": "2072"
+              },
+              {
+                "String": "2041"
+              },
+              {
+                "String": "2047"
+              },
+              {
+                "String": "2033"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Get more Countdown."
+          },
+          "summary_zh_cn": {
+            "String": "获得更多倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-3"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002001"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 3
+          },
+          "category_source_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2031"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2034"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2031"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2034"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice312.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "1134001620670592970"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).\",\"text_hash\":\"16267023027801737511\",\"text_zh_cn\":\"第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。\"},{\"parameters\":[\"15\"],\"role\":\"PassiveEffect\",\"text_en\":\"Domains with Knowledge will not collapse. When entering Boss, Occurrence: Abnormal, or Transaction Domains, immediately obtain #1[i] Cosmic Fragments for each domain currently under the Knowledge effect in the current plane.\",\"text_hash\":\"3865194501829144577\",\"text_zh_cn\":\"带有【知识】效果的区域不会塌陷。进入【首领】、【事件•异常】或【交易】区域时，当前位面每存在1个带有【知识】效果的区域，立即获得#1[i]宇宙碎片。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every #1 time(s) a passive effect is triggered, gain the Path Boost effect of the selected Path.\",\"text_hash\":\"1123653301523532163\",\"text_zh_cn\":\"每触发#1次被动效果，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "10717225475069636930"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Amber Barrier"
+          },
+          "name_text_hash": {
+            "String": "9031994772095339772"
+          },
+          "name_zh_cn": {
+            "String": "琥珀障壁"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              },
+              {
+                "String": "61000018"
+              },
+              {
+                "String": "61000024"
+              },
+              {
+                "String": "61000020"
+              },
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2030"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2034"
+              },
+              {
+                "String": "2035"
+              },
+              {
+                "String": "2041"
+              },
+              {
+                "String": "2046"
+              },
+              {
+                "String": "2078"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 302
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.302"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "8913944893288425186"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2078"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2041"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Make the plane have more domains with Knowledge."
+          },
+          "summary_zh_cn": {
+            "String": "使位面上有更多带有【知识】效果的区域。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-3"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002103"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 3
+          },
+          "category_source_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2023"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2073"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2030"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2023"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2073"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2030"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice313.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "13441561166424114753"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).\",\"text_hash\":\"7205710189084209724\",\"text_zh_cn\":\"第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。\"},{\"parameters\":[\"50\"],\"role\":\"PassiveEffect\",\"text_en\":\"When a domain with Knowledge collapses, obtain #1[i] Cosmic Fragment(s). If the collapsed domain is Elite, Reward, or Adventure, the Cosmic Fragments obtained are doubled. If the domain contains beacon(s), the Cosmic Fragments obtained are doubled.\",\"text_hash\":\"14766236691365871827\",\"text_zh_cn\":\"带有【知识】效果的区域塌陷时，获得#1[i]宇宙碎片。如果该区域是【精英】、【奖励】或【冒险】区域，获得的宇宙碎片翻倍。如果该区域有信标，获得的宇宙碎片翻倍。\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For the collapse of every #1 domain(s) with Knowledge, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"16878064566543789134\",\"text_zh_cn\":\"每有#1个带有【知识】效果的区域塌陷，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "18375105354158323979"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Investment Sale"
+          },
+          "name_text_hash": {
+            "String": "8367453384987442118"
+          },
+          "name_zh_cn": {
+            "String": "投资出售"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000021"
+              },
+              {
+                "String": "61000013"
+              },
+              {
+                "String": "61000015"
+              },
+              {
+                "String": "61000014"
+              },
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2023"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2026"
+              },
+              {
+                "String": "2030"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2034"
+              },
+              {
+                "String": "2035"
+              },
+              {
+                "String": "2041"
+              },
+              {
+                "String": "2057"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 303
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.303"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "15672619027895699413"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2034"
+              },
+              {
+                "String": "2030"
+              },
+              {
+                "String": "2024"
+              },
+              {
+                "String": "2033"
+              },
+              {
+                "String": "2057"
+              },
+              {
+                "String": "2023"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Give domains the Knowledge effect before they collapse."
+          },
+          "summary_zh_cn": {
+            "String": "使区域在塌陷前带有【知识】效果。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-3"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002103"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 4
+          },
+          "category_source_id": {
+            "String": "4"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2064"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2063"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2067"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2064"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2063"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2067"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice411.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "8890754732118567068"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\",\"100\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, cause #1[i] random domains to become Transaction domains. Gains #2[i] Cosmic Fragments.\",\"text_hash\":\"8736549074448691009\",\"text_zh_cn\":\"第一、二位面开始时，将#1[i]个随机区域变为【交易】区域，并获得#2[i]宇宙碎片。\"},{\"parameters\":[\"0.3\"],\"role\":\"PassiveEffect\",\"text_en\":\"When purchasing items from the Blessing, Curio, or Enhance store, #1[i]% of the consumed Cosmic Fragment will be returned\",\"text_hash\":\"9085339126318645742\",\"text_zh_cn\":\"在【祝福商店】、【奇物商店】或【强化商店】购买商品时，返还#1[i]%实际消耗的宇宙碎片\"},{\"parameters\":[\"100\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every #1 Cosmic Fragments consumed, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"9805719457845394418\",\"text_zh_cn\":\"每消耗#1宇宙碎片，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000020"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "15816039028350926199"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Company Time"
+          },
+          "name_text_hash": {
+            "String": "13415401674391200762"
+          },
+          "name_zh_cn": {
+            "String": "公司时刻"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2017"
+              },
+              {
+                "String": "2051"
+              },
+              {
+                "String": "2058"
+              },
+              {
+                "String": "2064"
+              },
+              {
+                "String": "2065"
+              },
+              {
+                "String": "2066"
+              },
+              {
+                "String": "2067"
+              },
+              {
+                "String": "2068"
+              },
+              {
+                "String": "2071"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 401
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.9"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.401"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "9359168618355518062"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2071"
+              },
+              {
+                "String": "2066"
+              },
+              {
+                "String": "2067"
+              },
+              {
+                "String": "2068"
+              },
+              {
+                "String": "2064"
+              },
+              {
+                "String": "2058"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Consume more Cosmic Fragments."
+          },
+          "summary_zh_cn": {
+            "String": "消耗更多宇宙碎片。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-4"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002104"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 4
+          },
+          "category_source_id": {
+            "String": "4"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2065"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2063"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2061"
+              },
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2065"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2063"
+              },
+              {
+                "String": "2084"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2061"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice412.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "16884406212017728839"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"2\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of the First and Second Plane, additionally generates #1[i] Curio Trotter beacon(s).\",\"text_hash\":\"10177392651656837820\",\"text_zh_cn\":\"第一、二位面开始时，额外生成#1[i]个【奇物扑满】信标。\"},{\"parameters\":[\"40\"],\"role\":\"PassiveEffect\",\"text_en\":\"For every Curio obtained, immediately gain #1[i] Cosmic Fragment(s)\",\"text_hash\":\"3229145435853233950\",\"text_zh_cn\":\"每获得1个奇物，立即获得#1[i]宇宙碎片\"},{\"parameters\":[\"1\"],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every #1 Curio(s) in possession, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"11603880554044541540\",\"text_zh_cn\":\"每拥有#1个奇物，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000008"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "4810572377293320516"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Curio Extrapolation"
+          },
+          "name_text_hash": {
+            "String": "8688027771404726548"
+          },
+          "name_zh_cn": {
+            "String": "奇物推演"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2001"
+              },
+              {
+                "String": "2007"
+              },
+              {
+                "String": "2010"
+              },
+              {
+                "String": "2051"
+              },
+              {
+                "String": "2061"
+              },
+              {
+                "String": "2062"
+              },
+              {
+                "String": "2064"
+              },
+              {
+                "String": "2065"
+              },
+              {
+                "String": "2067"
+              },
+              {
+                "String": "2070"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 402
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.10"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.402"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "11957837277935664980"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2067"
+              },
+              {
+                "String": "2061"
+              },
+              {
+                "String": "2062"
+              },
+              {
+                "String": "2064"
+              },
+              {
+                "String": "2051"
+              },
+              {
+                "String": "2065"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Get more Curios."
+          },
+          "summary_zh_cn": {
+            "String": "获得更多奇物。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-4"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002104"
+          }
+        }
+      },
+      {
+        "values": {
+          "available_by_default": {
+            "Bool": false
+          },
+          "category_id": {
+            "Integer": 4
+          },
+          "category_source_id": {
+            "String": "4"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "default_common_surface_ids": {
+            "List": [
+              {
+                "String": "2088"
+              },
+              {
+                "String": "2090"
+              },
+              {
+                "String": "2092"
+              },
+              {
+                "String": "2093"
+              },
+              {
+                "String": "2087"
+              }
+            ]
+          },
+          "default_surface_ids": {
+            "List": [
+              {
+                "String": "2084"
+              },
+              {
+                "String": "2088"
+              },
+              {
+                "String": "2090"
+              },
+              {
+                "String": "2092"
+              },
+              {
+                "String": "2093"
+              },
+              {
+                "String": "2087"
+              }
+            ]
+          },
+          "default_ultra_surface_id": {
+            "String": "2084"
+          },
+          "dice_icon_path": {
+            "String": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice413.png"
+          },
+          "effect_bundle_text_hash": {
+            "String": "294469351013103143"
+          },
+          "effect_parts_json": {
+            "String": "[{\"parameters\":[\"1\"],\"role\":\"InitialEffect\",\"text_en\":\"At the start of each Plane, gains #1[i] cheat attempt(s), and applies random beacons to all Combat and Elite domains.\",\"text_hash\":\"3318902596449126721\",\"text_zh_cn\":\"每个位面开始时，获得#1[i]次作弊次数，并为所有【战斗】和【精英】区域附加随机信标。\"},{\"parameters\":[\"1\"],\"role\":\"PassiveEffect\",\"text_en\":\"Gain #1[i] reroll attempt(s) after moving. General Buff dice faces will not expire. All General Buff dice faces, once rolled, will take effect in the next room.\",\"text_hash\":\"17835963811242538990\",\"text_zh_cn\":\"移动后获得#1[i]次重投次数。「通用增益」骰面持续时间无限，所有「通用增益」骰面只要投出过即可在下个房间生效。\"},{\"parameters\":[],\"role\":\"PathBoostTrigger\",\"text_en\":\"For every General Buff dice face used and having obtained victory in battle in a domain, gain the Path Boost effect for the selected Path.\",\"text_hash\":\"9195818755197109836\",\"text_zh_cn\":\"每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，获得所选命途的【命途强化】效果。\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "initial_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000011"
+              },
+              {
+                "String": "61000013"
+              }
+            ]
+          },
+          "introduction_text_hash": {
+            "String": "15417189467369032154"
+          },
+          "kind": {
+            "String": "CustomDice"
+          },
+          "name_en": {
+            "String": "Data Inflation"
+          },
+          "name_text_hash": {
+            "String": "13505773322863677217"
+          },
+          "name_zh_cn": {
+            "String": "数据膨胀"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "passive_effect_extra_ids": {
+            "List": [
+              {
+                "String": "61000022"
+              }
+            ]
+          },
+          "recommended_surface_ids": {
+            "List": [
+              {
+                "String": "2080"
+              },
+              {
+                "String": "2081"
+              },
+              {
+                "String": "2082"
+              },
+              {
+                "String": "2083"
+              },
+              {
+                "String": "2084"
+              },
+              {
+                "String": "2085"
+              },
+              {
+                "String": "2086"
+              },
+              {
+                "String": "2087"
+              },
+              {
+                "String": "2088"
+              },
+              {
+                "String": "2089"
+              },
+              {
+                "String": "2090"
+              },
+              {
+                "String": "2091"
+              },
+              {
+                "String": "2092"
+              },
+              {
+                "String": "2093"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "sort": {
+            "Integer": 403
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.custom-dice.403"
+          },
+          "starting_effect_toast_text_hash": {
+            "String": "13715533383300262442"
+          },
+          "suggestive_surface_ids": {
+            "List": [
+              {
+                "String": "2084"
+              },
+              {
+                "String": "2088"
+              },
+              {
+                "String": "2090"
+              },
+              {
+                "String": "2092"
+              },
+              {
+                "String": "2093"
+              },
+              {
+                "String": "2087"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Use \"General Buff\" Dice Face to enter combat."
+          },
+          "summary_zh_cn": {
+            "String": "使用「通用增益」骰面进入战斗。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice"
+              },
+              {
+                "String": "dice-category-4"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1002104"
+          }
+        }
+      }
+    ]
+  }
+}

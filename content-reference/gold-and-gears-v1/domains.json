@@ -1,0 +1,350 @@
+[
+  {
+    "id": "gold-gears.domain.adventure",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Adventure",
+    "name_zh_cn": "冒险",
+    "summary_en": "Adventure is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "Adventure 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-100",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/100",
+        "sha256": "a9168c12bc15fa9acffdbce3165a2ebef079fa387aa2f1a2bd2454f9c1a5468a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "Adventure",
+      "domain"
+    ],
+    "source_id": "Adventure"
+  },
+  {
+    "id": "gold-gears.domain.empty",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Blank",
+    "name_zh_cn": "空白",
+    "summary_en": "Empty is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "Empty 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.rogueblockcreategrouplist-111201112",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+        "locator": "RogueBlockCreateGroupList/111201112",
+        "sha256": "35db7bc336e6013ec65fc370702d1d23daa497b078e038cb7bd81261ab9cdfd3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "Empty",
+      "domain"
+    ],
+    "source_id": "Empty"
+  },
+  {
+    "id": "gold-gears.domain.event",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Occurrence",
+    "name_zh_cn": "事件",
+    "summary_en": "Event is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "Event 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/104",
+        "sha256": "5fc6290e6870a48af43da79318a8d7311fe55db24ea19bd97372d728defb9594",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "Event",
+      "domain"
+    ],
+    "source_id": "Event"
+  },
+  {
+    "id": "gold-gears.domain.monsterboss",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Boss",
+    "name_zh_cn": "首领",
+    "summary_en": "MonsterBoss is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "MonsterBoss 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-205",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/205",
+        "sha256": "bbcaacda48a38ad07c39756f632b3f3fd935a073c44c758aa3c417ff43468613",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "MonsterBoss",
+      "domain"
+    ],
+    "source_id": "MonsterBoss"
+  },
+  {
+    "id": "gold-gears.domain.monsterelite",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Elite",
+    "name_zh_cn": "精英",
+    "summary_en": "MonsterElite is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "MonsterElite 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-103",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/103",
+        "sha256": "eaa1a14eeb0b04598c43f41de0a59955db173a8afb9cc7b2802250aa8e5feb8a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "MonsterElite",
+      "domain"
+    ],
+    "source_id": "MonsterElite"
+  },
+  {
+    "id": "gold-gears.domain.monsternormal",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Combat",
+    "name_zh_cn": "战斗",
+    "summary_en": "MonsterNormal is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "MonsterNormal 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/201",
+        "sha256": "76de3b78fafe47b8c94b3dfdd2d920d1d6c9e4bfe380973b7f5bdcad36a03e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "MonsterNormal",
+      "domain"
+    ],
+    "source_id": "MonsterNormal"
+  },
+  {
+    "id": "gold-gears.domain.monsternousboss",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Resonance Extrapolation Boss",
+    "name_zh_cn": "回响推演首领",
+    "summary_en": "MonsterNousBoss is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "MonsterNousBoss 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.rogueblockcreategrouplist-911101101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueBlockCreateGroupList/911101101",
+        "sha256": "59e5d8420ee1aa855db0eaff81293a8ec858b5413db95425c319d30dce5f591e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "MonsterNousBoss",
+      "domain"
+    ],
+    "source_id": "MonsterNousBoss"
+  },
+  {
+    "id": "gold-gears.domain.nousevent",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Cognition Event",
+    "name_zh_cn": "认知事件",
+    "summary_en": "NousEvent is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "NousEvent 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/2",
+        "sha256": "23b231a87a1c25002c3a4a4943eea876ab1f850b2f9a44c203577f899d7b9f4e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "NousEvent",
+      "domain"
+    ],
+    "source_id": "NousEvent"
+  },
+  {
+    "id": "gold-gears.domain.nousspecialevent",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Cognition Special Event",
+    "name_zh_cn": "特殊认知事件",
+    "summary_en": "NousSpecialEvent is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "NousSpecialEvent 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-102",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/102",
+        "sha256": "296e549a73f172966cb872b6d52206b408099be856277c9a627a18218ea2bdb1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "NousSpecialEvent",
+      "domain"
+    ],
+    "source_id": "NousSpecialEvent"
+  },
+  {
+    "id": "gold-gears.domain.respite",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Respite",
+    "name_zh_cn": "休整",
+    "summary_en": "Respite is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "Respite 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-200",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/200",
+        "sha256": "52d76258f3f62ac133b71bc172dd66a6bee76149392a82fab7f3095f614bc1d2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "Respite",
+      "domain"
+    ],
+    "source_id": "Respite"
+  },
+  {
+    "id": "gold-gears.domain.reward",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Reward",
+    "name_zh_cn": "奖励",
+    "summary_en": "Reward is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "Reward 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel1-type1-01-json.roguechestgriditemmap-101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/101",
+        "sha256": "1a09f31c9e5d3ee407f305b51ac39f90632db0e0642bf8e5a3108bf64e3c2439",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "Reward",
+      "domain"
+    ],
+    "source_id": "Reward"
+  },
+  {
+    "id": "gold-gears.domain.trade",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Domain",
+    "name_en": "Transaction",
+    "name_zh_cn": "交易",
+    "summary_en": "Trade is reachable from at least one authored Gold and Gears node or creation rule.",
+    "summary_zh_cn": "Trade 可由至少一个已发布的黄金与机械节点或创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-customlevel2-type1-01-json.roguechestgriditemmap-101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel2_Type1_01.json",
+        "locator": "RogueChestGridItemMap/101",
+        "sha256": "6806352f24a156fa6fd82d1463a2171e8b0d6bfa756a49af9ae75606cd6b42e8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "Trade",
+      "domain"
+    ],
+    "source_id": "Trade"
+  }
+]

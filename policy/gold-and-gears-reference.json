@@ -1,0 +1,63 @@
+{
+  "schema_revision": "starclock.gold-and-gears-reference-policy.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "state": "Candidate",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "mode_family": "simulated-universe-gold-and-gears",
+    "profile_id": "gold-gears.profile.v1"
+  },
+  "structured_sources": [
+    {
+      "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+      "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "role": "released structured rows, relationships, values, stages and text maps"
+    },
+    {
+      "repository": "https://github.com/Mar-7th/StarRailRes.git",
+      "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "role": "bilingual identity and translation cross-check"
+    }
+  ],
+  "terminal_denominators": {
+    "source_inventory_files": 2882,
+    "manifest_categories": 42,
+    "source_obligations": 7913,
+    "normalized_files": 51,
+    "workbook_tables": 52,
+    "workbook_rows": 29140,
+    "mechanic_rules": 1224,
+    "provenance_rows": 9082,
+    "semantic_fixture_families": 18,
+    "research_gaps": 16,
+    "blocking_research_gaps": 0
+  },
+  "ownership": {
+    "gold_and_gears_source_obligations": 7199,
+    "shared_source_obligations": 714,
+    "other_mode_rows_allowed": false
+  },
+  "workbook_authoring": {
+    "adapter": "python-openpyxl-3.1.5",
+    "schema_and_export_authority": "sora-cli-0.3.0",
+    "workbooks": [
+      "config/gold-and-gears/data/GoldAndGears.xlsx",
+      "config/gold-and-gears/data/GoldAndGearsProgression.xlsx",
+      "config/gold-and-gears/data/GoldAndGearsContent.xlsx",
+      "config/gold-and-gears/data/GoldAndGearsEvidence.xlsx"
+    ],
+    "json_runtime_allowed": false,
+    "overwrite_designer_workbook": false
+  },
+  "runtime_boundary": {
+    "delivery_lane": "CandidateReferenceOnly",
+    "runtime_loading": false,
+    "runtime_lowering": false,
+    "runtime_handlers": 0,
+    "playable_profile": false,
+    "standard_or_production_bundle_mutation": false
+  },
+  "release_evidence": "evidence/gold-and-gears-reference-v1/release/release-evidence.json",
+  "clean_checkout_command": "node tools/release/run-clean-checkout.mjs"
+}

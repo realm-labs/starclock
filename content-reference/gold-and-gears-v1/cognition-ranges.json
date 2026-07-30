@@ -1,0 +1,1341 @@
+[
+  {
+    "id": "gold-gears.cognition-range.301",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 301 Cognition Range",
+    "name_zh_cn": "区域 301 认知值范围",
+    "summary_en": "Area 301 permits inclusive Cognition values from -20 through 20.",
+    "summary_zh_cn": "区域 301 允许的认知值闭区间为 -20 至 20。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "0",
+        "sha256": "623f071dbbddc1a780fe905d05fd8bd4c2f26e501ffd44e6bf02dbc84575a05f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "301",
+    "area_id": "gold-gears.area.301",
+    "minimum_cognition": "-20",
+    "maximum_cognition": "20",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.302",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 302 Cognition Range",
+    "name_zh_cn": "区域 302 认知值范围",
+    "summary_en": "Area 302 permits inclusive Cognition values from -20 through 20.",
+    "summary_zh_cn": "区域 302 允许的认知值闭区间为 -20 至 20。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "1",
+        "sha256": "5eafce3e31c778f0684c621fa848c91d056a71bce1831a6bc26006a8dc3f98a8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "302",
+    "area_id": "gold-gears.area.302",
+    "minimum_cognition": "-20",
+    "maximum_cognition": "20",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.303",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 303 Cognition Range",
+    "name_zh_cn": "区域 303 认知值范围",
+    "summary_en": "Area 303 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 303 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "2",
+        "sha256": "2ad16f3214f17f436842243a556ddeb346ba786f634e96adbdc8c39a37fd20ae",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "303",
+    "area_id": "gold-gears.area.303",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.401",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 401 Cognition Range",
+    "name_zh_cn": "区域 401 认知值范围",
+    "summary_en": "Area 401 permits inclusive Cognition values from -20 through 20.",
+    "summary_zh_cn": "区域 401 允许的认知值闭区间为 -20 至 20。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "3",
+        "sha256": "358ff837df247cba9406cf0ec53f56b53917566165faba75faa7fe1c9ef23f62",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "401",
+    "area_id": "gold-gears.area.401",
+    "minimum_cognition": "-20",
+    "maximum_cognition": "20",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.402",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 402 Cognition Range",
+    "name_zh_cn": "区域 402 认知值范围",
+    "summary_en": "Area 402 permits inclusive Cognition values from -20 through 20.",
+    "summary_zh_cn": "区域 402 允许的认知值闭区间为 -20 至 20。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "4",
+        "sha256": "aa3c9a1008b495c58941ffedaa5c2bdb5ad450df376d7caf2b88c038a3239b8c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "402",
+    "area_id": "gold-gears.area.402",
+    "minimum_cognition": "-20",
+    "maximum_cognition": "20",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.403",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 403 Cognition Range",
+    "name_zh_cn": "区域 403 认知值范围",
+    "summary_en": "Area 403 permits inclusive Cognition values from -30 through 30.",
+    "summary_zh_cn": "区域 403 允许的认知值闭区间为 -30 至 30。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "5",
+        "sha256": "e25a028e6d759e90297a46d2924abb2ac25480d256094f5331fad65ebacd7551",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "403",
+    "area_id": "gold-gears.area.403",
+    "minimum_cognition": "-30",
+    "maximum_cognition": "30",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.404",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 404 Cognition Range",
+    "name_zh_cn": "区域 404 认知值范围",
+    "summary_en": "Area 404 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 404 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "6",
+        "sha256": "758591a8ae09bafb4674f4c5ea110c6325961ddd952604ad9fa8fdc19666a8e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "404",
+    "area_id": "gold-gears.area.404",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.405",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 405 Cognition Range",
+    "name_zh_cn": "区域 405 认知值范围",
+    "summary_en": "Area 405 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 405 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "7",
+        "sha256": "495b90d78529af8f059c8a0b38ec65be72174e906750939a7995917a3846f280",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "405",
+    "area_id": "gold-gears.area.405",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.406",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 406 Cognition Range",
+    "name_zh_cn": "区域 406 认知值范围",
+    "summary_en": "Area 406 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 406 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "8",
+        "sha256": "55060e5b4a5395f859dd4f9d584b02cc0e6a886c224cf7bd300ac8147b2303fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "406",
+    "area_id": "gold-gears.area.406",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.407",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 407 Cognition Range",
+    "name_zh_cn": "区域 407 认知值范围",
+    "summary_en": "Area 407 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 407 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "9",
+        "sha256": "24331af809fe17697a785639edd9c5a35de39a8f497e6fc465e67bfeae3aaf80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "407",
+    "area_id": "gold-gears.area.407",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.408",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 408 Cognition Range",
+    "name_zh_cn": "区域 408 认知值范围",
+    "summary_en": "Area 408 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 408 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "10",
+        "sha256": "79f0d5eb9da193a089a63ac3135db7a08bc5b69da063fcb037fb06604c4a3162",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "408",
+    "area_id": "gold-gears.area.408",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.409",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 409 Cognition Range",
+    "name_zh_cn": "区域 409 认知值范围",
+    "summary_en": "Area 409 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 409 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "11",
+        "sha256": "2e33d72e979133d774ab35ac43e688d5a3a968e83e99aea890e0527d8c58376a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "409",
+    "area_id": "gold-gears.area.409",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  },
+  {
+    "id": "gold-gears.cognition-range.410",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CognitionRange",
+    "name_en": "Area 410 Cognition Range",
+    "name_zh_cn": "区域 410 认知值范围",
+    "summary_en": "Area 410 permits inclusive Cognition values from -40 through 40.",
+    "summary_zh_cn": "区域 410 允许的认知值闭区间为 -40 至 40。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousvaluearealimit-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousValueAreaLimit.json",
+        "locator": "12",
+        "sha256": "91015ed44492b3423900859a7941ffae2bf991698b3385a04bbfcac69d8fca82",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "2",
+        "sha256": "8edaa60b6fb2a8cfa5556915e5dbb5108f1865c5cc3e68651dd021aa438d3d51",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "1",
+        "sha256": "c03da4196014d03a8efeb4a5706c5e6f5331a5f098018665c49f66358a53e5e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/HoYoLAB/Articles/Simulated_Universe%3A_Gold_and_Gears_Extrapolation_Guide_Part_I",
+        "locator": "Intra-Cognition and Secret unlock explanation",
+        "sha256": "22ecd14cf535d7917f4a29630c5606d00b3778ae0b82061bc83253a332d79fab",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.cognition-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "cognition-lifecycle",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy.",
+        "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+      }
+    ],
+    "tags": [
+      "cognition",
+      "inclusive-range"
+    ],
+    "source_id": "410",
+    "area_id": "gold-gears.area.410",
+    "minimum_cognition": "-40",
+    "maximum_cognition": "40",
+    "bounds_inclusive": true,
+    "global_minimum_cognition": "-40",
+    "global_maximum_cognition": "40",
+    "lifecycle": {
+      "policy_id": "cognition-lifecycle-v1",
+      "evidence_quality": "ProjectPolicy",
+      "initial_value": "0",
+      "adjustment_order": [
+        "apply-cognition-delta",
+        "clamp-to-global-range",
+        "clamp-to-selected-area-range"
+      ],
+      "plane_end_evaluation": "after-current-plane-boss-defeat",
+      "eligibility_order": [
+        "required-area-at-or-below-selected-area",
+        "current-plane-layer",
+        "predecessor-secret-frontier",
+        "inclusive-cognition-range"
+      ],
+      "multiple_match_order": [
+        "minimum-cognition",
+        "maximum-cognition",
+        "secret-id"
+      ],
+      "no_match_result": "no-secret-unlocked",
+      "next_plane_carry": "carry-post-evaluation-value-then-clamp-to-next-area-range",
+      "new_run_reset": "reset-to-initial-value",
+      "replacement_condition": "Replace individual steps when pinned engine evidence proves exact order or different boundary behavior."
+    }
+  }
+]

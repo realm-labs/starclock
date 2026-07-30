@@ -1,0 +1,1338 @@
+[
+  {
+    "id": "gold-gears.custom-dice.101",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Trotter Extrapolation",
+    "name_zh_cn": "扑满推演",
+    "summary_en": "Go over to domains with Blessing Trotter or Curio Trotter Beacon.",
+    "summary_zh_cn": "前往带有【祝福扑满】或【奇物扑满】信标的区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "0",
+        "sha256": "1bb7bb33d45a26d3eafa09b44a5997e9f7dad130bad3f25ecb9328815a809d7d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-1"
+    ],
+    "source_id": "101",
+    "sort": 101,
+    "category_id": "gold-gears.dice-category.1",
+    "category_source_id": "1",
+    "name_text_hash": "11481090187541518864",
+    "introduction_text_hash": "6280843551651826720",
+    "effect_bundle_text_hash": "13876745819918922889",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, additionally generates 1 Blessing Trotter beacon and 1 Curio Trotter beacon.",
+        "text_zh_cn": "第一、二位面开始时，额外生成1个【祝福扑满】与1个【奇物扑满】信标。",
+        "text_hash": "14790359989943718375",
+        "parameters": []
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "Obtains #1[i] Cosmic Fragment(s) for each Trotter defeated.",
+        "text_zh_cn": "每击败1只扑满，获得#1[i]宇宙碎片。",
+        "text_hash": "3114534170203516322",
+        "parameters": [
+          "80"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every #1 time(s) a passive effect is triggered, gain the Path Boost effect of the selected Path.",
+        "text_zh_cn": "每触发#1次被动效果，获得所选命途的【命途强化】效果。",
+        "text_hash": "8729752646577383277",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000007",
+      "61000008"
+    ],
+    "passive_effect_extra_ids": [
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "8090465823475344800",
+    "available_by_default": true,
+    "unlock_id": "",
+    "default_ultra_surface_id": "2043",
+    "default_common_surface_ids": [
+      "2001",
+      "2022",
+      "2007",
+      "2004",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2043",
+      "2001",
+      "2022",
+      "2007",
+      "2004",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2043",
+      "2001",
+      "2025",
+      "2042",
+      "2007",
+      "2018"
+    ],
+    "recommended_surface_ids": [
+      "2001",
+      "2007",
+      "2014",
+      "2018",
+      "2022",
+      "2025",
+      "2042",
+      "2043",
+      "2052",
+      "2054"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice111.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.102",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Walker Symbiosis",
+    "name_zh_cn": "行者共生",
+    "summary_en": "Go over to domains with Knowledge.",
+    "summary_zh_cn": "前往带有【知识】效果的区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "1",
+        "sha256": "2dfdc107de09121a82a0a5ddcef040ee42a350b6c86a1e1b579b5b6661775a2b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-1"
+    ],
+    "source_id": "102",
+    "sort": 102,
+    "category_id": "gold-gears.dice-category.1",
+    "category_source_id": "1",
+    "name_text_hash": "15366711401124256201",
+    "introduction_text_hash": "3224306335919356159",
+    "effect_bundle_text_hash": "9919822452701633704",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).",
+        "text_zh_cn": "第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。",
+        "text_hash": "4131488934745935298",
+        "parameters": [
+          "2"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "When a domain receives Knowledge, a random beacon will be generated for it.",
+        "text_zh_cn": "当1个区域获得【知识】效果时，为其生成随机信标。",
+        "text_hash": "4431670743118574200",
+        "parameters": []
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "Whenever allies enter a domain with the Knowledge effect, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每次进入带有【知识】效果的区域，获得所选命途的【命途强化】效果。",
+        "text_hash": "7939821641515091618",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000021"
+    ],
+    "passive_effect_extra_ids": [
+      "61000021",
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "4750448699729690743",
+    "available_by_default": false,
+    "unlock_id": "1002101",
+    "default_ultra_surface_id": "2024",
+    "default_common_surface_ids": [
+      "2043",
+      "2048",
+      "2007",
+      "2032",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2024",
+      "2043",
+      "2048",
+      "2007",
+      "2032",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2078",
+      "2054",
+      "2024",
+      "2007",
+      "2033",
+      "2040"
+    ],
+    "recommended_surface_ids": [
+      "2007",
+      "2014",
+      "2024",
+      "2033",
+      "2040",
+      "2043",
+      "2048",
+      "2052",
+      "2054",
+      "2078",
+      "2102"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice112.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.103",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Ultra-Remote Beacon",
+    "name_zh_cn": "超距信标",
+    "summary_en": "Go over to domains with different beacons.",
+    "summary_zh_cn": "前往带有不同信标的区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "2",
+        "sha256": "88498a9edfe9553772f59494173079173754b502a67ad15785eaa797b088a187",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-1"
+    ],
+    "source_id": "103",
+    "sort": 103,
+    "category_id": "gold-gears.dice-category.1",
+    "category_source_id": "1",
+    "name_text_hash": "12109396009021544758",
+    "introduction_text_hash": "5290919216522443854",
+    "effect_bundle_text_hash": "12504335695396958923",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, additionally generate #1[i] random beacon(s).",
+        "text_zh_cn": "第一、二位面开始时，额外生成#1[i]个随机信标。",
+        "text_hash": "13279144837191105704",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "When entering a domain with a beacon, obtain #1[i] Blessing(s). Only takes effect once for each type of beacon across each Plane.",
+        "text_zh_cn": "进入带有信标的区域时，获得#1[i]次祝福，每个位面的每种信标只生效一次。",
+        "text_hash": "10784981317566379512",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "Whenever allies enter a domain with a beacon, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每次进入带有信标的区域，获得所选命途的【命途强化】效果。",
+        "text_hash": "7361736752154248266",
+        "parameters": [
+          "50"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [],
+    "passive_effect_extra_ids": [
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "8559581985643460204",
+    "available_by_default": false,
+    "unlock_id": "1002101",
+    "default_ultra_surface_id": "2025",
+    "default_common_surface_ids": [
+      "2043",
+      "2056",
+      "2022",
+      "2019",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2025",
+      "2043",
+      "2056",
+      "2022",
+      "2019",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2052",
+      "2054",
+      "2043",
+      "2101",
+      "2056",
+      "2048"
+    ],
+    "recommended_surface_ids": [
+      "2007",
+      "2014",
+      "2022",
+      "2025",
+      "2043",
+      "2048",
+      "2052",
+      "2054",
+      "2056",
+      "2078",
+      "2101"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice113.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.201",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Occurrence Extrapolation",
+    "name_zh_cn": "事件推演",
+    "summary_en": "Go over to Occurrence, Occurrence: Abnormal, or Reward domains.",
+    "summary_zh_cn": "前往【事件】，【事件•异常】或【奖励】区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "3",
+        "sha256": "b93224d4a81872a0d247779b57dcfca9c7db77b742387e84e87d8c7e23f2d4db",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-2"
+    ],
+    "source_id": "201",
+    "sort": 201,
+    "category_id": "gold-gears.dice-category.2",
+    "category_source_id": "2",
+    "name_text_hash": "14456854660797233476",
+    "introduction_text_hash": "15747969131674479212",
+    "effect_bundle_text_hash": "3425436631570084397",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, cause #1[i] random domains to become Reward domains.",
+        "text_zh_cn": "第一、二位面开始时，将#1[i]个随机区域变为【奖励】区域。",
+        "text_hash": "8577945111856768253",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "When entering an Occurrence, Occurrence: Abnormal, or Reward domain, immediately obtain #1[i] Blessing(s).",
+        "text_zh_cn": "进入【事件】、【事件•异常】或【奖励】区域时，立即获得#1[i]个随机祝福。",
+        "text_hash": "9076865446120668699",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every #1 Occurrence interaction(s) completed, gain the Path Boost effect of the selected Path.",
+        "text_zh_cn": "每完成#1次事件交互，获得所选命途的【命途强化】效果。",
+        "text_hash": "3703254823050465304",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000015"
+    ],
+    "passive_effect_extra_ids": [
+      "61000016",
+      "61000024",
+      "61000015",
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "7361282525051632028",
+    "available_by_default": false,
+    "unlock_id": "1002001",
+    "default_ultra_surface_id": "2002",
+    "default_common_surface_ids": [
+      "2001",
+      "2101",
+      "2007",
+      "2005",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2002",
+      "2001",
+      "2101",
+      "2007",
+      "2005",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2002",
+      "2038",
+      "2010",
+      "2007",
+      "2012",
+      "2103"
+    ],
+    "recommended_surface_ids": [
+      "2001",
+      "2002",
+      "2007",
+      "2008",
+      "2010",
+      "2012",
+      "2025",
+      "2038",
+      "2101",
+      "2103"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice211.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.202",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Combat Extrapolation",
+    "name_zh_cn": "战斗推演",
+    "summary_en": "Go over to Combat, or Elite domains.",
+    "summary_zh_cn": "前往【战斗】或【精英】区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "4",
+        "sha256": "b22b00f4b32d7445973566ad6f22732151eee4be3f2257cedfd9b7c2026a2042",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-2"
+    ],
+    "source_id": "202",
+    "sort": 202,
+    "category_id": "gold-gears.dice-category.2",
+    "category_source_id": "2",
+    "name_text_hash": "4455416130984982293",
+    "introduction_text_hash": "15167996275842608701",
+    "effect_bundle_text_hash": "16117560506670711909",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, cause #1[i] random domains to become Elite domains.",
+        "text_zh_cn": "第一、二位面开始时，将#1[i]个随机区域变为【精英】区域。",
+        "text_hash": "18005493556606405401",
+        "parameters": [
+          "2"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "Achieve victory in the Elite domain to get #1[i] additional Curio(s).",
+        "text_zh_cn": "在【精英】区域战斗胜利后，可额外获得#1[i]次奇物。",
+        "text_hash": "4563347145617698199",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every #1 battle victory/victories obtained, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每获得#1次战斗的胜利，获得所选命途的【命途强化】效果。",
+        "text_hash": "7896578517388757161",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000013"
+    ],
+    "passive_effect_extra_ids": [
+      "61000013",
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "13633949943815383561",
+    "available_by_default": false,
+    "unlock_id": "1002102",
+    "default_ultra_surface_id": "2010",
+    "default_common_surface_ids": [
+      "2001",
+      "2103",
+      "2022",
+      "2011",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2010",
+      "2001",
+      "2103",
+      "2022",
+      "2011",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2010",
+      "2001",
+      "2025",
+      "2037",
+      "2016",
+      "2103"
+    ],
+    "recommended_surface_ids": [
+      "2001",
+      "2002",
+      "2007",
+      "2008",
+      "2010",
+      "2016",
+      "2017",
+      "2022",
+      "2025",
+      "2037",
+      "2103"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice212.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.203",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Pursuit",
+    "name_zh_cn": "追猎",
+    "summary_en": "Go over to non-adjacent domains.",
+    "summary_zh_cn": "前往不相邻的区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "5",
+        "sha256": "88b4f1a90485aa982ce603c6aa42efad72fd980a01d28cb09a2a66faf35ae6ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-2"
+    ],
+    "source_id": "203",
+    "sort": 203,
+    "category_id": "gold-gears.dice-category.2",
+    "category_source_id": "2",
+    "name_text_hash": "7125174974984829116",
+    "introduction_text_hash": "7718828391716480544",
+    "effect_bundle_text_hash": "7613338100441403625",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "Expands the First and Third Planes.",
+        "text_zh_cn": "第一、三位面棋盘扩大。",
+        "text_hash": "9297563675084109556",
+        "parameters": []
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "During the movement stage, can move to any domain of the same type as the one you are currently in.",
+        "text_zh_cn": "移动阶段，可以移动至任意与自身所在区域相同类型的区域。",
+        "text_hash": "13830996442897007048",
+        "parameters": []
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "Whenever allies enter a non-adjacent domain, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每次进入不相邻的区域，获得所选命途的【命途强化】效果。",
+        "text_hash": "4022832580617988214",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [],
+    "passive_effect_extra_ids": [
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "16592477437737998461",
+    "available_by_default": false,
+    "unlock_id": "1002102",
+    "default_ultra_surface_id": "2003",
+    "default_common_surface_ids": [
+      "2010",
+      "2006",
+      "2007",
+      "2017",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2003",
+      "2010",
+      "2006",
+      "2007",
+      "2017",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2003",
+      "2001",
+      "2010",
+      "2006",
+      "2039",
+      "2046"
+    ],
+    "recommended_surface_ids": [
+      "2001",
+      "2002",
+      "2003",
+      "2006",
+      "2007",
+      "2008",
+      "2010",
+      "2039",
+      "2046",
+      "2053"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice213.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.301",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Countdown",
+    "name_zh_cn": "倒计时",
+    "summary_en": "Get more Countdown.",
+    "summary_zh_cn": "获得更多倒计时。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "6",
+        "sha256": "5de9934f6e10ff72f899a0058d8243fcfa7098d5395470c32baf82998fd0f7a9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-3"
+    ],
+    "source_id": "301",
+    "sort": 301,
+    "category_id": "gold-gears.dice-category.3",
+    "category_source_id": "3",
+    "name_text_hash": "15783049304205837210",
+    "introduction_text_hash": "10667016135700945132",
+    "effect_bundle_text_hash": "9759359103415926105",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).",
+        "text_zh_cn": "第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。",
+        "text_hash": "17489798446622265237",
+        "parameters": [
+          "2"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "The initial countdown is reduced by #1[i]. When entering a domain with the Knowledge effect, recover the countdown by #2[i] instead. When entering the Boss Domain, receive a Blessing for every #3[i] countdown point(s) in possession.",
+        "text_zh_cn": "初始倒计时减少#1[i]点，进入带有【知识】效果的区域时，改为回复#2[i]点倒计时，进入【首领】区域时，每#3[i]点倒计时获得1次祝福。",
+        "text_hash": "6762298660225429275",
+        "parameters": [
+          "5",
+          "1",
+          "10"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every point of countdown remaining, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每有1点倒计时，获得所选命途的【命途强化】效果。",
+        "text_hash": "8056062443007740247",
+        "parameters": []
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000021"
+    ],
+    "passive_effect_extra_ids": [
+      "61000021",
+      "61000018",
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "15381414006712633853",
+    "available_by_default": false,
+    "unlock_id": "1002001",
+    "default_ultra_surface_id": "2024",
+    "default_common_surface_ids": [
+      "2026",
+      "2047",
+      "2007",
+      "2027",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2024",
+      "2026",
+      "2047",
+      "2007",
+      "2027",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2026",
+      "2078",
+      "2072",
+      "2041",
+      "2047",
+      "2033"
+    ],
+    "recommended_surface_ids": [
+      "2010",
+      "2024",
+      "2026",
+      "2030",
+      "2033",
+      "2035",
+      "2041",
+      "2047",
+      "2072",
+      "2077",
+      "2078"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice311.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.302",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Amber Barrier",
+    "name_zh_cn": "琥珀障壁",
+    "summary_en": "Make the plane have more domains with Knowledge.",
+    "summary_zh_cn": "使位面上有更多带有【知识】效果的区域。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "7",
+        "sha256": "3a6520421ed8a2c6c8a47dfa3068145450dad79c6244df26715aa2e340b0c7dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-3"
+    ],
+    "source_id": "302",
+    "sort": 302,
+    "category_id": "gold-gears.dice-category.3",
+    "category_source_id": "3",
+    "name_text_hash": "9031994772095339772",
+    "introduction_text_hash": "10717225475069636930",
+    "effect_bundle_text_hash": "1134001620670592970",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).",
+        "text_zh_cn": "第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。",
+        "text_hash": "16267023027801737511",
+        "parameters": [
+          "2"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "Domains with Knowledge will not collapse. When entering Boss, Occurrence: Abnormal, or Transaction Domains, immediately obtain #1[i] Cosmic Fragments for each domain currently under the Knowledge effect in the current plane.",
+        "text_zh_cn": "带有【知识】效果的区域不会塌陷。进入【首领】、【事件•异常】或【交易】区域时，当前位面每存在1个带有【知识】效果的区域，立即获得#1[i]宇宙碎片。",
+        "text_hash": "3865194501829144577",
+        "parameters": [
+          "15"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every #1 time(s) a passive effect is triggered, gain the Path Boost effect of the selected Path.",
+        "text_zh_cn": "每触发#1次被动效果，获得所选命途的【命途强化】效果。",
+        "text_hash": "1123653301523532163",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000021"
+    ],
+    "passive_effect_extra_ids": [
+      "61000021",
+      "61000018",
+      "61000024",
+      "61000020",
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "8913944893288425186",
+    "available_by_default": false,
+    "unlock_id": "1002103",
+    "default_ultra_surface_id": "2034",
+    "default_common_surface_ids": [
+      "2024",
+      "2033",
+      "2007",
+      "2031",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2034",
+      "2024",
+      "2033",
+      "2007",
+      "2031",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2026",
+      "2024",
+      "2078",
+      "2007",
+      "2033",
+      "2041"
+    ],
+    "recommended_surface_ids": [
+      "2007",
+      "2010",
+      "2024",
+      "2026",
+      "2030",
+      "2033",
+      "2034",
+      "2035",
+      "2041",
+      "2046",
+      "2078"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice312.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.303",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Investment Sale",
+    "name_zh_cn": "投资出售",
+    "summary_en": "Give domains the Knowledge effect before they collapse.",
+    "summary_zh_cn": "使区域在塌陷前带有【知识】效果。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "8",
+        "sha256": "98d0442ff582850c2d30c38117d1f93607c7ca36147cd8df3aaf110b4b50f69c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-3"
+    ],
+    "source_id": "303",
+    "sort": 303,
+    "category_id": "gold-gears.dice-category.3",
+    "category_source_id": "3",
+    "name_text_hash": "8367453384987442118",
+    "introduction_text_hash": "18375105354158323979",
+    "effect_bundle_text_hash": "13441561166424114753",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, apply Knowledge to #1[i] random domain(s).",
+        "text_zh_cn": "第一、二位面开始时，为#1[i]个随机区域附加【知识】效果。",
+        "text_hash": "7205710189084209724",
+        "parameters": [
+          "2"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "When a domain with Knowledge collapses, obtain #1[i] Cosmic Fragment(s). If the collapsed domain is Elite, Reward, or Adventure, the Cosmic Fragments obtained are doubled. If the domain contains beacon(s), the Cosmic Fragments obtained are doubled.",
+        "text_zh_cn": "带有【知识】效果的区域塌陷时，获得#1[i]宇宙碎片。如果该区域是【精英】、【奖励】或【冒险】区域，获得的宇宙碎片翻倍。如果该区域有信标，获得的宇宙碎片翻倍。",
+        "text_hash": "14766236691365871827",
+        "parameters": [
+          "50"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For the collapse of every #1 domain(s) with Knowledge, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每有#1个带有【知识】效果的区域塌陷，获得所选命途的【命途强化】效果。",
+        "text_hash": "16878064566543789134",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000021"
+    ],
+    "passive_effect_extra_ids": [
+      "61000021",
+      "61000013",
+      "61000015",
+      "61000014",
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "15672619027895699413",
+    "available_by_default": false,
+    "unlock_id": "1002103",
+    "default_ultra_surface_id": "2030",
+    "default_common_surface_ids": [
+      "2024",
+      "2023",
+      "2007",
+      "2073",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2030",
+      "2024",
+      "2023",
+      "2007",
+      "2073",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2034",
+      "2030",
+      "2024",
+      "2033",
+      "2057",
+      "2023"
+    ],
+    "recommended_surface_ids": [
+      "2007",
+      "2010",
+      "2023",
+      "2024",
+      "2026",
+      "2030",
+      "2033",
+      "2034",
+      "2035",
+      "2041",
+      "2057"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice313.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.401",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Company Time",
+    "name_zh_cn": "公司时刻",
+    "summary_en": "Consume more Cosmic Fragments.",
+    "summary_zh_cn": "消耗更多宇宙碎片。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "9",
+        "sha256": "c2a7cf7e4bddd47492917ab499dade809bfb0e84d274f4b59e0da53ff8cd16fe",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-4"
+    ],
+    "source_id": "401",
+    "sort": 401,
+    "category_id": "gold-gears.dice-category.4",
+    "category_source_id": "4",
+    "name_text_hash": "13415401674391200762",
+    "introduction_text_hash": "15816039028350926199",
+    "effect_bundle_text_hash": "8890754732118567068",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, cause #1[i] random domains to become Transaction domains. Gains #2[i] Cosmic Fragments.",
+        "text_zh_cn": "第一、二位面开始时，将#1[i]个随机区域变为【交易】区域，并获得#2[i]宇宙碎片。",
+        "text_hash": "8736549074448691009",
+        "parameters": [
+          "2",
+          "100"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "When purchasing items from the Blessing, Curio, or Enhance store, #1[i]% of the consumed Cosmic Fragment will be returned",
+        "text_zh_cn": "在【祝福商店】、【奇物商店】或【强化商店】购买商品时，返还#1[i]%实际消耗的宇宙碎片",
+        "text_hash": "9085339126318645742",
+        "parameters": [
+          "0.3"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every #1 Cosmic Fragments consumed, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每消耗#1宇宙碎片，获得所选命途的【命途强化】效果。",
+        "text_hash": "9805719457845394418",
+        "parameters": [
+          "100"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000020"
+    ],
+    "passive_effect_extra_ids": [
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "9359168618355518062",
+    "available_by_default": false,
+    "unlock_id": "1002104",
+    "default_ultra_surface_id": "2067",
+    "default_common_surface_ids": [
+      "2001",
+      "2064",
+      "2007",
+      "2063",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2067",
+      "2001",
+      "2064",
+      "2007",
+      "2063",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2071",
+      "2066",
+      "2067",
+      "2068",
+      "2064",
+      "2058"
+    ],
+    "recommended_surface_ids": [
+      "2001",
+      "2007",
+      "2010",
+      "2017",
+      "2051",
+      "2058",
+      "2064",
+      "2065",
+      "2066",
+      "2067",
+      "2068",
+      "2071"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice411.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.402",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Curio Extrapolation",
+    "name_zh_cn": "奇物推演",
+    "summary_en": "Get more Curios.",
+    "summary_zh_cn": "获得更多奇物。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "10",
+        "sha256": "ea16c7eebbfe83e01718784cdce58de5e0160101dba174a45df1cab259bc9a99",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-4"
+    ],
+    "source_id": "402",
+    "sort": 402,
+    "category_id": "gold-gears.dice-category.4",
+    "category_source_id": "4",
+    "name_text_hash": "8688027771404726548",
+    "introduction_text_hash": "4810572377293320516",
+    "effect_bundle_text_hash": "16884406212017728839",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of the First and Second Plane, additionally generates #1[i] Curio Trotter beacon(s).",
+        "text_zh_cn": "第一、二位面开始时，额外生成#1[i]个【奇物扑满】信标。",
+        "text_hash": "10177392651656837820",
+        "parameters": [
+          "2"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "For every Curio obtained, immediately gain #1[i] Cosmic Fragment(s)",
+        "text_zh_cn": "每获得1个奇物，立即获得#1[i]宇宙碎片",
+        "text_hash": "3229145435853233950",
+        "parameters": [
+          "40"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every #1 Curio(s) in possession, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每拥有#1个奇物，获得所选命途的【命途强化】效果。",
+        "text_hash": "11603880554044541540",
+        "parameters": [
+          "1"
+        ]
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000008"
+    ],
+    "passive_effect_extra_ids": [
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "11957837277935664980",
+    "available_by_default": false,
+    "unlock_id": "1002104",
+    "default_ultra_surface_id": "2061",
+    "default_common_surface_ids": [
+      "2001",
+      "2065",
+      "2007",
+      "2063",
+      "2084"
+    ],
+    "default_surface_ids": [
+      "2061",
+      "2001",
+      "2065",
+      "2007",
+      "2063",
+      "2084"
+    ],
+    "suggestive_surface_ids": [
+      "2067",
+      "2061",
+      "2062",
+      "2064",
+      "2051",
+      "2065"
+    ],
+    "recommended_surface_ids": [
+      "2001",
+      "2007",
+      "2010",
+      "2051",
+      "2061",
+      "2062",
+      "2064",
+      "2065",
+      "2067",
+      "2070"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice412.png"
+  },
+  {
+    "id": "gold-gears.custom-dice.403",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "CustomDice",
+    "name_en": "Data Inflation",
+    "name_zh_cn": "数据膨胀",
+    "summary_en": "Use \"General Buff\" Dice Face to enter combat.",
+    "summary_zh_cn": "使用「通用增益」骰面进入战斗。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdicebranch-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDiceBranch.json",
+        "locator": "11",
+        "sha256": "5f25ceaab68530f991c8fb683a8cd432b39f55b3f5190fc57bb37e6b811bf4da",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "custom-dice",
+      "dice-category-4"
+    ],
+    "source_id": "403",
+    "sort": 403,
+    "category_id": "gold-gears.dice-category.4",
+    "category_source_id": "4",
+    "name_text_hash": "13505773322863677217",
+    "introduction_text_hash": "15417189467369032154",
+    "effect_bundle_text_hash": "294469351013103143",
+    "effect_parts": [
+      {
+        "role": "InitialEffect",
+        "text_en": "At the start of each Plane, gains #1[i] cheat attempt(s), and applies random beacons to all Combat and Elite domains.",
+        "text_zh_cn": "每个位面开始时，获得#1[i]次作弊次数，并为所有【战斗】和【精英】区域附加随机信标。",
+        "text_hash": "3318902596449126721",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PassiveEffect",
+        "text_en": "Gain #1[i] reroll attempt(s) after moving. General Buff dice faces will not expire. All General Buff dice faces, once rolled, will take effect in the next room.",
+        "text_zh_cn": "移动后获得#1[i]次重投次数。「通用增益」骰面持续时间无限，所有「通用增益」骰面只要投出过即可在下个房间生效。",
+        "text_hash": "17835963811242538990",
+        "parameters": [
+          "1"
+        ]
+      },
+      {
+        "role": "PathBoostTrigger",
+        "text_en": "For every General Buff dice face used and having obtained victory in battle in a domain, gain the Path Boost effect for the selected Path.",
+        "text_zh_cn": "每使用1个「通用增益」骰面，并在区域内获得战斗的胜利后，获得所选命途的【命途强化】效果。",
+        "text_hash": "9195818755197109836",
+        "parameters": []
+      }
+    ],
+    "initial_effect_extra_ids": [
+      "61000011",
+      "61000013"
+    ],
+    "passive_effect_extra_ids": [
+      "61000022"
+    ],
+    "starting_effect_toast_text_hash": "13715533383300262442",
+    "available_by_default": false,
+    "unlock_id": "1002104",
+    "default_ultra_surface_id": "2084",
+    "default_common_surface_ids": [
+      "2088",
+      "2090",
+      "2092",
+      "2093",
+      "2087"
+    ],
+    "default_surface_ids": [
+      "2084",
+      "2088",
+      "2090",
+      "2092",
+      "2093",
+      "2087"
+    ],
+    "suggestive_surface_ids": [
+      "2084",
+      "2088",
+      "2090",
+      "2092",
+      "2093",
+      "2087"
+    ],
+    "recommended_surface_ids": [
+      "2080",
+      "2081",
+      "2082",
+      "2083",
+      "2084",
+      "2085",
+      "2086",
+      "2087",
+      "2088",
+      "2089",
+      "2090",
+      "2091",
+      "2092",
+      "2093"
+    ],
+    "dice_icon_path": "SpriteOutput/Rogue/DLC/RogueNous/Dice/IconRogueNousDice413.png"
+  }
+]

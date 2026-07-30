@@ -1,0 +1,2189 @@
+{
+  "table": {
+    "name": "GoldGearsReviewFixture",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.0"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"bounds.inclusive\",\"value\":true},{\"operator\":\"equals\",\"path\":\"evaluation_boundary\",\"value\":\"CurrentPlaneBossDefeated\"}]"
+          },
+          "family_id": {
+            "String": "cognition-lifecycle"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_json": {
+            "String": "{\"cognition_delta\":\"1\",\"plane_boundary\":\"BossDefeated\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "cognition-lifecycle Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "cognition-lifecycle 语义审查夹具"
+          },
+          "note": {
+            "String": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"apply-cognition-delta\",\"sequence\":1},{\"operation\":\"clamp-to-global-range\",\"sequence\":2},{\"operation\":\"clamp-to-selected-area-range\",\"sequence\":3},{\"operation\":\"after-current-plane-boss-defeat\",\"sequence\":4},{\"operation\":\"carry-post-evaluation-value-then-clamp-to-next-area-range\",\"sequence\":5},{\"operation\":\"reset-to-initial-value\",\"sequence\":6}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"area_id\",\"value\":\"gold-gears.area.301\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.cognition-range.301"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousvaluearealimit-json.0"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.cognition-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the cognition-lifecycle family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "cognition-lifecycle 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cognition-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdifficultylevel-json.11"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-conundrum-composition"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"composition_mode\",\"value\":\"AllContributionsAtOrBelowSelectedLevel\"},{\"operator\":\"equals\",\"path\":\"total_conundrum_cap\",\"value\":\"12\"}]"
+          },
+          "family_id": {
+            "String": "conundrum-auxiliary"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_json": {
+            "String": "{\"auxiliary_level\":\"6\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "conundrum-auxiliary Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "conundrum-auxiliary 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"IncludeAllPriorAuxiliaryLevels\",\"sequence\":1},{\"operation\":\"ApplyCumulativeEncounterAndBattleContributions\",\"sequence\":2},{\"operation\":\"ResolveBerserkTimingOrFailClosed\",\"sequence\":3}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"formal_difficulty_cleared\",\"value\":\"5\"}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.conundrum-level.auxiliary.6"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdifficultylevel-json.11"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-conundrum-composition"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.conundrum-auxiliary"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the conundrum-auxiliary family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "conundrum-auxiliary 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "conundrum-auxiliary"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdifficultylevel-json.5"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-conundrum-composition"
+              },
+              {
+                "String": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"composition_mode\",\"value\":\"LatestContributionPerSourceTagAtOrBelowSelectedLevel\"},{\"operator\":\"equals\",\"path\":\"track_cap\",\"value\":\"6\"}]"
+          },
+          "family_id": {
+            "String": "conundrum-stats"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input_json": {
+            "String": "{\"stats_level\":\"6\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "conundrum-stats Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "conundrum-stats 语义审查夹具"
+          },
+          "note": {
+            "String": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ReplacePriorSameTagStatsTier\",\"sequence\":1},{\"operation\":\"ApplyEnemyModifierOrFailClosedNumericBinding\",\"sequence\":2},{\"operation\":\"EnforceIndependentTrackCap\",\"sequence\":3,\"value\":\"6\"}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"formal_difficulty_cleared\",\"value\":\"5\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.conundrum-level.stats.6"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdifficultylevel-json.5"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-conundrum-composition"
+              },
+              {
+                "String": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.conundrum-stats"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the conundrum-stats family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "conundrum-stats 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "conundrum-stats"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguehandbookmiracle-json.48"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracledisplay-json.56"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracle-json.214"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracleeffect-json.201"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracleeffectdisplay-json.201"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-curio-category-normal"
+              },
+              {
+                "String": "source.goal08.project-policy.curio-random-selection"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"initial_state_id\",\"value\":\"gold-gears.curio-state.3105\"},{\"operator\":\"equals\",\"path\":\"repair_target\",\"value\":{}}]"
+          },
+          "family_id": {
+            "String": "curio-lifecycle"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input_json": {
+            "String": "{\"curio_state_id\":\"gold-gears.curio-state.3105\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "curio-lifecycle Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "curio-lifecycle 语义审查夹具"
+          },
+          "note": {
+            "String": "Released handbook mode membership and public category sections define the Gold and Gears Normal, Negative and Error Code identity sets. Complete offer-specific exclusions and random candidate ordering are applied only when a source occurrence or service binds them; otherwise selection fails closed."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"CreateGoldModeCopy\",\"sequence\":1},{\"operation\":\"AdvanceChargeOrStateLifecycle\",\"sequence\":2},{\"operation\":\"ApplyRepairOrReplacement\",\"sequence\":3,\"target\":{}}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"mode_copy_id\",\"value\":\"3105\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when pinned released pool tables or engine code expose complete offer eligibility and candidate ordering."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.curio-state.3105"
+              },
+              {
+                "String": "gold-gears.curio.105"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguehandbookmiracle-json.48"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracledisplay-json.56"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracle-json.214"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracleeffect-json.201"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemiracleeffectdisplay-json.201"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-curio-category-normal"
+              },
+              {
+                "String": "source.goal08.project-policy.curio-random-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.curio-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the curio-lifecycle family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "curio-lifecycle 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curio-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranchvalue-json.99"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"dice.source_id\",\"value\":\"403\"},{\"operator\":\"equals\",\"path\":\"path_boost.value\",\"value\":\"0.08\"}]"
+          },
+          "family_id": {
+            "String": "custom-dice-passive"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input_json": {
+            "String": "{\"selected_path_id\":\"universe.path.preservation\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "custom-dice-passive Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "custom-dice-passive 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"ids\":[\"61000011\",\"61000013\"],\"operation\":\"ApplyInitialEffects\",\"sequence\":1},{\"ids\":[\"61000022\"],\"operation\":\"ApplyPostMovePassive\",\"sequence\":2},{\"operation\":\"AccumulateSelectedPathBoost\",\"sequence\":3,\"value\":\"0.08\"}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"selected_dice_id\",\"value\":\"gold-gears.custom-dice.403\"}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.custom-dice.403"
+              },
+              {
+                "String": "gold-gears.dice-path-value.403.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranchvalue-json.99"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.custom-dice-passive"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the custom-dice-passive family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "custom-dice-passive 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "custom-dice-passive"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.46"
+              },
+              {
+                "String": "source.goal08.project-policy.dice-face-filter-tag-code-map"
+              },
+              {
+                "String": "source.goal08.project-policy.dice-face-target-resolution"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdiceslot-json.0"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"no_legal_target_behavior\",\"value\":\"NoEffect\"},{\"operator\":\"equals\",\"path\":\"slot_legal\",\"value\":true}]"
+          },
+          "family_id": {
+            "String": "dice-face-targeting"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input_json": {
+            "String": "{\"dice_face_id\":\"gold-gears.dice-face.2058\",\"eligible_targets\":[]}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "dice-face-targeting Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "dice-face-targeting 语义审查夹具"
+          },
+          "note": {
+            "String": "Released face text proves selectors and explicit no-effect wording for three Curio faces, but does not expose generic multi-target enumeration, equal-priority application order, duration ordering, or every empty selector case. Validate released selectors, order candidates by stable node/content identity, preserve authored operation order, and fail closed when an unpublished empty-set behavior would otherwise be required. The released filter-tag rows provide numeric IDs and localized concepts while face rows provide mechanical string codes without an explicit join. This one-to-one semantic mapping makes the join deterministic and auditable."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ValidateSlotAndDiceEligibility\",\"sequence\":1},{\"operation\":\"OrderTargetsByStableNodeIdentity\",\"sequence\":2},{\"operation\":\"ResolveNoLegalTargetAsNoEffect\",\"sequence\":3}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"slot_id\",\"value\":\"gold-gears.dice-slot.1\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace individual targeting and ordering fields when pinned released engine evidence exposes candidate enumeration, tie order, duration order, or empty-set behavior. Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.dice-face.2058"
+              },
+              {
+                "String": "gold-gears.dice-slot.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.46"
+              },
+              {
+                "String": "source.goal08.project-policy.dice-face-filter-tag-code-map"
+              },
+              {
+                "String": "source.goal08.project-policy.dice-face-target-resolution"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdiceslot-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.dice-face-targeting"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the dice-face-targeting family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "dice-face-targeting 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-face-targeting"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.32"
+              },
+              {
+                "String": "source.goal08.project-policy.neural-network-reroll-empty-candidate"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"empty_candidate_behavior\",\"value\":\"KeepPreviousAndConsumeAttempt\"},{\"operator\":\"equals\",\"path\":\"cheat_attempts_per_plane\",\"value\":\"1\"}]"
+          },
+          "family_id": {
+            "String": "dice-reroll-and-cheat"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input_json": {
+            "String": "{\"eligible_results\":[],\"previous_result_id\":\"gold-gears.dice-face.2001\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "dice-reroll-and-cheat Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "dice-reroll-and-cheat 语义审查夹具"
+          },
+          "note": {
+            "String": "Released text requires a reroll result different from the prior face but does not define the impossible empty-candidate case. Eligible faces are ordered by stable face ID after excluding the previous result; if none remain, the prior result is retained and the reroll attempt is consumed."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ConsumeRerollAttempt\",\"sequence\":1},{\"operation\":\"ExcludePreviousResult\",\"sequence\":2},{\"operation\":\"KeepPreviousWhenNoCandidate\",\"sequence\":3},{\"operation\":\"ApplyCheatReplacementBeforeResultOrdering\",\"sequence\":4}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"reroll_attempts\",\"value\":\"1\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when pinned engine evidence proves candidate ordering, draw consumption, or empty-candidate behavior."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.custom-dice.403"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.32"
+              },
+              {
+                "String": "source.goal08.project-policy.neural-network-reroll-empty-candidate"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.dice-reroll-and-cheat"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the dice-reroll-and-cheat family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "dice-reroll-and-cheat 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-reroll-and-cheat"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguemonstergroup-json.591"
+              },
+              {
+                "String": "source.goal08.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-plane-boss-pools"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemonster-json.1180"
+              },
+              {
+                "String": "source.goal08.exceloutput-stageconfig-json.8123"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.287"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.0"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.246"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"enemy_slot_count\",\"value\":\"2\"},{\"operator\":\"equals\",\"path\":\"boss_choice_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "encounter-selection"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "input_json": {
+            "String": "{\"seed\":\"0\",\"source_group_id\":\"223003\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "encounter-selection Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "encounter-selection 语义审查夹具"
+          },
+          "note": {
+            "String": "Released rows expose the complete 82-series Gold encounter namespace, weighted RogueMonsterGroup membership, StageConfig waves, and boss pools. They do not expose the engine's static RogueNousRoom-to-group join. Resolve a group only after a combat-capable domain is selected, use stable source order for equal-weight candidates, and fail closed if the domain, area, or group family cannot be resolved. RogueDLCArea and RogueDLCDifficulty expose exact area, plane, cut-position, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected area's ordered plane segment and fail closed when either key is unresolved."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ResolveRoomParentOrFailClosed\",\"sequence\":1},{\"operation\":\"SelectWeightedGroupMemberInStableSourceOrder\",\"sequence\":2},{\"operation\":\"ResolveAuthoredWaveAndOrderedEnemySlots\",\"sequence\":3},{\"operation\":\"BindDisplayedBossAlternatives\",\"sequence\":4}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"room_parent_scope\",\"value\":\"ResolvedCombatDomain\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when released engine code exposes the exact battle-level selection and override sequence. Replace when released engine code or a pinned table exposes the exact RogueNousRoom/domain/difficulty-to-RogueMonsterGroup join."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.encounter-group.223003"
+              },
+              {
+                "String": "gold-gears.encounter-wave.223003.2230031.1"
+              },
+              {
+                "String": "gold-gears.encounter-wave.223003.2230031.1.slot.1"
+              },
+              {
+                "String": "gold-gears.encounter-wave.223003.2230031.1.slot.2"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguemonstergroup-json.591"
+              },
+              {
+                "String": "source.goal08.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-plane-boss-pools"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemonster-json.1180"
+              },
+              {
+                "String": "source.goal08.exceloutput-stageconfig-json.8123"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.287"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.0"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-v4-4-enemy-variants-json.246"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-boss-choices-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.encounter-selection"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the encounter-selection family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "encounter-selection 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter-selection"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.19"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.60"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.62"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"supported_access_modes\",\"value\":[\"Apply\",\"Preserve\",\"Query\",\"Remove\"]},{\"operator\":\"equals\",\"path\":\"simultaneous_resolution\",\"value\":\"knowledge-simultaneous-resolution-v1\"}]"
+          },
+          "family_id": {
+            "String": "knowledge-lifecycle"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "input_json": {
+            "String": "{\"active_dice_ids\":[\"gold-gears.custom-dice.301\",\"gold-gears.custom-dice.302\",\"gold-gears.custom-dice.303\"]}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "knowledge-lifecycle Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "knowledge-lifecycle 语义审查夹具"
+          },
+          "note": {
+            "String": "Released face text proves candidate predicates and random/selected/all cardinality, but not engine RNG enumeration. Candidate domains are canonically ordered by stable node ID before seeded selection without replacement; an empty eligible set produces no effect. Released text names movement and about-to-collapse boundaries but does not fully order simultaneous Knowledge mutations. The project resolves movement, after-movement face effects, Knowledge mutation, dice-specific callbacks, collapse, then rewards; ties use face and target stable IDs."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ApplyKnowledge\",\"sequence\":1},{\"operation\":\"PropagateOrQueryKnowledge\",\"sequence\":2},{\"operation\":\"ResolveCountdownInteraction\",\"sequence\":3},{\"operation\":\"ConsumeOrPreserveKnowledge\",\"sequence\":4}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"knowledge_state\",\"value\":\"Absent\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering. Replace when pinned engine code or structured data proves target enumeration, RNG draw order, replacement, or empty-set behavior."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.knowledge-rule.2006"
+              },
+              {
+                "String": "gold-gears.knowledge-rule.2023"
+              },
+              {
+                "String": "gold-gears.knowledge-rule.2077"
+              },
+              {
+                "String": "gold-gears.knowledge-rule.2079"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicebranch-json.8"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-target-selection"
+              },
+              {
+                "String": "source.goal08.project-policy.knowledge-simultaneous-resolution"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.19"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.60"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdicesurface-json.62"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.knowledge-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the knowledge-lifecycle family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "knowledge-lifecycle 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "knowledge-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.3"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"node.disposition\",\"value\":\"MechanicallyRelevant\"},{\"operator\":\"equals\",\"path\":\"node.effect_domain\",\"value\":\"ActivityAndBattle\"}]"
+          },
+          "family_id": {
+            "String": "neural-network-effect"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "input_json": {
+            "String": "{\"paid_costs\":[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "neural-network-effect Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "neural-network-effect 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ValidatePrerequisiteDag\",\"sequence\":1},{\"operation\":\"PayNeuralImpulseCost\",\"sequence\":2},{\"effects\":[{\"condition\":\"previous-challenge-first-plane-completed\",\"damage_basis\":\"TargetMaxHpRatio\",\"eligible_battle_limit\":\"4\",\"eligible_section\":\"FirstPlane\",\"excluded_battle_kind\":\"Boss\",\"mechanism_quality\":\"ExactStructured\",\"operation\":\"ApplyFixedEntryDamage\",\"scope\":\"ActivityAndBattle\",\"target\":\"all-enemies\",\"timing\":\"BattleEntry\",\"value\":\"0.99\"}],\"operation\":\"ApplyMechanicallyRelevantContribution\",\"sequence\":3}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"prerequisite_ids\",\"value\":[\"gold-gears.neural-network-node.101\",\"gold-gears.neural-network-node.102\",\"gold-gears.neural-network-node.103\"]}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.201"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.neural-network-effect"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the neural-network-effect family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "neural-network-effect 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "neural-network-effect"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedialogueoptiondisplay-json.22"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguedialogue-event0310101-opt0310101-json.root"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguenpc-roguenpc310101-json.root"
+              },
+              {
+                "String": "source.goal08.project-policy.occurrence-random-outcome"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedialogueoptiondisplay-json.61"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguedialogue-event0310501-opt0310501-json.root"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguenpc-roguenpc310501-json.root"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"unresolved_pool_behavior\",\"value\":\"FailClosed\"},{\"operator\":\"equals\",\"path\":\"choice_order_preserved\",\"value\":true}]"
+          },
+          "family_id": {
+            "String": "occurrence-choice"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "input_json": {
+            "String": "{\"choice_id\":\"gold-gears.occurrence-choice.310101.01\",\"seed\":\"0\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "occurrence-choice Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-choice 语义审查夹具"
+          },
+          "note": {
+            "String": "Released choice text and parameter vectors prove outcomes and any printed percentages. When text says random or chance without weights, candidate selection uses the seeded Activity stream over stable source order; unresolved eligible pools fail closed."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ValidateChoiceCondition\",\"sequence\":1},{\"costs\":[{\"kind\":\"Discard\",\"numeric_literals\":[\"1\",\"2\",\"3\"],\"parameter_refs\":[],\"targets\":[\"Blessing\"]}],\"operation\":\"ApplyCost\",\"sequence\":2},{\"operation\":\"OrderOutcomeProgram\",\"outcomes\":[{\"chance_percentages\":[],\"kinds\":[\"Enhance\"],\"numeric_literals\":[\"2\"],\"parameter_refs\":[],\"probability_policy\":\"SeededUniformStableSourceOrder\",\"targets\":[\"Blessing\"],\"unresolved_candidate_pool\":\"FailClosed\"}],\"sequence\":3},{\"operation\":\"SelectUnknownWeightByStableSeededPolicy\",\"sequence\":4}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"condition_ids\",\"value\":[]}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when pinned released occurrence programs or engine code expose hidden weights and complete eligible-pool construction."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.occurrence-choice.310101.01"
+              },
+              {
+                "String": "gold-gears.occurrence-choice.310501.01"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedialogueoptiondisplay-json.22"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguedialogue-event0310101-opt0310101-json.root"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguenpc-roguenpc310101-json.root"
+              },
+              {
+                "String": "source.goal08.project-policy.occurrence-random-outcome"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedialogueoptiondisplay-json.61"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguedialogue-event0310501-opt0310501-json.root"
+              },
+              {
+                "String": "source.goal08.config-level-rogue-roguenpc-roguenpc310501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.occurrence-choice"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the occurrence-choice family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "occurrence-choice 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence-choice"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.3"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-19"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"target_team\",\"value\":\"TeamLight\"},{\"operator\":\"equals\",\"path\":\"stacking\",\"value\":\"AdditiveContribution\"}]"
+          },
+          "family_id": {
+            "String": "path-boost"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "input_json": {
+            "String": "{\"source_increment\":\"0.02\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "path-boost Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "path-boost 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ResolveSharedPathReference\",\"sequence\":1},{\"operation\":\"ConvertReleasedPercentToRatio\",\"sequence\":2},{\"operation\":\"ApplyEntryPathBoost\",\"sequence\":3,\"stat\":\"OutgoingHealing\"}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"selected_path_id\",\"value\":\"universe.path.abundance\"}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.path-boost.650103"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.3"
+              },
+              {
+                "String": "source.goal08.config-configability-level-level-roguebuff-ability-nous-json.abilitylist-19"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.path-boost"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the path-boost family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "path-boost 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-boost"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.project-policy.profile"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.13"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.13"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.16"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"formal_difficulty_count\",\"value\":\"5\"},{\"operator\":\"equals\",\"path\":\"bonus_source_ids\",\"value\":[\"201\",\"202\",\"203\",\"204\",\"205\"]}]"
+          },
+          "family_id": {
+            "String": "profile-entry"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "input_json": {
+            "String": "{\"entry_kind\":\"ResidentActivity\",\"requested_difficulty\":\"5\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "profile-entry Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry 语义审查夹具"
+          },
+          "note": {
+            "String": "One isolated Gold and Gears reference profile binds the released ChessRogueNous rows."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ValidateEntryEligibility\",\"sequence\":1},{\"candidate_count\":\"5\",\"operation\":\"ResolveFormalDifficulty\",\"sequence\":2},{\"operation\":\"AttachTrailblazeBonuses\",\"sequence\":3,\"source_ids\":[\"201\",\"202\",\"203\",\"204\",\"205\"]}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"profile.runtime_enabled\",\"value\":false}]"
+          },
+          "replacement_condition": {
+            "String": "Replace only if a later released profile registry provides a stronger stable identity."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.area.401"
+              },
+              {
+                "String": "gold-gears.area.402"
+              },
+              {
+                "String": "gold-gears.area.403"
+              },
+              {
+                "String": "gold-gears.area.404"
+              },
+              {
+                "String": "gold-gears.area.405"
+              },
+              {
+                "String": "gold-gears.profile.v1"
+              },
+              {
+                "String": "gold-gears.trailblaze-bonus.201"
+              },
+              {
+                "String": "gold-gears.trailblaze-bonus.202"
+              },
+              {
+                "String": "gold-gears.trailblaze-bonus.203"
+              },
+              {
+                "String": "gold-gears.trailblaze-bonus.204"
+              },
+              {
+                "String": "gold-gears.trailblaze-bonus.205"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.project-policy.profile"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.13"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcarea-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.13"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.16"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.profile-entry"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the profile-entry family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "profile-entry 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "profile-entry"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.52"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.34"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.260"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-resonance-extrapolation-boundary"
+              },
+              {
+                "String": "source.goal08.project-policy.resonance-extrapolation-controller"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.53"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.35"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.261"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"normal.enhanced\",\"value\":false},{\"operator\":\"equals\",\"path\":\"formation.enhanced\",\"value\":true}]"
+          },
+          "family_id": {
+            "String": "resonance-extrapolation"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "input_json": {
+            "String": "{\"formation_count\":\"1\",\"offered_path_id\":\"universe.path.abundance\",\"seed\":\"0\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "resonance-extrapolation Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "resonance-extrapolation 语义审查夹具"
+          },
+          "note": {
+            "String": "Released groups prove each Path's base and enhanced BattleEvent bindings, and released text proves that Resonance Extrapolation acts during the Third Plane boss battle. The pinned rows do not expose the complete offered-Path enumeration, formation draw, action-gauge initialization, tie ordering, or the generic player-to-enemy polarity transform. Candidate ordering is by stable source tag; selected formations use the seeded Activity stream; unresolved action and polarity lowering fails closed."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"SelectNormalResonanceGroup\",\"sequence\":1},{\"operation\":\"SelectFormationWithSeededStableOrder\",\"sequence\":2},{\"operation\":\"AddAuxiliaryConundrumFormationWhenActive\",\"sequence\":3},{\"operation\":\"FailClosedForUnresolvedChargeOrPolarityLowering\",\"sequence\":4}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"battle_scope\",\"value\":\"ThirdPlaneBossBattle\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when pinned released engine code proves candidate enumeration, formation selection, action scheduling and target-polarity lowering."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.resonance-extrapolation.1232001"
+              },
+              {
+                "String": "gold-gears.resonance-extrapolation.1232101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.52"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.34"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.260"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-resonance-extrapolation-boundary"
+              },
+              {
+                "String": "source.goal08.project-policy.resonance-extrapolation-controller"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.53"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.35"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.261"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.resonance-extrapolation"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the resonance-extrapolation family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "resonance-extrapolation 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "resonance-extrapolation"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoussubstory-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-cognition-value-tutorial"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"minimum_cognition\",\"value\":\"-20\"},{\"operator\":\"equals\",\"path\":\"bounds_inclusive\",\"value\":true}]"
+          },
+          "family_id": {
+            "String": "secret-threshold"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "input_json": {
+            "String": "{\"cognition\":\"-20\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "secret-threshold Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "secret-threshold 语义审查夹具"
+          },
+          "note": {
+            "String": "Released tables prove numeric bounds and Secret thresholds, while released text proves the plane-boss evaluation boundary. Adjustment, clamp, carry, reset, frontier, and tie-break ordering remain an explicit deterministic authoring policy."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ValidateAreaAndPredecessor\",\"sequence\":1},{\"operation\":\"EvaluateInclusiveCognitionRangeOnce\",\"sequence\":2},{\"operation\":\"UnlockSecretOrFailClosed\",\"sequence\":3}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"required_area\",\"value\":\"gold-gears.area.401\"},{\"fact\":\"predecessors\",\"value\":[\"gold-gears.secret.1002\"]}]"
+          },
+          "replacement_condition": {
+            "String": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.secret.2023"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoussubstory-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal08.public.hoyolab-gold-gears-extrapolation-guide-part-i"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-cognition-value-tutorial"
+              },
+              {
+                "String": "source.goal08.project-policy.cognition-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.secret-threshold"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the secret-threshold family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "secret-threshold 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "secret-threshold"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.1"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.162"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"service.inventory\",\"value\":[{\"base_stock\":\"3\",\"rarity\":\"1\",\"unit_cost\":\"100\"},{\"base_stock\":\"2\",\"rarity\":\"2\",\"unit_cost\":\"200\"},{\"base_stock\":\"1\",\"rarity\":\"3\",\"unit_cost\":\"300\"}]},{\"operator\":\"equals\",\"path\":\"adventure.reward_tier_count\",\"value\":\"3\"}]"
+          },
+          "family_id": {
+            "String": "service-and-adventure"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "input_json": {
+            "String": "{\"completed_objectives\":\"2\",\"service_id\":\"universe.service.shop.100011\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "service-and-adventure Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "service-and-adventure 语义审查夹具"
+          },
+          "note": {
+            "String": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"ValidateOfferEligibility\",\"sequence\":1},{\"operation\":\"ApplyExactPriceOrCumulativeTier\",\"sequence\":2},{\"operation\":\"OfferAbstractResultWithoutAdventureInputSimulation\",\"sequence\":3}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"currency_id\",\"value\":\"universe.currency.cosmic-fragments\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.adventure-outcome.1210601"
+              },
+              {
+                "String": "universe.service.shop.100011"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.1"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.162"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.service-and-adventure"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the service-and-adventure family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "service-and-adventure 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "service-and-adventure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechesteventmap-3001"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.rogueblockcreategrouplist-211101101"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"event.weight\",\"value\":\"100\"},{\"operator\":\"equals\",\"path\":\"block_rule.order\",\"value\":\"0\"}]"
+          },
+          "family_id": {
+            "String": "topology-event-order"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "input_json": {
+            "String": "{\"trigger_type\":\"EnterChessRogueCell\"}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "topology-event-order Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "topology-event-order 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"MatchTrigger\",\"sequence\":1},{\"operation\":\"OrderWeightedCandidatesBySourceIdentity\",\"sequence\":2},{\"operation\":\"ApplyEventThenBlockCreation\",\"sequence\":3}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"chessboard_id\",\"value\":\"gold-gears.chessboard.2111011\"}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.block-rule.2111011.211101101"
+              },
+              {
+                "String": "gold-gears.map-event.2111011.3001"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechesteventmap-3001"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.rogueblockcreategrouplist-211101101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.topology-event-order"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the topology-event-order family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "topology-event-order 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "topology-event-order"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcchessboard-json.103"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.root"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-102"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-203"
+              },
+              {
+                "String": "source.goal08.project-policy.topology-policy"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechestgriditemmap-101"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"equals\",\"path\":\"edge.policy.policy_id\"},{\"operator\":\"equals\",\"path\":\"unspecified_domain\",\"value\":\"Unspecified\"}]"
+          },
+          "family_id": {
+            "String": "topology-generation"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "input_json": {
+            "String": "{\"authored_columns\":[\"gold-gears.column.1111011.2\",\"gold-gears.column.1111011.4\"]}"
+          },
+          "kind": {
+            "String": "ReviewFixture"
+          },
+          "name_en": {
+            "String": "topology-generation Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "topology-generation 语义审查夹具"
+          },
+          "note": {
+            "String": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"operation\":\"OrderColumnsByPositionX\",\"sequence\":1},{\"operation\":\"DeriveForwardNearestColumnEdges\",\"sequence\":2},{\"operation\":\"PreserveAuthoredStartAndEnd\",\"sequence\":3},{\"operation\":\"FailClosedForUnspecifiedDomain\",\"sequence\":4}]"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"chessboard_id\",\"value\":\"gold-gears.chessboard.1111011\"}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when released explicit edges or a verified engine graph builder becomes available."
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "gold-gears.chessboard.1111011"
+              },
+              {
+                "String": "gold-gears.column.1111011.2"
+              },
+              {
+                "String": "gold-gears.column.1111011.4"
+              },
+              {
+                "String": "gold-gears.edge.1111011.102.203"
+              },
+              {
+                "String": "gold-gears.node.2111011.101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcchessboard-json.103"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.root"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-102"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-custom-roguenous-tutorial2-type1-01-json.roguechestgriditemmap-203"
+              },
+              {
+                "String": "source.goal08.project-policy.topology-policy"
+              },
+              {
+                "String": "source.goal08.config-gameplays-roguedlc-maprepo160-level1-roguenous-level1-type1-01-json.roguechestgriditemmap-101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.fixture.topology-generation"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the topology-generation family; it does not claim runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "topology-generation 机制族的仅资料语义夹具；不声称具备运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "topology-generation"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

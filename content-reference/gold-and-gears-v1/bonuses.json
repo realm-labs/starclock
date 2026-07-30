@@ -1,0 +1,233 @@
+[
+  {
+    "id": "gold-gears.trailblaze-bonus.201",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "TrailblazeBonus",
+    "name_en": "Fragmented Universe",
+    "name_zh_cn": "破碎宇宙",
+    "summary_en": "This selectable Trailblaze Bonus grants the released Fragmented Universe effect.",
+    "summary_zh_cn": "该可选开拓祝福提供已发布的破碎宇宙效果。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "12",
+        "sha256": "81bf76524cb7d19656f2fc49d506c666172a47fdbdf1beb4f7f98e0a436ae221",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "trailblaze-bonus"
+    ],
+    "source_id": "201",
+    "bonus_event_id": "3010",
+    "title_text_hash": "11340259321226999772",
+    "description_text_hash": "12463117809645893657",
+    "tag_text_hash": "15408891951469890623",
+    "source_description_sha256_en": "96187135ff857856646a689970f1edeb5855f4cb9ffc1436d677a3624833204f",
+    "source_description_sha256_zh_cn": "33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177",
+    "effect_contributions": [
+      {
+        "operation": "AddCosmicFragments",
+        "scope": "Activity",
+        "value": "150",
+        "unit": "CosmicFragment",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.trailblaze-bonus.201"
+  },
+  {
+    "id": "gold-gears.trailblaze-bonus.202",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "TrailblazeBonus",
+    "name_en": "Blessing Universe",
+    "name_zh_cn": "祝福宇宙",
+    "summary_en": "This selectable Trailblaze Bonus grants the released Blessing Universe effect.",
+    "summary_zh_cn": "该可选开拓祝福提供已发布的祝福宇宙效果。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "13",
+        "sha256": "06d3a69a7798e97aff39311136a16339576d1966ae65eaac5bb12c5c14c2826d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "trailblaze-bonus"
+    ],
+    "source_id": "202",
+    "bonus_event_id": "3020",
+    "title_text_hash": "9387508153186094094",
+    "description_text_hash": "5547132435524916631",
+    "tag_text_hash": "6921704205534929709",
+    "source_description_sha256_en": "8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf",
+    "source_description_sha256_zh_cn": "1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400",
+    "effect_contributions": [
+      {
+        "operation": "OfferRandomBlessing",
+        "scope": "Activity",
+        "choice_count": "1",
+        "minimum_rarity": "1",
+        "maximum_rarity": "2",
+        "pool_binding_state": "DeferredToG08P2B1",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.trailblaze-bonus.202"
+  },
+  {
+    "id": "gold-gears.trailblaze-bonus.203",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "TrailblazeBonus",
+    "name_en": "Miracle Universe",
+    "name_zh_cn": "神奇宇宙",
+    "summary_en": "This selectable Trailblaze Bonus grants the released Miracle Universe effect.",
+    "summary_zh_cn": "该可选开拓祝福提供已发布的神奇宇宙效果。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "14",
+        "sha256": "1d2d118ab1566b3b4c5f7bc2a55f98767aecff4789b65ab82b911d1beb58f94c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "trailblaze-bonus"
+    ],
+    "source_id": "203",
+    "bonus_event_id": "3030",
+    "title_text_hash": "7201648256849815075",
+    "description_text_hash": "16078356971685047286",
+    "tag_text_hash": "8483272288496419289",
+    "source_description_sha256_en": "22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35",
+    "source_description_sha256_zh_cn": "68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530",
+    "effect_contributions": [
+      {
+        "operation": "OfferRandomCurio",
+        "scope": "Activity",
+        "choice_count": "1",
+        "pool_binding_state": "DeferredToG08P2B2",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.trailblaze-bonus.203"
+  },
+  {
+    "id": "gold-gears.trailblaze-bonus.204",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "TrailblazeBonus",
+    "name_en": "Inorganic Universe",
+    "name_zh_cn": "无机宇宙",
+    "summary_en": "This selectable Trailblaze Bonus grants the released Inorganic Universe effect.",
+    "summary_zh_cn": "该可选开拓祝福提供已发布的无机宇宙效果。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "15",
+        "sha256": "9a3d3ab79ddd98e22340b779be72b83776cf7cbdde323a451b77dadcbf2c5729",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "trailblaze-bonus"
+    ],
+    "source_id": "204",
+    "bonus_event_id": "3040",
+    "title_text_hash": "2725493186881235547",
+    "description_text_hash": "209000328659837597",
+    "tag_text_hash": "5372985468598040327",
+    "source_description_sha256_en": "04615b2378840dc25e259ca1ed201cc822b5c54663ac9ca885d8f3cb9dd4a684",
+    "source_description_sha256_zh_cn": "dc146023eb17e9b815eafdf10706cabcea87d2568f773aaa3b4c7dad49c30885",
+    "effect_contributions": [
+      {
+        "operation": "AddDiceCheatAttempts",
+        "scope": "Activity",
+        "value": "1",
+        "unit": "Count",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.trailblaze-bonus.204"
+  },
+  {
+    "id": "gold-gears.trailblaze-bonus.205",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "TrailblazeBonus",
+    "name_en": "Equilibrium Universe",
+    "name_zh_cn": "均衡宇宙",
+    "summary_en": "This selectable Trailblaze Bonus grants the released Equilibrium Universe effect.",
+    "summary_zh_cn": "该可选开拓祝福提供已发布的均衡宇宙效果。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguebonus-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "16",
+        "sha256": "7b06acefeb6833f1bde87def6e9a2bf5833235889ae3033ee3dacab411d3cf1e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "trailblaze-bonus"
+    ],
+    "source_id": "205",
+    "bonus_event_id": "3050",
+    "title_text_hash": "7097375735468072356",
+    "description_text_hash": "9064588664214508064",
+    "tag_text_hash": "540524198340375176",
+    "source_description_sha256_en": "d8452130be849c1b5358aa5301e1954ebaf1cb64c16ef5f4b63af01ac0c25ddc",
+    "source_description_sha256_zh_cn": "ae7632f105f97af4ca84bb34aa19bffe6379e159a2567591edf7f3d8be015113",
+    "effect_contributions": [
+      {
+        "operation": "GrantCuriosByCategory",
+        "scope": "Activity",
+        "grants": [
+          {
+            "category": "Negative",
+            "count": "1"
+          },
+          {
+            "category": "ErrorCode",
+            "count": "1"
+          }
+        ],
+        "pool_binding_state": "DeferredToG08P2B2",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.trailblaze-bonus.205"
+  }
+]

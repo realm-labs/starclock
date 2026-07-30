@@ -1,0 +1,1486 @@
+[
+  {
+    "id": "gold-gears.resonance-interplay.1232701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Destined Death",
+    "name_zh_cn": "回响交错：生即无生",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "7",
+        "sha256": "6c7153cce7edcb8bb0210942627ac6ef43df85b10c5e77996be51ad340709126",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.63",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "63",
+        "sha256": "5e78260ca4f5edb075d9d4ffe2e29291ecaf6a120e0c0d3ab2a99700c3bda142",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "41",
+        "sha256": "66871221adb0fae672a931fda6186c65cfc937fb3957237e38229feb035f655b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.387",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "387",
+        "sha256": "fe7eb75c1f78f281341f5c4473e6b46c18805afc28d85826ec8de00808fcb59f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1232701",
+    "main_path_id": "universe.path.abundance",
+    "sub_path_id": "universe.path.destruction",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12324",
+    "shared_maze_buff_id": "612327",
+    "source_modifier_name": "ADV_StageAbility_612327",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612327",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.35"
+      },
+      {
+        "index": 2,
+        "value": "0.5"
+      }
+    ],
+    "name_text_hash": "17742877751688143159",
+    "description_text_hash": "6332993493812805353",
+    "source_description_sha256_en": "e03f2cbc81073432c4659c21e4d3aefe72c1f92623867737f12c5e597e2c6d33",
+    "source_description_sha256_zh_cn": "7409b6912f43b423930ede4b1cc287080421cb311d808fb6c881e73b68e3d84f",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1232701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1232601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Fleeting Samadhi",
+    "name_zh_cn": "回响交错：般舟三昧",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "6",
+        "sha256": "d8538749de53990e9d905090def820c8fa1c08ee522c5e93926cadbaf9b397f0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "62",
+        "sha256": "b8cc5cd5d89d841d0e05a04c4c2a5530161a156e9668db6b635b850fc9c496b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.40",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "40",
+        "sha256": "eb1212988a5eeee08cf0a8cd9af55a50ab4e61831885a1ce45532e6cae0cfd31",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.386",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "386",
+        "sha256": "9e9a879bda64a651e001fda07e0266bbeb6ea568a3ef4b83b25eb9a5821fb9aa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1232601",
+    "main_path_id": "universe.path.abundance",
+    "sub_path_id": "universe.path.erudition",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12323",
+    "shared_maze_buff_id": "612326",
+    "source_modifier_name": "ADV_StageAbility_612326",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612326",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.01"
+      },
+      {
+        "index": 2,
+        "value": "1"
+      },
+      {
+        "index": 3,
+        "value": "2"
+      }
+    ],
+    "name_text_hash": "6098285343688720370",
+    "description_text_hash": "7969062278988967533",
+    "source_description_sha256_en": "f59ef5d815cab410df559969aa8808bb58444ffff1452c3892f9c2090b10cf8e",
+    "source_description_sha256_zh_cn": "30aa175912c8aee2785cd2447d7b9b53dcba2351e1a8633266188f0a64935061",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1232601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1252701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Protostar",
+    "name_zh_cn": "回响交错：恒星胚胎",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "11",
+        "sha256": "69ec773e448851152c9fa9e8d621086c2f75af6609dac1a18ed5392cf688d18b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.95",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "95",
+        "sha256": "036f7efb73fad3ed75602309898e7e938e07f0d257d83e312c41eda4adedaac0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.57",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "57",
+        "sha256": "90b9c8b074321b9413046df9dc752e3326bde8bbb643c3a2e141b702157f005b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.391",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "391",
+        "sha256": "7577c40d4a0f072d34c999d780b01926616434c8825d215f78c409bcb8c89241",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1252701",
+    "main_path_id": "universe.path.destruction",
+    "sub_path_id": "universe.path.abundance",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12524",
+    "shared_maze_buff_id": "612527",
+    "source_modifier_name": "ADV_StageAbility_612527",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612527",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "2"
+      },
+      {
+        "index": 2,
+        "value": "0.3"
+      }
+    ],
+    "name_text_hash": "12618825744655832461",
+    "description_text_hash": "11570117069221937166",
+    "source_description_sha256_en": "6b1c908aa9b7c85717c2fac4c6423c6077aab0e85ef2957459e8a2e81fb6fb2e",
+    "source_description_sha256_zh_cn": "fa9b70c7d8ba812a9f986514ccc22eeb123a28350ef76406ce37fbc731bda005",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1252701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1252601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Nuclear Implosion",
+    "name_zh_cn": "回响交错：核区坍缩",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "10",
+        "sha256": "67ca0f05c6a11a75afaac6abc6321e6f806c4ada4cd1f22402b5c1c2e07c10de",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.94",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "94",
+        "sha256": "255697d6ccdca3cb8ff455340b2e4491d58579493e1373efa76d92ebf35f3ea8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.56",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "56",
+        "sha256": "776955e6ef495970641cf2baf026b25a40ea4159039940f9340ccdc23ffc2bb0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.390",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "390",
+        "sha256": "3303cd38e89b8e36ef540cd4fa740e665357786404e337d5974c4b9f3428e7ce",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1252601",
+    "main_path_id": "universe.path.destruction",
+    "sub_path_id": "universe.path.hunt",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12523",
+    "shared_maze_buff_id": "612526",
+    "source_modifier_name": "ADV_StageAbility_612526",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612526",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.2"
+      }
+    ],
+    "name_text_hash": "5712696363947213614",
+    "description_text_hash": "8232029284184519085",
+    "source_description_sha256_en": "6256336e678925f4620e98d5c6880c027b10c3b1525f6de8a47388b07b9e4b1e",
+    "source_description_sha256_zh_cn": "9d09e21b8db097ecfb6e517ffb89e7947881d0db3bf6c23e35190375ceac992a",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1252601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1262701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Pit and Pendulum",
+    "name_zh_cn": "回响交错：深坑、钟摆",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "13",
+        "sha256": "74069867f77c1ac9bb2f01b00b11199ae80cad36bf54a67d183b5647049c0727",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.111",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "111",
+        "sha256": "48fcdbb7955c2a741d4f9b91138287f467ea49d2b6615e4d2841e1b18c070f91",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.65",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "65",
+        "sha256": "0b5884614d01948ecf1d0ffb08c97e66539d81c14e29fd2686d44dcc01294848",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.393",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "393",
+        "sha256": "96797f277635b4dd4ecab574ebfe46c3f781ddf376008f4a1d663133c71babb7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1262701",
+    "main_path_id": "universe.path.elation",
+    "sub_path_id": "universe.path.hunt",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12624",
+    "shared_maze_buff_id": "612627",
+    "source_modifier_name": "ADV_StageAbility_612627",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612627",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "20"
+      },
+      {
+        "index": 2,
+        "value": "0.1"
+      }
+    ],
+    "name_text_hash": "9710275452083462994",
+    "description_text_hash": "13471699984165155030",
+    "source_description_sha256_en": "f4b146ba5cba632e83711117ed217018c2d1bad9676b35e73e239fba0899b88b",
+    "source_description_sha256_zh_cn": "34c0e43271eed23e166b78620c3f2f394c312e8e0b4f1fd151c633f5a007c488",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1262701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1262601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Unending Night",
+    "name_zh_cn": "回响交错：夜以继夜",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "12",
+        "sha256": "3abc103cf934ab512303fb96aef3fbc6a3073dac04365452c7b5390d483c6d2a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.110",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "110",
+        "sha256": "0aa56037c7dcf0de80cc458b1fad285cb4747fea2f68f1069f884664c85b8b3c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.64",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "64",
+        "sha256": "55ab57966290d5f3fa70cc37529ebd3e6c43c7ad785ffddb6d1f6f8e2144e336",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.392",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "392",
+        "sha256": "7b2a7c054e23fc78f92c81d4af9703bd77862afc6c7bd8f613de13e33b8b4ed5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1262601",
+    "main_path_id": "universe.path.elation",
+    "sub_path_id": "universe.path.nihility",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12623",
+    "shared_maze_buff_id": "612626",
+    "source_modifier_name": "ADV_StageAbility_612626",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612626",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "1"
+      },
+      {
+        "index": 3,
+        "value": "0.05"
+      },
+      {
+        "index": 4,
+        "value": "0.15"
+      }
+    ],
+    "name_text_hash": "14288467461019423341",
+    "description_text_hash": "17071415757945924812",
+    "source_description_sha256_en": "0e71ced97b8dab5ca139994c1f41f26bec84bb91a3edd27ff9e1020c36c11bca",
+    "source_description_sha256_zh_cn": "0f08fc51a139955a0fdfa65e5fcf8c82556700f7d49a38439caec3f75668c999",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1262601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1282601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Full Scan",
+    "name_zh_cn": "回响交错：全盘扫描",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "16",
+        "sha256": "9abb8869fb0508efae45b17c15d6da6a5ce5e65d461e46b6b8b151516a4f3a0e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.140",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "140",
+        "sha256": "a8e1b0b58eeb439500225ddc5402708c74ffd283612aa8a31fedb75e611f8712",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "78",
+        "sha256": "eec61db6ff35b22ca6ad66517a8a2a36aaf5f38cec76d7ea43f050bbf859a8dc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.396",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "396",
+        "sha256": "c87e659bb0c9847c592eb0b8fb8f43201a6112ecbe4f9065e1e14a98145b9095",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1282601",
+    "main_path_id": "universe.path.erudition",
+    "sub_path_id": "universe.path.elation",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12823",
+    "shared_maze_buff_id": "612826",
+    "source_modifier_name": "ADV_StageAbility_612826",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612826",
+    "source_parameters": [],
+    "name_text_hash": "4831266710792699495",
+    "description_text_hash": "8456353637261935263",
+    "source_description_sha256_en": "a2a3e28296270d7b4ed5bdf34a2fe4fc0b42838d9fcf5236f91d8218cdf4e68f",
+    "source_description_sha256_zh_cn": "55957bbb7826823a9c20be42c03134c65f11a39d9f20954e36c95b25e0ef0b58",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1282601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1282701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Data Reinforcement",
+    "name_zh_cn": "回响交错：数据加固",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "17",
+        "sha256": "2f0e51f0a3166be7913f4a38419451b330b32d5f0f7633b4278d1065e155b654",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.141",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "141",
+        "sha256": "25a197f5a5732825cd6071a271657fc304845de51e981afd4497e523d50269e9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "79",
+        "sha256": "0ddbe8d8d8d5fadea75555394ec424e5434cca13f7ed424f67b32d5e9af00678",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.397",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "397",
+        "sha256": "4059698bacb8a839fdda63eaea9e9a07a014328fdd0935b942e27c446ccd2580",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1282701",
+    "main_path_id": "universe.path.erudition",
+    "sub_path_id": "universe.path.nihility",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12824",
+    "shared_maze_buff_id": "612827",
+    "source_modifier_name": "ADV_StageAbility_612827",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612827",
+    "source_parameters": [],
+    "name_text_hash": "3416461840839992256",
+    "description_text_hash": "11974203030285089501",
+    "source_description_sha256_en": "ac9d9ce146adf2d95da9e3a5562b552cee729ce6022124b5f5c14546f7305747",
+    "source_description_sha256_zh_cn": "f57b5cbf1233096f459487061d6fc98f2e7b7cc4af5963d379a3472abeb0b670",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1282701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1242701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Waiting with Drawn Bow",
+    "name_zh_cn": "回响交错：张弓以待",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "9",
+        "sha256": "14f537d84ae9d50a068c4b9b6762c034f3305438cda69cfcb0afc24e18eba61d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "79",
+        "sha256": "36d70e5fcac03a4e5c03883a807b19f2b9e6b56279016ae03acde5dea3bba0a5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.49",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "49",
+        "sha256": "c200d32d84de87e24812f012535c8f7205ceec3277b5b81af0c57ecaae70e670",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.389",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "389",
+        "sha256": "5beeb995b6fa75f3171c8d6e3cd28678e82b8f271ec3c31f19a6584f13d06c76",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1242701",
+    "main_path_id": "universe.path.hunt",
+    "sub_path_id": "universe.path.preservation",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12424",
+    "shared_maze_buff_id": "612427",
+    "source_modifier_name": "ADV_StageAbility_612427",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612427",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "5"
+      }
+    ],
+    "name_text_hash": "18175380902082568641",
+    "description_text_hash": "6067593309717359725",
+    "source_description_sha256_en": "9937c23ef507248218b955a15f179707ad07903187171708c98ef098a06998a2",
+    "source_description_sha256_zh_cn": "d5cf8a3a0d49426464c3fa165999570efa751250b72da88a73902ac5b4ab7044",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1242701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1242601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Solemn Snare",
+    "name_zh_cn": "回响交错：肃肃罝罗",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "8",
+        "sha256": "c72b38ca96e3a7e7b6afd4ca9979146f3672d6ab42584de29af5d258e7269c7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "78",
+        "sha256": "0b6ec74507ee4e6c57cd299308a081ccd973499151dd430d3bea3501a07242ae",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.48",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "48",
+        "sha256": "70eb7728b60fa2a557188d4d9ae18fbbae156544f82708927c173939318f6613",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.388",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "388",
+        "sha256": "c53ff8eb35691b3f30449d39bf56912976e1f484b4f6a508bfbf091e664ca333",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1242601",
+    "main_path_id": "universe.path.hunt",
+    "sub_path_id": "universe.path.propagation",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12423",
+    "shared_maze_buff_id": "612426",
+    "source_modifier_name": "ADV_StageAbility_612426",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612426",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.2"
+      },
+      {
+        "index": 2,
+        "value": "8"
+      }
+    ],
+    "name_text_hash": "17570387624756081120",
+    "description_text_hash": "10431771284007876659",
+    "source_description_sha256_en": "13f7c30d11c135c9a50b3cdf0c12e2388187e4a3b512f2048d31fabfdcda3ac9",
+    "source_description_sha256_zh_cn": "cf69d86d29a86fea9f17a41c6a476cde154539a94eac56b729b8d92029187f8e",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1242601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1222701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Terror and Tremble",
+    "name_zh_cn": "回响交错：恐惧与颤栗",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "5",
+        "sha256": "63a5c3311c9a1fb66a8ed7f83be69a15834085b35763f8c88e9d9b681f1e4356",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "47",
+        "sha256": "ab053f5ef4c952723078382f604b1fe104240c18144b3a2adac0240f8a85e019",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "33",
+        "sha256": "7c9d11ceb3810f811760eaa2bee17cd1d614c26e234eb82a9af7feb95a39ac32",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.385",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "385",
+        "sha256": "3419926c8b939592fc0dd5511705cf91d875e84d2962657189a05b0a8241b046",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1222701",
+    "main_path_id": "universe.path.nihility",
+    "sub_path_id": "universe.path.elation",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12224",
+    "shared_maze_buff_id": "612227",
+    "source_modifier_name": "ADV_StageAbility_612227",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612227",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.06"
+      }
+    ],
+    "name_text_hash": "15897806584656304810",
+    "description_text_hash": "17631204078967016159",
+    "source_description_sha256_en": "8612aad482fb0580d854d5327dcb9bbc32a6363b4556270418f6e663f80cc51f",
+    "source_description_sha256_zh_cn": "acf976817031eae0054b122491ab98c9b46a853c9380a52242bc890c49539172",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1222701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1222601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Reign of Keys",
+    "name_zh_cn": "回响交错：钥匙的统治",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "4",
+        "sha256": "8e868802ff24420ce0b73d739e4551670fc56db63d187f446eb2184a9c4c3990",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "46",
+        "sha256": "aa8b1bc49802e69c12a77f05c3db38b775a71068f1b8bfc962e9642245fa3639",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "32",
+        "sha256": "fd1c4ff2015b3daa4dc694af9ff2cb2871932acb168d3e5f6c2a31ec78114738",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.384",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "384",
+        "sha256": "0943a8c26c05ee08fbd6c3a7e88d51d39cfdb51d5a6cee9670e54afec5efaf77",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1222601",
+    "main_path_id": "universe.path.nihility",
+    "sub_path_id": "universe.path.remembrance",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12223",
+    "shared_maze_buff_id": "612226",
+    "source_modifier_name": "ADV_StageAbility_612226",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612226",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.3"
+      },
+      {
+        "index": 2,
+        "value": "1"
+      }
+    ],
+    "name_text_hash": "7064616531129884437",
+    "description_text_hash": "12283511723748703754",
+    "source_description_sha256_en": "efaf7e929e274fdeeaa06c43a54a727c8d2b005db5799a0047e76c7a93127022",
+    "source_description_sha256_zh_cn": "c2acb5427792d5c5dfb879efcf85dee653ed92c86f8ac3047ae9845d330cec82",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1222601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1202601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Reverse Quenching",
+    "name_zh_cn": "回响交错：逆淬火",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "0",
+        "sha256": "fb7f65e3e23f35b2ac49b494d1aa7c21f8653c8c9d4b933f6949507c1aee2466",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "14",
+        "sha256": "82b4e0b2f62b5eb4fcc2c7975b860cf2f2a70e1797a03e671295959350b192f5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "16",
+        "sha256": "394f50802cbf72b6936a35bae8ca846f2e7b240459b9cce033b7e3adf98a0f73",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.380",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "380",
+        "sha256": "cdb454f2550a853996810c033f7855720971a3def749af962980e92c7ffaebd5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1202601",
+    "main_path_id": "universe.path.preservation",
+    "sub_path_id": "universe.path.destruction",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12023",
+    "shared_maze_buff_id": "612026",
+    "source_modifier_name": "ADV_StageAbility_612026",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612026",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "2"
+      },
+      {
+        "index": 3,
+        "value": "0.2"
+      }
+    ],
+    "name_text_hash": "18444335687258826821",
+    "description_text_hash": "15961499255598065932",
+    "source_description_sha256_en": "cd563c1332ac6bf982c73066019d8214e2949a8b45b33fedd1ad1485f2b49ccc",
+    "source_description_sha256_zh_cn": "1fb585f99d90e197998150aac92bc610b66f1bd4726844a237b87c587366ac49",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1202601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1202701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Displaced Ascent",
+    "name_zh_cn": "回响交错：位错攀移",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "1",
+        "sha256": "b1eca9e52db8d8354bdfffccc1876890264fffa8c0d7a0fe2c17e095c3430eb7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "15",
+        "sha256": "18ca57275314ee8f7315b93c59d23b3fe739fb50bd8826bbfe00e21b63868709",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "17",
+        "sha256": "70041c63132bd4542f7caebefd7449659419790b379626b50510541a14cdc2dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.381",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "381",
+        "sha256": "cfb039bee489d269d9de167b6718096802d0bff30dedca341f723823284bcd62",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1202701",
+    "main_path_id": "universe.path.preservation",
+    "sub_path_id": "universe.path.erudition",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12024",
+    "shared_maze_buff_id": "612027",
+    "source_modifier_name": "ADV_StageAbility_612027",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612027",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.08"
+      },
+      {
+        "index": 2,
+        "value": "8"
+      }
+    ],
+    "name_text_hash": "15716788509586920167",
+    "description_text_hash": "10332775524168208247",
+    "source_description_sha256_en": "68ac19a1927da37d73c3497c2f87caa756d32eabca337bd3c5a49cd5a39aa170",
+    "source_description_sha256_zh_cn": "19930d6c3fe0e74a9abbe6dfbbc21e3c1d181455c0ff0104ead6736e362d873f",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1202701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1272601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Compounded Macrospore",
+    "name_zh_cn": "回响交错：复大孢子",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "14",
+        "sha256": "9f3310732ab8c4ec75f51593de2a748f19435aac84cd71ed1aa5eb0de94b7ced",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.126",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "126",
+        "sha256": "43daa311d9cd2bbc2b0caea13f3547a5e5d52763ee13957a176de0ca358dc12c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "72",
+        "sha256": "56b57ec1ed6323aea1c59c56395d8ffbc59e4bdd03469e1051564b3f25b29e9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.394",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "394",
+        "sha256": "4cd15f2dac7f637ccbcaad69285406fa159e8f08d767b3cc88d773f8d44fafa7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1272601",
+    "main_path_id": "universe.path.propagation",
+    "sub_path_id": "universe.path.abundance",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12723",
+    "shared_maze_buff_id": "612726",
+    "source_modifier_name": "ADV_StageAbility_612726",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612726",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.5"
+      },
+      {
+        "index": 2,
+        "value": "2"
+      }
+    ],
+    "name_text_hash": "18042140327245269714",
+    "description_text_hash": "4513346319726767011",
+    "source_description_sha256_en": "937796101aa3c7370f2c60bcfe586fa0e30ab81898a97cd159650d880720aaa6",
+    "source_description_sha256_zh_cn": "f734779b9e10af114f3b0fcac32a1abd8e431624c2ca4dcdb88cdef798cdff20",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1272601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1272701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Condensation Cavity",
+    "name_zh_cn": "回响交错：冷凝腔体",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "15",
+        "sha256": "750ebe5996c72bd588575ad9124358430dbddaf62c3195ba6830043e46fa1c9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.127",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "127",
+        "sha256": "ea5ceed8ad7db7fc47d5bc07636b8fdbc20ff9606a1a65d1bfdd86b818055fc1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.73",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "73",
+        "sha256": "e35f37f2383cedb257c8c6c3b51ebe6adee3f7230a9a4b866c499c90206feabe",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.395",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "395",
+        "sha256": "7ac19c3be5cba650652dd218c64fdceb66bdd6ffd915a4f1cf35f0c6eb9c6327",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1272701",
+    "main_path_id": "universe.path.propagation",
+    "sub_path_id": "universe.path.remembrance",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12724",
+    "shared_maze_buff_id": "612727",
+    "source_modifier_name": "ADV_StageAbility_612727",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612727",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.1"
+      },
+      {
+        "index": 2,
+        "value": "0.2"
+      },
+      {
+        "index": 3,
+        "value": "1"
+      }
+    ],
+    "name_text_hash": "14736807370965889857",
+    "description_text_hash": "2141494527336861315",
+    "source_description_sha256_en": "184b4b0a9ea9f36ec0e9c687151d63189e5146f2ea5afe7df447f698757b5bf0",
+    "source_description_sha256_zh_cn": "808fc44b49a32b70990ccdc3eab5815430a00c4a0220723e1d830660866eb810",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1272701"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1212601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Roar and Rustle",
+    "name_zh_cn": "回响交错：呼喊与细语",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "2",
+        "sha256": "0a057346787c8e9f691f3cbe954e7116d8a784a237b04db075e71628dfcf9c96",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "30",
+        "sha256": "59f8d1ef5548ecd2a4e767eacd32997f14f4998451844cc52d73d009489d5655",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "24",
+        "sha256": "9a6068617541fdb0851bb7b43422cc76bf0a41f4bba796df474a87ffa0dd0708",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.382",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "382",
+        "sha256": "55379d242a00a0bd57b92a3419f3795981855a8696ffd4f3b2962d4bbff0e84a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1212601",
+    "main_path_id": "universe.path.remembrance",
+    "sub_path_id": "universe.path.preservation",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12123",
+    "shared_maze_buff_id": "612126",
+    "source_modifier_name": "ADV_StageAbility_612126",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612126",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "0.4"
+      },
+      {
+        "index": 2,
+        "value": "2"
+      }
+    ],
+    "name_text_hash": "13348271080417795920",
+    "description_text_hash": "11527513388624248919",
+    "source_description_sha256_en": "714c88fb37d7ea52fd16c3ef3100fc71aa0a75cbf7b16a6ffabee0658e26d333",
+    "source_description_sha256_zh_cn": "0b87047d20921ba073bceafcf586de36399f47b418d14c99f6a2308a16024069",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1212601"
+  },
+  {
+    "id": "gold-gears.resonance-interplay.1212701",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Seemingly Mirrored",
+    "name_zh_cn": "回响交错：犹在镜中",
+    "summary_en": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold.",
+    "summary_zh_cn": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousaeoncross-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousAeonCross.json",
+        "locator": "3",
+        "sha256": "1577b33e2847f9b8fd03dc12964b13fe2ddae6fa9ecdb915ad3c00e80553f4e4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuffgroup-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "31",
+        "sha256": "1318ed5dc5f9c721588101b75ce1abf87ba6c48e9143382133376d68d0e8c965",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguebuff-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "25",
+        "sha256": "6cb9e328f8c0b980dd3aad39d206b8fe4c1d6b58896c3e375369719591965778",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguemazebuff-json.383",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "383",
+        "sha256": "328d2353a86968650b60364900c0666745c6c060b72777fe03ae78ce51900332",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "path-resonance",
+      "resonance-interplay"
+    ],
+    "source_id": "1212701",
+    "main_path_id": "universe.path.remembrance",
+    "sub_path_id": "universe.path.propagation",
+    "main_blessing_threshold": 3,
+    "sub_blessing_threshold": 3,
+    "buff_group_id": "12124",
+    "shared_maze_buff_id": "612127",
+    "source_modifier_name": "ADV_StageAbility_612127",
+    "source_binding_type": "StageAbilityBeforeCharacterBorn",
+    "source_binding_key": "StageAbility_612127",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "1"
+      },
+      {
+        "index": 2,
+        "value": "1"
+      }
+    ],
+    "name_text_hash": "15358006597865730367",
+    "description_text_hash": "1891444481084123737",
+    "source_description_sha256_en": "5bca80dea5e7198f34ed6b1ea85bfa1fd8ae35a450e8dec690e322f507bd3907",
+    "source_description_sha256_zh_cn": "895ae5c456153fc89e2ccf81b28c0a9d107fac793d4bdaafa971e0421e987091",
+    "rule_contribution_id": "gold-gears.rule.resonance-interplay.1212701"
+  }
+]

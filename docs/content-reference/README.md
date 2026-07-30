@@ -95,3 +95,19 @@ Goal 01 may improve a fact when an observation fixture or stronger public source
 proves a difference. It must preserve the old evidence, record the decision and
 update the pack/catalog digests. It may not silently replace a value because a
 different website is easier to transcribe.
+
+## Gold and Gears Candidate reference
+
+Goal 08 freezes a separate Version 4.4 Gold and Gears reference package under
+`content-reference/gold-and-gears-v1/`. Its 7,913 source obligations are fully
+DataReady, while all 16 unpublished evidence boundaries remain explicit,
+nonblocking and replaceable. The four isolated authoring workbooks and the
+Candidate Sora bundle are review artifacts only: no JSON/Excel runtime path,
+runtime lowering, handler registration or playable profile is released.
+
+The normalized Candidate pack digest is
+`ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623`;
+the isolated Sora review bundle digest is
+`97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 08 ledger](../goals/08-gold-and-gears-reference-data-status.md).
