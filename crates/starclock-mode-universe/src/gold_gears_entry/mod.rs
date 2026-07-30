@@ -11,6 +11,7 @@ mod knowledge;
 mod knowledge_execution;
 mod knowledge_resolution;
 mod map_overlay;
+mod neural_runtime;
 mod plane_transition;
 mod state;
 mod state_layout;
@@ -31,6 +32,11 @@ pub use knowledge::GOLD_AND_GEARS_KNOWLEDGE_REVISION;
 pub use knowledge_resolution::{
     GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION, GoldAndGearsKnowledgeResolution,
 };
+pub use neural_runtime::{
+    GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION, GoldAndGearsNeuralAcquisition,
+    GoldAndGearsNeuralBattleEntry, GoldAndGearsNeuralBattleEntryContext,
+    GoldAndGearsNeuralBattleStat, GoldAndGearsNeuralStatContribution,
+};
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
@@ -50,6 +56,8 @@ mod knowledge_resolution_tests;
 mod knowledge_tests;
 #[cfg(test)]
 mod map_overlay_tests;
+#[cfg(test)]
+mod neural_runtime_tests;
 #[cfg(test)]
 mod phase2_hardening_tests;
 #[cfg(test)]

@@ -31,6 +31,7 @@ use super::{
         GoldAndGearsKnowledgeResolution, KnowledgeResolutionContext, compile_resolution,
     },
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
+    neural_runtime::{CompiledNeuralRuntime, NeuralRuntimeCatalog},
     plane_transition::PlaneTransitionRuntimeCatalog,
     state::compile_state,
     topology::compile_topology,
@@ -184,6 +185,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) dice_runtime: Arc<DiceRuntimeCatalog>,
     pub(super) dice_faces: Arc<DiceFaceRuntimeCatalog>,
     pub(super) knowledge: Arc<KnowledgeRuntimeCatalog>,
+    pub(super) neural: Arc<NeuralRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -214,6 +216,7 @@ impl GoldAndGearsRuntimeFactory {
         let dice_runtime = DiceRuntimeCatalog::compile(&unique)?;
         let dice_faces = DiceFaceRuntimeCatalog::compile(&unique)?;
         let knowledge = KnowledgeRuntimeCatalog::compile(&unique)?;
+        let neural = NeuralRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -224,6 +227,7 @@ impl GoldAndGearsRuntimeFactory {
             dice_runtime: Arc::new(dice_runtime),
             dice_faces: Arc::new(dice_faces),
             knowledge: Arc::new(knowledge),
+            neural: Arc::new(neural),
         })
     }
 
@@ -258,6 +262,7 @@ impl GoldAndGearsRuntimeFactory {
             ));
         }
         let neural = canonical_neural_network(&self.unique, &entry.neural_network)?;
+        let neural_runtime = self.neural.select(&neural)?;
         let loadout = self.dice_loadouts.compile_loadout(
             &self.unique,
             dice,
@@ -291,6 +296,13 @@ impl GoldAndGearsRuntimeFactory {
                     .ok_or_else(|| GoldAndGearsEntryError::UnknownTrailblazeBonus(key.into()))
             })
             .transpose()?;
+        if let Some(bonus) = trailblaze_bonus
+            && !neural_runtime.allows_trailblaze_bonus(&bonus.identity.stable_key)
+        {
+            return Err(GoldAndGearsEntryError::LockedTrailblazeBonus(
+                bonus.identity.stable_key.clone(),
+            ));
+        }
         let (cognition_minimum, cognition_maximum) = self.cognition.bounds(area)?;
         let topology = compile_topology(&self.structural, area)?;
         let state = compile_state(
@@ -341,6 +353,7 @@ impl GoldAndGearsRuntimeFactory {
                 .map(|node| node.identity.stable_key.clone())
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
+            neural_runtime,
             stats_conundrum: entry.stats_conundrum,
             auxiliary_conundrum: entry.auxiliary_conundrum,
             trailblaze_bonus: trailblaze_bonus.map(|bonus| bonus.identity.stable_key.clone()),
@@ -411,6 +424,7 @@ pub struct GoldAndGearsRuntimeInstance {
     dice_face_runtime: Box<[RuntimeDiceFace]>,
     participants: Arc<ParticipantLock>,
     neural_network: Box<[Box<str>]>,
+    pub(super) neural_runtime: CompiledNeuralRuntime,
     stats_conundrum: u8,
     auxiliary_conundrum: u8,
     trailblaze_bonus: Option<Box<str>>,

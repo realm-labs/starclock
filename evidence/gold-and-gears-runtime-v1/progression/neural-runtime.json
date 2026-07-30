@@ -1,0 +1,144 @@
+{
+  "schema_revision": "starclock.gold-and-gears-neural-runtime.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P4-B1",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "neural_nodes": 40,
+    "topological_indices": "1-40-exact",
+    "effect_counts": {
+      "AddBattleStatRatio": 30,
+      "ApplyFixedEntryDamage": 1,
+      "UpgradeDiceFaceSlot": 3,
+      "UnlockTrailblazeBonus": 2,
+      "AddInitialCountdown": 1,
+      "AddBlessingStoreOfferCount": 1,
+      "AddRerollAttempts": 1,
+      "ExcludePreviousRerollResult": 1
+    },
+    "effect_domains": {
+      "Battle": 30,
+      "ActivityAndBattle": 1,
+      "Activity": 9
+    }
+  },
+  "acquisition": {
+    "owner": "caller-account-progression",
+    "source_item_id": 281013,
+    "total_cost": 31250,
+    "minimum_node_cost": 250,
+    "maximum_node_cost": 1600,
+    "direct_prerequisites_required": true,
+    "existing_unlock_set_requires_prerequisite_closure": true,
+    "duplicate_unlocks_rejected": true,
+    "already_acquired_rejected": true,
+    "insufficient_currency_rejected": true,
+    "mutates_live_activity": false
+  },
+  "activity_effects": {
+    "baseline_trailblaze_bonuses": 3,
+    "neural_trailblaze_bonus_unlocks": [
+      "gold-gears.trailblaze-bonus.204",
+      "gold-gears.trailblaze-bonus.205"
+    ],
+    "initial_countdown_bonus": 1,
+    "transaction_blessing_store_offer_bonus": 3,
+    "next_plane_reroll_bonus": 1,
+    "dice_slot_rarity_caps_after_all_nodes": [
+      3,
+      3,
+      3,
+      2,
+      2,
+      2
+    ],
+    "all_mutations_use_activity_operations": true,
+    "runtime_json_file_reads": 0
+  },
+  "battle_contributions": {
+    "additive_stat_contributions": 30,
+    "distinct_stat_targets": 11,
+    "fixed_entry_damage_source": "gold-gears.neural-network-node.201",
+    "fixed_entry_damage_basis": "TargetMaxHpRatio",
+    "fixed_entry_damage_ratio_scaled": 990000,
+    "eligible_battle_limit": 4,
+    "eligible_section": "FirstPlane",
+    "boss_excluded": true,
+    "caller_condition": "previous-challenge-first-plane-completed",
+    "activity_accounting_key": "PROGRESSION_NEURAL_REBOOT_BATTLES_KEY",
+    "immutable_selected_digest": "0079454daf8bb2e51a02dd56daa929039bb09c6321a7e4872fa732105f4b0028"
+  },
+  "policies": {
+    "G14-R08": {
+      "state": "VersionedExecutablePolicy",
+      "revision": "neural-network-reroll-empty-candidate-v1",
+      "evidence_quality": "ProjectPolicy",
+      "candidate_order": "stable-dice-face-id-ascending",
+      "draw_mode": "seeded-from-eligible-candidates",
+      "empty_candidate_behavior": "KeepPreviousAndConsumeAttempt",
+      "empty_candidate_draws": 0
+    },
+    "G14-R09": {
+      "state": "VersionedExecutablePolicy",
+      "revision": "neural-network-slot-upgrade-target-v1",
+      "evidence_quality": "ProjectPolicy",
+      "mapping_basis": "released-slot-capability-plus-stable-slot-order",
+      "blue_upgrade_order": "earlier-node-slot-5-then-later-node-slot-6",
+      "purple_upgrade_target": "slot-3"
+    }
+  },
+  "semantic_fixture": {
+    "name": "neural-network-effect",
+    "production_programs": true,
+    "asserted_disposition": "MechanicallyRelevant",
+    "asserted_effect_domain": "ActivityAndBattle",
+    "runtime_operations": 2
+  },
+  "validation": {
+    "all_forty_nodes_decode_exactly": true,
+    "all_costs_parse_as_checked_integers": true,
+    "all_ratios_parse_as_signed_millionths": true,
+    "selected_effects_are_canonically_ordered": true,
+    "selected_digest_is_order_independent": true,
+    "battle_projection_is_immutable": true,
+    "battle_does_not_mutate_live_activity": true,
+    "fifth_reboot_entry_is_ineligible": true,
+    "stale_fourth_entry_accounting_rejects_atomically": true,
+    "locked_trailblaze_bonus_rejects": true,
+    "protected_reference_roots_unchanged": true
+  },
+  "tests": {
+    "focused_neural_tests_passed": 5,
+    "entry_suite_passed": 50,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "cold_quick_attempt": "BudgetExceededAfterBuilding53SelectedHarnesses",
+    "warm_quick_attempt": "BudgetExceededDuringSelectedTestExecution",
+    "diagnostic_selected_harnesses_passed": 53,
+    "diagnostic_selected_seconds": "139.6",
+    "first_successful_quick_seconds": "124.3",
+    "final_cold_quick_attempt": "BudgetExceededAfterRebuilding53SelectedHarnesses",
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "179.5",
+    "quick_selected_harnesses": 53,
+    "quick_selected_execution_seconds": "116.2",
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3,
+    "full_gate_passed": true,
+    "full_gate_seconds": "526.1",
+    "full_workspace_harnesses": 138
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::neural_runtime_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/goal14/verify-phase4-b1.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}
