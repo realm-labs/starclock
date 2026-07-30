@@ -1,0 +1,59 @@
+{
+  "schema_revision": "starclock.gold-and-gears-unique-catalog.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P1-B4",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "lowered_tables": {
+    "GoldGearsCognitionRange": 13,
+    "GoldGearsSecret": 20,
+    "GoldGearsModeConstant": 22,
+    "GoldGearsDiceDefinition": 12,
+    "GoldGearsDiceCategory": 4,
+    "GoldGearsDicePathValue": 108,
+    "GoldGearsDiceSlot": 6,
+    "GoldGearsDiceFace": 80,
+    "GoldGearsDiceFaceTag": 10,
+    "GoldGearsKnowledgeRule": 22,
+    "GoldGearsNeuralNetwork": 40,
+    "GoldGearsConundrumLevel": 12,
+    "GoldGearsTrailblazeBonus": 5,
+    "GoldGearsPath": 9,
+    "GoldGearsPathBoost": 9,
+    "GoldGearsResonance": 36,
+    "GoldGearsResonanceExtrapolation": 36,
+    "GoldGearsResonanceInterplay": 18
+  },
+  "lowered_table_count": 18,
+  "lowered_row_count": 462,
+  "validation": {
+    "cognition_ranges": 13,
+    "secret_graph_nodes": 20,
+    "canonical_constants": 22,
+    "custom_dice": 12,
+    "dice_slot_face_tag_knowledge_closure": "6/80/10/22",
+    "dice_path_bindings": 108,
+    "neural_dag_nodes": 40,
+    "conundrum_tracks_and_levels": "2/12",
+    "path_boost_pairs": 9,
+    "resonance_extrapolation_interplay": "36/36/18",
+    "generated_public_types": 0
+  },
+  "policy": {
+    "canonical_decimal_transport": "validated-string-no-float-v1",
+    "embedded_programs": "private-validated-json-text-pending-typed-execution-lowering",
+    "inherited_policy_boundaries_terminalized": 0,
+    "execution_claimed": false
+  },
+  "tests": {
+    "unique_unit_passed": 2,
+    "identity_integration_passed": 3
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_unique --all-features",
+    "cargo test -p starclock-mode-universe --test gold_gears_identity --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal14/verify-phase1-b4.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}

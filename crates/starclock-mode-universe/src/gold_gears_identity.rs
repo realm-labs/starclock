@@ -9,6 +9,7 @@ use crate::{
         GOLD_AND_GEARS_HANDLER_BUNDLE_REVISION, gold_and_gears_activity_handler_registry,
     },
     gold_gears_structural::GoldAndGearsStructuralCatalog,
+    gold_gears_unique::GoldAndGearsUniqueCatalog,
 };
 
 pub const GOLD_AND_GEARS_CATALOG_REVISION: &str = "gold-and-gears-v4.4-runtime-v1";
@@ -41,7 +42,10 @@ impl GoldAndGearsCatalogIdentity {
         let summary = validate_gold_and_gears_bundle(bytes)?;
         let structural = GoldAndGearsStructuralCatalog::load(bytes)
             .map_err(|_| GoldAndGearsBundleLoadError::TableClosure)?;
+        let unique = GoldAndGearsUniqueCatalog::load(bytes)
+            .map_err(|_| GoldAndGearsBundleLoadError::TableClosure)?;
         debug_assert_eq!(structural.bundle, summary);
+        debug_assert_eq!(unique.bundle, summary);
         Ok(Self::from_validated_bundle(summary))
     }
 
