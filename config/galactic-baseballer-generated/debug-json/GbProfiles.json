@@ -144,7 +144,9 @@
           "schema_revision": {
             "String": "starclock.galactic-baseballer-row.v1"
           },
-          "shared_system_id": "Null",
+          "shared_system_id": {
+            "String": "galactic-baseballer.shared-base.v1"
+          },
           "source_refs": {
             "String": "[\"source.goal16.4deccdb1eda03fc6\",\"source.goal16.9d6caf6747a19fc9\",\"source.goal16.hoyolab-version-2.2-update\",\"source.goal16.hoyolab-original-event-notice\"]"
           },

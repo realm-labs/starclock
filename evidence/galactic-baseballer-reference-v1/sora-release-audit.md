@@ -14,16 +14,20 @@ Candidate/reference-only and are not imported by any Starclock runtime crate.
 | Empty tables | 0 |
 | Generated Rust files | 42 (`40` tables plus `mod.rs` and `runtime.rs`) |
 | Debug JSON files | 40 |
-| Bundle bytes | 741,203 |
-| Bundle SHA-256 | `3d18f22e3def1c46f0901620769edbf2aa3266af57ca800588b6d18bde7af07a` |
-| Reader tree SHA-256 | `927e7077999dabc3389cdb9af6fdbed3e6995438278274e396e29c618a499874` |
-| Debug tree SHA-256 | `3dc21701d9b8111a3f66588182b3b40e41682075ed87abe94f5e62456fe42a47` |
-| Complete generated tree SHA-256 | `62a780b7aca2bfb7b3ef3188805317a860f577d08d9aa57bde3dde5a23534685` |
+| Bundle bytes | 741,194 |
+| Bundle SHA-256 | `82e600ee2b8aaaaeada82810f223d4f45e193833eb4151c939a5e51950f78848` |
+| Reader tree SHA-256 | `f568092007c1a3e3b7618b62527e5981a0d4c7480104be954da0380d8911697e` |
+| Debug tree SHA-256 | `37c7819de3de866be87732f8a7d81aafc753cf79a12e77fdbe26dbac27fc795a` |
+| Complete generated tree SHA-256 | `fad82dc324258451c71039130f5f5043b12360efd80716d81e02ed4ffaf18e03` |
 
 The binary export uses Sora's deterministic Zstandard compression at level 9.
 Two clean full releases and an additional verifier regeneration matched byte
 for byte across the schema lock, templates, readers, binary and every debug
 table.
+
+P4-B2 regenerated the release after making the shared-base field required on
+both Profile rows. The current fingerprints above supersede the P3-B4
+Candidate-preparation fingerprints; table and row denominators are unchanged.
 
 ## Row and reader proof
 

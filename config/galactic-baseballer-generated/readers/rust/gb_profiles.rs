@@ -54,7 +54,7 @@ pub struct GbProfiles {
     #[serde(rename = "runtime_enabled")]
     pub runtime_enabled: String,
     #[serde(rename = "shared_system_id")]
-    pub shared_system_id: Option<String>,
+    pub shared_system_id: String,
     #[serde(rename = "source_season")]
     pub source_season: String,
     #[serde(rename = "structured_unlock_quest_locators")]
@@ -89,7 +89,7 @@ impl super::runtime::SoraDecode for GbProfiles {
             released_version: <String as super::runtime::SoraDecode>::decode(reader)?,
             retained_baseline_version: <String as super::runtime::SoraDecode>::decode(reader)?,
             runtime_enabled: <String as super::runtime::SoraDecode>::decode(reader)?,
-            shared_system_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            shared_system_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_season: <String as super::runtime::SoraDecode>::decode(reader)?,
             structured_unlock_quest_locators: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })

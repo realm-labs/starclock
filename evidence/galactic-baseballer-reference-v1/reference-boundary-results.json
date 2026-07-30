@@ -1,0 +1,188 @@
+{
+  "schema_revision": "starclock.galactic-baseballer-reference-boundary-results.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "batch_id": "G16-P4-B2",
+  "baseline_game_version": "4.4",
+  "status": "Passed",
+  "profile_audit": {
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3",
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "released_versions": [
+      "2.2",
+      "3.3"
+    ],
+    "retained_baseline_version": "4.4",
+    "shared_system_id": "galactic-baseballer.shared-base.v1",
+    "shared_activity_module_id": "5003501",
+    "later_profile_replaces_original": false,
+    "runtime_enabled_profile_count": 0,
+    "difference_relationship_counts": {
+      "SharedValueExplicitlyRepeated": 38,
+      "DemonKingChanged": 25,
+      "DemonKingAdded": 13,
+      "DepartureOnlyNotInherited": 7
+    }
+  },
+  "shared_identity_audit": {
+    "enemy_resolution_rows": 104,
+    "distinct_source_monster_ids": 88,
+    "enemy_identity_collisions": 0,
+    "enemy_skill_resolution_rows": 339,
+    "distinct_source_skill_ids": 287,
+    "enemy_skill_identity_collisions": 0,
+    "source_status_locator_rows": 10,
+    "copied_enemy_or_skill_definitions": 0
+  },
+  "synthesis_audit": {
+    "recipe_count": 27,
+    "input_count": 54,
+    "tier_counts": {
+      "Legendary": 25,
+      "Twin": 1,
+      "Supreme": 1
+    },
+    "graph_edge_count": 1,
+    "topological_order_count": 27,
+    "topological_order_sha256": "3d9a3c9c00c2b64f149b0557f0e548b424afa0ba634776f0276f0140f9a16e4c",
+    "cycle_count": 0,
+    "cross_profile_input_count": 0,
+    "unknown_input_or_output_count": 0
+  },
+  "coverage_audit": {
+    "frozen_obligation_count": 2232,
+    "data_ready_count": 2207,
+    "evidence_only_count": 25,
+    "blocked_count": 0,
+    "replaceable_nonblocking_gap_count": 12
+  },
+  "isolation_audit": {
+    "branch_base": "0191cc71b1735d6e101e6e04817181423c599232",
+    "branch": "codex/goal16-galactic-baseballer-reference",
+    "worktree": "/Users/mikai/.codex/worktrees/82e2/starclock",
+    "main_worktree": "/Users/mikai/CLionProjects/starclock",
+    "changed_path_scope": "all committed and working-tree paths validated",
+    "out_of_boundary_changed_path_count": 0,
+    "protected_root_count": 29,
+    "protected_roots": [
+      {
+        "path": "config/generated",
+        "tree_sha": "3c0f9321f0e273e24ca0e6943fde03fd11f82637"
+      },
+      {
+        "path": "config/universe-generated",
+        "tree_sha": "232628b898abe64eabe2060043c79910788c173b"
+      },
+      {
+        "path": "config/gold-and-gears-generated",
+        "tree_sha": "bed81b780378c06322335024df4e4deba3fb5f39"
+      },
+      {
+        "path": "config/swarm-disaster-generated",
+        "tree_sha": "969052a030275ebb2ad59559ff5ef9a8f9ce4ab4"
+      },
+      {
+        "path": "config/unknowable-domain-generated",
+        "tree_sha": "be55302aa3fe38d861353d14b8da2acf51af0c4f"
+      },
+      {
+        "path": "config/divergent-universe-generated",
+        "tree_sha": "d1dafb0b1c0cf6938639f77134921f2898bceaed"
+      },
+      {
+        "path": "config/currency-wars-generated",
+        "tree_sha": "ec725cf75a8eca00c9754931f4bef0453e484c45"
+      },
+      {
+        "path": "config/anomaly-arbitration-generated",
+        "tree_sha": "ae63d98a403a985663f8d243e79b3e6d3c4a3b50"
+      },
+      {
+        "path": "content-manifests/standard-universe-v1",
+        "tree_sha": "671179a83903a773118b18b86fb3be223a419835"
+      },
+      {
+        "path": "content-manifests/gold-and-gears-v1",
+        "tree_sha": "750bd5db32a684144237995c0c2a88b8d6d22897"
+      },
+      {
+        "path": "content-manifests/swarm-disaster-v1",
+        "tree_sha": "a328823d4b6db32799770eff1019b000c70d4063"
+      },
+      {
+        "path": "content-manifests/unknowable-domain-v1",
+        "tree_sha": "8c37c2f9bce7e2d5c8094e6197771653e5464e20"
+      },
+      {
+        "path": "content-manifests/divergent-universe-v1",
+        "tree_sha": "48d1ffb4939e6b7bdc7d226017f9ca97d06d1467"
+      },
+      {
+        "path": "content-manifests/currency-wars-v1",
+        "tree_sha": "d763151219bcd6ffcb7f3b8c67b9142612af2cf1"
+      },
+      {
+        "path": "content-manifests/anomaly-arbitration-v1",
+        "tree_sha": "8dbc876a60ddad23551a76a770c161b0715cb63a"
+      },
+      {
+        "path": "content-reference/standard-universe-v1",
+        "tree_sha": "5bffbc96b399253d76a5901c46365839f82bd325"
+      },
+      {
+        "path": "content-reference/gold-and-gears-v1",
+        "tree_sha": "a559283eaca2a3488c94e8f64eebffc920c44c1a"
+      },
+      {
+        "path": "content-reference/swarm-disaster-v1",
+        "tree_sha": "799171afa77c5f1579b3243b8b9a0909e637fe0a"
+      },
+      {
+        "path": "content-reference/unknowable-domain-v1",
+        "tree_sha": "172b6c2f052b6ef3ea7bcce9becd2a314cb70880"
+      },
+      {
+        "path": "content-reference/divergent-universe-v1",
+        "tree_sha": "5a1b63d30cd73c2a0a79fec8582519399f908eb1"
+      },
+      {
+        "path": "content-reference/currency-wars-v1",
+        "tree_sha": "622fc27d24215027dc0b07f21a50cf84134a908a"
+      },
+      {
+        "path": "content-reference/anomaly-arbitration-v1",
+        "tree_sha": "0fcf0dc72e3a1504b6ac7273c962f2c57b36b91b"
+      },
+      {
+        "path": "evidence/standard-universe-reference-v1",
+        "tree_sha": "ccf3d6336ee0b7ce3d37d48f5e065df1026f94cc"
+      },
+      {
+        "path": "evidence/gold-and-gears-reference-v1",
+        "tree_sha": "4c6d8d53cf0b5d47512f979701d05355e08020d5"
+      },
+      {
+        "path": "evidence/swarm-disaster-reference-v1",
+        "tree_sha": "f35a579f529f0313cd2e1167f64a44133a649afb"
+      },
+      {
+        "path": "evidence/unknowable-domain-reference-v1",
+        "tree_sha": "197d0230ac077683b36acf8f3a2dc63daf0a0637"
+      },
+      {
+        "path": "evidence/divergent-universe-reference-v1",
+        "tree_sha": "f6f3586e85788a28adfcf690a502d4b30d7bba53"
+      },
+      {
+        "path": "evidence/currency-wars-reference-v1",
+        "tree_sha": "97e2d92c5d152821c2cee2a2c8bd4b49711ba00d"
+      },
+      {
+        "path": "evidence/anomaly-arbitration-reference-v1",
+        "tree_sha": "db3d9a796f1c2a2d9871347db5ef1a77de7222c7"
+      }
+    ],
+    "runtime_or_other_mode_match_count": 0
+  }
+}

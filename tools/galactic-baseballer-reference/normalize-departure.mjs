@@ -183,6 +183,7 @@ const profiles = [{
   released_version: "2.2",
   retained_baseline_version: "4.4",
   source_season: "EarlyAccess",
+  shared_system_id: "galactic-baseballer.shared-base.v1",
   activity_module_id: "5003501",
   entry_unlock_quest_id: String(unlockConstant.Value.IntValue),
   availability: "PermanentRetainedProfile",

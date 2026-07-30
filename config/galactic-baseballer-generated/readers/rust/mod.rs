@@ -45,7 +45,7 @@ pub mod gb_manifest;
 pub mod gb_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "d0c38406def02a52";
+pub const SCHEMA_FINGERPRINT: &str = "1366cd8c4173437a";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

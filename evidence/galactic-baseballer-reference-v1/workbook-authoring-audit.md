@@ -15,7 +15,7 @@ authoring surface; normalized JSON remains research/debug staging, and Sora
 | Authored rows | 10,615 |
 | Normalized-file ownership | every one of 40 files maps to exactly one sheet |
 | Sora metadata | rows 1–7 on every sheet; authored rows begin at row 8 |
-| Semantic digest | `86c723bb3e80d67073da208c4ecaf96790038676a3a068bcec1e88ca713e2149` |
+| Semantic digest | `2c0021b589e057bc398d7202ed73193eb48a2cdf97229b68cc9fd1b464091aac` |
 | Existing-target behavior | generation refuses to overwrite any workbook |
 | Formula/error scan | no formula cells or Excel error cells |
 | Round trip | every cell reconstructs the canonical normalized value |
@@ -24,10 +24,10 @@ The canonical workbook digests are:
 
 | Workbook | SHA-256 |
 |---|---|
-| `GalacticBaseballerProfiles.xlsx` | `e9171296c9c4ea5bff87abba77842f9c5d5ab70c1f8885b40b401c0448ccbb39` |
+| `GalacticBaseballerProfiles.xlsx` | `b0ab3f86c108da36734f3dc0e11d67efce290b0160d0936bd326dc2c97c89107` |
 | `GalacticBaseballerArsenal.xlsx` | `55e0d806e4311c0ef5c2dae314f8122a92f511faa4c65bada3e14d009f44d526` |
 | `GalacticBaseballerEncounters.xlsx` | `1e71e8300357ef8710c0b4171dcbde4c50db70db2015927cb1f9a77b9462fff5` |
-| `GalacticBaseballerReview.xlsx` | `874aa08a4861b9e3b133f392ca62e9d78141343a2678c837b65baefdb53827d8` |
+| `GalacticBaseballerReview.xlsx` | `b73198be04c28507adf284fef52afcea2b26e6d9224e9b0a7833a43374094f9b` |
 
 Two clean output directories were generated independently. All four byte
 digests and the semantic digest matched each other and the committed target.
@@ -48,6 +48,12 @@ first binary export: metadata sentinels occupy column A, so authored table
 fields begin at column B. The full workbook set was again regenerated twice,
 exported successfully, round-trip checked and visually reinspected. The
 normalized payload and 10,615-row denominator remain unchanged.
+
+`G16-P4-B2` made the shared-base relation structurally explicit on both
+profiles. The owning normalizer, authoritative Profile schema and complete
+downstream workbook/Sora chain were regenerated. All 147 bands were rendered
+again after `shared_system_id` became a required Profile field; the current
+fingerprints above supersede the P3-B4 Candidate-preparation fingerprints.
 
 ## Structural and visual review
 
