@@ -1,5 +1,155 @@
 [
   {
+    "id": "galactic-baseballer.demon-king.level-threshold.shared",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "LevelThreshold",
+    "name_en": "Demon King team level threshold",
+    "name_zh_cn": "魔王篇队伍等级阈值",
+    "summary_en": "The shared released program initializes 40 experience per team level; Demon King constants provide exact scaling and enemy awards.",
+    "summary_zh_cn": "共享已发布程序把每级经验初始化为 40；魔王篇常量提供精确缩放与敌人经验。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0030",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0031",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0032",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0033",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0034",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0035"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7cae5c24a4ebbbd6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=30;ConstValueName=EvolveBuildSC_Exp_Multiplier_Wave_N",
+        "sha256": "7cae5c24a4ebbbd6de97d16b7ff417043132b50267628ae27c604243e1fda84f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King experience constant"
+      },
+      {
+        "source_id": "source.goal16.fa7105009273c510",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=31;ConstValueName=EvolveBuildSC_Exp_LvN",
+        "sha256": "fa7105009273c5106e77ef257e01fc2571f4c102d76d188fd7940c1851005f2d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King experience constant"
+      },
+      {
+        "source_id": "source.goal16.4ad8ea4ad2c054c2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=32;ConstValueName=EvolveBuildSC_Exp_Basic_Normal1",
+        "sha256": "4ad8ea4ad2c054c2846c4d6bf8418314cefba602e0c3bc55c3ce7bd80154810f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King experience constant"
+      },
+      {
+        "source_id": "source.goal16.4586c39c5a042540",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=33;ConstValueName=EvolveBuildSC_Exp_Basic_Normal2",
+        "sha256": "4586c39c5a0425407de9f1b610b25c26725eed531bd01edb0db0610e1f76e370",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King experience constant"
+      },
+      {
+        "source_id": "source.goal16.399a995e23c7dc23",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=34;ConstValueName=EvolveBuildSC_Exp_Basic_Elite",
+        "sha256": "399a995e23c7dc237b11d517e1472cdb56ae46d2f18716310189cb4b9e3beccb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King experience constant"
+      },
+      {
+        "source_id": "source.goal16.0e3216e6571b34de",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=35;ConstValueName=EvolveBuildSC_Exp_Basic_Boss",
+        "sha256": "0e3216e6571b34dee549d434d1461993b3399a462a56b7a6bd37d281a2791fb9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King experience constant"
+      },
+      {
+        "source_id": "source.goal16.e124f7f384e774fa",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json",
+        "locator": "whole-file",
+        "sha256": "e124f7f384e774faddf9d4a7346009860fe383aada2d019adfc406b9c414076e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "shared whole-file program receipt and exact expForLevel initialization"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "experience",
+      "level-threshold"
+    ],
+    "experience_threshold": "40",
+    "wave_multiplier": "0.27",
+    "level_scaling_parameters": [
+      "0.14",
+      "1",
+      "12"
+    ],
+    "experience_awards": {
+      "normal_1": 2,
+      "normal_2": 4,
+      "elite": 8,
+      "boss": 0,
+      "special": "UnspecifiedNoDemonKingConstant"
+    },
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Common_LevelUp_InsertAbility",
+      "ability_names": [
+        "StageAbility_VS_Common_LevelUp_InsertAbility"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.ByAnd",
+        "RPG.GameCore.ByCompareDynamicValue",
+        "RPG.GameCore.ByCompareEvolveBuildProperty",
+        "RPG.GameCore.IncludeTaskListTemplate",
+        "RPG.GameCore.PredicateTaskList",
+        "RPG.GameCore.SetDynamicValue",
+        "RPG.GameCore.ShowEvolveBuildGearSelectInBattle",
+        "RPG.GameCore.TargetAlias",
+        "RPG.GameCore.VCameraConfigChange"
+      ],
+      "program_fragment_sha256": "bb3fd76ef3fefcccee19259964654e9465385e8c50e4f7907250c40a13564be6"
+    }
+  },
+  {
     "id": "galactic-baseballer.departure.level-threshold.shared",
     "schema_revision": "starclock.galactic-baseballer-row.v1",
     "kind": "LevelThreshold",

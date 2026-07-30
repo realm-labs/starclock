@@ -1,5 +1,5543 @@
 [
   {
+    "id": "galactic-baseballer.demon-king.stage-period.424001",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424001",
+    "name_zh_cn": "魔王篇关卡阶段 424001",
+    "summary_en": "Ordered Demon King stage-period definition 424001 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424001，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fc91837df61c045e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=0;StagePeriodID=424001;StageID=4240016",
+        "sha256": "fc91837df61c045e3bde012ed95b4ea8e3819e0872a7c14995180308c4003b29",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424001",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424000",
+    "shared_stage_config_id": "4240016",
+    "battle_event_id": "424001",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      99,
+      99,
+      99,
+      99
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2041301",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424002",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424002",
+    "name_zh_cn": "魔王篇关卡阶段 424002",
+    "summary_en": "Ordered Demon King stage-period definition 424002 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424002，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06cd8f2cfab1bc3b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=1;StagePeriodID=424002;StageID=4240026",
+        "sha256": "06cd8f2cfab1bc3b6c34e533f3e68bc3608f30d10b80f4b5b27b436d10323124",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424002",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424000",
+    "shared_stage_config_id": "4240026",
+    "battle_event_id": "424002",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      99,
+      99,
+      99
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 30000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2041301",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424011",
+    "name_zh_cn": "魔王篇关卡阶段 424011",
+    "summary_en": "Ordered Demon King stage-period definition 424011 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424011，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e738f29be440e031",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=2;StagePeriodID=424011;StageID=4240116",
+        "sha256": "e738f29be440e0314608803da747b414b945e741845c5dfafdf1dd19f399ed7e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424011",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424001",
+    "shared_stage_config_id": "4240116",
+    "battle_event_id": "424011",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2041101",
+    "deadline_position": "0.24",
+    "stage_score": 4000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424012",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424012",
+    "name_zh_cn": "魔王篇关卡阶段 424012",
+    "summary_en": "Ordered Demon King stage-period definition 424012 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424012，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f622b78e3aa02073",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=3;StagePeriodID=424012;StageID=4240126",
+        "sha256": "f622b78e3aa020738080ab41ffdd92a589a2eaacb4214cc2af65781b5b566dfc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424012",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424001",
+    "shared_stage_config_id": "4240126",
+    "battle_event_id": "424012",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2041102",
+    "deadline_position": "0.24",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424013",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424013",
+    "name_zh_cn": "魔王篇关卡阶段 424013",
+    "summary_en": "Ordered Demon King stage-period definition 424013 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424013，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2d1fbb88fe6f1233",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=4;StagePeriodID=424013;StageID=4240136",
+        "sha256": "2d1fbb88fe6f123336f58ba9fab29a97d30da5bbc67485541d3e1f69f171e73a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424013",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424001",
+    "shared_stage_config_id": "4240136",
+    "battle_event_id": "424013",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2041103",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424021",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424021",
+    "name_zh_cn": "魔王篇关卡阶段 424021",
+    "summary_en": "Ordered Demon King stage-period definition 424021 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424021，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6edc5f559249e7ae",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=5;StagePeriodID=424021;StageID=4240216",
+        "sha256": "6edc5f559249e7ae4681cc206a0ab6bcbe6aabdb303e2c56bfd2b027df722cf1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424021",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424002",
+    "shared_stage_config_id": "4240216",
+    "battle_event_id": "424021",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "deadline_position": "0.24",
+    "stage_score": 4000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424022",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424022",
+    "name_zh_cn": "魔王篇关卡阶段 424022",
+    "summary_en": "Ordered Demon King stage-period definition 424022 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424022，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5800cb2a7d0a4307",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=6;StagePeriodID=424022;StageID=4240226",
+        "sha256": "5800cb2a7d0a4307d9bb9746d9e22b8a01e52b663bb01cdb1159b45c0adda03a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424022",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424002",
+    "shared_stage_config_id": "4240226",
+    "battle_event_id": "424022",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2032201",
+    "deadline_position": "0.24",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424023",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424023",
+    "name_zh_cn": "魔王篇关卡阶段 424023",
+    "summary_en": "Ordered Demon King stage-period definition 424023 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424023，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d37a93cb2d9d2a1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=7;StagePeriodID=424023;StageID=4240236",
+        "sha256": "6d37a93cb2d9d2a19b77ccddb4a92760f196f16a324b26aaab40d0b175a73471",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424023",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424002",
+    "shared_stage_config_id": "4240236",
+    "battle_event_id": "424023",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031101",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424031",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424031",
+    "name_zh_cn": "魔王篇关卡阶段 424031",
+    "summary_en": "Ordered Demon King stage-period definition 424031 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424031，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e53a7b04f1a9144d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=8;StagePeriodID=424031;StageID=4240316",
+        "sha256": "e53a7b04f1a9144d6489dd208c263dcef4a584ba64f582733c1440162276f455",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424031",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424003",
+    "shared_stage_config_id": "4240316",
+    "battle_event_id": "424031",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.24",
+    "stage_score": 4000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424032",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424032",
+    "name_zh_cn": "魔王篇关卡阶段 424032",
+    "summary_en": "Ordered Demon King stage-period definition 424032 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424032，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a5596a95abd1c61c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=9;StagePeriodID=424032;StageID=4240326",
+        "sha256": "a5596a95abd1c61c700cdf83986711d44a53d4cf92e007cc46ac666382a74219",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424032",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424003",
+    "shared_stage_config_id": "4240326",
+    "battle_event_id": "424032",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.24",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 1500,
+      "403202303": 1500
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424033",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424033",
+    "name_zh_cn": "魔王篇关卡阶段 424033",
+    "summary_en": "Ordered Demon King stage-period definition 424033 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424033，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5309a5e1ed482761",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=10;StagePeriodID=424033;StageID=4240336",
+        "sha256": "5309a5e1ed482761a15080a8eb894e94d9c8a6426b83e84117d17d7922f66624",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424033",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424003",
+    "shared_stage_config_id": "4240336",
+    "battle_event_id": "424033",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2041201",
+    "stage_score": 3000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424041",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424041",
+    "name_zh_cn": "魔王篇关卡阶段 424041",
+    "summary_en": "Ordered Demon King stage-period definition 424041 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424041，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b0531383e4549ccf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=11;StagePeriodID=424041;StageID=4240416",
+        "sha256": "b0531383e4549ccf829a6378254cea5b8eeabbef78d55910e59e5c09c2fc22c6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424041",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424004",
+    "shared_stage_config_id": "4240416",
+    "battle_event_id": "424041",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2011101",
+    "deadline_position": "0.24",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424042",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424042",
+    "name_zh_cn": "魔王篇关卡阶段 424042",
+    "summary_en": "Ordered Demon King stage-period definition 424042 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424042，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.36d1459d659c088b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=12;StagePeriodID=424042;StageID=4240426",
+        "sha256": "36d1459d659c088bae907827b994665962f00502c30df66abe84edc2fc0c9d12",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424042",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424004",
+    "shared_stage_config_id": "4240426",
+    "battle_event_id": "424042",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.24",
+    "stage_score": 4500,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202306": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424043",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424043",
+    "name_zh_cn": "魔王篇关卡阶段 424043",
+    "summary_en": "Ordered Demon King stage-period definition 424043 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424043，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0013"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.bf81ef882d338009",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=13;StagePeriodID=424043;StageID=4240436",
+        "sha256": "bf81ef882d338009fac39fc448fdaaf64e67bc9caaeb87a7ea35979d61106ba0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424043",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424004",
+    "shared_stage_config_id": "4240436",
+    "battle_event_id": "424043",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2013101",
+    "stage_score": 4500,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424051",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424051",
+    "name_zh_cn": "魔王篇关卡阶段 424051",
+    "summary_en": "Ordered Demon King stage-period definition 424051 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424051，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.46cefa8d33a0e5d5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=14;StagePeriodID=424051;StageID=4240516",
+        "sha256": "46cefa8d33a0e5d5b58d63df862d9fe30afc9eace02e5c737f55f4f1c537b830",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424051",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424005",
+    "shared_stage_config_id": "4240516",
+    "battle_event_id": "424051",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2032101",
+    "deadline_position": "0.24",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424052",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424052",
+    "name_zh_cn": "魔王篇关卡阶段 424052",
+    "summary_en": "Ordered Demon King stage-period definition 424052 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424052，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d0a67e5bcebd94db",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=15;StagePeriodID=424052;StageID=4240526",
+        "sha256": "d0a67e5bcebd94db8744908b2db113c10548e09d54a23c71df0cf1c224041b8f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424052",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424005",
+    "shared_stage_config_id": "4240526",
+    "battle_event_id": "424052",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2033101",
+    "deadline_position": "0.24",
+    "stage_score": 4500,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424053",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424053",
+    "name_zh_cn": "魔王篇关卡阶段 424053",
+    "summary_en": "Ordered Demon King stage-period definition 424053 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424053，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e192b7a21c108cd7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=16;StagePeriodID=424053;StageID=4240536",
+        "sha256": "e192b7a21c108cd7c624ce9ee6f992e0b1e68421c8143e582f13ab2389a047ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424053",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424005",
+    "shared_stage_config_id": "4240536",
+    "battle_event_id": "424053",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1034101",
+    "stage_score": 4500,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202302": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424101",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424101",
+    "name_zh_cn": "魔王篇关卡阶段 424101",
+    "summary_en": "Ordered Demon King stage-period definition 424101 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424101，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0017"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.215ac0aad13b714d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=17;StagePeriodID=424101;StageID=4140116",
+        "sha256": "215ac0aad13b714d89182e7ecbd83d37243274b4830ec27c37cf95132bc0a3f6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424101",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424101",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2000101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424102",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424102",
+    "name_zh_cn": "魔王篇关卡阶段 424102",
+    "summary_en": "Ordered Demon King stage-period definition 424102 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424102，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0018"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.eaa8773eadd06b74",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=18;StagePeriodID=424102;StageID=4140116",
+        "sha256": "eaa8773eadd06b74e156f31668b4a461dc95b0854fb9ebcf9c3c82fb39781ec6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424102",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424102",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424103",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424103",
+    "name_zh_cn": "魔王篇关卡阶段 424103",
+    "summary_en": "Ordered Demon King stage-period definition 424103 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424103，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0019"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fbb6257233fed6ca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=19;StagePeriodID=424103;StageID=4140116",
+        "sha256": "fbb6257233fed6cac204548295d27210e8c79f56c470f8d86d868edf589680a2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424103",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424103",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021201",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424104",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424104",
+    "name_zh_cn": "魔王篇关卡阶段 424104",
+    "summary_en": "Ordered Demon King stage-period definition 424104 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424104，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0020"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e9ef367a1e30c072",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=20;StagePeriodID=424104;StageID=4140116",
+        "sha256": "e9ef367a1e30c072c98e037f57791816edb326b04f11e35d45a9f21890b35fd6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424104",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424104",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2011101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424105",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424105",
+    "name_zh_cn": "魔王篇关卡阶段 424105",
+    "summary_en": "Ordered Demon King stage-period definition 424105 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424105，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0021"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.08911342f2cb0b42",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=21;StagePeriodID=424105;StageID=4140116",
+        "sha256": "08911342f2cb0b42bd05b46b699da284d868d6e0f961917a160f48f3cee0adc8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424105",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424105",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424106",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424106",
+    "name_zh_cn": "魔王篇关卡阶段 424106",
+    "summary_en": "Ordered Demon King stage-period definition 424106 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424106，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0022"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3cf267aaeac669b0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=22;StagePeriodID=424106;StageID=4140116",
+        "sha256": "3cf267aaeac669b012dc2f0476a35ec1effe9bb6da37eb9de01bf666f547de04",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424106",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424106",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424107",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424107",
+    "name_zh_cn": "魔王篇关卡阶段 424107",
+    "summary_en": "Ordered Demon King stage-period definition 424107 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424107，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0023"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9b4d287daba2a09f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=23;StagePeriodID=424107;StageID=4140116",
+        "sha256": "9b4d287daba2a09f349217fa08c6a27f9d4a2b39c3dbb0f4d5edd8a572c9f85b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424107",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424107",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424108",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424108",
+    "name_zh_cn": "魔王篇关卡阶段 424108",
+    "summary_en": "Ordered Demon King stage-period definition 424108 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424108，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0024"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1f158d4fd7d692a9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=24;StagePeriodID=424108;StageID=4140116",
+        "sha256": "1f158d4fd7d692a9940b02baf2689d2b3fae39603a7ca65bda2e74a5660ee06f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424108",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424108",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021201",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424109",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424109",
+    "name_zh_cn": "魔王篇关卡阶段 424109",
+    "summary_en": "Ordered Demon King stage-period definition 424109 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424109，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0025"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3e0da9e45cf00980",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=25;StagePeriodID=424109;StageID=4140116",
+        "sha256": "3e0da9e45cf00980b8feb195b8c967a9b7bfd955855ad58170a34454f88dcfda",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424109",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424109",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424110",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424110",
+    "name_zh_cn": "魔王篇关卡阶段 424110",
+    "summary_en": "Ordered Demon King stage-period definition 424110 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424110，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0026"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e6853abaf6f8459b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=26;StagePeriodID=424110;StageID=4140116",
+        "sha256": "e6853abaf6f8459be9bba1fabe8786c1e12461a2c97dc6a906adb655b0e6deef",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424110",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424110",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424111",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424111",
+    "name_zh_cn": "魔王篇关卡阶段 424111",
+    "summary_en": "Ordered Demon King stage-period definition 424111 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424111，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0027"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7ae57698d8c4c863",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=27;StagePeriodID=424111;StageID=4140116",
+        "sha256": "7ae57698d8c4c863301b73faae11b18ff8051aff45fe08c14f21aa861daa461c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424111",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424111",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424112",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424112",
+    "name_zh_cn": "魔王篇关卡阶段 424112",
+    "summary_en": "Ordered Demon King stage-period definition 424112 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424112，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0028"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e58253e09e207875",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=28;StagePeriodID=424112;StageID=4140116",
+        "sha256": "e58253e09e2078754889c49da57346f6e150f667a7f929a3d33e5bfd7288673e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424112",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424112",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424113",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424113",
+    "name_zh_cn": "魔王篇关卡阶段 424113",
+    "summary_en": "Ordered Demon King stage-period definition 424113 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424113，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0029"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7e45e3b2bd78b602",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=29;StagePeriodID=424113;StageID=4140116",
+        "sha256": "7e45e3b2bd78b6023b0ce9bf9697d90810fff63e5cbe706d47fbcfd54a737e44",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424113",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424113",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031301",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424114",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424114",
+    "name_zh_cn": "魔王篇关卡阶段 424114",
+    "summary_en": "Ordered Demon King stage-period definition 424114 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424114，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7b3ef005995f3a88",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=30;StagePeriodID=424114;StageID=4140116",
+        "sha256": "7b3ef005995f3a8853b51c511a22602035d2b2ed3324668a440d48c49d9a4d20",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424114",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424114",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424115",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424115",
+    "name_zh_cn": "魔王篇关卡阶段 424115",
+    "summary_en": "Ordered Demon King stage-period definition 424115 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424115，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0031"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cbd50d3e8666f57d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=31;StagePeriodID=424115;StageID=4140116",
+        "sha256": "cbd50d3e8666f57da2d84fa51297463278fcde8d9cd6b8ed01565cfbd414dc5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424115",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424115",
+    "period_rank": "PeriodFirst",
+    "wave_count": 4,
+    "countdown_by_wave": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 31000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.24",
+    "stage_score": 8000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424201",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424201",
+    "name_zh_cn": "魔王篇关卡阶段 424201",
+    "summary_en": "Ordered Demon King stage-period definition 424201 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424201，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0032"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cd2cfe5b807f2c4b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=32;StagePeriodID=424201;StageID=4140116",
+        "sha256": "cd2cfe5b807f2c4b1732f0b74e4747b7a8f19399d6bc9f32817cb5f5d1fe89c3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424201",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424201",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2011101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424202",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424202",
+    "name_zh_cn": "魔王篇关卡阶段 424202",
+    "summary_en": "Ordered Demon King stage-period definition 424202 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424202，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0033"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d2a967117644f3e5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=33;StagePeriodID=424202;StageID=4140116",
+        "sha256": "d2a967117644f3e54105ac77d01851a80f31127357620ea65bd8f3eea7f1da03",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424202",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424202",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424203",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424203",
+    "name_zh_cn": "魔王篇关卡阶段 424203",
+    "summary_en": "Ordered Demon King stage-period definition 424203 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424203，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0034"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.779d7b596b8363ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=34;StagePeriodID=424203;StageID=4140116",
+        "sha256": "779d7b596b8363ad25e3f240dc1a71e94563ea316100aa76e98322ab2cf6dede",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424203",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424203",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424204",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424204",
+    "name_zh_cn": "魔王篇关卡阶段 424204",
+    "summary_en": "Ordered Demon King stage-period definition 424204 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424204，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0035"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.19dbc92269bfdd7c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=35;StagePeriodID=424204;StageID=4140116",
+        "sha256": "19dbc92269bfdd7c94b287b0c46d62f1ebd27801d0de8388890489922ba6d775",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424204",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424204",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021201",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424205",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424205",
+    "name_zh_cn": "魔王篇关卡阶段 424205",
+    "summary_en": "Ordered Demon King stage-period definition 424205 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424205，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0036"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1dd445bdfc1950fb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=36;StagePeriodID=424205;StageID=4140116",
+        "sha256": "1dd445bdfc1950fb764cac2613934e508f8e1b746393447fa38f93240e64c89c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424205",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424205",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "1030101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424206",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424206",
+    "name_zh_cn": "魔王篇关卡阶段 424206",
+    "summary_en": "Ordered Demon King stage-period definition 424206 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424206，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0037"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c479ea090c8c8786",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=37;StagePeriodID=424206;StageID=4140116",
+        "sha256": "c479ea090c8c87860157910855c58fb79bfbb0e64ad09e54082cf1c425fc7c5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424206",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424206",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424207",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424207",
+    "name_zh_cn": "魔王篇关卡阶段 424207",
+    "summary_en": "Ordered Demon King stage-period definition 424207 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424207，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0038"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9d260c37bf99e43a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=38;StagePeriodID=424207;StageID=4140116",
+        "sha256": "9d260c37bf99e43abb66b8a59e9b71604d6b57e922b88697379b358a84582128",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424207",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424207",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424208",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424208",
+    "name_zh_cn": "魔王篇关卡阶段 424208",
+    "summary_en": "Ordered Demon King stage-period definition 424208 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424208，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0039"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0cc30731b3b207f4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=39;StagePeriodID=424208;StageID=4140116",
+        "sha256": "0cc30731b3b207f41ad96b818d3fceaf7857390c01ffd1d87712a5dcd61c089c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424208",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424208",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424209",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424209",
+    "name_zh_cn": "魔王篇关卡阶段 424209",
+    "summary_en": "Ordered Demon King stage-period definition 424209 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424209，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0040"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b076827815db4d5a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=40;StagePeriodID=424209;StageID=4140116",
+        "sha256": "b076827815db4d5ae6639b0f53490ecd433db6346c06b0a7b15e92419249c30c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424209",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424209",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424210",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424210",
+    "name_zh_cn": "魔王篇关卡阶段 424210",
+    "summary_en": "Ordered Demon King stage-period definition 424210 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424210，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0041"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8014a8ebfc6b9de2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=41;StagePeriodID=424210;StageID=4140116",
+        "sha256": "8014a8ebfc6b9de268bbe64304ae9ab6c9eef410f42e1dbdfe27d9315182997a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424210",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424210",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424211",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424211",
+    "name_zh_cn": "魔王篇关卡阶段 424211",
+    "summary_en": "Ordered Demon King stage-period definition 424211 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424211，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0042"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0e9d3c08389d1cf7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=42;StagePeriodID=424211;StageID=4140116",
+        "sha256": "0e9d3c08389d1cf73d00afa2db58176e493faba1954b8b526b8b8a61053bc175",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424211",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424211",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424212",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424212",
+    "name_zh_cn": "魔王篇关卡阶段 424212",
+    "summary_en": "Ordered Demon King stage-period definition 424212 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424212，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0043"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c7553e5e3e4504ee",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=43;StagePeriodID=424212;StageID=4140116",
+        "sha256": "c7553e5e3e4504ee8d95884a6fbc485bf5c3a33a65a338a6f3e91700a5508aa1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424212",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424212",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424213",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424213",
+    "name_zh_cn": "魔王篇关卡阶段 424213",
+    "summary_en": "Ordered Demon King stage-period definition 424213 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424213，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0044"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cb36cc7438644cf8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=44;StagePeriodID=424213;StageID=4140116",
+        "sha256": "cb36cc7438644cf8ab44b3a81cf06ac96d3615d08318af28d1e677ea552e29a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424213",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424213",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2021101",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424214",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424214",
+    "name_zh_cn": "魔王篇关卡阶段 424214",
+    "summary_en": "Ordered Demon King stage-period definition 424214 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424214，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0045"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.545996af563da523",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=45;StagePeriodID=424214;StageID=4140116",
+        "sha256": "545996af563da523748a22bc0ddb492825b951552194cab1aceea1f09a0d11ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424214",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424214",
+    "period_rank": "PeriodSecond",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      2
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 24000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012301",
+    "deadline_position": "0.19",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {
+      "403202301": 3000
+    },
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424301",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424301",
+    "name_zh_cn": "魔王篇关卡阶段 424301",
+    "summary_en": "Ordered Demon King stage-period definition 424301 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424301，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0046"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6622aeeb8282141c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=46;StagePeriodID=424301;StageID=4140116",
+        "sha256": "6622aeeb8282141c2d4670708664ef5771bac1f04662e0f491bd22f06d0287de",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424301",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424301",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2013602",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424302",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424302",
+    "name_zh_cn": "魔王篇关卡阶段 424302",
+    "summary_en": "Ordered Demon King stage-period definition 424302 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424302，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0047"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9d1e758d4155db49",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=47;StagePeriodID=424302;StageID=4140116",
+        "sha256": "9d1e758d4155db49b56016cb1347de2ebc0bd47c67ab99f7bcf0b2f3a3fd2afa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424302",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424302",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2012201",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424303",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424303",
+    "name_zh_cn": "魔王篇关卡阶段 424303",
+    "summary_en": "Ordered Demon King stage-period definition 424303 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424303，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0048"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.32dd86b1d0d3c987",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=48;StagePeriodID=424303;StageID=4140116",
+        "sha256": "32dd86b1d0d3c987a21cb8c254b0db464c70c3f80c0ddf5ea635b4676c55fdbb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424303",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424303",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2010101",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424304",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424304",
+    "name_zh_cn": "魔王篇关卡阶段 424304",
+    "summary_en": "Ordered Demon King stage-period definition 424304 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424304，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0049"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f0b0915e31ac3f78",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=49;StagePeriodID=424304;StageID=4140116",
+        "sha256": "f0b0915e31ac3f78764efe7d1c950ce276df97a9f716d02e38977396d7d0467c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424304",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424304",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2022101",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424305",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424305",
+    "name_zh_cn": "魔王篇关卡阶段 424305",
+    "summary_en": "Ordered Demon King stage-period definition 424305 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424305，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0050"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.8e3fa948cb4979ba",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=50;StagePeriodID=424305;StageID=4140116",
+        "sha256": "8e3fa948cb4979ba7949171965076184595de554bf81b5253d210b9c67f4986c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424305",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424305",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424306",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424306",
+    "name_zh_cn": "魔王篇关卡阶段 424306",
+    "summary_en": "Ordered Demon King stage-period definition 424306 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424306，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0051"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.02507ca008ca4c9a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=51;StagePeriodID=424306;StageID=4140116",
+        "sha256": "02507ca008ca4c9aabe1352eb2da3aac8d3fb58e5cffd422cfcb461760c610d7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424306",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424306",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031102",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424307",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424307",
+    "name_zh_cn": "魔王篇关卡阶段 424307",
+    "summary_en": "Ordered Demon King stage-period definition 424307 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424307，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0052"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fd665b5de44b803d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=52;StagePeriodID=424307;StageID=4140116",
+        "sha256": "fd665b5de44b803d412e233dd5fd171dd315f91ee9f028e1de0253ec094578ca",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424307",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424307",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": false
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2022101",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424308",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424308",
+    "name_zh_cn": "魔王篇关卡阶段 424308",
+    "summary_en": "Ordered Demon King stage-period definition 424308 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424308，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0053"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c34d9ab6cf6b7080",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=53;StagePeriodID=424308;StageID=4140116",
+        "sha256": "c34d9ab6cf6b7080b54ade335ff60102aec7a1b40eb3c034e6e83bd3a5c492ad",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424308",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424308",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": false
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": false
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2023201",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424309",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424309",
+    "name_zh_cn": "魔王篇关卡阶段 424309",
+    "summary_en": "Ordered Demon King stage-period definition 424309 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424309，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0054"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.57f158f8ca924255",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=54;StagePeriodID=424309;StageID=4140116",
+        "sha256": "57f158f8ca92425589993c66f226ba06c2b73dc4ced7136e74bdd4c18d49c7b5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424309",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424309",
+    "period_rank": "PeriodThird",
+    "wave_count": 3,
+    "countdown_by_wave": [
+      1,
+      1,
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": false
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": false
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": false
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": false
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 45000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031102",
+    "deadline_position": "1",
+    "stage_score": 6000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.stage-period.424999",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "StagePeriod",
+    "name_en": "Demon King stage period 424999",
+    "name_zh_cn": "魔王篇关卡阶段 424999",
+    "summary_en": "Ordered Demon King stage-period definition 424999 with exact wave, timer, weakness and score parameters.",
+    "summary_zh_cn": "魔王篇有序关卡阶段定义 424999，保留精确波次、计时、弱点与分数参数。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCStagePeriod:0055"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9b3d57a8faeb74a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCStagePeriod.json",
+        "locator": "row=55;StagePeriodID=424999;StageID=4140116",
+        "sha256": "9b3d57a8faeb74a68696e9437a324b3d6aacfc03a77ca72c0b63d6d9bbfb3c9c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "stage-period"
+    ],
+    "source_numeric_id": "424999",
+    "parent_stage_id": "galactic-baseballer.demon-king.stage.424006",
+    "shared_stage_config_id": "4140116",
+    "battle_event_id": "424999",
+    "period_rank": "PeriodExtra",
+    "wave_count": 1,
+    "countdown_by_wave": [
+      3
+    ],
+    "weakness_order": [
+      {
+        "ordinal": 0,
+        "damage_type": "Fire",
+        "preferred": true
+      },
+      {
+        "ordinal": 1,
+        "damage_type": "Ice",
+        "preferred": true
+      },
+      {
+        "ordinal": 2,
+        "damage_type": "Wind",
+        "preferred": true
+      },
+      {
+        "ordinal": 3,
+        "damage_type": "Thunder",
+        "preferred": true
+      },
+      {
+        "ordinal": 4,
+        "damage_type": "Quantum",
+        "preferred": true
+      },
+      {
+        "ordinal": 5,
+        "damage_type": "Physical",
+        "preferred": true
+      },
+      {
+        "ordinal": 6,
+        "damage_type": "Imaginary",
+        "preferred": true
+      }
+    ],
+    "period_score": 60000,
+    "emotion_thresholds": [
+      "0",
+      "0.2",
+      "0.5",
+      "0.8"
+    ],
+    "battle_area_id": "2031201",
+    "stage_score": 20000,
+    "selection_weight": 100,
+    "special_monster_scores": {},
+    "unresolved_shared_stage": false
+  },
+  {
     "id": "galactic-baseballer.departure.stage-period.3097",
     "schema_revision": "starclock.galactic-baseballer-row.v1",
     "kind": "StagePeriod",

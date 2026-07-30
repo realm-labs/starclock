@@ -1,5 +1,223 @@
 [
   {
+    "id": "galactic-baseballer.demon-king.inventory-slot.OriginStage.accessory",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Demon King OriginStage Accessory slots",
+    "name_zh_cn": "魔王篇OriginStage配饰槽位",
+    "summary_en": "Exact OriginStage accessory slot capacity.",
+    "summary_zh_cn": "精确OriginStage配饰槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0053"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.0aeead8d47a16176",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuildSC_OriginStage_Accessory_Slot",
+        "sha256": "0aeead8d47a16176687bb1214fdd7ef544ccc4e942395318225b05b6f48ec46a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "demon-king",
+      "slot"
+    ],
+    "slot_kind": "Accessory",
+    "scope": "OriginStage",
+    "initially_unlocked": 4,
+    "total_capacity": 4
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-slot.OriginStage.weapon",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Demon King OriginStage Weapon slots",
+    "name_zh_cn": "魔王篇OriginStage武器槽位",
+    "summary_en": "Exact OriginStage weapon slot capacity.",
+    "summary_zh_cn": "精确OriginStage武器槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0052"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.5cde8a8723d54ea4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=52;ConstValueName=EvolveBuildSC_OriginStage_Weapon_Slot",
+        "sha256": "5cde8a8723d54ea4482edb494296921c35136839519f4c078e647f46303ba007",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "slot",
+      "weapon"
+    ],
+    "slot_kind": "Weapon",
+    "scope": "OriginStage",
+    "initially_unlocked": 3,
+    "total_capacity": 3
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-slot.Standard.accessory",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Demon King Standard Accessory slots",
+    "name_zh_cn": "魔王篇Standard配饰槽位",
+    "summary_en": "Exact Standard accessory slot capacity.",
+    "summary_zh_cn": "精确Standard配饰槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0017",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0018"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f32fde4c2ac970b3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=17;ConstValueName=EvolveBuildSC_Slot_Accessory_Unlocked",
+        "sha256": "f32fde4c2ac970b37b15611b26fadbfb1e057c503a590dab0dd228aad2f26e4b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.bcbc896c18fd55e8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=18;ConstValueName=EvolveBuildSC_Slot_Accessory_Total",
+        "sha256": "bcbc896c18fd55e822873490b580036f042750639f4a6d6a3a2f145485447996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "demon-king",
+      "slot"
+    ],
+    "slot_kind": "Accessory",
+    "scope": "Standard",
+    "initially_unlocked": 4,
+    "total_capacity": 6
+  },
+  {
+    "id": "galactic-baseballer.demon-king.inventory-slot.Standard.weapon",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Demon King Standard Weapon slots",
+    "name_zh_cn": "魔王篇Standard武器槽位",
+    "summary_en": "Exact Standard weapon slot capacity.",
+    "summary_zh_cn": "精确Standard武器槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0015",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb766dc809c1c46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=15;ConstValueName=EvolveBuildSC_Slot_Weapon_Unlocked",
+        "sha256": "aeb766dc809c1c46b8b80db484a753c05fbd6c2ffba8c6e0203b74b19387d8db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.bab11947fbbff304",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=16;ConstValueName=EvolveBuildSC_Slot_Weapon_Total",
+        "sha256": "bab11947fbbff304043a59dbba4c4e421d1e3eb86809e7dc631bb00c5326f7fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact Demon King slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "slot",
+      "weapon"
+    ],
+    "slot_kind": "Weapon",
+    "scope": "Standard",
+    "initially_unlocked": 4,
+    "total_capacity": 5
+  },
+  {
     "id": "galactic-baseballer.departure.inventory-slot.OriginStage.accessory",
     "schema_revision": "starclock.galactic-baseballer-row.v1",
     "kind": "InventorySlotPolicy",

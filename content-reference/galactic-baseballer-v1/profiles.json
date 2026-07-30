@@ -1,5 +1,140 @@
 [
   {
+    "id": "galactic-baseballer.demon-king.v3_3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Profile",
+    "name_en": "Legend of the Galactic Baseballer: Demon King",
+    "name_zh_cn": "银河球棒侠传说：魔王篇",
+    "summary_en": "Independent Version 3.3 rules profile retained at the Version 4.4 baseline over the shared Galactic Baseballer system; it does not replace Departure.",
+    "summary_zh_cn": "在 Version 4.4 基线上保留的独立 Version 3.3 规则 Profile；共用银河球棒侠基础系统，但不覆盖启程篇。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0037",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0049",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0050",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0051",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0068"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5185d1278f82670d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "docs/goals/16-galactic-baseballer-reference-data.md",
+        "locator": "profile contract: Demon King",
+        "sha256": "5185d1278f82670d11d3531def7345151316c673fcf14d69f8bce0413890fe06",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.656572f226461ff9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=37;ConstValueName=EvolveBuildSC_Activity_Module_ID",
+        "sha256": "656572f226461ff95014b044e563d737959888eb50395a2938a3a67ef5e2ff74",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.193402f3b261e932",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=49;ConstValueName=EvolveBuildSC_OriginStage_ID",
+        "sha256": "193402f3b261e932b34ec88eacb361977684eb19f95049de6ce6bb99f302beec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.609dc853770e748c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=50;ConstValueName=EvolveBuildSC_Shop_UnlockQuest",
+        "sha256": "609dc853770e748c45a6b9fdb01936d38bc75b6bc8173eaa3feb7ab03e74fc47",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.b0349a7ddbc80cb0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=51;ConstValueName=EvolveBuildSC_Reward_UnlockQuest",
+        "sha256": "b0349a7ddbc80cb0386f3c34396a7afb8ad4af525a2d88eefbbbfb84f51fc89e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.56e6541883654ea3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=68;ConstValueName=EvolveBuildSC_SkipOriginStage_UnlockQuest",
+        "sha256": "56e6541883654ea334192f432bf01b466832485a187f76f93859e3260379ae24",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "pinned released Version 4.4 structured row"
+      },
+      {
+        "source_id": "source.goal16.hoyolab-version-3.3-update.d33457d40089",
+        "repository_or_url": "https://www.hoyolab.com/article/38894296",
+        "revision_or_access_date": "2026-07-30",
+        "game_version": "4.4",
+        "path_or_page": "demon-king-release-version-entry-and-window",
+        "locator": "Version 3.3 update / New Events / Legend of the Galactic Baseballer: Demon King",
+        "sha256": "baf2b5180636fbd03503df8c6307f3256a73790ae7847147c289abef45ce2feb",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "released Version 3.3 identity, event window, Trailblaze Level 21 requirement and Finality's Vision entry"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "profile",
+      "version-3.3"
+    ],
+    "released_version": "3.3",
+    "retained_baseline_version": "4.4",
+    "source_season": "SecondChapter",
+    "shared_system_id": "galactic-baseballer.shared-base.v1",
+    "does_not_replace_profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "activity_module_id": "5003501",
+    "origin_stage_numeric_id": "424000",
+    "released_entry_requirement": {
+      "minimum_trailblaze_level": 21,
+      "finalitys_vision_early_access": true
+    },
+    "structured_unlock_quest_locators": {
+      "reward_unlock_quest_id": "6070206",
+      "shop_unlock_quest_id": "6070210",
+      "skip_origin_stage_unlock_quest_id": "6020139"
+    },
+    "availability": "PermanentRetainedProfile",
+    "runtime_enabled": false
+  },
+  {
     "id": "galactic-baseballer.departure.v2_2",
     "schema_revision": "starclock.galactic-baseballer-row.v1",
     "kind": "Profile",

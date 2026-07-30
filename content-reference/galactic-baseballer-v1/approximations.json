@@ -1,0 +1,1758 @@
+[
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.no-legal-candidate",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.no-legal-candidate",
+    "name_zh_cn": "可替换边界：gb.policy.no-legal-candidate",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.306f321f959303fd",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.no-legal-candidate",
+        "sha256": "306f321f959303fdc73827efbc5c3eaf019eeedbc177d288cb9d50a89dbd8de7",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released structured logic or reproducible observation defines each empty-candidate branch"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "candidate_policies.no_legal_candidate",
+    "unavailable_fact": "released text does not define every empty-pool/full-inventory combination",
+    "known_released_facts": [
+      "an illegal candidate cannot be selected",
+      "rejected choices must not mutate authoritative state"
+    ],
+    "selected_policy": "emit a ReferenceOnly no-candidate outcome, consume no inventory resource and continue at the next declared lifecycle boundary",
+    "rejected_alternatives": [
+      "retry an unbounded random draw",
+      "silently replace or downgrade an owned maximum-level item"
+    ],
+    "rationale": "bounded explicit failure preserves state and avoids nontermination",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released structured logic or reproducible observation defines each empty-candidate branch"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.refresh-exclusion",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.refresh-exclusion",
+    "name_zh_cn": "可替换边界：gb.policy.refresh-exclusion",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.e45261288aa395aa",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.refresh-exclusion",
+        "sha256": "e45261288aa395aad6c7858e315d295778a7da869be5cd6ba7c4d322094ca0c6",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released logic or reproducible observations define refresh exclusion memory and fallback"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "candidate_policies.refresh_exclusion",
+    "unavailable_fact": "released sources do not fully specify whether every just-rejected candidate remains eligible after refresh",
+    "known_released_facts": [
+      "refresh generates a new legal offer",
+      "maximum-level and profile-ineligible records remain illegal"
+    ],
+    "selected_policy": "exclude the immediately displayed candidate IDs for one refresh attempt, then fall back to the full legal pool if exclusion would empty it",
+    "rejected_alternatives": [
+      "allow the identical offer without an explicit fallback",
+      "permanently exclude every previously seen candidate for the battle"
+    ],
+    "rationale": "one-attempt exclusion makes refresh meaningful while the bounded fallback prevents an artificial dead end",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released logic or reproducible observations define refresh exclusion memory and fallback"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.score-rounding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.score-rounding",
+    "name_zh_cn": "可替换边界：gb.policy.score-rounding",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.15647637de0391e2",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.score-rounding",
+        "sha256": "15647637de0391e22a5702371578bc406a12a009dc3621cf72e067ac154731df",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released formula programs or exact observations identify the authoritative rounding boundary and mode"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "scoring_rules.intermediate_rounding",
+    "unavailable_fact": "released score displays do not expose every intermediate rounding boundary",
+    "known_released_facts": [
+      "final displayed scores and exact structured thresholds are integers",
+      "authoritative arithmetic cannot use binary floats"
+    ],
+    "selected_policy": "retain canonical fixed-point intermediates and round toward zero only at each explicitly authored integer score contribution boundary",
+    "rejected_alternatives": [
+      "round after every multiplication",
+      "banker's-round only the final aggregate"
+    ],
+    "rationale": "named contribution boundaries minimize invented rounding while producing deterministic integer totals",
+    "affected_fixture_ids": [
+      "score-rating-clear",
+      "boss-phase-final-settlement"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released formula programs or exact observations identify the authoritative rounding boundary and mode"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.simultaneous-synthesis-order",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.simultaneous-synthesis-order",
+    "name_zh_cn": "可替换边界：gb.policy.simultaneous-synthesis-order",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.fc2374da41ccb502",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.simultaneous-synthesis-order",
+        "sha256": "fc2374da41ccb502630bcd9fa80676f5232c889d3f9a7ca74a408232a6dc2511",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "synthesis_recipes.simultaneous_upgrade_order",
+    "unavailable_fact": "the order between a newly eligible synthesis and an ordinary duplicate upgrade in one offer is not public for every recipe tier",
+    "known_released_facts": [
+      "recipes require explicit acyclic inputs",
+      "inputs may be consumed only after all prerequisites validate"
+    ],
+    "selected_policy": "evaluate explicit synthesis candidates first by tier then recipe stable ID; otherwise apply the ordinary duplicate upgrade",
+    "rejected_alternatives": [
+      "always apply duplicate upgrade before synthesis",
+      "choose an eligible recipe using an unlabeled random draw"
+    ],
+    "rationale": "tier and stable-ID order is bounded, auditable and keeps recipe consumption atomic",
+    "affected_fixture_ids": [
+      "legendary-weapon-synthesis",
+      "twin-weapon-synthesis",
+      "supreme-weapon-synthesis"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.target-tie",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.target-tie",
+    "name_zh_cn": "可替换边界：gb.policy.target-tie",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.84e8b67374d1d4d4",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.target-tie",
+        "sha256": "84e8b67374d1d4d4f8fbf4a6515f9e4d4f97f739386233d1ec1a2cb5808c8aad",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released target-order data or reproducible observations prove a different selector"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "weapon_triggers.target_tie_break",
+    "unavailable_fact": "several weapon target selectors do not publish tie-breaking among equally eligible combatants",
+    "known_released_facts": [
+      "target shape and eligibility remain weapon-specific",
+      "candidate iteration cannot depend on hash-map order"
+    ],
+    "selected_policy": "sort eligible targets by the project stable combatant key before labeled integer selection or first-target choice",
+    "rejected_alternatives": [
+      "use battlefield insertion order without an authored contract",
+      "use a floating random shuffle"
+    ],
+    "rationale": "stable combatant identity preserves deterministic replay without changing target eligibility",
+    "affected_fixture_ids": [
+      "weapon-automatic-action",
+      "character-action-triggered-weapon"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "replace when released target-order data or reproducible observations prove a different selector"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.upgrade-candidate-order",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.upgrade-candidate-order",
+    "name_zh_cn": "可替换边界：gb.policy.upgrade-candidate-order",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.3063a9f0349fea29",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.upgrade-candidate-order",
+        "sha256": "3063a9f0349fea296111d4c5025e2be5f37069095a349db50ff1b3b775ea3d3f",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released data exposes an explicit offer ordinal or a reproducible observation proves a different order"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "candidate_policies.presentation_order",
+    "unavailable_fact": "the stable order of simultaneously drawn choices is not fully published",
+    "known_released_facts": [
+      "candidate membership is profile- and state-scoped",
+      "each random decision must be replayable"
+    ],
+    "selected_policy": "preserve labeled draw ordinal; break duplicate/tie positions by stable ID ascending",
+    "rejected_alternatives": [
+      "sort by localized display name",
+      "preserve filesystem or hash-map iteration order"
+    ],
+    "rationale": "draw ordinal preserves causality and stable ID removes locale/platform dependence",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "replace when released data exposes an explicit offer ordinal or a reproducible observation proves a different order"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.upgrade-candidate-weight",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.upgrade-candidate-weight",
+    "name_zh_cn": "可替换边界：gb.policy.upgrade-candidate-weight",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.bcca00979305aecf",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.upgrade-candidate-weight",
+        "sha256": "bcca00979305aecf1179f4d439ada9937fe5e6ca04292dd9d760c88666961497",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released structured weights or a reproducible released-version observation establishes the complete distribution"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "candidate_policies.random_weight",
+    "unavailable_fact": "released sources do not expose a complete authoritative draw weight for every eligible offer",
+    "known_released_facts": [
+      "only legal profile-owned candidates may be offered",
+      "duplicate and maximum-level eligibility are state dependent"
+    ],
+    "selected_policy": "sample uniformly by project integer sampling from eligible stable IDs sorted lexicographically",
+    "rejected_alternatives": [
+      "infer weights from rarity or display position",
+      "reuse upstream table iteration order as a probability distribution"
+    ],
+    "rationale": "uniform stable-ID sampling is deterministic, neutral and does not manufacture hidden rarity weights",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released structured weights or a reproducible released-version observation establishes the complete distribution"
+  },
+  {
+    "id": "galactic-baseballer.approximation.gb.policy.weapon-trigger-tie",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Replaceable boundary: gb.policy.weapon-trigger-tie",
+    "name_zh_cn": "可替换边界：gb.policy.weapon-trigger-tie",
+    "summary_en": "Explicit ReferenceOnly deterministic policy; not an observed-parity claim.",
+    "summary_zh_cn": "显式的仅供资料使用确定性策略；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.7e14e0c36a512a3c",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "id=gb.policy.weapon-trigger-tie",
+        "sha256": "7e14e0c36a512a3cbab8ddcff7e2150ac5042959efb174ac4bf51274f62b45bd",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit replaceable deterministic boundary",
+        "replacement_condition": "replace when released structured priority data or reproducible observations establish a different tie-break"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "project-policy",
+      "replaceable"
+    ],
+    "field_path": "weapon_triggers.same_boundary_order",
+    "unavailable_fact": "same-boundary ordering between multiple ready weapons is not fully described in released text",
+    "known_released_facts": [
+      "each weapon retains its own counter/cooldown state",
+      "all accepted actions require an explicit ordered operation trace"
+    ],
+    "selected_policy": "order ready weapon triggers by trigger phase, authored priority when present, then stable weapon ID",
+    "rejected_alternatives": [
+      "order by acquisition time",
+      "order by localized weapon name"
+    ],
+    "rationale": "phase/priority preserves known timing while stable ID is replay-safe",
+    "affected_fixture_ids": [
+      "weapon-automatic-action",
+      "character-action-triggered-weapon"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "replace when released structured priority data or reproducible observations establish a different tie-break"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.approximation.chest-probability-ordinal",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Chest probability ordinal mapping",
+    "name_zh_cn": "宝箱概率序号映射",
+    "summary_en": "Explicit replaceable boundary; this record is not an observed-parity claim.",
+    "summary_zh_cn": "显式可替换边界；本记录不声称已观察到玩法一致性。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0020",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0021",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0022",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0023",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0024",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0025",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0026",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0027",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0028",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0029",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0036",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0074"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.39ef85912b06b440",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=20;ConstValueName=EvolveBuildSC_Gold_Basic_Normal1",
+        "sha256": "39ef85912b06b440f00687d9c5a1387fbc57df60226f68c4082b603a4c59eb73",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.263fd561a7a07080",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=21;ConstValueName=EvolveBuildSC_Gold_Basic_Normal2",
+        "sha256": "263fd561a7a07080faf2eef4b285d1a9c86b8b6128edecc3ebf6f13baf3f4a11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.7672f15a8479866c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=22;ConstValueName=EvolveBuildSC_Gold_Basic_Elite",
+        "sha256": "7672f15a8479866c3c2dac35d1a5dba6d0a52767d71054f3676fd6dbd83ff35c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.053eebe69b888d07",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=23;ConstValueName=EvolveBuildSC_Gold_Basic_Boss",
+        "sha256": "053eebe69b888d07d5178e8c9bc71bae54ac539d4ca5e0dd9a466f39e6df9416",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.c5f018d227e32d16",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=24;ConstValueName=EvolveBuildSC_Gold_Basic_Chest",
+        "sha256": "c5f018d227e32d160c0f18126aee1594e10e7af877df613ae8f681ba2d43fd56",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.54266e52a7e4aa53",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=25;ConstValueName=EvolveBuildSC_Gold_MaxLevel",
+        "sha256": "54266e52a7e4aa5327445e21474020f004aead1fe16bc5783d23fceb2f6d1c89",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.4d5d6d67e0815ecd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=26;ConstValueName=EvolveBuildSC_Chest_Basic_Gold",
+        "sha256": "4d5d6d67e0815ecd9b9de8b555b6091c8df38f57f764a0ac93f4414acd03b87e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.9dff1a79b15b6f38",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=27;ConstValueName=EvolveBuildSC_Chest_Alter_Gold",
+        "sha256": "9dff1a79b15b6f38690e62e28f1e2750e97884cdcfbc37c011ceb1b546129e7e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.e01a8ad04f861a29",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=28;ConstValueName=EvolveBuildSC_Chest_Probability",
+        "sha256": "e01a8ad04f861a29616dc05abc1c8059565752517fe129cd66717f4b563d2f7f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.f2be8eb4bf8cf48b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=29;ConstValueName=EvolveBuildSC_Chest_Probability_Step",
+        "sha256": "f2be8eb4bf8cf48bc2478d0b469d851d13fb3fbd09b21ecb6eb326f7279c987c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.dc2dc2b526a16119",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=36;ConstValueName=EvolveBuildSC_Coin_ItemID",
+        "sha256": "dc2dc2b526a16119993029f92d065d4c52a6c5e71874a7854767f9470566d6ec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.8bd5c91a2bca590e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=74;ConstValueName=EvolveBuildSC_Gold_MaxLimit",
+        "sha256": "8bd5c91a2bca590e91663d5fe9cebbcf6a2666d6c1fd8dbb99ec76fa95d5975c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Raccoon Gold constant"
+      },
+      {
+        "source_id": "source.goal16.wiki.432557.29b02a0c03",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Store",
+        "revision_or_access_date": "432557",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Store",
+        "locator": "==Stat Boost==",
+        "sha256": "dab75538eb116743c18e7e23effd8c81514dfe42d8f123b90b8ee5d704e98fd7",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned store identity/effect cross-check"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "demon-king",
+      "replaceable"
+    ],
+    "field_path": "currencies.raccoon_gold.chest_probability_vector",
+    "unavailable_fact": "The semantic names and application timing of the three probability ordinals are not exposed by the constant table.",
+    "known_released_facts": "The exact vectors are 0.6,0.3,0.1 and -0.15,0,0.15.",
+    "selected_policy": "Retain both vectors by ordinal and do not assign chest-tier names or floating draws.",
+    "rejected_alternatives": [
+      "name the ordinals small, medium and large from array position",
+      "convert the decimals into host floating probability draws",
+      "reorder the vector by value"
+    ],
+    "rationale": "Ordinal retention is lossless and avoids inventing a mapping not present in released structured facts.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.chest-probability-vector"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "Released logic binds every ordinal to a named chest state and sampling boundary."
+  },
+  {
+    "id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Cosmic Reputation rank costs",
+    "name_zh_cn": "银河声望等级费用",
+    "summary_en": "Explicit replaceable boundary; this record is not an observed-parity claim.",
+    "summary_zh_cn": "显式可替换边界；本记录不声称已观察到玩法一致性。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0070",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0075"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      },
+      {
+        "source_id": "source.goal16.a17e05fd212d90ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=70;ConstValueName=EvolveBuildSC_OfferingType",
+        "sha256": "a17e05fd212d90ad6e7717c96a2e76b51dec157034420071724a2e153f55104c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.8f34fc6c5b37ef6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=75;ConstValueName=EvolveBuildSC_Offering_MaxLimit",
+        "sha256": "8f34fc6c5b37ef6b441c19a1a232bf0d08574235084a802a0f60a5aafc306998",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact offering type and maximum"
+      },
+      {
+        "source_id": "source.goal16.wiki.324128.18abff09af",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Reputation",
+        "revision_or_access_date": "324128",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Reputation",
+        "locator": "==Reputation Rewards==",
+        "sha256": "bb687da4143eb53291b2938e499f1212261ef2cb2d832dd2bb892695520cc44d",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned 20-rank cost cross-check; account rewards are excluded"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "demon-king",
+      "replaceable"
+    ],
+    "field_path": "progression.cosmic_reputation.rank_costs",
+    "unavailable_fact": "A released structured Offering table for all 20 Demon King rank costs is absent from the frozen structured family.",
+    "known_released_facts": "OfferingType=8 and maximum=500000 are exact; pinned public revision 324128 lists 20 costs ending at cumulative 97500.",
+    "selected_policy": "Retain the pinned public revision's 3000x5, 4500x5 and 6000x10 costs as ReferenceOnly cross-check data; import no reward payload.",
+    "rejected_alternatives": [
+      "infer rank costs from Departure values",
+      "derive costs from the value of account rewards",
+      "drop reputation ranks because their reward payload is excluded"
+    ],
+    "rationale": "The ranks are requested progression facts, but public community evidence must remain visibly lower-quality than structured rows.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.cosmic-reputation-rank-20"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "A pinned released structured Offering definition provides every Demon King rank cost."
+  },
+  {
+    "id": "galactic-baseballer.demon-king.approximation.shop-transaction-atomicity",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Cosmic Store transaction atomicity",
+    "name_zh_cn": "银河商店交易原子性",
+    "summary_en": "Shared ReferenceOnly store transaction boundary; not observed parity.",
+    "summary_zh_cn": "共享的仅供资料使用商店交易边界；不声称观察一致性。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2",
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "SharedBase",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCShopConfig:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.bd98e735f457b7a8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCShopConfig.json",
+        "locator": "row=14;ID=3113815;Season=SecondChapter",
+        "sha256": "bd98e735f457b7a8b1a55e65e1f98c2a5be477b4c27c93acd28f824fbd8ad3fc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact shop type, price level and base parameter"
+      },
+      {
+        "source_id": "source.goal16.wiki.432557.29b02a0c03",
+        "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Legend_of_the_Galactic_Baseballer%3A_Demon_King%2FCosmic_Store",
+        "revision_or_access_date": "432557",
+        "game_version": "3.3 released / 4.4 retained",
+        "path_or_page": "Legend of the Galactic Baseballer: Demon King/Cosmic Store",
+        "locator": "==Stat Boost==",
+        "sha256": "dab75538eb116743c18e7e23effd8c81514dfe42d8f123b90b8ee5d704e98fd7",
+        "evidence_quality": "PublicCommunityCrossCheck",
+        "mechanism_quality": "IdentityCrossCheck",
+        "note": "revision-pinned store identity/effect cross-check"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "demon-king",
+      "replaceable"
+    ],
+    "field_path": "shop.purchase.transaction",
+    "unavailable_fact": "The exact rejection event ordering for insufficient balance, wrong current level and maximum level is not published.",
+    "known_released_facts": "All 60 price steps, levels, shop types and effects are exact structured facts.",
+    "selected_policy": "Validate current level and balance before deducting currency; commit cost, level and effect as one ordered operation.",
+    "rejected_alternatives": [
+      "deduct currency before validating the current level",
+      "partially apply the effect on an insufficient-balance rejection",
+      "silently clamp purchases at maximum level"
+    ],
+    "rationale": "Pre-validation preserves rejected-command byte identity and makes the transaction auditable.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.galactic-store-progression.success",
+      "galactic-baseballer.demon-king.fixture.galactic-store-progression.rejected"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "Released transaction logic or reproducible observations close every rejection branch and event order."
+  },
+  {
+    "id": "galactic-baseballer.demon-king.approximation.treasure-selection",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "Approximation",
+    "name_en": "Demon King's Treasure selection",
+    "name_zh_cn": "魔王宝藏选择",
+    "summary_en": "Explicit replaceable boundary; this record is not an observed-parity claim.",
+    "summary_zh_cn": "显式可替换边界；本记录不声称已观察到玩法一致性。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0000",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0001",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0002",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0003",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxGroup:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0000",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0001",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0002",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0003",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0004",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0005",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0006",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0007",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0008",
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCBoxItem:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e94f1dcc603b77d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=0;GroupID=1",
+        "sha256": "e94f1dcc603b77d460c773d50c196133f359d21a2aa1183e4ccd3d7d9e7de4b9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      },
+      {
+        "source_id": "source.goal16.2f8c081e3b1c1ce8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=1;GroupID=2",
+        "sha256": "2f8c081e3b1c1ce8781b9f642aa2b55a908793425d728492f3cb324d4e761c58",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      },
+      {
+        "source_id": "source.goal16.a9994dffe3eb9fbb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=2;GroupID=3",
+        "sha256": "a9994dffe3eb9fbbf8663c036100cec1fb9def3e80b0495d3f1ad362ed76cb14",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      },
+      {
+        "source_id": "source.goal16.ebc83b0b7fa3baf1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=3;GroupID=4",
+        "sha256": "ebc83b0b7fa3baf153d3700477ff70f8d38e1f4e368e9017430aee642b55a9e8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      },
+      {
+        "source_id": "source.goal16.8747a65fb6ef4d3a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxGroup.json",
+        "locator": "row=4;GroupID=5",
+        "sha256": "8747a65fb6ef4d3a398d789da10132a5e16de37cdd0c8f107bc7415cc6a2b571",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxGroup to BoxItem list"
+      },
+      {
+        "source_id": "source.goal16.75b4a3c2678812b0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=0;ID=1",
+        "sha256": "75b4a3c2678812b07a3389582831860f76c3fe26ed7df0b2ee77d8a4c732e875",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.a9318e63ddbd0fae",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=9;ID=10",
+        "sha256": "a9318e63ddbd0faef6a15e02fa342c894410f781c378fb41ee1104e79890cac6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.1c0a7df396919422",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=1;ID=2",
+        "sha256": "1c0a7df3969194227c0a30a4f01c2c8cd870c19aebea9ee0d14fd08fb8fe82d1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.ee04c466c68b0954",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=2;ID=3",
+        "sha256": "ee04c466c68b095487011ef201fa573ef3c1eaf9e0123025712443210e80bbc8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.c2634ba83795963f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=3;ID=4",
+        "sha256": "c2634ba83795963f095b1555817aacc93214102637cc1a10f1f2c7f98bb1b3a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.921f65353d3fad08",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=4;ID=5",
+        "sha256": "921f65353d3fad080ee0824c4970aae4d77f01200b2158cc2a14c5d26de56a0b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.12ea0fa8d072e659",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=5;ID=6",
+        "sha256": "12ea0fa8d072e659a0e8f874e30d52416e94f9f15ff6e9ebc1ee7d6b2d071478",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.0494c7a5a016ab35",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=6;ID=7",
+        "sha256": "0494c7a5a016ab3590bd5689aece4f6f3eb877966a55c902916ccd4a7af0bd3c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.1100f3cd323cd1c8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=7;ID=8",
+        "sha256": "1100f3cd323cd1c884281a49e63ca8f19d30211d0c4a28008318fdb195503929",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      },
+      {
+        "source_id": "source.goal16.df7d08fbae47c860",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCBoxItem.json",
+        "locator": "row=8;ID=9",
+        "sha256": "df7d08fbae47c860b51d8cd8632bf3ffcd5d4b5dbbb1924829a469b10f7c99fc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact BoxItem candidate entry list"
+      }
+    ],
+    "tags": [
+      "approximation",
+      "demon-king",
+      "replaceable"
+    ],
+    "field_path": "progression.treasure.selection",
+    "unavailable_fact": "The released tables expose ordered entry lists but not selection weights, group timing or duplicate-entry semantics.",
+    "known_released_facts": "Five groups point to ten pools; every pool has ten authored entry positions and repeated IDs are preserved.",
+    "selected_policy": "Use labeled project integer sampling over eligible authored entry ordinals; repeated positions remain distinct and stable.",
+    "rejected_alternatives": [
+      "deduplicate repeated stable IDs before sampling",
+      "treat authored array order as descending hidden weight",
+      "use generic shuffle or collection iteration order"
+    ],
+    "rationale": "Entry-position sampling preserves all source information while making the hidden distribution explicitly replaceable.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.treasure-selection"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "Released logic defines treasure group timing, weights, count and duplicate handling."
+  }
+]

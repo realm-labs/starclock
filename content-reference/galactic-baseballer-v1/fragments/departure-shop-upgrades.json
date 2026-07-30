@@ -1,0 +1,3524 @@
+[
+  {
+    "id": "galactic-baseballer.departure.shop.3106801.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106801 level 1",
+    "name_zh_cn": "启程篇商店升级 3106801 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0192",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b215c3161d713dda",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=0;ID=3106801;Season=EarlyAccess",
+        "sha256": "b215c3161d713ddad2778bbc5e4678ca74ea6c57946ae51ef0928b4bb1e897fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.63b45386fe09d911",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=192;ID=3106801",
+        "sha256": "63b45386fe09d911a31a22ae928d828ce4969db526da4793056fee45309adeb2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106801",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 100,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.5"
+    ],
+    "maze_buff_id": "3106801",
+    "maze_buff_parameters": [
+      "0.5"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106801.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106801 level 2",
+    "name_zh_cn": "启程篇商店升级 3106801 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0193",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b215c3161d713dda",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=0;ID=3106801;Season=EarlyAccess",
+        "sha256": "b215c3161d713ddad2778bbc5e4678ca74ea6c57946ae51ef0928b4bb1e897fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.d634dee5031bcfb8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=193;ID=3106801",
+        "sha256": "d634dee5031bcfb8bddbd6f4e11c15184f5e55121d7ec3561eff8e31586651b1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106801",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 300,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.5"
+    ],
+    "maze_buff_id": "3106801",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106801.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106801 level 3",
+    "name_zh_cn": "启程篇商店升级 3106801 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0194",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b215c3161d713dda",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=0;ID=3106801;Season=EarlyAccess",
+        "sha256": "b215c3161d713ddad2778bbc5e4678ca74ea6c57946ae51ef0928b4bb1e897fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.c856a885fa385d1f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=194;ID=3106801",
+        "sha256": "c856a885fa385d1f137a54c52f4216cd77f7c7a283f3e7a55a265571c2d622d7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106801",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 600,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.5"
+    ],
+    "maze_buff_id": "3106801",
+    "maze_buff_parameters": [
+      "1.5"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106801.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106801 level 4",
+    "name_zh_cn": "启程篇商店升级 3106801 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0195",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b215c3161d713dda",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=0;ID=3106801;Season=EarlyAccess",
+        "sha256": "b215c3161d713ddad2778bbc5e4678ca74ea6c57946ae51ef0928b4bb1e897fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.5c74a4983acb946b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=195;ID=3106801",
+        "sha256": "5c74a4983acb946b3cffa8a85f45b36035b34ed7da7ad05b544077da34d27621",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106801",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.5"
+    ],
+    "maze_buff_id": "3106801",
+    "maze_buff_parameters": [
+      "2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106801.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106801 level 5",
+    "name_zh_cn": "启程篇商店升级 3106801 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0196",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b215c3161d713dda",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=0;ID=3106801;Season=EarlyAccess",
+        "sha256": "b215c3161d713ddad2778bbc5e4678ca74ea6c57946ae51ef0928b4bb1e897fb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.38d78e9ce0d89ac3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=196;ID=3106801",
+        "sha256": "38d78e9ce0d89ac3f7b0cb342d3a99b262b0354b9e5a9b65e631c77f1fef0d14",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106801",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.5"
+    ],
+    "maze_buff_id": "3106801",
+    "maze_buff_parameters": [
+      "2.5"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106802.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106802 level 1",
+    "name_zh_cn": "启程篇商店升级 3106802 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0197",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.26ec5a5ed059eb61",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=1;ID=3106802;Season=EarlyAccess",
+        "sha256": "26ec5a5ed059eb619f1601f72e2e991ef99e6086baa1a86b1fd1ea527bed4339",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.292989fa4f082ec3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=197;ID=3106802",
+        "sha256": "292989fa4f082ec3e4c769fc179bc7b9ac2d6754ccfcaf209e7bf601dfe0397e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106802",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 100,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106802",
+    "maze_buff_parameters": [
+      "0.1"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106802.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106802 level 2",
+    "name_zh_cn": "启程篇商店升级 3106802 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0198",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.26ec5a5ed059eb61",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=1;ID=3106802;Season=EarlyAccess",
+        "sha256": "26ec5a5ed059eb619f1601f72e2e991ef99e6086baa1a86b1fd1ea527bed4339",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.755f1ffd45771a19",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=198;ID=3106802",
+        "sha256": "755f1ffd45771a190553a2bebe6e9a1f1826232cbde2c0d40b937ae5f97a2492",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106802",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 300,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106802",
+    "maze_buff_parameters": [
+      "0.2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106802.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106802 level 3",
+    "name_zh_cn": "启程篇商店升级 3106802 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0199",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.26ec5a5ed059eb61",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=1;ID=3106802;Season=EarlyAccess",
+        "sha256": "26ec5a5ed059eb619f1601f72e2e991ef99e6086baa1a86b1fd1ea527bed4339",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.713668945b8fdf2c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=199;ID=3106802",
+        "sha256": "713668945b8fdf2c894ed5826fa1fb4b30f454a087b220debe99c0ba88a116ce",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106802",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 600,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106802",
+    "maze_buff_parameters": [
+      "0.3"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106802.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106802 level 4",
+    "name_zh_cn": "启程篇商店升级 3106802 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0200",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.26ec5a5ed059eb61",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=1;ID=3106802;Season=EarlyAccess",
+        "sha256": "26ec5a5ed059eb619f1601f72e2e991ef99e6086baa1a86b1fd1ea527bed4339",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.af7ed856c98d9d3a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=200;ID=3106802",
+        "sha256": "af7ed856c98d9d3a7d88a11a426198873a3db5583dbc299420482e9a5a9c6b24",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106802",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106802",
+    "maze_buff_parameters": [
+      "0.4"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106802.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106802 level 5",
+    "name_zh_cn": "启程篇商店升级 3106802 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0201",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.26ec5a5ed059eb61",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=1;ID=3106802;Season=EarlyAccess",
+        "sha256": "26ec5a5ed059eb619f1601f72e2e991ef99e6086baa1a86b1fd1ea527bed4339",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.031dfe5ec1d392db",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=201;ID=3106802",
+        "sha256": "031dfe5ec1d392dba9afaeb842770c6e8e975f505bb14d736549448d536fdf29",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106802",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106802",
+    "maze_buff_parameters": [
+      "0.5"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106803.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106803 level 1",
+    "name_zh_cn": "启程篇商店升级 3106803 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0202",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d5d533842fdc142",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=2;ID=3106803;Season=EarlyAccess",
+        "sha256": "6d5d533842fdc142353ff2607c03385be40af7e0fd827cbd74d82c2cb998e081",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.898074e11945a1d5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=202;ID=3106803",
+        "sha256": "898074e11945a1d5be1ae09d90c2eac4891ce090ed1ca1cb617ec1f6d359cb98",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106803",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 100,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106803",
+    "maze_buff_parameters": [
+      "0.12"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106803.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106803 level 2",
+    "name_zh_cn": "启程篇商店升级 3106803 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0203",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d5d533842fdc142",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=2;ID=3106803;Season=EarlyAccess",
+        "sha256": "6d5d533842fdc142353ff2607c03385be40af7e0fd827cbd74d82c2cb998e081",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.0d222651530ff73f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=203;ID=3106803",
+        "sha256": "0d222651530ff73f18c64f0a4bb8cf4ebc3577f46c9bf1b8f91c7e4f68767cfa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106803",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 300,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106803",
+    "maze_buff_parameters": [
+      "0.24"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106803.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106803 level 3",
+    "name_zh_cn": "启程篇商店升级 3106803 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0204",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d5d533842fdc142",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=2;ID=3106803;Season=EarlyAccess",
+        "sha256": "6d5d533842fdc142353ff2607c03385be40af7e0fd827cbd74d82c2cb998e081",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.5147fd4a7ec79ff7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=204;ID=3106803",
+        "sha256": "5147fd4a7ec79ff79bc4be1f44072e9a41c8fe41024847580034bcceee8e90ae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106803",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 600,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106803",
+    "maze_buff_parameters": [
+      "0.36"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106803.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106803 level 4",
+    "name_zh_cn": "启程篇商店升级 3106803 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0205",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d5d533842fdc142",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=2;ID=3106803;Season=EarlyAccess",
+        "sha256": "6d5d533842fdc142353ff2607c03385be40af7e0fd827cbd74d82c2cb998e081",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.8127a5fe94666efc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=205;ID=3106803",
+        "sha256": "8127a5fe94666efc3b93280604a6b119185acd5a3a239e4fd734fa5b982ec4f0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106803",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106803",
+    "maze_buff_parameters": [
+      "0.48"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106803.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106803 level 5",
+    "name_zh_cn": "启程篇商店升级 3106803 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0206",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6d5d533842fdc142",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=2;ID=3106803;Season=EarlyAccess",
+        "sha256": "6d5d533842fdc142353ff2607c03385be40af7e0fd827cbd74d82c2cb998e081",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.8a03953899b85b42",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=206;ID=3106803",
+        "sha256": "8a03953899b85b4276b10afaf86900a7627449d84d1ffda06143c7419ca95eb8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106803",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106803",
+    "maze_buff_parameters": [
+      "0.6"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106804.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106804 level 1",
+    "name_zh_cn": "启程篇商店升级 3106804 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0207",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.623239b4ff72ee89",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=3;ID=3106804;Season=EarlyAccess",
+        "sha256": "623239b4ff72ee89ee5242169df22b365ed637b28dc36e5673d33cec4791fa40",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.827fe5481f41c6cc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=207;ID=3106804",
+        "sha256": "827fe5481f41c6ccbb231ce395842754abd97c2a17c9da7c7b140bc4ceac2835",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106804",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 100,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106804",
+    "maze_buff_parameters": [
+      "0.12"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106804.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106804 level 2",
+    "name_zh_cn": "启程篇商店升级 3106804 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0208",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.623239b4ff72ee89",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=3;ID=3106804;Season=EarlyAccess",
+        "sha256": "623239b4ff72ee89ee5242169df22b365ed637b28dc36e5673d33cec4791fa40",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.e3d11dafe2c8dcba",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=208;ID=3106804",
+        "sha256": "e3d11dafe2c8dcba78850a52fcbad2f10595d98413d24bc5e71aeafd171b5b6d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106804",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 300,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106804",
+    "maze_buff_parameters": [
+      "0.24"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106804.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106804 level 3",
+    "name_zh_cn": "启程篇商店升级 3106804 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0209",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.623239b4ff72ee89",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=3;ID=3106804;Season=EarlyAccess",
+        "sha256": "623239b4ff72ee89ee5242169df22b365ed637b28dc36e5673d33cec4791fa40",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.5735fc7f38ace932",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=209;ID=3106804",
+        "sha256": "5735fc7f38ace932b5928496bcf96471240ae827abbbbc095b3be08fcc4f1d00",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106804",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 600,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106804",
+    "maze_buff_parameters": [
+      "0.36"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106804.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106804 level 4",
+    "name_zh_cn": "启程篇商店升级 3106804 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0210",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.623239b4ff72ee89",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=3;ID=3106804;Season=EarlyAccess",
+        "sha256": "623239b4ff72ee89ee5242169df22b365ed637b28dc36e5673d33cec4791fa40",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.15e536f16bc01054",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=210;ID=3106804",
+        "sha256": "15e536f16bc01054e77eebda674c005daa982625a2873bf5c8b65dc6c505ca96",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106804",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106804",
+    "maze_buff_parameters": [
+      "0.48"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106804.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106804 level 5",
+    "name_zh_cn": "启程篇商店升级 3106804 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0211",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.623239b4ff72ee89",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=3;ID=3106804;Season=EarlyAccess",
+        "sha256": "623239b4ff72ee89ee5242169df22b365ed637b28dc36e5673d33cec4791fa40",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.4972aa12fb638880",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=211;ID=3106804",
+        "sha256": "4972aa12fb63888064ac8322632250264a10de35163cde1b67896677c6e065ee",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106804",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.12"
+    ],
+    "maze_buff_id": "3106804",
+    "maze_buff_parameters": [
+      "0.6"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106805.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106805 level 1",
+    "name_zh_cn": "启程篇商店升级 3106805 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0212",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.acd4ffe3bd3eafce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=4;ID=3106805;Season=EarlyAccess",
+        "sha256": "acd4ffe3bd3eafce48997dc416fd6e6f477f0e3266977afaa572f556d4edb843",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.c7332b04046376e0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=212;ID=3106805",
+        "sha256": "c7332b04046376e0a9fd8d695e07eaab793e5311b4eb2582ca942f130867c614",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106805",
+    "purchase_level": 1,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_id": "3106805",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106805.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106805 level 2",
+    "name_zh_cn": "启程篇商店升级 3106805 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0213",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.acd4ffe3bd3eafce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=4;ID=3106805;Season=EarlyAccess",
+        "sha256": "acd4ffe3bd3eafce48997dc416fd6e6f477f0e3266977afaa572f556d4edb843",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.7825bd80c583e35f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=213;ID=3106805",
+        "sha256": "7825bd80c583e35ff17fc9cba1026e181170e27a151b5c6115494d198eea078e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106805",
+    "purchase_level": 2,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_id": "3106805",
+    "maze_buff_parameters": [
+      "2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106805.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106805 level 3",
+    "name_zh_cn": "启程篇商店升级 3106805 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0214",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.acd4ffe3bd3eafce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=4;ID=3106805;Season=EarlyAccess",
+        "sha256": "acd4ffe3bd3eafce48997dc416fd6e6f477f0e3266977afaa572f556d4edb843",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.43f9bde7b53cdb4b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=214;ID=3106805",
+        "sha256": "43f9bde7b53cdb4b18bb4aa50d96fe085fe202b56148220a56baeca6c3ad8b30",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106805",
+    "purchase_level": 3,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 2400,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_id": "3106805",
+    "maze_buff_parameters": [
+      "3"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106806.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106806 level 1",
+    "name_zh_cn": "启程篇商店升级 3106806 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0215",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f13c5ef81908cf14",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=5;ID=3106806;Season=EarlyAccess",
+        "sha256": "f13c5ef81908cf1406089781cb2ec3765187cd6a1d843c23fc84bfcaf37678d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.ac01b77e61f16270",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=215;ID=3106806",
+        "sha256": "ac01b77e61f16270fcd39f756c13034cf1d95306b2bef7ff5e68b6545c55064b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106806",
+    "purchase_level": 1,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.06"
+    ],
+    "maze_buff_id": "3106806",
+    "maze_buff_parameters": [
+      "0.06"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106806.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106806 level 2",
+    "name_zh_cn": "启程篇商店升级 3106806 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0216",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f13c5ef81908cf14",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=5;ID=3106806;Season=EarlyAccess",
+        "sha256": "f13c5ef81908cf1406089781cb2ec3765187cd6a1d843c23fc84bfcaf37678d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.2ca48bdb6cd5f0b7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=216;ID=3106806",
+        "sha256": "2ca48bdb6cd5f0b7ea6b52989a975897fc4ce7a9e3477d18768ec7724f03e812",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106806",
+    "purchase_level": 2,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.06"
+    ],
+    "maze_buff_id": "3106806",
+    "maze_buff_parameters": [
+      "0.12"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106806.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106806 level 3",
+    "name_zh_cn": "启程篇商店升级 3106806 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0217",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f13c5ef81908cf14",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=5;ID=3106806;Season=EarlyAccess",
+        "sha256": "f13c5ef81908cf1406089781cb2ec3765187cd6a1d843c23fc84bfcaf37678d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.aebaa18e6d1416a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=217;ID=3106806",
+        "sha256": "aebaa18e6d1416a6ea40c0e97733a119d8577ca0e33ce1ca9eefd2d308ec413d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106806",
+    "purchase_level": 3,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 2400,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.06"
+    ],
+    "maze_buff_id": "3106806",
+    "maze_buff_parameters": [
+      "0.18"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106807.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106807 level 1",
+    "name_zh_cn": "启程篇商店升级 3106807 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0218",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.34382d5cf289471a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=6;ID=3106807;Season=EarlyAccess",
+        "sha256": "34382d5cf289471ae6904190e86ad63f6f2ee4579bbc0af7e0ff06a8fa365061",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.508f7fab88e4714e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=218;ID=3106807",
+        "sha256": "508f7fab88e4714e7ebe2e2d9813c70d2045d86e825772629c89bb14b1fe7366",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106807",
+    "purchase_level": 1,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "10"
+    ],
+    "maze_buff_id": "3106807",
+    "maze_buff_parameters": [
+      "10"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106807.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106807 level 2",
+    "name_zh_cn": "启程篇商店升级 3106807 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0219",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.34382d5cf289471a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=6;ID=3106807;Season=EarlyAccess",
+        "sha256": "34382d5cf289471ae6904190e86ad63f6f2ee4579bbc0af7e0ff06a8fa365061",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.0be476847bf48596",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=219;ID=3106807",
+        "sha256": "0be476847bf485965e0f86f8f09a231ab743c084c398b512aa0b2c67c0aaf8e6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106807",
+    "purchase_level": 2,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "10"
+    ],
+    "maze_buff_id": "3106807",
+    "maze_buff_parameters": [
+      "20"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106807.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106807 level 3",
+    "name_zh_cn": "启程篇商店升级 3106807 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0220",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.34382d5cf289471a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=6;ID=3106807;Season=EarlyAccess",
+        "sha256": "34382d5cf289471ae6904190e86ad63f6f2ee4579bbc0af7e0ff06a8fa365061",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.a3ca5455e45eae28",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=220;ID=3106807",
+        "sha256": "a3ca5455e45eae2803091b2b750b106f05b2ed6b6aa6a052fd40d658e4620262",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106807",
+    "purchase_level": 3,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 2400,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "10"
+    ],
+    "maze_buff_id": "3106807",
+    "maze_buff_parameters": [
+      "30"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106808.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106808 level 1",
+    "name_zh_cn": "启程篇商店升级 3106808 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0221",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.545f3d063c363352",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=7;ID=3106808;Season=EarlyAccess",
+        "sha256": "545f3d063c3633524faf39f28b81a60a9caf27610b7f2c24e7b7b93999559413",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.0c55439dd973df67",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=221;ID=3106808",
+        "sha256": "0c55439dd973df67fcecacd9af77465a5d7ca26100536e2fbee74dffc162205b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106808",
+    "purchase_level": 1,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.15"
+    ],
+    "maze_buff_id": "3106808",
+    "maze_buff_parameters": [
+      "0.15"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106808.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106808 level 2",
+    "name_zh_cn": "启程篇商店升级 3106808 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0222",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.545f3d063c363352",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=7;ID=3106808;Season=EarlyAccess",
+        "sha256": "545f3d063c3633524faf39f28b81a60a9caf27610b7f2c24e7b7b93999559413",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.27d2da2bb80f39ac",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=222;ID=3106808",
+        "sha256": "27d2da2bb80f39aca797c98be2972d7599757cfe7ce0b481ba1a0f5651f687ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106808",
+    "purchase_level": 2,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.15"
+    ],
+    "maze_buff_id": "3106808",
+    "maze_buff_parameters": [
+      "0.3"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106808.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106808 level 3",
+    "name_zh_cn": "启程篇商店升级 3106808 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0223",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.545f3d063c363352",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=7;ID=3106808;Season=EarlyAccess",
+        "sha256": "545f3d063c3633524faf39f28b81a60a9caf27610b7f2c24e7b7b93999559413",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.b2d54eafd641e747",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=223;ID=3106808",
+        "sha256": "b2d54eafd641e74703c2a57b90aa946abf0bad18f127af2a4b9d67c46d7d6cb8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106808",
+    "purchase_level": 3,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 2400,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.15"
+    ],
+    "maze_buff_id": "3106808",
+    "maze_buff_parameters": [
+      "0.45"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106809.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106809 level 1",
+    "name_zh_cn": "启程篇商店升级 3106809 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0224",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b8c36851ae604fce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=8;ID=3106809;Season=EarlyAccess",
+        "sha256": "b8c36851ae604fce17bb8f890436032b0dcbf84b049a2a08e2948e41347d4c49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.103b44f5ae071bfd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=224;ID=3106809",
+        "sha256": "103b44f5ae071bfdfd4cadeeee401c0680aff1d72401dd4e4a981befa54fbb47",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106809",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 600,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.3"
+    ],
+    "maze_buff_id": "3106809",
+    "maze_buff_parameters": [
+      "0.3"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106809.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106809 level 2",
+    "name_zh_cn": "启程篇商店升级 3106809 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0225",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b8c36851ae604fce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=8;ID=3106809;Season=EarlyAccess",
+        "sha256": "b8c36851ae604fce17bb8f890436032b0dcbf84b049a2a08e2948e41347d4c49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.74b582a54f9ae84e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=225;ID=3106809",
+        "sha256": "74b582a54f9ae84e13ff73d776d3f9eb610824c01a405aeb898e5498cee996cc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106809",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1000,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.3"
+    ],
+    "maze_buff_id": "3106809",
+    "maze_buff_parameters": [
+      "0.6"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106809.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106809 level 3",
+    "name_zh_cn": "启程篇商店升级 3106809 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0226",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b8c36851ae604fce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=8;ID=3106809;Season=EarlyAccess",
+        "sha256": "b8c36851ae604fce17bb8f890436032b0dcbf84b049a2a08e2948e41347d4c49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.264dbd8b9d8a369d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=226;ID=3106809",
+        "sha256": "264dbd8b9d8a369d0347d57a100f71dd41fc977307324891afaade82dc355210",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106809",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1500,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.3"
+    ],
+    "maze_buff_id": "3106809",
+    "maze_buff_parameters": [
+      "0.9"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106809.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106809 level 4",
+    "name_zh_cn": "启程篇商店升级 3106809 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0227",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b8c36851ae604fce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=8;ID=3106809;Season=EarlyAccess",
+        "sha256": "b8c36851ae604fce17bb8f890436032b0dcbf84b049a2a08e2948e41347d4c49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.45e457e3c61d0836",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=227;ID=3106809",
+        "sha256": "45e457e3c61d08369ee1b7be13269472d40d76039a037b9b2a6edd9123a89a19",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106809",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 2000,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.3"
+    ],
+    "maze_buff_id": "3106809",
+    "maze_buff_parameters": [
+      "1.2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106809.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106809 level 5",
+    "name_zh_cn": "启程篇商店升级 3106809 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0228",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b8c36851ae604fce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=8;ID=3106809;Season=EarlyAccess",
+        "sha256": "b8c36851ae604fce17bb8f890436032b0dcbf84b049a2a08e2948e41347d4c49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.7585793467ca6de1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=228;ID=3106809",
+        "sha256": "7585793467ca6de17838123fdd40b3afcc4ab423caa9b382dacbf2101b045cd2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106809",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 2500,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.3"
+    ],
+    "maze_buff_id": "3106809",
+    "maze_buff_parameters": [
+      "1.5"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106810.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106810 level 1",
+    "name_zh_cn": "启程篇商店升级 3106810 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0229",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4b63748692dbfa62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=9;ID=3106810;Season=EarlyAccess",
+        "sha256": "4b63748692dbfa623565d08dc352b9873cb0ade543058a4f423cd21b4de9dc5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.fcbb142b9b1f64fd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=229;ID=3106810",
+        "sha256": "fcbb142b9b1f64fdd3f531ed34d7751e47bf1eec2ca2181eb0b5d148d82b379d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106810",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 400,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106810",
+    "maze_buff_parameters": [
+      "0.1"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106810.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106810 level 2",
+    "name_zh_cn": "启程篇商店升级 3106810 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0230",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4b63748692dbfa62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=9;ID=3106810;Season=EarlyAccess",
+        "sha256": "4b63748692dbfa623565d08dc352b9873cb0ade543058a4f423cd21b4de9dc5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.038454f173dfc81a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=230;ID=3106810",
+        "sha256": "038454f173dfc81af77b53af322aa5419e5dcf7c7811a424f239b79a5d2b9966",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106810",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106810",
+    "maze_buff_parameters": [
+      "0.2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106810.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106810 level 3",
+    "name_zh_cn": "启程篇商店升级 3106810 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0231",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4b63748692dbfa62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=9;ID=3106810;Season=EarlyAccess",
+        "sha256": "4b63748692dbfa623565d08dc352b9873cb0ade543058a4f423cd21b4de9dc5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.17f0351077f4aa8b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=231;ID=3106810",
+        "sha256": "17f0351077f4aa8b9b07e043426ea14e0cbf487bd664bcb0be0d0e406a333cae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106810",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106810",
+    "maze_buff_parameters": [
+      "0.3"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106810.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106810 level 4",
+    "name_zh_cn": "启程篇商店升级 3106810 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0232",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4b63748692dbfa62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=9;ID=3106810;Season=EarlyAccess",
+        "sha256": "4b63748692dbfa623565d08dc352b9873cb0ade543058a4f423cd21b4de9dc5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.f5c37c064861019b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=232;ID=3106810",
+        "sha256": "f5c37c064861019b8a95f4e3f82bd87afe28a071d360298654420a531b674929",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106810",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1600,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106810",
+    "maze_buff_parameters": [
+      "0.4"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106810.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106810 level 5",
+    "name_zh_cn": "启程篇商店升级 3106810 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0233",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4b63748692dbfa62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=9;ID=3106810;Season=EarlyAccess",
+        "sha256": "4b63748692dbfa623565d08dc352b9873cb0ade543058a4f423cd21b4de9dc5a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.93f05c2fd4118d08",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=233;ID=3106810",
+        "sha256": "93f05c2fd4118d08fc62416bf52d84dc642737223602eb9f2cec6f0d3f034601",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106810",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 2000,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "0.1"
+    ],
+    "maze_buff_id": "3106810",
+    "maze_buff_parameters": [
+      "0.5"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106811.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106811 level 1",
+    "name_zh_cn": "启程篇商店升级 3106811 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06f4c138b7dd229e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=10;ID=3106811;Season=EarlyAccess",
+        "sha256": "06f4c138b7dd229eee6aa7f4d79da67e3a59119a25fc6039ab5b2070d4295ee2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106811",
+    "purchase_level": 1,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 300,
+    "shop_type": "InitWeaponLevel",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_parameters": [],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106811.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106811 level 2",
+    "name_zh_cn": "启程篇商店升级 3106811 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06f4c138b7dd229e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=10;ID=3106811;Season=EarlyAccess",
+        "sha256": "06f4c138b7dd229eee6aa7f4d79da67e3a59119a25fc6039ab5b2070d4295ee2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106811",
+    "purchase_level": 2,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 900,
+    "shop_type": "InitWeaponLevel",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_parameters": [],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106811.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106811 level 3",
+    "name_zh_cn": "启程篇商店升级 3106811 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06f4c138b7dd229e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=10;ID=3106811;Season=EarlyAccess",
+        "sha256": "06f4c138b7dd229eee6aa7f4d79da67e3a59119a25fc6039ab5b2070d4295ee2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106811",
+    "purchase_level": 3,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 1800,
+    "shop_type": "InitWeaponLevel",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_parameters": [],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106811.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106811 level 4",
+    "name_zh_cn": "启程篇商店升级 3106811 等级 4",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06f4c138b7dd229e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=10;ID=3106811;Season=EarlyAccess",
+        "sha256": "06f4c138b7dd229eee6aa7f4d79da67e3a59119a25fc6039ab5b2070d4295ee2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106811",
+    "purchase_level": 4,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 3000,
+    "shop_type": "InitWeaponLevel",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_parameters": [],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106811.level.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106811 level 5",
+    "name_zh_cn": "启程篇商店升级 3106811 等级 5",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06f4c138b7dd229e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=10;ID=3106811;Season=EarlyAccess",
+        "sha256": "06f4c138b7dd229eee6aa7f4d79da67e3a59119a25fc6039ab5b2070d4295ee2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106811",
+    "purchase_level": 5,
+    "maximum_level": 5,
+    "cost_currency_id": "281019",
+    "cost": 5000,
+    "shop_type": "InitWeaponLevel",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_parameters": [],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106812.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106812 level 1",
+    "name_zh_cn": "启程篇商店升级 3106812 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0234",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.890da9d6939d9993",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=11;ID=3106812;Season=EarlyAccess",
+        "sha256": "890da9d6939d99935ce9fd0bd5e331637e0f7868e9ae8acb67bb2651765aa003",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.5478674a263b4f9d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=234;ID=3106812",
+        "sha256": "5478674a263b4f9d172c4aaef95a8dd429431513c1bee9655a9d8bd5d79c6161",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106812",
+    "purchase_level": 1,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "2"
+    ],
+    "maze_buff_id": "3106812",
+    "maze_buff_parameters": [
+      "2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106812.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106812 level 2",
+    "name_zh_cn": "启程篇商店升级 3106812 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0235",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.890da9d6939d9993",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=11;ID=3106812;Season=EarlyAccess",
+        "sha256": "890da9d6939d99935ce9fd0bd5e331637e0f7868e9ae8acb67bb2651765aa003",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.b499581553120cba",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=235;ID=3106812",
+        "sha256": "b499581553120cbaafd1ee0d9771b571677e54770642c7b8df6b471baff05d65",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106812",
+    "purchase_level": 2,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "2"
+    ],
+    "maze_buff_id": "3106812",
+    "maze_buff_parameters": [
+      "4"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106812.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106812 level 3",
+    "name_zh_cn": "启程篇商店升级 3106812 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0236",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.890da9d6939d9993",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=11;ID=3106812;Season=EarlyAccess",
+        "sha256": "890da9d6939d99935ce9fd0bd5e331637e0f7868e9ae8acb67bb2651765aa003",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.507df7206bd86c41",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=236;ID=3106812",
+        "sha256": "507df7206bd86c414411fd9f913b09f4cf6a78a2d2fb2229333a190bcc645d48",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106812",
+    "purchase_level": 3,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 2000,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "2"
+    ],
+    "maze_buff_id": "3106812",
+    "maze_buff_parameters": [
+      "6"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106813.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106813 level 1",
+    "name_zh_cn": "启程篇商店升级 3106813 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0237",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.63b345e913f0bf28",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=12;ID=3106813;Season=EarlyAccess",
+        "sha256": "63b345e913f0bf28240df90c8f7ff1d33bd7ced9ed5dcddd1887179355233f29",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.fea8e18cc99bc582",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=237;ID=3106813",
+        "sha256": "fea8e18cc99bc582c53d6fafed45574d13b2ee966112eb06500d17875b846823",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106813",
+    "purchase_level": 1,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 800,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_id": "3106813",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106813.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106813 level 2",
+    "name_zh_cn": "启程篇商店升级 3106813 等级 2",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0238",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.63b345e913f0bf28",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=12;ID=3106813;Season=EarlyAccess",
+        "sha256": "63b345e913f0bf28240df90c8f7ff1d33bd7ced9ed5dcddd1887179355233f29",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.73b623f76f525cea",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=238;ID=3106813",
+        "sha256": "73b623f76f525ceae046700c88e514435d7368f0a69bc92b8dd9ae69f3867ecb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106813",
+    "purchase_level": 2,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 1200,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_id": "3106813",
+    "maze_buff_parameters": [
+      "2"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 1
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106813.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106813 level 3",
+    "name_zh_cn": "启程篇商店升级 3106813 等级 3",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0239",
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.63b345e913f0bf28",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=12;ID=3106813;Season=EarlyAccess",
+        "sha256": "63b345e913f0bf28240df90c8f7ff1d33bd7ced9ed5dcddd1887179355233f29",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      },
+      {
+        "source_id": "source.goal16.d2ce67c58fda030f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=239;ID=3106813",
+        "sha256": "d2ce67c58fda030f2ae0901939ccb6eb937b9b8b3831f23e89a3aafcd822ebc4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact released Departure store MazeBuff level"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106813",
+    "purchase_level": 3,
+    "maximum_level": 3,
+    "cost_currency_id": "281019",
+    "cost": 2000,
+    "shop_type": "AddMazeBuff",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_id": "3106813",
+    "maze_buff_parameters": [
+      "3"
+    ],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 2
+  },
+  {
+    "id": "galactic-baseballer.departure.shop.3106814.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ShopUpgrade",
+    "name_en": "Departure store upgrade 3106814 level 1",
+    "name_zh_cn": "启程篇商店升级 3106814 等级 1",
+    "summary_en": "Exact store price level, effect type and optional MazeBuff binding.",
+    "summary_zh_cn": "精确商店价格等级、效果类型与可选 MazeBuff 绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildShopConfig:0013"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.744e3677340f7a5d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildShopConfig.json",
+        "locator": "row=13;ID=3106814;Season=EarlyAccess",
+        "sha256": "744e3677340f7a5d3ff6b4f72e659dbacc33e7b727a34a873b89d097daa1a5b5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released Departure store definition and price list"
+      }
+    ],
+    "tags": [
+      "departure",
+      "persistent-progression",
+      "shop"
+    ],
+    "source_numeric_id": "3106814",
+    "purchase_level": 1,
+    "maximum_level": 1,
+    "cost_currency_id": "281019",
+    "cost": 6000,
+    "shop_type": "AddAccessorySlot",
+    "shop_parameter_values": [
+      "1"
+    ],
+    "maze_buff_parameters": [],
+    "state_owner": "profile-persistent Departure progression",
+    "failure_behavior": "ProjectPolicy: validate level and balance before atomic commit",
+    "price_order": 0
+  }
+]

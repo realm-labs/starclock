@@ -1,0 +1,2212 @@
+[
+  {
+    "id": "galactic-baseballer.demon-king.unlock.card_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Card_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Card_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0066"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.89593c0bb6127b8c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=66;ConstValueName=EvolveBuildSC_Card_UnlockQuest",
+        "sha256": "89593c0bb6127b8c88c921ce2567a8b4900efcea5252dceded879c7e2f93df15",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 7,
+    "unlock_kind": "Card_UnlockQuest",
+    "quest_id": "6070210",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.optionalbox_questid",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: OptionalBox_QuestID",
+    "name_zh_cn": "魔王篇解锁：OptionalBox_QuestID",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0069"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d0482ce0cdeb4c57",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=69;ConstValueName=EvolveBuildSC_OptionalBox_QuestID",
+        "sha256": "d0482ce0cdeb4c57979805976b3fcd3a976882c9804cdd38af859b6009173149",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 9,
+    "unlock_kind": "OptionalBox_QuestID",
+    "quest_id": "6070236",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.remove_shopunlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Remove_ShopUnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Remove_ShopUnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0065"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d451284ee2cf5c24",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=65;ConstValueName=EvolveBuildSC_Remove_ShopUnlockQuest",
+        "sha256": "d451284ee2cf5c244035b9bd75c89a3f1ca13da76cf00ef578e13a731d824ff3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 6,
+    "unlock_kind": "Remove_ShopUnlockQuest",
+    "quest_id": "6070212",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.remove_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Remove_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Remove_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0059"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cc06e595257c368a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=59;ConstValueName=EvolveBuildSC_Remove_UnlockQuest",
+        "sha256": "cc06e595257c368a69f0b6823469b0ce65ea0569d512ef9c611904b1e0c7e2a4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 3,
+    "unlock_kind": "Remove_UnlockQuest",
+    "quest_id": "6070212",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.reset_shopunlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Reset_ShopUnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Reset_ShopUnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0064"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3ca8e5e06c681c91",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=64;ConstValueName=EvolveBuildSC_Reset_ShopUnlockQuest",
+        "sha256": "3ca8e5e06c681c91681a287fcbfa9955e789a02b230709b2c3b8f301d1b1578d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 5,
+    "unlock_kind": "Reset_ShopUnlockQuest",
+    "quest_id": "6070210",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.reset_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Reset_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Reset_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0058"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b936551faf386164",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=58;ConstValueName=EvolveBuildSC_Reset_UnlockQuest",
+        "sha256": "b936551faf386164cfb392d567c1aabad44d65fb5419352d8b9a976336dbe63c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 2,
+    "unlock_kind": "Reset_UnlockQuest",
+    "quest_id": "6070210",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.reward_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Reward_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Reward_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0051"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b0349a7ddbc80cb0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=51;ConstValueName=EvolveBuildSC_Reward_UnlockQuest",
+        "sha256": "b0349a7ddbc80cb0386f3c34396a7afb8ad4af525a2d88eefbbbfb84f51fc89e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 1,
+    "unlock_kind": "Reward_UnlockQuest",
+    "quest_id": "6070206",
+    "disposition": "EvidenceOnlyAccountReward"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.shop_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Shop_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Shop_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0050"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.609dc853770e748c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=50;ConstValueName=EvolveBuildSC_Shop_UnlockQuest",
+        "sha256": "609dc853770e748c45a6b9fdb01936d38bc75b6bc8173eaa3feb7ab03e74fc47",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 0,
+    "unlock_kind": "Shop_UnlockQuest",
+    "quest_id": "6070210",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.skip_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: Skip_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：Skip_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0062"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ebcc17f790558003",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=62;ConstValueName=EvolveBuildSC_Skip_UnlockQuest",
+        "sha256": "ebcc17f7905580033c436e3e082b4702c32bc0b17cd742918eb19be53cb6bf43",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 4,
+    "unlock_kind": "Skip_UnlockQuest",
+    "quest_id": "6070206",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.skiporiginstage_unlockquest",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Demon King unlock: SkipOriginStage_UnlockQuest",
+    "name_zh_cn": "魔王篇解锁：SkipOriginStage_UnlockQuest",
+    "summary_en": "Exact structured quest locator and mechanical/account disposition.",
+    "summary_zh_cn": "精确结构化任务定位与机械/账号归属。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCConstValueCommon:0068"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.56e6541883654ea3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCConstValueCommon.json",
+        "locator": "row=68;ConstValueName=EvolveBuildSC_SkipOriginStage_UnlockQuest",
+        "sha256": "56e6541883654ea334192f432bf01b466832485a187f76f93859e3260379ae24",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released unlock constant"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "unlock"
+    ],
+    "unlock_order": 8,
+    "unlock_kind": "SkipOriginStage_UnlockQuest",
+    "quest_id": "6020139",
+    "disposition": "ReferenceOnlyMechanical"
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6005",
+    "name_zh_cn": "教程定位 6005",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.aeb78a6cc9594360",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=0;ID=1;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "aeb78a6cc95943603057d75afb07e813426249df09889716a021e6f8bb5352ab",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 10,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "1",
+    "tutorial_id": "6005",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.10",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 5389",
+    "name_zh_cn": "教程定位 5389",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.69df9ccb51adee32",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=9;ID=10;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "69df9ccb51adee32ec4f6cad8067532d158ee40e1160ddef57d15bb169b9f227",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 19,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "10",
+    "tutorial_id": "5389",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.12",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 5369",
+    "name_zh_cn": "教程定位 5369",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.345a2b86a0bec5ae",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=10;ID=12;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "345a2b86a0bec5ae9e340f833130f831d156f5b038ba454602f3c96e136d12c5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 20,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "12",
+    "tutorial_id": "5369",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.13",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6016",
+    "name_zh_cn": "教程定位 6016",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e900f1c455a36934",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=11;ID=13;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "e900f1c455a36934689bca6569c5f32a235e1096e5552c866b3770411b475ad8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 21,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "13",
+    "tutorial_id": "6016",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.14",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6017",
+    "name_zh_cn": "教程定位 6017",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.866d4ddc6339dcf7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=12;ID=14;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "866d4ddc6339dcf72355484bca9d338f89c8db983b1b5b9d7ab3df334a9f0a97",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 22,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "14",
+    "tutorial_id": "6017",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.15",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6018",
+    "name_zh_cn": "教程定位 6018",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0013"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2ce7083c2c82943a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=13;ID=15;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "2ce7083c2c82943aeb051bd6755038c8aab4a1b6eeee6fbb5a579951f429de3d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 23,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "15",
+    "tutorial_id": "6018",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.16",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6019",
+    "name_zh_cn": "教程定位 6019",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.660ddb7b4e66fe25",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=14;ID=16;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "660ddb7b4e66fe25d02eb969134303203f30131339b9156a7b66a6ba8434070d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 24,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "16",
+    "tutorial_id": "6019",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.17",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6020",
+    "name_zh_cn": "教程定位 6020",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c58356edbf58a13f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=15;ID=17;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "c58356edbf58a13f5cc6998568cd5e3f58a6cfce4f415377366ff0f7a6130811",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 25,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "17",
+    "tutorial_id": "6020",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6006",
+    "name_zh_cn": "教程定位 6006",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9e0554f7acdc072d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=1;ID=2;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "9e0554f7acdc072d35a1193bb46722b4b2b159e24149e4d04bc41920baf4f8f7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 11,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "2",
+    "tutorial_id": "6006",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6007",
+    "name_zh_cn": "教程定位 6007",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.42971312f6103e5b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=2;ID=3;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "42971312f6103e5b7f4fe846cdb7d0bf1da4888f089c7e0c50bc4390304d4b1a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 12,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "3",
+    "tutorial_id": "6007",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6008",
+    "name_zh_cn": "教程定位 6008",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.68465dbc5f86f91c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=3;ID=4;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "68465dbc5f86f91ccb5ee5340c133c78d979bdcd2ec5f5e624f4d4a1e0500cae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 13,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "4",
+    "tutorial_id": "6008",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6009",
+    "name_zh_cn": "教程定位 6009",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a670bc1600534dfc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=4;ID=5;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "a670bc1600534dfc25847acef6a04ea5086c8948bfa5911a2b521bd104e60dd0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 14,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "5",
+    "tutorial_id": "6009",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.6",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6011",
+    "name_zh_cn": "教程定位 6011",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.25918ed5a72a4f26",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=5;ID=6;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "25918ed5a72a4f26b43fead3074103ac7c8572dba3ab65ef94b3019d3b46cb0f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 15,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "6",
+    "tutorial_id": "6011",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.7",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6012",
+    "name_zh_cn": "教程定位 6012",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.280873a78c475ec9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=6;ID=7;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "280873a78c475ec99a2b078eab6f85663375605868b4247bab1a0cdb87329d86",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 16,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "7",
+    "tutorial_id": "6012",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.8",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6013",
+    "name_zh_cn": "教程定位 6013",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3701178cdfd85038",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=7;ID=8;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "3701178cdfd85038f3c15f809485d65cda2c1d3ca65578b50dc452e2539181d3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 17,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "8",
+    "tutorial_id": "6013",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424000.9",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6014",
+    "name_zh_cn": "教程定位 6014",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.51bf94b9d06cd779",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=8;ID=9;Season=SecondChapter;StageMergedID=424000",
+        "sha256": "51bf94b9d06cd7796f16e73405ff82298c38213653498d91f4ff1565151ccafa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 18,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424000",
+    "tutorial_sequence_id": "9",
+    "tutorial_id": "6014",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424001.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6106",
+    "name_zh_cn": "教程定位 6106",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7160c96f5dfc89d4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=16;ID=1;Season=SecondChapter;StageMergedID=424001",
+        "sha256": "7160c96f5dfc89d43cabe37efec3c0627e3fbe224f912c9eda2a5988544a198f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 26,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424001",
+    "tutorial_sequence_id": "1",
+    "tutorial_id": "6106",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424001.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6107",
+    "name_zh_cn": "教程定位 6107",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0017"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9da8e9c261765ff3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=17;ID=2;Season=SecondChapter;StageMergedID=424001",
+        "sha256": "9da8e9c261765ff3afc01463d1eb50f2ebd3ee9532d22616b285098e520ed42c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 27,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424001",
+    "tutorial_sequence_id": "2",
+    "tutorial_id": "6107",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424004.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6050",
+    "name_zh_cn": "教程定位 6050",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0018"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.57e40b60f8cbb20e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=18;ID=1;Season=SecondChapter;StageMergedID=424004",
+        "sha256": "57e40b60f8cbb20e929f384d339da9d26b21589bde4df4eb83c513fedb43e5fa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 28,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424004",
+    "tutorial_sequence_id": "1",
+    "tutorial_id": "6050",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.demon-king.unlock.tutorial.424004.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Tutorial locator 6051",
+    "name_zh_cn": "教程定位 6051",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.demon-king.v3_3"
+    ],
+    "ownership": "DemonKing",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.demon-king.v3_3:EvoBdSCTutorial:0019"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ebbc3412386c62a9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvoBdSCTutorial.json",
+        "locator": "row=19;ID=2;Season=SecondChapter;StageMergedID=424004",
+        "sha256": "ebbc3412386c62a9090146aeaa66c2e7dccd423cbb75da868eabff4b11c3718c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "demon-king",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 29,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "424004",
+    "tutorial_sequence_id": "2",
+    "tutorial_id": "6051",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5355",
+    "name_zh_cn": "启程篇教程定位 5355",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f0360abfd918c822",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=0;ID=1;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "f0360abfd918c8227445b460fa0f1486ba70189bb4c8ddb8b565629850fa5697",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 0,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "1",
+    "tutorial_id": "5355",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.10",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5389",
+    "name_zh_cn": "启程篇教程定位 5389",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b0fa19285e7c0dec",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=9;ID=10;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "b0fa19285e7c0dec823c6b184b065c2ab75cf429fee887881feb733b71332a21",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 9,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "10",
+    "tutorial_id": "5389",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.12",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5369",
+    "name_zh_cn": "启程篇教程定位 5369",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2357c7cdfdb8221c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=10;ID=12;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "2357c7cdfdb8221c0394ac62f1140f214c88df885c2117b95623ebfae4854cfc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 10,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "12",
+    "tutorial_id": "5369",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.13",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5375",
+    "name_zh_cn": "启程篇教程定位 5375",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f3cd1688ffd6d7fe",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=11;ID=13;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "f3cd1688ffd6d7fe10a26a24bfa3bc744e815fc8340e4d9b7e4b389eaea763fe",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 11,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "13",
+    "tutorial_id": "5375",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.14",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5376",
+    "name_zh_cn": "启程篇教程定位 5376",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a1f3d610f6fe0b39",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=12;ID=14;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "a1f3d610f6fe0b39f06d0729f2ae25d110a0e28d788a7a85e3dc3e5d77c7e3ac",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 12,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "14",
+    "tutorial_id": "5376",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.15",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5377",
+    "name_zh_cn": "启程篇教程定位 5377",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0013"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f37090be23bfcf77",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=13;ID=15;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "f37090be23bfcf77813d70b317913704a02e5b3c1cee9d18ec177b65ec0d6c13",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 13,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "15",
+    "tutorial_id": "5377",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.16",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5370",
+    "name_zh_cn": "启程篇教程定位 5370",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3de79356583dd1b8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=14;ID=16;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "3de79356583dd1b8f7ed935cb76394b8d94387bb5ffe8deeeaeebf4974158247",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 14,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "16",
+    "tutorial_id": "5370",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.17",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5371",
+    "name_zh_cn": "启程篇教程定位 5371",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0015"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d9133927d6fec547",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=15;ID=17;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "d9133927d6fec54709e1c16530ebe888ac9d9f47a08edfb8a575f4dc7885fa88",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 15,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "17",
+    "tutorial_id": "5371",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5356",
+    "name_zh_cn": "启程篇教程定位 5356",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.38f2846fd512b806",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=1;ID=2;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "38f2846fd512b806a3fe5568b1835a600763775c332c6ad057d7dcde85f99646",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 1,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "2",
+    "tutorial_id": "5356",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5357",
+    "name_zh_cn": "启程篇教程定位 5357",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d7ee81db97dde868",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=2;ID=3;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "d7ee81db97dde868d17bcb4adf630ce4055842dffa805d6ec6c79a69b087b86b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 2,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "3",
+    "tutorial_id": "5357",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5358",
+    "name_zh_cn": "启程篇教程定位 5358",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7d15026d91cb8967",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=3;ID=4;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "7d15026d91cb8967f56ecdbd954ea7994a1b9df969982538f19ede3985234162",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 3,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "4",
+    "tutorial_id": "5358",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.5",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5359",
+    "name_zh_cn": "启程篇教程定位 5359",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.80680d7cdc1dfe30",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=4;ID=5;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "80680d7cdc1dfe309744d75b516d4e34040c30fecd8c5b9fb5ec108f9c1a85a9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 4,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "5",
+    "tutorial_id": "5359",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.6",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5365",
+    "name_zh_cn": "启程篇教程定位 5365",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.68f2d9ff805be735",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=5;ID=6;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "68f2d9ff805be7356d0fd51a19d5c6ed710592968561a6877450040116a11d4e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 5,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "6",
+    "tutorial_id": "5365",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.7",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5366",
+    "name_zh_cn": "启程篇教程定位 5366",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e0fac68f9dbe43e4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=6;ID=7;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "e0fac68f9dbe43e4b253cac78fe5247ad9a06d6867ff811d8224a71b1042389a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 6,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "7",
+    "tutorial_id": "5366",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.8",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5367",
+    "name_zh_cn": "启程篇教程定位 5367",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9ccb90ba9b247191",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=7;ID=8;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "9ccb90ba9b2471915f84747d418b4ac8da7ba689cb410090b937d69a1dcd4645",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 7,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "8",
+    "tutorial_id": "5367",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414000.9",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5368",
+    "name_zh_cn": "启程篇教程定位 5368",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f7f7ea7c8f964e05",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=8;ID=9;Season=EarlyAccess;StageMergedID=414000",
+        "sha256": "f7f7ea7c8f964e0531e8bfb625cee3991a8afbaed8bceccaa1fcc6793a7b6f97",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 8,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414000",
+    "tutorial_sequence_id": "9",
+    "tutorial_id": "5368",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414001.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5392",
+    "name_zh_cn": "启程篇教程定位 5392",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0016"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3b2bb6de06d311cd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=16;ID=1;Season=EarlyAccess;StageMergedID=414001",
+        "sha256": "3b2bb6de06d311cdc14bf96d5514c2bb7b35e2160e341fdd9d223dd7320370ce",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 16,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414001",
+    "tutorial_sequence_id": "1",
+    "tutorial_id": "5392",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414001.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5378",
+    "name_zh_cn": "启程篇教程定位 5378",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0017"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.839af603cbd55539",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=17;ID=2;Season=EarlyAccess;StageMergedID=414001",
+        "sha256": "839af603cbd55539860a825c23f3e7aaf8dc0b8ab4c8e5f862b295fd74b1691b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 17,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414001",
+    "tutorial_sequence_id": "2",
+    "tutorial_id": "5378",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414004.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5399",
+    "name_zh_cn": "启程篇教程定位 5399",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0018"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.37b5412305f84d4d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=18;ID=1;Season=EarlyAccess;StageMergedID=414004",
+        "sha256": "37b5412305f84d4d6ebc067fb4f9135f80f0054c0b05bc1b22becf37ae314b13",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 18,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414004",
+    "tutorial_sequence_id": "1",
+    "tutorial_id": "5399",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  },
+  {
+    "id": "galactic-baseballer.departure.unlock.tutorial.414004.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "UnlockRule",
+    "name_en": "Departure tutorial locator 5409",
+    "name_zh_cn": "启程篇教程定位 5409",
+    "summary_en": "Mechanical tutorial locator retained without importing presentation content.",
+    "summary_zh_cn": "保留机械教程定位，不导入表现内容。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ContextOnly",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildTutorial:0019"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a042d473835bc6aa",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildTutorial.json",
+        "locator": "row=19;ID=2;Season=EarlyAccess;StageMergedID=414004",
+        "sha256": "a042d473835bc6aac0fbed24018ca61883f35401543aa4f0c579dcbab3233de4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ContextOnly",
+        "note": "exact stage/tutorial locator; presentation content excluded"
+      }
+    ],
+    "tags": [
+      "departure",
+      "evidence-only",
+      "tutorial"
+    ],
+    "unlock_order": 19,
+    "unlock_kind": "TutorialLocator",
+    "stage_numeric_id": "414004",
+    "tutorial_sequence_id": "2",
+    "tutorial_id": "5409",
+    "disposition": "EvidenceOnlyPresentationLocator",
+    "runtime_effect": false
+  }
+]

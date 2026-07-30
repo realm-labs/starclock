@@ -1,0 +1,267 @@
+[
+  {
+    "id": "galactic-baseballer.research-gap.02c4fb42f55e174ea223",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.shop-transaction-atomicity",
+    "field_path": "shop.purchase.transaction",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "The exact rejection event ordering for insufficient balance, wrong current level and maximum level is not published.",
+    "selected_policy": "Validate current level and balance before deducting currency; commit cost, level and effect as one ordered operation.",
+    "rejected_alternatives": [
+      "deduct currency before validating the current level",
+      "partially apply the effect on an insufficient-balance rejection",
+      "silently clamp purchases at maximum level"
+    ],
+    "rationale": "Pre-validation preserves rejected-command byte identity and makes the transaction auditable.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.galactic-store-progression.success",
+      "galactic-baseballer.demon-king.fixture.galactic-store-progression.rejected"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "Released transaction logic or reproducible observations close every rejection branch and event order.",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.18770b878e33166df893",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.refresh-exclusion",
+    "field_path": "candidate_policies.refresh_exclusion",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "released sources do not fully specify whether every just-rejected candidate remains eligible after refresh",
+    "selected_policy": "exclude the immediately displayed candidate IDs for one refresh attempt, then fall back to the full legal pool if exclusion would empty it",
+    "rejected_alternatives": [
+      "allow the identical offer without an explicit fallback",
+      "permanently exclude every previously seen candidate for the battle"
+    ],
+    "rationale": "one-attempt exclusion makes refresh meaningful while the bounded fallback prevents an artificial dead end",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released logic or reproducible observations define refresh exclusion memory and fallback",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.68e1ae532f6b83d9c011",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.upgrade-candidate-order",
+    "field_path": "candidate_policies.presentation_order",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "the stable order of simultaneously drawn choices is not fully published",
+    "selected_policy": "preserve labeled draw ordinal; break duplicate/tie positions by stable ID ascending",
+    "rejected_alternatives": [
+      "sort by localized display name",
+      "preserve filesystem or hash-map iteration order"
+    ],
+    "rationale": "draw ordinal preserves causality and stable ID removes locale/platform dependence",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "replace when released data exposes an explicit offer ordinal or a reproducible observation proves a different order",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.6b01464c56415d979721",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.treasure-selection",
+    "field_path": "progression.treasure.selection",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "The released tables expose ordered entry lists but not selection weights, group timing or duplicate-entry semantics.",
+    "selected_policy": "Use labeled project integer sampling over eligible authored entry ordinals; repeated positions remain distinct and stable.",
+    "rejected_alternatives": [
+      "deduplicate repeated stable IDs before sampling",
+      "treat authored array order as descending hidden weight",
+      "use generic shuffle or collection iteration order"
+    ],
+    "rationale": "Entry-position sampling preserves all source information while making the hidden distribution explicitly replaceable.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.treasure-selection"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "Released logic defines treasure group timing, weights, count and duplicate handling.",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.7b12955e6e387d61c704",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.target-tie",
+    "field_path": "weapon_triggers.target_tie_break",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "several weapon target selectors do not publish tie-breaking among equally eligible combatants",
+    "selected_policy": "sort eligible targets by the project stable combatant key before labeled integer selection or first-target choice",
+    "rejected_alternatives": [
+      "use battlefield insertion order without an authored contract",
+      "use a floating random shuffle"
+    ],
+    "rationale": "stable combatant identity preserves deterministic replay without changing target eligibility",
+    "affected_fixture_ids": [
+      "weapon-automatic-action",
+      "character-action-triggered-weapon"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "replace when released target-order data or reproducible observations prove a different selector",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.9f7973bd6db56f610dbe",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.upgrade-candidate-weight",
+    "field_path": "candidate_policies.random_weight",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "released sources do not expose a complete authoritative draw weight for every eligible offer",
+    "selected_policy": "sample uniformly by project integer sampling from eligible stable IDs sorted lexicographically",
+    "rejected_alternatives": [
+      "infer weights from rarity or display position",
+      "reuse upstream table iteration order as a probability distribution"
+    ],
+    "rationale": "uniform stable-ID sampling is deterministic, neutral and does not manufacture hidden rarity weights",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released structured weights or a reproducible released-version observation establishes the complete distribution",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.a7e3c6631a065f09f268",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.weapon-trigger-tie",
+    "field_path": "weapon_triggers.same_boundary_order",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "same-boundary ordering between multiple ready weapons is not fully described in released text",
+    "selected_policy": "order ready weapon triggers by trigger phase, authored priority when present, then stable weapon ID",
+    "rejected_alternatives": [
+      "order by acquisition time",
+      "order by localized weapon name"
+    ],
+    "rationale": "phase/priority preserves known timing while stable ID is replay-safe",
+    "affected_fixture_ids": [
+      "weapon-automatic-action",
+      "character-action-triggered-weapon"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "replace when released structured priority data or reproducible observations establish a different tie-break",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.b2f2abdf0523957cbaa0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.simultaneous-synthesis-order",
+    "field_path": "synthesis_recipes.simultaneous_upgrade_order",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "the order between a newly eligible synthesis and an ordinary duplicate upgrade in one offer is not public for every recipe tier",
+    "selected_policy": "evaluate explicit synthesis candidates first by tier then recipe stable ID; otherwise apply the ordinary duplicate upgrade",
+    "rejected_alternatives": [
+      "always apply duplicate upgrade before synthesis",
+      "choose an eligible recipe using an unlabeled random draw"
+    ],
+    "rationale": "tier and stable-ID order is bounded, auditable and keeps recipe consumption atomic",
+    "affected_fixture_ids": [
+      "legendary-weapon-synthesis",
+      "twin-weapon-synthesis",
+      "supreme-weapon-synthesis"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released program evidence or a reproducible observation proves the exact simultaneous resolution order",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.b6afde6d91de95a3fecd",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.score-rounding",
+    "field_path": "scoring_rules.intermediate_rounding",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "released score displays do not expose every intermediate rounding boundary",
+    "selected_policy": "retain canonical fixed-point intermediates and round toward zero only at each explicitly authored integer score contribution boundary",
+    "rejected_alternatives": [
+      "round after every multiplication",
+      "banker's-round only the final aggregate"
+    ],
+    "rationale": "named contribution boundaries minimize invented rounding while producing deterministic integer totals",
+    "affected_fixture_ids": [
+      "score-rating-clear",
+      "boss-phase-final-settlement"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released formula programs or exact observations identify the authoritative rounding boundary and mode",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.c7af0a8c1a078c500934",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.approximation.gb.policy.no-legal-candidate",
+    "field_path": "candidate_policies.no_legal_candidate",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "released text does not define every empty-pool/full-inventory combination",
+    "selected_policy": "emit a ReferenceOnly no-candidate outcome, consume no inventory resource and continue at the next declared lifecycle boundary",
+    "rejected_alternatives": [
+      "retry an unbounded random draw",
+      "silently replace or downgrade an owned maximum-level item"
+    ],
+    "rationale": "bounded explicit failure preserves state and avoids nontermination",
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "replace when released structured logic or reproducible observation defines each empty-candidate branch",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.cb5c112bc357c3699880",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.chest-probability-ordinal",
+    "field_path": "currencies.raccoon_gold.chest_probability_vector",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "The semantic names and application timing of the three probability ordinals are not exposed by the constant table.",
+    "selected_policy": "Retain both vectors by ordinal and do not assign chest-tier names or floating draws.",
+    "rejected_alternatives": [
+      "name the ordinals small, medium and large from array position",
+      "convert the decimals into host floating probability draws",
+      "reorder the vector by value"
+    ],
+    "rationale": "Ordinal retention is lossless and avoids inventing a mapping not present in released structured facts.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.chest-probability-vector"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "Released logic binds every ordinal to a named chest state and sampling boundary.",
+    "terminal_blocker": false
+  },
+  {
+    "id": "galactic-baseballer.research-gap.ff69f61904159352ee84",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "ResearchGap",
+    "approximation_id": "galactic-baseballer.demon-king.approximation.reputation-rank-costs",
+    "field_path": "progression.cosmic_reputation.rank_costs",
+    "state": "ReplaceableNonBlocking",
+    "unavailable_fact": "A released structured Offering table for all 20 Demon King rank costs is absent from the frozen structured family.",
+    "selected_policy": "Retain the pinned public revision's 3000x5, 4500x5 and 6000x10 costs as ReferenceOnly cross-check data; import no reward payload.",
+    "rejected_alternatives": [
+      "infer rank costs from Departure values",
+      "derive costs from the value of account rewards",
+      "drop reputation ranks because their reward payload is excluded"
+    ],
+    "rationale": "The ranks are requested progression facts, but public community evidence must remain visibly lower-quality than structured rows.",
+    "affected_fixture_ids": [
+      "galactic-baseballer.demon-king.fixture.cosmic-reputation-rank-20"
+    ],
+    "confidence": "Medium",
+    "replacement_condition": "A pinned released structured Offering definition provides every Demon King rank cost.",
+    "terminal_blocker": false
+  }
+]

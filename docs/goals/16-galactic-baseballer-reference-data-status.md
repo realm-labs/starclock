@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
-| Active phase | Phase 2 — Demon King differences and progression |
-| Active batch | `G16-P2-B4` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P3-B1` |
+| Active phase | Phase 3 — Evidence closure and isolated authoring |
+| Active batch | `G16-P3-B1` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P3-B2` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -36,7 +36,7 @@
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
 | Phase 1 — Departure and shared base | `Complete` | Departure profile, stages, arsenal, Legendary synthesis, growth, candidates, inventory, encounters, stable enemy/skill identities, score/settlement and 17 semantic families are closed. |
 | Phase 2 — Demon King and progression | `Complete` | Independent profile/differences, arsenal/synthesis, growth, progression, 18 shared encounters, 61 waves, 1,573 ordered candidates, 77 enemies, 258 skills, 10 status locators, seven team bonuses, scoring, Devil phases and semantic fixtures are closed. |
-| Phase 3 — Evidence, Excel and Sora | `Pending` | Requires complete normalized profile data and closed evidence owners. |
+| Phase 3 — Evidence, Excel and Sora | `InProgress` | The 40-file normalized pack, all 2,232 exact-once reconciliation/coverage rows, 2,634 source receipts, 12 replaceable boundaries, 26 rules and 35 fixtures are closed; P3-B2 owns complete isolated workbooks and visual QA. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
 
 ## Batch ledger
@@ -55,7 +55,7 @@
 | `G16-P2-B2` | `Complete` | This row's containing commit | Authored 15 Standard, 12 Legendary, one Twin and one Supreme weapon with all 134 levels; authored 16 accessories with all 64 levels. Reconciled every GearConfig row to one exact MazeBuff level and retained complete parameter/binding vectors. Added 29 weapon and 16 accessory structural trigger summaries plus all three Ranger's Badge actor programs. Froze 12 Legendary, one Twin and one Supreme recipe with 28 exact inputs, source CostGearList order and an acyclic graph. Added success/rejection rules and fixtures for Twin/Supreme synthesis, including failure invariance, and bound the post-3.4 RuinBot level 7/8 vectors to two correction fixtures. |
 | `G16-P2-B3` | `Complete` | This row's containing commit | Authored the exact Demon King level threshold/scaling, 56 Adventure Strategies, all strategy MazeBuff/program bindings, four candidate pools, source candidate vector, resource limits and four slot/five inventory-operation rows. Added two currencies, 20 Cosmic Reputation ranks, five treasure groups, ten pools/100 retained entry positions, 16 store definitions/60 price levels costing 75,600 Raccoon Gold and 30 mechanical/presentation unlock locators. Account rewards remain excluded. Four explicit approximation boundaries, two ReferenceOnly rules and six fixtures cover selection, rank costs, store atomicity and failure invariance. Added exact-revision public-source caching with SHA-1/SHA-256 and offline verification. |
 | `G16-P2-B4` | `Complete` | This row's containing commit | Closed all 18 reachable shared StageConfig encounters, 61 waves and 1,573 ordered candidate positions. Resolved 77 MonsterIDs and 258 SkillIDs to existing frozen stable identities without copying definitions; retained ten exact reachable status locators. Bound all seven stage team bonuses to their remaining seven MazeBuff rows and exact program fragments, completing ownership of all 315 Demon King MazeBuff rows. Froze exact scoring/group/contribution IDs, seven settlements, 39 ordered Demon King's Den periods and the 40-ability Devil program structure. Added five ReferenceOnly rules and six fixtures, including the post-correction D007 `3000/4500/45000` score facts. |
-| `G16-P3-B1` | `Pending` | — | Evidence and 100% DataReady closure. |
+| `G16-P3-B1` | `Complete` | This row's containing commit | Assembled all 40 contracted normalized files and indexed the other 39 with canonical counts/digests. Closed all 2,232 frozen obligations exact-once: 2,207 DataReady rows each point to a real normalized owner, while 25 reward/presentation rows remain EvidenceOnly with no mechanical import. Aggregated 2,634 auditable sources and 12 complete non-blocking replacement boundaries. Corrected an exposed Departure gap by adding item `281019`, exact income/chest vectors, 14 store definitions/54 price levels, 20 tutorial locators, four tags and eight team-bonus definitions. Combined both profiles into 26 ReferenceOnly rules and 35 fixtures across exactly 20 families. |
 | `G16-P3-B2` | `Pending` | — | Complete Excel authoring and visual QA. |
 | `G16-P3-B3` | `Pending` | — | Sora schema, template, lock and double generation. |
 | `G16-P3-B4` | `Pending` | — | Binary/debug exports and standalone reader. |
@@ -145,15 +145,15 @@ from this planning list or reduced later.
 
 ## Terminal checklist
 
-- [ ] Exact profile/category manifests and denominators are frozen.
-- [ ] Both profiles and all differences are explicit and independently reconcilable.
-- [ ] Focused source inventory regenerates deterministically.
-- [ ] Every weapon/accessory level, trigger and synthesis edge closes.
-- [ ] Every stage/phase/wave/enemy/boss/bonus/score rule closes.
-- [ ] Growth, candidates, slots, refresh, skip, replacement and failure close.
-- [ ] Mechanical progression closes and account rewards remain excluded.
-- [ ] Every required row has bilingual summary and row-level provenance.
-- [ ] All approximations/policies include alternatives and replacement conditions.
+- [x] Exact profile/category manifests and denominators are frozen.
+- [x] Both profiles and all differences are explicit and independently reconcilable.
+- [x] Focused source inventory regenerates deterministically.
+- [x] Every weapon/accessory level, trigger and synthesis edge closes.
+- [x] Every stage/phase/wave/enemy/boss/bonus/score rule closes.
+- [x] Growth, candidates, slots, refresh, skip, replacement and failure close.
+- [x] Mechanical progression closes and account rewards remain excluded.
+- [x] Every required row has bilingual summary and row-level provenance.
+- [x] All approximations/policies include alternatives and replacement conditions.
 - [ ] All 20 mechanism families have rules and executable fixtures.
 - [ ] Isolated Sora schemas/templates/readers/exports regenerate without drift.
 - [ ] Complete openpyxl workbooks pass structural, semantic and visual QA.

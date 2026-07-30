@@ -264,7 +264,7 @@ for (const levelNumber of [7, 8]) {
       sourceRefs: [...level.source_refs, ...ruinBotCorrection.source_refs],
       tags: ["correction", "demon-king", "ruinbot", "semantic-review"],
     }),
-    family_id: "weapon-auto-action",
+    family_id: "weapon-automatic-action",
     source_record_ids: [level.id, ruinBotCorrection.id],
     trigger_point: "load retained Version 4.4 weapon level",
     state_owner: "immutable weapon-level definition",
