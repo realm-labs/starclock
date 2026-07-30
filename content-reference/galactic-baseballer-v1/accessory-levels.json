@@ -1,0 +1,5906 @@
+[
+  {
+    "id": "galactic-baseballer.departure.accessory.3106111.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106111 level 1",
+    "name_zh_cn": "配饰 3106111 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0117",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0117"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.30263e0019c63068",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=117;GearID=3106111;Level=1",
+        "sha256": "30263e0019c63068a4f31e65410f82aa07ad9259f50655424cbcbc4d7c83a958",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.f5fb87e6daf19c0a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=117;ID=3106111",
+        "sha256": "f5fb87e6daf19c0ae914a68ed040a1ec42b41ed54744dfceb55311cdf4b33f25",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106111",
+    "level": 1,
+    "maze_buff_id": "3106111",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_001",
+    "parameter_values": [
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "1915171509347305534",
+    "buff_description_hash": "12976956729521856031",
+    "buff_battle_description_hash": "12976956729521856031",
+    "buff_simple_description_hash": "13137035567554639141",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106111.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106111 level 2",
+    "name_zh_cn": "配饰 3106111 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0118",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0118"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6941340f2cd1f544",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=118;GearID=3106111;Level=2",
+        "sha256": "6941340f2cd1f54480c337d155087a62ec4988960380fc1c760879255f05bdbc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.f591673658300c74",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=118;ID=3106111",
+        "sha256": "f591673658300c745eab16f871b5bca7b02a35a168ca64b4bb9e427c5e6fb49a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106111",
+    "level": 2,
+    "maze_buff_id": "3106111",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_001",
+    "parameter_values": [
+      "3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "17087811233933154339",
+    "buff_description_hash": "16596254602040561117",
+    "buff_battle_description_hash": "16596254602040561117",
+    "buff_simple_description_hash": "596157193789757731",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106111.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106111 level 3",
+    "name_zh_cn": "配饰 3106111 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0119",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0119"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.af9b106e85c162c9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=119;GearID=3106111;Level=3",
+        "sha256": "af9b106e85c162c91e54b719a7416722144725435ee8590a2a3f87d74512f996",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.33ced2edc09bb63a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=119;ID=3106111",
+        "sha256": "33ced2edc09bb63a15a7f8ea7dfed9ae42f28bbf806d971aeba096f2aaa646c4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106111",
+    "level": 3,
+    "maze_buff_id": "3106111",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_001",
+    "parameter_values": [
+      "4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "15865939889640998763",
+    "buff_description_hash": "5372566010088278251",
+    "buff_battle_description_hash": "5372566010088278251",
+    "buff_simple_description_hash": "14223876465511639969",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106111.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106111 level 4",
+    "name_zh_cn": "配饰 3106111 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0120",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0120"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a006b528ff3850f0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=120;GearID=3106111;Level=4",
+        "sha256": "a006b528ff3850f01567c017c46630394773323cb92d8ab42fe274f37e76b6d2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.4153a9f15fac9212",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=120;ID=3106111",
+        "sha256": "4153a9f15fac92121cfa73b8ccd335140ca2178bb5efd316afc760e6b548703d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106111",
+    "level": 4,
+    "maze_buff_id": "3106111",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_001",
+    "parameter_values": [
+      "5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "2461711325489574984",
+    "buff_description_hash": "551051503955730921",
+    "buff_battle_description_hash": "551051503955730921",
+    "buff_simple_description_hash": "10535300608402730910",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106112.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106112 level 1",
+    "name_zh_cn": "配饰 3106112 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0121",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0121"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fd9c3b15fcb6abd4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=121;GearID=3106112;Level=1",
+        "sha256": "fd9c3b15fcb6abd4f8666cdf3ccc09044372cca4704639b308e3eea8cb79d85e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.8361fe57ea3e9a38",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=121;ID=3106112",
+        "sha256": "8361fe57ea3e9a38f2cb0f05791ee94132620f3a7e8757611a5031e3c5b1dab7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106112",
+    "level": 1,
+    "maze_buff_id": "3106112",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_002",
+    "parameter_values": [
+      "0.06",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "13916171386366913959",
+    "buff_description_hash": "9408086104953113478",
+    "buff_battle_description_hash": "9408086104953113478",
+    "buff_simple_description_hash": "12691006347670971095",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106112.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106112 level 2",
+    "name_zh_cn": "配饰 3106112 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0122",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0122"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6e8849a07ab34eeb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=122;GearID=3106112;Level=2",
+        "sha256": "6e8849a07ab34eeb9934b862ae9c5234b0de21bb5f89492fff92e4f19541ad26",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.10bd9e5d1347fdb3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=122;ID=3106112",
+        "sha256": "10bd9e5d1347fdb32b5003e992571464b0de3fb3ff17eac69ed447057243a9ec",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106112",
+    "level": 2,
+    "maze_buff_id": "3106112",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_002",
+    "parameter_values": [
+      "0.08",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "9680614595811277126",
+    "buff_description_hash": "16993256268086054004",
+    "buff_battle_description_hash": "16993256268086054004",
+    "buff_simple_description_hash": "4541029747420541567",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106112.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106112 level 3",
+    "name_zh_cn": "配饰 3106112 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0123",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0123"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.93c8492b9d3822d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=123;GearID=3106112;Level=3",
+        "sha256": "93c8492b9d3822d09d28592de0b321f7961f3674b9b5ea724144a6b2a5a22b58",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.70bd4839953d537b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=123;ID=3106112",
+        "sha256": "70bd4839953d537bc92b5bcc7e4e0bc570d155ea8f398c59b67fc502cc053555",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106112",
+    "level": 3,
+    "maze_buff_id": "3106112",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_002",
+    "parameter_values": [
+      "0.1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "2315412840283528328",
+    "buff_description_hash": "4710595126628461557",
+    "buff_battle_description_hash": "4710595126628461557",
+    "buff_simple_description_hash": "17341349192289563241",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106112.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106112 level 4",
+    "name_zh_cn": "配饰 3106112 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0124",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0124"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.82abea644bbd6850",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=124;GearID=3106112;Level=4",
+        "sha256": "82abea644bbd68509862ed9f62f14e2b5a51d00fd808974d5b8453fd2278e81d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.24a5af190f2850c8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=124;ID=3106112",
+        "sha256": "24a5af190f2850c8d6318dadeb28f8603d1366d0552f605dfcef3e4caacb679c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106112",
+    "level": 4,
+    "maze_buff_id": "3106112",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_002",
+    "parameter_values": [
+      "0.12",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "17551590145409192677",
+    "buff_description_hash": "4435872595118646099",
+    "buff_battle_description_hash": "4435872595118646099",
+    "buff_simple_description_hash": "4456082674930708861",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106113.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106113 level 1",
+    "name_zh_cn": "配饰 3106113 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0125",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0125"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.927dee55cb90f353",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=125;GearID=3106113;Level=1",
+        "sha256": "927dee55cb90f3533e4520106049b01bb0cd08ffd0aea1ad4c7087c261ad4d49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.3d04e9e2e235e9e0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=125;ID=3106113",
+        "sha256": "3d04e9e2e235e9e0aec510c63f50c55a6ba6e5fafc047f531d346cc5308d9a9d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106113",
+    "level": 1,
+    "maze_buff_id": "3106113",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_003",
+    "parameter_values": [
+      "30",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "11219283187297011311",
+    "buff_description_hash": "6404168379926353718",
+    "buff_battle_description_hash": "6404168379926353718",
+    "buff_simple_description_hash": "6113036550049798991",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106113.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106113 level 2",
+    "name_zh_cn": "配饰 3106113 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0126",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0126"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.46fcceb895b73e00",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=126;GearID=3106113;Level=2",
+        "sha256": "46fcceb895b73e00cdf135dcb4180e439d661824f9caec22b24db94386ad17c5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.03d8b020dbe72339",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=126;ID=3106113",
+        "sha256": "03d8b020dbe72339c6933329cea1ad6442ce577c166d83a15f9ec7d796507e04",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106113",
+    "level": 2,
+    "maze_buff_id": "3106113",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_003",
+    "parameter_values": [
+      "40",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "829044109056227096",
+    "buff_description_hash": "9885885224106608204",
+    "buff_battle_description_hash": "9885885224106608204",
+    "buff_simple_description_hash": "3833632875122451469",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106113.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106113 level 3",
+    "name_zh_cn": "配饰 3106113 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0127",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0127"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e5bf64d25ea341fe",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=127;GearID=3106113;Level=3",
+        "sha256": "e5bf64d25ea341fea221ecc088150bc0fb19cab8d662df95c01f1066f2163e59",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.ae5861b57953b1cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=127;ID=3106113",
+        "sha256": "ae5861b57953b1cfe29f33b1344d32ad391dc64cd70fb82fdbc27e96be825aaf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106113",
+    "level": 3,
+    "maze_buff_id": "3106113",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_003",
+    "parameter_values": [
+      "50",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "17616025506902205341",
+    "buff_description_hash": "5717637105282564798",
+    "buff_battle_description_hash": "5717637105282564798",
+    "buff_simple_description_hash": "14344597698007384437",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106113.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106113 level 4",
+    "name_zh_cn": "配饰 3106113 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0128",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0128"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b1883e236ed2d527",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=128;GearID=3106113;Level=4",
+        "sha256": "b1883e236ed2d52703bd78f0c6e7fa49d7b936e55d697cb4245ee1ca509c4d0a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.c751eeac936ddfa3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=128;ID=3106113",
+        "sha256": "c751eeac936ddfa376000e2933eebdec0cf8ea76bf1af264b4a84cfeacc200bc",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106113",
+    "level": 4,
+    "maze_buff_id": "3106113",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_003",
+    "parameter_values": [
+      "60",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "4451551067663089885",
+    "buff_description_hash": "11511354745491201082",
+    "buff_battle_description_hash": "11511354745491201082",
+    "buff_simple_description_hash": "2633754902595017829",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106121.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106121 level 1",
+    "name_zh_cn": "配饰 3106121 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0129",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0129"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3e0c550675587314",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=129;GearID=3106121;Level=1",
+        "sha256": "3e0c550675587314681ab7263f8c442f582b783ee09611932d6e9a617fa57792",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.801c9e0b5a444f92",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=129;ID=3106121",
+        "sha256": "801c9e0b5a444f921bee9bac5986633af965c07451b1d8e363897b3a950fa0a2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106121",
+    "level": 1,
+    "maze_buff_id": "3106121",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_001",
+    "parameter_values": [
+      "0.3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "8054524149842443052",
+    "buff_description_hash": "16477286102892027160",
+    "buff_battle_description_hash": "16477286102892027160",
+    "buff_simple_description_hash": "11343199157243284225",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106121.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106121 level 2",
+    "name_zh_cn": "配饰 3106121 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0130",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0130"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.76cddb9b4e5d4533",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=130;GearID=3106121;Level=2",
+        "sha256": "76cddb9b4e5d4533b010b43afc2bb7b9c6fb0d810ac49db9d348630794af457a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.131fc219dc5bd7ce",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=130;ID=3106121",
+        "sha256": "131fc219dc5bd7ce5aa51e8d1b81e724ec69bca6a373a96ce796cc0ac1807ae5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106121",
+    "level": 2,
+    "maze_buff_id": "3106121",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_001",
+    "parameter_values": [
+      "0.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10665005683334999787",
+    "buff_description_hash": "8666297447936408726",
+    "buff_battle_description_hash": "8666297447936408726",
+    "buff_simple_description_hash": "8934034753028236198",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106121.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106121 level 3",
+    "name_zh_cn": "配饰 3106121 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0131",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0131"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.606e11811fa87207",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=131;GearID=3106121;Level=3",
+        "sha256": "606e11811fa87207b9ad7a88cc116ee14b17914775f54d9a25fe8e7287c74fce",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.5d87c288d39ba73c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=131;ID=3106121",
+        "sha256": "5d87c288d39ba73cc2105adf433413fd4706e2742ef1c63c77bc11ebfd2d636c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106121",
+    "level": 3,
+    "maze_buff_id": "3106121",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_001",
+    "parameter_values": [
+      "0.5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "9386965025935659364",
+    "buff_description_hash": "2064932689027406725",
+    "buff_battle_description_hash": "2064932689027406725",
+    "buff_simple_description_hash": "14892763047268388389",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106121.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106121 level 4",
+    "name_zh_cn": "配饰 3106121 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0132",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0132"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0dd892b69290087a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=132;GearID=3106121;Level=4",
+        "sha256": "0dd892b69290087af930107b72ecf4da4aac40d53125514b77a243637482c204",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.c11ddf6858230c7a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=132;ID=3106121",
+        "sha256": "c11ddf6858230c7a2c6a2b14a0e07df29502d984e6616f3937733f553584da1f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106121",
+    "level": 4,
+    "maze_buff_id": "3106121",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_001",
+    "parameter_values": [
+      "0.6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "14533530561035242730",
+    "buff_description_hash": "13419178596036623682",
+    "buff_battle_description_hash": "13419178596036623682",
+    "buff_simple_description_hash": "10724151363300935850",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106122.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106122 level 1",
+    "name_zh_cn": "配饰 3106122 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0133",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0133"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ec71ddefcd895a9e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=133;GearID=3106122;Level=1",
+        "sha256": "ec71ddefcd895a9e079bf15ee9f2b08a4adcb456030e70756a55cdc1f677590a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.cb0b37d8b9af6ae4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=133;ID=3106122",
+        "sha256": "cb0b37d8b9af6ae47ade3fbeec1ecb903fc81257773e96a02487ad1ae01fcd4d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106122",
+    "level": 1,
+    "maze_buff_id": "3106122",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_002",
+    "parameter_values": [
+      "0.3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "4967879331971577971",
+    "buff_description_hash": "11081043793638918691",
+    "buff_battle_description_hash": "11081043793638918691",
+    "buff_simple_description_hash": "7584676598871816697",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106122.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106122 level 2",
+    "name_zh_cn": "配饰 3106122 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0134",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0134"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.bcc202feb70d4c5d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=134;GearID=3106122;Level=2",
+        "sha256": "bcc202feb70d4c5d76e3d4f16a2bc460d1f6a9edd20ec4a099720ca208299215",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.ef581d2356b3b825",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=134;ID=3106122",
+        "sha256": "ef581d2356b3b825d254051700b39de419c8fb0fb9daa94be809c434d5463247",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106122",
+    "level": 2,
+    "maze_buff_id": "3106122",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_002",
+    "parameter_values": [
+      "0.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "14826889105103544565",
+    "buff_description_hash": "15560582548866935733",
+    "buff_battle_description_hash": "15560582548866935733",
+    "buff_simple_description_hash": "18189583807317413865",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106122.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106122 level 3",
+    "name_zh_cn": "配饰 3106122 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0135",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0135"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f1a357afebe8ae71",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=135;GearID=3106122;Level=3",
+        "sha256": "f1a357afebe8ae71df1409981533a48578cee756656cb47ef36f180f0957b541",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.218fba4b28abf3eb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=135;ID=3106122",
+        "sha256": "218fba4b28abf3eb4e5a5860781fb96164eb5139dbe02ada5eb3cceae5a4e6c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106122",
+    "level": 3,
+    "maze_buff_id": "3106122",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_002",
+    "parameter_values": [
+      "0.5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "18027956245612237421",
+    "buff_description_hash": "16957568154096913744",
+    "buff_battle_description_hash": "16957568154096913744",
+    "buff_simple_description_hash": "11115625180436492479",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106122.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106122 level 4",
+    "name_zh_cn": "配饰 3106122 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0136",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0136"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.22ed9441e8e8b0e6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=136;GearID=3106122;Level=4",
+        "sha256": "22ed9441e8e8b0e65f945beeeb3893e1137e25823532ac9e76b9e9db3117219b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.0a8c489f0fbad99c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=136;ID=3106122",
+        "sha256": "0a8c489f0fbad99c0909657692866eaaec8fae3bbb17e44653c2871145c1f657",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106122",
+    "level": 4,
+    "maze_buff_id": "3106122",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_002",
+    "parameter_values": [
+      "0.6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "11068605490961095881",
+    "buff_description_hash": "17454597783898990355",
+    "buff_battle_description_hash": "17454597783898990355",
+    "buff_simple_description_hash": "9443613499450648250",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106123.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106123 level 1",
+    "name_zh_cn": "配饰 3106123 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0137",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0137"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f5101f4d5c9a5e3b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=137;GearID=3106123;Level=1",
+        "sha256": "f5101f4d5c9a5e3b1612e77bc3f584545912f0ff71e3b3cae8a0e2b6b4ae4d84",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.834d18444353fbe0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=137;ID=3106123",
+        "sha256": "834d18444353fbe01c8a455a5575e56d1b5a3e066eb06653c4436b6923c090c9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106123",
+    "level": 1,
+    "maze_buff_id": "3106123",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_003",
+    "parameter_values": [
+      "0.3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "15994254533640487878",
+    "buff_description_hash": "7201331047856334039",
+    "buff_battle_description_hash": "7201331047856334039",
+    "buff_simple_description_hash": "16348402127005910360",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106123.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106123 level 2",
+    "name_zh_cn": "配饰 3106123 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0138",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0138"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.18e05b2fcc1d8d22",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=138;GearID=3106123;Level=2",
+        "sha256": "18e05b2fcc1d8d22e979dee3ac3ed4d1a18a303ef18f15d6eac9cbbe82b55f87",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.acbdecb6fa88248c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=138;ID=3106123",
+        "sha256": "acbdecb6fa88248c3fa0f651b26e45f4b18b54b57e8994fbb58c406f34cd8b1e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106123",
+    "level": 2,
+    "maze_buff_id": "3106123",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_003",
+    "parameter_values": [
+      "0.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "12506503867262488785",
+    "buff_description_hash": "12721077322043660736",
+    "buff_battle_description_hash": "12721077322043660736",
+    "buff_simple_description_hash": "5220305710923079102",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106123.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106123 level 3",
+    "name_zh_cn": "配饰 3106123 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0139",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0139"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5c35774f444fb11a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=139;GearID=3106123;Level=3",
+        "sha256": "5c35774f444fb11aab37531367b58d76c1a7fd77c90598314a552f6c1875f645",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.fbbf6b189eaa19c9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=139;ID=3106123",
+        "sha256": "fbbf6b189eaa19c90f0066ce40368b8e69875575edcebfe127c0c5473e7f61eb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106123",
+    "level": 3,
+    "maze_buff_id": "3106123",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_003",
+    "parameter_values": [
+      "0.5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "18044999134766272287",
+    "buff_description_hash": "6535608585104103307",
+    "buff_battle_description_hash": "6535608585104103307",
+    "buff_simple_description_hash": "5542375228827344402",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106123.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106123 level 4",
+    "name_zh_cn": "配饰 3106123 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0140",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0140"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.123b65cf3d7d3f30",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=140;GearID=3106123;Level=4",
+        "sha256": "123b65cf3d7d3f3030c218625c3dd971cc42f46b2bab7bfeb5d28e3df315696a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.6031dd8fe04460d3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=140;ID=3106123",
+        "sha256": "6031dd8fe04460d394a58317daeb8752af7b5513e1b364b874540ff5b9a8c453",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106123",
+    "level": 4,
+    "maze_buff_id": "3106123",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_003",
+    "parameter_values": [
+      "0.6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "17450843580329707453",
+    "buff_description_hash": "347628046934511476",
+    "buff_battle_description_hash": "347628046934511476",
+    "buff_simple_description_hash": "7307651543664646559",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106124.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106124 level 1",
+    "name_zh_cn": "配饰 3106124 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0141",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0141"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.41b13f5303fdaf46",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=141;GearID=3106124;Level=1",
+        "sha256": "41b13f5303fdaf467c81e28974f2b720c67182784ba1a371af95a54fc73140d7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.01b3adf9d1623cee",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=141;ID=3106124",
+        "sha256": "01b3adf9d1623ceee8afcd0ed15c580bd58e774a7face1c7933004fa62fbd569",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106124",
+    "level": 1,
+    "maze_buff_id": "3106124",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_004",
+    "parameter_values": [
+      "0.04",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "1726520976776406260",
+    "buff_description_hash": "7102635784623298471",
+    "buff_battle_description_hash": "7102635784623298471",
+    "buff_simple_description_hash": "16570222039456524395",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106124.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106124 level 2",
+    "name_zh_cn": "配饰 3106124 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0142",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0142"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e003c46a8b5dac4f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=142;GearID=3106124;Level=2",
+        "sha256": "e003c46a8b5dac4f43c653b8e13c7823e99de1877af3621f1309b650fa2ccc01",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.5041dbc84db77ab7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=142;ID=3106124",
+        "sha256": "5041dbc84db77ab7480a51cc86d1c054fbcf384517ead5c7eb145fa4e67a09d4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106124",
+    "level": 2,
+    "maze_buff_id": "3106124",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_004",
+    "parameter_values": [
+      "0.05",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "151096657723284350",
+    "buff_description_hash": "8177113625639657917",
+    "buff_battle_description_hash": "8177113625639657917",
+    "buff_simple_description_hash": "514512947710330473",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106124.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106124 level 3",
+    "name_zh_cn": "配饰 3106124 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0143",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0143"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a660d459d2d3495b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=143;GearID=3106124;Level=3",
+        "sha256": "a660d459d2d3495b325bc06b7d50ba24a56f06a33be25d6452d6fd97d36419e1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.8b1d1910f5c5c7c8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=143;ID=3106124",
+        "sha256": "8b1d1910f5c5c7c82193ec0a68903474e3f5f22a525e781247a6a18886732aa5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106124",
+    "level": 3,
+    "maze_buff_id": "3106124",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_004",
+    "parameter_values": [
+      "0.06",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10971042115318215026",
+    "buff_description_hash": "13513522491683747281",
+    "buff_battle_description_hash": "13513522491683747281",
+    "buff_simple_description_hash": "3588735772550771603",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106124.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106124 level 4",
+    "name_zh_cn": "配饰 3106124 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0144",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0144"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b224798da6858ab6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=144;GearID=3106124;Level=4",
+        "sha256": "b224798da6858ab63841fb7045c9d72680b8c7cd7fb72fc1823fede0d05ac09a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.d2cd624ebd68b0ab",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=144;ID=3106124",
+        "sha256": "d2cd624ebd68b0ab1cb2b0e2a81ab4651cee5b7e6818283a5a1049bcf1d4b043",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106124",
+    "level": 4,
+    "maze_buff_id": "3106124",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Element_004",
+    "parameter_values": [
+      "0.07",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "858059988596705891",
+    "buff_description_hash": "11270233135454583761",
+    "buff_battle_description_hash": "11270233135454583761",
+    "buff_simple_description_hash": "11657381756831414552",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106131.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106131 level 1",
+    "name_zh_cn": "配饰 3106131 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0145",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0145"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.6521dda36f1413f1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=145;GearID=3106131;Level=1",
+        "sha256": "6521dda36f1413f1bfd52de82e9ba624af294346617c88b3be2dccff52d846bb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.8c615b97641ac7d2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=145;ID=3106131",
+        "sha256": "8c615b97641ac7d2a6f2c45b6693661c6ef136413220f0f9140d844fcad0fbd8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106131",
+    "level": 1,
+    "maze_buff_id": "3106131",
+    "index_list": [
+      1,
+      2,
+      3
+    ],
+    "simple_index_list": [
+      1,
+      2,
+      3
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_001",
+    "parameter_values": [
+      "0.06",
+      "1",
+      "8",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "2081119393059186735",
+    "buff_description_hash": "6262714831301528252",
+    "buff_battle_description_hash": "6262714831301528252",
+    "buff_simple_description_hash": "6676239925221823912",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106131.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106131 level 2",
+    "name_zh_cn": "配饰 3106131 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0146",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0146"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.13baa04e20c983f5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=146;GearID=3106131;Level=2",
+        "sha256": "13baa04e20c983f58446fcd17f6a3923266da38e00b4b78fead7b4ebc6c5c831",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.72185041f8af7192",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=146;ID=3106131",
+        "sha256": "72185041f8af7192dc4b6dd54af22402d50c1e91bc1936e9f587ff316f8ae3f6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106131",
+    "level": 2,
+    "maze_buff_id": "3106131",
+    "index_list": [
+      1,
+      2,
+      3
+    ],
+    "simple_index_list": [
+      1,
+      2,
+      3
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_001",
+    "parameter_values": [
+      "0.09",
+      "2",
+      "12",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "11158325499692560967",
+    "buff_description_hash": "12011996865441082117",
+    "buff_battle_description_hash": "12011996865441082117",
+    "buff_simple_description_hash": "9267503397622642906",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106131.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106131 level 3",
+    "name_zh_cn": "配饰 3106131 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0147",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0147"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.955839907f29e2f0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=147;GearID=3106131;Level=3",
+        "sha256": "955839907f29e2f03a1807326b4a080dd4a1bc72270aaacd8eef291766349fd5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.666f48e688904a62",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=147;ID=3106131",
+        "sha256": "666f48e688904a62da4e8e86d0acceb8b8ebafb4d5c052e11652d210b0a8b6a9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106131",
+    "level": 3,
+    "maze_buff_id": "3106131",
+    "index_list": [
+      1,
+      2,
+      3
+    ],
+    "simple_index_list": [
+      1,
+      2,
+      3
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_001",
+    "parameter_values": [
+      "0.12",
+      "3",
+      "16",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "8276585300445327604",
+    "buff_description_hash": "1755811656597071574",
+    "buff_battle_description_hash": "1755811656597071574",
+    "buff_simple_description_hash": "12050463613993315427",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106131.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106131 level 4",
+    "name_zh_cn": "配饰 3106131 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0148",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0148"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ee8d54c216591274",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=148;GearID=3106131;Level=4",
+        "sha256": "ee8d54c2165912744f6a9cdcda04d08518a9c5b1bfae1e6f718eb84dcd51ae45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.f3abfa7abadef701",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=148;ID=3106131",
+        "sha256": "f3abfa7abadef701b7fd49afc952301f0fcaa5a4793597bc0b02279fba1cb775",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106131",
+    "level": 4,
+    "maze_buff_id": "3106131",
+    "index_list": [
+      1,
+      2,
+      3
+    ],
+    "simple_index_list": [
+      1,
+      2,
+      3
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_001",
+    "parameter_values": [
+      "0.15",
+      "4",
+      "20",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10493462743391900317",
+    "buff_description_hash": "9620269561403847895",
+    "buff_battle_description_hash": "9620269561403847895",
+    "buff_simple_description_hash": "3457005223918362368",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106132.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106132 level 1",
+    "name_zh_cn": "配饰 3106132 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0149",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0149"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.22b239d028ffd798",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=149;GearID=3106132;Level=1",
+        "sha256": "22b239d028ffd798cc025c45badda40098f6b201508870d989df8a4addcb0f85",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.64c6b506213f46bc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=149;ID=3106132",
+        "sha256": "64c6b506213f46bced1591c068cdc7a233d229985e2597afee79115003ee0c93",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106132",
+    "level": 1,
+    "maze_buff_id": "3106132",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_002",
+    "parameter_values": [
+      "30",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "734134564166637175",
+    "buff_description_hash": "15037856213323247890",
+    "buff_battle_description_hash": "15037856213323247890",
+    "buff_simple_description_hash": "8336598654063221028",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106132.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106132 level 2",
+    "name_zh_cn": "配饰 3106132 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0150",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0150"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c435944fac8107a0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=150;GearID=3106132;Level=2",
+        "sha256": "c435944fac8107a0dac83f829b1e0e898a9da2d077edc7e91df6f8e7a3520955",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.f94af43ae3ddef81",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=150;ID=3106132",
+        "sha256": "f94af43ae3ddef818966db2ad75b50b0675fd18f49194e90fe921d6cad3621b1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106132",
+    "level": 2,
+    "maze_buff_id": "3106132",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_002",
+    "parameter_values": [
+      "40",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "3572819383112914054",
+    "buff_description_hash": "15565690779664115191",
+    "buff_battle_description_hash": "15565690779664115191",
+    "buff_simple_description_hash": "12798689945469122499",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106132.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106132 level 3",
+    "name_zh_cn": "配饰 3106132 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0151",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0151"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.bc5dda71f0964fcb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=151;GearID=3106132;Level=3",
+        "sha256": "bc5dda71f0964fcb2bc44078a873eebc1e3bf5eb562643cdfaa9ac05b4ba5383",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.36e8e9543614e2e9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=151;ID=3106132",
+        "sha256": "36e8e9543614e2e9fd288a8a8d3e68959784cf7f8cf25b874f6d3fd905f3b541",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106132",
+    "level": 3,
+    "maze_buff_id": "3106132",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_002",
+    "parameter_values": [
+      "50",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "4056949387589107039",
+    "buff_description_hash": "4781698519773052013",
+    "buff_battle_description_hash": "4781698519773052013",
+    "buff_simple_description_hash": "10005336615444601092",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106132.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106132 level 4",
+    "name_zh_cn": "配饰 3106132 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0152",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0152"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f1b09aea60b5b1f3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=152;GearID=3106132;Level=4",
+        "sha256": "f1b09aea60b5b1f3b6b5e1f568b360cc059cee44ad9d8933e79fd6069c815dd9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.b4d7abc6c4bdcac7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=152;ID=3106132",
+        "sha256": "b4d7abc6c4bdcac750ffeed8538b3603d81cdea4e51cf90c90126db50f48c5c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106132",
+    "level": 4,
+    "maze_buff_id": "3106132",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_002",
+    "parameter_values": [
+      "60",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "3252663653212884581",
+    "buff_description_hash": "7251075078509239685",
+    "buff_battle_description_hash": "7251075078509239685",
+    "buff_simple_description_hash": "6287416652197951198",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106133.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106133 level 1",
+    "name_zh_cn": "配饰 3106133 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0153",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0153"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.bb8a22c8affe7993",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=153;GearID=3106133;Level=1",
+        "sha256": "bb8a22c8affe79938bce52d14b072fec7c7da2a7552f732b7469a0c068e1223f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.ef7b17a837ed2add",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=153;ID=3106133",
+        "sha256": "ef7b17a837ed2add79b4a8076013b7cb6c6804b8c84472f20eb02f114ea02725",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106133",
+    "level": 1,
+    "maze_buff_id": "3106133",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_003",
+    "parameter_values": [
+      "0.2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "8908630397369976440",
+    "buff_description_hash": "5886327877100485746",
+    "buff_battle_description_hash": "5886327877100485746",
+    "buff_simple_description_hash": "1426659656005914213",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106133.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106133 level 2",
+    "name_zh_cn": "配饰 3106133 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0154",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0154"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9538ea732d74375d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=154;GearID=3106133;Level=2",
+        "sha256": "9538ea732d74375d82a1ace0e4cfce686df07e14856656d72b2d99f460ff210c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.883281ed0d3c9bb4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=154;ID=3106133",
+        "sha256": "883281ed0d3c9bb4751d8e3eeb77f499ee68f72661d8d2b719d9f3f1e2140be0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106133",
+    "level": 2,
+    "maze_buff_id": "3106133",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_003",
+    "parameter_values": [
+      "0.3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "14729075225978953522",
+    "buff_description_hash": "3533557987187996857",
+    "buff_battle_description_hash": "3533557987187996857",
+    "buff_simple_description_hash": "3767229295766101121",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106133.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106133 level 3",
+    "name_zh_cn": "配饰 3106133 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0155",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0155"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1b01d8d5948f3273",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=155;GearID=3106133;Level=3",
+        "sha256": "1b01d8d5948f327349bc0fe1e3f893bb32e6d3d7727501eb23f84e05f1fbdadf",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.e15b5dc2f1b3bb3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=155;ID=3106133",
+        "sha256": "e15b5dc2f1b3bb3c780d64663583fc1a079b0eb2162dc513714c834aef8384e8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106133",
+    "level": 3,
+    "maze_buff_id": "3106133",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_003",
+    "parameter_values": [
+      "0.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "4648418786676403694",
+    "buff_description_hash": "4757359334423849957",
+    "buff_battle_description_hash": "4757359334423849957",
+    "buff_simple_description_hash": "13140469996082709353",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106133.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106133 level 4",
+    "name_zh_cn": "配饰 3106133 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0156",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0156"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.deb740229a44bf6b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=156;GearID=3106133;Level=4",
+        "sha256": "deb740229a44bf6b336cafd317a212e4b5fb73df0718cf1013df70c5994b0b65",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.03eea8c5c7bbb7ac",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=156;ID=3106133",
+        "sha256": "03eea8c5c7bbb7acfbf3122586add9d60faf6175ad21a66f06035a6e402f4248",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106133",
+    "level": 4,
+    "maze_buff_id": "3106133",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_003",
+    "parameter_values": [
+      "0.5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "2654775433383298408",
+    "buff_description_hash": "11242864456734466792",
+    "buff_battle_description_hash": "11242864456734466792",
+    "buff_simple_description_hash": "18037495289040748019",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106134.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106134 level 1",
+    "name_zh_cn": "配饰 3106134 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0157",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0157"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7d96d533fb134324",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=157;GearID=3106134;Level=1",
+        "sha256": "7d96d533fb1343247097d4ffcf422a82532782fba0f96dbbbf1790371fc9de11",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.a2cdb854ca4b648d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=157;ID=3106134",
+        "sha256": "a2cdb854ca4b648dc6d457ab553745e425af2b89d57402ee9fdc2453e6e5f5ae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106134",
+    "level": 1,
+    "maze_buff_id": "3106134",
+    "index_list": [
+      2
+    ],
+    "simple_index_list": [
+      2
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_004",
+    "parameter_values": [
+      "4",
+      "1.2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "3080116750541553896",
+    "buff_description_hash": "8223640096965834481",
+    "buff_battle_description_hash": "8223640096965834481",
+    "buff_simple_description_hash": "11298866078185213386",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106134.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106134 level 2",
+    "name_zh_cn": "配饰 3106134 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0158",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0158"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.b9ff31f108ee2a0d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=158;GearID=3106134;Level=2",
+        "sha256": "b9ff31f108ee2a0d467e154481cd182b54783da9cd1914d5afb4ad1b04fb1a45",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.d8e28796236275eb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=158;ID=3106134",
+        "sha256": "d8e28796236275ebf7c8e7546c62661cf3107bd6ec3c77e59e02b60c5a017f2f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106134",
+    "level": 2,
+    "maze_buff_id": "3106134",
+    "index_list": [
+      2
+    ],
+    "simple_index_list": [
+      2
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_004",
+    "parameter_values": [
+      "4",
+      "1.6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "16870098321275982705",
+    "buff_description_hash": "7063121667646301335",
+    "buff_battle_description_hash": "7063121667646301335",
+    "buff_simple_description_hash": "5353932930731353627",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106134.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106134 level 3",
+    "name_zh_cn": "配饰 3106134 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0159",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0159"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.92c82e3d5193166b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=159;GearID=3106134;Level=3",
+        "sha256": "92c82e3d5193166bbdefeb9b50d15f947e32cfff3d87ca060faad8374eb4349c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.cb918b0b0aae98ef",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=159;ID=3106134",
+        "sha256": "cb918b0b0aae98efe8a50b1fd122accf42af7577bf481dd599c86ffa50d99da5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106134",
+    "level": 3,
+    "maze_buff_id": "3106134",
+    "index_list": [
+      2
+    ],
+    "simple_index_list": [
+      2
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_004",
+    "parameter_values": [
+      "4",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "4007958953683876116",
+    "buff_description_hash": "11649912073567363461",
+    "buff_battle_description_hash": "11649912073567363461",
+    "buff_simple_description_hash": "12284428154031417430",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106134.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106134 level 4",
+    "name_zh_cn": "配饰 3106134 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0160",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0160"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4d9ce2e681e1e083",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=160;GearID=3106134;Level=4",
+        "sha256": "4d9ce2e681e1e0833eb9401417da79e2f46168c95b46203da328b6c92918ef0e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.78fe4dfb4e5ef204",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=160;ID=3106134",
+        "sha256": "78fe4dfb4e5ef2047cb77c66ba125933e905d561b26475f21528ea0df06b6223",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106134",
+    "level": 4,
+    "maze_buff_id": "3106134",
+    "index_list": [
+      2
+    ],
+    "simple_index_list": [
+      2
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_004",
+    "parameter_values": [
+      "4",
+      "2.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10459933408686513515",
+    "buff_description_hash": "9306712010973251791",
+    "buff_battle_description_hash": "9306712010973251791",
+    "buff_simple_description_hash": "9479866693055354996",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106135.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106135 level 1",
+    "name_zh_cn": "配饰 3106135 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0161",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0161"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.3fe4b72ede1e6a50",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=161;GearID=3106135;Level=1",
+        "sha256": "3fe4b72ede1e6a5046872c7365c8f7c91a53c812c13e916c0ad2c195ba708f84",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.2a36912085421b94",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=161;ID=3106135",
+        "sha256": "2a36912085421b9433d3b6eefa76c105ade87ab221f137f7da9d5a2091cf9b56",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106135",
+    "level": 1,
+    "maze_buff_id": "3106135",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_005",
+    "parameter_values": [
+      "0.1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "15583647398373159715",
+    "buff_description_hash": "1910380312872277845",
+    "buff_battle_description_hash": "1910380312872277845",
+    "buff_simple_description_hash": "12442686094929089775",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106135.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106135 level 2",
+    "name_zh_cn": "配饰 3106135 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0162",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0162"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5ce0cf15b1056b89",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=162;GearID=3106135;Level=2",
+        "sha256": "5ce0cf15b1056b89963b6336fd420e3cb084e0cae0e8179854d14a36934d339d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.f22d72c85c84e475",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=162;ID=3106135",
+        "sha256": "f22d72c85c84e4750a185f63cb4d3bba8c63267a4d76906b965c5d11c185f58d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106135",
+    "level": 2,
+    "maze_buff_id": "3106135",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_005",
+    "parameter_values": [
+      "0.12",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "11028209005356916145",
+    "buff_description_hash": "2862064287440212617",
+    "buff_battle_description_hash": "2862064287440212617",
+    "buff_simple_description_hash": "13381701438387222722",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106135.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106135 level 3",
+    "name_zh_cn": "配饰 3106135 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0163",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0163"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ba938d3c8f091a57",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=163;GearID=3106135;Level=3",
+        "sha256": "ba938d3c8f091a57841897f3931063ee740eb26ba05fce4a68fcf89b87d0e498",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.719eeb85fa403fe2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=163;ID=3106135",
+        "sha256": "719eeb85fa403fe2bb3e0c509a96fa73d0b1c20e7aed4285723e3e241c1b5d5d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106135",
+    "level": 3,
+    "maze_buff_id": "3106135",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_005",
+    "parameter_values": [
+      "0.14",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "12387268306457441330",
+    "buff_description_hash": "10706815661890918852",
+    "buff_battle_description_hash": "10706815661890918852",
+    "buff_simple_description_hash": "1132285836142841136",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106135.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106135 level 4",
+    "name_zh_cn": "配饰 3106135 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0164",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0164"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.135711a36b9b1366",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=164;GearID=3106135;Level=4",
+        "sha256": "135711a36b9b13662cc7d7f2ce1da3bfa6d7b13d4e9829fe0f9f44cba13ad433",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.5511800481d2568b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=164;ID=3106135",
+        "sha256": "5511800481d2568bd0e8bd4250160820437c5321965f705852a151182274773c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106135",
+    "level": 4,
+    "maze_buff_id": "3106135",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_005",
+    "parameter_values": [
+      "0.16",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10313156418070811397",
+    "buff_description_hash": "13776620768401247363",
+    "buff_battle_description_hash": "13776620768401247363",
+    "buff_simple_description_hash": "580053379902639594",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106136.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106136 level 1",
+    "name_zh_cn": "配饰 3106136 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0165",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0165"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2f8b4d8346502f18",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=165;GearID=3106136;Level=1",
+        "sha256": "2f8b4d8346502f1806c444bde524d4002fbeae9baa9953487451e2b213e9bbf3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.15da4c33b2154df1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=165;ID=3106136",
+        "sha256": "15da4c33b2154df13cd67ad4aec11e1dbd9ba58e1ae5513b7df79c411282a77b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106136",
+    "level": 1,
+    "maze_buff_id": "3106136",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_004",
+    "parameter_values": [
+      "0.35",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "18312379314217830631",
+    "buff_description_hash": "2454031856213908545",
+    "buff_battle_description_hash": "2454031856213908545",
+    "buff_simple_description_hash": "15023142285801727783",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106136.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106136 level 2",
+    "name_zh_cn": "配饰 3106136 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0166",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0166"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d6a851eeb6cce090",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=166;GearID=3106136;Level=2",
+        "sha256": "d6a851eeb6cce0909bfd12cce7dd14b2cb5cc863aa84eff5f6e6c7a5f986033e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.d228edc3d1bfcebf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=166;ID=3106136",
+        "sha256": "d228edc3d1bfcebfb78fb1be72166070417358ecf40e877ed1971c6dd0bc0692",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106136",
+    "level": 2,
+    "maze_buff_id": "3106136",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_004",
+    "parameter_values": [
+      "0.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "17428138407689973130",
+    "buff_description_hash": "12660005983712087425",
+    "buff_battle_description_hash": "12660005983712087425",
+    "buff_simple_description_hash": "16086299202763845692",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106136.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106136 level 3",
+    "name_zh_cn": "配饰 3106136 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0167",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0167"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ec25198a04575631",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=167;GearID=3106136;Level=3",
+        "sha256": "ec25198a045756317014e97e4ca83bb6bd0461f343554c1c9e947fc00239dc1a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.949f773548e14d9f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=167;ID=3106136",
+        "sha256": "949f773548e14d9fcc23dea2862abf7af710fd8c887b627918fe69a8d119c3b4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106136",
+    "level": 3,
+    "maze_buff_id": "3106136",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_004",
+    "parameter_values": [
+      "0.45",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "16450250877208770164",
+    "buff_description_hash": "8546918084044588301",
+    "buff_battle_description_hash": "8546918084044588301",
+    "buff_simple_description_hash": "5329524213317772432",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106136.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106136 level 4",
+    "name_zh_cn": "配饰 3106136 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0168",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0168"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.39587a0bb4fbba52",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=168;GearID=3106136;Level=4",
+        "sha256": "39587a0bb4fbba52e968f5372515688c5a43be3382215676984f736d5f12279e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.5a68ae1d5efc2580",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=168;ID=3106136",
+        "sha256": "5a68ae1d5efc2580385ae19dfebdacb5d0235043f53a03c4596009059e40068a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106136",
+    "level": 4,
+    "maze_buff_id": "3106136",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Tag_004",
+    "parameter_values": [
+      "0.5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "9245949448771823257",
+    "buff_description_hash": "2619529058277261622",
+    "buff_battle_description_hash": "2619529058277261622",
+    "buff_simple_description_hash": "5962577946548827532",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106141.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106141 level 1",
+    "name_zh_cn": "配饰 3106141 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0169",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0169"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.83c6dd8f591149c4",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=169;GearID=3106141;Level=1",
+        "sha256": "83c6dd8f591149c40a72c1ae2b56b0dbc1afe20641326169e44ff076bef76a19",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.5dc0696fc8bd5730",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=169;ID=3106141",
+        "sha256": "5dc0696fc8bd5730d8e5cd17e93a1184ffffd75fb1514485cc045018c0b490b7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106141",
+    "level": 1,
+    "maze_buff_id": "3106141",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_001",
+    "parameter_values": [
+      "0.3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "8941830551973352958",
+    "buff_description_hash": "13580672337031130828",
+    "buff_battle_description_hash": "13580672337031130828",
+    "buff_simple_description_hash": "2078409785153876735",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106141.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106141 level 2",
+    "name_zh_cn": "配饰 3106141 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0170",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0170"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.657f41ceb64563a9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=170;GearID=3106141;Level=2",
+        "sha256": "657f41ceb64563a9245d48e623a9b15da88ba577be6805c6b136fb235c8bac4c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.deb80534e89c3d78",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=170;ID=3106141",
+        "sha256": "deb80534e89c3d7886281d347cd700bfab777bed06b4cc7c967f4a408af902f0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106141",
+    "level": 2,
+    "maze_buff_id": "3106141",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_001",
+    "parameter_values": [
+      "0.6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10902246656176759280",
+    "buff_description_hash": "15152462332292034176",
+    "buff_battle_description_hash": "15152462332292034176",
+    "buff_simple_description_hash": "12922816895791971386",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106141.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106141 level 3",
+    "name_zh_cn": "配饰 3106141 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0171",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0171"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.edb923697068574d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=171;GearID=3106141;Level=3",
+        "sha256": "edb923697068574d8c1758c8c786f07e285f981901309c365212f6228243945c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.a0f34b19127c9d99",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=171;ID=3106141",
+        "sha256": "a0f34b19127c9d99e481696369fc0290661e3cd868b69091c349fe0b3a653436",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106141",
+    "level": 3,
+    "maze_buff_id": "3106141",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_001",
+    "parameter_values": [
+      "0.9",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "13556487617448747004",
+    "buff_description_hash": "14479683871449637043",
+    "buff_battle_description_hash": "14479683871449637043",
+    "buff_simple_description_hash": "15136326898815335416",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106141.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106141 level 4",
+    "name_zh_cn": "配饰 3106141 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0172",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0172"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.09708797399ce73a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=172;GearID=3106141;Level=4",
+        "sha256": "09708797399ce73a5536aef418cd8a04b60b5084df9c3a376aeacbc7bf958729",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.12c863c6387da1ee",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=172;ID=3106141",
+        "sha256": "12c863c6387da1ee839db8361020f2262a0e2ab20bb24e996f81be8891d0d9c0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106141",
+    "level": 4,
+    "maze_buff_id": "3106141",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_001",
+    "parameter_values": [
+      "1.2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "2544831858883347350",
+    "buff_description_hash": "11268521048519258070",
+    "buff_battle_description_hash": "11268521048519258070",
+    "buff_simple_description_hash": "13633535686981996743",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106142.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106142 level 1",
+    "name_zh_cn": "配饰 3106142 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0173",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0173"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5c73b41735f9665e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=173;GearID=3106142;Level=1",
+        "sha256": "5c73b41735f9665e186b63bca3b0d59ce73e238da0da218879cd74b4b1f1963b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.df7e65616c3d6380",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=173;ID=3106142",
+        "sha256": "df7e65616c3d6380987981a43f3242b862a4471276f8d7b3cc7399fa482e6891",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106142",
+    "level": 1,
+    "maze_buff_id": "3106142",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_002",
+    "parameter_values": [
+      "0.1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "12013567650973289749",
+    "buff_description_hash": "1011500500080629870",
+    "buff_battle_description_hash": "1011500500080629870",
+    "buff_simple_description_hash": "6025127169035097229",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106142.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106142 level 2",
+    "name_zh_cn": "配饰 3106142 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0174",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0174"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.baaf09016a436e5a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=174;GearID=3106142;Level=2",
+        "sha256": "baaf09016a436e5afa8a2f8c93add02446c7ceaa5f8afc25f082498628834eb1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.1c95d75cb7b61bb0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=174;ID=3106142",
+        "sha256": "1c95d75cb7b61bb013ded07126d6c47c8822104975283bf6b5e28fddf7f8249c",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106142",
+    "level": 2,
+    "maze_buff_id": "3106142",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_002",
+    "parameter_values": [
+      "0.2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "13248482364442061393",
+    "buff_description_hash": "7838505490736531425",
+    "buff_battle_description_hash": "7838505490736531425",
+    "buff_simple_description_hash": "17640991718535135662",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106142.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106142 level 3",
+    "name_zh_cn": "配饰 3106142 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0175",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0175"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.54ecf4f1550eaca2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=175;GearID=3106142;Level=3",
+        "sha256": "54ecf4f1550eaca21b4feaa8ad029290a088a898d65c75f4557bc207118354db",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.f5b1f70ad12d6ea0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=175;ID=3106142",
+        "sha256": "f5b1f70ad12d6ea0447248967e414771a1a91d00ff70e50d8e1831fcfdd99807",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106142",
+    "level": 3,
+    "maze_buff_id": "3106142",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_002",
+    "parameter_values": [
+      "0.3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "4667814364997194647",
+    "buff_description_hash": "14320213683812313333",
+    "buff_battle_description_hash": "14320213683812313333",
+    "buff_simple_description_hash": "17584768517264106651",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106142.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106142 level 4",
+    "name_zh_cn": "配饰 3106142 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0176",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0176"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.a7d9db0b8cd7c592",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=176;GearID=3106142;Level=4",
+        "sha256": "a7d9db0b8cd7c5926b42058687bc37e7169cd66095c957e6e5eaa70c3f18f246",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.e05573cab94c6c74",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=176;ID=3106142",
+        "sha256": "e05573cab94c6c74c429e35dce95b9b0845792d8647391c7082df6808eca7a9a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106142",
+    "level": 4,
+    "maze_buff_id": "3106142",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Special_002",
+    "parameter_values": [
+      "0.4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "8160481322098972593",
+    "buff_description_hash": "3373897237170710364",
+    "buff_battle_description_hash": "3373897237170710364",
+    "buff_simple_description_hash": "6464382835928462240",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106143.level.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106143 level 1",
+    "name_zh_cn": "配饰 3106143 等级 1",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0177",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0177"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4dfba791899120ff",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=177;GearID=3106143;Level=1",
+        "sha256": "4dfba791899120ff5f5859f579aeb7b4a0c688352fdc9707dc5f477c511c5947",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.b258af3537640930",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=177;ID=3106143",
+        "sha256": "b258af35376409306a87b0974fb46e2f4c5379c13844179a36f37a080d5f7db0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106143",
+    "level": 1,
+    "maze_buff_id": "3106143",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_006",
+    "parameter_values": [
+      "0.25",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "17822263216247740255",
+    "buff_description_hash": "6377721940546529806",
+    "buff_battle_description_hash": "6377721940546529806",
+    "buff_simple_description_hash": "6266842126360333956",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106143.level.2",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106143 level 2",
+    "name_zh_cn": "配饰 3106143 等级 2",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0178",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0178"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.322a63a5a85ab455",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=178;GearID=3106143;Level=2",
+        "sha256": "322a63a5a85ab45576be4ac91a0a5cc503e4a3aa2eb5cebdc840641157e262ee",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.28ed8a40326f2ed3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=178;ID=3106143",
+        "sha256": "28ed8a40326f2ed3f3a98994c5b17bbe01f58d2ef071e81f09022f73f143cd91",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106143",
+    "level": 2,
+    "maze_buff_id": "3106143",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_006",
+    "parameter_values": [
+      "0.5",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "10558924466835702744",
+    "buff_description_hash": "13524012596619186425",
+    "buff_battle_description_hash": "13524012596619186425",
+    "buff_simple_description_hash": "4607720527972760508",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106143.level.3",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106143 level 3",
+    "name_zh_cn": "配饰 3106143 等级 3",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0179",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0179"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c04a57d134c0476d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=179;GearID=3106143;Level=3",
+        "sha256": "c04a57d134c0476d294a246fd641ff5a4403180e98cd19758c75211b0d5a0768",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.6eda44e4959675c0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=179;ID=3106143",
+        "sha256": "6eda44e4959675c0bf78be4a17b29fc6ad13aafbf0b550b78987d98e19c491a6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106143",
+    "level": 3,
+    "maze_buff_id": "3106143",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_006",
+    "parameter_values": [
+      "0.75",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "16426612287083372299",
+    "buff_description_hash": "9136754803680014838",
+    "buff_battle_description_hash": "9136754803680014838",
+    "buff_simple_description_hash": "2168314393257170000",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106143.level.4",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryLevel",
+    "name_en": "Accessory 3106143 level 4",
+    "name_zh_cn": "配饰 3106143 等级 4",
+    "summary_en": "Exact accessory level parameters and battle-binding record.",
+    "summary_zh_cn": "精确配饰等级参数与战斗绑定记录。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearConfig:0180",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0180"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d1979911fd8651ad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearConfig.json",
+        "locator": "row=180;GearID=3106143;Level=4",
+        "sha256": "d1979911fd8651adce565ea0c3b894d608b6c02b604753075f910cbf536eee4a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact GearConfig level-to-MazeBuff binding"
+      },
+      {
+        "source_id": "source.goal16.8c30c31021225eb3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=180;ID=3106143",
+        "sha256": "8c30c31021225eb36b81d3bb513474aed235be1e615de92b655d60deda5c541b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact MazeBuff parameter vector and program binding"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "level"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106143",
+    "level": 4,
+    "maze_buff_id": "3106143",
+    "index_list": [
+      1
+    ],
+    "simple_index_list": [
+      1
+    ],
+    "dynamic_index_list": [],
+    "modifier_name": "ADV_StageAbility_MazeCommon_Empty",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_006",
+    "parameter_values": [
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "buff_name_hash": "968362303874444395",
+    "buff_description_hash": "11074587472344759678",
+    "buff_battle_description_hash": "11074587472344759678",
+    "buff_simple_description_hash": "9700164196417332057",
+    "buff_rarity": 1,
+    "buff_series": 1,
+    "maze_buff_type": "Level"
+  }
+]

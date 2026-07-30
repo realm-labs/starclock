@@ -1,0 +1,1146 @@
+[
+  {
+    "id": "galactic-baseballer.departure.recipe.3106901.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Morningstar Bat",
+    "name_zh_cn": "晨星球棒配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5f029e211f76a368",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=0;ForgeGearID=3106901",
+        "sha256": "5f029e211f76a3685d3c683510b4f6aa6b25a27124311aaad927bf1e33c10440",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106901",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106001",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106901.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Morningstar Bat",
+    "name_zh_cn": "晨星球棒配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0000"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.5f029e211f76a368",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=0;ForgeGearID=3106901",
+        "sha256": "5f029e211f76a3685d3c683510b4f6aa6b25a27124311aaad927bf1e33c10440",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106901",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106124",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106902.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Musketeer's Resolve",
+    "name_zh_cn": "火枪手的决心配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1ff9942bdf93b074",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=1;ForgeGearID=3106902",
+        "sha256": "1ff9942bdf93b074bb15c0b74ade2037a84906a02caccf3caf3990184344cbc7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106902",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106002",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106902.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Musketeer's Resolve",
+    "name_zh_cn": "火枪手的决心配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0001"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1ff9942bdf93b074",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=1;ForgeGearID=3106902",
+        "sha256": "1ff9942bdf93b074bb15c0b74ade2037a84906a02caccf3caf3990184344cbc7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106902",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106113",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106903.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Headwind Bow",
+    "name_zh_cn": "戗风之弩配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.053502dbcbb1f7df",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=2;ForgeGearID=3106903",
+        "sha256": "053502dbcbb1f7df37514a24002b52a61c1534d9ff32f569f7fdb82485a130be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106903",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106003",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106903.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Headwind Bow",
+    "name_zh_cn": "戗风之弩配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0002"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.053502dbcbb1f7df",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=2;ForgeGearID=3106903",
+        "sha256": "053502dbcbb1f7df37514a24002b52a61c1534d9ff32f569f7fdb82485a130be",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106903",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106111",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106904.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Shockbolt Crown",
+    "name_zh_cn": "惊雷冠冕配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.20cbd922ecbb24a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=3;ForgeGearID=3106904",
+        "sha256": "20cbd922ecbb24a6ae329065f95bdab2d683b36663e822d9edad0a0467c141e9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106904",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106004",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106904.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Shockbolt Crown",
+    "name_zh_cn": "惊雷冠冕配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0003"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.20cbd922ecbb24a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=3;ForgeGearID=3106904",
+        "sha256": "20cbd922ecbb24a6ae329065f95bdab2d683b36663e822d9edad0a0467c141e9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106904",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106132",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106905.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Surprise in a Box",
+    "name_zh_cn": "盒中惊喜配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4d8ee76da30b6885",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3106905",
+        "sha256": "4d8ee76da30b6885a060634f63af27a0573e157c0182d19964decfaa956c5c91",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106905",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106005",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106905.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Surprise in a Box",
+    "name_zh_cn": "盒中惊喜配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0004"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4d8ee76da30b6885",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=4;ForgeGearID=3106905",
+        "sha256": "4d8ee76da30b6885a060634f63af27a0573e157c0182d19964decfaa956c5c91",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106905",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106112",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106906.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Eternal Fortress",
+    "name_zh_cn": "不朽堡垒配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ebf9bcbe4d1cc342",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=5;ForgeGearID=3106906",
+        "sha256": "ebf9bcbe4d1cc34222d31c9cd2b840e49a637f0fdd4abc7d813a629ab0b9b5d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106906",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106006",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106906.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Eternal Fortress",
+    "name_zh_cn": "不朽堡垒配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0005"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ebf9bcbe4d1cc342",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=5;ForgeGearID=3106906",
+        "sha256": "ebf9bcbe4d1cc34222d31c9cd2b840e49a637f0fdd4abc7d813a629ab0b9b5d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106906",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106131",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106907.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Flaming Greatsword",
+    "name_zh_cn": "炽焰大剑配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.887bc2ab61033184",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=6;ForgeGearID=3106907",
+        "sha256": "887bc2ab61033184180b9a3d6eb70c0bff2c0e7d7b5b7f87a23f8d822a71a0f3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106907",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106007",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106907.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Flaming Greatsword",
+    "name_zh_cn": "炽焰大剑配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0006"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.887bc2ab61033184",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=6;ForgeGearID=3106907",
+        "sha256": "887bc2ab61033184180b9a3d6eb70c0bff2c0e7d7b5b7f87a23f8d822a71a0f3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106907",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106122",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106908.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Gambit in the Game",
+    "name_zh_cn": "局中博弈配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.754dcf16af3d65cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=7;ForgeGearID=3106908",
+        "sha256": "754dcf16af3d65cfa8e1665f514be8550b7d5049e8649cfceaba6c9c3015eb25",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106908",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106008",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106908.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Gambit in the Game",
+    "name_zh_cn": "局中博弈配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0007"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.754dcf16af3d65cf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=7;ForgeGearID=3106908",
+        "sha256": "754dcf16af3d65cfa8e1665f514be8550b7d5049e8649cfceaba6c9c3015eb25",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106908",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106123",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106909.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Kindest Benediction",
+    "name_zh_cn": "至善赐福配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4f548e95e32b480a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=8;ForgeGearID=3106909",
+        "sha256": "4f548e95e32b480a049a217b38525be4eb8ff3129e7e8135c979a62b0ba68ed8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106909",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106009",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106909.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Kindest Benediction",
+    "name_zh_cn": "至善赐福配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0008"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.4f548e95e32b480a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=8;ForgeGearID=3106909",
+        "sha256": "4f548e95e32b480a049a217b38525be4eb8ff3129e7e8135c979a62b0ba68ed8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106909",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106135",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106910.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Cryoflame Thrower",
+    "name_zh_cn": "冰焰喷射器配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d93d6f77e47fa223",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=9;ForgeGearID=3106910",
+        "sha256": "d93d6f77e47fa22369a265cf7db7542b109b3f4dc27fd7a3535f223d7dae1f7d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106910",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106010",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106910.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Cryoflame Thrower",
+    "name_zh_cn": "冰焰喷射器配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0009"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d93d6f77e47fa223",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=9;ForgeGearID=3106910",
+        "sha256": "d93d6f77e47fa22369a265cf7db7542b109b3f4dc27fd7a3535f223d7dae1f7d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106910",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106133",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106911.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Prison-Shatter Hammer",
+    "name_zh_cn": "碎牢重锤配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.384a4b339a15e10b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=10;ForgeGearID=3106911",
+        "sha256": "384a4b339a15e10b87ebf47afd7bf1c79c8c89d96213d0f410c04dc81a969ff5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106911",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106011",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106911.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Prison-Shatter Hammer",
+    "name_zh_cn": "碎牢重锤配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0010"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.384a4b339a15e10b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=10;ForgeGearID=3106911",
+        "sha256": "384a4b339a15e10b87ebf47afd7bf1c79c8c89d96213d0f410c04dc81a969ff5",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106911",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106121",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106912.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Time's Eternity",
+    "name_zh_cn": "光阴的永恒配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f3a413d4839fbce8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=11;ForgeGearID=3106912",
+        "sha256": "f3a413d4839fbce836c228b8236ad8ef188c343616b9d65f2d85d14c67ef1995",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106912",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106012",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106912.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Time's Eternity",
+    "name_zh_cn": "光阴的永恒配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0011"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.f3a413d4839fbce8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=11;ForgeGearID=3106912",
+        "sha256": "f3a413d4839fbce836c228b8236ad8ef188c343616b9d65f2d85d14c67ef1995",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106912",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106136",
+    "required_level": 1,
+    "consumed": false
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106913.input.0",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 0 for Pretentious Visage",
+    "name_zh_cn": "岸然道貌之相配方材料 0",
+    "summary_en": "Ordered exact weapon prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确武器前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.24b6bb28e2d3ff8c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=12;ForgeGearID=3106913",
+        "sha256": "24b6bb28e2d3ff8c70fec2195a3806c2043f3f78eb59b763772dda7af9c13d77",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "departure",
+      "recipe-input",
+      "weapon"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106913",
+    "input_order": 0,
+    "input_kind": "Weapon",
+    "input_id": "galactic-baseballer.departure.weapon.3106013",
+    "required_level": 8,
+    "consumed": true
+  },
+  {
+    "id": "galactic-baseballer.departure.recipe.3106913.input.1",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "SynthesisInput",
+    "name_en": "Recipe input 1 for Pretentious Visage",
+    "name_zh_cn": "岸然道貌之相配方材料 1",
+    "summary_en": "Ordered exact accessory prerequisite and consumption flag.",
+    "summary_zh_cn": "有序的精确配饰前置等级与消耗标记。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildForgeMaterial:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.24b6bb28e2d3ff8c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildForgeMaterial.json",
+        "locator": "row=12;ForgeGearID=3106913",
+        "sha256": "24b6bb28e2d3ff8c70fec2195a3806c2043f3f78eb59b763772dda7af9c13d77",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact ForgeMaterial input level and CostGearList membership"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "recipe-input"
+    ],
+    "recipe_id": "galactic-baseballer.departure.recipe.3106913",
+    "input_order": 1,
+    "input_kind": "Accessory",
+    "input_id": "galactic-baseballer.departure.accessory.3106134",
+    "required_level": 1,
+    "consumed": false
+  }
+]

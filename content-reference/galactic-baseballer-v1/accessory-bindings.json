@@ -1,0 +1,1206 @@
+[
+  {
+    "id": "galactic-baseballer.departure.accessory.3106111.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Wind Shear Arrows battle binding",
+    "name_zh_cn": "裂风箭矢战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0026"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.feed8b625d0b555c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=26;ID=3106111;Season=EarlyAccess",
+        "sha256": "feed8b625d0b555c3423d6fcaec166d0eae37987e37812c1b1bab5b32b5ab648",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106111",
+    "binding_key": "StageAbility_VS_Accessory_Tag_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Tag_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Tag_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "574dbda9eb95ea63f424955fe57f2d2aba5821b3fcf4daa9cd1230d59de0ea06",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106112.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Gunpowder Ribbon battle binding",
+    "name_zh_cn": "硝烟飘带战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0027"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.06ad105d6cf198fd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=27;ID=3106112;Season=EarlyAccess",
+        "sha256": "06ad105d6cf198fdcf6b4499a9ab12ba535d90076483f4eed94d3f8e3b915f63",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106112",
+    "binding_key": "StageAbility_VS_Accessory_Tag_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Tag_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Tag_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "5165e64d92bf72e55c93728a55676e7853ab58321949caa90dde2ecc2acaa88f",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106113.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Me For Everyone battle binding",
+    "name_zh_cn": "我为人人战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0028"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.2bd982210de37d7b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=28;ID=3106113;Season=EarlyAccess",
+        "sha256": "2bd982210de37d7bb0cfa2be08b74e1529fbb8e0b41fd13b723c5386754fe4b3",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106113",
+    "binding_key": "StageAbility_VS_Accessory_Tag_003",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Tag_003"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Tag_003_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "171e1adf0324ca643c87ace29773cb4037e6a8ccfda955fb252cca18ccefdf14",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106121.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Lightning Storm Shackles battle binding",
+    "name_zh_cn": "飓霆拷链战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0029"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7ab39a76b97c4646",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=29;ID=3106121;Season=EarlyAccess",
+        "sha256": "7ab39a76b97c4646140ee2a53e71f238d678a12659a4a3ea753b99742e508884",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106121",
+    "binding_key": "StageAbility_VS_Accessory_Element_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Element_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Element_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "f06733b7179ee38043bab651cf55d38cde8c8c5ba3f4a73f834294420e9961a8",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106122.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Icefire Talisman battle binding",
+    "name_zh_cn": "冰火令符战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0030"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.864b994115ebcb3c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=30;ID=3106122;Season=EarlyAccess",
+        "sha256": "864b994115ebcb3c379a69b57cee4daf23623c313e1463a829455bc2c0d070ae",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106122",
+    "binding_key": "StageAbility_VS_Accessory_Element_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Element_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Element_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "938baa212c3812089c57b819e4332fb84420a979e1dfafed5b37b656fd1cc576",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106123.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Daring Wager battle binding",
+    "name_zh_cn": "孤注一掷战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0031"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.fbe659afa9e7bfbe",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=31;ID=3106123;Season=EarlyAccess",
+        "sha256": "fbe659afa9e7bfbee9ab111b2ed762979080554d5eaf2eea00ae104f4513c6c9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106123",
+    "binding_key": "StageAbility_VS_Accessory_Element_003",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Element_003"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Element_003_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "05ff9abcea89ef8162926e1803b68c9c724a81be7fc6187ad9484d49730eebd1",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106124.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Disco Baseball battle binding",
+    "name_zh_cn": "迪斯科棒球战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0032"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.14101c763c0969da",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=32;ID=3106124;Season=EarlyAccess",
+        "sha256": "14101c763c0969da44ede898560d29769f3f9ec51a5a37d34f40c6446aa01fc4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106124",
+    "binding_key": "StageAbility_VS_Accessory_Element_004",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Element_004"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Element_004_ADAR_Modifier",
+      "StageAbility_VS_Accessory_Element_004_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenAfterBeingHitAll",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByCompareDynamicValue",
+      "RPG.GameCore.ByIsContainModifier",
+      "RPG.GameCore.ByIsDamageType",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByModifierValue",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "c84875b842792e196ed66fed83baddb89269134b652ffa0d220aace2a39a63e0",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106131.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Heart of Eternity battle binding",
+    "name_zh_cn": "永恒之心战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0033"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.1ba3e3f83a079248",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=33;ID=3106131;Season=EarlyAccess",
+        "sha256": "1ba3e3f83a079248a777900a080f899c650d39dab1a575a215414e5d311a6dc8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106131",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Attribute_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Attribute_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnEvolveBuildExpStepUp",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.HealHP",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifySPNew",
+      "RPG.GameCore.ModifyTeamBoostPoint",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.SetDynamicValueByProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "c9a7ed9fb7dda2c1b37c40d5b5a239f4f42b9152007664df0d5aa8c83cbf3ba9",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106132.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Shards of the Crown battle binding",
+    "name_zh_cn": "冠冕碎晶战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0034"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.42411e1034a73d58",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=34;ID=3106132;Season=EarlyAccess",
+        "sha256": "42411e1034a73d5815e49b66f2632c62704b021dbeca2f45879f837c375bb864",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106132",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Attribute_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Attribute_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "87077604795334a73f63e25abd3d792923f4fd3d625507b8ecba4caa8a96e40e",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106133.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Fire-Treading Cryoflare battle binding",
+    "name_zh_cn": "踏火冰焰战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0035"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9f6343d1e2339f40",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=35;ID=3106133;Season=EarlyAccess",
+        "sha256": "9f6343d1e2339f4039dcb6c36820fbfdf4b2086169bda4dde0929190414c9b38",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106133",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_003",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Attribute_003"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Attribute_003_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "306d4242fc4c4ea2d8b41903841d3c88e8c72409c1ad24ef7b09876f089c7561",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106134.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Greed of the Sublime battle binding",
+    "name_zh_cn": "崇高者的野望战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0036"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.cf2ae4d6c1c7a6e9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=36;ID=3106134;Season=EarlyAccess",
+        "sha256": "cf2ae4d6c1c7a6e9092d57ddbbf4c7b6d34b61b3175fde52c0db96c26f3f4220",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106134",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_004",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Attribute_004"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Attribute_004_Count_Modifier",
+      "StageAbility_VS_Accessory_Attribute_004_Enhance_Modifier",
+      "StageAbility_VS_Accessory_Attribute_004_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnAfterHitAll",
+      "OnBeforeHitAll",
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByCompareDynamicValue",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.RemoveSelfModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "5425a6e9de363e27f8b0aa5d2069a87b05390a81c73c679150f1aa703f9bf237",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106135.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Golden Rose battle binding",
+    "name_zh_cn": "黄金玫瑰战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0037"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ba6bbc5cde695be8",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=37;ID=3106135;Season=EarlyAccess",
+        "sha256": "ba6bbc5cde695be8d68ea49f1120af5381f7a561c15c142e0c5857dd42ca4ad9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106135",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_005",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Attribute_005"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Attribute_005_LE_Modifier",
+      "StageAbility_VS_Accessory_Attribute_005_PLY_Modifier"
+    ],
+    "trigger_events": [
+      "OnListenCharacterCreate",
+      "OnPhase2",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByRandomChance",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.ModifyActionDelay",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.Retarget",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "5e13bf70d1a9a86d0d8295ff5ff05d6c581783e65445b033e854ec3562a38c70",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106136.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Tireless battle binding",
+    "name_zh_cn": "不知疲倦战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0038"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d392af07f4f7e4fd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=38;ID=3106136;Season=EarlyAccess",
+        "sha256": "d392af07f4f7e4fd83007f79dfc2dfe081ffcf6828790998cdddc5f2c509f2c9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106136",
+    "binding_key": "StageAbility_VS_Accessory_Tag_004",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Tag_004"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Tag_004_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.SetDynamicValueByAddValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "ed736e4c084ac770926fa84219220ea1c43e7b3aee1a17ec054f6d3049a852bb",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106141.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Duelist's Fist battle binding",
+    "name_zh_cn": "擂者之拳战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0039"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.c2221b548913941c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=39;ID=3106141;Season=EarlyAccess",
+        "sha256": "c2221b548913941c77402532c83a7094f7a96afc2b4d930af7d950525be20c68",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106141",
+    "binding_key": "StageAbility_VS_Accessory_Special_001",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Special_001"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Special_001_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ModifyEvolveBuildProperty",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "00a05e5a804eb84a781570f876551918ad857b613d72324cb6233595de4987c0",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106142.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Reward of Diligence battle binding",
+    "name_zh_cn": "勤勉的嘉奖战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0040"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.71a07f0db3832cfb",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=40;ID=3106142;Season=EarlyAccess",
+        "sha256": "71a07f0db3832cfbae9f2292d1d62e898af86cb3d4421bb98bfe0857aa5ed916",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106142",
+    "binding_key": "StageAbility_VS_Accessory_Special_002",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Special_002"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Special_002_LE_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ModifyEvolveBuildProperty",
+      "RPG.GameCore.SetDynamicValue",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "63cf442094f305a3d9babf640789487adc95b9b3c4a5cc34f90447fcd0fa832d",
+    "runtime_executable": false
+  },
+  {
+    "id": "galactic-baseballer.departure.accessory.3106143.binding",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "AccessoryBinding",
+    "name_en": "Overdosing Prescription battle binding",
+    "name_zh_cn": "超剂量处方战斗绑定",
+    "summary_en": "Structural summary of the released accessory program without copying the source program.",
+    "summary_zh_cn": "已发布配饰程序的结构摘要，不复制源程序。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildGearCollection:0041"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ece8ecd5eb47fd7c",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildGearCollection.json",
+        "locator": "row=41;ID=3106143;Season=EarlyAccess",
+        "sha256": "ece8ecd5eb47fd7c162b86ad0f3f32c1396f21836a03590ba59a16109218372e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released accessory identity and collection metadata"
+      },
+      {
+        "source_id": "source.goal16.53a2dc97e7e82b11",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_02_Accessory.json",
+        "locator": "whole-file",
+        "sha256": "53a2dc97e7e82b11e5b19132335f778ab1f70e1751e03db759304730552c988b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; normalized row retains only mechanical identifiers and structural sets"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "binding",
+      "departure"
+    ],
+    "parent_id": "galactic-baseballer.departure.accessory.3106143",
+    "binding_key": "StageAbility_VS_Accessory_Attribute_006",
+    "ability_names": [
+      "StageAbility_VS_Accessory_Attribute_006"
+    ],
+    "modifier_names": [
+      "StageAbility_VS_Accessory_Attribute_006_LE_Modifier",
+      "StageAbility_VS_Accessory_Attribute_006_PLYAndBOSS_Modifier"
+    ],
+    "trigger_events": [
+      "OnDestroy",
+      "OnListenBattleEventCreate",
+      "OnListenCharacterCreate",
+      "OnStack"
+    ],
+    "operation_types": [
+      "RPG.GameCore.AddModifier",
+      "RPG.GameCore.ByAnd",
+      "RPG.GameCore.ByCompareBattleEventID",
+      "RPG.GameCore.ByTargetTeam",
+      "RPG.GameCore.IncludeTaskListTemplate",
+      "RPG.GameCore.PredicateTaskList",
+      "RPG.GameCore.RemoveModifier",
+      "RPG.GameCore.StackProperty",
+      "RPG.GameCore.TargetAlias"
+    ],
+    "program_fragment_sha256": "e7b4a8c0f0609c106265b849ba4d07f6b0698eb2753fda39ec69ef5f3f618f83",
+    "runtime_executable": false
+  }
+]
