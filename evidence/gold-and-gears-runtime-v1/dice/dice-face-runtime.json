@@ -1,0 +1,107 @@
+{
+  "schema_revision": "starclock.gold-and-gears-dice-face-runtime.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P3-B3",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "dice_faces": 80,
+    "private_effect_ids": 98,
+    "mechanical_code_references": 112,
+    "canonical_parameters": 78,
+    "filter_tags": 10
+  },
+  "activation": {
+    "revision": "gold-and-gears-dice-face-policy-v1",
+    "immediate_faces": 53,
+    "after_movement_faces": 13,
+    "next_battle_faces": 14,
+    "global_or_event_derived_faces": 45,
+    "caller_explicit_faces": 22,
+    "spawn_random_faces": 13,
+    "selected_default_face_union": 40,
+    "rolled_face_precondition": true,
+    "exact_effect_id_contributions": true,
+    "typed_mechanical_code_contributions": true,
+    "typed_activation_stage_contributions": true,
+    "stable_target_contributions": true
+  },
+  "target_policy": {
+    "policy_id": "dice-face-target-resolution-v1",
+    "selector_validation": "released-selector-exact",
+    "candidate_order": "stable-node-or-content-id-ascending",
+    "operation_order": "authored-effect-order",
+    "equal_priority_order": "target-stable-id-ascending",
+    "random_rng_label": "Spawn",
+    "random_purpose": "0x4753",
+    "fail_closed_faces": 77,
+    "no_effect_faces": 3,
+    "no_effect_sources": ["2058", "2070", "2071"],
+    "empty_random_candidates_draws": 0,
+    "duplicate_candidates_rejected": true,
+    "explicit_target_must_be_eligible": true
+  },
+  "filter_tag_policy": {
+    "policy_id": "dice-face-filter-tag-code-map-v1",
+    "evidence_quality": "ProjectPolicy",
+    "mechanical_codes": [
+      "ActionPoint",
+      "BlockChange",
+      "Buff",
+      "BuffProMax",
+      "Coin",
+      "Mark",
+      "Miracle",
+      "Move",
+      "Replicate",
+      "SpecialType"
+    ],
+    "numeric_tag_join_is_exact_one_to_one": true,
+    "unknown_codes_fail_catalog_load": true
+  },
+  "ownership": {
+    "map_and_knowledge_contribution_consumers": "G14-P3-B4",
+    "content_contribution_consumers": "G14-P4-B4/G14-P4-B5",
+    "battle_contribution_consumer": "G14-P6",
+    "contributions_use_activity_deferred_effects_slot": true,
+    "no_second_state_machine": true,
+    "runtime_json_file_reads": 0
+  },
+  "policies": {
+    "G14-R04": "VersionedExecutablePolicy",
+    "G14-R05": "VersionedExecutablePolicy",
+    "G14-R06": "InheritedPolicyUntilP3-B4KnowledgeTargetExecution"
+  },
+  "validation": {
+    "all_eighty_source_ids_classified": true,
+    "all_parameters_parse_to_millionths": true,
+    "all_private_effect_ids_are_nonzero": true,
+    "all_mechanical_codes_resolve_exact_tags": true,
+    "all_target_policy_fields_match": true,
+    "unrolled_activation_rejects_before_rng": true,
+    "invalid_explicit_target_rejects_before_rng": true,
+    "global_activation_consumes_no_rng": true,
+    "authored_empty_content_no_effect_executes": true
+  },
+  "tests": {
+    "focused_dice_face_tests_passed": 4,
+    "entry_suite_passed": 33,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "cold_quick_attempt": "BudgetExceededAfterBuilding53SelectedHarnesses",
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "119.4",
+    "quick_selected_harnesses": 53,
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::dice_face_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/goal14/verify-phase3-b3.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}

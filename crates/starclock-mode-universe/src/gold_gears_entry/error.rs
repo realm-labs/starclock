@@ -24,6 +24,10 @@ pub enum GoldAndGearsEntryError {
     NoDiceCheats,
     InvalidDicePlane,
     InvalidDicePassiveEvent,
+    InvalidDiceFaceRuntime,
+    DiceFaceNotRolled,
+    InvalidDiceFaceTarget,
+    NoLegalDiceFaceTarget,
     UnknownNeuralNode(Box<str>),
     DuplicateNeuralNode(Box<str>),
     MissingNeuralPrerequisite {

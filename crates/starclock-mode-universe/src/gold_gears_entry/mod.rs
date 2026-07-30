@@ -2,6 +2,7 @@
 
 mod api;
 mod cognition;
+mod dice_face;
 mod dice_loadout;
 mod dice_passive;
 mod dice_resolution;
@@ -18,6 +19,7 @@ pub use api::{
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
 };
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
+pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
 pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
 pub use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
 pub use dice_resolution::GOLD_AND_GEARS_DICE_RUNTIME_REVISION;
@@ -29,6 +31,8 @@ const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
 #[cfg(test)]
 mod cognition_tests;
+#[cfg(test)]
+mod dice_face_tests;
 #[cfg(test)]
 mod dice_loadout_tests;
 #[cfg(test)]

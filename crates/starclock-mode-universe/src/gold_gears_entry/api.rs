@@ -11,6 +11,7 @@ use starclock_activity::{
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     cognition::CognitionRuntimeCatalog,
+    dice_face::{DiceFaceRuntimeCatalog, RuntimeDiceFace},
     dice_loadout::DiceLoadoutRuntimeCatalog,
     dice_passive::{
         GoldAndGearsDicePassiveEvent, allows_same_domain_movement, compile_passive,
@@ -172,6 +173,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) transitions: Arc<PlaneTransitionRuntimeCatalog>,
     pub(super) dice_loadouts: Arc<DiceLoadoutRuntimeCatalog>,
     pub(super) dice_runtime: Arc<DiceRuntimeCatalog>,
+    pub(super) dice_faces: Arc<DiceFaceRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -200,6 +202,7 @@ impl GoldAndGearsRuntimeFactory {
         let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
         let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
         let dice_runtime = DiceRuntimeCatalog::compile(&unique)?;
+        let dice_faces = DiceFaceRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -208,6 +211,7 @@ impl GoldAndGearsRuntimeFactory {
             transitions: Arc::new(transitions),
             dice_loadouts: Arc::new(dice_loadouts),
             dice_runtime: Arc::new(dice_runtime),
+            dice_faces: Arc::new(dice_faces),
         })
     }
 
@@ -254,6 +258,7 @@ impl GoldAndGearsRuntimeFactory {
             &path.identity.stable_key,
             &neural,
         )?;
+        let dice_face_runtime = self.dice_faces.select(&loadout.faces)?;
         let completed_areas =
             canonical_completed_areas(&self.structural, &entry.completed_formal_areas)?;
         validate_conundrum(
@@ -317,6 +322,7 @@ impl GoldAndGearsRuntimeFactory {
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
             dice_runtime,
+            dice_face_runtime,
             participants: Arc::new(entry.participants),
             neural_network: neural
                 .iter()
@@ -389,6 +395,7 @@ pub struct GoldAndGearsRuntimeInstance {
     recommended_dice_faces: Box<[Box<str>]>,
     dice_face_ids: Box<[(Box<str>, u32)]>,
     dice_runtime: CompiledDiceRuntime,
+    dice_face_runtime: Box<[RuntimeDiceFace]>,
     participants: Arc<ParticipantLock>,
     neural_network: Box<[Box<str>]>,
     stats_conundrum: u8,
@@ -457,6 +464,68 @@ impl GoldAndGearsRuntimeInstance {
     /// Returns the authored recommended pool filtered to legal unlocked faces.
     pub fn recommended_dice_faces(&self) -> impl ExactSizeIterator<Item = &str> {
         self.recommended_dice_faces.iter().map(Box::as_ref)
+    }
+
+    /// Returns the activation boundary (1 immediate, 2 after movement,
+    /// 3 next battle) for a selected loadout face.
+    #[must_use]
+    pub fn dice_face_activation_stage(&self, face: &str) -> Option<u8> {
+        self.face_runtime(face)
+            .map(RuntimeDiceFace::activation_stage)
+    }
+
+    /// Returns the executable target contract for a selected loadout face.
+    #[must_use]
+    pub fn dice_face_target_contract(&self, face: &str) -> Option<&'static str> {
+        self.face_runtime(face)
+            .map(RuntimeDiceFace::target_contract)
+    }
+
+    /// Returns the exact selector policy for a selected loadout face.
+    #[must_use]
+    pub fn dice_face_selector(&self, face: &str) -> Option<&'static str> {
+        self.face_runtime(face).map(RuntimeDiceFace::selector_name)
+    }
+
+    /// Returns the maximum number of Spawn-selected targets, when random.
+    #[must_use]
+    pub fn dice_face_random_target_maximum(&self, face: &str) -> Option<u8> {
+        self.face_runtime(face)
+            .and_then(RuntimeDiceFace::random_target_maximum)
+    }
+
+    /// Returns exact face parameters in signed millionths.
+    pub fn dice_face_parameters_scaled(
+        &self,
+        face: &str,
+    ) -> Option<impl ExactSizeIterator<Item = i64> + '_> {
+        self.face_runtime(face)
+            .map(|runtime| runtime.parameters_scaled().iter().copied())
+    }
+
+    /// Returns exact private effect identities lowered as non-zero integers.
+    pub fn dice_face_effect_ids(
+        &self,
+        face: &str,
+    ) -> Option<impl ExactSizeIterator<Item = u64> + '_> {
+        self.face_runtime(face)
+            .map(|runtime| runtime.effect_ids().iter().copied())
+    }
+
+    /// Returns typed mechanical codes after validating the numeric tag join.
+    pub fn dice_face_mechanical_codes(
+        &self,
+        face: &str,
+    ) -> Option<impl ExactSizeIterator<Item = &'static str> + '_> {
+        self.face_runtime(face)
+            .map(RuntimeDiceFace::mechanical_codes)
+    }
+
+    /// Returns the explicit empty-candidate disposition.
+    #[must_use]
+    pub fn dice_face_no_target_behavior(&self, face: &str) -> Option<&'static str> {
+        self.face_runtime(face)
+            .map(RuntimeDiceFace::no_target_behavior)
     }
 
     /// Returns exact private effect IDs attached to the selected dice's
@@ -592,6 +661,43 @@ impl GoldAndGearsRuntimeInstance {
         compile_cheat(state, &self.dice_face_ids, selected_face)
     }
 
+    /// Activates the currently resolved face through its validated selector.
+    ///
+    /// Explicit selectors require one eligible target. Random selectors derive
+    /// canonical candidates from the current board overlay and use only Spawn.
+    /// Global/event-derived faces reject an explicit node.
+    pub fn compile_dice_face_activation(
+        &self,
+        state: &ActivityTransactionState,
+        explicit_target: Option<NodeId>,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        let face = self
+            .dice_resolution_face(state)
+            .ok_or(GoldAndGearsEntryError::DiceFaceNotRolled)?;
+        let runtime = self
+            .face_runtime(face)
+            .ok_or(GoldAndGearsEntryError::DiceFaceNotRolled)?;
+        let candidates =
+            self.map
+                .dice_face_candidates(state, &self.graph, runtime.selector_name())?;
+        runtime.compile_activation(state, &candidates, explicit_target, rng)
+    }
+
+    /// Commits the authored no-effect result for a rolled face whose required
+    /// Curio/Negative-Curio pool is empty. Other faces fail closed.
+    pub fn compile_dice_face_empty_content(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        let face = self
+            .dice_resolution_face(state)
+            .ok_or(GoldAndGearsEntryError::DiceFaceNotRolled)?;
+        self.face_runtime(face)
+            .ok_or(GoldAndGearsEntryError::DiceFaceNotRolled)?
+            .compile_empty_content(state)
+    }
+
     #[must_use]
     pub fn dice_resolution_face<'a>(&'a self, state: &ActivityTransactionState) -> Option<&'a str> {
         resolution_face(state, &self.dice_face_ids)
@@ -600,6 +706,13 @@ impl GoldAndGearsRuntimeInstance {
     #[must_use]
     pub fn dice_resolution_kind(&self, state: &ActivityTransactionState) -> Option<u8> {
         resolution_kind(state)
+    }
+
+    fn face_runtime(&self, face: &str) -> Option<&RuntimeDiceFace> {
+        self.dice_face_ids
+            .iter()
+            .position(|(key, _)| key.as_ref() == face)
+            .and_then(|index| self.dice_face_runtime.get(index))
     }
 
     #[must_use]

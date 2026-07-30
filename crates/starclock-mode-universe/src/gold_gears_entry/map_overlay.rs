@@ -1,8 +1,9 @@
 //! Typed chessboard overlays and deterministic map-program compilation.
 
 use starclock_activity::{
-    ActivityExpression, ActivityOperation, ActivityProgramDefinition, ActivityProgramId,
-    ActivityRngLabel, ActivityRngStreams, ActivitySlotId, ActivityValue, NodeId,
+    ActivityExpression, ActivityGraphDefinition, ActivityOperation, ActivityProgramDefinition,
+    ActivityProgramId, ActivityRngLabel, ActivityRngStreams, ActivitySlotId,
+    ActivityTransactionState, ActivityValue, NodeId,
 };
 
 use crate::{
@@ -276,6 +277,117 @@ impl MapRuntimeCatalog {
             .ok_or_else(|| GoldAndGearsEntryError::UnknownDomain(key.into()))
     }
 
+    pub(super) fn dice_face_candidates(
+        &self,
+        state: &ActivityTransactionState,
+        graph: &ActivityGraphDefinition,
+        selector: &str,
+    ) -> Result<Box<[NodeId]>, GoldAndGearsEntryError> {
+        if selector == "event-derived" {
+            return Ok(Box::new([]));
+        }
+        let combat = self.domain("gold-gears.domain.monsternormal")?;
+        let elite = self.domain("gold-gears.domain.monsterelite")?;
+        let boss = self.domain("gold-gears.domain.monsterboss")?;
+        let nous_boss = self.domain("gold-gears.domain.monsternousboss")?;
+        let adventure = self.domain("gold-gears.domain.adventure")?;
+        let reward = self.domain("gold-gears.domain.reward")?;
+        let occurrence = self.domain("gold-gears.domain.event")?;
+        let blank = self.domain("gold-gears.domain.empty")?;
+        let domains = map_values(state, BOARD_NODE_DOMAIN_SLOT);
+        let beacons = map_values(state, BOARD_NODE_BEACON_SLOT);
+        let knowledge = map_values(state, super::state_layout::KNOWLEDGE_SLOT);
+        let node_states = map_values(state, BOARD_NODE_STATE_SLOT);
+        let adjacent = graph
+            .edges()
+            .iter()
+            .filter_map(|edge| {
+                if edge.from() == state.current_node() {
+                    Some(edge.to())
+                } else if edge.to() == state.current_node() {
+                    Some(edge.from())
+                } else {
+                    None
+                }
+            })
+            .collect::<Vec<_>>();
+        domains
+            .iter()
+            .filter(|(raw, domain)| {
+                let active = node_states
+                    .binary_search_by_key(raw, |(key, _)| *key)
+                    .ok()
+                    .is_some_and(|index| node_states[index].1 != NODE_STATE_BLANKED);
+                if !active {
+                    return false;
+                }
+                let beaconed = beacons
+                    .binary_search_by_key(raw, |(key, _)| *key)
+                    .ok()
+                    .is_some_and(|index| beacons[index].1 != 0);
+                let known = knowledge
+                    .binary_search_by_key(raw, |(key, _)| *key)
+                    .ok()
+                    .is_some_and(|index| knowledge[index].1 != 0);
+                match selector {
+                    "any-domain" => true,
+                    "non-boss-domain" => {
+                        *domain != i64::from(boss) && *domain != i64::from(nous_boss)
+                    }
+                    "combat-domain" => *domain == i64::from(combat),
+                    "combat-or-elite-domain" => {
+                        *domain == i64::from(combat) || *domain == i64::from(elite)
+                    }
+                    "combat-elite-occurrence-or-reward-domain" => {
+                        [combat, elite, occurrence, reward]
+                            .contains(&u32::try_from(*domain).unwrap_or(0))
+                    }
+                    "combat-domain-with-beacon" => *domain == i64::from(combat) && beaconed,
+                    "elite-or-adventure-domain" => {
+                        *domain == i64::from(elite) || *domain == i64::from(adventure)
+                    }
+                    "elite-or-reward-domain" => {
+                        *domain == i64::from(elite) || *domain == i64::from(reward)
+                    }
+                    "elite-adventure-or-reward-domain" => {
+                        [elite, adventure, reward].contains(&u32::try_from(*domain).unwrap_or(0))
+                    }
+                    "occurrence-or-reward-domain" => {
+                        *domain == i64::from(occurrence) || *domain == i64::from(reward)
+                    }
+                    "reward-or-adventure-domain" => {
+                        *domain == i64::from(reward) || *domain == i64::from(adventure)
+                    }
+                    "knowledge-domain" => known,
+                    "domain-without-knowledge" => !known,
+                    "adjacent-current-domain" => u32::try_from(*raw)
+                        .ok()
+                        .and_then(NodeId::new)
+                        .is_some_and(|node| adjacent.contains(&node)),
+                    "about-to-collapse-domain" => knowledge
+                        .binary_search_by_key(raw, |(key, _)| *key)
+                        .ok()
+                        .is_some_and(|index| knowledge[index].1 == 1),
+                    "knowledge-nonblank-nonboss-domain" => {
+                        known
+                            && *domain != i64::from(blank)
+                            && *domain != i64::from(boss)
+                            && *domain != i64::from(nous_boss)
+                    }
+                    "beacon-domain" => beaconed,
+                    _ => false,
+                }
+            })
+            .map(|(raw, _)| {
+                u32::try_from(*raw)
+                    .ok()
+                    .and_then(NodeId::new)
+                    .ok_or(GoldAndGearsEntryError::InvalidDiceFaceRuntime)
+            })
+            .collect::<Result<Vec<_>, _>>()
+            .map(Vec::into_boxed_slice)
+    }
+
     fn beacon(&self, key: Option<&str>) -> Result<u32, GoldAndGearsEntryError> {
         key.map_or(Ok(0), |key| {
             self.beacons
@@ -284,6 +396,13 @@ impl MapRuntimeCatalog {
                 .map(|(_, id)| *id)
                 .ok_or_else(|| GoldAndGearsEntryError::UnknownBeacon(key.into()))
         })
+    }
+}
+
+fn map_values(state: &ActivityTransactionState, slot_id: u32) -> &[(u64, i64)] {
+    match state.slot(slot(slot_id)) {
+        Some(ActivityValue::BoundedCounterMap(values)) => values,
+        _ => &[],
     }
 }
 

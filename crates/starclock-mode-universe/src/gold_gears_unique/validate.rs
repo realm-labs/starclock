@@ -347,6 +347,7 @@ fn validate_dice(catalog: &GoldAndGearsUniqueCatalog) -> Result<(), GoldAndGears
             || !unique(&face.allowed_slot_keys)
             || !unique(&face.allowed_dice_keys)
             || !unique(&face.mechanical_codes)
+            || !unique(&face.effect_ids)
             || !unique(&face.filter_tag_sources)
         {
             return fail(
