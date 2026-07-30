@@ -43,6 +43,7 @@ pub mod gold_gears_catalog;
 pub mod gold_gears_components;
 pub mod gold_gears_handler_bundle;
 pub mod gold_gears_identity;
+mod gold_gears_structural;
 pub mod handler_bundle;
 pub mod hunt_runtime;
 pub mod id;

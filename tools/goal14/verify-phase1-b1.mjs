@@ -100,9 +100,9 @@ for (const protectedRoot of [
 const status = text("docs/goals/14-gold-and-gears-runtime-status.md");
 assert(status.includes("| `G14-P1-B1` | `Complete` |"),
   "G14-P1-B1 is incomplete");
-assert(status.includes("| Active batch | None |")
-  && status.includes("| Next unblocked batch | `G14-P1-B2` |"),
-"Goal 14 did not advance to G14-P1-B2");
+assert(!status.includes("| Active batch | `G14-P1-B1` |")
+  && !status.includes("| Next unblocked batch | `G14-P1-B1` |"),
+"Goal 14 regressed to G14-P1-B1");
 
 console.log(
   "Goal 14 P1-B1 verified (52 private Sora tables; 29,140 rows; " +

@@ -1,6 +1,5 @@
 use starclock_activity::{ActivityHandlerRegistry, core_activity_handler_bundle};
 use starclock_mode_universe::{
-    gold_gears_catalog::validate_gold_and_gears_bundle,
     gold_gears_components::gold_and_gears_component_set,
     gold_gears_handler_bundle::{
         GOLD_AND_GEARS_HANDLER_BUNDLE_ID, gold_and_gears_activity_handler_bundle,
@@ -13,9 +12,7 @@ use starclock_replay::component::ConfigurationComponentKind;
 const BUNDLE: &[u8] = include_bytes!("../../../config/gold-and-gears-generated/config.sora");
 
 fn identity() -> GoldAndGearsCatalogIdentity {
-    GoldAndGearsCatalogIdentity::from_validated_bundle(
-        validate_gold_and_gears_bundle(BUNDLE).unwrap(),
-    )
+    GoldAndGearsCatalogIdentity::load(BUNDLE).unwrap()
 }
 
 #[test]

@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Bundle and catalogs |
 | Active batch | None |
-| Next unblocked batch | `G14-P1-B3` |
+| Next unblocked batch | `G14-P1-B4` |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
@@ -45,7 +45,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G14-P0-B4` | `Complete` | This batch commit | `node tools/goal14/generate-coverage-matrix.mjs --check`; `node tools/goal14/verify-phase0.mjs`; quick gate passed; `node tools/repository-check/run.mjs --full` passed in 282.7s with 136 workspace test harnesses and 4 source-cache-only checks skipped; 25 valid runs cover 5 difficulties, 9 Paths, 12 dice, both Conundrum tracks 0–6 and 6+6; 16 policy probes, 7 workloads, 3 native + 3 compile-only profiles and 13 release gates frozen. |
 | `G14-P1-B1` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --test gold_gears_bundle --all-features`; `cargo test -p starclock-mode-universe --lib gold_gears_catalog --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase1-b1.mjs`; quick gate passed; exact Candidate digest, schema fingerprint, 52/52 tables and 29,140 rows validated through a private generated reader; 2 integration + 3 unit tests cover six stable rejection families; 0 generated public types. |
 | `G14-P1-B2` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --test gold_gears_identity --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase1-b2.mjs`; quick gate passed; 10 canonically ordered components compose Gold content, shared content, core catalogs, registries, overlay and caller controller; 2 immutable Activity bundles and 0 admitted handlers; 4 digest goldens; Standard handler/component composer blobs remain unchanged from Goal start. |
-| `G14-P1-B3` | `Pending` | None | Lower profile and topology catalogs. |
+| `G14-P1-B3` | `Complete` | This batch commit | `cargo test -p starclock-mode-universe --lib gold_gears_structural --all-features`; `cargo test -p starclock-mode-universe --test gold_gears_identity --all-features`; `cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings`; `node tools/goal14/verify-phase1-b3.mjs`; quick gate passed; 12 private tables / 8,621 rows lowered to typed immutable definitions; 115 static graph supersets validate 1,313 columns, 2,502 exact-once nodes, 3,407 next-column edges, start-to-terminal reachability and 12-domain closure; `G14-R02` remains accurately `InheritedPolicy`. |
 | `G14-P1-B4` | `Pending` | None | Lower unique mechanic/progression catalogs. |
 | `G14-P1-B5` | `Pending` | None | Lower content, encounter, rule and cross-catalog references. |
 | `G14-P2-B1` | `Pending` | None | Compile run entry and selected inputs. |
@@ -135,6 +135,7 @@ without a documented data revision and compatibility decision.
 | 2026-07-30 | Give Gold and Gears a distinct 10-component set and replay entry while leaving the released Standard component set and replay bytes unchanged. | Compatibility is based on consumed components, not on a whole multi-mode bundle or central mode registry. |
 | 2026-07-30 | Freeze 25 valid seeded complete runs instead of a Cartesian matrix. | Twelve baseline runs cover all difficulty/Path/dice axes; twelve single-track and one combined-cap Difficulty 5 runs cover legal Conundrum boundaries with explicit prior-clear evidence. |
 | 2026-07-30 | Bind every inherited policy to one matrix probe and one or more exact owner batches. | A policy cannot disappear between reference evidence and runtime release, and pending ownership cannot be mistaken for a terminal disposition. |
+| 2026-07-30 | Validate the 3,407 derived topology edges as a static graph superset while retaining `G14-R02` as `InheritedPolicy`. | Catalog closure proves safe bounded inputs; runtime generation and mutation parity are owned by P2-B2/P2-B3. |
 
 ## Research and policy register
 

@@ -2,10 +2,13 @@
 
 use crate::{
     digest::Encoder,
-    gold_gears_catalog::GoldAndGearsBundleSummary,
+    gold_gears_catalog::{
+        GoldAndGearsBundleLoadError, GoldAndGearsBundleSummary, validate_gold_and_gears_bundle,
+    },
     gold_gears_handler_bundle::{
         GOLD_AND_GEARS_HANDLER_BUNDLE_REVISION, gold_and_gears_activity_handler_registry,
     },
+    gold_gears_structural::GoldAndGearsStructuralCatalog,
 };
 
 pub const GOLD_AND_GEARS_CATALOG_REVISION: &str = "gold-and-gears-v4.4-runtime-v1";
@@ -33,6 +36,15 @@ pub struct GoldAndGearsCatalogIdentity {
 }
 
 impl GoldAndGearsCatalogIdentity {
+    /// Loads and validates the exact bundle plus the complete structural graph.
+    pub fn load(bytes: &[u8]) -> Result<Self, GoldAndGearsBundleLoadError> {
+        let summary = validate_gold_and_gears_bundle(bytes)?;
+        let structural = GoldAndGearsStructuralCatalog::load(bytes)
+            .map_err(|_| GoldAndGearsBundleLoadError::TableClosure)?;
+        debug_assert_eq!(structural.bundle, summary);
+        Ok(Self::from_validated_bundle(summary))
+    }
+
     /// Composes identity only from a summary returned by exact bundle validation.
     #[must_use]
     pub fn from_validated_bundle(bundle: GoldAndGearsBundleSummary) -> Self {

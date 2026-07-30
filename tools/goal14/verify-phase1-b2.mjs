@@ -128,9 +128,9 @@ assert(evidence.components.gold_mode_content_components === 1
 const status = text("docs/goals/14-gold-and-gears-runtime-status.md");
 assert(status.includes("| `G14-P1-B2` | `Complete` |"),
   "G14-P1-B2 is incomplete");
-assert(status.includes("| Active batch | None |")
-  && status.includes("| Next unblocked batch | `G14-P1-B3` |"),
-"Goal 14 did not advance to G14-P1-B3");
+assert(!status.includes("| Active batch | `G14-P1-B2` |")
+  && !status.includes("| Next unblocked batch | `G14-P1-B2` |"),
+"Goal 14 regressed to G14-P1-B2");
 
 console.log(
   "Goal 14 P1-B2 verified (10 components; two immutable Activity bundles; " +

@@ -98,6 +98,12 @@ impl std::error::Error for GoldAndGearsBundleLoadError {}
 pub fn validate_gold_and_gears_bundle(
     bytes: &[u8],
 ) -> Result<GoldAndGearsBundleSummary, GoldAndGearsBundleLoadError> {
+    load_gold_and_gears_bundle(bytes).map(|(summary, _)| summary)
+}
+
+pub(crate) fn load_gold_and_gears_bundle(
+    bytes: &[u8],
+) -> Result<(GoldAndGearsBundleSummary, SoraConfig), GoldAndGearsBundleLoadError> {
     let digest = bundle_digest(bytes).bytes();
     if digest != EXPECTED_BUNDLE_DIGEST {
         return Err(GoldAndGearsBundleLoadError::BundleDigest);
@@ -126,7 +132,7 @@ pub fn validate_gold_and_gears_bundle(
         .get(&1)
         .ok_or(GoldAndGearsBundleLoadError::ManifestRevision)?;
     validate_manifest(manifest)?;
-    Ok(GoldAndGearsBundleSummary {
+    let summary = GoldAndGearsBundleSummary {
         bundle_digest: digest,
         table_count: loaded_tables.len(),
         row_count,
@@ -138,7 +144,8 @@ pub fn validate_gold_and_gears_bundle(
             .map_err(|_| GoldAndGearsBundleLoadError::RowDenominator)?,
         policy_boundaries: usize::try_from(manifest.research_gap_count)
             .map_err(|_| GoldAndGearsBundleLoadError::RowDenominator)?,
-    })
+    };
+    Ok((summary, config))
 }
 
 fn validate_schema_fingerprint(value: &str) -> Result<(), GoldAndGearsBundleLoadError> {
