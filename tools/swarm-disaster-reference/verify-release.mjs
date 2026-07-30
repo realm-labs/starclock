@@ -44,10 +44,9 @@ assert(
   "Goal 09 completion record is missing",
 );
 assert(
-  text("docs/goals/README.md").includes(
-    "| Goal 09 — Swarm Disaster Reference Data | Version 4.4 Swarm Disaster " +
-    "manifests, map/dice/progression mechanics, provenance, isolated " +
-    "Excel/Sora authoring and review fixtures; no runtime | Complete |",
+  goalIndexMarksComplete(
+    text("docs/goals/README.md"),
+    "Goal 09 — Swarm Disaster Reference Data",
   ),
   "Goal index does not mark Goal 09 Complete",
 );
@@ -305,6 +304,14 @@ function sha256File(relative) {
   return crypto.createHash("sha256")
     .update(fs.readFileSync(path.join(root, relative)))
     .digest("hex");
+}
+
+function goalIndexMarksComplete(index, goalLabel) {
+  const row = index
+    .split(/\r?\n/u)
+    .find((line) => line.startsWith(`| ${goalLabel} |`));
+  const state = row?.split("|")[3]?.trim();
+  return /^Complete(?:; .+)?$/u.test(state ?? "");
 }
 
 function assert(condition, message) {

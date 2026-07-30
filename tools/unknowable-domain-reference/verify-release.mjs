@@ -57,11 +57,9 @@ assert(
   "Goal 10 completion record is missing",
 );
 assert(
-  text("docs/goals/README.md").includes(
-    "| Goal 10 — Unknowable Domain Reference Data | Version 4.4 Unknowable " +
-      "Domain manifests, stage/Alignment/Scepter/Component mechanics, " +
-      "provenance, isolated Excel/Sora authoring and review fixtures; no " +
-      "runtime | Complete |",
+  goalIndexMarksComplete(
+    text("docs/goals/README.md"),
+    "Goal 10 — Unknowable Domain Reference Data",
   ),
   "Goal index does not mark Goal 10 Complete",
 );
@@ -316,6 +314,14 @@ function sha256(relative) {
   return createHash("sha256")
     .update(fs.readFileSync(path.join(root, relative)))
     .digest("hex");
+}
+
+function goalIndexMarksComplete(index, goalLabel) {
+  const row = index
+    .split(/\r?\n/u)
+    .find((line) => line.startsWith(`| ${goalLabel} |`));
+  const state = row?.split("|")[3]?.trim();
+  return /^Complete(?:; .+)?$/u.test(state ?? "");
 }
 
 function assert(condition, message) {

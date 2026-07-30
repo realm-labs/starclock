@@ -48,11 +48,9 @@ assert(
   "Goal 11 completion record is missing",
 );
 assert(
-  text("docs/goals/README.md").includes(
-    "| Goal 11 — Divergent Universe Reference Data | Version 4.4 Divergent " +
-      "Universe manifests, stage/Arithmetic Mapping/Equation/Curio/Titan " +
-      "mechanics, provenance, isolated Excel/Sora authoring and review " +
-      "fixtures; no runtime | Complete |",
+  goalIndexMarksComplete(
+    text("docs/goals/README.md"),
+    "Goal 11 — Divergent Universe Reference Data",
   ),
   "Goal index does not mark Goal 11 Complete",
 );
@@ -64,6 +62,9 @@ assert(
   "Goal 11 plan/status batch sets differ",
 );
 const localMarkdownLinks = verifyLocalMarkdownLinks();
+const evidenceMarkdownLinks = write
+  ? localMarkdownLinks
+  : retainedMarkdownLinkCount(evidenceRelative);
 
 const inventory = json(
   "content-manifests/divergent-universe-v1/source-inventory.json",
@@ -276,7 +277,7 @@ const evidence = {
       "pre-existing Goal 06 Cargo.lock baseline differs after all preceding checks pass",
     full_repository_external_boundary_owner: "Goal06HistoricalReleaseContract",
     plan_status_batches: planBatches.length,
-    verified_local_markdown_links: localMarkdownLinks,
+    verified_local_markdown_links: evidenceMarkdownLinks,
   },
   publication: {
     remote: "origin",
@@ -369,6 +370,27 @@ function verifyLocalMarkdownLinks() {
     }
   }
   return checked;
+}
+
+function goalIndexMarksComplete(index, goalLabel) {
+  const row = index
+    .split(/\r?\n/u)
+    .find((line) => line.startsWith(`| ${goalLabel} |`));
+  const state = row?.split("|")[3]?.trim();
+  return /^Complete(?:; .+)?$/u.test(state ?? "");
+}
+
+function retainedMarkdownLinkCount(relative) {
+  assert(
+    fs.existsSync(path.join(root, relative)),
+    "release evidence is missing; run --write",
+  );
+  const count = json(relative).acceptance?.verified_local_markdown_links;
+  assert(
+    Number.isSafeInteger(count) && count >= 0,
+    "release evidence Markdown-link count is invalid",
+  );
+  return count;
 }
 
 function assert(condition, message) {

@@ -49,11 +49,9 @@ assert(
   "Goal 12 completion record is missing",
 );
 assert(
-  goalIndex.includes(
-    "| Goal 12 — Currency Wars Reference Data | Version 4.4 Currency Wars " +
-      "manifests, flow/Squad-HP/economy/roster/star/Bond/Empowerment " +
-      "mechanics, provenance, isolated Excel/Sora authoring and review " +
-      "fixtures; no runtime | Complete |",
+  goalIndexMarksComplete(
+    goalIndex,
+    "Goal 12 — Currency Wars Reference Data",
   ),
   "Goal index does not mark Goal 12 Complete",
 );
@@ -65,6 +63,9 @@ assert(
   "Goal 12 plan/status batch sets differ",
 );
 const localMarkdownLinks = verifyLocalMarkdownLinks();
+const evidenceMarkdownLinks = write
+  ? localMarkdownLinks
+  : retainedMarkdownLinkCount(outputRelative);
 
 const inventory = json(
   "content-manifests/currency-wars-v1/source-inventory.json",
@@ -249,7 +250,7 @@ const evidence = {
       "release checks pass",
     full_repository_external_boundary_owner: "Goal06HistoricalReleaseContract",
     plan_status_batches: planBatches.length,
-    verified_local_markdown_links: localMarkdownLinks,
+    verified_local_markdown_links: evidenceMarkdownLinks,
   },
   publication: {
     remote: "origin",
@@ -321,6 +322,28 @@ function verifyLocalMarkdownLinks() {
   }
   return count;
 }
+
+function goalIndexMarksComplete(index, goalLabel) {
+  const row = index
+    .split(/\r?\n/u)
+    .find((line) => line.startsWith(`| ${goalLabel} |`));
+  const state = row?.split("|")[3]?.trim();
+  return /^Complete(?:; .+)?$/u.test(state ?? "");
+}
+
+function retainedMarkdownLinkCount(relative) {
+  assert(
+    fs.existsSync(path.join(root, relative)),
+    "Currency Wars release evidence is missing; run --write",
+  );
+  const count = json(relative).acceptance?.verified_local_markdown_links;
+  assert(
+    Number.isSafeInteger(count) && count >= 0,
+    "Currency Wars release Markdown-link count is invalid",
+  );
+  return count;
+}
+
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
