@@ -2,6 +2,8 @@
 
 mod api;
 mod cognition;
+mod conundrum_policy;
+mod conundrum_runtime;
 mod dice_face;
 mod dice_loadout;
 mod dice_passive;
@@ -23,6 +25,16 @@ pub use api::{
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
 };
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
+pub use conundrum_policy::{
+    GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
+    GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION,
+    GOLD_AND_GEARS_CONUNDRUM_POLICY_REVISION, GoldAndGearsBerserkPolicy,
+    GoldAndGearsEliteBossResponsePolicy, GoldAndGearsEnemyStatPolicy, GoldAndGearsEnemyStatTier,
+};
+pub use conundrum_runtime::{
+    GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION, GoldAndGearsConundrumContribution,
+    GoldAndGearsConundrumEffect, GoldAndGearsConundrumScope,
+};
 pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
 pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
 pub use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
@@ -44,6 +56,8 @@ const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
 #[cfg(test)]
 mod cognition_tests;
+#[cfg(test)]
+mod conundrum_runtime_tests;
 #[cfg(test)]
 mod dice_face_tests;
 #[cfg(test)]

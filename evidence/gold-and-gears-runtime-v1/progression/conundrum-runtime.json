@@ -1,0 +1,184 @@
+{
+  "schema_revision": "starclock.gold-and-gears-conundrum-runtime.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P4-B2",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "definitions": 12,
+    "stats_levels": 6,
+    "auxiliary_levels": 6,
+    "track_cap": 6,
+    "total_cap": 12,
+    "unlock_area": "gold-gears.area.405"
+  },
+  "composition": {
+    "stats_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "stats_active_counts_by_level": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      3
+    ],
+    "stats_replaced_levels": [
+      "gold-gears.conundrum-level.stats.1",
+      "gold-gears.conundrum-level.stats.2",
+      "gold-gears.conundrum-level.stats.4"
+    ],
+    "auxiliary_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "auxiliary_active_counts_by_level": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "combined_level_6_active_contributions": 9,
+    "independent_track_selection": true,
+    "source_tag_and_sort_validated": true
+  },
+  "activity_effects_at_auxiliary_6": {
+    "blessing_reset_cost_delta": 20,
+    "initial_countdown_delta": -1,
+    "initial_dice_reroll_delta": -1,
+    "initial_cosmic_fragment_delta": -100,
+    "initial_dice_rerolls": 0,
+    "initial_cosmic_fragments": 0,
+    "negative_curios_per_plane": 1,
+    "negative_curio_pool": "gold-gears.curio-pool.negative",
+    "effective_blessings_per_path_delta": -1,
+    "effective_blessings_minimum": 0
+  },
+  "battle_effects": {
+    "third_plane_formation_extrapolation_delta": 1,
+    "second_plane_phase_three_encounter_groups": 12,
+    "stats_6_active_effects": [
+      "EnhancedBerserk",
+      "EliteBossResponse",
+      "MassiveEnemyStat"
+    ],
+    "immutable_selected_6_6_digest": "8b25833e51a3e23d722c0168f36096cb030d8bea4e2cc691f12a409f99f183ea"
+  },
+  "policy": {
+    "register_id": "G14-R10",
+    "state": "VersionedExecutablePolicy",
+    "revision": "gold-and-gears-conundrum-numeric-policy-v1",
+    "source_policy": "conundrum-unreleased-numeric-bindings-v1",
+    "evidence_quality": "ProjectPolicy",
+    "accuracy": "DeterministicProjectPolicyNotObservedParity",
+    "rationale": "Use small round fixed-point values with strict qualitative monotonicity so every legal released entry remains executable without representing the values as observed parity.",
+    "alternatives_rejected": [
+      "retain-reachable-fail-closed-branch",
+      "bind-zero-and-erase-released-semantics",
+      "use-unbounded-or-nonmonotone-values"
+    ],
+    "replacement_condition": "Replace with pinned released engine values or reproducible Version 4.4 observations.",
+    "enemy_stat_tiers": {
+      "Slight": {
+        "attack_ratio_scaled": 100000,
+        "maximum_hp_ratio_scaled": 100000,
+        "speed_ratio_scaled": 25000
+      },
+      "Moderate": {
+        "attack_ratio_scaled": 200000,
+        "maximum_hp_ratio_scaled": 200000,
+        "speed_ratio_scaled": 50000
+      },
+      "Great": {
+        "attack_ratio_scaled": 300000,
+        "maximum_hp_ratio_scaled": 300000,
+        "speed_ratio_scaled": 75000
+      },
+      "Massive": {
+        "attack_ratio_scaled": 400000,
+        "maximum_hp_ratio_scaled": 400000,
+        "speed_ratio_scaled": 100000
+      }
+    },
+    "base_berserk": {
+      "trigger_cycle": 8,
+      "attack_ratio_per_stack_scaled": 100000,
+      "speed_ratio_per_stack_scaled": 50000,
+      "stack_interval_cycles": 1,
+      "stack_cap": 5
+    },
+    "enhanced_berserk": {
+      "trigger_cycle": 6,
+      "attack_ratio_per_stack_scaled": 150000,
+      "speed_ratio_per_stack_scaled": 75000,
+      "stack_interval_cycles": 1,
+      "stack_cap": 5
+    },
+    "elite_boss_response": {
+      "toughness_ratio_scaled": 100000,
+      "action_advance_ratio_scaled": 100000,
+      "trigger": "AfterEachReceivedAttackWhileBerserk"
+    }
+  },
+  "semantic_fixtures": {
+    "conundrum_stats": {
+      "production_values_asserted": true,
+      "composition_mode_asserted": true,
+      "numeric_accuracy": "ProjectPolicy"
+    },
+    "conundrum_auxiliary": {
+      "production_values_asserted": true,
+      "composition_mode_asserted": true,
+      "numeric_accuracy": "ExactStructuredOrPublicText"
+    },
+    "rule_partition_execution_owner": "G14-P5-M02/G14-P5-M03"
+  },
+  "validation": {
+    "all_twelve_definitions_decode_exactly": true,
+    "all_zero_through_six_track_boundaries_compile": true,
+    "stats_replacement_chain_validated": true,
+    "auxiliary_cumulative_chain_validated": true,
+    "combined_cap_compiles": true,
+    "all_unpublished_fields_have_versioned_values": true,
+    "policy_accuracy_is_not_observed_parity": true,
+    "ratios_are_signed_millionths": true,
+    "initial_resources_are_bounded": true,
+    "berserk_mode_is_typed_activity_state": true,
+    "battle_projection_is_immutable": true,
+    "runtime_json_file_reads": 0,
+    "protected_reference_roots_unchanged": true
+  },
+  "tests": {
+    "focused_conundrum_tests_passed": 6,
+    "entry_suite_passed": 56,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "cold_quick_attempt": "BudgetExceededAfterBuilding53SelectedHarnesses",
+    "cold_quick_build_seconds": "102.8",
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "115.1",
+    "quick_selected_harnesses": 53,
+    "quick_selected_execution_seconds": "99.7",
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3,
+    "final_quick_gate_seconds": "5.6",
+    "final_quick_rust_receipt": "CacheHit",
+    "discarded_full_attempts": [
+      "ForegroundOutputPipeClosedEpipe",
+      "ConcurrentTemporaryCacheEperm"
+    ],
+    "full_gate_passed": true,
+    "full_gate_seconds": "393.5",
+    "full_workspace_harnesses": 138
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::conundrum_runtime_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/goal14/verify-phase4-b2.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

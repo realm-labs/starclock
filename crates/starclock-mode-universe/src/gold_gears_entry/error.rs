@@ -47,6 +47,7 @@ pub enum GoldAndGearsEntryError {
     InvalidConundrumLevel,
     ConundrumDifficultyMismatch,
     MissingConundrumPrerequisite,
+    InvalidConundrumRuntime,
     UnknownTrailblazeBonus(Box<str>),
     LockedTrailblazeBonus(Box<str>),
     MissingCognitionRange,

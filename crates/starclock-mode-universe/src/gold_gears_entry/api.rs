@@ -11,6 +11,7 @@ use starclock_activity::{
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     cognition::CognitionRuntimeCatalog,
+    conundrum_runtime::{CompiledConundrumRuntime, ConundrumRuntimeCatalog},
     dice_face::{DiceFaceRuntimeCatalog, RuntimeDiceFace},
     dice_loadout::DiceLoadoutRuntimeCatalog,
     dice_passive::{
@@ -186,6 +187,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) dice_faces: Arc<DiceFaceRuntimeCatalog>,
     pub(super) knowledge: Arc<KnowledgeRuntimeCatalog>,
     pub(super) neural: Arc<NeuralRuntimeCatalog>,
+    pub(super) conundrum: Arc<ConundrumRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -217,6 +219,7 @@ impl GoldAndGearsRuntimeFactory {
         let dice_faces = DiceFaceRuntimeCatalog::compile(&unique)?;
         let knowledge = KnowledgeRuntimeCatalog::compile(&unique)?;
         let neural = NeuralRuntimeCatalog::compile(&unique)?;
+        let conundrum = ConundrumRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -228,6 +231,7 @@ impl GoldAndGearsRuntimeFactory {
             dice_faces: Arc::new(dice_faces),
             knowledge: Arc::new(knowledge),
             neural: Arc::new(neural),
+            conundrum: Arc::new(conundrum),
         })
     }
 
@@ -285,6 +289,9 @@ impl GoldAndGearsRuntimeFactory {
             entry.auxiliary_conundrum,
             &completed_areas,
         )?;
+        let conundrum_runtime = self
+            .conundrum
+            .select(entry.stats_conundrum, entry.auxiliary_conundrum)?;
         let trailblaze_bonus = entry
             .trailblaze_bonus
             .as_deref()
@@ -305,6 +312,10 @@ impl GoldAndGearsRuntimeFactory {
         }
         let (cognition_minimum, cognition_maximum) = self.cognition.bounds(area)?;
         let topology = compile_topology(&self.structural, area)?;
+        let initial_cosmic_fragments = conundrum_runtime
+            .initial_cosmic_fragments(super::state_layout::INITIAL_COSMIC_FRAGMENTS)?;
+        let initial_dice_rerolls =
+            conundrum_runtime.initial_dice_rerolls(super::state_layout::INITIAL_DICE_REROLLS)?;
         let state = compile_state(
             area,
             path.identity.id.0,
@@ -321,6 +332,9 @@ impl GoldAndGearsRuntimeFactory {
             self.cognition.initial(),
             cognition_minimum,
             cognition_maximum,
+            initial_cosmic_fragments,
+            initial_dice_rerolls,
+            conundrum_runtime.berserk_state(),
         )?
         .with_logical_scopes(topology.scopes);
 
@@ -354,6 +368,7 @@ impl GoldAndGearsRuntimeFactory {
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
             neural_runtime,
+            conundrum_runtime,
             stats_conundrum: entry.stats_conundrum,
             auxiliary_conundrum: entry.auxiliary_conundrum,
             trailblaze_bonus: trailblaze_bonus.map(|bonus| bonus.identity.stable_key.clone()),
@@ -425,6 +440,7 @@ pub struct GoldAndGearsRuntimeInstance {
     participants: Arc<ParticipantLock>,
     neural_network: Box<[Box<str>]>,
     pub(super) neural_runtime: CompiledNeuralRuntime,
+    pub(super) conundrum_runtime: CompiledConundrumRuntime,
     stats_conundrum: u8,
     auxiliary_conundrum: u8,
     trailblaze_bonus: Option<Box<str>>,
