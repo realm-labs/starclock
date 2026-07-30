@@ -1,0 +1,84 @@
+{
+  "schema_revision": "starclock.gold-and-gears-disposition-summary.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P0-B2",
+  "generated_on": "2026-07-30",
+  "result": "Pass",
+  "source_obligations": 7913,
+  "source_ownership": {
+    "GoldAndGears": 7199,
+    "Shared": 714
+  },
+  "source_target_dispositions": {
+    "ExternalOutcome": 8,
+    "Integrated": 7181,
+    "Metadata": 18,
+    "SharedIntegrated": 706
+  },
+  "mechanic_rules": 1224,
+  "rule_target_executors": {
+    "ActivityAndCombatPrograms": 145,
+    "ActivityProgram": 338,
+    "CombatModifier": 6,
+    "CombatRuleIr": 63,
+    "ReleasedSharedExecutor": 672
+  },
+  "rule_target_accuracy": {
+    "ExactPublic": 967,
+    "VersionedProjectPolicy": 257
+  },
+  "semantic_fixture_families": 18,
+  "rule_partitions": [
+    {
+      "id": "G14-P5-M01",
+      "family": "profile-entry",
+      "count": 5
+    },
+    {
+      "id": "G14-P5-M02",
+      "family": "conundrum-stats",
+      "count": 6
+    },
+    {
+      "id": "G14-P5-M03",
+      "family": "conundrum-auxiliary",
+      "count": 6
+    },
+    {
+      "id": "G14-P5-M04",
+      "family": "neural-network-effect",
+      "count": 40
+    },
+    {
+      "id": "G14-P5-M05",
+      "family": "curio-lifecycle",
+      "count": 160
+    },
+    {
+      "id": "G14-P5-M06",
+      "family": "occurrence-choice",
+      "count": 384
+    },
+    {
+      "id": "G14-P5-M07",
+      "family": "service-and-adventure",
+      "count": 38
+    },
+    {
+      "id": "G14-P5-M08",
+      "family": "path-boost",
+      "count": 495
+    },
+    {
+      "id": "G14-P5-M09",
+      "family": "resonance-extrapolation",
+      "count": 90
+    }
+  ],
+  "exact_once_gaps": 0,
+  "exact_once_duplicates": 0,
+  "native_handlers_admitted": 0,
+  "runtime_dispositions_sha256": "b835b5aa39b7a2b79b1f7bd3f6eb2026d2bfd60219cd7eebf59e3df439a32634",
+  "rule_partitions_sha256": "ddcf8eef2ace4984c34a819846d0f25d28ee475a399b6d08de0dc26de85f62c4",
+  "policy_sha256": "47de2cbe474599c0e17259942dd53eff93c9a329b7f7620d57b6c3e8361184b8"
+}

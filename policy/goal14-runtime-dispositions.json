@@ -1,0 +1,256 @@
+{
+  "schema_revision": "starclock.goal14-runtime-disposition-policy.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P0-B2",
+  "inputs": {
+    "source_manifest": {
+      "path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085"
+    },
+    "mechanic_rules": {
+      "path": "content-reference/gold-and-gears-v1/mechanic-rules.json",
+      "sha256": "06077b7706593bebf74c970193e765ed37accdb43fb852e5c170b7fbf75e461b"
+    },
+    "semantic_fixtures": {
+      "path": "content-reference/gold-and-gears-v1/review-fixtures.json",
+      "sha256": "515c00dd7f617ef9edb3b7f9465fda8a83ae1bd8e7e9025a5c64a84cf4e73dc6"
+    }
+  },
+  "expected": {
+    "source_obligations": 7913,
+    "gold_owned": 7199,
+    "shared": 714,
+    "mechanic_rules": 1224,
+    "semantic_fixture_families": 18,
+    "rule_partitions": 9,
+    "native_handlers_admitted": 0
+  },
+  "source_category_targets": {
+    "profiles": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B1"
+    },
+    "entry_points": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B1"
+    },
+    "guide_areas": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B1"
+    },
+    "formal_difficulties": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B1"
+    },
+    "difficulty_segments": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B1"
+    },
+    "conundrum_levels": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P4-B2"
+    },
+    "planes": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B2"
+    },
+    "chessboards": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B2"
+    },
+    "map_columns": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B2"
+    },
+    "map_nodes": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B2"
+    },
+    "map_events": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B3"
+    },
+    "block_create_rules": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B3"
+    },
+    "domains": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B3"
+    },
+    "beacons": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B3"
+    },
+    "room_bindings": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B3"
+    },
+    "adventure_outcomes": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B5"
+    },
+    "boss_choices": {
+      "catalog_batch": "G14-P1-B3",
+      "execution_batch": "G14-P2-B5"
+    },
+    "cognition_ranges": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P2-B4"
+    },
+    "secret_conditions": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P2-B4"
+    },
+    "mode_constants": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P2-B4"
+    },
+    "dice_categories": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B1"
+    },
+    "dice_definitions": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B2"
+    },
+    "dice_path_values": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B2"
+    },
+    "dice_slots": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B1"
+    },
+    "dice_faces": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B3"
+    },
+    "dice_face_tags": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B3"
+    },
+    "knowledge_bindings": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P3-B4"
+    },
+    "neural_network_nodes": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P4-B1"
+    },
+    "paths": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B3"
+    },
+    "resonances": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B3"
+    },
+    "blessings": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B4"
+    },
+    "blessing_levels": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B4"
+    },
+    "path_boosts": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P4-B3"
+    },
+    "resonance_extrapolations": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P4-B3"
+    },
+    "resonance_interplays": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P4-B3"
+    },
+    "trailblaze_bonuses": {
+      "catalog_batch": "G14-P1-B4",
+      "execution_batch": "G14-P4-B3"
+    },
+    "curios": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B4"
+    },
+    "curio_states": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B4"
+    },
+    "occurrences": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B5"
+    },
+    "occurrence_variants": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B5"
+    },
+    "shared_services": {
+      "catalog_batch": "G14-P1-B5",
+      "execution_batch": "G14-P4-B5"
+    },
+    "semantic_fixture_families": {
+      "catalog_batch": "G14-P0-B2",
+      "execution_batch": "G14-P5-B1"
+    }
+  },
+  "rule_partitions": {
+    "profile-entry": {
+      "batch": "G14-P5-M01",
+      "expected_rules": 5,
+      "gold_executor": "ActivityProgram"
+    },
+    "conundrum-stats": {
+      "batch": "G14-P5-M02",
+      "expected_rules": 6,
+      "gold_executor": "CombatModifier"
+    },
+    "conundrum-auxiliary": {
+      "batch": "G14-P5-M03",
+      "expected_rules": 6,
+      "gold_executor": "ActivityAndCombatPrograms"
+    },
+    "neural-network-effect": {
+      "batch": "G14-P5-M04",
+      "expected_rules": 40,
+      "gold_executor": "ActivityAndCombatPrograms"
+    },
+    "curio-lifecycle": {
+      "batch": "G14-P5-M05",
+      "expected_rules": 160,
+      "gold_executor": "ActivityAndCombatPrograms"
+    },
+    "occurrence-choice": {
+      "batch": "G14-P5-M06",
+      "expected_rules": 384,
+      "gold_executor": "ActivityProgram"
+    },
+    "service-and-adventure": {
+      "batch": "G14-P5-M07",
+      "expected_rules": 38,
+      "gold_executor": "ActivityProgram"
+    },
+    "path-boost": {
+      "batch": "G14-P5-M08",
+      "expected_rules": 495,
+      "gold_executor": "CombatRuleIr"
+    },
+    "resonance-extrapolation": {
+      "batch": "G14-P5-M09",
+      "expected_rules": 90,
+      "gold_executor": "CombatRuleIr"
+    }
+  },
+  "contracts": {
+    "every_source_obligation_is_assigned_exactly_once": true,
+    "every_rule_is_assigned_to_one_frozen_partition": true,
+    "every_fixture_family_is_assigned_exactly_once": true,
+    "shared_rows_target_the_released_shared_executor": true,
+    "adventure_physics_is_an_external_outcome": true,
+    "fixture_rows_are_metadata_until_production_execution": true,
+    "reference_only_is_not_an_executable_state": true,
+    "native_handler_admission_requires_a_later_reviewed_batch": true,
+    "generated_assignments_may_not_move_or_shrink": true
+  }
+}

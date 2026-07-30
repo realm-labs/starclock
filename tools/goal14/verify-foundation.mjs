@@ -148,8 +148,11 @@ const batches = status.match(/^\| `G14-(?:P\d+-B\d+|P5-M\d+)` \|/gmu) ?? [];
 assert(batches.length === plan.planned_batches, "Goal 14 status batch count drift");
 assert(status.includes("| State | `InProgress` |"), "Goal 14 is not active");
 assert(status.includes("| `G14-P0-B1` | `Complete` |"), "G14-P0-B1 is incomplete");
-assert(status.includes("| Next unblocked batch | `G14-P0-B2` |"),
-  "Goal 14 next batch is not G14-P0-B2");
+const nextBatch = status.match(/^\| Next unblocked batch \| (.+) \|$/mu)?.[1];
+assert(nextBatch === "None"
+  || (/^`G14-(?:P\d+-B\d+|P5-M\d+)`$/u.test(nextBatch ?? "")
+    && nextBatch !== "`G14-P0-B1`"),
+"Goal 14 next batch regressed to G14-P0-B1");
 assert(Object.values(policy.contracts).every((value) => value === true),
   "Goal 14 foundation contains an unaccepted contract");
 
