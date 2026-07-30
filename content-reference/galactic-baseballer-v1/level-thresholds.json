@@ -1,0 +1,166 @@
+[
+  {
+    "id": "galactic-baseballer.departure.level-threshold.shared",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "LevelThreshold",
+    "name_en": "Departure team level threshold",
+    "name_zh_cn": "启程篇队伍等级阈值",
+    "summary_en": "The released base program initializes the team-level experience threshold to 40 and the constants define exact enemy/wave experience parameters.",
+    "summary_zh_cn": "已发布基础程序把队伍升级经验阈值初始化为 40，常量定义精确敌人/波次经验参数。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0027",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0028",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0029",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0030",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0031",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0032",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0033"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.baae71eec832882b",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=27;ConstValueName=EvolveBuild_Exp_Multiplier_Wave_N",
+        "sha256": "baae71eec832882b6dd04cb29bd638ec1fe271e8a3b79c95930648ee325517d6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.2de9064a999e92cc",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=28;ConstValueName=EvolveBuild_Exp_LvN",
+        "sha256": "2de9064a999e92cc4fe426fee31bcaa7d6d610e553c40002d9556654b388697d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.af40f25249e686f7",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=29;ConstValueName=EvolveBuild_Exp_Basic_Normal1",
+        "sha256": "af40f25249e686f74069e8571682d106b7684b6bb22d4772caf643471981152b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.fb64fceda5af1ed6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=30;ConstValueName=EvolveBuild_Exp_Basic_Normal2",
+        "sha256": "fb64fceda5af1ed61dd29853b0d06659432ce965c699852cab92038a0bcd7f13",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.05613c15b4530470",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=31;ConstValueName=EvolveBuild_Exp_Basic_Elite",
+        "sha256": "05613c15b4530470c647a2d9a85a5cbf4369abf82cd975bf085cec57567b93e9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.f520e6ae4f45e010",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=32;ConstValueName=EvolveBuild_Exp_Basic_Boss",
+        "sha256": "f520e6ae4f45e0102fdbb78adf05277edbcf295e87fec0dfb4d22613527e89f9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.975034360cc037f5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=33;ConstValueName=EvolveBuild_Exp_Basic_Special",
+        "sha256": "975034360cc037f5ee429fc591f6865abfd73d1cfa3a048f194443836a94af49",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released experience/scaling constant"
+      },
+      {
+        "source_id": "source.goal16.e124f7f384e774fa",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_00_ExpAndLevel.json",
+        "locator": "whole-file",
+        "sha256": "e124f7f384e774faddf9d4a7346009860fe383aada2d019adfc406b9c414076e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file program digest; exact expForLevel initialization reviewed structurally"
+      }
+    ],
+    "tags": [
+      "departure",
+      "experience",
+      "level-threshold"
+    ],
+    "level_scope": "all authored team levels until the released program changes the threshold",
+    "experience_threshold": "40",
+    "wave_multiplier": "0.27",
+    "level_scaling_parameters": [
+      "0.1",
+      "1",
+      "12"
+    ],
+    "experience_awards": {
+      "normal_1": 2,
+      "normal_2": 4,
+      "elite": 8,
+      "boss": 0,
+      "special": 0
+    },
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Common_LevelUp_InsertAbility",
+      "ability_names": [
+        "StageAbility_VS_Common_LevelUp_InsertAbility"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.ByAnd",
+        "RPG.GameCore.ByCompareDynamicValue",
+        "RPG.GameCore.ByCompareEvolveBuildProperty",
+        "RPG.GameCore.IncludeTaskListTemplate",
+        "RPG.GameCore.PredicateTaskList",
+        "RPG.GameCore.SetDynamicValue",
+        "RPG.GameCore.ShowEvolveBuildGearSelectInBattle",
+        "RPG.GameCore.TargetAlias",
+        "RPG.GameCore.VCameraConfigChange"
+      ],
+      "program_fragment_sha256": "bb3fd76ef3fefcccee19259964654e9465385e8c50e4f7907250c40a13564be6"
+    }
+  }
+]

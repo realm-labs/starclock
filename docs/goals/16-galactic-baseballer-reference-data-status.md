@@ -7,8 +7,8 @@
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
 | Active phase | Phase 1 — Departure and shared base |
-| Active batch | `G16-P1-B2` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P1-B3` |
+| Active batch | `G16-P1-B3` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P1-B4` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -34,7 +34,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, inventories, profiles, exact denominator, normalized schema, Excel/Sora authoring contract, semantic fixture contract and initial approximation register are frozen. |
-| Phase 1 — Departure and shared base | `InProgress` | Profile/stages plus all 26 weapons, 16 accessories, 181 gear levels and 13 Legendary recipes are normalized; P1-B3 owns growth/offers/inventory. |
+| Phase 1 — Departure and shared base | `InProgress` | Profile, stages, arsenal, Legendary synthesis, experience, 11 strategies, candidate controls and slot/inventory boundaries are normalized; P1-B4 owns encounters/scoring/fixtures. |
 | Phase 2 — Demon King and progression | `Pending` | Requires shared-base identity and explicit edition-difference contract. |
 | Phase 3 — Evidence, Excel and Sora | `Pending` | Requires complete normalized profile data and closed evidence owners. |
 | Phase 4 — Audit and Candidate freeze | `Pending` | Requires all earlier phase gates. |
@@ -49,7 +49,7 @@
 | `G16-P0-B4` | `Complete` | This row's containing commit | Froze 40 normalized file families, a canonical lossless encoding, typed row/evidence/approximation envelopes, 4 complete isolated workbooks, openpyxl 3.1.5 and Sora 0.3.0 authority, no-overwrite/double-generation requirements and per-sheet/per-column visual QA. Reconciled all 20 semantic families to explicit trigger/owner/precondition/input/operation/expected-fact fixture contracts. Registered 8 ProjectPolicy boundaries, each with two rejected alternatives, rationale, affected fixtures, confidence and replacement condition. |
 | `G16-P1-B1` | `Complete` | This row's containing commit | Authored independent `galactic-baseballer.departure.v2_2` with released/baseline versions, source season, activity module and exact entry unlock. Separated permanent mechanical retention from limited account-reward locators. Mapped all six bilingual planets/stages and all 57 stage-period rows exactly once, including phase lists, initial weapons, recommendations, team bonuses, rating thresholds, waves, timers, weaknesses and scores. Kept `3097`–`3099` as explicit unresolved shared-stage boundaries. |
 | `G16-P1-B2` | `Complete` | This row's containing commit | Authored 13 Standard and 13 Legendary weapons, 16 accessories, all 117 weapon and 64 accessory levels, and exact battle-program structural bindings without copying raw programs. Reconciled every GearConfig row to a distinct `(MazeBuffID, Level)` row and retained complete canonical parameter vectors. Authored 13 exact acyclic Legendary recipes with 26 ordered prerequisites; each consumes its level-8 Standard weapon and retains its level-1 accessory. The 67 non-gear MazeBuff rows remain in the frozen denominator for later batches. |
-| `G16-P1-B3` | `Pending` | — | Departure growth loop and inventory boundaries. |
+| `G16-P1-B3` | `Complete` | This row's containing commit | Froze exact `expForLevel=40`, wave/level scaling and `2/4/8/0/0` enemy experience values with structural program evidence. Authored all 11 Adventure Strategy candidates and exact card/MazeBuff/program bindings. Retained the `18,6,3,3,7,6,2,0,2,0,7` source weight vector without guessing its ordinal mapping; froze 3 refreshes, 2 exclusions, 0 card refreshes and unlock quests. Authored Standard 4/5 weapon and 4/6 accessory slots plus Origin-stage 3/4 capacities. Added five explicit ProjectPolicy inventory operations covering duplicates, maximum/full rejection, expansion and failure invariance. |
 | `G16-P1-B4` | `Pending` | — | Departure encounters, score and fixtures. |
 | `G16-P2-B1` | `Pending` | — | Demon King profile and version differences. |
 | `G16-P2-B2` | `Pending` | — | Demon King content and advanced synthesis. |

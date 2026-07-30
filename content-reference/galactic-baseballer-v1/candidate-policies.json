@@ -1,0 +1,476 @@
+[
+  {
+    "id": "galactic-baseballer.departure.candidate-policy.deterministic-fallback",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePolicy",
+    "name_en": "Departure deterministic candidate fallback",
+    "name_zh_cn": "启程篇确定性候选回退",
+    "summary_en": "Reference-only candidate generation, decision-resource and deterministic fallback contract.",
+    "summary_zh_cn": "仅供资料使用的候选生成、决策资源与确定性回退契约。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "mechanism_quality": "PolicyBoundary",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0000",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0001",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0002",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0003",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0004",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0005",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0006",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0007",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0008",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0009",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0010",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0042",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0043",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0044",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0059",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0060",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0061",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0062",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0063",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0069",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.policy.acf5e02c166ca2ab",
+        "repository_or_url": "starclock",
+        "revision_or_access_date": "starclock.galactic-baseballer-approximation-register.v1",
+        "game_version": "4.4",
+        "path_or_page": "content-manifests/galactic-baseballer-v1/approximation-register.json",
+        "locator": "gb.policy.upgrade-candidate-weight,gb.policy.upgrade-candidate-order,gb.policy.no-legal-candidate,gb.policy.refresh-exclusion",
+        "sha256": "acf5e02c166ca2ab66cceb20a4fc1d801a4607b65086b8d13f6e43ba6efbf340",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBoundary",
+        "note": "explicit deterministic fallback; not an observed parity claim",
+        "replacement_condition": "replace only when released structured logic or reproducible public observation closes the named hidden behavior"
+      }
+    ],
+    "tags": [
+      "candidate-policy",
+      "departure"
+    ],
+    "decision_order": 1,
+    "rng_label": "galactic-baseballer/{profile-id}/{activity-instance-id}/upgrade-candidate/{decision-ordinal}",
+    "candidate_order": "stable Starclock ID ascending before integer sampling",
+    "refresh_exclusion": "exclude the immediately displayed IDs once, then use the complete legal pool if exclusion empties it",
+    "no_legal_candidate": "emit explicit no-candidate outcome; consume no inventory resource; continue at the next declared boundary",
+    "rejected_alternatives": [
+      "unbounded repeated random draws",
+      "localized-name or hash-map iteration order",
+      "silent replacement/downgrade of a maximum-level item"
+    ],
+    "affected_fixture_ids": [
+      "random-upgrade-candidates",
+      "no-legal-candidate-failure-invariance"
+    ],
+    "confidence": "Low",
+    "replacement_condition": "released structured logic or reproducible observation defines complete weights, offer order, refresh memory and every empty-pool branch"
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate-policy.source-parameters",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePolicy",
+    "name_en": "Departure candidate source parameters",
+    "name_zh_cn": "启程篇候选源参数",
+    "summary_en": "Reference-only candidate generation, decision-resource and deterministic fallback contract.",
+    "summary_zh_cn": "仅供资料使用的候选生成、决策资源与确定性回退契约。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0000",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0001",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0002",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0003",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0004",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0005",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0006",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0007",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0008",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0009",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0010",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0042",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0043",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0044",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0059",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0060",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0061",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0062",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0063",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0069",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.13ea2a54aa1141a5",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=0;ConstValueName=EvolveBuild_Weight1",
+        "sha256": "13ea2a54aa1141a54e9396ba5d05677afe00b5346d906a53c050ca1c71c42d66",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.955fc00b40a6b355",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=1;ConstValueName=EvolveBuild_Weight2",
+        "sha256": "955fc00b40a6b355deff2c6395a41449c6e64906c6e62abf2aadfdb5c83eaa96",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.83ec30eb059581b1",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=2;ConstValueName=EvolveBuild_Weight3",
+        "sha256": "83ec30eb059581b16e598f059d40ccf1e0a3f9926b0b9b0e2f09c81a5b707f3d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.80d469fc8eb1b3a6",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=3;ConstValueName=EvolveBuild_Weight4",
+        "sha256": "80d469fc8eb1b3a6d1fdea1c22516cf8d6e5db21921e98c045de0a576a6176aa",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.fb69d03f2e33f4ee",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=4;ConstValueName=EvolveBuild_Weight5",
+        "sha256": "fb69d03f2e33f4ee01e463ac26be680c7467d404cfd82c6ea7b454839d91c2a7",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.91941295e62ee651",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=5;ConstValueName=EvolveBuild_Weight6",
+        "sha256": "91941295e62ee651d871210e19528a8afa5097a511504fb1eb4d5c3d54d004f6",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.a5f0a4d8c5904e4d",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=6;ConstValueName=EvolveBuild_Weight7",
+        "sha256": "a5f0a4d8c5904e4dc552cabc4d6bce42e1ca9b5423d16ac90ef43297ef1984b2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.1131b181be4c2f6e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=7;ConstValueName=EvolveBuild_Weight8",
+        "sha256": "1131b181be4c2f6e0f52eddb9e8ca526d8f3cb8d5945d3ab1cd25bab2aa98893",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.71cc2184034331df",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=8;ConstValueName=EvolveBuild_Weight9",
+        "sha256": "71cc2184034331df74b0708df7332c78bfb3521afa1abaf24f3bbe508035c88d",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.97af2346d446f67f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=9;ConstValueName=EvolveBuild_Weight10",
+        "sha256": "97af2346d446f67f1965a1f93bb2d37c4e8326b32aa3155d8b6a63464471e994",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.c2dcbe02efa4f7db",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=10;ConstValueName=EvolveBuild_Weight11",
+        "sha256": "c2dcbe02efa4f7db0333b65226645e7b926a450abe900f2b60dffcca7414aae8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.06bdf2f0842043df",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=42;ConstValueName=EvolveBuild_LevelUp_AbilityName",
+        "sha256": "06bdf2f0842043dfa3380ac5538337673fec67143859ae9501ffcaa65781f6bb",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.c0dc3d60ebe8ca47",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=43;ConstValueName=EvolveBuild_MazeBuffID_ReRoll",
+        "sha256": "c0dc3d60ebe8ca4740f8f87e5b8b124d8edbb82be370c942859d80425804f2af",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.c7c1d5832a749068",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=44;ConstValueName=EvolveBuild_MazeBuffID_LostCount",
+        "sha256": "c7c1d5832a749068b87fdc6e02851e711fb0e7a44982d02a930074bc288faa00",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.315598d63c2f44e3",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=59;ConstValueName=EvolveBuild_Reset_UnlockQuest",
+        "sha256": "315598d63c2f44e3425ce0bdb57c1186afadd6bef44f056d3ed3951238671853",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.e42a5c66ae2c85db",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=60;ConstValueName=EvolveBuild_Remove_UnlockQuest",
+        "sha256": "e42a5c66ae2c85dbce3286bf6f1f71d89e8856a60d0b1f9ec848612db42526b1",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.b13be7eabfd922cd",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=61;ConstValueName=EvolveBuild_Reset_Num",
+        "sha256": "b13be7eabfd922cd950775a0909d8776930c8e4b996da4333ae5142b45bc42de",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.e5a22cc65094b8de",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=62;ConstValueName=EvolveBuild_Remove_Num",
+        "sha256": "e5a22cc65094b8dee345125569bb8f1d4f96290d31ea57fd9e360f976ab6bc7a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.8c6e96ed0181e9ea",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=63;ConstValueName=EvolveBuild_Skip_UnlockQuest",
+        "sha256": "8c6e96ed0181e9ea9b968c6c26716f3cde004ed5a2989bf92fda7a13ed652509",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      },
+      {
+        "source_id": "source.goal16.e2a834946abc0af0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=69;ConstValueName=EvolveBuild_Card_Reset_Num",
+        "sha256": "e2a834946abc0af042c76a47e0966b79566b322480a8053a16a3ddefe613962e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact candidate/decision constant"
+      }
+    ],
+    "tags": [
+      "candidate-policy",
+      "departure"
+    ],
+    "decision_order": 0,
+    "weight_vector": [
+      {
+        "ordinal": 0,
+        "source_constant": "EvolveBuild_Weight1",
+        "weight": 18
+      },
+      {
+        "ordinal": 1,
+        "source_constant": "EvolveBuild_Weight2",
+        "weight": 6
+      },
+      {
+        "ordinal": 2,
+        "source_constant": "EvolveBuild_Weight3",
+        "weight": 3
+      },
+      {
+        "ordinal": 3,
+        "source_constant": "EvolveBuild_Weight4",
+        "weight": 3
+      },
+      {
+        "ordinal": 4,
+        "source_constant": "EvolveBuild_Weight5",
+        "weight": 7
+      },
+      {
+        "ordinal": 5,
+        "source_constant": "EvolveBuild_Weight6",
+        "weight": 6
+      },
+      {
+        "ordinal": 6,
+        "source_constant": "EvolveBuild_Weight7",
+        "weight": 2
+      },
+      {
+        "ordinal": 7,
+        "source_constant": "EvolveBuild_Weight8",
+        "weight": 0
+      },
+      {
+        "ordinal": 8,
+        "source_constant": "EvolveBuild_Weight9",
+        "weight": 2
+      },
+      {
+        "ordinal": 9,
+        "source_constant": "EvolveBuild_Weight10",
+        "weight": 0
+      },
+      {
+        "ordinal": 10,
+        "source_constant": "EvolveBuild_Weight11",
+        "weight": 7
+      }
+    ],
+    "level_up_ability_names": [
+      "StageAbility_VS_Common_LevelUp_InsertAbility",
+      "StageAbility_VS_Common_LevelUp_GreenHand_InsertAbility"
+    ],
+    "reroll_maze_buff_id": "3106812",
+    "exclusion_maze_buff_id": "3106813",
+    "reroll_count": 3,
+    "exclusion_count": 2,
+    "card_reroll_count": 0,
+    "reroll_unlock_quest_id": "6070100",
+    "exclusion_unlock_quest_id": "6070102",
+    "skip_unlock_quest_id": "6070207",
+    "weight_mapping_status": "Unspecified: exact vector retained; no card/category mapping inferred from ordinal alone"
+  }
+]

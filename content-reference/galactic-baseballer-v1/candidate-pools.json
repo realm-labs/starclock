@@ -1,0 +1,1036 @@
+[
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106703",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Surprise Windfall",
+    "name_zh_cn": "意外之财",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0000",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0181"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.27b7ebcfacf28c74",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=0;ID=3106703;LvID=31067031;Season=EarlyAccess",
+        "sha256": "27b7ebcfacf28c74381bd6934962879abbf9c067bbcac00ee2b61d27ba42ef16",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.13fed997c5706f26",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=181;ID=3106703",
+        "sha256": "13fed997c5706f260861ad842756c141acf66630888834b7ea9902944ccd3154",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106703",
+    "source_level_id": "31067031",
+    "strategy_type": "Growth",
+    "source_name_hash": "14459429728735009514",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106703",
+    "maze_buff_parameters": [
+      "2500"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Economy_002",
+      "ability_names": [
+        "StageAbility_VS_Card_Economy_002"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.ModifyEvolveBuildProperty",
+        "RPG.GameCore.RemoveStageAbilityByName"
+      ],
+      "program_fragment_sha256": "18f7183a14cdf2b13e8c509ca5d080c17a9f67fb6f81c0154db0ae8056533fe1"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106704",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Meeting Gift",
+    "name_zh_cn": "见面礼物",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0001",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0182"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.0b90fda2ea5adbad",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=1;ID=3106704;LvID=31067041;Season=EarlyAccess",
+        "sha256": "0b90fda2ea5adbad88143e9e2f5ff74a0661f3fd94c59046d0defe97f6a55921",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.84a3312daf0119ca",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=182;ID=3106704",
+        "sha256": "84a3312daf0119caf5ad851f28adc14a0a2c05f0be0a9a20a028e3cb3809646e",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106704",
+    "source_level_id": "31067041",
+    "strategy_type": "Power",
+    "source_name_hash": "2759803277533732003",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106704",
+    "maze_buff_parameters": [
+      "0.3"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Combat_001",
+      "ability_names": [
+        "StageAbility_VS_Card_Combat_001"
+      ],
+      "modifier_names": [
+        "StageAbility_VS_Card_Combat_001_LE_Modifier",
+        "StageAbility_VS_Card_Combat_001_LE_MonsterLoseHP"
+      ],
+      "trigger_events": [
+        "OnBeforeWaveMonster",
+        "OnEnterBattle",
+        "OnListenCharacterCreate",
+        "OnStack"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.ByAnd",
+        "RPG.GameCore.ByCompareDynamicValue",
+        "RPG.GameCore.ByTargetTeam",
+        "RPG.GameCore.LoseHPByRatio",
+        "RPG.GameCore.PredicateTaskList",
+        "RPG.GameCore.Retarget",
+        "RPG.GameCore.SetDynamicValue",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "program_fragment_sha256": "f02daef38ad1d977c9f668275ac93a98fe9594f5da4a134d436e61e8b10dfa2d"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106705",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Super Multiplier",
+    "name_zh_cn": "超级加倍",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0002",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0183"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.70847416c1564d29",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=2;ID=3106705;LvID=31067051;Season=EarlyAccess",
+        "sha256": "70847416c1564d29e56582534d646fafcd11883b835389ee66f8d42abdad7e2b",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.f222ad61ee599a9a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=183;ID=3106705",
+        "sha256": "f222ad61ee599a9aa98e2e2215d573f95bfadddf4d14b50e0ae84bb7c39e6a33",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106705",
+    "source_level_id": "31067051",
+    "strategy_type": "Power",
+    "source_name_hash": "6450770527874852498",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106705",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Combat_002",
+      "ability_names": [
+        "StageAbility_VS_Card_Combat_002"
+      ],
+      "modifier_names": [
+        "StageAbility_VS_Card_Combat_002_LE_Modifier"
+      ],
+      "trigger_events": [
+        "OnStack"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "program_fragment_sha256": "1504fa8df2a4eb9ccfb5cf1a895eadbcb3a7d1075319cc4b39bd38e5d1f3423c"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106706",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Hit The Head First!",
+    "name_zh_cn": "先打头！",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0003",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0184"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.9457900516f36025",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=3;ID=3106706;LvID=31067061;Season=EarlyAccess",
+        "sha256": "9457900516f36025a22cc6b3122fa0a719d3c17ac77f1904d68e3d468b29ef03",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.fce95d8f246ce467",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=184;ID=3106706",
+        "sha256": "fce95d8f246ce4672592f1276e6b86857ddaa9737cc627ec8b9ad2b57e145d42",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106706",
+    "source_level_id": "31067061",
+    "strategy_type": "Power",
+    "source_name_hash": "4243233862359552703",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106706",
+    "maze_buff_parameters": [
+      "0.4"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Combat_003",
+      "ability_names": [
+        "StageAbility_VS_Card_Combat_003"
+      ],
+      "modifier_names": [
+        "StageAbility_VS_Card_Combat_003_LE_Modifier"
+      ],
+      "trigger_events": [
+        "OnListenCharacterCreate",
+        "OnStack"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.ByAnd",
+        "RPG.GameCore.ByCompareMonsterRank",
+        "RPG.GameCore.ByTargetTeam",
+        "RPG.GameCore.PredicateTaskList",
+        "RPG.GameCore.Retarget",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "program_fragment_sha256": "514d0c0d17c0303479cc29ab4249a00983ad37bcdd960334d6356335acb008d6"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106707",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Level Enhancement",
+    "name_zh_cn": "等级强化",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0004",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0185"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.863ea58c4c6dda34",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=4;ID=3106707;LvID=31067071;Season=EarlyAccess",
+        "sha256": "863ea58c4c6dda34761b63b17a969a1828d1348232129af2eed6c1fb21354c3a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.50f08d4e1cdfd913",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=185;ID=3106707",
+        "sha256": "50f08d4e1cdfd9130c69c793ec72323c7e68210eb6746072ed710c6854230297",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106707",
+    "source_level_id": "31067071",
+    "strategy_type": "Growth",
+    "source_name_hash": "17059554950518552645",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106707",
+    "maze_buff_parameters": [
+      "3"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Economy_001",
+      "ability_names": [
+        "StageAbility_VS_Card_Economy_001"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.LoopExecuteTaskList",
+        "RPG.GameCore.ModifyEvolveBuildProperty",
+        "RPG.GameCore.RemoveStageAbilityByName",
+        "RPG.GameCore.SetDynamicValueByEvolveBuild",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "program_fragment_sha256": "676227967830482e5a115d93b396401bbabe50d073b5bfa51cedab86c7c85a93"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106708",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Weapon Enhancement",
+    "name_zh_cn": "武器强化",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0005",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0186"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ecb37a6c15a5ec08",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=5;ID=3106708;LvID=31067081;Season=EarlyAccess",
+        "sha256": "ecb37a6c15a5ec08fb4a7de203f2fa5d312294641ca95640cb2bd9c78465e0d9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.09ae3566fddecadf",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=186;ID=3106708",
+        "sha256": "09ae3566fddecadfa10927d47c7ad1836c0ea4f8622feabea4577eae95301434",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106708",
+    "source_level_id": "31067081",
+    "strategy_type": "Growth",
+    "source_name_hash": "7032587238892873001",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106708",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Economy_003_Weapon",
+      "ability_names": [
+        "StageAbility_VS_Card_Economy_003_Weapon"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.LevelUpEvolveBuildGear",
+        "RPG.GameCore.RemoveStageAbilityByName"
+      ],
+      "program_fragment_sha256": "c6b79d5f57a8e9a37a27288f5eed41dc559e827a2b82d4400993f644cf23791d"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106710",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Restoration Amplification",
+    "name_zh_cn": "回复增幅",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0006",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0187"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.7cce8d821ef64ce2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=6;ID=3106710;LvID=31067101;Season=EarlyAccess",
+        "sha256": "7cce8d821ef64ce258c9fb60522c1dda0ae549b98c0febc6c11d3b0c00cf04a0",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.155ea4d5128d0c6e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=187;ID=3106710",
+        "sha256": "155ea4d5128d0c6e096acf89eb77f6942f7e907d697bb39bf3e9e29216a6c3a8",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106710",
+    "source_level_id": "31067101",
+    "strategy_type": "Unspecified",
+    "source_name_hash": "2665599176213230239",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106710",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Survival_001",
+      "ability_names": [
+        "StageAbility_VS_Card_Survival_001"
+      ],
+      "modifier_names": [
+        "StageAbility_VS_Card_Survival_001_LE_Modifier"
+      ],
+      "trigger_events": [
+        "OnStack",
+        "OnWaveMonster"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.HealHP",
+        "RPG.GameCore.IncludeTaskListTemplate",
+        "RPG.GameCore.Retarget",
+        "RPG.GameCore.SetDynamicValueByProperty",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "program_fragment_sha256": "1c313bd7525dae8b080be4ac0f7e169f276278590c060eba04ec45acd5b24000"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106711",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Charge Amplification",
+    "name_zh_cn": "充能增幅",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0007",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0188"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.e28c3fd0a6741ad0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=7;ID=3106711;LvID=31067111;Season=EarlyAccess",
+        "sha256": "e28c3fd0a6741ad00da8be7b78738bc694a6ad6dcc027c7676cd7b5d8d3181c2",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.7a38a599c64396a9",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=188;ID=3106711",
+        "sha256": "7a38a599c64396a94d39ed7a9b42f46c5431fa1248de16b6ee625a2199242804",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106711",
+    "source_level_id": "31067111",
+    "strategy_type": "Unspecified",
+    "source_name_hash": "8838731479613661551",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106711",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Survival_002",
+      "ability_names": [
+        "StageAbility_VS_Card_Survival_002"
+      ],
+      "modifier_names": [
+        "StageAbility_VS_Card_Survival_002_LE_Modifier"
+      ],
+      "trigger_events": [
+        "OnStack",
+        "OnWaveMonster"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.IncludeTaskListTemplate",
+        "RPG.GameCore.ModifySPNew",
+        "RPG.GameCore.Retarget",
+        "RPG.GameCore.SetDynamicValueByProperty",
+        "RPG.GameCore.TargetAlias"
+      ],
+      "program_fragment_sha256": "a4b8b9fc90b7bd103bced88cf4507cc0d0f7d9909c77203d67025498e5b05b62"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106712",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Revive!",
+    "name_zh_cn": "复活！",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0008",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0189"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.48cde7cead87ff33",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=8;ID=3106712;LvID=31067121;Season=EarlyAccess",
+        "sha256": "48cde7cead87ff336b890ce2a0d31b546384555f71d07230ae465a4dfd0c9da9",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.ad790ca9512fab43",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=189;ID=3106712",
+        "sha256": "ad790ca9512fab437336c373cb044d895e4ec93fed7e237525e4f4ef776a1f85",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106712",
+    "source_level_id": "31067121",
+    "strategy_type": "Unspecified",
+    "source_name_hash": "18004595456690577853",
+    "card_parameters": [
+      "2"
+    ],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106712",
+    "maze_buff_parameters": [
+      "1",
+      "3"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Survival_003",
+      "ability_names": [
+        "StageAbility_VS_Card_Survival_003"
+      ],
+      "modifier_names": [
+        "StageAbility_VS_Card_Survival_003_LE_Modifier",
+        "StageAbility_VS_Card_Survival_003_PLY_Modifier"
+      ],
+      "trigger_events": [
+        "OnLimboWaitHeal",
+        "OnListenCharacterCreate",
+        "OnListenModifierRemove",
+        "OnStack"
+      ],
+      "operation_types": [
+        "RPG.GameCore.AddModifier",
+        "RPG.GameCore.ByAnd",
+        "RPG.GameCore.ByCheckModifierCallBackName",
+        "RPG.GameCore.ByCompareDynamicValue",
+        "RPG.GameCore.ByCompareHP",
+        "RPG.GameCore.ByTargetEntityType",
+        "RPG.GameCore.ByTargetTeam",
+        "RPG.GameCore.ModifyEvolveBuildProperty",
+        "RPG.GameCore.OwnerEntityAddAbility",
+        "RPG.GameCore.PredicateTaskList",
+        "RPG.GameCore.RemoveModifier",
+        "RPG.GameCore.RemoveSelfModifier",
+        "RPG.GameCore.Retarget",
+        "RPG.GameCore.SetDynamicValueByEvolveBuild",
+        "RPG.GameCore.TargetAlias",
+        "RPG.GameCore.TargetConcat",
+        "RPG.GameCore.TriggerAnimState",
+        "RPG.GameCore.TurnInsertAbility"
+      ],
+      "program_fragment_sha256": "48aadb6d736533e0fd49270f597b523f51926e64a1fb77dd1e77ec3b684a7f71"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106713",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Accessory Enhancement",
+    "name_zh_cn": "配饰强化",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0009",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0190"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.878edc53a470122e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=9;ID=3106713;LvID=31067131;Season=EarlyAccess",
+        "sha256": "878edc53a470122e5ef9623a782c4ab0b613ac5bb90244d1586a394f574e965f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.a0e074a10792ba3f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=190;ID=3106713",
+        "sha256": "a0e074a10792ba3f1e96fd878b350b3ad23bd7037e5d0fbf06a969e943408989",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106713",
+    "source_level_id": "31067131",
+    "strategy_type": "Growth",
+    "source_name_hash": "9549085483290665017",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106713",
+    "maze_buff_parameters": [
+      "1"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Economy_003_Accessory",
+      "ability_names": [
+        "StageAbility_VS_Card_Economy_003_Accessory"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.LevelUpEvolveBuildGear",
+        "RPG.GameCore.RemoveStageAbilityByName"
+      ],
+      "program_fragment_sha256": "fee91f7b6e445dd20245e2478d7d170636cb5a034d7366448dcea076079b1803"
+    }
+  },
+  {
+    "id": "galactic-baseballer.departure.candidate.strategy.3106714",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "CandidatePool",
+    "name_en": "Perfect Shuffling",
+    "name_zh_cn": "完美洗牌法",
+    "summary_en": "Departure Adventure Strategy candidate with exact type, parameters and battle-program binding.",
+    "summary_zh_cn": "启程篇冒险策略候选，含精确类型、参数与战斗程序绑定。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+      "galactic-baseballer.departure.v2_2:EvolveBuildCardConfig:0010",
+      "galactic-baseballer.departure.v2_2:EvolveBuildMazeBuff:0191"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.ba540d2c401e7b4e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildCardConfig.json",
+        "locator": "row=10;ID=3106714;LvID=31067141;Season=EarlyAccess",
+        "sha256": "ba540d2c401e7b4ef79dcbd835f93ab7f9063e418cbcf03905047c101ef4fa7a",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released card identity and selection metadata"
+      },
+      {
+        "source_id": "source.goal16.796266ccd4486f87",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildMazeBuff.json",
+        "locator": "row=191;ID=3106714",
+        "sha256": "796266ccd4486f877f5159524a6cd8cbc3df776da422649f3c768f9d145af573",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "exact level-one MazeBuff parameters and binding"
+      },
+      {
+        "source_id": "source.goal16.0e64751477ee00b2",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "Config/ConfigAbility/BattleEvent/EvolveBuild_03_Card.json",
+        "locator": "whole-file",
+        "sha256": "0e64751477ee00b24174b6bb2da5fec80f0e0440f410141cd773e4d4591b781f",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactProgram",
+        "note": "whole-file card program digest; normalized row retains structural summary only"
+      }
+    ],
+    "tags": [
+      "adventure-strategy",
+      "candidate",
+      "departure"
+    ],
+    "source_numeric_id": "3106714",
+    "source_level_id": "31067141",
+    "strategy_type": "Unspecified",
+    "source_name_hash": "39170634063627873",
+    "card_parameters": [],
+    "selectable_period_ids": [],
+    "maze_buff_id": "3106714",
+    "maze_buff_parameters": [
+      "5"
+    ],
+    "program_summary": {
+      "binding_key": "StageAbility_VS_Card_Economy_005",
+      "ability_names": [
+        "StageAbility_VS_Card_Economy_005"
+      ],
+      "modifier_names": [],
+      "trigger_events": [],
+      "operation_types": [
+        "RPG.GameCore.ModifyEvolveBuildProperty"
+      ],
+      "program_fragment_sha256": "89e66870e471628b3f6dccd88bff317495cefae6caaf66c517593f45d1e0cfa0"
+    }
+  }
+]

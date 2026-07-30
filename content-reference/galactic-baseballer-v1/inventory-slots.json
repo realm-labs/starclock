@@ -1,0 +1,220 @@
+[
+  {
+    "id": "galactic-baseballer.departure.inventory-slot.OriginStage.accessory",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Departure OriginStage Accessory slots",
+    "name_zh_cn": "启程篇起源关配饰槽位",
+    "summary_en": "Exact originstage accessory slot capacity.",
+    "summary_zh_cn": "精确起源关配饰槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0054"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.d77d7b7699389415",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=54;ConstValueName=EvolveBuild_OriginStage_Accessory_Slot",
+        "sha256": "d77d7b769938941579c8222fdcb9dbd0fec24b89bc09027e4c112df0559e32ba",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "slot"
+    ],
+    "slot_kind": "Accessory",
+    "scope": "OriginStage",
+    "initially_unlocked": 4,
+    "total_capacity": 4
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-slot.OriginStage.weapon",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Departure OriginStage Weapon slots",
+    "name_zh_cn": "启程篇起源关武器槽位",
+    "summary_en": "Exact originstage weapon slot capacity.",
+    "summary_zh_cn": "精确起源关武器槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0053"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.759bf4bd54efa77e",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=53;ConstValueName=EvolveBuild_OriginStage_Weapon_Slot",
+        "sha256": "759bf4bd54efa77e6c57c1415e373586173287bd1f67313dbabb4d96405392ed",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "departure",
+      "slot",
+      "weapon"
+    ],
+    "slot_kind": "Weapon",
+    "scope": "OriginStage",
+    "initially_unlocked": 3,
+    "total_capacity": 3
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-slot.Standard.accessory",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Departure Standard Accessory slots",
+    "name_zh_cn": "启程篇普通配饰槽位",
+    "summary_en": "Exact standard accessory slot capacity.",
+    "summary_zh_cn": "精确普通配饰槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0013",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0014"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.073cebb0115dd4d0",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=13;ConstValueName=EvolveBuild_Slot_Accessory_Unlocked",
+        "sha256": "073cebb0115dd4d0b49c5a9c140a68ed1218c2415b2d7b1b23e44c00b03a2f70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.f4f4142427f5177f",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=14;ConstValueName=EvolveBuild_Slot_Accessory_Total",
+        "sha256": "f4f4142427f5177f03266f0486460ccd8c93f9fd6f57c76b6fce67a2f6e17a69",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "accessory",
+      "departure",
+      "slot"
+    ],
+    "slot_kind": "Accessory",
+    "scope": "Standard",
+    "initially_unlocked": 4,
+    "total_capacity": 6
+  },
+  {
+    "id": "galactic-baseballer.departure.inventory-slot.Standard.weapon",
+    "schema_revision": "starclock.galactic-baseballer-row.v1",
+    "kind": "InventorySlotPolicy",
+    "name_en": "Departure Standard Weapon slots",
+    "name_zh_cn": "启程篇普通武器槽位",
+    "summary_en": "Exact standard weapon slot capacity.",
+    "summary_zh_cn": "精确普通武器槽位容量。",
+    "profile_ids": [
+      "galactic-baseballer.departure.v2_2"
+    ],
+    "ownership": "Departure",
+    "coverage_state": "Researched",
+    "evidence_quality": "ExactStructured",
+    "mechanism_quality": "ExactRelationship",
+    "manifest_record_ids": [
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0011",
+      "galactic-baseballer.departure.v2_2:EvolveBuildConstValueCommon:0012"
+    ],
+    "source_refs": [
+      {
+        "source_id": "source.goal16.704e24df184a1460",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=11;ConstValueName=EvolveBuild_Slot_Weapon_Unlocked",
+        "sha256": "704e24df184a1460cc5ef6f2c1ecdc688f466069c343a2769ded14772fdb8743",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      },
+      {
+        "source_id": "source.goal16.92a3fd5823b4ac1a",
+        "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "game_version": "4.4",
+        "path_or_page": "ExcelOutput/EvolveBuildConstValueCommon.json",
+        "locator": "row=12;ConstValueName=EvolveBuild_Slot_Weapon_Total",
+        "sha256": "92a3fd5823b4ac1a302200e56ca9198602e9976fc43a3b231a92d59f08d62a70",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ExactRelationship",
+        "note": "exact released slot-capacity constant"
+      }
+    ],
+    "tags": [
+      "departure",
+      "slot",
+      "weapon"
+    ],
+    "slot_kind": "Weapon",
+    "scope": "Standard",
+    "initially_unlocked": 4,
+    "total_capacity": 5
+  }
+]
