@@ -7,12 +7,15 @@
 | Goal ID | `galactic-baseballer-reference-v1` |
 | State | `Active` |
 | Active phase | Phase 0 — Scope, versions, sources, denominator and contracts |
-| Active batch | `G16-P0-B1` complete in this ledger's containing commit |
-| Next unblocked batch | `G16-P0-B2` |
+| Active batch | `G16-P0-B2` complete in this ledger's containing commit |
+| Next unblocked batch | `G16-P0-B3` |
 | Snapshot | Version 4.4 / structured-source access 2026-07-22 |
 | Profiles | Version 2.2 Departure and Version 3.3 Demon King, modeled over one shared base |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
+| Focused inventory | 81 files: 41 Departure/shared candidates, 23 Demon King candidates, 10 shared closure seeds and 7 identity cross-checks; canonical SHA-256 `2430f3f2…525` |
+| Localization locators | 1,739 candidate hashes and 3,403 CHS/EN receipts; canonical SHA-256 `a1e08463…1ce` |
+| Public sources | 5 publisher pages and 11 revision-pinned community mechanical pages; canonical SHA-256 `8560c2be…7fa` |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl==3.1.5`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -26,7 +29,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | `G16-P0-B1` freezes the Goal contract and startup audit; focused source inventory begins in P0-B2. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Foundation plus the 81-file structured inventory, 3,403 localization receipts and 16 public sources are frozen; P0-B3 owns exact membership and denominators. |
 | Phase 1 — Departure and shared base | `Pending` | Requires frozen P0 denominator and authoring contract. |
 | Phase 2 — Demon King and progression | `Pending` | Requires shared-base identity and explicit edition-difference contract. |
 | Phase 3 — Evidence, Excel and Sora | `Pending` | Requires complete normalized profile data and closed evidence owners. |
@@ -37,7 +40,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G16-P0-B1` | `Complete` | This row's containing commit | Goal 15 was proven occupied and the work renumbered consistently to Goal 16. Created and dry-run-push-verified `codex/goal16-galactic-baseballer-reference`; proved separate worktree ownership, clean Version 4.4 caches at both pinned revisions, readable source trees and remote connectivity. Froze 20 atomic batches, two non-overwriting profiles, six isolated roots, protected historical/generated roots, official-release-only evidence, openpyxl/Sora authority, 20 semantic families and Candidate-only scope. |
-| `G16-P0-B2` | `Pending` | — | Focused dual-edition source inventory. |
+| `G16-P0-B2` | `Complete` | This row's containing commit | Added a copy-on-write isolated fixed-source reproducer and froze 81 exact Git-blob receipts: 64 `EvolveBuild`/`EvoBdSC` candidate files, 10 shared stage/battle/enemy/TextMap seeds and 7 StarRailRes cross-checks. The 29 dedicated tables expose 697 original/shared plus 831 Demon King rows; candidate programs bring the discovery total to 1,653 JSON rows/objects. Reconciled 1,739 exact hash owners to 3,403 CHS/EN locators without committing prose. Pinned 5 publisher pages and 11 MediaWiki revisions. All inventories regenerated without drift. |
 | `G16-P0-B3` | `Pending` | — | Profile membership and exact denominators. |
 | `G16-P0-B4` | `Pending` | — | Normalized/authoring/fixture contracts. |
 | `G16-P1-B1` | `Pending` | — | Departure profile and stages. |
@@ -85,12 +88,13 @@ from this planning list or reduced later.
 | 2026-07-30 | Treat source prefixes, display names and ID adjacency as discovery only. | Membership and synthesis require an explicit released selector/reference or public fact; this prevents cross-profile and cross-mode leakage. |
 | 2026-07-30 | Keep the result Candidate/reference-only. | Runtime semantics, Activity orchestration and combat formulas are outside this Goal. |
 | 2026-07-30 | Use stable source order and labeled RNG only in explicit policy rows when released weights/order are unavailable. | Hidden random behavior cannot be labeled exact; every policy remains replacement-tracked. |
+| 2026-07-30 | Freeze `EvolveBuild*` and `EvoBdSC*` as candidate source families, not automatic profile membership. | The dedicated families expose the correct mechanics and sequel deltas, but shared tables, retained copies and disabled rows still require selector/reachability proof in P0-B3. |
 
 ## Research cases
 
 | ID | State | Question | Owner |
 |---|---|---|---|
-| `G16-R01` | `Open` | Which Version 4.4 tables/configuration programs form the exact two-profile selector and content closure? | P0-B2 |
+| `G16-R01` | `Closed` | The focused closure is 81 files: 64 mode-family tables/programs, 10 shared seeds and 7 identity cross-checks. Row-level membership remains intentionally owned by P0-B3. | P0-B2 |
 | `G16-R02` | `Open` | What are the exact per-category denominators and shared-versus-profile-owned identities? | P0-B3 |
 | `G16-R03` | `Open` | Which offer weights, orders, refresh/skip/exclusion rules and no-candidate behaviors are not publicly structured? | P0-B4 / P1-B3 |
 | `G16-R04` | `Open` | What exact recipe edges and consumption/order rules define Legendary, Twin and Esteemed/Ultimate synthesis? | P1-B2 / P2-B2 |
