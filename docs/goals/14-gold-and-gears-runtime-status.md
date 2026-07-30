@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `gold-and-gears-runtime-v1` |
-| State | `Pending` |
-| Active phase | None |
+| State | `InProgress` |
+| Active phase | Phase 0 — Contract, audit and execution plan |
 | Active batch | None |
-| Next unblocked batch | `G14-P0-B1` |
+| Next unblocked batch | `G14-P0-B2` |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
@@ -16,13 +16,13 @@
 | Runtime denominator | 7,913 source obligations / 1,224 rules / 18 fixture families |
 | Inherited policy boundaries | 16; runtime dispositions pending |
 | Content lane | Candidate reference input; target `Released` runtime component |
-| Blocking condition | None; P0 must verify all immutable prerequisites before mutation |
+| Blocking condition | None |
 
 ## Phase ledger
 
 | Phase | State | Exit evidence |
 |---|---|---|
-| Phase 0 — Contract, audit and execution plan | `Pending` | None |
+| Phase 0 — Contract, audit and execution plan | `InProgress` | `G14-P0-B1`: Goals 01–08 snapshots, merged Candidate audit, protected roots and generic runtime/interface baseline frozen. |
 | Phase 1 — Bundle and catalogs | `Pending` | None |
 | Phase 2 — Entry, topology and Cognition | `Pending` | None |
 | Phase 3 — Custom Dice and Knowledge | `Pending` | None |
@@ -39,7 +39,7 @@ commands, counts, digests and executable evidence in the completing commit.
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G14-P0-B1` | `Pending` | None | Verify prerequisites, package and protected roots. |
+| `G14-P0-B1` | `Complete` | This batch commit | `node tools/repository-check/verify-release-snapshots.mjs`; `node tools/reference-integration/verify.mjs`; `node tools/goal14/verify-foundation.mjs`; `node tools/repository-check/run.mjs`; 8 snapshots, 46,110 merged records, 15/15 mode pairs, 0 conflicts, 5 protected roots and 9 baseline crate trees verified; quick gate passed with Rust scope skipped. |
 | `G14-P0-B2` | `Pending` | None | Freeze 7,913/1,224/18 dispositions and nine rule partitions. |
 | `G14-P0-B3` | `Pending` | None | Freeze APIs, state, identity, RNG and replay contracts. |
 | `G14-P0-B4` | `Pending` | None | Freeze matrix, slice, policies, workloads and release scaffold. |

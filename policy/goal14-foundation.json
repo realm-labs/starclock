@@ -1,0 +1,205 @@
+{
+  "schema_revision": "starclock.goal14-foundation.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P0-B1",
+  "started_from": {
+    "branch": "master",
+    "commit": "b26f7d8dbafe5a83dd92ff8cb5a9c14466e69e8b",
+    "tree": "dd2db25ab6808722d84812cd714e6c1609d15f50"
+  },
+  "execution_package": {
+    "planned_phases": 9,
+    "planned_batches": 48,
+    "profile_id": "gold-gears.profile.v1",
+    "game_version": "4.4",
+    "source_access_date": "2026-07-22",
+    "plan": {
+      "path": "docs/goals/14-gold-and-gears-runtime.md",
+      "sha256": "5e846390e4671d1135cb7acd5b26aa6bad61d5c759a8e7052c8cf98bb213ff74"
+    },
+    "launch_prompt": {
+      "path": "docs/goals/14-gold-and-gears-runtime-prompt.md",
+      "sha256": "e4426c97b8720507df2d27a7b202fbdca54f10515586c43f531dc517f7bf96a9"
+    },
+    "status_path": "docs/goals/14-gold-and-gears-runtime-status.md"
+  },
+  "required_snapshots": [
+    {
+      "goal_id": "core-combat-v1",
+      "completion_commit": "453f76e2c98a896d3166e2a57364941ceea86ee2",
+      "completion_tree": "8b732c16b46f4173f139e48b146ba843880a88ed"
+    },
+    {
+      "goal_id": "agent-control-mcp-v1",
+      "completion_commit": "cc1751f3bc02708a4e32689d9b958c33fb6c108c",
+      "completion_tree": "c3f4241257d5fce471bd7c12d9cd0679541bc0bd"
+    },
+    {
+      "goal_id": "standard-universe-reference-v1",
+      "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+      "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5"
+    },
+    {
+      "goal_id": "standard-universe-runtime-v1",
+      "completion_commit": "1a14bcff292063ed3d9a9c0588488d6da4769ce6",
+      "completion_tree": "bf49f41a44189ccd85e17f1f1b60d13446a29a28"
+    },
+    {
+      "goal_id": "standard-universe-end-to-end-v1",
+      "completion_commit": "fd990d989fd4db88a6a27ee2047dfe175f902973",
+      "completion_tree": "c87c40abf5b3c2985fef99349554083662bc96d8"
+    },
+    {
+      "goal_id": "combat-identity-dynamic-assembly-v1",
+      "completion_commit": "c84c1a4572024355a1e30d41755133c486b1f4c7",
+      "completion_tree": "e37fbe11473541dbc41e54fcfb969d1428549dbe"
+    },
+    {
+      "goal_id": "standard-universe-mechanics-complete-v1",
+      "completion_commit": "c3acefe237cef1e277e28a017e60ecdbe119f5d0",
+      "completion_tree": "c88ac7d4437d0c05261494ac7c90c73e2b5d30aa"
+    },
+    {
+      "goal_id": "gold-and-gears-reference-v1",
+      "completion_commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+      "completion_tree": "d5430413258a35a6a988973a9f57966f4daeee7d"
+    }
+  ],
+  "reference_input": {
+    "release_evidence": {
+      "path": "evidence/gold-and-gears-reference-v1/release/release-evidence.json",
+      "sha256": "191db83faae7490defeaa68a7025a88384243ce7821407fa5ac7f21f6c21a28d"
+    },
+    "content_manifest": {
+      "path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085"
+    },
+    "pack_index": {
+      "path": "content-reference/gold-and-gears-v1/pack-index.json",
+      "sha256": "128c7f08a70c2bc5ca18b2f53b182393e533fa4946904a6571a7cd1594b3d935"
+    },
+    "candidate_bundle": {
+      "path": "config/gold-and-gears-generated/config.sora",
+      "sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b"
+    },
+    "normalized_pack_sha256": "ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623",
+    "source_obligations": 7913,
+    "gold_owned": 7199,
+    "shared": 714,
+    "sora_tables": 52,
+    "workbook_rows": 29140,
+    "mechanic_rules": 1224,
+    "semantic_fixture_families": 18,
+    "policy_boundaries": 16
+  },
+  "merged_candidate_audit": {
+    "path": "evidence/reference-integration-v1/merged-mode-audit.json",
+    "sha256": "352d36b74a4e5973f659014c9d8e832bad575cbd6ac4a743fb3f058015d494e5",
+    "mode_count": 6,
+    "manifest_record_count": 46110,
+    "pairwise_mode_pair_count": 15,
+    "conflict_count": 0,
+    "runtime_loading_enabled_modes": 0
+  },
+  "protected_roots": [
+    {
+      "path": "evidence/gold-and-gears-reference-v1",
+      "tree": "4c6d8d53cf0b5d47512f979701d05355e08020d5"
+    },
+    {
+      "path": "content-manifests/gold-and-gears-v1",
+      "tree": "750bd5db32a684144237995c0c2a88b8d6d22897"
+    },
+    {
+      "path": "content-reference/gold-and-gears-v1",
+      "tree": "a559283eaca2a3488c94e8f64eebffc920c44c1a"
+    },
+    {
+      "path": "config/gold-and-gears/data",
+      "tree": "70489f8c3f54cd1cdfb3ea261ff91f028bef2259"
+    },
+    {
+      "path": "config/gold-and-gears-generated",
+      "tree": "bed81b780378c06322335024df4e4deba3fb5f39"
+    }
+  ],
+  "generic_runtime_baseline": {
+    "historical_crate_trees": [
+      {
+        "path": "crates/starclock-activity",
+        "tree": "925a55065a9c64b8a45f170b63d3506076ba7c41"
+      },
+      {
+        "path": "crates/starclock-combat",
+        "tree": "4fa414314f851d2466073f5e4653920943946ed2"
+      },
+      {
+        "path": "crates/starclock-build",
+        "tree": "f096fcf772699dda02b0240ecd72735c45d5b7d0"
+      },
+      {
+        "path": "crates/starclock-replay",
+        "tree": "29c191f30036db3c30224eaf6925649708f8c5c3"
+      },
+      {
+        "path": "crates/starclock-rules",
+        "tree": "68f35cb37cffa1608c1ebac8608ed97c7253179f"
+      },
+      {
+        "path": "crates/starclock-mode-universe",
+        "tree": "f83b69d1c531d74303497c55cb6826ed45c0575c"
+      },
+      {
+        "path": "crates/starclock-cli",
+        "tree": "7339b4dee82cb3b979bc19ebfc760e0a0aee0346"
+      },
+      {
+        "path": "crates/starclock-agent-api",
+        "tree": "4267b5dbb78afef91690baf19d44ee001ba24fa4"
+      },
+      {
+        "path": "crates/starclock-mcp",
+        "tree": "69e0344e8ba76ea38c3fd553dff21c2321f87d19"
+      }
+    ],
+    "revisions": {
+      "numeric_policy": "fixed-i64-6dp-v1",
+      "rng_algorithm": "chacha8-rand-0.10.2-intmap-v1",
+      "activity_state_hash": "sha256-v5",
+      "activity_handler_registry": "activity-handler-registry-v1",
+      "standard_universe_replay": "standard-universe-real-battle-replay-v1",
+      "standard_universe_executor": "standard-universe-nested-battle-executor-v1",
+      "cli_universe": "starclock-cli-universe-v3",
+      "agent_schema": "agent-api-v1",
+      "mcp_protocol": "2025-11-25"
+    },
+    "ownership": {
+      "activity_mutation": "Activity::apply(ActivityCommand)",
+      "battle_mutation": "Battle::apply(Command)",
+      "mode_owner": "starclock-mode-universe",
+      "data_owner": "starclock-data",
+      "shared_exception_registry": "starclock-rules",
+      "adapter_crates": [
+        "starclock-cli",
+        "starclock-agent-api",
+        "starclock-mcp"
+      ]
+    }
+  },
+  "artifact_roots": {
+    "runtime_manifest": "content-manifests/gold-and-gears-runtime-v1/",
+    "runtime_evidence": "evidence/gold-and-gears-runtime-v1/",
+    "runtime_tools": "tools/goal14/"
+  },
+  "contracts": {
+    "goal08_reference_evidence_is_immutable": true,
+    "candidate_json_and_workbooks_are_never_runtime_inputs": true,
+    "sora_rows_lower_privately": true,
+    "activity_and_battle_remain_the_only_mutation_boundaries": true,
+    "gold_and_gears_is_a_mode_profile_not_a_second_state_machine": true,
+    "shared_content_links_by_stable_identity_and_digest": true,
+    "component_identity_is_consumption_scoped": true,
+    "unrelated_mode_replays_remain_compatible": true,
+    "every_batch_updates_status_and_executable_evidence": true
+  }
+}

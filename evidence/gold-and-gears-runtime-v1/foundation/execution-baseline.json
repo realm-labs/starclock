@@ -1,0 +1,44 @@
+{
+  "schema_revision": "starclock.gold-and-gears-runtime-foundation.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P0-B1",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "start_commit": "b26f7d8dbafe5a83dd92ff8cb5a9c14466e69e8b",
+  "start_tree": "dd2db25ab6808722d84812cd714e6c1609d15f50",
+  "immutable_prerequisites": {
+    "verified_goal_count": 8,
+    "first_goal": "core-combat-v1",
+    "last_goal": "gold-and-gears-reference-v1"
+  },
+  "candidate_reference": {
+    "profile_id": "gold-gears.profile.v1",
+    "source_obligations": 7913,
+    "mechanic_rules": 1224,
+    "semantic_fixture_families": 18,
+    "policy_boundaries": 16,
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "normalized_pack_sha256": "ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623"
+  },
+  "merged_candidate_audit": {
+    "result": "Pass",
+    "modes": 6,
+    "manifest_records": 46110,
+    "pairwise_mode_pairs": 15,
+    "conflicts": 0,
+    "runtime_loading_enabled_modes": 0
+  },
+  "execution_package": {
+    "phases": 9,
+    "batches": 48,
+    "protected_roots": 5,
+    "historical_runtime_crate_trees": 9,
+    "next_batch": "G14-P0-B2"
+  },
+  "commands": [
+    "node tools/repository-check/verify-release-snapshots.mjs",
+    "node tools/reference-integration/verify.mjs",
+    "node tools/goal14/verify-foundation.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}
