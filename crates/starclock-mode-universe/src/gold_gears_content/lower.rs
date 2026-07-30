@@ -48,6 +48,12 @@ pub(super) fn lower(
                 Ok(Curio {
                     id: row.id,
                     key: key(&row.stable_key),
+                    source_id: row.source_id.clone().into(),
+                    mode_copy_id: row.mode_copy_id.clone().into(),
+                    handbook_order: row.handbook_order,
+                    pool_category: row.pool_category.clone().into(),
+                    selection_pool: key(&row.selection_pool_id),
+                    random_offer_eligibility: row.random_offer_eligibility.clone().into(),
                     initial_state_id: row.initial_state_id,
                     states: keys(&row.state_ids),
                     rule: key(&row.rule_contribution_id),
@@ -59,6 +65,13 @@ pub(super) fn lower(
                     id: row.id,
                     key: key(&row.stable_key),
                     curio_id: row.curio_id,
+                    state_kind: row.state_kind.clone().into(),
+                    pool_category: row.pool_category.clone().into(),
+                    lifecycle: json(&row.lifecycle_json, &row.stable_key)?,
+                    parameters: json(&row.parameter_values_json, &row.stable_key)?,
+                    repair_target: json(&row.repair_target_json, &row.stable_key)?,
+                    source_effect_id: row.source_effect_id.clone().into(),
+                    selection_policy: json(&row.selection_policy_json, &row.stable_key)?,
                     rule: key(&row.rule_contribution_id),
                     payloads: jsons(
                         [

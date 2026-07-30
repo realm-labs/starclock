@@ -2,8 +2,11 @@
 
 mod api;
 mod cognition;
+mod content_link_runtime;
 mod conundrum_policy;
 mod conundrum_runtime;
+mod curio_runtime;
+mod curio_types;
 mod dice_face;
 mod dice_loadout;
 mod dice_passive;
@@ -26,6 +29,9 @@ pub use api::{
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
 };
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
+pub use content_link_runtime::{
+    GOLD_AND_GEARS_SHARED_CONTENT_RUNTIME_REVISION, GoldAndGearsSharedContentDigests,
+};
 pub use conundrum_policy::{
     GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
     GOLD_AND_GEARS_CONUNDRUM_POLICY_REPLACEMENT_CONDITION,
@@ -35,6 +41,16 @@ pub use conundrum_policy::{
 pub use conundrum_runtime::{
     GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION, GoldAndGearsConundrumContribution,
     GoldAndGearsConundrumEffect, GoldAndGearsConundrumScope,
+};
+pub use curio_runtime::{
+    GOLD_AND_GEARS_CURIO_OFFER_POLICY_ACCURACY, GOLD_AND_GEARS_CURIO_OFFER_POLICY_REVISION,
+    GOLD_AND_GEARS_CURIO_RUNTIME_REVISION,
+};
+pub use curio_types::{
+    GoldAndGearsCurioCandidate, GoldAndGearsCurioCategory, GoldAndGearsCurioContribution,
+    GoldAndGearsCurioContributionSet, GoldAndGearsCurioDefinition, GoldAndGearsCurioId,
+    GoldAndGearsCurioOfferContext, GoldAndGearsCurioOfferSource, GoldAndGearsCurioParameter,
+    GoldAndGearsCurioState,
 };
 pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
 pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
@@ -65,6 +81,8 @@ const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
 #[cfg(test)]
 mod cognition_tests;
+#[cfg(test)]
+mod content_runtime_tests;
 #[cfg(test)]
 mod conundrum_runtime_tests;
 #[cfg(test)]

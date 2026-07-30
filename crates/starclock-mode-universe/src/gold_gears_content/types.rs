@@ -12,53 +12,66 @@ impl StableKey {
 }
 
 #[derive(Clone, Debug)]
-pub(super) struct JsonPayload(Box<str>);
+pub(crate) struct JsonPayload(Box<str>);
 
 impl JsonPayload {
     pub(super) fn new(value: &str) -> Self {
         Self(value.into())
     }
 
-    pub(super) fn as_str(&self) -> &str {
+    pub(crate) fn as_str(&self) -> &str {
         &self.0
     }
 }
 
 #[derive(Debug)]
-pub(super) struct Blessing {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) path: StableKey,
-    pub(super) levels: Box<[StableKey]>,
-    pub(super) inherited_rules: Box<[StableKey]>,
+pub(crate) struct Blessing {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) path: StableKey,
+    pub(crate) levels: Box<[StableKey]>,
+    pub(crate) inherited_rules: Box<[StableKey]>,
 }
 
 #[derive(Debug)]
-pub(super) struct BlessingLevel {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) blessing_id: i32,
-    pub(super) inherited_rules: Box<[StableKey]>,
-    pub(super) parameters: JsonPayload,
+pub(crate) struct BlessingLevel {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) blessing_id: i32,
+    pub(crate) inherited_rules: Box<[StableKey]>,
+    pub(crate) parameters: JsonPayload,
 }
 
 #[derive(Debug)]
-pub(super) struct Curio {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) initial_state_id: i32,
-    pub(super) states: Box<[StableKey]>,
-    pub(super) rule: StableKey,
-    pub(super) shared: bool,
+pub(crate) struct Curio {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) source_id: Box<str>,
+    pub(crate) mode_copy_id: Box<str>,
+    pub(crate) handbook_order: i32,
+    pub(crate) pool_category: Box<str>,
+    pub(crate) selection_pool: StableKey,
+    pub(crate) random_offer_eligibility: Box<str>,
+    pub(crate) initial_state_id: i32,
+    pub(crate) states: Box<[StableKey]>,
+    pub(crate) rule: StableKey,
+    pub(crate) shared: bool,
 }
 
 #[derive(Debug)]
-pub(super) struct CurioState {
-    pub(super) id: i32,
-    pub(super) key: StableKey,
-    pub(super) curio_id: i32,
-    pub(super) rule: StableKey,
-    pub(super) payloads: Box<[JsonPayload]>,
+pub(crate) struct CurioState {
+    pub(crate) id: i32,
+    pub(crate) key: StableKey,
+    pub(crate) curio_id: i32,
+    pub(crate) state_kind: Box<str>,
+    pub(crate) pool_category: Box<str>,
+    pub(crate) lifecycle: JsonPayload,
+    pub(crate) parameters: JsonPayload,
+    pub(crate) repair_target: JsonPayload,
+    pub(crate) source_effect_id: Box<str>,
+    pub(crate) selection_policy: JsonPayload,
+    pub(crate) rule: StableKey,
+    pub(crate) payloads: Box<[JsonPayload]>,
 }
 
 #[derive(Debug)]

@@ -1,3 +1,5 @@
+use super::curio_types::GoldAndGearsCurioId;
+
 /// Typed construction failures before a Gold Activity instance can start.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum GoldAndGearsEntryError {
@@ -56,6 +58,19 @@ pub enum GoldAndGearsEntryError {
     InvalidBlessingCounts,
     InvalidExtrapolationBoundary,
     UnknownExtrapolationPath(Box<str>),
+    InvalidSharedContentRuntime,
+    InvalidBlessingInventory,
+    UnknownBlessing(u32),
+    InvalidCurioRuntime,
+    InvalidCurioInventory,
+    InvalidCurioOffer,
+    UnknownCurio(GoldAndGearsCurioId),
+    CurioHasNoCharges(GoldAndGearsCurioId),
+    InvalidCurioCharge(GoldAndGearsCurioId),
+    InvalidCurioLifecycle(GoldAndGearsCurioId),
+    CurioCannotBeRepaired(GoldAndGearsCurioId),
+    InvalidCurioRepairProgress(GoldAndGearsCurioId),
+    InvalidCurioReplacement,
     MissingCognitionRange,
     InvalidActivityState,
     InvalidPlaneCount,

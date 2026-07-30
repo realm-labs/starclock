@@ -11,6 +11,7 @@ use starclock_activity::{
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
     cognition::CognitionRuntimeCatalog,
+    content_link_runtime::GoldAndGearsContentRuntimeCatalog,
     conundrum_runtime::{CompiledConundrumRuntime, ConundrumRuntimeCatalog},
     dice_face::{DiceFaceRuntimeCatalog, RuntimeDiceFace},
     dice_loadout::DiceLoadoutRuntimeCatalog,
@@ -190,6 +191,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) neural: Arc<NeuralRuntimeCatalog>,
     pub(super) conundrum: Arc<ConundrumRuntimeCatalog>,
     pub(super) progression: Arc<ProgressionRuntimeCatalog>,
+    pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -214,6 +216,7 @@ impl GoldAndGearsRuntimeFactory {
             return Err(GoldAndGearsEntryError::InvalidCatalog);
         }
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
+        let content_runtime = GoldAndGearsContentRuntimeCatalog::compile(&content)?;
         let cognition = CognitionRuntimeCatalog::compile(&unique)?;
         let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
         let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
@@ -236,6 +239,7 @@ impl GoldAndGearsRuntimeFactory {
             neural: Arc::new(neural),
             conundrum: Arc::new(conundrum),
             progression: Arc::new(progression),
+            content_runtime: Arc::new(content_runtime),
         })
     }
 
@@ -414,6 +418,7 @@ impl GoldAndGearsRuntimeFactory {
             cognition: Arc::clone(&self.cognition),
             transitions: Arc::clone(&self.transitions),
             progression_catalog: Arc::clone(&self.progression),
+            content_runtime: Arc::clone(&self.content_runtime),
         })
     }
 
@@ -468,6 +473,7 @@ pub struct GoldAndGearsRuntimeInstance {
     cognition: Arc<CognitionRuntimeCatalog>,
     transitions: Arc<PlaneTransitionRuntimeCatalog>,
     pub(super) progression_catalog: Arc<ProgressionRuntimeCatalog>,
+    pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeInstance {

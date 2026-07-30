@@ -1,6 +1,7 @@
 use starclock_activity::{
-    ActivityScope, ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition,
-    ActivityStateSource, ActivityStateVisibility, ActivityValue, SlotCarryPolicy, SlotResetPoint,
+    ActivityInventoryDefinition, ActivityInventoryId, ActivityScope, ActivitySlotDefinition,
+    ActivitySlotId, ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility,
+    ActivityValue, SlotCarryPolicy, SlotResetPoint,
 };
 
 use crate::{
@@ -11,11 +12,12 @@ use crate::{
 use super::{
     GoldAndGearsEntryError,
     state_layout::{
-        BOARD_NODE_BEACON_SLOT, BOARD_NODE_BEACON_SOURCE, BOARD_NODE_DOMAIN_SLOT,
-        BOARD_NODE_DOMAIN_SOURCE, BOARD_NODE_STATE_SLOT, BOARD_NODE_STATE_SOURCE, COGNITION_SLOT,
-        COGNITION_SOURCE, CONTENT_LIFECYCLE_SLOT, CONTENT_LIFECYCLE_SOURCE,
-        CONUNDRUM_AUXILIARY_KEY, CONUNDRUM_BERSERK_KEY, CONUNDRUM_SLOT, CONUNDRUM_SOURCE,
-        CONUNDRUM_STATS_KEY, DEFERRED_EFFECTS_SLOT, DEFERRED_EFFECTS_SOURCE,
+        BLESSING_INVENTORY, BLESSING_INVENTORY_SOURCE, BOARD_NODE_BEACON_SLOT,
+        BOARD_NODE_BEACON_SOURCE, BOARD_NODE_DOMAIN_SLOT, BOARD_NODE_DOMAIN_SOURCE,
+        BOARD_NODE_STATE_SLOT, BOARD_NODE_STATE_SOURCE, COGNITION_SLOT, COGNITION_SOURCE,
+        CONTENT_LIFECYCLE_SLOT, CONTENT_LIFECYCLE_SOURCE, CONUNDRUM_AUXILIARY_KEY,
+        CONUNDRUM_BERSERK_KEY, CONUNDRUM_SLOT, CONUNDRUM_SOURCE, CONUNDRUM_STATS_KEY,
+        CURIO_INVENTORY, CURIO_INVENTORY_SOURCE, DEFERRED_EFFECTS_SLOT, DEFERRED_EFFECTS_SOURCE,
         DICE_LOADOUT_FACE_KEY_BASE, DICE_LOADOUT_MAX_RARITY_KEY_BASE, DICE_LOADOUT_SLOT,
         DICE_LOADOUT_SOURCE, DICE_RESOLUTION_SLOT, DICE_RESOLUTION_SOURCE, ENTRY_AREA_KEY,
         ENTRY_AUXILIARY_CONUNDRUM_KEY, ENTRY_DICE_KEY, ENTRY_DIFFICULTY_KEY, ENTRY_PATH_KEY,
@@ -256,8 +258,30 @@ pub(super) fn compile_state(
             ActivityStateVisibility::Player,
         )?,
     ];
-    ActivityStateDefinition::new(slots, vec![], vec![])
+    let inventories = vec![
+        activity_inventory(BLESSING_INVENTORY, 162, 2, BLESSING_INVENTORY_SOURCE)?,
+        activity_inventory(CURIO_INVENTORY, 80, 1, CURIO_INVENTORY_SOURCE)?,
+    ];
+    ActivityStateDefinition::new(slots, inventories, vec![])
         .map_err(|_| GoldAndGearsEntryError::InvalidActivityState)
+}
+
+fn activity_inventory(
+    id: u32,
+    maximum_entries: u32,
+    maximum_stack: u32,
+    source: u64,
+) -> Result<ActivityInventoryDefinition, GoldAndGearsEntryError> {
+    ActivityInventoryDefinition::new(
+        ActivityInventoryId::new(id).expect("static inventory ID is non-zero"),
+        ActivityScope::Activity,
+        maximum_entries,
+        maximum_stack,
+        SlotCarryPolicy::CarryExact,
+        ActivityStateVisibility::Player,
+        ActivityStateSource::new(source).expect("static inventory source is non-zero"),
+    )
+    .map_err(|_| GoldAndGearsEntryError::InvalidActivityState)
 }
 
 #[allow(clippy::too_many_arguments)]

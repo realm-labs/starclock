@@ -1,7 +1,7 @@
 //! Immutable shared and mode-owned content catalogs for Gold and Gears.
 
 mod lower;
-mod types;
+pub(crate) mod types;
 mod validate;
 
 use crate::{
@@ -60,10 +60,10 @@ impl From<GoldAndGearsBundleLoadError> for GoldAndGearsContentError {
 #[derive(Debug)]
 pub(crate) struct GoldAndGearsContentCatalog {
     pub(crate) bundle: GoldAndGearsBundleSummary,
-    blessings: Box<[Blessing]>,
-    blessing_levels: Box<[BlessingLevel]>,
-    curios: Box<[Curio]>,
-    curio_states: Box<[CurioState]>,
+    pub(crate) blessings: Box<[Blessing]>,
+    pub(crate) blessing_levels: Box<[BlessingLevel]>,
+    pub(crate) curios: Box<[Curio]>,
+    pub(crate) curio_states: Box<[CurioState]>,
     occurrences: Box<[Occurrence]>,
     occurrence_variants: Box<[OccurrenceVariant]>,
     occurrence_choices: Box<[OccurrenceChoice]>,

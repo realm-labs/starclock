@@ -1,0 +1,172 @@
+{
+  "schema_revision": "starclock.gold-and-gears-content-curio-runtime.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P4-B4",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "shared_blessings": 162,
+    "shared_blessing_levels": 324,
+    "shared_paths": 9,
+    "shared_standard_curios": 61,
+    "gold_and_gears_curio_copies": 80
+  },
+  "shared_content_links": {
+    "runtime_revision": "gold-and-gears-shared-content-runtime-v1",
+    "source": "EmbeddedReleasedStandardUniverseSoraBundle",
+    "blessing_digest": "e670d6419dffbc441a18aa946516466bca62f28505921bbf96233f65833d3691",
+    "path_digest": "0d733907bb5bd6d75cb17c51e63b2c61ec73e1e922b0f8cfcdba2a22aaea7ce2",
+    "curio_digest": "ce4001b5bb74ca3e5103f0888380ea8ea35e69c78b17789116658db3a0cee8df",
+    "blessing_inventory_maximum_entries": 162,
+    "blessing_inventory_maximum_stack": 2,
+    "blessing_rng_label": "Reward",
+    "blessing_rng_purpose": 18289,
+    "runtime_json_file_reads": 0
+  },
+  "curio_runtime": {
+    "revision": "gold-and-gears-curio-runtime-v1",
+    "catalog_digest": "3c058dd675fac30ac548f62d59d713ee1f056adb791fa735230ea9a9e35e6049",
+    "shared_copies": 61,
+    "gold_owned_copies": 19,
+    "normal": 60,
+    "negative": 14,
+    "error_code": 6,
+    "initial_active": 74,
+    "initial_repairing": 6,
+    "terminal_active": 57,
+    "terminal_destroyed": 16,
+    "terminal_fixed": 6,
+    "terminal_replaced": 1,
+    "numeric_charge_lifecycles": 12,
+    "source_condition_destruction_lifecycles": 4,
+    "repair_after_completed_battles": 3,
+    "replacement_lifecycles": 1,
+    "post_destruction_effect_lifecycles": 1,
+    "curio_inventory_maximum_entries": 80,
+    "curio_inventory_maximum_stack": 1,
+    "state_storage": "Activity.ContentLifecycle.BoundedCounterMap",
+    "candidate_order": "HandbookOrderThenSourceId",
+    "runtime_json_file_reads": 0
+  },
+  "offer_policy": {
+    "register_id": "G14-R12",
+    "state": "VersionedExecutablePolicy",
+    "revision": "gold-and-gears-curio-offer-policy-v1",
+    "source_policy": "curio-random-selection-v1",
+    "evidence_quality": "ProjectPolicy",
+    "accuracy": "DeterministicProjectPolicyNotObservedParity",
+    "full_category_sources": [
+      "TrailblazeBonus",
+      "AuxiliaryConundrum"
+    ],
+    "explicit_allowlist_sources": [
+      "Occurrence",
+      "Service",
+      "Replacement"
+    ],
+    "candidate_order": "HandbookOrderThenSourceId",
+    "owned_filter": "ExcludeAllPossessedCurios",
+    "selection": "UniformWithoutReplacement",
+    "rng_bindings": {
+      "TrailblazeBonus": "Reward/18290",
+      "AuxiliaryConundrum": "Reward/18291",
+      "Occurrence": "Occurrence/18292",
+      "Service": "Shop/18293",
+      "Replacement": "Reward/18294"
+    },
+    "empty_behavior": "ReturnEmptyWithoutDraw",
+    "invalid_behavior": "RejectBeforeDraw",
+    "rationale": "Released category membership is complete, but released evidence does not establish every offer-specific exclusion or engine enumeration. Category-wide entry rewards remain executable while occurrence, service and replacement callers must bind exact released keys.",
+    "alternatives_rejected": [
+      "permit-all-curios-at-every-source",
+      "infer-occurrence-or-service-allowlists",
+      "use-one-global-rng-stream"
+    ],
+    "replacement_condition": "Replace when pinned released pool tables or engine code expose complete offer eligibility and candidate ordering."
+  },
+  "semantic_fixtures": {
+    "trailblaze_normal_offer": {
+      "seed": 0,
+      "maximum": 3,
+      "selected_runtime_ids": [
+        104,
+        110,
+        111
+      ],
+      "rng_label": "Reward",
+      "draws": 3,
+      "candidate_count": 60
+    },
+    "error_code_repair": {
+      "source_id": 45,
+      "initial_state": "Repairing",
+      "completed_battles": 3,
+      "final_state": "Fixed",
+      "remaining_or_progress": 0,
+      "contribution_digest": "88a396ab3754c643fa5a8ec5666c56023a0b65ea6ab2067ce602897c9935c695"
+    },
+    "charged_curio": {
+      "source_id": 201,
+      "runtime_id": 3201,
+      "initial_charges": 2,
+      "final_state_after_two_uses": "Destroyed"
+    },
+    "source_condition_curio": {
+      "source_id": 203,
+      "runtime_id": 3203,
+      "terminal_state": "Destroyed"
+    },
+    "rule_partition_execution_owner": "G14-P5-M05"
+  },
+  "validation": {
+    "all_shared_links_resolve": true,
+    "all_authored_decimal_parameters_match_shared_definitions": true,
+    "all_eighty_curio_copies_compile_exactly_once": true,
+    "all_candidate_pools_are_canonical": true,
+    "owned_curios_are_excluded": true,
+    "unknown_offer_keys_fail_closed": true,
+    "only_causal_rng_stream_advances": true,
+    "empty_offers_advance_no_rng": true,
+    "acquisition_enhancement_replacement_and_teardown_are_atomic": true,
+    "charges_destruction_repair_and_fixed_projection_are_atomic": true,
+    "duplicate_or_orphan_contributions_fail_closed": true,
+    "protected_reference_roots_unchanged": true
+  },
+  "tests": {
+    "focused_content_runtime_tests_passed": 8,
+    "entry_suite_passed": 71,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "138.5",
+    "quick_selected_harnesses": 53,
+    "quick_selected_execution_seconds": "131.6",
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3,
+    "quick_rust_receipt": "CacheMiss",
+    "final_quick_gate_seconds": "6.1",
+    "final_quick_rust_receipt": "CacheHit",
+    "final_quick_deferred_inputs": 2,
+    "discarded_quick_attempts": [
+      "RemainingBudgetTimeoutAfter53HarnessesPassedIn173.1Seconds"
+    ],
+    "full_gate_required": true,
+    "full_gate_passed": true,
+    "full_gate_seconds": "415.4",
+    "full_workspace_harnesses": 138,
+    "full_selected_execution_seconds": "316.8",
+    "full_cache_dependent_checks_skipped": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::content_runtime_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/goal14/verify-phase4-b4.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}
