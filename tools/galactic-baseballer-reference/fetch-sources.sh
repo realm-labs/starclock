@@ -61,6 +61,9 @@ git -C "${turn_target}" sparse-checkout set --no-cone \
   '/ExcelOutput/EvolveBuild*.json' \
   '/ExcelOutput/EvoBdSC*.json' \
   '/ExcelOutput/StageConfig.json' \
+  '/ExcelOutput/StageInfiniteGroup.json' \
+  '/ExcelOutput/StageInfiniteMonsterGroup.json' \
+  '/ExcelOutput/StageInfiniteWaveConfig.json' \
   '/ExcelOutput/BattleEventConfig.json' \
   '/ExcelOutput/BattleTargetConfig.json' \
   '/ExcelOutput/MazeBuff.json' \
