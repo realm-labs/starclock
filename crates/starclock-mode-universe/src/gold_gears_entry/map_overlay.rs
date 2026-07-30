@@ -16,7 +16,8 @@ use crate::{
 use super::{
     GoldAndGearsEntryError,
     state_layout::{
-        BOARD_NODE_BEACON_SLOT, BOARD_NODE_DOMAIN_SLOT, BOARD_NODE_STATE_SLOT, PLANE_STATE_SLOT,
+        BOARD_NODE_BEACON_SLOT, BOARD_NODE_DOMAIN_SLOT, BOARD_NODE_STATE_SLOT,
+        PLANE_ACTION_POINTS_KEY, PLANE_STATE_SLOT,
     },
 };
 
@@ -38,8 +39,6 @@ pub(super) const NODE_STATE_BLANKED: i64 = 4;
 const PLANE_LAST_MAP_EVENT_KEY: u64 = 1;
 const PLANE_LAST_MAP_EFFECT_KEY: u64 = 2;
 const PLANE_LAST_MAP_PARAMETER_KEY: u64 = 3;
-const PLANE_ACTION_POINTS_KEY: u64 = 4;
-
 #[derive(Debug)]
 pub(super) struct MapRuntimeCatalog {
     boards: Box<[BoardMapDefinition]>,
@@ -201,6 +200,20 @@ impl MapRuntimeCatalog {
         program(REPLACEMENT_PROGRAM_BASE, target.get(), operations)
     }
 
+    pub(super) fn replacement_operations(
+        &self,
+        target: NodeId,
+        domain: &str,
+        beacon: Option<&str>,
+    ) -> Result<Vec<ActivityOperation>, GoldAndGearsEntryError> {
+        Ok(node_values(
+            target,
+            NODE_STATE_REPLACED,
+            literal(i64::from(self.domain(domain)?)),
+            literal(i64::from(self.beacon(beacon)?)),
+        ))
+    }
+
     pub(super) fn compile_copy(
         &self,
         source: NodeId,
@@ -215,12 +228,166 @@ impl MapRuntimeCatalog {
         program(COPY_PROGRAM_BASE, target.get(), operations)
     }
 
+    pub(super) fn copy_operations(&self, source: NodeId, target: NodeId) -> Vec<ActivityOperation> {
+        node_values(
+            target,
+            NODE_STATE_COPIED,
+            counter(BOARD_NODE_DOMAIN_SLOT, source),
+            counter(BOARD_NODE_BEACON_SLOT, source),
+        )
+    }
+
     pub(super) fn compile_blank(
         &self,
         target: NodeId,
     ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
         let operations = node_values(target, NODE_STATE_BLANKED, literal(0), literal(0));
         program(BLANK_PROGRAM_BASE, target.get(), operations)
+    }
+
+    pub(super) fn blank_operations(&self, target: NodeId) -> Vec<ActivityOperation> {
+        node_values(target, NODE_STATE_BLANKED, literal(0), literal(0))
+    }
+
+    pub(super) fn set_beacon_operations(
+        &self,
+        target: NodeId,
+        beacon: u32,
+    ) -> Result<Vec<ActivityOperation>, GoldAndGearsEntryError> {
+        if !self
+            .beacons
+            .iter()
+            .any(|(_, candidate)| *candidate == beacon)
+        {
+            return Err(GoldAndGearsEntryError::InvalidKnowledgeRuntime);
+        }
+        Ok(vec![set_counter(
+            BOARD_NODE_BEACON_SLOT,
+            u64::from(target.get()),
+            literal(i64::from(beacon)),
+        )])
+    }
+
+    pub(super) fn beacon_ids(&self) -> Box<[u32]> {
+        let mut ids = self.beacons.iter().map(|(_, id)| *id).collect::<Vec<_>>();
+        ids.sort_unstable();
+        ids.into_boxed_slice()
+    }
+
+    pub(super) fn adventure_operations(
+        &self,
+        target: NodeId,
+    ) -> Result<Vec<ActivityOperation>, GoldAndGearsEntryError> {
+        self.replacement_operations(target, "gold-gears.domain.adventure", None)
+    }
+
+    pub(super) fn node_beacon_value(
+        &self,
+        state: &ActivityTransactionState,
+        node: NodeId,
+    ) -> Option<i64> {
+        map_value(state, BOARD_NODE_BEACON_SLOT, node)
+    }
+
+    pub(super) fn is_premium_domain(
+        &self,
+        state: &ActivityTransactionState,
+        node: NodeId,
+    ) -> Result<bool, GoldAndGearsEntryError> {
+        let domain = self.node_domain_value(state, node);
+        Ok([
+            self.domain("gold-gears.domain.monsterelite")?,
+            self.domain("gold-gears.domain.reward")?,
+            self.domain("gold-gears.domain.adventure")?,
+        ]
+        .into_iter()
+        .any(|candidate| domain == Some(i64::from(candidate))))
+    }
+
+    pub(super) fn knowledge_candidates(
+        &self,
+        state: &ActivityTransactionState,
+        graph: &ActivityGraphDefinition,
+        scope: &str,
+        anchor: Option<NodeId>,
+    ) -> Result<Box<[NodeId]>, GoldAndGearsEntryError> {
+        let boss = self.domain("gold-gears.domain.monsterboss")?;
+        let nous_boss = self.domain("gold-gears.domain.monsternousboss")?;
+        let blank = self.domain("gold-gears.domain.empty")?;
+        let domains = map_values(state, BOARD_NODE_DOMAIN_SLOT);
+        let states = map_values(state, BOARD_NODE_STATE_SLOT);
+        let knowledge = map_values(state, super::state_layout::KNOWLEDGE_SLOT);
+        let anchor = anchor.unwrap_or(state.current_node());
+        let adjacent = graph
+            .edges()
+            .iter()
+            .filter_map(|edge| {
+                if edge.from() == anchor {
+                    Some(edge.to())
+                } else if edge.to() == anchor {
+                    Some(edge.from())
+                } else {
+                    None
+                }
+            })
+            .collect::<Vec<_>>();
+        let candidates = domains
+            .iter()
+            .filter_map(|(raw, domain)| {
+                let node = u32::try_from(*raw).ok().and_then(NodeId::new)?;
+                let active = states
+                    .binary_search_by_key(raw, |(key, _)| *key)
+                    .ok()
+                    .is_some_and(|index| states[index].1 != NODE_STATE_BLANKED);
+                let knowledge_value = knowledge
+                    .binary_search_by_key(raw, |(key, _)| *key)
+                    .ok()
+                    .map_or(0, |index| knowledge[index].1);
+                let known = knowledge_value != 0;
+                let nonboss = *domain != i64::from(boss) && *domain != i64::from(nous_boss);
+                let selected = match scope {
+                    "RandomNonBossPlaneDomain" | "SelectedNonBossDomain" => active && nonboss,
+                    "RandomUnmarkedPlaneDomain" => active && !known,
+                    "RandomPlaneDomain" | "SelectedDomain" => active,
+                    "RandomKnowledgeDomain" | "AnyKnowledgeDomain" | "AllKnowledgeDomains" => {
+                        active && known
+                    }
+                    "RandomNonBossKnowledgeDomain" => active && known && nonboss,
+                    "SelectedNonBlankNonBossKnowledgeDomain" => {
+                        active && known && nonboss && *domain != i64::from(blank)
+                    }
+                    "RandomAboutToCollapseDomain" | "AllAboutToCollapseDomains" => {
+                        active && knowledge_value == 3
+                    }
+                    "AdjacentNonBossDomain" => active && nonboss && adjacent.contains(&node),
+                    "RandomAdjacentToCurrentDomain"
+                    | "AllAdjacentToCurrentDomain"
+                    | "RandomAdjacentToSelectedKnowledgeDomain"
+                    | "AllAdjacentToSelectedKnowledgeDomain"
+                    | "AdjacentDomainPerKnowledgeDomain" => active && adjacent.contains(&node),
+                    "SelectedDomainAndAllAdjacent" => {
+                        active && (node == anchor || adjacent.contains(&node))
+                    }
+                    "DistinctKnowledgeDomainTypes" => active && known,
+                    _ => false,
+                };
+                selected.then_some(node)
+            })
+            .collect::<Vec<_>>()
+            .into_boxed_slice();
+        Ok(candidates)
+    }
+
+    pub(super) fn node_domain_value(
+        &self,
+        state: &ActivityTransactionState,
+        node: NodeId,
+    ) -> Option<i64> {
+        let values = map_values(state, BOARD_NODE_DOMAIN_SLOT);
+        values
+            .binary_search_by_key(&u64::from(node.get()), |(key, _)| *key)
+            .ok()
+            .map(|index| values[index].1)
     }
 
     fn creation_operations(
@@ -367,7 +534,7 @@ impl MapRuntimeCatalog {
                     "about-to-collapse-domain" => knowledge
                         .binary_search_by_key(raw, |(key, _)| *key)
                         .ok()
-                        .is_some_and(|index| knowledge[index].1 == 1),
+                        .is_some_and(|index| knowledge[index].1 == 3),
                     "knowledge-nonblank-nonboss-domain" => {
                         known
                             && *domain != i64::from(blank)
@@ -404,6 +571,14 @@ fn map_values(state: &ActivityTransactionState, slot_id: u32) -> &[(u64, i64)] {
         Some(ActivityValue::BoundedCounterMap(values)) => values,
         _ => &[],
     }
+}
+
+fn map_value(state: &ActivityTransactionState, slot_id: u32, node: NodeId) -> Option<i64> {
+    let values = map_values(state, slot_id);
+    values
+        .binary_search_by_key(&u64::from(node.get()), |(key, _)| *key)
+        .ok()
+        .map(|index| values[index].1)
 }
 
 fn runtime_event(

@@ -21,6 +21,12 @@ use super::{
         CompiledDiceRuntime, DiceRuntimeCatalog, compile_cheat, compile_plane_start,
         compile_reroll, compile_roll, resolution_face, resolution_kind,
     },
+    knowledge::KnowledgeRuntimeCatalog,
+    knowledge_execution::{
+        KnowledgeFaceContext, compile_collapse, compile_countdown_initial_adjustment,
+        compile_domain_entry, compile_face_effect, compile_mark_for_collapse, knowledge_countdown,
+        knowledge_nodes, movement_targets,
+    },
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     plane_transition::PlaneTransitionRuntimeCatalog,
     state::compile_state,
@@ -174,6 +180,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) dice_loadouts: Arc<DiceLoadoutRuntimeCatalog>,
     pub(super) dice_runtime: Arc<DiceRuntimeCatalog>,
     pub(super) dice_faces: Arc<DiceFaceRuntimeCatalog>,
+    pub(super) knowledge: Arc<KnowledgeRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -203,6 +210,7 @@ impl GoldAndGearsRuntimeFactory {
         let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
         let dice_runtime = DiceRuntimeCatalog::compile(&unique)?;
         let dice_faces = DiceFaceRuntimeCatalog::compile(&unique)?;
+        let knowledge = KnowledgeRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -212,6 +220,7 @@ impl GoldAndGearsRuntimeFactory {
             dice_loadouts: Arc::new(dice_loadouts),
             dice_runtime: Arc::new(dice_runtime),
             dice_faces: Arc::new(dice_faces),
+            knowledge: Arc::new(knowledge),
         })
     }
 
@@ -359,6 +368,7 @@ impl GoldAndGearsRuntimeFactory {
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
             map: Arc::clone(&self.map),
+            knowledge: Arc::clone(&self.knowledge),
             cognition: Arc::clone(&self.cognition),
             transitions: Arc::clone(&self.transitions),
         })
@@ -408,6 +418,7 @@ pub struct GoldAndGearsRuntimeInstance {
     plane_ends: Box<[NodeId]>,
     chessboards: Box<[Box<str>]>,
     map: Arc<MapRuntimeCatalog>,
+    knowledge: Arc<KnowledgeRuntimeCatalog>,
     cognition: Arc<CognitionRuntimeCatalog>,
     transitions: Arc<PlaneTransitionRuntimeCatalog>,
 }
@@ -696,6 +707,102 @@ impl GoldAndGearsRuntimeInstance {
         self.face_runtime(face)
             .ok_or(GoldAndGearsEntryError::DiceFaceNotRolled)?
             .compile_empty_content(state)
+    }
+
+    /// Executes the Knowledge-owned consequence of the currently resolved
+    /// dice face. A selected source is supplied as `anchor`; a selector-owned
+    /// destination is supplied as `explicit_target`.
+    ///
+    /// Empty random/all candidate sets commit the authored no-effect marker
+    /// without consuming RNG. Rejected explicit selections leave RNG intact.
+    pub fn compile_knowledge_face_effect(
+        &self,
+        state: &ActivityTransactionState,
+        anchor: Option<NodeId>,
+        explicit_target: Option<NodeId>,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<Option<ActivityProgramDefinition>, GoldAndGearsEntryError> {
+        compile_face_effect(
+            KnowledgeFaceContext {
+                catalog: &self.knowledge,
+                map: &self.map,
+                graph: &self.graph,
+                dice: &self.dice_runtime,
+            },
+            state,
+            anchor,
+            explicit_target,
+            rng,
+        )
+    }
+
+    /// Returns the authored lifecycle boundary for a Knowledge-bound face.
+    #[must_use]
+    pub fn knowledge_face_trigger(&self, face: &str) -> Option<&'static str> {
+        self.dice_face_ids
+            .iter()
+            .find(|(key, _)| key.as_ref() == face)
+            .and_then(|(_, id)| self.knowledge.rule_for_face(*id))
+            .map(super::knowledge::RuntimeKnowledgeRule::trigger_name)
+    }
+
+    /// Returns all stable Knowledge movement-override destinations for the
+    /// currently resolved movement face.
+    pub fn knowledge_movement_targets(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<Box<[NodeId]>, GoldAndGearsEntryError> {
+        movement_targets(&self.knowledge, &self.map, &self.graph, state)
+    }
+
+    /// Marks one Knowledge domain for the later collapse boundary.
+    pub fn compile_knowledge_mark_for_collapse(
+        &self,
+        state: &ActivityTransactionState,
+        target: NodeId,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_mark_for_collapse(state, target)
+    }
+
+    /// Resolves one already-marked Knowledge-domain collapse. The selected
+    /// Custom Dice may preserve the domain or contribute exact collapse
+    /// rewards; otherwise the board overlay is blanked atomically.
+    pub fn compile_knowledge_collapse(
+        &self,
+        state: &ActivityTransactionState,
+        target: NodeId,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_collapse(&self.map, &self.dice_runtime, state, target)
+    }
+
+    /// Executes selected-dice callbacks for entering a Knowledge domain.
+    pub fn compile_knowledge_domain_entry(
+        &self,
+        state: &ActivityTransactionState,
+        target: NodeId,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_domain_entry(&self.dice_runtime, state, target)
+    }
+
+    /// Applies the released Countdown-dice initial reduction to the current
+    /// plane counter. Other selected dice return no program.
+    pub fn compile_countdown_initial_adjustment(
+        &self,
+        state: &ActivityTransactionState,
+    ) -> Result<Option<ActivityProgramDefinition>, GoldAndGearsEntryError> {
+        compile_countdown_initial_adjustment(&self.dice_runtime, state)
+    }
+
+    /// Returns canonical Knowledge nodes in stable node-ID order.
+    #[must_use]
+    pub fn knowledge_nodes(&self, state: &ActivityTransactionState) -> Box<[NodeId]> {
+        knowledge_nodes(state)
+    }
+
+    /// Returns the current plane Countdown/action-point value.
+    #[must_use]
+    pub fn knowledge_countdown(&self, state: &ActivityTransactionState) -> i64 {
+        knowledge_countdown(state)
     }
 
     #[must_use]
