@@ -7,6 +7,8 @@
 
 #[path = "../../../config/generated/rust/universe_reference/mod.rs"]
 mod generated;
+#[path = "../../../config/gold-and-gears-generated/rust/mod.rs"]
+mod gold_gears_generated;
 
 pub mod ability_runtime;
 pub mod abundance_runtime;
@@ -37,6 +39,7 @@ pub mod entry;
 mod entry_identity;
 pub mod error;
 pub mod erudition_runtime;
+pub mod gold_gears_catalog;
 pub mod handler_bundle;
 pub mod hunt_runtime;
 pub mod id;

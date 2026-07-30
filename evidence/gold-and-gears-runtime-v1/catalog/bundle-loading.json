@@ -1,0 +1,48 @@
+{
+  "schema_revision": "starclock.gold-and-gears-bundle-loading.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P1-B1",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "bundle": {
+    "path": "config/gold-and-gears-generated/config.sora",
+    "sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "schema_fingerprint": "5d5e76d3dbe1afca",
+    "tables_loaded": 52,
+    "rows_loaded": 29140
+  },
+  "manifest": {
+    "goal_id": "gold-and-gears-reference-v1",
+    "profile_id": "gold-gears.profile.v1",
+    "source_obligations": 7913,
+    "mechanic_rules": 1224,
+    "semantic_fixture_families": 18,
+    "policy_boundaries": 16
+  },
+  "boundary": {
+    "generated_module_visibility": "private",
+    "public_generated_types": 0,
+    "stable_error_families": 6,
+    "digest_checked_before_lowering": true,
+    "exact_table_closure_checked": true
+  },
+  "tests": {
+    "integration_passed": 2,
+    "unit_passed": 3,
+    "rejection_classes_exercised": [
+      "BundleDigest",
+      "BundleFormat",
+      "SchemaFingerprint",
+      "TableClosure",
+      "ManifestRevision",
+      "RowDenominator"
+    ]
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --test gold_gears_bundle --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_catalog --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/goal14/verify-phase1-b1.mjs",
+    "node tools/repository-check/run.mjs"
+  ]
+}
