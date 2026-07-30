@@ -5,6 +5,7 @@ use crate::{
     gold_gears_catalog::{
         GoldAndGearsBundleLoadError, GoldAndGearsBundleSummary, validate_gold_and_gears_bundle,
     },
+    gold_gears_content::GoldAndGearsContentCatalog,
     gold_gears_handler_bundle::{
         GOLD_AND_GEARS_HANDLER_BUNDLE_REVISION, gold_and_gears_activity_handler_registry,
     },
@@ -44,8 +45,11 @@ impl GoldAndGearsCatalogIdentity {
             .map_err(|_| GoldAndGearsBundleLoadError::TableClosure)?;
         let unique = GoldAndGearsUniqueCatalog::load(bytes)
             .map_err(|_| GoldAndGearsBundleLoadError::TableClosure)?;
+        let content = GoldAndGearsContentCatalog::load(bytes)
+            .map_err(|_| GoldAndGearsBundleLoadError::TableClosure)?;
         debug_assert_eq!(structural.bundle, summary);
         debug_assert_eq!(unique.bundle, summary);
+        debug_assert_eq!(content.bundle, summary);
         Ok(Self::from_validated_bundle(summary))
     }
 

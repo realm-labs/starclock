@@ -80,6 +80,8 @@ const universeJsonUsers = walk(path.join(root, "crates", "starclock-mode-univers
   .map((file) => path.relative(root, file).replaceAll("\\", "/"))
   .sort();
 assert(JSON.stringify(universeJsonUsers) === JSON.stringify([
+  "crates/starclock-mode-universe/src/gold_gears_content/lower.rs",
+  "crates/starclock-mode-universe/src/gold_gears_content/validate.rs",
   "crates/starclock-mode-universe/src/lowering.rs",
   "crates/starclock-mode-universe/src/occurrence_lowering.rs",
   "crates/starclock-mode-universe/src/rule_lowering.rs"
