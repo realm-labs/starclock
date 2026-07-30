@@ -1,0 +1,701 @@
+[[tables]]
+name = "ArbKingStates"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "KingStates"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbKingProtection"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "KingProtection"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbClocks"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "Clocks"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "stage_stable_keys"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 5]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbQuadrantOptions"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "QuadrantOptions"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "source_numeric_id"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_numeric_id"
+fields = ["source_numeric_id"]
+unique = true
+
+[[tables]]
+name = "ArbQuadrantSelections"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "QuadrantSelections"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "option_stable_keys"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 3]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbTargets"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "Targets"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "source_numeric_id"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_source_numeric_id"
+fields = ["source_numeric_id"]
+unique = true
+
+[[tables]]
+name = "ArbObjectives"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "Objectives"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "target_stable_keys"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 7]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "ArbStageResults"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "StageResults"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stage_id"
+type = "ref<ArbStages.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "target_stable_keys"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 7]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+[[tables.indexes]]
+name = "by_stage"
+fields = ["stage_id"]
+unique = true
+
+[[tables]]
+name = "ArbAggregations"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "AnomalyArbitration.xlsx"
+sheet = "Aggregations"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "profile_id"
+type = "ref<ArbProfiles.id>"
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000]
+[[tables.fields]]
+name = "stage_stable_keys"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [0, 5]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 300]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<ArbOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<ArbCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<ArbEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<ArbMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "source_ref_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 200000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true

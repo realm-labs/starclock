@@ -1,0 +1,152 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-fixture-contract.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "fixture_role": "normalized semantic review; no runtime executability or parity claim",
+  "minimum_cases_per_family": 1,
+  "required_fields": [
+    "id",
+    "family_id",
+    "name_en",
+    "name_zh_cn",
+    "source_record_ids",
+    "preconditions",
+    "input",
+    "ordered_operations",
+    "expected_facts",
+    "evidence_refs",
+    "evidence_quality",
+    "mechanism_quality"
+  ],
+  "field_contracts": {
+    "id": "globally unique stable string",
+    "family_id": "one of required_families",
+    "source_record_ids": "nonempty sorted stable-ID list closing manifest obligations",
+    "preconditions": "typed canonical facts only",
+    "input": "typed decision, offered outcome, command-independent observation or deterministic policy input",
+    "ordered_operations": "nonempty ordered lifecycle/contribution trace with canonical decimal strings",
+    "expected_facts": "nonempty typed assertions with explicit scope and timing; no presentation prose",
+    "evidence_refs": "nonempty ordered references resolving in sources.json",
+    "evidence_quality": "one normalized evidence label",
+    "mechanism_quality": "one normalized mechanism label"
+  },
+  "determinism": {
+    "random_selection": "explicit seed plus stable ordered candidate IDs when a policy requires selection",
+    "ties": "released authored order, otherwise stable ID ascending with ProjectPolicy evidence",
+    "rejected_input": "authoritative preconditions and expected facts remain unchanged",
+    "no_legal_target": "explicit expected fallback; never silent no-op",
+    "operation_order": "asserted as part of expected_facts",
+    "decimal_values": "canonical decimal strings",
+    "battle_boundary": "fixture states whether a fact installs before battle, during a phase, at wave transition, after settlement or at teardown",
+    "cross_battle_projection": "fixture distinguishes stage-local result, current progress and retained best progress"
+  },
+  "approximation": {
+    "allowed_labels": [
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "required_fields": [
+      "note",
+      "replacement_condition"
+    ],
+    "exact_claim_forbidden": true
+  },
+  "required_families": [
+    {
+      "id": "battle-event-countdown",
+      "minimum_cases": 1,
+      "must_cover": ["event 30502/30503/30504 selection", "countdown parameters", "warning", "expiry or failure"]
+    },
+    {
+      "id": "best-progress-aggregation",
+      "minimum_cases": 1,
+      "must_cover": ["three simultaneous Knight records", "current progress", "retained best", "regression"]
+    },
+    {
+      "id": "clock-first-cycle",
+      "minimum_cases": 1,
+      "must_cover": ["first-cycle Action Value", "stage-local tick", "normal versus Plight limit"]
+    },
+    {
+      "id": "clock-warning-expiry",
+      "minimum_cases": 1,
+      "must_cover": ["warning threshold", "low-cycle effect", "expiry", "failure boundary"]
+    },
+    {
+      "id": "empty-pool-proof",
+      "minimum_cases": 6,
+      "must_cover": ["Blessing", "Curio", "Occurrence", "gameplay service", "currency", "random pool", "stronger-evidence replacement"]
+    },
+    {
+      "id": "encounter-enemy-closure",
+      "minimum_cases": 1,
+      "must_cover": ["StageConfig", "ordered waves", "enemy slots", "summons", "templates", "skills", "statuses", "boss phase"]
+    },
+    {
+      "id": "king-protection",
+      "minimum_cases": 1,
+      "must_cover": ["three Knight contributions", "partial clears", "composition", "removal", "teardown"]
+    },
+    {
+      "id": "loadout-record",
+      "minimum_cases": 1,
+      "must_cover": ["successful snapshot", "character/form", "Light Cone", "Relic instances", "lock scope"]
+    },
+    {
+      "id": "plight-shortcut",
+      "minimum_cases": 1,
+      "must_cover": ["normal King state", "Plight entry", "direct Plight clear", "projected downstream facts"]
+    },
+    {
+      "id": "profile-entry",
+      "minimum_cases": 1,
+      "must_cover": ["Version 4.4 period", "eligibility", "four aliases", "legal entry", "terminal outcomes"]
+    },
+    {
+      "id": "quadrant-contribution",
+      "minimum_cases": 1,
+      "must_cover": ["MazeBuff binding", "parameters", "install timing", "battle-visible effect", "teardown"]
+    },
+    {
+      "id": "quadrant-selection",
+      "minimum_cases": 1,
+      "must_cover": ["three-option offer", "eligibility", "selection", "no-selection behavior", "replacement"]
+    },
+    {
+      "id": "record-replacement-reset",
+      "minimum_cases": 1,
+      "must_cover": ["rechallenge", "same-team loadout change", "replacement choice", "record erasure", "reset order"]
+    },
+    {
+      "id": "stage-order",
+      "minimum_cases": 1,
+      "must_cover": ["Knight I-III", "King", "Plight", "accepted order", "rejected transition"]
+    },
+    {
+      "id": "target-evaluation",
+      "minimum_cases": 1,
+      "must_cover": ["defeat/survival", "cycle thresholds", "evaluation timing", "per-stage stars", "King rating"]
+    },
+    {
+      "id": "team-uniqueness",
+      "minimum_cases": 1,
+      "must_cover": ["three disjoint teams", "combat-form identity", "Light Cone identity", "Relic-instance identity", "rejection"]
+    },
+    {
+      "id": "trait-contribution",
+      "minimum_cases": 1,
+      "must_cover": ["normal trait", "Plight trait", "parameters", "stacking", "scope", "teardown"]
+    },
+    {
+      "id": "wave-carry",
+      "minimum_cases": 1,
+      "must_cover": ["wave transition", "clock carry", "non-reset", "warning state", "battle teardown"]
+    }
+  ],
+  "coverage_rule": {
+    "family_coverage": "every required family has at least its minimum_cases",
+    "source_coverage": "every distinct mechanic rule references at least one fixture",
+    "manifest_coverage": "every source/semantic obligation reaches DataReady or an explicit nonblocking approximation with replacement condition",
+    "zero_coverage": "each exact-zero family has its own fixture case and selector-closure digest",
+    "blocking_gap": "no fixture can satisfy a Blocked manifest obligation"
+  }
+}

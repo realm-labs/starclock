@@ -1,0 +1,331 @@
+{
+  "table": {
+    "name": "ArbPoolAudits",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Blessing pool audit"
+          },
+          "name_zh_cn": {
+            "String": "祝福池审计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_locators_are_members\":false,\"active_member_count\":0,\"closure_rule\":\"No explicit active selector, direct reference or transitive stable-ID reference enters this family.\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"pool-audit.blessings\",\"kind\":\"PoolAudit\",\"manifest_record_ids\":[],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Blessing pool audit\",\"name_zh_cn\":\"祝福池审计\",\"ownership\":\"AnomalyArbitration\",\"pool_family\":\"blessings\",\"replacement_condition\":\"replace only when a released active selector or transitive reference names a member of this family\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selector_closure_sha256\":\"5ad1ad273a1d10fe48bfa8d7d9948c126d032750cb7b7b3ec5c7973b0306d0bf\",\"selector_scope\":[\"active-group-8\",\"aliases-801-through-804\",\"boss-alias-804\",\"five-stage-configs\",\"seven-battle-targets\",\"active-maze-buffs\",\"active-battle-events\",\"mechanical-common-constants\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.blessings\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"5ad1ad273a1d10fe48bfa8d7d9948c126d032750cb7b7b3ec5c7973b0306d0bf\",\"source_id\":\"goal13:zero-pool-proof:blessings\"}],\"summary_en\":\"The active Version 4.4 selector closure reaches no blessings record.\",\"summary_zh_cn\":\"4.4 版本当期选择器闭包未到达任何祝福记录。\",\"tags\":[\"blessings\",\"exact-zero\",\"pool-audit\"]}"
+          },
+          "pool_family": {
+            "String": "blessings"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "goal13:zero-pool-proof:blessings"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pool-audit.blessings"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 selector closure reaches no blessings record."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当期选择器闭包未到达任何祝福记录。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Curio pool audit"
+          },
+          "name_zh_cn": {
+            "String": "奇物池审计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_locators_are_members\":false,\"active_member_count\":0,\"closure_rule\":\"No explicit active selector, direct reference or transitive stable-ID reference enters this family.\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"pool-audit.curios\",\"kind\":\"PoolAudit\",\"manifest_record_ids\":[],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Curio pool audit\",\"name_zh_cn\":\"奇物池审计\",\"ownership\":\"AnomalyArbitration\",\"pool_family\":\"curios\",\"replacement_condition\":\"replace only when a released active selector or transitive reference names a member of this family\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selector_closure_sha256\":\"f2296a8e18f6c9a7d89bcc6201b7d279e4ffa0ee703a92b09152b718a2188962\",\"selector_scope\":[\"active-group-8\",\"aliases-801-through-804\",\"boss-alias-804\",\"five-stage-configs\",\"seven-battle-targets\",\"active-maze-buffs\",\"active-battle-events\",\"mechanical-common-constants\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.curios\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"f2296a8e18f6c9a7d89bcc6201b7d279e4ffa0ee703a92b09152b718a2188962\",\"source_id\":\"goal13:zero-pool-proof:curios\"}],\"summary_en\":\"The active Version 4.4 selector closure reaches no curios record.\",\"summary_zh_cn\":\"4.4 版本当期选择器闭包未到达任何奇物记录。\",\"tags\":[\"curios\",\"exact-zero\",\"pool-audit\"]}"
+          },
+          "pool_family": {
+            "String": "curios"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "goal13:zero-pool-proof:curios"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pool-audit.curios"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 selector closure reaches no curios record."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当期选择器闭包未到达任何奇物记录。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Occurrence pool audit"
+          },
+          "name_zh_cn": {
+            "String": "事件池审计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_locators_are_members\":false,\"active_member_count\":0,\"closure_rule\":\"No explicit active selector, direct reference or transitive stable-ID reference enters this family.\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"pool-audit.occurrences\",\"kind\":\"PoolAudit\",\"manifest_record_ids\":[],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Occurrence pool audit\",\"name_zh_cn\":\"事件池审计\",\"ownership\":\"AnomalyArbitration\",\"pool_family\":\"occurrences\",\"replacement_condition\":\"replace only when a released active selector or transitive reference names a member of this family\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selector_closure_sha256\":\"52ed5975d8e8e4eaabc22fd5c876466c141955d7474e8f2b3669ec1caadacde3\",\"selector_scope\":[\"active-group-8\",\"aliases-801-through-804\",\"boss-alias-804\",\"five-stage-configs\",\"seven-battle-targets\",\"active-maze-buffs\",\"active-battle-events\",\"mechanical-common-constants\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.occurrences\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"52ed5975d8e8e4eaabc22fd5c876466c141955d7474e8f2b3669ec1caadacde3\",\"source_id\":\"goal13:zero-pool-proof:occurrences\"}],\"summary_en\":\"The active Version 4.4 selector closure reaches no occurrences record.\",\"summary_zh_cn\":\"4.4 版本当期选择器闭包未到达任何事件记录。\",\"tags\":[\"exact-zero\",\"occurrences\",\"pool-audit\"]}"
+          },
+          "pool_family": {
+            "String": "occurrences"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "goal13:zero-pool-proof:occurrences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pool-audit.occurrences"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 selector closure reaches no occurrences record."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当期选择器闭包未到达任何事件记录。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Gameplay service pool audit"
+          },
+          "name_zh_cn": {
+            "String": "玩法服务池审计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_locators_are_members\":false,\"active_member_count\":0,\"closure_rule\":\"No explicit active selector, direct reference or transitive stable-ID reference enters this family.\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"pool-audit.gameplay-services\",\"kind\":\"PoolAudit\",\"manifest_record_ids\":[],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Gameplay service pool audit\",\"name_zh_cn\":\"玩法服务池审计\",\"ownership\":\"AnomalyArbitration\",\"pool_family\":\"gameplay_services\",\"replacement_condition\":\"replace only when a released active selector or transitive reference names a member of this family\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selector_closure_sha256\":\"d9e932038079aa881f5e7436f54057d4d6a225bb6b13b0778e1880fa345ccbcf\",\"selector_scope\":[\"active-group-8\",\"aliases-801-through-804\",\"boss-alias-804\",\"five-stage-configs\",\"seven-battle-targets\",\"active-maze-buffs\",\"active-battle-events\",\"mechanical-common-constants\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.gameplay_services\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"d9e932038079aa881f5e7436f54057d4d6a225bb6b13b0778e1880fa345ccbcf\",\"source_id\":\"goal13:zero-pool-proof:gameplay_services\"}],\"summary_en\":\"The active Version 4.4 selector closure reaches no gameplay services record.\",\"summary_zh_cn\":\"4.4 版本当期选择器闭包未到达任何玩法服务记录。\",\"tags\":[\"exact-zero\",\"gameplay-services\",\"pool-audit\"]}"
+          },
+          "pool_family": {
+            "String": "gameplay_services"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "goal13:zero-pool-proof:gameplay_services"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pool-audit.gameplay-services"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 selector closure reaches no gameplay services record."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当期选择器闭包未到达任何玩法服务记录。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Gameplay currency pool audit"
+          },
+          "name_zh_cn": {
+            "String": "玩法货币池审计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_locators_are_members\":false,\"active_member_count\":0,\"closure_rule\":\"No explicit active selector, direct reference or transitive stable-ID reference enters this family.\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"pool-audit.currencies\",\"kind\":\"PoolAudit\",\"manifest_record_ids\":[],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Gameplay currency pool audit\",\"name_zh_cn\":\"玩法货币池审计\",\"ownership\":\"AnomalyArbitration\",\"pool_family\":\"currencies\",\"replacement_condition\":\"replace only when a released active selector or transitive reference names a member of this family\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selector_closure_sha256\":\"c7bc090bfd05afca83feeefff671c39218565cb605f03cd22f13d90b03d8d0e9\",\"selector_scope\":[\"active-group-8\",\"aliases-801-through-804\",\"boss-alias-804\",\"five-stage-configs\",\"seven-battle-targets\",\"active-maze-buffs\",\"active-battle-events\",\"mechanical-common-constants\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.currencies\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"c7bc090bfd05afca83feeefff671c39218565cb605f03cd22f13d90b03d8d0e9\",\"source_id\":\"goal13:zero-pool-proof:currencies\"}],\"summary_en\":\"The active Version 4.4 selector closure reaches no currencies record.\",\"summary_zh_cn\":\"4.4 版本当期选择器闭包未到达任何玩法货币记录。\",\"tags\":[\"currencies\",\"exact-zero\",\"pool-audit\"]}"
+          },
+          "pool_family": {
+            "String": "currencies"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "goal13:zero-pool-proof:currencies"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pool-audit.currencies"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 selector closure reaches no currencies record."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当期选择器闭包未到达任何玩法货币记录。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": "Null",
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Other random content pool audit"
+          },
+          "name_zh_cn": {
+            "String": "其他随机内容池审计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_locators_are_members\":false,\"active_member_count\":0,\"closure_rule\":\"No explicit active selector, direct reference or transitive stable-ID reference enters this family.\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"pool-audit.random-content-pools\",\"kind\":\"PoolAudit\",\"manifest_record_ids\":[],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Other random content pool audit\",\"name_zh_cn\":\"其他随机内容池审计\",\"ownership\":\"AnomalyArbitration\",\"pool_family\":\"random_content_pools\",\"replacement_condition\":\"replace only when a released active selector or transitive reference names a member of this family\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selector_closure_sha256\":\"407eda056e619d68cfd32bdd2b144e15730c082d1f0ca1f6ac07e37123ff5e3e\",\"selector_scope\":[\"active-group-8\",\"aliases-801-through-804\",\"boss-alias-804\",\"five-stage-configs\",\"seven-battle-targets\",\"active-maze-buffs\",\"active-battle-events\",\"mechanical-common-constants\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.random_content_pools\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"407eda056e619d68cfd32bdd2b144e15730c082d1f0ca1f6ac07e37123ff5e3e\",\"source_id\":\"goal13:zero-pool-proof:random_content_pools\"}],\"summary_en\":\"The active Version 4.4 selector closure reaches no random content pools record.\",\"summary_zh_cn\":\"4.4 版本当期选择器闭包未到达任何其他随机内容记录。\",\"tags\":[\"exact-zero\",\"pool-audit\",\"random-content-pools\"]}"
+          },
+          "pool_family": {
+            "String": "random_content_pools"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "goal13:zero-pool-proof:random_content_pools"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pool-audit.random-content-pools"
+          },
+          "summary_en": {
+            "String": "The active Version 4.4 selector closure reaches no random content pools record."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本当期选择器闭包未到达任何其他随机内容记录。"
+          }
+        }
+      }
+    ]
+  }
+}

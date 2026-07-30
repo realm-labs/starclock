@@ -1,0 +1,637 @@
+{
+  "table": {
+    "name": "ArbEncounterWaves",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508011"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (I) wave 1"
+          },
+          "name_zh_cn": {
+            "String": "骑士（一）第1波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":false,\"clock_scope\":\"stage.knight-1\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508011\",\"enemy_count\":2,\"enemy_ids\":[\"enemy.2023020\",\"enemy.803301014\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508011.1\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508011\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (I) wave 1\",\"name_zh_cn\":\"骑士（一）第1波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"}],\"summary_en\":\"Wave 1 installs 2 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第1波安装2个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":1}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508011.1"
+          },
+          "summary_en": {
+            "String": "Wave 1 installs 2 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第1波安装2个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508011"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (I) wave 2"
+          },
+          "name_zh_cn": {
+            "String": "骑士（一）第2波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":true,\"clock_scope\":\"stage.knight-1\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508011\",\"enemy_count\":1,\"enemy_ids\":[\"enemy.302401012\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508011.2\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508011\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (I) wave 2\",\"name_zh_cn\":\"骑士（一）第2波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"}],\"summary_en\":\"Wave 2 installs 1 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第2波安装1个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":2}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508011.2"
+          },
+          "summary_en": {
+            "String": "Wave 2 installs 1 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第2波安装1个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508012"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (II) wave 1"
+          },
+          "name_zh_cn": {
+            "String": "骑士（二）第1波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":false,\"clock_scope\":\"stage.knight-2\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508012\",\"enemy_count\":2,\"enemy_ids\":[\"enemy.5023010\",\"enemy.5023020\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508012.1\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508012\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (II) wave 1\",\"name_zh_cn\":\"骑士（二）第1波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"}],\"summary_en\":\"Wave 1 installs 2 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第1波安装2个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":1}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508012.1"
+          },
+          "summary_en": {
+            "String": "Wave 1 installs 2 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第1波安装2个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508012"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (II) wave 2"
+          },
+          "name_zh_cn": {
+            "String": "骑士（二）第2波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":true,\"clock_scope\":\"stage.knight-2\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508012\",\"enemy_count\":2,\"enemy_ids\":[\"enemy.101401016\",\"enemy.5023010\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508012.2\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508012\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (II) wave 2\",\"name_zh_cn\":\"骑士（二）第2波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"}],\"summary_en\":\"Wave 2 installs 2 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第2波安装2个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":2}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508012.2"
+          },
+          "summary_en": {
+            "String": "Wave 2 installs 2 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第2波安装2个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508013"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (III) wave 1"
+          },
+          "name_zh_cn": {
+            "String": "骑士（三）第1波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":false,\"clock_scope\":\"stage.knight-3\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508013\",\"enemy_count\":2,\"enemy_ids\":[\"enemy.5013040\",\"enemy.402301001\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508013.1\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508013\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (III) wave 1\",\"name_zh_cn\":\"骑士（三）第1波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"}],\"summary_en\":\"Wave 1 installs 2 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第1波安装2个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":1}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508013.1"
+          },
+          "summary_en": {
+            "String": "Wave 1 installs 2 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第1波安装2个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508013"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (III) wave 2"
+          },
+          "name_zh_cn": {
+            "String": "骑士（三）第2波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":true,\"clock_scope\":\"stage.knight-3\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508013\",\"enemy_count\":1,\"enemy_ids\":[\"enemy.5024010\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508013.2\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508013\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (III) wave 2\",\"name_zh_cn\":\"骑士（三）第2波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"}],\"summary_en\":\"Wave 2 installs 1 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第2波安装1个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":2}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508013.2"
+          },
+          "summary_en": {
+            "String": "Wave 2 installs 1 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第2波安装1个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508021"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check wave 1"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋第1波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":false,\"clock_scope\":\"stage.king-normal\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508021\",\"enemy_count\":2,\"enemy_ids\":[\"enemy.4033030\",\"enemy.402302001\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508021.1\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508021\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King in Check wave 1\",\"name_zh_cn\":\"将杀王棋第1波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"}],\"summary_en\":\"Wave 1 installs 2 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第1波安装2个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":1}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508021.1"
+          },
+          "summary_en": {
+            "String": "Wave 1 installs 2 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第1波安装2个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508021"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check wave 2"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋第2波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":true,\"clock_scope\":\"stage.king-normal\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508021\",\"enemy_count\":1,\"enemy_ids\":[\"enemy.5014030\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508021.2\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508021\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King in Check wave 2\",\"name_zh_cn\":\"将杀王棋第2波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"}],\"summary_en\":\"Wave 2 installs 1 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第2波安装1个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"normal\"],\"wave_order\":2}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508021.2"
+          },
+          "summary_en": {
+            "String": "Wave 2 installs 1 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第2波安装1个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508022"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check: Plight wave 1"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋•绝境第1波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":false,\"clock_scope\":\"stage.king-plight\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508022\",\"enemy_count\":2,\"enemy_ids\":[\"enemy.4033030\",\"enemy.402302001\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508022.1\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508022\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King in Check: Plight wave 1\",\"name_zh_cn\":\"将杀王棋•绝境第1波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"}],\"summary_en\":\"Wave 1 installs 2 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第1波安装2个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"plight\"],\"wave_order\":1}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508022.1"
+          },
+          "summary_en": {
+            "String": "Wave 1 installs 2 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第1波安装2个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "encounter_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508022"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check: Plight wave 2"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋•绝境第2波"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"carries_stage_clock\":true,\"clock_scope\":\"stage.king-plight\",\"coverage_state\":\"DataReady\",\"encounter_id\":\"encounter.30508022\",\"enemy_count\":1,\"enemy_ids\":[\"enemy.5014030\"],\"evidence_quality\":\"ExactStructured\",\"id\":\"encounter-wave.30508022.2\",\"kind\":\"EncounterWave\",\"manifest_record_ids\":[\"stage_configs:stage:30508022\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King in Check: Plight wave 2\",\"name_zh_cn\":\"将杀王棋•绝境第2波\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"}],\"summary_en\":\"Wave 2 installs 1 explicit StageConfig enemy slots.\",\"summary_zh_cn\":\"第2波安装1个 StageConfig 明示敌方槽位。\",\"tags\":[\"encounter-wave\",\"plight\"],\"wave_order\":2}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "encounter-wave.30508022.2"
+          },
+          "summary_en": {
+            "String": "Wave 2 installs 1 explicit StageConfig enemy slots."
+          },
+          "summary_zh_cn": {
+            "String": "第2波安装1个 StageConfig 明示敌方槽位。"
+          },
+          "wave_order": {
+            "Integer": 2
+          }
+        }
+      }
+    ]
+  }
+}

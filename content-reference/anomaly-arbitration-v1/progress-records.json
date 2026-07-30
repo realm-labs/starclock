@@ -1,0 +1,260 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "progress-records.json",
+  "record_kind": "ProgressRecordPolicy",
+  "records": [
+    {
+      "id": "progress-record.successful-knight-record",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ProgressRecordPolicy",
+      "name_en": "Successful Knight record",
+      "name_zh_cn": "骑士成功记录",
+      "summary_en": "Only a successful Knight clear creates a reusable team-composition record.",
+      "summary_zh_cn": "只有骑士关成功通关才会创建可复用的编队记录。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:successful-knight-record"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retry-fixed-team",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry."
+        }
+      ],
+      "tags": [
+        "knight",
+        "progress",
+        "record"
+      ],
+      "projection_order": 10,
+      "trigger": "SuccessfulKnightClear",
+      "current_projection": "CreateOrOfferReplacement",
+      "best_projection": "EvaluateSimultaneousKnightStars",
+      "runtime_executable": false
+    },
+    {
+      "id": "progress-record.rechallenge-eligibility",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ProgressRecordPolicy",
+      "name_en": "Knight re-challenge eligibility",
+      "name_zh_cn": "骑士重复挑战资格",
+      "summary_en": "A recorded team may retry its Knight stage, subject to equipment-conflict checks.",
+      "summary_zh_cn": "已记录队伍可重复挑战对应骑士关，但须先检查装备冲突。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:rechallenge-eligibility"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retry-fixed-team",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry."
+        }
+      ],
+      "tags": [
+        "knight",
+        "progress",
+        "record"
+      ],
+      "projection_order": 20,
+      "trigger": "RequestKnightRetry",
+      "preconditions": [
+        "RecordedTeamMembersUnchanged",
+        "EquipmentConflictRulesSatisfiedOrResolved"
+      ],
+      "accepted_state": "AttemptReady",
+      "runtime_executable": false
+    },
+    {
+      "id": "progress-record.loadout-change-invalidation",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ProgressRecordPolicy",
+      "name_en": "Loadout conflict invalidation",
+      "name_zh_cn": "配装冲突失效",
+      "summary_en": "A cross-team recorded-equipment conflict resets the supplying Knight's current progress.",
+      "summary_zh_cn": "跨队已记录装备冲突会重置装备来源骑士关的当前进度。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:loadout-change-invalidation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment."
+        }
+      ],
+      "tags": [
+        "knight",
+        "progress",
+        "record"
+      ],
+      "projection_order": 30,
+      "trigger": "CrossTeamRecordedEquipmentConflict",
+      "current_projection": "ResetSourceKnightProgress",
+      "best_projection": "Unchanged",
+      "runtime_executable": false
+    },
+    {
+      "id": "progress-record.record-replacement-choice",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ProgressRecordPolicy",
+      "name_en": "Record replacement choice",
+      "name_zh_cn": "战绩替换选择",
+      "summary_en": "After a nonconflicting successful retry, the player explicitly keeps the old record or installs the new one.",
+      "summary_zh_cn": "无冲突重试成功后，玩家明确选择保留旧记录或写入新记录。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:record-replacement-choice"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:record-replacement-choice",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "494f27b8aec9a33c72ca9bb7590260630c29d427dbe70d8e75b5f8739ac5b077",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Using same-team or previously unrecorded Light Cones or Relics permits a retry, and a successful clear offers a choice whether to replace the old record and composition."
+        }
+      ],
+      "tags": [
+        "knight",
+        "progress",
+        "record"
+      ],
+      "projection_order": 40,
+      "trigger": "SuccessfulEligibleRetry",
+      "legal_choices": [
+        "KeepOldRecord",
+        "ReplaceWithNewRecord"
+      ],
+      "rejection_effect": "AuthoritativeStateUnchanged",
+      "runtime_executable": false
+    },
+    {
+      "id": "progress-record.record-erasure-on-reset",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ProgressRecordPolicy",
+      "name_en": "Record erasure on reset",
+      "name_zh_cn": "重置时清除记录",
+      "summary_en": "Resetting a Knight's current progress clears its recorded composition and invalidates that stage result.",
+      "summary_zh_cn": "重置骑士关当前进度会清除已记录编队，并使该关成绩失效。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:record-erasure-on-reset"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:lineup-change-reset",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Change Lineup",
+          "sha256": "4e1df853cb2c70106113998a0573f884a3fe45b839ff7b688ee36abf08bbcae9",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Changing a cleared Knight lineup resets that challenge progress; the corresponding recorded composition is cleared and its stage result becomes invalid."
+        }
+      ],
+      "tags": [
+        "knight",
+        "progress",
+        "record"
+      ],
+      "projection_order": 50,
+      "trigger": "ResetKnightChallengeProgress",
+      "ordered_projections": [
+        "ClearRecordedTeamComposition",
+        "InvalidateCurrentStageResult",
+        "ReevaluateCurrentProgress"
+      ],
+      "best_projection": "Unchanged",
+      "runtime_executable": false
+    },
+    {
+      "id": "progress-record.current-versus-best-progress",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ProgressRecordPolicy",
+      "name_en": "Current and Best Battle Records",
+      "name_zh_cn": "当前进度与最佳战绩",
+      "summary_en": "Current Knight progress may reset independently while Best Battle Records preserve the highest simultaneous three-stage star total.",
+      "summary_zh_cn": "骑士关当前进度可独立重置，最佳战绩则保留三关同时生效时的最高总星数。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:current-versus-best-progress"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:current-versus-best",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Change Lineup and Best Battle Records",
+          "sha256": "1e5463f6657a37016f8480ddbc7c6e9812b3c5c94620deba019da9ccbc3bfb39",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Resetting current challenge progress does not affect Best Battle Records, which are calculated from the highest simultaneous total stars across all three Knight stages."
+        }
+      ],
+      "tags": [
+        "knight",
+        "progress",
+        "record"
+      ],
+      "projection_order": 60,
+      "current_progress_scope": "ActivePeriodThreeKnightRecords",
+      "best_progress_scope": "HighestSimultaneousThreeKnightStarTotal",
+      "current_reset_affects_best": false,
+      "detailed_aggregation_owner_batch": "G13-P1-B6",
+      "runtime_executable": false
+    }
+  ]
+}

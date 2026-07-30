@@ -1,0 +1,110 @@
+{
+  "table": {
+    "name": "ArbPeriods",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ApproximateFromReleasedText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "active_periods:period:8"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_About_To_Expire_Days"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Record_Keep_Days"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Record_Keep_Num"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "IdentityCrossCheck"
+          },
+          "name_en": {
+            "String": "Enwreathed by the World"
+          },
+          "name_zh_cn": {
+            "String": "尘世卷中"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"active_at_snapshot\":true,\"alias_ids\":[\"801\",\"802\",\"803\",\"804\"],\"approximations\":[{\"affected_fixture_ids\":[\"fixture.profile-entry.period-window\"],\"alternatives\":[\"choose the HoYoLAB display date\",\"choose the independent guide display date\"],\"confidence\":\"High\",\"field_path\":\"observed_end_dates\",\"rationale\":\"The one-day difference is consistent with locale/timezone presentation but no released offset was captured.\",\"replacement_condition\":\"Replace with an exact timezone-aware start/end instant from released structured or official text evidence.\",\"selected_policy\":\"Preserve both source-local observed dates and make no canonical instant claim.\",\"unavailable_fact\":\"The released structured snapshot has no timezone-aware period boundary and public pages display adjacent end dates.\"}],\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ApproximateFromReleasedText\",\"expiry_warning_days\":14,\"id\":\"period.8\",\"kind\":\"Period\",\"manifest_record_ids\":[\"active_periods:period:8\",\"mode_constants:constant:ChallengePeak_About_To_Expire_Days\",\"mode_constants:constant:ChallengePeak_Record_Keep_Days\",\"mode_constants:constant:ChallengePeak_Record_Keep_Num\"],\"mechanism_quality\":\"IdentityCrossCheck\",\"name_en\":\"Enwreathed by the World\",\"name_zh_cn\":\"尘世卷中\",\"observed_end_dates\":[\"2026-08-25\",\"2026-08-26\"],\"observed_start_date\":\"2026-07-15\",\"ownership\":\"AnomalyArbitration\",\"retained_record_count\":3,\"retained_record_days\":160,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_group_id\":\"8\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=7;ID=8\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact group, title hash and alias relationships.\",\"path_or_page\":\"ExcelOutput/ChallengePeakGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b11dbeb1adf80da2e678de9eb0b1a8f297294ffa8dce0c4dbe0e44990c954adb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8\"},{\"evidence_quality\":\"Observed\",\"game_version\":\"4.4\",\"locator\":\"title\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"4.4 Anomaly Arbitration Nr 8 | 2026/07/15 - 2026/08/25\",\"path_or_page\":\"https://www.hoyolab.com/article/45950079\",\"repository_or_url\":\"https://www.hoyolab.com/article/45950079\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"3faaf7f7bf9c95d6d149b456b1be2ec5a2e5397b6976dcaf3689e5edc85b7eea\",\"source_id\":\"public:hoyolab:45950079\"},{\"evidence_quality\":\"Observed\",\"game_version\":\"4.4\",\"locator\":\"Version and stage overview\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Version 4.4 Enwreathed by the World; 2026-07-15 through 2026-08-26; Knight I-III, King and Plight.\",\"path_or_page\":\"https://hsrtierlist.net/anomaly-arbitration/4-4\",\"repository_or_url\":\"https://hsrtierlist.net/anomaly-arbitration/4-4\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"c74f66b572dbe2fc8c3cbf9f6e03670f28a2789cdc8172b57d30c22ade4c7ed1\",\"source_id\":\"public:hsrtierlist:anomaly-arbitration-4-4\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13457040013447238093\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"289b9655562d73cab5b1f7e2204b2d1d7a93d047bf1db7fec346f8a5284558ef\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13457040013447238093\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13457040013447238093\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"db35fd5b0ead890e7dc3295a6c446df989a1734cbca2f9994f02ada429415ee5\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13457040013447238093\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=23;ConstValueName=ChallengePeak_About_To_Expire_Days\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured period-expiry warning locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"331b984aeca211d74fb3b8cef4010a248a24d14c7fbf24c5c5ab41ca77e6b40b\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=23;ConstValueName=ChallengePeak_About_To_Expire_Days\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=25;ConstValueName=ChallengePeak_Record_Keep_Num\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Structured retained-record count.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8334e2f221ca5cd95e8b3c5db53ca7d319413651acffe8f3f8818d538c7b82e0\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=25;ConstValueName=ChallengePeak_Record_Keep_Num\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=26;ConstValueName=ChallengePeak_Record_Keep_Days\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured retained-record day window.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3008911c4fb12cc776d0fbd14726369e8fcafe7470935bf0a5c5279003d3137b\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=26;ConstValueName=ChallengePeak_Record_Keep_Days\"}],\"stage_ids\":[\"30508011\",\"30508012\",\"30508013\",\"30508021\",\"30508022\"],\"structured_access_date\":\"2026-07-22\",\"summary_en\":\"Version 4.4 rotation 8 binds aliases 801-804 to four normal encounters and one Plight variant.\",\"summary_zh_cn\":\"4.4 版本第 8 期，将别名 801–804 绑定到四个常规遭遇与一个绝境变体。\",\"tags\":[\"active-at-snapshot\",\"period\",\"version-4.4\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_group_id": {
+            "String": "8"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8"
+              },
+              {
+                "String": "public:hoyolab:45950079"
+              },
+              {
+                "String": "public:hsrtierlist:anomaly-arbitration-4-4"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13457040013447238093"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13457040013447238093"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=23;ConstValueName=ChallengePeak_About_To_Expire_Days"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=25;ConstValueName=ChallengePeak_Record_Keep_Num"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=26;ConstValueName=ChallengePeak_Record_Keep_Days"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "period.8"
+          },
+          "summary_en": {
+            "String": "Version 4.4 rotation 8 binds aliases 801-804 to four normal encounters and one Plight variant."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本第 8 期，将别名 801–804 绑定到四个常规遭遇与一个绝境变体。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "active-at-snapshot"
+              },
+              {
+                "String": "period"
+              },
+              {
+                "String": "version-4.4"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

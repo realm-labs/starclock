@@ -1,0 +1,165 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "team-slots.json",
+  "record_kind": "TeamSlot",
+  "records": [
+    {
+      "id": "team-slot.knight-1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TeamSlot",
+      "name_en": "Knight team 1",
+      "name_zh_cn": "骑士队伍1",
+      "summary_en": "Knight team 1 records the participants and equipment used to clear its matching stage.",
+      "summary_zh_cn": "骑士队伍1记录对应关卡通关时使用的参与者与装备。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "participant_policies:three-knight-team-slots"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage",
+          "sha256": "b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The three Knight stages use three different character teams, and the player may choose their challenge order."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retry-fixed-team",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry."
+        }
+      ],
+      "tags": [
+        "knight",
+        "slot",
+        "team"
+      ],
+      "slot_order": 1,
+      "stage_id": "stage.knight-1",
+      "record_state": "EmptyOrSuccessfulClearSnapshot",
+      "conflict_scope": "AllClearedKnightTeamSlots",
+      "runtime_executable": false
+    },
+    {
+      "id": "team-slot.knight-2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TeamSlot",
+      "name_en": "Knight team 2",
+      "name_zh_cn": "骑士队伍2",
+      "summary_en": "Knight team 2 records the participants and equipment used to clear its matching stage.",
+      "summary_zh_cn": "骑士队伍2记录对应关卡通关时使用的参与者与装备。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "participant_policies:three-knight-team-slots"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage",
+          "sha256": "b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The three Knight stages use three different character teams, and the player may choose their challenge order."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retry-fixed-team",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry."
+        }
+      ],
+      "tags": [
+        "knight",
+        "slot",
+        "team"
+      ],
+      "slot_order": 2,
+      "stage_id": "stage.knight-2",
+      "record_state": "EmptyOrSuccessfulClearSnapshot",
+      "conflict_scope": "AllClearedKnightTeamSlots",
+      "runtime_executable": false
+    },
+    {
+      "id": "team-slot.knight-3",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TeamSlot",
+      "name_en": "Knight team 3",
+      "name_zh_cn": "骑士队伍3",
+      "summary_en": "Knight team 3 records the participants and equipment used to clear its matching stage.",
+      "summary_zh_cn": "骑士队伍3记录对应关卡通关时使用的参与者与装备。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "participant_policies:three-knight-team-slots"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage",
+          "sha256": "b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The three Knight stages use three different character teams, and the player may choose their challenge order."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retry-fixed-team",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry."
+        }
+      ],
+      "tags": [
+        "knight",
+        "slot",
+        "team"
+      ],
+      "slot_order": 3,
+      "stage_id": "stage.knight-3",
+      "record_state": "EmptyOrSuccessfulClearSnapshot",
+      "conflict_scope": "AllClearedKnightTeamSlots",
+      "runtime_executable": false
+    }
+  ]
+}

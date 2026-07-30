@@ -1,0 +1,259 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "encounters.json",
+  "record_kind": "Encounter",
+  "records": [
+    {
+      "id": "encounter.30508011",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Encounter",
+      "name_en": "Knight (I) encounter",
+      "name_zh_cn": "骑士（一）遭遇",
+      "summary_en": "Knight (I) is a released two-wave level-95 challenge encounter.",
+      "summary_zh_cn": "骑士（一）是已发布的95级双波次挑战遭遇。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508011"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active profile selects this exact StageConfig encounter."
+        }
+      ],
+      "tags": [
+        "encounter",
+        "normal"
+      ],
+      "difficulty": "Normal",
+      "stage_id": "stage.knight-1",
+      "source_stage_id": 30508011,
+      "level": 95,
+      "hard_level_group": 3,
+      "level_graph_path": "Config/Level/StageCommonTemplate.json",
+      "wave_count": 2,
+      "battle_event_id": "battle-event.30502",
+      "infinite_group": "30508011",
+      "boss_enemy_ids": [
+        "enemy.302401012"
+      ],
+      "release": true,
+      "forbid_exit_battle": true,
+      "monster_warning_ratio": "1.1",
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter.30508012",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Encounter",
+      "name_en": "Knight (II) encounter",
+      "name_zh_cn": "骑士（二）遭遇",
+      "summary_en": "Knight (II) is a released two-wave level-95 challenge encounter.",
+      "summary_zh_cn": "骑士（二）是已发布的95级双波次挑战遭遇。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active profile selects this exact StageConfig encounter."
+        }
+      ],
+      "tags": [
+        "encounter",
+        "normal"
+      ],
+      "difficulty": "Normal",
+      "stage_id": "stage.knight-2",
+      "source_stage_id": 30508012,
+      "level": 95,
+      "hard_level_group": 3,
+      "level_graph_path": "Config/Level/StageCommonTemplate.json",
+      "wave_count": 2,
+      "battle_event_id": "battle-event.30502",
+      "infinite_group": "30508012",
+      "boss_enemy_ids": [
+        "enemy.101401016"
+      ],
+      "release": true,
+      "forbid_exit_battle": true,
+      "monster_warning_ratio": "1.1",
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter.30508013",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Encounter",
+      "name_en": "Knight (III) encounter",
+      "name_zh_cn": "骑士（三）遭遇",
+      "summary_en": "Knight (III) is a released two-wave level-95 challenge encounter.",
+      "summary_zh_cn": "骑士（三）是已发布的95级双波次挑战遭遇。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508013"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active profile selects this exact StageConfig encounter."
+        }
+      ],
+      "tags": [
+        "encounter",
+        "normal"
+      ],
+      "difficulty": "Normal",
+      "stage_id": "stage.knight-3",
+      "source_stage_id": 30508013,
+      "level": 95,
+      "hard_level_group": 3,
+      "level_graph_path": "Config/Level/StageCommonTemplate.json",
+      "wave_count": 2,
+      "battle_event_id": "battle-event.30502",
+      "infinite_group": "30508013",
+      "boss_enemy_ids": [
+        "enemy.5024010"
+      ],
+      "release": true,
+      "forbid_exit_battle": true,
+      "monster_warning_ratio": "1.1",
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter.30508021",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Encounter",
+      "name_en": "King in Check encounter",
+      "name_zh_cn": "将杀王棋遭遇",
+      "summary_en": "King in Check is a released two-wave level-100 challenge encounter.",
+      "summary_zh_cn": "将杀王棋是已发布的100级双波次挑战遭遇。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active profile selects this exact StageConfig encounter."
+        }
+      ],
+      "tags": [
+        "encounter",
+        "normal"
+      ],
+      "difficulty": "Normal",
+      "stage_id": "stage.king-normal",
+      "source_stage_id": 30508021,
+      "level": 100,
+      "hard_level_group": 3,
+      "level_graph_path": "Config/Level/StageCommonTemplate.json",
+      "wave_count": 2,
+      "battle_event_id": "battle-event.30503",
+      "infinite_group": "30508021",
+      "boss_enemy_ids": [
+        "enemy.5014030"
+      ],
+      "release": true,
+      "forbid_exit_battle": true,
+      "monster_warning_ratio": "1.1",
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter.30508022",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Encounter",
+      "name_en": "King in Check: Plight encounter",
+      "name_zh_cn": "将杀王棋•绝境遭遇",
+      "summary_en": "King in Check: Plight is a released two-wave level-120 challenge encounter.",
+      "summary_zh_cn": "将杀王棋•绝境是已发布的120级双波次挑战遭遇。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508022"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active profile selects this exact StageConfig encounter."
+        }
+      ],
+      "tags": [
+        "encounter",
+        "plight"
+      ],
+      "difficulty": "Plight",
+      "stage_id": "stage.king-plight",
+      "source_stage_id": 30508022,
+      "level": 120,
+      "hard_level_group": 3,
+      "level_graph_path": "Config/Level/StageCommonTemplate.json",
+      "wave_count": 2,
+      "battle_event_id": "battle-event.30504",
+      "infinite_group": "30508022",
+      "boss_enemy_ids": [
+        "enemy.5014030"
+      ],
+      "release": true,
+      "forbid_exit_battle": true,
+      "monster_warning_ratio": "1.1",
+      "runtime_executable": false
+    }
+  ]
+}

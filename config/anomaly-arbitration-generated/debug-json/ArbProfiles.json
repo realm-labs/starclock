@@ -1,0 +1,131 @@
+{
+  "table": {
+    "name": "ArbProfiles",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "mode_constants:constant:ChallengePeak_Entrance"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Entrance_MapInfo"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Pre_Boss_Quest"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Pre_GameplayGuide_Quest"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Pre_Maze_Quest"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Pre_Quest"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_Pre_Story_Quest"
+              },
+              {
+                "String": "mode_constants:constant:ChallengePeak_TutorialMissionID"
+              },
+              {
+                "String": "profiles:anomaly-arbitration-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Anomaly Arbitration"
+          },
+          "name_zh_cn": {
+            "String": "异相仲裁"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"active_period_id\":\"period.8\",\"availability\":\"PermanentWithPeriodicStages\",\"coverage_state\":\"DataReady\",\"entry_locators\":{\"entrance_id\":\"100000352\",\"entrance_map_id\":\"2116\",\"prerequisite_quest_id\":\"2200506\",\"tutorial_mission_id\":\"8036301\"},\"evidence_quality\":\"ExactPublicText\",\"id\":\"anomaly-arbitration-v1\",\"kind\":\"Profile\",\"manifest_record_ids\":[\"mode_constants:constant:ChallengePeak_Entrance\",\"mode_constants:constant:ChallengePeak_Entrance_MapInfo\",\"mode_constants:constant:ChallengePeak_Pre_Boss_Quest\",\"mode_constants:constant:ChallengePeak_Pre_GameplayGuide_Quest\",\"mode_constants:constant:ChallengePeak_Pre_Maze_Quest\",\"mode_constants:constant:ChallengePeak_Pre_Quest\",\"mode_constants:constant:ChallengePeak_Pre_Story_Quest\",\"mode_constants:constant:ChallengePeak_TutorialMissionID\",\"profiles:anomaly-arbitration-v1\"],\"mechanism_quality\":\"ExactRelationship\",\"minimum_equilibrium_level\":6,\"name_en\":\"Anomaly Arbitration\",\"name_zh_cn\":\"异相仲裁\",\"ownership\":\"AnomalyArbitration\",\"participation_requirements\":[\"equilibrium-level-at-least-6\",\"maximum-stars-in-highest-memory-of-chaos-stage\",\"maximum-stars-in-highest-pure-fiction-stage\",\"maximum-stars-in-highest-apocalyptic-shadow-stage\"],\"requirements_may_be_completed_in_different_versions\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"secondary_prerequisite_locators\":{\"boss_quest_id\":\"2200505\",\"disposition\":\"MechanicalLocatorsOnly\",\"gameplay_guide_quest_id\":\"4080203\",\"maze_quest_id\":\"2200503\",\"story_quest_id\":\"2200504\"},\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=7;ID=8\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Pinned active group anchors the Version 4.4 profile instance.\",\"path_or_page\":\"ExcelOutput/ChallengePeakGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b11dbeb1adf80da2e678de9eb0b1a8f297294ffa8dce0c4dbe0e44990c954adb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=0;ConstValueName=ChallengePeak_Pre_Quest\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured prerequisite quest locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"868a4bc94cab5138437df7b9d66878540006f3e54f939b1d26ec86006de58c6b\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=0;ConstValueName=ChallengePeak_Pre_Quest\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=20;ConstValueName=ChallengePeak_Entrance_MapInfo\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured entrance map locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6b1c12aa1f5f48d1428088dcba8e7fd20326cf85882899fa13d2320858213642\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=20;ConstValueName=ChallengePeak_Entrance_MapInfo\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=21;ConstValueName=ChallengePeak_Entrance\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured entrance locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"db4cd07f03c41912646b8bd662f0a75c82d90f7af94431528b0a17fb538ddf4c\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=21;ConstValueName=ChallengePeak_Entrance\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=24;ConstValueName=ChallengePeak_TutorialMissionID\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured tutorial mission locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2bd713118b4fc0d6462bf94ab1c61b03176ede80ed516a2c5c81dc933d9598f3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=24;ConstValueName=ChallengePeak_TutorialMissionID\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=15;ConstValueName=ChallengePeak_Pre_Maze_Quest\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured maze prerequisite locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c4129ec0c94a58d9ddac0009e8633e7d8e87aa658f4cc12270e7adb20dc100d3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=15;ConstValueName=ChallengePeak_Pre_Maze_Quest\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=16;ConstValueName=ChallengePeak_Pre_Story_Quest\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured story prerequisite locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"43214c2409e65bd65997ffb3d2e199f9a927c3e00f8ea57d7fd8b3120b50fdad\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=16;ConstValueName=ChallengePeak_Pre_Story_Quest\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=17;ConstValueName=ChallengePeak_Pre_Boss_Quest\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured boss prerequisite locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3a274090b80184b1fdfb6482ceab08ec83151530af1fe1e240270f1ce2eab037\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=17;ConstValueName=ChallengePeak_Pre_Boss_Quest\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=18;ConstValueName=ChallengePeak_Pre_GameplayGuide_Quest\",\"mechanism_quality\":\"ContextOnly\",\"note\":\"Structured gameplay-guide prerequisite locator.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b3af26281a99596bc3a759a9f9a1afaf009f375a25c86d0462fcb1bd56dcd9d3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=18;ConstValueName=ChallengePeak_Pre_GameplayGuide_Quest\"}],\"stage_ids\":[\"stage.knight-1\",\"stage.knight-2\",\"stage.knight-3\",\"stage.king-normal\",\"stage.king-plight\"],\"summary_en\":\"A permanent high-difficulty activity whose period replaces three Knight stages and one King stage.\",\"summary_zh_cn\":\"常驻高难玩法，每期更新三个骑士关与一个王棋关的资料边界。\",\"tags\":[\"activity\",\"high-difficulty\",\"periodic\",\"profile\"]}"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=0;ConstValueName=ChallengePeak_Pre_Quest"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=20;ConstValueName=ChallengePeak_Entrance_MapInfo"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=21;ConstValueName=ChallengePeak_Entrance"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=24;ConstValueName=ChallengePeak_TutorialMissionID"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=15;ConstValueName=ChallengePeak_Pre_Maze_Quest"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=16;ConstValueName=ChallengePeak_Pre_Story_Quest"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=17;ConstValueName=ChallengePeak_Pre_Boss_Quest"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=18;ConstValueName=ChallengePeak_Pre_GameplayGuide_Quest"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "anomaly-arbitration-v1"
+          },
+          "summary_en": {
+            "String": "A permanent high-difficulty activity whose period replaces three Knight stages and one King stage."
+          },
+          "summary_zh_cn": {
+            "String": "常驻高难玩法，每期更新三个骑士关与一个王棋关的资料边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "high-difficulty"
+              },
+              {
+                "String": "periodic"
+              },
+              {
+                "String": "profile"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

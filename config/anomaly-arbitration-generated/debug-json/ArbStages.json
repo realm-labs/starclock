@@ -1,0 +1,504 @@
+{
+  "table": {
+    "name": "ArbStages",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty": {
+            "String": "Normal"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508011"
+              },
+              {
+                "String": "stage_definitions:alias:801"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (I)"
+          },
+          "name_zh_cn": {
+            "String": "骑士（一）"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_target_ids\":[\"3001\",\"3002\",\"3000\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"display_order\":1,\"evidence_quality\":\"ExactStructured\",\"id\":\"stage.knight-1\",\"kind\":\"Stage\",\"legal_order\":\"ArbitraryAmongKnights\",\"level\":95,\"manifest_record_ids\":[\"stage_configs:stage:30508011\",\"stage_definitions:alias:801\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (I)\",\"name_zh_cn\":\"骑士（一）\",\"ownership\":\"AnomalyArbitration\",\"period_id\":\"period.8\",\"recommended_damage_types\":[\"Fire\",\"Ice\"],\"released\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_alias_id\":\"801\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=28;ID=801\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"14feb83b9173d66236fc2a71ef497b239da821d576e2012bdf7eead9b710c1c2\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=28;ID=801\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released StageConfig encounter parent.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4168477783164353726\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"95c94563250d78135d2f4aec5a7f96cbba60e738df2c1033472b49757e9c0390\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4168477783164353726\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4168477783164353726\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a3406322bde43f7c91b9864ad072c49be695752d01362af66a1fb24c45865c02\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4168477783164353726\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"}],\"source_stage_id\":\"30508011\",\"stage_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"stage_kind\":\"Knight\",\"summary_en\":\"Knight (I) is a level 95 Knight encounter and may be attempted in any order among the three Knight stages.\",\"summary_zh_cn\":\"骑士（一）是等级 95 的骑士遭遇，可在三个骑士关之间自由选择挑战顺序。\",\"tags\":[\"knight\",\"normal\",\"stage\"],\"trait_ids\":[\"3033023\"]}"
+          },
+          "period_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=28;ID=801"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4168477783164353726"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4168477783164353726"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508011"
+          },
+          "stable_key": {
+            "String": "stage.knight-1"
+          },
+          "stage_kind": {
+            "String": "Knight"
+          },
+          "stage_order": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "Knight (I) is a level 95 Knight encounter and may be attempted in any order among the three Knight stages."
+          },
+          "summary_zh_cn": {
+            "String": "骑士（一）是等级 95 的骑士遭遇，可在三个骑士关之间自由选择挑战顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "knight"
+              },
+              {
+                "String": "normal"
+              },
+              {
+                "String": "stage"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty": {
+            "String": "Normal"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508012"
+              },
+              {
+                "String": "stage_definitions:alias:802"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (II)"
+          },
+          "name_zh_cn": {
+            "String": "骑士（二）"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_target_ids\":[\"3001\",\"3002\",\"3000\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"display_order\":2,\"evidence_quality\":\"ExactStructured\",\"id\":\"stage.knight-2\",\"kind\":\"Stage\",\"legal_order\":\"ArbitraryAmongKnights\",\"level\":95,\"manifest_record_ids\":[\"stage_configs:stage:30508012\",\"stage_definitions:alias:802\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (II)\",\"name_zh_cn\":\"骑士（二）\",\"ownership\":\"AnomalyArbitration\",\"period_id\":\"period.8\",\"recommended_damage_types\":[\"Fire\",\"Thunder\"],\"released\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_alias_id\":\"802\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=29;ID=802\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"19f7b20c06aaec76bb984c2e3ba84a184519140f7cc9ba79b73ad903cf89f092\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=29;ID=802\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released StageConfig encounter parent.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4197030512577279852\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d32f5aa301821e38abd840b2b24826544bfff12dedd8a415a6563ca31e07b00a\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4197030512577279852\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4197030512577279852\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a016a729f4114ddc60a4219e9068ca122dca5abe5edc46b6727f299ab25d1a74\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4197030512577279852\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"}],\"source_stage_id\":\"30508012\",\"stage_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"stage_kind\":\"Knight\",\"summary_en\":\"Knight (II) is a level 95 Knight encounter and may be attempted in any order among the three Knight stages.\",\"summary_zh_cn\":\"骑士（二）是等级 95 的骑士遭遇，可在三个骑士关之间自由选择挑战顺序。\",\"tags\":[\"knight\",\"normal\",\"stage\"],\"trait_ids\":[\"3033063\",\"3033038\"]}"
+          },
+          "period_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=29;ID=802"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4197030512577279852"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4197030512577279852"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508012"
+          },
+          "stable_key": {
+            "String": "stage.knight-2"
+          },
+          "stage_kind": {
+            "String": "Knight"
+          },
+          "stage_order": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "Knight (II) is a level 95 Knight encounter and may be attempted in any order among the three Knight stages."
+          },
+          "summary_zh_cn": {
+            "String": "骑士（二）是等级 95 的骑士遭遇，可在三个骑士关之间自由选择挑战顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "knight"
+              },
+              {
+                "String": "normal"
+              },
+              {
+                "String": "stage"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty": {
+            "String": "Normal"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508013"
+              },
+              {
+                "String": "stage_definitions:alias:803"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (III)"
+          },
+          "name_zh_cn": {
+            "String": "骑士（三）"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_target_ids\":[\"3001\",\"3002\",\"3000\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"display_order\":3,\"evidence_quality\":\"ExactStructured\",\"id\":\"stage.knight-3\",\"kind\":\"Stage\",\"legal_order\":\"ArbitraryAmongKnights\",\"level\":95,\"manifest_record_ids\":[\"stage_configs:stage:30508013\",\"stage_definitions:alias:803\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight (III)\",\"name_zh_cn\":\"骑士（三）\",\"ownership\":\"AnomalyArbitration\",\"period_id\":\"period.8\",\"recommended_damage_types\":[\"Physical\",\"Imaginary\"],\"released\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_alias_id\":\"803\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=30;ID=803\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1486a9f5116b9e0caedb5bf25652d72f47a8b000e4dec29528cac6d3d7b9a932\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=30;ID=803\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released StageConfig encounter parent.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1511018669996543179\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"fad2782083ee377db7d04dc1e0205507f00cc5db6c1aec4766622f24124708ce\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1511018669996543179\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1511018669996543179\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1be3f042975dd1ecbfe0612b6bf21a8fca4b51f4c81c31b66beb954b218b91cd\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=1511018669996543179\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"}],\"source_stage_id\":\"30508013\",\"stage_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"stage_kind\":\"Knight\",\"summary_en\":\"Knight (III) is a level 95 Knight encounter and may be attempted in any order among the three Knight stages.\",\"summary_zh_cn\":\"骑士（三）是等级 95 的骑士遭遇，可在三个骑士关之间自由选择挑战顺序。\",\"tags\":[\"knight\",\"normal\",\"stage\"],\"trait_ids\":[\"3033058\"]}"
+          },
+          "period_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=30;ID=803"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1511018669996543179"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=1511018669996543179"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508013"
+          },
+          "stable_key": {
+            "String": "stage.knight-3"
+          },
+          "stage_kind": {
+            "String": "Knight"
+          },
+          "stage_order": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "Knight (III) is a level 95 Knight encounter and may be attempted in any order among the three Knight stages."
+          },
+          "summary_zh_cn": {
+            "String": "骑士（三）是等级 95 的骑士遭遇，可在三个骑士关之间自由选择挑战顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "knight"
+              },
+              {
+                "String": "normal"
+              },
+              {
+                "String": "stage"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty": {
+            "String": "Normal"
+          },
+          "evidence_quality": {
+            "String": "ApproximateFromReleasedText"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508021"
+              },
+              {
+                "String": "stage_definitions:alias:804"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "King in Check"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.stage-order.normal-king\"],\"alternatives\":[\"normal King always available under full protection\",\"normal King and Plight both initially available\"],\"confidence\":\"Medium\",\"field_path\":\"legal_order\",\"rationale\":\"Released independent observations describe normal King unlocking after all Knight clears, while the official guide only gives a recommendation.\",\"replacement_condition\":\"Replace when a released structured selector or official instruction states the normal/Plight availability transition.\",\"selected_policy\":\"Record normal King as following all three Knight clears for reference review; keep Plight as the direct alternative.\",\"unavailable_fact\":\"Official public text recommends clearing Knights before King but does not state the exact normal-difficulty unlock transition.\"}],\"battle_target_ids\":[\"3003\",\"3004\",\"3005\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"display_order\":4,\"evidence_quality\":\"ApproximateFromReleasedText\",\"id\":\"stage.king-normal\",\"kind\":\"Stage\",\"legal_order\":\"AfterThreeKnightClears\",\"level\":100,\"manifest_record_ids\":[\"stage_configs:stage:30508021\",\"stage_definitions:alias:804\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"King in Check\",\"name_zh_cn\":\"将杀王棋\",\"ownership\":\"AnomalyArbitration\",\"period_id\":\"period.8\",\"recommended_damage_types\":[\"Fire\",\"Quantum\"],\"released\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_alias_id\":\"804\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=31;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5699f1c6fc2784613363dd196758bd792bfe281c952ffb9fa942d44043378a09\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released StageConfig encounter parent.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"},{\"evidence_quality\":\"ApproximateFromReleasedText\",\"game_version\":\"4.4\",\"locator\":\"King in Check\",\"mechanism_quality\":\"ObservedBehavior\",\"note\":\"Independent released cross-check: Plight is initially available and normal King unlocks after all three Knight stages are cleared.\",\"path_or_page\":\"https://honkai-star-rail.fandom.com/wiki/Anomaly_Arbitration\",\"repository_or_url\":\"https://honkai-star-rail.fandom.com/wiki/Anomaly_Arbitration\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6620f495c7a845b6f496aa17caec0f773850fbcaa4ee9b798fde863546ba45ad\",\"source_id\":\"public:fandom:anomaly-arbitration:king-difficulty-order\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=3464837085357656684\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3bc7b421a59ce9523338f48b0e12cdf2cdba7cc8376ce9e55ff658fe34f3ec96\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3464837085357656684\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=3464837085357656684\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"31e9fe1a313048d85b9a85df31395d535b9d45a0b44512dd9ab1a3df7bfa0af0\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=3464837085357656684\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"}],\"source_stage_id\":\"30508021\",\"stage_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"stage_kind\":\"King\",\"summary_en\":\"King in Check is the level 100 King encounter on Normal difficulty.\",\"summary_zh_cn\":\"将杀王棋是等级 100 的常规王棋遭遇。\",\"tags\":[\"king\",\"normal\",\"stage\"],\"trait_ids\":[\"3033069\",\"3033051\"]}"
+          },
+          "period_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              },
+              {
+                "String": "public:fandom:anomaly-arbitration:king-difficulty-order"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3464837085357656684"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3464837085357656684"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508021"
+          },
+          "stable_key": {
+            "String": "stage.king-normal"
+          },
+          "stage_kind": {
+            "String": "King"
+          },
+          "stage_order": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "King in Check is the level 100 King encounter on Normal difficulty."
+          },
+          "summary_zh_cn": {
+            "String": "将杀王棋是等级 100 的常规王棋遭遇。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "king"
+              },
+              {
+                "String": "normal"
+              },
+              {
+                "String": "stage"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty": {
+            "String": "Plight"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "boss_difficulty_definitions:boss:804:plight"
+              },
+              {
+                "String": "stage_configs:stage:30508022"
+              },
+              {
+                "String": "stage_definitions:alias:804"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check: Plight"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋•绝境"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[],\"battle_target_ids\":[\"3003\",\"3004\",\"3005\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Plight\",\"display_order\":5,\"evidence_quality\":\"ExactStructured\",\"id\":\"stage.king-plight\",\"kind\":\"Stage\",\"legal_order\":\"DirectAlternative\",\"level\":120,\"manifest_record_ids\":[\"boss_difficulty_definitions:boss:804:plight\",\"stage_configs:stage:30508022\",\"stage_definitions:alias:804\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King in Check: Plight\",\"name_zh_cn\":\"将杀王棋•绝境\",\"ownership\":\"AnomalyArbitration\",\"period_id\":\"period.8\",\"recommended_damage_types\":[\"Fire\",\"Quantum\"],\"released\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_alias_id\":\"804\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=31;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5699f1c6fc2784613363dd196758bd792bfe281c952ffb9fa942d44043378a09\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released StageConfig encounter parent.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=7;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Boss alias 804 Plight extension.\",\"path_or_page\":\"ExcelOutput/ChallengePeakBossConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1a40865bdcf60a91c58af9f1520db806db1e46c0363bfe2954d8d78eee79d182\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakBossConfig.json:row=7;ID=804\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Directly defeating the Plight difficulty King stage is accepted and counts all Knight stages as three-star clears.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"f9798ccb6660d1ce303ddee0b8d684be503794e8f916265d9587ae2caa02f084\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:direct-plight-clear\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=92562529814961898\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"588bfb98fce9c35e4bbeb739be73fe80d42f0c784c2825ed2c4ccbedd7a76250\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=92562529814961898\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=92562529814961898\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en name for the referenced TextMap hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d48531c059e0b3e3c61ff76f83314703ec907ca207279ee3b0fb881872a3b181\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=92562529814961898\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"}],\"source_stage_id\":\"30508022\",\"stage_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"stage_kind\":\"King\",\"summary_en\":\"King in Check: Plight is the level 120 King encounter on Plight difficulty.\",\"summary_zh_cn\":\"将杀王棋•绝境是等级 120 的绝境王棋遭遇。\",\"tags\":[\"king\",\"plight\",\"stage\"],\"trait_ids\":[\"3033070\",\"3033052\"]}"
+          },
+          "period_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakBossConfig.json:row=7;ID=804"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:direct-plight-clear"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=92562529814961898"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=92562529814961898"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508022"
+          },
+          "stable_key": {
+            "String": "stage.king-plight"
+          },
+          "stage_kind": {
+            "String": "King"
+          },
+          "stage_order": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "King in Check: Plight is the level 120 King encounter on Plight difficulty."
+          },
+          "summary_zh_cn": {
+            "String": "将杀王棋•绝境是等级 120 的绝境王棋遭遇。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "king"
+              },
+              {
+                "String": "plight"
+              },
+              {
+                "String": "stage"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

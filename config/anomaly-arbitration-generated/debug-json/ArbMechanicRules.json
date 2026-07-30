@@ -1,0 +1,1294 @@
+{
+  "table": {
+    "name": "ArbMechanicRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "battle-event-countdown"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:battle-event-countdown"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "battle-event-countdown review rule"
+          },
+          "name_zh_cn": {
+            "String": "battle-event-countdown审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"battle-event-countdown\",\"fixture_ids\":[\"review-fixture.battle-event-countdown\"],\"id\":\"mechanic-rule.battle-event-countdown\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:battle-event-countdown\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"battle-event-countdown review rule\",\"name_zh_cn\":\"battle-event-countdown审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"event 30502/30503/30504 selection\",\"order\":1},{\"fact\":\"countdown parameters\",\"order\":2},{\"fact\":\"warning\",\"order\":3},{\"fact\":\"expiry or failure\",\"order\":4}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"battle-event.30502\",\"battle-event.30503\",\"battle-event.30504\",\"clock.warning-threshold\",\"clock.expiry-and-failure\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"459e3f7a37d161267ef9b76a022e5c7e815d62d0f4e338e92188c23122ef6382\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30502\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"35ea5841c86b7bcb14128510c87c0f40640d885d1da92c27623edf63e0b29304\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30503\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9949e261bbafb3f34087a11c48718e825b66bd80dd565c55a08daa5116f083d9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30504\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d821a5986b6761345daf7df12f645639817d451563d31851edd7b57a8107905e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-cycle-limits\"}],\"summary_en\":\"This rule requires ordered review of 4 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查4项事实，且不声称运行时降级。\",\"tags\":[\"battle-event-countdown\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-cycle-limits"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.battle-event-countdown"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 4 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查4项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "best-progress-aggregation"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:best-progress-aggregation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "best-progress-aggregation review rule"
+          },
+          "name_zh_cn": {
+            "String": "best-progress-aggregation审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"best-progress-aggregation\",\"fixture_ids\":[\"review-fixture.best-progress-aggregation\"],\"id\":\"mechanic-rule.best-progress-aggregation\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:best-progress-aggregation\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"best-progress-aggregation review rule\",\"name_zh_cn\":\"best-progress-aggregation审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"three simultaneous Knight records\",\"order\":1},{\"fact\":\"current progress\",\"order\":2},{\"fact\":\"retained best\",\"order\":3},{\"fact\":\"regression\",\"order\":4}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"aggregation.current-stage-progress\",\"aggregation.simultaneous-three-knight-best\",\"aggregation.retained-historical-best\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"6bca78d1e91f6fa939e0171e935d5e81434995c7872659bf55f909ee0f66c2b1\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Best Battle Records use the highest total star rating active simultaneously across all three Knight stages, and current resets do not affect them.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"f0ebf1bdf7e6d765f877edefcf896b4324e5a0642159dfb13b7c056e58478041\",\"source_id\":\"official:hoyolab:anomaly-arbitration:simultaneous-best\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Battle Records display challenge records from the last three Anomaly Arbitration phases.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"353770d2b12ec9bd93f6fab312cb1e284d39b496dfc6870f45de70dc429158ac\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retained-battle-records\"}],\"summary_en\":\"This rule requires ordered review of 4 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查4项事实，且不声称运行时降级。\",\"tags\":[\"best-progress-aggregation\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:simultaneous-best"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retained-battle-records"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.best-progress-aggregation"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 4 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查4项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "clock-first-cycle"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:clock-first-cycle"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "clock-first-cycle review rule"
+          },
+          "name_zh_cn": {
+            "String": "clock-first-cycle审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"clock-first-cycle\",\"fixture_ids\":[\"review-fixture.clock-first-cycle\"],\"id\":\"mechanic-rule.clock-first-cycle\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:clock-first-cycle\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"clock-first-cycle review rule\",\"name_zh_cn\":\"clock-first-cycle审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"first-cycle Action Value\",\"order\":1},{\"fact\":\"stage-local tick\",\"order\":2},{\"fact\":\"normal versus Plight limit\",\"order\":3}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"clock.first-cycle-action-value\",\"clock.knight-cycle-limit\",\"clock.normal-king-cycle-limit\",\"clock.plight-cycle-limit\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"db6419b84285946926cd99bf9b78c935bb97c8707568d4fd69efd6800bf164d7\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The first cycle has greatly increased total action value.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"0830209f326ec452f9349d82a6534ca0fd76cd32a753106212e9e219a6205d18\",\"source_id\":\"official:hoyolab:anomaly-arbitration:first-cycle-action-value\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Pinned released Knight-stage turn limit.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"fbc14a3f6901664554760c45b53417fc0683eee760ee9ed330196bc557c10807\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Pinned released normal King turn limit.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2f5b3e50f9e7e550cc8b36be9ba658272d97fbde95c43d74e8b783efb3ca6ace\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Pinned released Plight King turn limit.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0dfce632152aa63d339f13d3a4eba5e4321fa8ed704f3fd2398eccfd1630513a\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit\"}],\"summary_en\":\"This rule requires ordered review of 3 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查3项事实，且不声称运行时降级。\",\"tags\":[\"clock-first-cycle\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:first-cycle-action-value"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.clock-first-cycle"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 3 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查3项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "clock-warning-expiry"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:clock-warning-expiry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "clock-warning-expiry review rule"
+          },
+          "name_zh_cn": {
+            "String": "clock-warning-expiry审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"clock-warning-expiry\",\"fixture_ids\":[\"review-fixture.clock-warning-expiry\"],\"id\":\"mechanic-rule.clock-warning-expiry\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:clock-warning-expiry\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"clock-warning-expiry review rule\",\"name_zh_cn\":\"clock-warning-expiry审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"warning threshold\",\"order\":1},{\"fact\":\"low-cycle effect\",\"order\":2},{\"fact\":\"expiry\",\"order\":3},{\"fact\":\"failure boundary\",\"order\":4}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"clock.warning-threshold\",\"clock.low-cycle-combat-effect\",\"clock.expiry-and-failure\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"019fefe27ac07a539bc0eff0a2f8b4e6bb4cab1e079973291a40934696e5790e\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-cycle-limits\"}],\"summary_en\":\"This rule requires ordered review of 4 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查4项事实，且不声称运行时降级。\",\"tags\":[\"clock-warning-expiry\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-cycle-limits"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.clock-warning-expiry"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 4 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查4项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof review rule"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"empty-pool-proof\",\"fixture_ids\":[\"review-fixture.empty-pool-proof.blessings\",\"review-fixture.empty-pool-proof.curios\",\"review-fixture.empty-pool-proof.currencies\",\"review-fixture.empty-pool-proof.gameplay-services\",\"review-fixture.empty-pool-proof.occurrences\",\"review-fixture.empty-pool-proof.random-content-pools\"],\"id\":\"mechanic-rule.empty-pool-proof\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":6,\"name_en\":\"empty-pool-proof review rule\",\"name_zh_cn\":\"empty-pool-proof审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"Blessing\",\"order\":1},{\"fact\":\"Curio\",\"order\":2},{\"fact\":\"Occurrence\",\"order\":3},{\"fact\":\"gameplay service\",\"order\":4},{\"fact\":\"currency\",\"order\":5},{\"fact\":\"random pool\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"order\":7}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.blessings\",\"pool-audit.curios\",\"pool-audit.occurrences\",\"pool-audit.gameplay-services\",\"pool-audit.currencies\",\"pool-audit.random-content-pools\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.blessings\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"5ad1ad273a1d10fe48bfa8d7d9948c126d032750cb7b7b3ec5c7973b0306d0bf\",\"source_id\":\"goal13:zero-pool-proof:blessings\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.curios\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"f2296a8e18f6c9a7d89bcc6201b7d279e4ffa0ee703a92b09152b718a2188962\",\"source_id\":\"goal13:zero-pool-proof:curios\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.occurrences\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"52ed5975d8e8e4eaabc22fd5c876466c141955d7474e8f2b3669ec1caadacde3\",\"source_id\":\"goal13:zero-pool-proof:occurrences\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.gameplay_services\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"d9e932038079aa881f5e7436f54057d4d6a225bb6b13b0778e1880fa345ccbcf\",\"source_id\":\"goal13:zero-pool-proof:gameplay_services\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.currencies\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"c7bc090bfd05afca83feeefff671c39218565cb605f03cd22f13d90b03d8d0e9\",\"source_id\":\"goal13:zero-pool-proof:currencies\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.random_content_pools\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"407eda056e619d68cfd32bdd2b144e15730c082d1f0ca1f6ac07e37123ff5e3e\",\"source_id\":\"goal13:zero-pool-proof:random_content_pools\"}],\"summary_en\":\"This rule requires ordered review of 7 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查7项事实，且不声称运行时降级。\",\"tags\":[\"empty-pool-proof\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:blessings"
+              },
+              {
+                "String": "goal13:zero-pool-proof:curios"
+              },
+              {
+                "String": "goal13:zero-pool-proof:occurrences"
+              },
+              {
+                "String": "goal13:zero-pool-proof:gameplay_services"
+              },
+              {
+                "String": "goal13:zero-pool-proof:currencies"
+              },
+              {
+                "String": "goal13:zero-pool-proof:random_content_pools"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.empty-pool-proof"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 7 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查7项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "encounter-enemy-closure"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:encounter-enemy-closure"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "encounter-enemy-closure review rule"
+          },
+          "name_zh_cn": {
+            "String": "encounter-enemy-closure审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"encounter-enemy-closure\",\"fixture_ids\":[\"review-fixture.encounter-enemy-closure\"],\"id\":\"mechanic-rule.encounter-enemy-closure\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:encounter-enemy-closure\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"encounter-enemy-closure review rule\",\"name_zh_cn\":\"encounter-enemy-closure审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"StageConfig\",\"order\":1},{\"fact\":\"ordered waves\",\"order\":2},{\"fact\":\"enemy slots\",\"order\":3},{\"fact\":\"summons\",\"order\":4},{\"fact\":\"templates\",\"order\":5},{\"fact\":\"skills\",\"order\":6},{\"fact\":\"statuses\",\"order\":7},{\"fact\":\"boss phase\",\"order\":8}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"encounter.30508011\",\"encounter.30508012\",\"encounter.30508013\",\"encounter.30508021\",\"encounter.30508022\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"a0a187c64f2150cc72aca10e1b99f617874f0cfb47b168235ced305d64248f13\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"}],\"summary_en\":\"This rule requires ordered review of 8 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查8项事实，且不声称运行时降级。\",\"tags\":[\"encounter-enemy-closure\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.encounter-enemy-closure"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 8 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查8项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "king-protection"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:king-protection"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "king-protection review rule"
+          },
+          "name_zh_cn": {
+            "String": "king-protection审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"king-protection\",\"fixture_ids\":[\"review-fixture.king-protection\"],\"id\":\"mechanic-rule.king-protection\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:king-protection\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"king-protection review rule\",\"name_zh_cn\":\"king-protection审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"three Knight contributions\",\"order\":1},{\"fact\":\"partial clears\",\"order\":2},{\"fact\":\"composition\",\"order\":3},{\"fact\":\"removal\",\"order\":4},{\"fact\":\"teardown\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"king-protection.composition\",\"king-protection.knight-clear-contribution\",\"king-protection.reset-and-teardown\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"3281c2ea622929677db00f2dfb1d1279f1755ef113cdf7ab37c3599f95da0f48\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"king-protection\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:knight-protection"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:knight-protection"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:knight-protection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.king-protection"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "loadout-record"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:loadout-record"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "loadout-record review rule"
+          },
+          "name_zh_cn": {
+            "String": "loadout-record审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"loadout-record\",\"fixture_ids\":[\"review-fixture.loadout-record\"],\"id\":\"mechanic-rule.loadout-record\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:loadout-record\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"loadout-record review rule\",\"name_zh_cn\":\"loadout-record审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"successful snapshot\",\"order\":1},{\"fact\":\"character/form\",\"order\":2},{\"fact\":\"Light Cone\",\"order\":3},{\"fact\":\"Relic instances\",\"order\":4},{\"fact\":\"lock scope\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"loadout-record.successful-clear-snapshot\",\"loadout-record.cross-team-equipment-invalidation\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"af00ca768fc8c2e1a5b144dcf95ad3ba9945a0af083be80a41bb9c61efdc2318\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"loadout-record\",\"mechanic-rule\"]}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retry-fixed-team"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.loadout-record"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "plight-shortcut"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:plight-shortcut"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "plight-shortcut review rule"
+          },
+          "name_zh_cn": {
+            "String": "plight-shortcut审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"plight-shortcut\",\"fixture_ids\":[\"review-fixture.plight-shortcut\"],\"id\":\"mechanic-rule.plight-shortcut\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:plight-shortcut\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"plight-shortcut review rule\",\"name_zh_cn\":\"plight-shortcut审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"normal King state\",\"order\":1},{\"fact\":\"Plight entry\",\"order\":2},{\"fact\":\"direct Plight clear\",\"order\":3},{\"fact\":\"projected downstream facts\",\"order\":4}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"king-state.normal\",\"king-state.plight\",\"king-protection.direct-plight-shortcut\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"1c7c00e20f1a7d6901405472730a7ecd7df5bb983dbfded7280bd4892e462548\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released normal King StageConfig selected by active alias 804.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:StageConfig:30508021\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released Plight King StageConfig selected by active alias 804.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:StageConfig:30508022\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Directly defeating the Plight King counts as three-star clearing all Knight stages.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"7c95d97a0e01b026341188cc380c329b15c0212025fbb8d853d6b577e353f3b4\",\"source_id\":\"official:hoyolab:anomaly-arbitration:direct-plight-clear\"}],\"summary_en\":\"This rule requires ordered review of 4 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查4项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"plight-shortcut\"]}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:StageConfig:30508021"
+              },
+              {
+                "String": "turnbasedgamedata:StageConfig:30508022"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:direct-plight-clear"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.plight-shortcut"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 4 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查4项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "profile-entry"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:profile-entry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "profile-entry review rule"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"profile-entry\",\"fixture_ids\":[\"review-fixture.profile-entry\"],\"id\":\"mechanic-rule.profile-entry\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:profile-entry\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"profile-entry review rule\",\"name_zh_cn\":\"profile-entry审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"Version 4.4 period\",\"order\":1},{\"fact\":\"eligibility\",\"order\":2},{\"fact\":\"four aliases\",\"order\":3},{\"fact\":\"legal entry\",\"order\":4},{\"fact\":\"terminal outcomes\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"anomaly-arbitration-v1\",\"period.8\",\"outcome.knight-stage-clear\",\"outcome.stage-attempt-failure\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"80d3f80fd130a3ae0a13723a676b4f74fded2762142390b761eaa9086e0bfd99\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=7;ID=8\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact group, title hash and alias relationships.\",\"path_or_page\":\"ExcelOutput/ChallengePeakGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b11dbeb1adf80da2e678de9eb0b1a8f297294ffa8dce0c4dbe0e44990c954adb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"A cleared Knight stage records its team and independently evaluated stars.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"7b4d6c1bb9ab03c93555fbc9489befb3fc3c84b9d3030de0a1a167400af32394\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exceeding the stage's own cycle limit makes the attempt fail.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e6fdecee80d1841c37c8ca2c5577e4363a3c6b9ae8fa69801fbc4f6f43adf22d\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"profile-entry\"]}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.profile-entry"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "quadrant-contribution"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:quadrant-contribution"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "quadrant-contribution review rule"
+          },
+          "name_zh_cn": {
+            "String": "quadrant-contribution审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"quadrant-contribution\",\"fixture_ids\":[\"review-fixture.quadrant-contribution\"],\"id\":\"mechanic-rule.quadrant-contribution\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:quadrant-contribution\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"quadrant-contribution review rule\",\"name_zh_cn\":\"quadrant-contribution审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"MazeBuff binding\",\"order\":1},{\"fact\":\"parameters\",\"order\":2},{\"fact\":\"install timing\",\"order\":3},{\"fact\":\"battle-visible effect\",\"order\":4},{\"fact\":\"teardown\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"quadrant-option.3033066\",\"quadrant-option.3033067\",\"quadrant-option.3033068\",\"quadrant-selection.attempt-teardown\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"beacd93d67be9660a0e70fb3e6285258a215cbab649bca16744058d02daf4e41\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033066\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b358fcf94d1f1fd182a97ef2a270f04b8eaf20eeb75bf268a324d25c4bcb6b0c\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033066\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033067\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ac079a5e54a67bffd1060c1c6fd57d5460577eb233a61c20f0d90f8558c3fbc3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033067\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033068\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"41fcf459235c8e65784be7890d1fe1ef655cee4db6a3ce86a267491a7a3976ef\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033068\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"quadrant-contribution\"]}"
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033066"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033067"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033068"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.quadrant-contribution"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "quadrant-selection"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:quadrant-selection"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "quadrant-selection review rule"
+          },
+          "name_zh_cn": {
+            "String": "quadrant-selection审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"quadrant-selection\",\"fixture_ids\":[\"review-fixture.quadrant-selection\"],\"id\":\"mechanic-rule.quadrant-selection\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:quadrant-selection\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"quadrant-selection review rule\",\"name_zh_cn\":\"quadrant-selection审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"three-option offer\",\"order\":1},{\"fact\":\"eligibility\",\"order\":2},{\"fact\":\"selection\",\"order\":3},{\"fact\":\"no-selection behavior\",\"order\":4},{\"fact\":\"replacement\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"quadrant-selection.active-period\",\"quadrant-selection.no-selection\",\"quadrant-selection.attempt-teardown\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"45799d9a7c275955068c5d03fd8b81fc221e4ed97ad26de033be12454b8b53a9\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"quadrant-selection\"]}"
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.quadrant-selection"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "record-replacement-reset"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:record-replacement-reset"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "record-replacement-reset review rule"
+          },
+          "name_zh_cn": {
+            "String": "record-replacement-reset审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"record-replacement-reset\",\"fixture_ids\":[\"review-fixture.record-replacement-reset\"],\"id\":\"mechanic-rule.record-replacement-reset\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:record-replacement-reset\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"record-replacement-reset review rule\",\"name_zh_cn\":\"record-replacement-reset审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"rechallenge\",\"order\":1},{\"fact\":\"same-team loadout change\",\"order\":2},{\"fact\":\"replacement choice\",\"order\":3},{\"fact\":\"record erasure\",\"order\":4},{\"fact\":\"reset order\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"progress-record.rechallenge-eligibility\",\"progress-record.record-replacement-choice\",\"progress-record.record-erasure-on-reset\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"afd35183536116748d37a5649d8f12ed5d46712936cfc114167b4b7b4474dd10\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Using same-team or previously unrecorded Light Cones or Relics permits a retry, and a successful clear offers a choice whether to replace the old record and composition.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"494f27b8aec9a33c72ca9bb7590260630c29d427dbe70d8e75b5f8739ac5b077\",\"source_id\":\"official:hoyolab:anomaly-arbitration:record-replacement-choice\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Change Lineup\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Changing a cleared Knight lineup resets that challenge progress; the corresponding recorded composition is cleared and its stage result becomes invalid.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"4e1df853cb2c70106113998a0573f884a3fe45b839ff7b688ee36abf08bbcae9\",\"source_id\":\"official:hoyolab:anomaly-arbitration:lineup-change-reset\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"record-replacement-reset\"]}"
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retry-fixed-team"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:record-replacement-choice"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:lineup-change-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.record-replacement-reset"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "stage-order"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:stage-order"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "stage-order review rule"
+          },
+          "name_zh_cn": {
+            "String": "stage-order审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"stage-order\",\"fixture_ids\":[\"review-fixture.stage-order\"],\"id\":\"mechanic-rule.stage-order\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:stage-order\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"stage-order review rule\",\"name_zh_cn\":\"stage-order审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"Knight I-III\",\"order\":1},{\"fact\":\"King\",\"order\":2},{\"fact\":\"Plight\",\"order\":3},{\"fact\":\"accepted order\",\"order\":4},{\"fact\":\"rejected transition\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"stage.knight-1\",\"stage.knight-2\",\"stage.knight-3\",\"stage.king-normal\",\"stage.king-plight\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"d150ce5e3df12e625bd858490ae678295cc6a42527376863bf9ab5bd673e54b0\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=28;ID=801\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"14feb83b9173d66236fc2a71ef497b239da821d576e2012bdf7eead9b710c1c2\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=28;ID=801\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=29;ID=802\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"19f7b20c06aaec76bb984c2e3ba84a184519140f7cc9ba79b73ad903cf89f092\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=29;ID=802\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=30;ID=803\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1486a9f5116b9e0caedb5bf25652d72f47a8b000e4dec29528cac6d3d7b9a932\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=30;ID=803\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=31;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5699f1c6fc2784613363dd196758bd792bfe281c952ffb9fa942d44043378a09\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=31;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5699f1c6fc2784613363dd196758bd792bfe281c952ffb9fa942d44043378a09\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"stage-order\"]}"
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=28;ID=801"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=29;ID=802"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=30;ID=803"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.stage-order"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "target-evaluation"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:target-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "target-evaluation review rule"
+          },
+          "name_zh_cn": {
+            "String": "target-evaluation审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"target-evaluation\",\"fixture_ids\":[\"review-fixture.target-evaluation\"],\"id\":\"mechanic-rule.target-evaluation\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:target-evaluation\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"target-evaluation review rule\",\"name_zh_cn\":\"target-evaluation审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"defeat/survival\",\"order\":1},{\"fact\":\"cycle thresholds\",\"order\":2},{\"fact\":\"evaluation timing\",\"order\":3},{\"fact\":\"per-stage stars\",\"order\":4},{\"fact\":\"King rating\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"objective.evaluate-cycle-targets\",\"objective.evaluate-no-downed\",\"objective.stage-star-evaluation\",\"aggregation.king-medal-rating\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"705461fcca6287af33665cd7fe42683b1db0d102db6490a442a4d52f95fb6038\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact no-downed-character target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage and Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The King stage has its own star rating, which is retained in Battle Records.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc\",\"source_id\":\"official:hoyolab:anomaly-arbitration:king-rating\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"target-evaluation\"]}"
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:king-rating"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.target-evaluation"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "team-uniqueness"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:team-uniqueness"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "team-uniqueness review rule"
+          },
+          "name_zh_cn": {
+            "String": "team-uniqueness审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"team-uniqueness\",\"fixture_ids\":[\"review-fixture.team-uniqueness\"],\"id\":\"mechanic-rule.team-uniqueness\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:team-uniqueness\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"team-uniqueness review rule\",\"name_zh_cn\":\"team-uniqueness审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"three disjoint teams\",\"order\":1},{\"fact\":\"combat-form identity\",\"order\":2},{\"fact\":\"Light Cone identity\",\"order\":3},{\"fact\":\"Relic-instance identity\",\"order\":4},{\"fact\":\"rejection\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"participant-policy.character-and-combat-form-uniqueness\",\"participant-policy.light-cone-instance-uniqueness\",\"participant-policy.relic-instance-uniqueness\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"5a046e0d12b56cce6ecf62f0c48adfbd1c308051fd72fc296b2807fef9991e82\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The three Knight stages use three different character teams, and the player may choose their challenge order.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d\",\"source_id\":\"official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"team-uniqueness\"]}"
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.team-uniqueness"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "trait-contribution"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:trait-contribution"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "trait-contribution review rule"
+          },
+          "name_zh_cn": {
+            "String": "trait-contribution审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"trait-contribution\",\"fixture_ids\":[\"review-fixture.trait-contribution\"],\"id\":\"mechanic-rule.trait-contribution\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:trait-contribution\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"trait-contribution review rule\",\"name_zh_cn\":\"trait-contribution审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"normal trait\",\"order\":1},{\"fact\":\"Plight trait\",\"order\":2},{\"fact\":\"parameters\",\"order\":3},{\"fact\":\"stacking\",\"order\":4},{\"fact\":\"scope\",\"order\":5},{\"fact\":\"teardown\",\"order\":6}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"trait.3033023\",\"trait.3033051\",\"trait.3033052\",\"trait.3033069\",\"trait.3033070\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"75c3a674967807ff7ceda0f9d862040fa2aa94132a5e5eaf2fbd23386ac22d2b\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033023\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"73b929f0b4c5180aaa505c9363941f4a093e6c82e73f84b87aa87db3b776f98d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033051\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"64450cb0242a8a250c2657184755662cc92791d1875bf6f215375a0a247fbb7a\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033052\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bcfade90ef97cac5912232f9e0b08bed05d4065b2160798694fd5b4e9f88754f\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033069\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"de173a4af3611a9240e09d0c9b48425dabf8d32d27a496ea68cb708f4d943ad9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033070\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"728d745f99cd5e53a1535d539f9f58640f9c5098e77df83ade325331af8a4350\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070\"}],\"summary_en\":\"This rule requires ordered review of 6 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查6项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"trait-contribution\"]}"
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.trait-contribution"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 6 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查6项事实，且不声称运行时降级。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "family_id": {
+            "String": "wave-carry"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:wave-carry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "wave-carry review rule"
+          },
+          "name_zh_cn": {
+            "String": "wave-carry审查规则"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"execution_surface\":\"ReferenceReviewOnly\",\"family_id\":\"wave-carry\",\"fixture_ids\":[\"review-fixture.wave-carry\"],\"id\":\"mechanic-rule.wave-carry\",\"kind\":\"MechanicRule\",\"manifest_record_ids\":[\"semantic_fixture_families:wave-carry\"],\"mechanism_quality\":\"PolicyBoundary\",\"minimum_cases\":1,\"name_en\":\"wave-carry review rule\",\"name_zh_cn\":\"wave-carry审查规则\",\"ownership\":\"AnomalyArbitration\",\"required_fact_order\":[{\"fact\":\"wave transition\",\"order\":1},{\"fact\":\"clock carry\",\"order\":2},{\"fact\":\"non-reset\",\"order\":3},{\"fact\":\"warning state\",\"order\":4},{\"fact\":\"battle teardown\",\"order\":5}],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"encounter-wave.30508011.1\",\"encounter-wave.30508011.2\",\"clock.wave-transition-carry\",\"clock.warning-threshold\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal 13 freezes this non-shrinking semantic review family.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"ccbee3ac0a8bfb6d79f178c92cb23c2b165b541309f462f7133bc1f20cb5c5af\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The cycle countdown does not reset when combat phases or waves change.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"d392dcb27846f77796022b6c2e9d13b0ba45b892d6ec3ad805b6a3bd9895cb8a\",\"source_id\":\"official:hoyolab:anomaly-arbitration:wave-transition-carry\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"}],\"summary_en\":\"This rule requires ordered review of 5 facts without claiming runtime lowering.\",\"summary_zh_cn\":\"该规则要求按序审查5项事实，且不声称运行时降级。\",\"tags\":[\"mechanic-rule\",\"wave-carry\"]}"
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:wave-transition-carry"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "mechanic-rule.wave-carry"
+          },
+          "summary_en": {
+            "String": "This rule requires ordered review of 5 facts without claiming runtime lowering."
+          },
+          "summary_zh_cn": {
+            "String": "该规则要求按序审查5项事实，且不声称运行时降级。"
+          }
+        }
+      }
+    ]
+  }
+}

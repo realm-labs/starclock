@@ -1,0 +1,322 @@
+{
+  "table": {
+    "name": "ArbEncounters",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508011"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (I) encounter"
+          },
+          "name_zh_cn": {
+            "String": "骑士（一）遭遇"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"battle_event_id\":\"battle-event.30502\",\"boss_enemy_ids\":[\"enemy.302401012\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"evidence_quality\":\"ExactStructured\",\"forbid_exit_battle\":true,\"hard_level_group\":3,\"id\":\"encounter.30508011\",\"infinite_group\":\"30508011\",\"kind\":\"Encounter\",\"level\":95,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"manifest_record_ids\":[\"stage_configs:stage:30508011\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Knight (I) encounter\",\"name_zh_cn\":\"骑士（一）遭遇\",\"ownership\":\"Shared\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"}],\"source_stage_id\":30508011,\"stage_id\":\"stage.knight-1\",\"summary_en\":\"Knight (I) is a released two-wave level-95 challenge encounter.\",\"summary_zh_cn\":\"骑士（一）是已发布的95级双波次挑战遭遇。\",\"tags\":[\"encounter\",\"normal\"],\"wave_count\":2}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508011"
+          },
+          "stable_key": {
+            "String": "encounter.30508011"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "Knight (I) is a released two-wave level-95 challenge encounter."
+          },
+          "summary_zh_cn": {
+            "String": "骑士（一）是已发布的95级双波次挑战遭遇。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508012"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (II) encounter"
+          },
+          "name_zh_cn": {
+            "String": "骑士（二）遭遇"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"battle_event_id\":\"battle-event.30502\",\"boss_enemy_ids\":[\"enemy.101401016\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"evidence_quality\":\"ExactStructured\",\"forbid_exit_battle\":true,\"hard_level_group\":3,\"id\":\"encounter.30508012\",\"infinite_group\":\"30508012\",\"kind\":\"Encounter\",\"level\":95,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"manifest_record_ids\":[\"stage_configs:stage:30508012\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Knight (II) encounter\",\"name_zh_cn\":\"骑士（二）遭遇\",\"ownership\":\"Shared\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"}],\"source_stage_id\":30508012,\"stage_id\":\"stage.knight-2\",\"summary_en\":\"Knight (II) is a released two-wave level-95 challenge encounter.\",\"summary_zh_cn\":\"骑士（二）是已发布的95级双波次挑战遭遇。\",\"tags\":[\"encounter\",\"normal\"],\"wave_count\":2}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508012"
+          },
+          "stable_key": {
+            "String": "encounter.30508012"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "Knight (II) is a released two-wave level-95 challenge encounter."
+          },
+          "summary_zh_cn": {
+            "String": "骑士（二）是已发布的95级双波次挑战遭遇。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508013"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight (III) encounter"
+          },
+          "name_zh_cn": {
+            "String": "骑士（三）遭遇"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"battle_event_id\":\"battle-event.30502\",\"boss_enemy_ids\":[\"enemy.5024010\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"evidence_quality\":\"ExactStructured\",\"forbid_exit_battle\":true,\"hard_level_group\":3,\"id\":\"encounter.30508013\",\"infinite_group\":\"30508013\",\"kind\":\"Encounter\",\"level\":95,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"manifest_record_ids\":[\"stage_configs:stage:30508013\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_warning_ratio\":\"1.1\",\"name_en\":\"Knight (III) encounter\",\"name_zh_cn\":\"骑士（三）遭遇\",\"ownership\":\"Shared\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"}],\"source_stage_id\":30508013,\"stage_id\":\"stage.knight-3\",\"summary_en\":\"Knight (III) is a released two-wave level-95 challenge encounter.\",\"summary_zh_cn\":\"骑士（三）是已发布的95级双波次挑战遭遇。\",\"tags\":[\"encounter\",\"normal\"],\"wave_count\":2}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508013"
+          },
+          "stable_key": {
+            "String": "encounter.30508013"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "Knight (III) is a released two-wave level-95 challenge encounter."
+          },
+          "summary_zh_cn": {
+            "String": "骑士（三）是已发布的95级双波次挑战遭遇。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508021"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check encounter"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋遭遇"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"battle_event_id\":\"battle-event.30503\",\"boss_enemy_ids\":[\"enemy.5014030\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Normal\",\"evidence_quality\":\"ExactStructured\",\"forbid_exit_battle\":true,\"hard_level_group\":3,\"id\":\"encounter.30508021\",\"infinite_group\":\"30508021\",\"kind\":\"Encounter\",\"level\":100,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"manifest_record_ids\":[\"stage_configs:stage:30508021\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_warning_ratio\":\"1.1\",\"name_en\":\"King in Check encounter\",\"name_zh_cn\":\"将杀王棋遭遇\",\"ownership\":\"Shared\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"}],\"source_stage_id\":30508021,\"stage_id\":\"stage.king-normal\",\"summary_en\":\"King in Check is a released two-wave level-100 challenge encounter.\",\"summary_zh_cn\":\"将杀王棋是已发布的100级双波次挑战遭遇。\",\"tags\":[\"encounter\",\"normal\"],\"wave_count\":2}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508021"
+          },
+          "stable_key": {
+            "String": "encounter.30508021"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "King in Check is a released two-wave level-100 challenge encounter."
+          },
+          "summary_zh_cn": {
+            "String": "将杀王棋是已发布的100级双波次挑战遭遇。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_configs:stage:30508022"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King in Check: Plight encounter"
+          },
+          "name_zh_cn": {
+            "String": "将杀王棋•绝境遭遇"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"battle_event_id\":\"battle-event.30504\",\"boss_enemy_ids\":[\"enemy.5014030\"],\"coverage_state\":\"DataReady\",\"difficulty\":\"Plight\",\"evidence_quality\":\"ExactStructured\",\"forbid_exit_battle\":true,\"hard_level_group\":3,\"id\":\"encounter.30508022\",\"infinite_group\":\"30508022\",\"kind\":\"Encounter\",\"level\":120,\"level_graph_path\":\"Config/Level/StageCommonTemplate.json\",\"manifest_record_ids\":[\"stage_configs:stage:30508022\"],\"mechanism_quality\":\"ExactRelationship\",\"monster_warning_ratio\":\"1.1\",\"name_en\":\"King in Check: Plight encounter\",\"name_zh_cn\":\"将杀王棋•绝境遭遇\",\"ownership\":\"Shared\",\"release\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"}],\"source_stage_id\":30508022,\"stage_id\":\"stage.king-plight\",\"summary_en\":\"King in Check: Plight is a released two-wave level-120 challenge encounter.\",\"summary_zh_cn\":\"将杀王棋•绝境是已发布的120级双波次挑战遭遇。\",\"tags\":[\"encounter\",\"plight\"],\"wave_count\":2}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              }
+            ]
+          },
+          "source_stage_id": {
+            "String": "30508022"
+          },
+          "stable_key": {
+            "String": "encounter.30508022"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "King in Check: Plight is a released two-wave level-120 challenge encounter."
+          },
+          "summary_zh_cn": {
+            "String": "将杀王棋•绝境是已发布的120级双波次挑战遭遇。"
+          }
+        }
+      }
+    ]
+  }
+}

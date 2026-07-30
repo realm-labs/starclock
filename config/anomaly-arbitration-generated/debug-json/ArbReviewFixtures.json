@@ -1,0 +1,1938 @@
+{
+  "table": {
+    "name": "ArbReviewFixtures",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 129
+              },
+              {
+                "Integer": 131
+              },
+              {
+                "Integer": 130
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "battle-event-countdown"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:battle-event-countdown"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "battle-event-countdown semantic review"
+          },
+          "name_zh_cn": {
+            "String": "battle-event-countdown语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.25b251d8d38f79a5efe3835e\",\"source.626fe21c6b540edd884e1971\",\"source.b369bacbda1099e006083afc\",\"source.d02ca6c4a5a3e49450a6392c\",\"source.d9da6ee19eaa23728a432203\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"event 30502/30503/30504 selection\",\"scope\":\"battle-event-countdown\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"countdown parameters\",\"scope\":\"battle-event-countdown\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"warning\",\"scope\":\"battle-event-countdown\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"expiry or failure\",\"scope\":\"battle-event-countdown\"}],\"family_id\":\"battle-event-countdown\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.battle-event-countdown\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:battle-event-countdown\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"battle-event-countdown semantic review\",\"name_zh_cn\":\"battle-event-countdown语义审查\",\"ordered_operations\":[{\"fact\":\"event 30502/30503/30504 selection\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"countdown parameters\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"warning\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"expiry or failure\",\"operation\":\"VerifyDeclaredFact\",\"order\":4}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"battle-event.30502\",\"battle-event.30503\",\"battle-event.30504\",\"clock.warning-threshold\",\"clock.expiry-and-failure\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"459e3f7a37d161267ef9b76a022e5c7e815d62d0f4e338e92188c23122ef6382\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30502\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"35ea5841c86b7bcb14128510c87c0f40640d885d1da92c27623edf63e0b29304\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30503\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9949e261bbafb3f34087a11c48718e825b66bd80dd565c55a08daa5116f083d9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30504\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d821a5986b6761345daf7df12f645639817d451563d31851edd7b57a8107905e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-cycle-limits\"}],\"summary_en\":\"A deterministic reference-only fixture reviews battle-event-countdown case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查battle-event-countdown第1个用例。\",\"tags\":[\"battle-event-countdown\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-cycle-limits"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.battle-event-countdown"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews battle-event-countdown case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查battle-event-countdown第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 39
+              },
+              {
+                "Integer": 42
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "best-progress-aggregation"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:best-progress-aggregation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "best-progress-aggregation semantic review"
+          },
+          "name_zh_cn": {
+            "String": "best-progress-aggregation语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.706818e6cbf5c98f816720b7\",\"source.735d29c09529e5d1aa791ae2\",\"source.ce4eb120bd1a447acfa03cb6\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"three simultaneous Knight records\",\"scope\":\"best-progress-aggregation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"current progress\",\"scope\":\"best-progress-aggregation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"retained best\",\"scope\":\"best-progress-aggregation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"regression\",\"scope\":\"best-progress-aggregation\"}],\"family_id\":\"best-progress-aggregation\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.best-progress-aggregation\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:best-progress-aggregation\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"best-progress-aggregation semantic review\",\"name_zh_cn\":\"best-progress-aggregation语义审查\",\"ordered_operations\":[{\"fact\":\"three simultaneous Knight records\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"current progress\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"retained best\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"regression\",\"operation\":\"VerifyDeclaredFact\",\"order\":4}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"aggregation.current-stage-progress\",\"aggregation.simultaneous-three-knight-best\",\"aggregation.retained-historical-best\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"6bca78d1e91f6fa939e0171e935d5e81434995c7872659bf55f909ee0f66c2b1\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Best Battle Records use the highest total star rating active simultaneously across all three Knight stages, and current resets do not affect them.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"f0ebf1bdf7e6d765f877edefcf896b4324e5a0642159dfb13b7c056e58478041\",\"source_id\":\"official:hoyolab:anomaly-arbitration:simultaneous-best\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Battle Records display challenge records from the last three Anomaly Arbitration phases.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"353770d2b12ec9bd93f6fab312cb1e284d39b496dfc6870f45de70dc429158ac\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retained-battle-records\"}],\"summary_en\":\"A deterministic reference-only fixture reviews best-progress-aggregation case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查best-progress-aggregation第1个用例。\",\"tags\":[\"best-progress-aggregation\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:simultaneous-best"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retained-battle-records"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.best-progress-aggregation"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews best-progress-aggregation case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查best-progress-aggregation第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 30
+              },
+              {
+                "Integer": 141
+              },
+              {
+                "Integer": 153
+              },
+              {
+                "Integer": 146
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "clock-first-cycle"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:clock-first-cycle"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "clock-first-cycle semantic review"
+          },
+          "name_zh_cn": {
+            "String": "clock-first-cycle语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.0e9a87beedaeff44e7ed1078\",\"source.368ecbebd749eb1e8150399f\",\"source.48008fe58d60c51de9cf8f2e\",\"source.7c911fe286566e7b41b42b06\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"first-cycle Action Value\",\"scope\":\"clock-first-cycle\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stage-local tick\",\"scope\":\"clock-first-cycle\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"normal versus Plight limit\",\"scope\":\"clock-first-cycle\"}],\"family_id\":\"clock-first-cycle\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.clock-first-cycle\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:clock-first-cycle\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"clock-first-cycle semantic review\",\"name_zh_cn\":\"clock-first-cycle语义审查\",\"ordered_operations\":[{\"fact\":\"first-cycle Action Value\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"stage-local tick\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"normal versus Plight limit\",\"operation\":\"VerifyDeclaredFact\",\"order\":3}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"clock.first-cycle-action-value\",\"clock.knight-cycle-limit\",\"clock.normal-king-cycle-limit\",\"clock.plight-cycle-limit\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"db6419b84285946926cd99bf9b78c935bb97c8707568d4fd69efd6800bf164d7\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The first cycle has greatly increased total action value.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"0830209f326ec452f9349d82a6534ca0fd76cd32a753106212e9e219a6205d18\",\"source_id\":\"official:hoyolab:anomaly-arbitration:first-cycle-action-value\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Pinned released Knight-stage turn limit.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"fbc14a3f6901664554760c45b53417fc0683eee760ee9ed330196bc557c10807\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Pinned released normal King turn limit.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2f5b3e50f9e7e550cc8b36be9ba658272d97fbde95c43d74e8b783efb3ca6ace\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Pinned released Plight King turn limit.\",\"path_or_page\":\"ExcelOutput/ChallengePeakCommonConst.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0dfce632152aa63d339f13d3a4eba5e4321fa8ed704f3fd2398eccfd1630513a\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit\"}],\"summary_en\":\"A deterministic reference-only fixture reviews clock-first-cycle case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查clock-first-cycle第1个用例。\",\"tags\":[\"clock-first-cycle\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:first-cycle-action-value"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.clock-first-cycle"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews clock-first-cycle case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查clock-first-cycle第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "clock-warning-expiry"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:clock-warning-expiry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "clock-warning-expiry semantic review"
+          },
+          "name_zh_cn": {
+            "String": "clock-warning-expiry语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.25b251d8d38f79a5efe3835e\",\"source.d9da6ee19eaa23728a432203\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"warning threshold\",\"scope\":\"clock-warning-expiry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"low-cycle effect\",\"scope\":\"clock-warning-expiry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"expiry\",\"scope\":\"clock-warning-expiry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"failure boundary\",\"scope\":\"clock-warning-expiry\"}],\"family_id\":\"clock-warning-expiry\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.clock-warning-expiry\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:clock-warning-expiry\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"clock-warning-expiry semantic review\",\"name_zh_cn\":\"clock-warning-expiry语义审查\",\"ordered_operations\":[{\"fact\":\"warning threshold\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"low-cycle effect\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"expiry\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"failure boundary\",\"operation\":\"VerifyDeclaredFact\",\"order\":4}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"clock.warning-threshold\",\"clock.low-cycle-combat-effect\",\"clock.expiry-and-failure\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"019fefe27ac07a539bc0eff0a2f8b4e6bb4cab1e079973291a40934696e5790e\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-cycle-limits\"}],\"summary_en\":\"A deterministic reference-only fixture reviews clock-warning-expiry case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查clock-warning-expiry第1个用例。\",\"tags\":[\"clock-warning-expiry\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-cycle-limits"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.clock-warning-expiry"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews clock-warning-expiry case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查clock-warning-expiry第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 15
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof semantic review.blessings"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof语义审查.blessings"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.c2a3411415d7af7ab11b11df\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Blessing\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Curio\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Occurrence\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"gameplay service\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"currency\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"random pool\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stronger-evidence replacement\",\"scope\":\"empty-pool-proof\"}],\"family_id\":\"empty-pool-proof\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.empty-pool-proof.blessings\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"empty-pool-proof semantic review.blessings\",\"name_zh_cn\":\"empty-pool-proof语义审查.blessings\",\"ordered_operations\":[{\"fact\":\"Blessing\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Curio\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Occurrence\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"gameplay service\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"currency\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"random pool\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":7}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.blessings\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.blessings\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"5ad1ad273a1d10fe48bfa8d7d9948c126d032750cb7b7b3ec5c7973b0306d0bf\",\"source_id\":\"goal13:zero-pool-proof:blessings\"}],\"summary_en\":\"A deterministic reference-only fixture reviews empty-pool-proof case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查empty-pool-proof第1个用例。\",\"tags\":[\"empty-pool-proof\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:blessings"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.empty-pool-proof.blessings"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews empty-pool-proof case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查empty-pool-proof第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 16
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof semantic review.curios"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof语义审查.curios"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.56ced72093a7353925d12306\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Blessing\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Curio\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Occurrence\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"gameplay service\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"currency\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"random pool\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stronger-evidence replacement\",\"scope\":\"empty-pool-proof\"}],\"family_id\":\"empty-pool-proof\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.empty-pool-proof.curios\",\"input\":{\"case\":2,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"empty-pool-proof semantic review.curios\",\"name_zh_cn\":\"empty-pool-proof语义审查.curios\",\"ordered_operations\":[{\"fact\":\"Blessing\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Curio\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Occurrence\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"gameplay service\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"currency\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"random pool\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":7}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.curios\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.curios\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"f2296a8e18f6c9a7d89bcc6201b7d279e4ffa0ee703a92b09152b718a2188962\",\"source_id\":\"goal13:zero-pool-proof:curios\"}],\"summary_en\":\"A deterministic reference-only fixture reviews empty-pool-proof case 2.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查empty-pool-proof第2个用例。\",\"tags\":[\"empty-pool-proof\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:curios"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.empty-pool-proof.curios"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews empty-pool-proof case 2."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查empty-pool-proof第2个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 17
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof semantic review.currencies"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof语义审查.currencies"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.d41d729d4a0c6b42f2b172e4\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Blessing\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Curio\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Occurrence\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"gameplay service\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"currency\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"random pool\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stronger-evidence replacement\",\"scope\":\"empty-pool-proof\"}],\"family_id\":\"empty-pool-proof\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.empty-pool-proof.currencies\",\"input\":{\"case\":5,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"empty-pool-proof semantic review.currencies\",\"name_zh_cn\":\"empty-pool-proof语义审查.currencies\",\"ordered_operations\":[{\"fact\":\"Blessing\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Curio\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Occurrence\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"gameplay service\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"currency\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"random pool\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":7}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.currencies\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.currencies\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"c7bc090bfd05afca83feeefff671c39218565cb605f03cd22f13d90b03d8d0e9\",\"source_id\":\"goal13:zero-pool-proof:currencies\"}],\"summary_en\":\"A deterministic reference-only fixture reviews empty-pool-proof case 5.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查empty-pool-proof第5个用例。\",\"tags\":[\"empty-pool-proof\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:currencies"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.empty-pool-proof.currencies"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews empty-pool-proof case 5."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查empty-pool-proof第5个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 18
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof semantic review.gameplay-services"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof语义审查.gameplay-services"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.7b63144f90ed1f712d82a5e0\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Blessing\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Curio\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Occurrence\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"gameplay service\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"currency\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"random pool\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stronger-evidence replacement\",\"scope\":\"empty-pool-proof\"}],\"family_id\":\"empty-pool-proof\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.empty-pool-proof.gameplay-services\",\"input\":{\"case\":4,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"empty-pool-proof semantic review.gameplay-services\",\"name_zh_cn\":\"empty-pool-proof语义审查.gameplay-services\",\"ordered_operations\":[{\"fact\":\"Blessing\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Curio\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Occurrence\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"gameplay service\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"currency\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"random pool\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":7}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.gameplay-services\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.gameplay_services\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"d9e932038079aa881f5e7436f54057d4d6a225bb6b13b0778e1880fa345ccbcf\",\"source_id\":\"goal13:zero-pool-proof:gameplay_services\"}],\"summary_en\":\"A deterministic reference-only fixture reviews empty-pool-proof case 4.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查empty-pool-proof第4个用例。\",\"tags\":[\"empty-pool-proof\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:gameplay_services"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.empty-pool-proof.gameplay-services"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews empty-pool-proof case 4."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查empty-pool-proof第4个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof semantic review.occurrences"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof语义审查.occurrences"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.e18fec5c09398428a4bbad8e\",\"source.fa35d6b07d6b6f33d0ce0706\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Blessing\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Curio\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Occurrence\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"gameplay service\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"currency\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"random pool\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stronger-evidence replacement\",\"scope\":\"empty-pool-proof\"}],\"family_id\":\"empty-pool-proof\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.empty-pool-proof.occurrences\",\"input\":{\"case\":3,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"empty-pool-proof semantic review.occurrences\",\"name_zh_cn\":\"empty-pool-proof语义审查.occurrences\",\"ordered_operations\":[{\"fact\":\"Blessing\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Curio\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Occurrence\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"gameplay service\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"currency\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"random pool\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":7}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.occurrences\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.occurrences\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"52ed5975d8e8e4eaabc22fd5c876466c141955d7474e8f2b3669ec1caadacde3\",\"source_id\":\"goal13:zero-pool-proof:occurrences\"}],\"summary_en\":\"A deterministic reference-only fixture reviews empty-pool-proof case 3.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查empty-pool-proof第3个用例。\",\"tags\":[\"empty-pool-proof\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:occurrences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.empty-pool-proof.occurrences"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews empty-pool-proof case 3."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查empty-pool-proof第3个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 20
+              }
+            ]
+          },
+          "family_id": {
+            "String": "empty-pool-proof"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:empty-pool-proof"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "empty-pool-proof semantic review.random-content-pools"
+          },
+          "name_zh_cn": {
+            "String": "empty-pool-proof语义审查.random-content-pools"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.e18fec5c09398428a4bbad8e\",\"source.e290e8bbbdbb2f54a4ed4e1f\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Blessing\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Curio\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Occurrence\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"gameplay service\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"currency\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"random pool\",\"scope\":\"empty-pool-proof\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stronger-evidence replacement\",\"scope\":\"empty-pool-proof\"}],\"family_id\":\"empty-pool-proof\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.empty-pool-proof.random-content-pools\",\"input\":{\"case\":6,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:empty-pool-proof\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"empty-pool-proof semantic review.random-content-pools\",\"name_zh_cn\":\"empty-pool-proof语义审查.random-content-pools\",\"ordered_operations\":[{\"fact\":\"Blessing\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Curio\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Occurrence\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"gameplay service\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"currency\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"random pool\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"stronger-evidence replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":7}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"pool-audit.random-content-pools\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"b7377b61a90a05c3def38adca3ad0aa35c4285c4b73dcaa974b386f0038934ac\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"zero_pool_proofs.random_content_pools\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Generated exact-zero proof: the active group/alias/boss/stage/target/MazeBuff/battle-event/common-constant closure contains no selector or reference into this family.\",\"path_or_page\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"407eda056e619d68cfd32bdd2b144e15730c082d1f0ca1f6ac07e37123ff5e3e\",\"source_id\":\"goal13:zero-pool-proof:random_content_pools\"}],\"summary_en\":\"A deterministic reference-only fixture reviews empty-pool-proof case 6.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查empty-pool-proof第6个用例。\",\"tags\":[\"empty-pool-proof\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "goal13:zero-pool-proof:random_content_pools"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.empty-pool-proof.random-content-pools"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews empty-pool-proof case 6."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查empty-pool-proof第6个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 393
+              },
+              {
+                "Integer": 390
+              },
+              {
+                "Integer": 392
+              },
+              {
+                "Integer": 394
+              },
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 391
+              }
+            ]
+          },
+          "family_id": {
+            "String": "encounter-enemy-closure"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:encounter-enemy-closure"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "encounter-enemy-closure semantic review"
+          },
+          "name_zh_cn": {
+            "String": "encounter-enemy-closure语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.27feba084d7514cd705bbdb5\",\"source.7445d962e1fd6f0d526d685f\",\"source.9e84d250588ecab7c09250cd\",\"source.a060736598d43656193fedbf\",\"source.e18fec5c09398428a4bbad8e\",\"source.fae00e981bad6b72995fbee3\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"StageConfig\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"ordered waves\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"enemy slots\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"summons\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"templates\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"skills\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"statuses\",\"scope\":\"encounter-enemy-closure\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"boss phase\",\"scope\":\"encounter-enemy-closure\"}],\"family_id\":\"encounter-enemy-closure\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.encounter-enemy-closure\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:encounter-enemy-closure\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"encounter-enemy-closure semantic review\",\"name_zh_cn\":\"encounter-enemy-closure语义审查\",\"ordered_operations\":[{\"fact\":\"StageConfig\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"ordered waves\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"enemy slots\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"summons\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"templates\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"skills\",\"operation\":\"VerifyDeclaredFact\",\"order\":6},{\"fact\":\"statuses\",\"operation\":\"VerifyDeclaredFact\",\"order\":7},{\"fact\":\"boss phase\",\"operation\":\"VerifyDeclaredFact\",\"order\":8}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"encounter.30508011\",\"encounter.30508012\",\"encounter.30508013\",\"encounter.30508021\",\"encounter.30508022\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"a0a187c64f2150cc72aca10e1b99f617874f0cfb47b168235ced305d64248f13\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active profile selects this exact StageConfig encounter.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"}],\"summary_en\":\"A deterministic reference-only fixture reviews encounter-enemy-closure case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查encounter-enemy-closure第1个用例。\",\"tags\":[\"encounter-enemy-closure\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.encounter-enemy-closure"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews encounter-enemy-closure case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查encounter-enemy-closure第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 34
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "king-protection"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:king-protection"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "king-protection semantic review"
+          },
+          "name_zh_cn": {
+            "String": "king-protection语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.32ce0584348c2b91908b3e3e\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"three Knight contributions\",\"scope\":\"king-protection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"partial clears\",\"scope\":\"king-protection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"composition\",\"scope\":\"king-protection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"removal\",\"scope\":\"king-protection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"teardown\",\"scope\":\"king-protection\"}],\"family_id\":\"king-protection\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.king-protection\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:king-protection\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"king-protection semantic review\",\"name_zh_cn\":\"king-protection语义审查\",\"ordered_operations\":[{\"fact\":\"three Knight contributions\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"partial clears\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"composition\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"removal\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"teardown\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"king-protection.composition\",\"king-protection.knight-clear-contribution\",\"king-protection.reset-and-teardown\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"3281c2ea622929677db00f2dfb1d1279f1755ef113cdf7ab37c3599f95da0f48\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"How to Play and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:knight-protection\"}],\"summary_en\":\"A deterministic reference-only fixture reviews king-protection case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查king-protection第1个用例。\",\"tags\":[\"king-protection\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:knight-protection"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:knight-protection"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:knight-protection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.king-protection"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews king-protection case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查king-protection第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 40
+              },
+              {
+                "Integer": 27
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "loadout-record"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:loadout-record"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "loadout-record semantic review"
+          },
+          "name_zh_cn": {
+            "String": "loadout-record语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.560c471049e93580abad636c\",\"source.924425375903f451d7d2c8b1\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"successful snapshot\",\"scope\":\"loadout-record\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"character/form\",\"scope\":\"loadout-record\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Light Cone\",\"scope\":\"loadout-record\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Relic instances\",\"scope\":\"loadout-record\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"lock scope\",\"scope\":\"loadout-record\"}],\"family_id\":\"loadout-record\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.loadout-record\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:loadout-record\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"loadout-record semantic review\",\"name_zh_cn\":\"loadout-record语义审查\",\"ordered_operations\":[{\"fact\":\"successful snapshot\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"character/form\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Light Cone\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"Relic instances\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"lock scope\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"loadout-record.successful-clear-snapshot\",\"loadout-record.cross-team-equipment-invalidation\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"af00ca768fc8c2e1a5b144dcf95ad3ba9945a0af083be80a41bb9c61efdc2318\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"A deterministic reference-only fixture reviews loadout-record case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查loadout-record第1个用例。\",\"tags\":[\"loadout-record\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retry-fixed-team"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.loadout-record"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews loadout-record case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查loadout-record第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 395
+              },
+              {
+                "Integer": 29
+              },
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 396
+              }
+            ]
+          },
+          "family_id": {
+            "String": "plight-shortcut"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:plight-shortcut"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "plight-shortcut semantic review"
+          },
+          "name_zh_cn": {
+            "String": "plight-shortcut语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.1402ad5f4970f1eaeba9d2a0\",\"source.349673cca146365127e5ad71\",\"source.e18fec5c09398428a4bbad8e\",\"source.ee4082a7ff9048a08c7bbc82\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"normal King state\",\"scope\":\"plight-shortcut\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Plight entry\",\"scope\":\"plight-shortcut\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"direct Plight clear\",\"scope\":\"plight-shortcut\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"projected downstream facts\",\"scope\":\"plight-shortcut\"}],\"family_id\":\"plight-shortcut\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.plight-shortcut\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:plight-shortcut\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"plight-shortcut semantic review\",\"name_zh_cn\":\"plight-shortcut语义审查\",\"ordered_operations\":[{\"fact\":\"normal King state\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Plight entry\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"direct Plight clear\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"projected downstream facts\",\"operation\":\"VerifyDeclaredFact\",\"order\":4}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"king-state.normal\",\"king-state.plight\",\"king-protection.direct-plight-shortcut\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"1c7c00e20f1a7d6901405472730a7ecd7df5bb983dbfded7280bd4892e462548\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released normal King StageConfig selected by active alias 804.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:StageConfig:30508021\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released Plight King StageConfig selected by active alias 804.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:StageConfig:30508022\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Directly defeating the Plight King counts as three-star clearing all Knight stages.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"7c95d97a0e01b026341188cc380c329b15c0212025fbb8d853d6b577e353f3b4\",\"source_id\":\"official:hoyolab:anomaly-arbitration:direct-plight-clear\"}],\"summary_en\":\"A deterministic reference-only fixture reviews plight-shortcut case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查plight-shortcut第1个用例。\",\"tags\":[\"plight-shortcut\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:StageConfig:30508021"
+              },
+              {
+                "String": "turnbasedgamedata:StageConfig:30508022"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:direct-plight-clear"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.plight-shortcut"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews plight-shortcut case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查plight-shortcut第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 21
+              },
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 25
+              },
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 158
+              }
+            ]
+          },
+          "family_id": {
+            "String": "profile-entry"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:profile-entry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "profile-entry semantic review"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.4e101661d7395dafc72c1ddf\",\"source.752db3f9831e5517bf8f3105\",\"source.88ee04d530b541abebb9e1ff\",\"source.e18fec5c09398428a4bbad8e\",\"source.e56118901d118ade26b6ac9c\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Version 4.4 period\",\"scope\":\"profile-entry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"eligibility\",\"scope\":\"profile-entry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"four aliases\",\"scope\":\"profile-entry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"legal entry\",\"scope\":\"profile-entry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"terminal outcomes\",\"scope\":\"profile-entry\"}],\"family_id\":\"profile-entry\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.profile-entry\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:profile-entry\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"profile-entry semantic review\",\"name_zh_cn\":\"profile-entry语义审查\",\"ordered_operations\":[{\"fact\":\"Version 4.4 period\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"eligibility\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"four aliases\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"legal entry\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"terminal outcomes\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"anomaly-arbitration-v1\",\"period.8\",\"outcome.knight-stage-clear\",\"outcome.stage-attempt-failure\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"80d3f80fd130a3ae0a13723a676b4f74fded2762142390b761eaa9086e0bfd99\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Availability, Participation Requirement and How to Play\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=7;ID=8\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact group, title hash and alias relationships.\",\"path_or_page\":\"ExcelOutput/ChallengePeakGroupConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b11dbeb1adf80da2e678de9eb0b1a8f297294ffa8dce0c4dbe0e44990c954adb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"A cleared Knight stage records its team and independently evaluated stars.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"7b4d6c1bb9ab03c93555fbc9489befb3fc3c84b9d3030de0a1a167400af32394\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exceeding the stage's own cycle limit makes the attempt fail.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e6fdecee80d1841c37c8ca2c5577e4363a3c6b9ae8fa69801fbc4f6f43adf22d\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure\"}],\"summary_en\":\"A deterministic reference-only fixture reviews profile-entry case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查profile-entry第1个用例。\",\"tags\":[\"profile-entry\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.profile-entry"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews profile-entry case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查profile-entry第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 37
+              },
+              {
+                "Integer": 165
+              },
+              {
+                "Integer": 166
+              },
+              {
+                "Integer": 167
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "quadrant-contribution"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:quadrant-contribution"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "quadrant-contribution semantic review"
+          },
+          "name_zh_cn": {
+            "String": "quadrant-contribution语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.33e66902b62e8cd9727b7499\",\"source.5720798f6d6f998b612c2f7f\",\"source.a71a46504a95c815ef10e9a2\",\"source.cfc58c39518e0f3a0e67d17b\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"MazeBuff binding\",\"scope\":\"quadrant-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"parameters\",\"scope\":\"quadrant-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"install timing\",\"scope\":\"quadrant-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"battle-visible effect\",\"scope\":\"quadrant-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"teardown\",\"scope\":\"quadrant-contribution\"}],\"family_id\":\"quadrant-contribution\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.quadrant-contribution\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:quadrant-contribution\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"quadrant-contribution semantic review\",\"name_zh_cn\":\"quadrant-contribution语义审查\",\"ordered_operations\":[{\"fact\":\"MazeBuff binding\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"parameters\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"install timing\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"battle-visible effect\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"teardown\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"quadrant-option.3033066\",\"quadrant-option.3033067\",\"quadrant-option.3033068\",\"quadrant-selection.attempt-teardown\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"beacd93d67be9660a0e70fb3e6285258a215cbab649bca16744058d02daf4e41\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033066\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b358fcf94d1f1fd182a97ef2a270f04b8eaf20eeb75bf268a324d25c4bcb6b0c\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033066\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033067\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ac079a5e54a67bffd1060c1c6fd57d5460577eb233a61c20f0d90f8558c3fbc3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033067\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033068\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"41fcf459235c8e65784be7890d1fe1ef655cee4db6a3ce86a267491a7a3976ef\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033068\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"}],\"summary_en\":\"A deterministic reference-only fixture reviews quadrant-contribution case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查quadrant-contribution第1个用例。\",\"tags\":[\"quadrant-contribution\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033066"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033067"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033068"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.quadrant-contribution"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews quadrant-contribution case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查quadrant-contribution第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 37
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "quadrant-selection"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:quadrant-selection"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "quadrant-selection semantic review"
+          },
+          "name_zh_cn": {
+            "String": "quadrant-selection语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.33e66902b62e8cd9727b7499\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"three-option offer\",\"scope\":\"quadrant-selection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"eligibility\",\"scope\":\"quadrant-selection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"selection\",\"scope\":\"quadrant-selection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"no-selection behavior\",\"scope\":\"quadrant-selection\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"replacement\",\"scope\":\"quadrant-selection\"}],\"family_id\":\"quadrant-selection\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.quadrant-selection\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:quadrant-selection\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"quadrant-selection semantic review\",\"name_zh_cn\":\"quadrant-selection语义审查\",\"ordered_operations\":[{\"fact\":\"three-option offer\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"eligibility\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"selection\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"no-selection behavior\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"replacement\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"quadrant-selection.active-period\",\"quadrant-selection.no-selection\",\"quadrant-selection.attempt-teardown\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"45799d9a7c275955068c5d03fd8b81fc221e4ed97ad26de033be12454b8b53a9\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Arbitral Quadrant\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0\",\"source_id\":\"official:hoyolab:anomaly-arbitration:quadrant-select-one\"}],\"summary_en\":\"A deterministic reference-only fixture reviews quadrant-selection case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查quadrant-selection第1个用例。\",\"tags\":[\"quadrant-selection\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:quadrant-select-one"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.quadrant-selection"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews quadrant-selection case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查quadrant-selection第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 40
+              },
+              {
+                "Integer": 35
+              },
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 38
+              }
+            ]
+          },
+          "family_id": {
+            "String": "record-replacement-reset"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:record-replacement-reset"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "record-replacement-reset semantic review"
+          },
+          "name_zh_cn": {
+            "String": "record-replacement-reset语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.560c471049e93580abad636c\",\"source.878e5c5c851bb7d0098bedde\",\"source.e18fec5c09398428a4bbad8e\",\"source.fc9d7766d6e93cd6feffdd7d\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"rechallenge\",\"scope\":\"record-replacement-reset\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"same-team loadout change\",\"scope\":\"record-replacement-reset\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"replacement choice\",\"scope\":\"record-replacement-reset\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"record erasure\",\"scope\":\"record-replacement-reset\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"reset order\",\"scope\":\"record-replacement-reset\"}],\"family_id\":\"record-replacement-reset\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.record-replacement-reset\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:record-replacement-reset\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"record-replacement-reset semantic review\",\"name_zh_cn\":\"record-replacement-reset语义审查\",\"ordered_operations\":[{\"fact\":\"rechallenge\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"same-team loadout change\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"replacement choice\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"record erasure\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"reset order\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"progress-record.rechallenge-eligibility\",\"progress-record.record-replacement-choice\",\"progress-record.record-erasure-on-reset\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"afd35183536116748d37a5649d8f12ed5d46712936cfc114167b4b7b4474dd10\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Using same-team or previously unrecorded Light Cones or Relics permits a retry, and a successful clear offers a choice whether to replace the old record and composition.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"494f27b8aec9a33c72ca9bb7590260630c29d427dbe70d8e75b5f8739ac5b077\",\"source_id\":\"official:hoyolab:anomaly-arbitration:record-replacement-choice\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Change Lineup\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Changing a cleared Knight lineup resets that challenge progress; the corresponding recorded composition is cleared and its stage result becomes invalid.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"4e1df853cb2c70106113998a0573f884a3fe45b839ff7b688ee36abf08bbcae9\",\"source_id\":\"official:hoyolab:anomaly-arbitration:lineup-change-reset\"}],\"summary_en\":\"A deterministic reference-only fixture reviews record-replacement-reset case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查record-replacement-reset第1个用例。\",\"tags\":[\"record-replacement-reset\",\"review-fixture\"]}"
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retry-fixed-team"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:record-replacement-choice"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:lineup-change-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.record-replacement-reset"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews record-replacement-reset case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查record-replacement-reset第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 155
+              },
+              {
+                "Integer": 156
+              },
+              {
+                "Integer": 154
+              },
+              {
+                "Integer": 51
+              },
+              {
+                "Integer": 157
+              }
+            ]
+          },
+          "family_id": {
+            "String": "stage-order"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:stage-order"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "stage-order semantic review"
+          },
+          "name_zh_cn": {
+            "String": "stage-order语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.480673a18ea861ff0cd0058d\",\"source.6ff746ca29908f77e74da6de\",\"source.bb230f10c66adb3b6d1e8e69\",\"source.e18fec5c09398428a4bbad8e\",\"source.ee9ea0c36570381ea02278ce\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Knight I-III\",\"scope\":\"stage-order\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"King\",\"scope\":\"stage-order\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Plight\",\"scope\":\"stage-order\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"accepted order\",\"scope\":\"stage-order\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"rejected transition\",\"scope\":\"stage-order\"}],\"family_id\":\"stage-order\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.stage-order\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:stage-order\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"stage-order semantic review\",\"name_zh_cn\":\"stage-order语义审查\",\"ordered_operations\":[{\"fact\":\"Knight I-III\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"King\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Plight\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"accepted order\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"rejected transition\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"stage.knight-1\",\"stage.knight-2\",\"stage.knight-3\",\"stage.king-normal\",\"stage.king-plight\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"d150ce5e3df12e625bd858490ae678295cc6a42527376863bf9ab5bd673e54b0\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=28;ID=801\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"14feb83b9173d66236fc2a71ef497b239da821d576e2012bdf7eead9b710c1c2\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=28;ID=801\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=29;ID=802\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"19f7b20c06aaec76bb984c2e3ba84a184519140f7cc9ba79b73ad903cf89f092\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=29;ID=802\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=30;ID=803\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1486a9f5116b9e0caedb5bf25652d72f47a8b000e4dec29528cac6d3d7b9a932\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=30;ID=803\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=31;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5699f1c6fc2784613363dd196758bd792bfe281c952ffb9fa942d44043378a09\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"row=31;ID=804\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active group alias definition and normal objective/trait references.\",\"path_or_page\":\"ExcelOutput/ChallengePeakConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5699f1c6fc2784613363dd196758bd792bfe281c952ffb9fa942d44043378a09\",\"source_id\":\"turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804\"}],\"summary_en\":\"A deterministic reference-only fixture reviews stage-order case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查stage-order第1个用例。\",\"tags\":[\"review-fixture\",\"stage-order\"]}"
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=28;ID=801"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=29;ID=802"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=30;ID=803"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/ChallengePeakConfig.json:row=31;ID=804"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.stage-order"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews stage-order case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查stage-order第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 132
+              },
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 133
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "target-evaluation"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:target-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "target-evaluation semantic review"
+          },
+          "name_zh_cn": {
+            "String": "target-evaluation语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.5202a3b4f43b3eb89f64918f\",\"source.706818e6cbf5c98f816720b7\",\"source.c35d6a03df5e622420907051\",\"source.cbf31de69f024943e91f3de4\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"defeat/survival\",\"scope\":\"target-evaluation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"cycle thresholds\",\"scope\":\"target-evaluation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"evaluation timing\",\"scope\":\"target-evaluation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"per-stage stars\",\"scope\":\"target-evaluation\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"King rating\",\"scope\":\"target-evaluation\"}],\"family_id\":\"target-evaluation\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.target-evaluation\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:target-evaluation\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"target-evaluation semantic review\",\"name_zh_cn\":\"target-evaluation语义审查\",\"ordered_operations\":[{\"fact\":\"defeat/survival\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"cycle thresholds\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"evaluation timing\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"per-stage stars\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"King rating\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"objective.evaluate-cycle-targets\",\"objective.evaluate-no-downed\",\"objective.stage-star-evaluation\",\"aggregation.king-medal-rating\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"705461fcca6287af33665cd7fe42683b1db0d102db6490a442a4d52f95fb6038\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact no-downed-character target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage and Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The King stage has its own star rating, which is retained in Battle Records.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc\",\"source_id\":\"official:hoyolab:anomaly-arbitration:king-rating\"}],\"summary_en\":\"A deterministic reference-only fixture reviews target-evaluation case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查target-evaluation第1个用例。\",\"tags\":[\"review-fixture\",\"target-evaluation\"]}"
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:king-rating"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.target-evaluation"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews target-evaluation case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查target-evaluation第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 43
+              },
+              {
+                "Integer": 27
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "team-uniqueness"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:team-uniqueness"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "team-uniqueness semantic review"
+          },
+          "name_zh_cn": {
+            "String": "team-uniqueness语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.209beca4f316315439c1a249\",\"source.924425375903f451d7d2c8b1\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"three disjoint teams\",\"scope\":\"team-uniqueness\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"combat-form identity\",\"scope\":\"team-uniqueness\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Light Cone identity\",\"scope\":\"team-uniqueness\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Relic-instance identity\",\"scope\":\"team-uniqueness\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"rejection\",\"scope\":\"team-uniqueness\"}],\"family_id\":\"team-uniqueness\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.team-uniqueness\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:team-uniqueness\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"team-uniqueness semantic review\",\"name_zh_cn\":\"team-uniqueness语义审查\",\"ordered_operations\":[{\"fact\":\"three disjoint teams\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"combat-form identity\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"Light Cone identity\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"Relic-instance identity\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"rejection\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"participant-policy.character-and-combat-form-uniqueness\",\"participant-policy.light-cone-instance-uniqueness\",\"participant-policy.relic-instance-uniqueness\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"5a046e0d12b56cce6ecf62f0c48adfbd1c308051fd72fc296b2807fef9991e82\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The three Knight stages use three different character teams, and the player may choose their challenge order.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d\",\"source_id\":\"official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"A deterministic reference-only fixture reviews team-uniqueness case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查team-uniqueness第1个用例。\",\"tags\":[\"review-fixture\",\"team-uniqueness\"]}"
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.team-uniqueness"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews team-uniqueness case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查team-uniqueness第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 161
+              },
+              {
+                "Integer": 159
+              },
+              {
+                "Integer": 169
+              },
+              {
+                "Integer": 168
+              },
+              {
+                "Integer": 162
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "trait-contribution"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:trait-contribution"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "trait-contribution semantic review"
+          },
+          "name_zh_cn": {
+            "String": "trait-contribution语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.2cc082c9d54f8b122dd63cd7\",\"source.2e87565e72e92de1108e0923\",\"source.2f5fe4874a303f7c99ef368c\",\"source.7b0edd7f544ac4595d7efe53\",\"source.928be05615d6e61d13f3a454\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"normal trait\",\"scope\":\"trait-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"Plight trait\",\"scope\":\"trait-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"parameters\",\"scope\":\"trait-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"stacking\",\"scope\":\"trait-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"scope\",\"scope\":\"trait-contribution\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"teardown\",\"scope\":\"trait-contribution\"}],\"family_id\":\"trait-contribution\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.trait-contribution\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:trait-contribution\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"trait-contribution semantic review\",\"name_zh_cn\":\"trait-contribution语义审查\",\"ordered_operations\":[{\"fact\":\"normal trait\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"Plight trait\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"parameters\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"stacking\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"scope\",\"operation\":\"VerifyDeclaredFact\",\"order\":5},{\"fact\":\"teardown\",\"operation\":\"VerifyDeclaredFact\",\"order\":6}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"trait.3033023\",\"trait.3033051\",\"trait.3033052\",\"trait.3033069\",\"trait.3033070\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"75c3a674967807ff7ceda0f9d862040fa2aa94132a5e5eaf2fbd23386ac22d2b\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033023\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"73b929f0b4c5180aaa505c9363941f4a093e6c82e73f84b87aa87db3b776f98d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033051\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"64450cb0242a8a250c2657184755662cc92791d1875bf6f215375a0a247fbb7a\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033052\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bcfade90ef97cac5912232f9e0b08bed05d4065b2160798694fd5b4e9f88754f\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033069\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"de173a4af3611a9240e09d0c9b48425dabf8d32d27a496ea68cb708f4d943ad9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033070\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"728d745f99cd5e53a1535d539f9f58640f9c5098e77df83ade325331af8a4350\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070\"}],\"summary_en\":\"A deterministic reference-only fixture reviews trait-contribution case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查trait-contribution第1个用例。\",\"tags\":[\"review-fixture\",\"trait-contribution\"]}"
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.trait-contribution"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews trait-contribution case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查trait-contribution第1个用例。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_ref_ids": {
+            "List": [
+              {
+                "Integer": 390
+              },
+              {
+                "Integer": 44
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 51
+              }
+            ]
+          },
+          "family_id": {
+            "String": "wave-carry"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "semantic_fixture_families:wave-carry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "wave-carry semantic review"
+          },
+          "name_zh_cn": {
+            "String": "wave-carry语义审查"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"evidence_refs\":[\"source.7445d962e1fd6f0d526d685f\",\"source.d55a8ded4b5dfff18b44cdba\",\"source.d9da6ee19eaa23728a432203\",\"source.e18fec5c09398428a4bbad8e\"],\"executable_runtime_fixture\":false,\"expected_facts\":[{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"wave transition\",\"scope\":\"wave-carry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"clock carry\",\"scope\":\"wave-carry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"non-reset\",\"scope\":\"wave-carry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"warning state\",\"scope\":\"wave-carry\"},{\"expected\":\"CoveredByEvidenceOrExplicitPolicyBoundary\",\"fact\":\"battle teardown\",\"scope\":\"wave-carry\"}],\"family_id\":\"wave-carry\",\"fixture_evidence_quality\":\"ProjectPolicy\",\"fixture_mechanism_quality\":\"PolicyBoundary\",\"id\":\"review-fixture.wave-carry\",\"input\":{\"case\":1,\"kind\":\"ReferenceReview\"},\"kind\":\"ReviewFixture\",\"manifest_record_ids\":[\"semantic_fixture_families:wave-carry\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"wave-carry semantic review\",\"name_zh_cn\":\"wave-carry语义审查\",\"ordered_operations\":[{\"fact\":\"wave transition\",\"operation\":\"VerifyDeclaredFact\",\"order\":1},{\"fact\":\"clock carry\",\"operation\":\"VerifyDeclaredFact\",\"order\":2},{\"fact\":\"non-reset\",\"operation\":\"VerifyDeclaredFact\",\"order\":3},{\"fact\":\"warning state\",\"operation\":\"VerifyDeclaredFact\",\"order\":4},{\"fact\":\"battle teardown\",\"operation\":\"VerifyDeclaredFact\",\"order\":5}],\"ownership\":\"AnomalyArbitration\",\"preconditions\":{\"game_version\":\"4.4\",\"profile\":\"anomaly-arbitration-v1\",\"source_records_data_ready\":true},\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_record_ids\":[\"encounter-wave.30508011.1\",\"encounter-wave.30508011.2\",\"clock.wave-transition-carry\",\"clock.warning-threshold\"],\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 1-15\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Fixture shape and minimum case count.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"ccbee3ac0a8bfb6d79f178c92cb23c2b165b541309f462f7133bc1f20cb5c5af\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 1 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterList wave 2 preserves source slot order.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The cycle countdown does not reset when combat phases or waves change.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"d392dcb27846f77796022b6c2e9d13b0ba45b892d6ec3ad805b6a3bd9895cb8a\",\"source_id\":\"official:hoyolab:anomaly-arbitration:wave-transition-carry\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"When few cycles remain, allies receive additional combat buffs at the start of each cycle.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236\",\"source_id\":\"official:hoyolab:anomaly-arbitration:low-cycle-allied-buff\"}],\"summary_en\":\"A deterministic reference-only fixture reviews wave-carry case 1.\",\"summary_zh_cn\":\"确定性的纯资料夹具审查wave-carry第1个用例。\",\"tags\":[\"review-fixture\",\"wave-carry\"]}"
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content items 1-15"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:wave-transition-carry"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "review-fixture.wave-carry"
+          },
+          "summary_en": {
+            "String": "A deterministic reference-only fixture reviews wave-carry case 1."
+          },
+          "summary_zh_cn": {
+            "String": "确定性的纯资料夹具审查wave-carry第1个用例。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "loadout-records.json",
+  "record_kind": "LoadoutRecordPolicy",
+  "records": [
+    {
+      "id": "loadout-record.successful-clear-snapshot",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "LoadoutRecordPolicy",
+      "name_en": "Successful Knight clear snapshot",
+      "name_zh_cn": "骑士通关编队快照",
+      "summary_en": "A successful Knight clear records its team composition for later retries.",
+      "summary_zh_cn": "骑士关成功通关后会记录编队情况，供之后重复挑战使用。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:successful-knight-record"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retry-fixed-team",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry."
+        }
+      ],
+      "tags": [
+        "loadout",
+        "record",
+        "snapshot"
+      ],
+      "creation_trigger": "SuccessfulKnightClear",
+      "participant_membership": "FixedForRetry",
+      "progression_resolution": "LatestStatusAtRetry",
+      "equipment_identity_resolution": "RecordedAccountInstance",
+      "runtime_executable": false
+    },
+    {
+      "id": "loadout-record.cross-team-equipment-invalidation",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "LoadoutRecordPolicy",
+      "name_en": "Cross-team equipment invalidation",
+      "name_zh_cn": "跨队装备记录失效",
+      "summary_en": "Reusing recorded equipment in another Knight retry resets the cleared record that supplied it.",
+      "summary_zh_cn": "在另一骑士重试中复用已记录装备，会重置提供该装备的已通关记录。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:loadout-change-invalidation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment."
+        }
+      ],
+      "tags": [
+        "invalidation",
+        "loadout",
+        "reset"
+      ],
+      "trigger": "RecordedLightConeOrRelicAssignedToDifferentKnightRetry",
+      "invalidated_scope": "SourceClearedKnightRecord",
+      "ordering": [
+        "DetectRecordedInstanceConflict",
+        "ResetSourceKnightProgress",
+        "ClearSourceTeamSnapshot",
+        "PermitTargetChallengeIfNoConflictsRemain"
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "loadout-record.same-team-or-unrecorded-change",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "LoadoutRecordPolicy",
+      "name_en": "Nonconflicting loadout retry",
+      "name_zh_cn": "无冲突配装重试",
+      "summary_en": "Same-team or previously unrecorded equipment permits a retry without first erasing the old record.",
+      "summary_zh_cn": "同队装备或未出现在任何通关记录中的装备可直接重试，无须先清除旧记录。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "record_progress_lifecycles:rechallenge-eligibility",
+        "record_progress_lifecycles:record-replacement-choice"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:record-replacement-choice",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "494f27b8aec9a33c72ca9bb7590260630c29d427dbe70d8e75b5f8739ac5b077",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Using same-team or previously unrecorded Light Cones or Relics permits a retry, and a successful clear offers a choice whether to replace the old record and composition."
+        }
+      ],
+      "tags": [
+        "loadout",
+        "replacement",
+        "retry"
+      ],
+      "eligible_change_classes": [
+        "EquipmentFromSameRecordedTeam",
+        "EquipmentAbsentFromAllClearRecords"
+      ],
+      "retry_allowed": true,
+      "old_record_retained_during_attempt": true,
+      "success_resolution": "ExplicitKeepOldOrReplaceWithNewChoice",
+      "failed_attempt_resolution": "KeepOldRecord",
+      "runtime_executable": false
+    }
+  ]
+}

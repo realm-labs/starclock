@@ -1,0 +1,3728 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "enemies.json",
+  "record_kind": "EnemyVariant",
+  "records": [
+    {
+      "id": "enemy.1012040",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Auxiliary Robot Arm Unit",
+      "name_zh_cn": "辅助机械臂单元",
+      "summary_en": "Auxiliary Robot Arm Unit is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "辅助机械臂单元是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:1012040",
+        "enemy_variants:monster:1012040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=1012040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=1012040",
+          "sha256": "bdf0e0e1c9ad4b3baafbfbf3e59e9c564413bff5054260d2678479e7454a5fc3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=1012040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=1012040",
+          "sha256": "07e37e6f84677d40ce909830196353e14456e1b2f5683f16c6ca372b11ef749f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13600386300325008755",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=13600386300325008755",
+          "sha256": "d4f602301fbc27c80426bc2d368c24ed591bb41eb1205a6776514655a0079504",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13600386300325008755",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=13600386300325008755",
+          "sha256": "6d2185e365bfb40cffa90200912458236df82265b5b0f1715c58eb169d93ee55",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 1012040,
+      "source_template_id": 1012040,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.101401016"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.101204001",
+        "enemy-skill.101204002",
+        "enemy-skill.101204003",
+        "enemy-skill.101204004",
+        "enemy-skill.101204005",
+        "enemy-skill.101204006",
+        "enemy-skill.101204007"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Thunder",
+        "Wind",
+        "Quantum"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [
+        {
+          "key": "STAT_CTRL",
+          "value": "0.5"
+        }
+      ],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "325.5",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.2022040",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Abundance Sprite: Golden Hound",
+      "name_zh_cn": "丰饶灵兽•娄金",
+      "summary_en": "Abundance Sprite: Golden Hound is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "丰饶灵兽•娄金是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:2022040",
+        "enemy_variants:monster:2022040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=2022040",
+          "sha256": "5ce7e3457225ea752e8af15a650fff2f0bd5e2f764e72b694980cddd8b82ca26",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=2022040",
+          "sha256": "70ac7be46b160ea95bd7f359924b728548e23a22518c56c5f650a5bf3bfb3d1a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13185907477180094891",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=13185907477180094891",
+          "sha256": "47f5af0f0448b2ebdd790139512e81dfff1784a6862f24b8babb38ba79fd97fc",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13185907477180094891",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=13185907477180094891",
+          "sha256": "b900d925a5f29435c1cc72c42e7fefc48771212b81f78700f8f45ec3d8961b41",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 2022040,
+      "source_template_id": 2022040,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.2023020"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.202204001",
+        "enemy-skill.202204002"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.202204001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Ice",
+        "Thunder",
+        "Quantum"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "148.8",
+        "speed": "118",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.2022050",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Abundance Sprite: Wooden Lupus",
+      "name_zh_cn": "丰饶灵兽•奎木",
+      "summary_en": "Abundance Sprite: Wooden Lupus is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "丰饶灵兽•奎木是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:2022050",
+        "enemy_variants:monster:2022050"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022050",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=2022050",
+          "sha256": "ea37a698826106bc15fee61efabba1eaab286c85e52ff627f678f48a85242d8e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022050",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=2022050",
+          "sha256": "7797484a0ea050b91fdd5d6fd0d58437955d63c581b095c27aa0ee44a3b4af42",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5705744438691432074",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=5705744438691432074",
+          "sha256": "3122d70e58373688d5e00b8177ad7779d905b390d198f00f31378facae4e1d4b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5705744438691432074",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=5705744438691432074",
+          "sha256": "a021c5fe3d5e45bbdf4c8cf7e106549eb9ed29bb5f89489cd972eafd05d6b2a8",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 2022050,
+      "source_template_id": 2022050,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.2023020"
+      ],
+      "summon_enemy_ids": [
+        "enemy.2022051"
+      ],
+      "skill_ids": [
+        "enemy-skill.202205001",
+        "enemy-skill.202205002",
+        "enemy-skill.202205003"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W2_Beast01_01_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.202205002",
+        "enemy-skill.202205001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Wind",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "186",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.2022051",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Shadow Jackhyena",
+      "name_zh_cn": "狈影",
+      "summary_en": "Shadow Jackhyena is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "狈影是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:2022051",
+        "enemy_variants:monster:2022051"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022051",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=2022051",
+          "sha256": "8bfaf880efd2b8d658291dd870ef70c0ca2d5a32d8bcc342b8c08f9ec2af0245",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022051",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=2022051",
+          "sha256": "fa5407719136ff940dd0e9aaf455db716c7359bb8afd3b7c4c13073c1a087f1d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=10021676229655675270",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=10021676229655675270",
+          "sha256": "34fe8234375ac6ea4b7298b69f2e42c770430b031f84e45c422abe786360f537",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=10021676229655675270",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=10021676229655675270",
+          "sha256": "cbff93e7c8dfa9f0be18fd7741e42364b28a4f97af69bcbd0911f0fe4fd3d728",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 2022051,
+      "source_template_id": 2022051,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.2022050"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.202205101"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.202205101"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Wind",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "186",
+        "speed": "100",
+        "stance": "60"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.2023020",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Abundance Sprite: Malefic Ape",
+      "name_zh_cn": "丰饶灵兽•长右",
+      "summary_en": "Abundance Sprite: Malefic Ape is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "丰饶灵兽•长右是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:2023020",
+        "enemy_variants:monster:2023020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=2023020",
+          "sha256": "10ed5a3c679c4790fbb986b5a5cc7f9040d3ca0797c44e89fa070c72ce0d75d9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=2023020",
+          "sha256": "a9a90eefd2a1686db4615504fa98aa28de2727b82d2f2cdaca0fcbaed83971d1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5650742420150656798",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=5650742420150656798",
+          "sha256": "15bbbc936d9b753909f8b3810c1bcc5e46caf3dfd45051b2756be2888b7ec0b1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5650742420150656798",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=5650742420150656798",
+          "sha256": "f95b8f2e9325732bae1181535b6e7d6ce4f76d912d9a8c1affeb657b51a1fb55",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 2023020,
+      "source_template_id": 2023020,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.2022040",
+        "enemy.2022050"
+      ],
+      "skill_ids": [
+        "enemy-skill.202302001",
+        "enemy-skill.202302002",
+        "enemy-skill.202302003",
+        "enemy-skill.202302004",
+        "enemy-skill.202302005",
+        "enemy-skill.202302006"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W2_Beast02_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.202302002",
+        "enemy-skill.202302001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Wind"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1116",
+        "speed": "144",
+        "stance": "360"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.3021020",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "\"The Honored\"",
+      "name_zh_cn": "「授勋」",
+      "summary_en": "\"The Honored\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "「授勋」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:3021020",
+        "enemy_variants:monster:3021020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=3021020",
+          "sha256": "10a086d174ce4b7fbe588696680c54703530ca3487081c8c101b1926eca7c55d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=3021020",
+          "sha256": "89a80754fb7478362b595a9c5b2badf2d5ab6e7a96b3ea65a2b5368db22f09c2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16661620947140777919",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=16661620947140777919",
+          "sha256": "1052a5083db7187f0dfd2a2ffd30daf5867bb1b00dc53b64b8c42e72ff816e56",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16661620947140777919",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=16661620947140777919",
+          "sha256": "87058dd031d9ca2cfeb50efbcd9944eaf4fb4c4847028ac4c910a8b8720072f1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minion",
+        "summoned"
+      ],
+      "source_numeric_id": 3021020,
+      "source_template_id": 3021020,
+      "rank": "Minion",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.302401012"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.302102001",
+        "enemy-skill.302102002"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.302102001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Ice"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "255.75",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.3021030",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "\"Speartip\"",
+      "name_zh_cn": "「枪尖」",
+      "summary_en": "\"Speartip\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "「枪尖」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:3021030",
+        "enemy_variants:monster:3021030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=3021030",
+          "sha256": "3e7ab86b549f394fda311cbf8d784522f5bcb6666493dfe99a1d60af32a5ff0b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=3021030",
+          "sha256": "a31f8a13c72bbebe7d7e0e8f4ca832792111a6c76b6d8477af612bd303b46283",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4915829938898806706",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=4915829938898806706",
+          "sha256": "fdf9fa9aaca945bcf501aeff120bdd9b0a2b8a65fbe91ff6b124cfe3ab29bc39",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4915829938898806706",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=4915829938898806706",
+          "sha256": "efa70f0f521dd4827072a8cf3fa53ddeb6fac269a0dba67a1b8f4f0915117c85",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minion",
+        "summoned"
+      ],
+      "source_numeric_id": 3021030,
+      "source_template_id": 3021030,
+      "rank": "Minion",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.302401012"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.302103001",
+        "enemy-skill.302103002"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.302103001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Fire"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "148.8",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.3021040",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "\"The Shield\"",
+      "name_zh_cn": "「盾」",
+      "summary_en": "\"The Shield\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "「盾」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:3021040",
+        "enemy_variants:monster:3021040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=3021040",
+          "sha256": "e20a27942db0df0dd042b2a059531eb4954e53dc6549960620d82ad92c5011ca",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=3021040",
+          "sha256": "772ed403e54a56b70110ecb12cf287ac69ad36efa5be32f4c0537c956461f4c8",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14822826857306615781",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=14822826857306615781",
+          "sha256": "ecc681296e3d0744cbd27f118d23a6faa8465ed112b522625201f7ab011da656",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14822826857306615781",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=14822826857306615781",
+          "sha256": "8779b9467be5a344765a16c0e6f2e98a53cd04ef2ca9f9beaadea2a80a386949",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minion",
+        "summoned"
+      ],
+      "source_numeric_id": 3021040,
+      "source_template_id": 3021040,
+      "rank": "Minion",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.302401012"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.302104001",
+        "enemy-skill.302104002"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.302104001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Thunder"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "176.7",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.4033030",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Dark Sun Gryphon",
+      "name_zh_cn": "黑日狮鹫",
+      "summary_en": "Dark Sun Gryphon is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "黑日狮鹫是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:4033030",
+        "enemy_variants:monster:4033030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=4033030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=4033030",
+          "sha256": "9cc248d5c756293dd79a8b466a3374fd8f1a0a7de73f88476d7d1dc950dcaee1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4033030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=4033030",
+          "sha256": "9e3847760d2053da03588244cd375c45bf872642a95369e5fe8e6accd26ffc75",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=1605669051038619450",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=1605669051038619450",
+          "sha256": "e4ca7a00debddbc7d20f623c2580c4d26d77e2bee4475668ffc7797b7ab7cb4f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1605669051038619450",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=1605669051038619450",
+          "sha256": "9856430ffe7e09d18b5b3c630340bb11e69f0e39f970d72cfce95b4b6dd90d7d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 4033030,
+      "source_template_id": 4033030,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.403205002"
+      ],
+      "skill_ids": [
+        "enemy-skill.403303001",
+        "enemy-skill.403303002",
+        "enemy-skill.403303003",
+        "enemy-skill.403303004"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W4_Griffin_01_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Fire",
+        "Quantum"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1395",
+        "speed": "144",
+        "stance": "480"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5013040",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Daybreak Squadron: Azurewing",
+      "name_zh_cn": "破晓战队•苍翼",
+      "summary_en": "Daybreak Squadron: Azurewing is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "破晓战队•苍翼是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5013040",
+        "enemy_variants:monster:5013040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5013040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5013040",
+          "sha256": "6387aa8112d1c850d7c7f9436571460e9d6fab585aa6ac4908a560ef7577b847",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5013040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5013040",
+          "sha256": "8e044ce6c3880996ec952c893b32b3902e94b905abeac72fa950d6aed4e041ae",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=11521268823526759418",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=11521268823526759418",
+          "sha256": "3b9ee83e5b65644c304dcd4665beb211bac55787d85bfa303d81d15c5a2c50a3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11521268823526759418",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=11521268823526759418",
+          "sha256": "a913967240eeb261a823fe846d2e4b496d6cbde9f65bdb1eecce5a57adefc54b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 5013040,
+      "source_template_id": 5013040,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.501304001",
+        "enemy-skill.501304002",
+        "enemy-skill.501304003",
+        "enemy-skill.501304004",
+        "enemy-skill.501304005"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W5_Ranger_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Fire",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.8"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1395",
+        "speed": "120",
+        "stance": "480"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5014030",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Murata Graphia, Founding Artist",
+      "name_zh_cn": "始作画者，无量塔绘世",
+      "summary_en": "Murata Graphia, Founding Artist is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "始作画者，无量塔绘世是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5014030",
+        "enemy_variants:monster:5014030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5014030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5014030",
+          "sha256": "129717dbf5e0e797ff49d421ee5d0d937f94ee5d674dd0a43a521b94daaab76d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5014030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5014030",
+          "sha256": "4225f2be4438f5fb4765ec5ed24c377c195485d5703bb12cd7be452891cfcb87",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=11050040960591794587",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=11050040960591794587",
+          "sha256": "5905c86c75a3f8ef9133a8c4aa3f5c1cc6f432a8b39289216993fb0a17eec59a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11050040960591794587",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=11050040960591794587",
+          "sha256": "70ec9dbc25e67ab1de86ee457e5b9b08b736385f4341016f33e8f558277405b9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "littleboss",
+        "stage-direct"
+      ],
+      "source_numeric_id": 5014030,
+      "source_template_id": 5014030,
+      "rank": "LittleBoss",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.502302001"
+      ],
+      "skill_ids": [
+        "enemy-skill.501403001",
+        "enemy-skill.501403002",
+        "enemy-skill.501403003",
+        "enemy-skill.501403005",
+        "enemy-skill.501403006",
+        "enemy-skill.501403007"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W5_Painter_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1,
+        2
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Quantum"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.4"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.4"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.4"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.4"
+        }
+      ],
+      "debuff_resistances": [
+        {
+          "key": "STAT_CTRL",
+          "value": "0.5"
+        }
+      ],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "3022.5",
+        "speed": "120",
+        "stance": "1080"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5022010",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Illwish Lotus",
+      "name_zh_cn": "邪愿莲华",
+      "summary_en": "Illwish Lotus is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "邪愿莲华是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5022010",
+        "enemy_variants:monster:5022010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5022010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5022010",
+          "sha256": "ade535f7a10cb8aa0490abc0260899c37baf1fee690ba976f39fc74619592612",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5022010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5022010",
+          "sha256": "d697f628ae0327d148a4db48424edd18a34e285b9da1986705e69cb2e25dc967",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16480565768491057981",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=16480565768491057981",
+          "sha256": "6e42e9642bde6bed0a7675d634631cfc5edb60b251178905d605a97f77759cd2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16480565768491057981",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=16480565768491057981",
+          "sha256": "ca3aeb452bd91a894510d75d5e1e6b130e2411f96d0d13b86988cab4456e8049",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 5022010,
+      "source_template_id": 5022010,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.5024010"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.502201001",
+        "enemy-skill.502201003"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W5_RipperPart_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.502201001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "334.8",
+        "speed": "150",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5023010",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Joy Ascendant",
+      "name_zh_cn": "乐变化天人",
+      "summary_en": "Joy Ascendant is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "乐变化天人是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5023010",
+        "enemy_variants:monster:5023010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023010",
+          "sha256": "869687af604a4a8bf6f9d5b07fc5cdb14078e90a2794cc71083589e326c5b95d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5023010",
+          "sha256": "9526d786d152781f5958424334b02324cef22cbe730e5994a3aaf26a112b7edf",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3953081297978276563",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=3953081297978276563",
+          "sha256": "7fe1b939ccdff50450b74cb8fe6bc0720ac3ec3ec347ac1b6c1db202a274c0f8",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3953081297978276563",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=3953081297978276563",
+          "sha256": "71a8d8b65def8bce7939f4c4895c08226d7f6ddb79384318e83a6db9e2573d38",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 5023010,
+      "source_template_id": 5023010,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.5023011",
+        "enemy.5023012"
+      ],
+      "skill_ids": [
+        "enemy-skill.502301001",
+        "enemy-skill.502301002",
+        "enemy-skill.502301003",
+        "enemy-skill.502301004",
+        "enemy-skill.502301005"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "558",
+        "speed": "144",
+        "stance": "420"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5023011",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Joy Ascendant: Prelude",
+      "name_zh_cn": "乐变化天人•始",
+      "summary_en": "Joy Ascendant: Prelude is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "乐变化天人•始是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5023011",
+        "enemy_variants:monster:5023011"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023011",
+          "sha256": "09e8ba82a4dbfbe67dd1ceabc96cef69d74003f6dc7bc37d0fd345986d46dbd9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5023011",
+          "sha256": "db6216f6bcfe04f49c19ecbc84e8373487ceb13305cbbb7b18a91d15f149c73e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4858443114808711655",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=4858443114808711655",
+          "sha256": "17a6317b0afb8ffa97e095d2d61542f9a35bc85dfcfb3c333989db253c46a339",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4858443114808711655",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=4858443114808711655",
+          "sha256": "037f9d873e6dddac5656d429892adf69be10fb5b1f0382d41414bece86702a8a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "summoned"
+      ],
+      "source_numeric_id": 5023011,
+      "source_template_id": 5023011,
+      "rank": "Elite",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.5023010",
+        "enemy.5023011",
+        "enemy.5023012"
+      ],
+      "summon_enemy_ids": [
+        "enemy.5023011",
+        "enemy.5023012"
+      ],
+      "skill_ids": [
+        "enemy-skill.502301101",
+        "enemy-skill.502301102",
+        "enemy-skill.502301103",
+        "enemy-skill.502301104",
+        "enemy-skill.502301105"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "488.25",
+        "speed": "144",
+        "stance": "420"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5023012",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Joy Ascendant: Finale",
+      "name_zh_cn": "乐变化天人•终",
+      "summary_en": "Joy Ascendant: Finale is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "乐变化天人•终是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5023012",
+        "enemy_variants:monster:5023012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023012",
+          "sha256": "91a263e062e0929afc5e553115e2a18e90b5aef9e07ce934c63a751c758eab43",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5023012",
+          "sha256": "23aa47ce1910abc50874b2c8befb45503b78696127424f8dc7ff858758c74e04",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4176033676639482627",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=4176033676639482627",
+          "sha256": "dde70e82e137b6de700e86e6139d41092211c8af6635416b48c0b954df80393e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4176033676639482627",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=4176033676639482627",
+          "sha256": "6798b6ed259d8ba21d36a030bd40e11b8eff8eefc8a8315cca31fba593c320bb",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "summoned"
+      ],
+      "source_numeric_id": 5023012,
+      "source_template_id": 5023012,
+      "rank": "Elite",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.5023010",
+        "enemy.5023011",
+        "enemy.5023012"
+      ],
+      "summon_enemy_ids": [
+        "enemy.5023011",
+        "enemy.5023012"
+      ],
+      "skill_ids": [
+        "enemy-skill.502301201",
+        "enemy-skill.502301202",
+        "enemy-skill.502301203",
+        "enemy-skill.502301204",
+        "enemy-skill.502301205"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "418.5",
+        "speed": "144",
+        "stance": "420"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5023020",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "God-Devourer Offspring",
+      "name_zh_cn": "吞神子嗣",
+      "summary_en": "God-Devourer Offspring is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "吞神子嗣是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5023020",
+        "enemy_variants:monster:5023020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023020",
+          "sha256": "c9884547f1e3c2d3744c6e9f46a508f1dad0eb0fae24bfa8e71e88bbd069363c",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5023020",
+          "sha256": "89318972d515bdf4c822713d81e4139d1fa2563145ec29cbdabe8396e9df4003",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5330384923626977308",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=5330384923626977308",
+          "sha256": "6f99e46b910f4754c4c451ada718bc9143686ba50394927748903db6de5ffad1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5330384923626977308",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=5330384923626977308",
+          "sha256": "a9f76fb0ec2352b25450f4600878e1c59ddfc52d85096be4e18f0d7d730f0a03",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 5023020,
+      "source_template_id": 5023020,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.502302001",
+        "enemy-skill.502302002",
+        "enemy-skill.502302003",
+        "enemy-skill.502302004",
+        "enemy-skill.502302005"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W5_Eater_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1488",
+        "speed": "120",
+        "stance": "540"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.5024010",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Paramount Bliss Inverted: Illwish Archlotus",
+      "name_zh_cn": "极乐颠倒•邪愿莲华主",
+      "summary_en": "Paramount Bliss Inverted: Illwish Archlotus is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "极乐颠倒•邪愿莲华主是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:5024010",
+        "enemy_variants:monster:5024010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5024010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5024010",
+          "sha256": "eab7c5220c99bcabc73791eacdf7cb5dc7bde81aefbc9943cc01287d947803f9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5024010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5024010",
+          "sha256": "9f7d012173ecae180247dbad5933f319527a13217d3815a0f536f43b79770eee",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13970359017855679954",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=13970359017855679954",
+          "sha256": "0451f075728194a147ba47a4c3e635d0ae7309bd5aa4e89faee9e5e9194aa396",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13970359017855679954",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=13970359017855679954",
+          "sha256": "e05231e8abe0f89fd0b34dc37168d222ce49e8845a621d98dd0719e26aa237bd",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "littleboss",
+        "stage-direct"
+      ],
+      "source_numeric_id": 5024010,
+      "source_template_id": 5024010,
+      "rank": "LittleBoss",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.5022010"
+      ],
+      "skill_ids": [
+        "enemy-skill.502401001",
+        "enemy-skill.502401003",
+        "enemy-skill.502401004",
+        "enemy-skill.502401005",
+        "enemy-skill.502401006",
+        "enemy-skill.502401007",
+        "enemy-skill.502401008"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W5_Ripper_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1,
+        2
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Thunder",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Fire",
+          "value": "0.4"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.4"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.4"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.4"
+        }
+      ],
+      "debuff_resistances": [
+        {
+          "key": "STAT_CTRL",
+          "value": "0.5"
+        }
+      ],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "4464",
+        "speed": "144",
+        "stance": "720"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.8032010",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Grunt: Field Personnel",
+      "name_zh_cn": "基层员工•外勤",
+      "summary_en": "Grunt: Field Personnel is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "基层员工•外勤是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:8032010",
+        "enemy_variants:monster:8032010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=8032010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=8032010",
+          "sha256": "859ec2dddce9a9c897556d825e34345b3bce164c638c19ac88412ba46054d4ed",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8032010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=8032010",
+          "sha256": "df3b4c3bb2f9cfd1d013b464ff0ec1762f49e1f5aefd2d4df74fc9779fd8dc98",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3795011572181178242",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=3795011572181178242",
+          "sha256": "1541ee22b63dd5d08b99d0fc3d10a9778bf35c7610c910f3d467633e8aacf77f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3795011572181178242",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=3795011572181178242",
+          "sha256": "87b32c1ca03e247e88b70740500bb862343d3ddfb4d1b89e61353b9126169b38",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 8032010,
+      "source_template_id": 8032010,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.803301014"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.803201001",
+        "enemy-skill.803201002",
+        "enemy-skill.803201003"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.803201001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Ice"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "148.8",
+        "speed": "118",
+        "stance": "60"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.8032020",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Grunt: Security Personnel",
+      "name_zh_cn": "基层员工•安保",
+      "summary_en": "Grunt: Security Personnel is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "基层员工•安保是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:8032020",
+        "enemy_variants:monster:8032020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=8032020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=8032020",
+          "sha256": "f6478d96a4e49c064dccc1adf3e0d6d086420930cd1ee475cb44b26cdadb1223",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8032020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=8032020",
+          "sha256": "a3666644ffed16aef4a5e3ab3f87a308e9887388221c1992f5ca36a327b1fefd",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17377909462658896540",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=17377909462658896540",
+          "sha256": "2f2508eeae174bf949a345aeb766b52e9c10fcc863f33f9b102486d78b9beb0a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17377909462658896540",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=17377909462658896540",
+          "sha256": "1edfa7c804cc4930d7003901ee9c4fac04c6989f9d318071374f9fc00d3b4b8b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 8032020,
+      "source_template_id": 8032020,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.803301014"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.803202001",
+        "enemy-skill.803202002",
+        "enemy-skill.803202003"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.803202001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Fire",
+        "Ice"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "204.6",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.101401016",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Svarog",
+      "name_zh_cn": "史瓦罗",
+      "summary_en": "Svarog is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "史瓦罗是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:1014010",
+        "enemy_variants:monster:101401016"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=101401016",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=101401016",
+          "sha256": "8d26badbade79b2eea4489619e7fde2ad93ac1ae06dd816a6cb519531077d247",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=1014010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=1014010",
+          "sha256": "c5c1609a1c37ee62b2424e23d7fc142d3316f11e4165d5ec2add6d22a3170d17",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=7306112122138119445",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=7306112122138119445",
+          "sha256": "fd3fdbe8c974faa6924ee809642253af897836d7b89eacf05e2dd677fb300b4d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7306112122138119445",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=7306112122138119445",
+          "sha256": "a4712ca51020f9114ac0ed0c13aee6a42fae59cbaf80eacf2cce66445dc04b52",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "littleboss",
+        "stage-direct"
+      ],
+      "source_numeric_id": 101401016,
+      "source_template_id": 1014010,
+      "rank": "LittleBoss",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.1012040"
+      ],
+      "skill_ids": [
+        "enemy-skill.101401001",
+        "enemy-skill.101401002",
+        "enemy-skill.101401003",
+        "enemy-skill.101401004",
+        "enemy-skill.101401005",
+        "enemy-skill.101401006",
+        "enemy-skill.101401007",
+        "enemy-skill.101401008",
+        "enemy-skill.101401009",
+        "enemy-skill.101401010",
+        "enemy-skill.101401011"
+      ],
+      "ability_names": [
+        "Monster_Common_SpecialDieEffect"
+      ],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W1_Svarog_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "2.0625",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": "60",
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Wind"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [
+        {
+          "key": "STAT_CTRL",
+          "value": "0.5"
+        }
+      ],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1488",
+        "speed": "120",
+        "stance": "360"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.302401012",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Argenti",
+      "name_zh_cn": "银枝",
+      "summary_en": "Argenti is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "银枝是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:3024010",
+        "enemy_variants:monster:302401012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=302401012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=302401012",
+          "sha256": "29debc703abae39d5729b0bbcc619bbf1841ca9fb447b24e4571e3e6faa19553",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3024010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=3024010",
+          "sha256": "0d09158e935959e2827547e89460e80e70af37fc3465b8c3d6d4776e10592394",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14805961183082142131",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=14805961183082142131",
+          "sha256": "7a7fb9f720f69fc9ceae741681876dbbf7fde62a70e21d3d861e560e7b0276fb",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14805961183082142131",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=14805961183082142131",
+          "sha256": "7169eaeb7fb84e0e3a1007d96c1f58087baffcf13f1be16e5648f7480a991135",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "littleboss",
+        "stage-direct"
+      ],
+      "source_numeric_id": 302401012,
+      "source_template_id": 3024010,
+      "rank": "LittleBoss",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.3021020",
+        "enemy.3021030",
+        "enemy.3021040"
+      ],
+      "skill_ids": [
+        "enemy-skill.302401001",
+        "enemy-skill.302401002",
+        "enemy-skill.302401003",
+        "enemy-skill.302401004",
+        "enemy-skill.302401005",
+        "enemy-skill.302401007"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W2_Argenti_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1,
+        2
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1.5",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Fire",
+        "Ice"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [
+        {
+          "key": "STAT_CTRL",
+          "value": "0.5"
+        }
+      ],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1395",
+        "speed": "144",
+        "stance": "480"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.402201001",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Meteoric Eagle",
+      "name_zh_cn": "流星铁鹰",
+      "summary_en": "Meteoric Eagle is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "流星铁鹰是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:4022010",
+        "enemy_variants:monster:402201001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402201001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=402201001",
+          "sha256": "c823cb98e64f3b7611427e31be02911fa172c1c7416480fcae682ae58ffd11fe",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4022010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=4022010",
+          "sha256": "eca4877a16b0546daf02f725cd6ec419a8b5d509e07e507b504eab60efe50f5c",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=7715014407492377801",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=7715014407492377801",
+          "sha256": "8808e05506fc6d5892ad2a9d2fed0085f6ce60a1ccb4acdd7e7ceee2b4dc5f7d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7715014407492377801",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=7715014407492377801",
+          "sha256": "6a9bcf59d9e10ec555e1906d3bfb27fa9d08a0943f9fa4b86376d9cc187ae876",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 402201001,
+      "source_template_id": 4022010,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.402301001"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.402201001",
+        "enemy-skill.402201002"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W4_Harpy_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Wind",
+        "Quantum",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "279",
+        "speed": "100",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.402301001",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Noontide Gryphon",
+      "name_zh_cn": "正阳狮鹫",
+      "summary_en": "Noontide Gryphon is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "正阳狮鹫是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:4023010",
+        "enemy_variants:monster:402301001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402301001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=402301001",
+          "sha256": "d6c7dcf77b6d26f69f2681ba7687131bc343dc04c61f7c8c177bdf36867ced17",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4023010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=4023010",
+          "sha256": "036b2e8b24c47c8ff081115b472adc21da03a9bfcb6e770c5cb7f5cc4dd3c6ea",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=8036735044007088635",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=8036735044007088635",
+          "sha256": "4cf4c5723ba78cecec32a689ad78f4477ffd7bc7cad59fb0319d93383774b0c8",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8036735044007088635",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=8036735044007088635",
+          "sha256": "33c4739f864e436c251350a5b1d815b71db04f21a1fae85e3570acf6553d9d42",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 402301001,
+      "source_template_id": 4023010,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.402201001"
+      ],
+      "skill_ids": [
+        "enemy-skill.402301001",
+        "enemy-skill.402301002",
+        "enemy-skill.402301003",
+        "enemy-skill.402301004",
+        "enemy-skill.402301005",
+        "enemy-skill.402301006"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W4_Griffin_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1.384615",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Quantum",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1209",
+        "speed": "120",
+        "stance": "480"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.402302001",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Moonlit Pegasus",
+      "name_zh_cn": "月夜天马",
+      "summary_en": "Moonlit Pegasus is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "月夜天马是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:4023020",
+        "enemy_variants:monster:402302001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402302001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=402302001",
+          "sha256": "4c8e9f6c0be9535187c557836328a5129ef0bf1b0261790c7cf8c05c32b680dc",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=4023020",
+          "sha256": "8eab36a8b1a305ad377b04583b7e056c3523d30ac060376055bde6b77a086a8e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13345892087718649038",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=13345892087718649038",
+          "sha256": "cdcdde749abb9c9ab81edf310feb1ed6ae4bcc5254b4ab9549ab90091fb0b417",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13345892087718649038",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=13345892087718649038",
+          "sha256": "210f95182d4f33eabdf784da2d98cd67f41de10d6b44b89884702b630481e72b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 402302001,
+      "source_template_id": 4023020,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.402302001",
+        "enemy-skill.402302002",
+        "enemy-skill.402302003",
+        "enemy-skill.402302004",
+        "enemy-skill.402302005",
+        "enemy-skill.402302006"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_W4_Unicorn_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1.454545",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Quantum",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1023",
+        "speed": "100",
+        "stance": "480"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.403205002",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Archer of the Dark Sun",
+      "name_zh_cn": "黑日弓手",
+      "summary_en": "Archer of the Dark Sun is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "黑日弓手是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:4032050",
+        "enemy_variants:monster:403205002"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=403205002",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=403205002",
+          "sha256": "78969bd962650e68a7a53861499f26d810407b52c30860a79dc440423181d398",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4032050",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=4032050",
+          "sha256": "740a14e396902b99ec6548e5ef66c283dbbfbb61934e7d356e70f93672f8d8da",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17876259160402782536",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=17876259160402782536",
+          "sha256": "aedbdfe952980e88b6ea4955fce7ba076ceee7c825aca1463d5211e1c5001b58",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17876259160402782536",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=17876259160402782536",
+          "sha256": "e9ddcf2b08e0f75323423933c68c041ca6685a9d69e2edbfb8d002c31ab1dbb7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "enemy",
+        "minionlv2",
+        "summoned"
+      ],
+      "source_numeric_id": 403205002,
+      "source_template_id": 4032050,
+      "rank": "MinionLv2",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.4033030"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.403205001",
+        "enemy-skill.403205002"
+      ],
+      "ability_names": [],
+      "override_ai_path": null,
+      "template_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json",
+      "ai_skill_sequence": [],
+      "template_ai_skill_sequence": [
+        "enemy-skill.403205001"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Physical",
+        "Ice",
+        "Quantum"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Fire",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Imaginary",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "279",
+        "speed": "155",
+        "stance": "90"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.502302001",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "God-Devourer Offspring",
+      "name_zh_cn": "吞神子嗣",
+      "summary_en": "God-Devourer Offspring is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "吞神子嗣是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:502302001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=502302001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=502302001",
+          "sha256": "59c63f6a97a446adddc82cef22e1eab0850c2d80d118ff746de1a4784e919ac5",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "An explicit reachable summon reference selects this variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=5023020",
+          "sha256": "89318972d515bdf4c822713d81e4139d1fa2563145ec29cbdabe8396e9df4003",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5330384923626977308",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=5330384923626977308",
+          "sha256": "6f99e46b910f4754c4c451ada718bc9143686ba50394927748903db6de5ffad1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5330384923626977308",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=5330384923626977308",
+          "sha256": "a9f76fb0ec2352b25450f4600878e1c59ddfc52d85096be4e18f0d7d730f0a03",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "summoned"
+      ],
+      "source_numeric_id": 502302001,
+      "source_template_id": 5023020,
+      "rank": "Elite",
+      "direct_stage_member": false,
+      "summon_parent_ids": [
+        "enemy.5014030"
+      ],
+      "summon_enemy_ids": [],
+      "skill_ids": [
+        "enemy-skill.502302001",
+        "enemy-skill.502302002",
+        "enemy-skill.502302003",
+        "enemy-skill.502302004",
+        "enemy-skill.502302005"
+      ],
+      "ability_names": [],
+      "override_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "template_ai_path": "Config/ConfigAI/Monster_W5_Eater_00_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json",
+      "ai_skill_sequence": [
+        "enemy-skill.502302001"
+      ],
+      "template_ai_skill_sequence": [],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "0.4375",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": "-120",
+      "weaknesses": [
+        "Fire",
+        "Thunder",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Ice",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1488",
+        "speed": "120",
+        "stance": "540"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy.803301014",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyVariant",
+      "name_en": "Senior Staff: Team Leader",
+      "name_zh_cn": "资深员工•组长",
+      "summary_en": "Senior Staff: Team Leader is a reachable level-scaled Elite variant with an exact template, skill and summon closure.",
+      "summary_zh_cn": "资深员工•组长是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_templates:template:8033010",
+        "enemy_variants:monster:803301014"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=803301014",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=803301014",
+          "sha256": "204368df2380033080045eecfb907d4f1486fe991fc62bb399e604d1fa8c6adf",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig selects this concrete variant."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8033010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterTemplateConfig.json",
+          "locator": "MonsterTemplateID=8033010",
+          "sha256": "2cc0fc935166e66d0285ac1930294448f1465fdf9d7f8609b13039fd977971bc",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterConfig explicitly selects this template."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13208664396652254584",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=13208664396652254584",
+          "sha256": "6725fca5f737094aeb8047527364e17fc385c721853240709360066ca4aed343",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released English enemy name."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13208664396652254584",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=13208664396652254584",
+          "sha256": "c83260d1c74eb7ef266d270549fec4ed61071b98050e2cbe2f93d5f3f23b2953",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact released Simplified Chinese enemy name."
+        }
+      ],
+      "tags": [
+        "elite",
+        "enemy",
+        "stage-direct"
+      ],
+      "source_numeric_id": 803301014,
+      "source_template_id": 8033010,
+      "rank": "Elite",
+      "direct_stage_member": true,
+      "summon_parent_ids": [],
+      "summon_enemy_ids": [
+        "enemy.8032010",
+        "enemy.8032020"
+      ],
+      "skill_ids": [
+        "enemy-skill.803301001",
+        "enemy-skill.803301002",
+        "enemy-skill.803301003",
+        "enemy-skill.803301004",
+        "enemy-skill.803301005",
+        "enemy-skill.803301006",
+        "enemy-skill.803301007"
+      ],
+      "ability_names": [],
+      "override_ai_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "template_ai_path": "Config/ConfigAI/Monster_W1_Mecha03_02_AI.json",
+      "character_config_path": "Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json",
+      "ai_skill_sequence": [
+        "enemy-skill.803301006",
+        "enemy-skill.803301001",
+        "enemy-skill.803301006",
+        "enemy-skill.803301002"
+      ],
+      "template_ai_skill_sequence": [
+        "enemy-skill.101301009",
+        "enemy-skill.101301001",
+        "enemy-skill.101301002",
+        "enemy-skill.101301003",
+        "enemy-skill.101301004"
+      ],
+      "phase_markers": [
+        1
+      ],
+      "attack_ratio": "1",
+      "defence_ratio": "1",
+      "hp_ratio": "1",
+      "speed_ratio": "1",
+      "stance_ratio": "1",
+      "stance_value": null,
+      "weaknesses": [
+        "Fire",
+        "Ice",
+        "Imaginary"
+      ],
+      "damage_resistances": [
+        {
+          "damage_type": "Physical",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Thunder",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Wind",
+          "value": "0.2"
+        },
+        {
+          "damage_type": "Quantum",
+          "value": "0.2"
+        }
+      ],
+      "debuff_resistances": [],
+      "base_stats": {
+        "attack": "18",
+        "defence": "210",
+        "hp": "1488",
+        "speed": "120",
+        "stance": "360"
+      },
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    }
+  ]
+}

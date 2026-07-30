@@ -1,0 +1,381 @@
+{
+  "table": {
+    "name": "ArbStageResults",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:current-stage-progress"
+              },
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight stage result"
+          },
+          "name_zh_cn": {
+            "String": "骑士关卡结果"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"current_progress_projection\":\"OfferOrCommitCurrentStageResult\",\"evidence_quality\":\"ExactStructured\",\"id\":\"stage-result.knight-1\",\"kind\":\"StageResultPolicy\",\"manifest_record_ids\":[\"objective_aggregations:current-stage-progress\",\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight stage result\",\"name_zh_cn\":\"骑士关卡结果\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"stage_id\":\"stage.knight-1\",\"stage_kind\":\"Knight\",\"stage_order\":1,\"summary_en\":\"The Knight terminal result records only the targets evaluated for stage.knight-1.\",\"summary_zh_cn\":\"该终局结果仅记录 stage.knight-1 对应目标的评估值。\",\"tags\":[\"knight\",\"result\",\"stage\"],\"target_ids\":[\"battle-target.3001\",\"battle-target.3002\",\"battle-target.3000\"],\"target_results_are_attempt_local\":true,\"terminal_success_required\":true}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage-result.knight-1"
+          },
+          "stage_id": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "The Knight terminal result records only the targets evaluated for stage.knight-1."
+          },
+          "summary_zh_cn": {
+            "String": "该终局结果仅记录 stage.knight-1 对应目标的评估值。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3001"
+              },
+              {
+                "String": "battle-target.3002"
+              },
+              {
+                "String": "battle-target.3000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:current-stage-progress"
+              },
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight stage result"
+          },
+          "name_zh_cn": {
+            "String": "骑士关卡结果"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"current_progress_projection\":\"OfferOrCommitCurrentStageResult\",\"evidence_quality\":\"ExactStructured\",\"id\":\"stage-result.knight-2\",\"kind\":\"StageResultPolicy\",\"manifest_record_ids\":[\"objective_aggregations:current-stage-progress\",\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight stage result\",\"name_zh_cn\":\"骑士关卡结果\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"stage_id\":\"stage.knight-2\",\"stage_kind\":\"Knight\",\"stage_order\":2,\"summary_en\":\"The Knight terminal result records only the targets evaluated for stage.knight-2.\",\"summary_zh_cn\":\"该终局结果仅记录 stage.knight-2 对应目标的评估值。\",\"tags\":[\"knight\",\"result\",\"stage\"],\"target_ids\":[\"battle-target.3001\",\"battle-target.3002\",\"battle-target.3000\"],\"target_results_are_attempt_local\":true,\"terminal_success_required\":true}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage-result.knight-2"
+          },
+          "stage_id": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "The Knight terminal result records only the targets evaluated for stage.knight-2."
+          },
+          "summary_zh_cn": {
+            "String": "该终局结果仅记录 stage.knight-2 对应目标的评估值。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3001"
+              },
+              {
+                "String": "battle-target.3002"
+              },
+              {
+                "String": "battle-target.3000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:current-stage-progress"
+              },
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight stage result"
+          },
+          "name_zh_cn": {
+            "String": "骑士关卡结果"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"current_progress_projection\":\"OfferOrCommitCurrentStageResult\",\"evidence_quality\":\"ExactStructured\",\"id\":\"stage-result.knight-3\",\"kind\":\"StageResultPolicy\",\"manifest_record_ids\":[\"objective_aggregations:current-stage-progress\",\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight stage result\",\"name_zh_cn\":\"骑士关卡结果\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"stage_id\":\"stage.knight-3\",\"stage_kind\":\"Knight\",\"stage_order\":3,\"summary_en\":\"The Knight terminal result records only the targets evaluated for stage.knight-3.\",\"summary_zh_cn\":\"该终局结果仅记录 stage.knight-3 对应目标的评估值。\",\"tags\":[\"knight\",\"result\",\"stage\"],\"target_ids\":[\"battle-target.3001\",\"battle-target.3002\",\"battle-target.3000\"],\"target_results_are_attempt_local\":true,\"terminal_success_required\":true}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage-result.knight-3"
+          },
+          "stage_id": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "The Knight terminal result records only the targets evaluated for stage.knight-3."
+          },
+          "summary_zh_cn": {
+            "String": "该终局结果仅记录 stage.knight-3 对应目标的评估值。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3001"
+              },
+              {
+                "String": "battle-target.3002"
+              },
+              {
+                "String": "battle-target.3000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:current-stage-progress"
+              },
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "KingNormal stage result"
+          },
+          "name_zh_cn": {
+            "String": "常规王棋关卡结果"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"current_progress_projection\":\"OfferOrCommitCurrentStageResult\",\"evidence_quality\":\"ExactStructured\",\"id\":\"stage-result.king-normal\",\"kind\":\"StageResultPolicy\",\"manifest_record_ids\":[\"objective_aggregations:current-stage-progress\",\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"KingNormal stage result\",\"name_zh_cn\":\"常规王棋关卡结果\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage and Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The King stage has its own star rating, which is retained in Battle Records.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc\",\"source_id\":\"official:hoyolab:anomaly-arbitration:king-rating\"}],\"stage_id\":\"stage.king-normal\",\"stage_kind\":\"KingNormal\",\"stage_order\":4,\"summary_en\":\"The KingNormal terminal result records only the targets evaluated for stage.king-normal.\",\"summary_zh_cn\":\"该终局结果仅记录 stage.king-normal 对应目标的评估值。\",\"tags\":[\"kingnormal\",\"result\",\"stage\"],\"target_ids\":[\"battle-target.3003\",\"battle-target.3004\",\"battle-target.3005\"],\"target_results_are_attempt_local\":true,\"terminal_success_required\":true}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:king-rating"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage-result.king-normal"
+          },
+          "stage_id": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "The KingNormal terminal result records only the targets evaluated for stage.king-normal."
+          },
+          "summary_zh_cn": {
+            "String": "该终局结果仅记录 stage.king-normal 对应目标的评估值。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3003"
+              },
+              {
+                "String": "battle-target.3004"
+              },
+              {
+                "String": "battle-target.3005"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:current-stage-progress"
+              },
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "KingPlight stage result"
+          },
+          "name_zh_cn": {
+            "String": "困厄王棋关卡结果"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"current_progress_projection\":\"ApplyPlightShortcutThenStoreKingResult\",\"evidence_quality\":\"ExactStructured\",\"id\":\"stage-result.king-plight\",\"kind\":\"StageResultPolicy\",\"manifest_record_ids\":[\"objective_aggregations:current-stage-progress\",\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"KingPlight stage result\",\"name_zh_cn\":\"困厄王棋关卡结果\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage and Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The King stage has its own star rating, which is retained in Battle Records.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc\",\"source_id\":\"official:hoyolab:anomaly-arbitration:king-rating\"}],\"stage_id\":\"stage.king-plight\",\"stage_kind\":\"KingPlight\",\"stage_order\":5,\"summary_en\":\"The KingPlight terminal result records only the targets evaluated for stage.king-plight.\",\"summary_zh_cn\":\"该终局结果仅记录 stage.king-plight 对应目标的评估值。\",\"tags\":[\"kingplight\",\"result\",\"stage\"],\"target_ids\":[\"battle-target.3007\"],\"target_results_are_attempt_local\":true,\"terminal_success_required\":true}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:king-rating"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "stage-result.king-plight"
+          },
+          "stage_id": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "The KingPlight terminal result records only the targets evaluated for stage.king-plight."
+          },
+          "summary_zh_cn": {
+            "String": "该终局结果仅记录 stage.king-plight 对应目标的评估值。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3007"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "quadrant-selections.json",
+  "record_kind": "QuadrantSelectionPolicy",
+  "records": [
+    {
+      "id": "quadrant-selection.active-period",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "QuadrantSelectionPolicy",
+      "name_en": "Active-period Quadrant offer",
+      "name_zh_cn": "当期仲裁区选项集",
+      "summary_en": "Before a King attempt, the active period offers exactly the three buffs selected by alias 804.",
+      "summary_zh_cn": "王棋尝试开始前，当期按别名 804 提供恰好三个增益选项。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "quadrant_options:quadrant:3033066",
+        "quadrant_options:quadrant:3033067",
+        "quadrant_options:quadrant:3033068"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:quadrant-select-one",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Arbitral Quadrant",
+          "sha256": "6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss."
+        },
+        {
+          "source_id": "goal13:quadrant-policy:active-period-offer",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P1-B5",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Phase 1 G13-P1-B5",
+          "sha256": "73e5fa9ad5239ad5f8c1f8aa41e9701e6d6ee300201a794c6498c2e5728bc529",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "ChallengePeakBossConfig ID 804 BuffList order is [3033066, 3033068, 3033067]."
+        }
+      ],
+      "tags": [
+        "offer",
+        "quadrant",
+        "selection"
+      ],
+      "selection_order": 10,
+      "source_alias_id": "804",
+      "offered_option_ids": [
+        "quadrant-option.3033066",
+        "quadrant-option.3033068",
+        "quadrant-option.3033067"
+      ],
+      "offer_cardinality": 3,
+      "choose_count": 1,
+      "timing": "BeforeKingAttemptStart",
+      "eligible_stage_scopes": [
+        "KingNormal",
+        "KingPlight"
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "quadrant-selection.no-selection",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "QuadrantSelectionPolicy",
+      "name_en": "No-selection boundary",
+      "name_zh_cn": "未选择边界",
+      "summary_en": "A King attempt does not start until one offered Quadrant option is selected.",
+      "summary_zh_cn": "在选择一个当期仲裁区选项前，王棋尝试不会开始。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "quadrant_options:quadrant:3033066",
+        "quadrant_options:quadrant:3033067",
+        "quadrant_options:quadrant:3033068"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:quadrant-select-one",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Arbitral Quadrant",
+          "sha256": "6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss."
+        },
+        {
+          "source_id": "goal13:quadrant-policy:no-selection",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P1-B5",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Phase 1 G13-P1-B5",
+          "sha256": "3847fb729b54a8af0ca73f16b0b177ab3c1ba71f10f1b98aef7d2171c99bcd02",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Released text does not state cancel/default behavior."
+        }
+      ],
+      "tags": [
+        "no-selection",
+        "quadrant",
+        "rejection"
+      ],
+      "selection_order": 20,
+      "legal_selection_count": 1,
+      "no_selection_result": "RejectAttemptStart",
+      "rejected_selection_state_effect": "AuthoritativeStateUnchanged",
+      "approximations": [
+        {
+          "field_path": "no_selection_result",
+          "unavailable_fact": "Released text says one can pick a buff but does not state whether no selection cancels, defaults or starts without a buff.",
+          "selected_policy": "Reject attempt start until exactly one offered option is selected.",
+          "alternatives": [
+            "start without a Quadrant contribution",
+            "select the first option automatically"
+          ],
+          "rationale": "Fail-closed rejection avoids an invented default and preserves deterministic choice.",
+          "affected_fixture_ids": [
+            "fixture.quadrant-selection.no-selection"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released UI-independent transition evidence for boss start without an explicit selection."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "quadrant-selection.attempt-teardown",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "QuadrantSelectionPolicy",
+      "name_en": "Quadrant contribution teardown",
+      "name_zh_cn": "仲裁区贡献拆除",
+      "summary_en": "The selected contribution belongs to one King attempt and is removed when that attempt terminates.",
+      "summary_zh_cn": "已选贡献仅属于一次王棋尝试，并在该尝试终止时移除。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "quadrant_options:quadrant:3033066",
+        "quadrant_options:quadrant:3033067",
+        "quadrant_options:quadrant:3033068"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:quadrant-select-one",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Arbitral Quadrant",
+          "sha256": "6c42537bacdab9f6d50a989b05c341bc695809f6d775eaf6d25ea89cb211f0a0",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each update supplies several Arbitral Quadrant buffs for the King challenge, and one may be selected before challenging the boss."
+        },
+        {
+          "source_id": "goal13:quadrant-policy:attempt-teardown",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P1-B5",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Phase 1 G13-P1-B5",
+          "sha256": "87b211b2adc7bf170f48af7f53ef64f255bb0e188053cb77a53d0548a4fc6b62",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Attempt ownership is explicit; released text does not expose modifier teardown order."
+        }
+      ],
+      "tags": [
+        "attempt",
+        "quadrant",
+        "teardown"
+      ],
+      "selection_order": 30,
+      "contribution_start": "BeforeCharacterBornInAcceptedKingAttempt",
+      "contribution_end": "KingAttemptTerminal",
+      "carry_between_attempts": false,
+      "ordered_teardown": [
+        "CommitKingAttemptTerminalOutcome",
+        "RemoveSelectedQuadrantContribution",
+        "ClearAttemptSelection"
+      ],
+      "approximations": [
+        {
+          "field_path": "ordered_teardown",
+          "unavailable_fact": "Released text and MazeBuff binding identify attempt application but do not expose terminal teardown ordering.",
+          "selected_policy": "Remove the contribution and clear selection immediately after the attempt terminal result is committed.",
+          "alternatives": [
+            "clear selection before terminal commit",
+            "retain selection for automatic retry"
+          ],
+          "rationale": "Attempt-local teardown prevents an unchosen contribution from leaking into later battles.",
+          "affected_fixture_ids": [
+            "fixture.quadrant-selection.attempt-teardown"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released modifier lifecycle or reproducible retry/exit traces."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

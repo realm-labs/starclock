@@ -1,0 +1,490 @@
+{
+  "table": {
+    "name": "ArbTargets",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3000"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "No downed characters"
+          },
+          "name_zh_cn": {
+            "String": "没有角色无法战斗"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":0,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3000\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3000\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"No downed characters\",\"name_zh_cn\":\"没有角色无法战斗\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_DeathCount\",\"source_numeric_id\":3000,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=2308537234688475763\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a09367c18a17a60011c46cd2b39a812dd902423d2e8ef914edfb36e1f43f799a\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=2308537234688475763\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=2308537234688475763\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d1e96cf20eae40ba61563a3f0ae6f6b5fb37f0d9c440137c7b845f001e71d5d5\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=2308537234688475763\"}],\"summary_en\":\"The target succeeds when no party member is downed at victory.\",\"summary_zh_cn\":\"战斗胜利时没有我方角色倒下即可满足该目标。\",\"tags\":[\"battle-target\",\"survival\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3000"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=2308537234688475763"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=2308537234688475763"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3000"
+          },
+          "summary_en": {
+            "String": "The target succeeds when no party member is downed at victory."
+          },
+          "summary_zh_cn": {
+            "String": "战斗胜利时没有我方角色倒下即可满足该目标。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3001"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Victory within 4 cycles"
+          },
+          "name_zh_cn": {
+            "String": "不超过4轮战斗胜利"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":4,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3001\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3001\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Victory within 4 cycles\",\"name_zh_cn\":\"不超过4轮战斗胜利\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_TurnLimit_PeakBattle_1\",\"source_numeric_id\":3001,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=12967210961986691944\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"86a788f26a3eee59ec5a93cd56deedcbe3cc2b0cf33905273c231a3590ef907a\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12967210961986691944\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=12967210961986691944\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8038e3f67021faaea324357b81a6bbfd961fe0c721039da4b9291cfd6c0f3a93\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12967210961986691944\"}],\"summary_en\":\"The target succeeds when the stage is won within 4 cycles.\",\"summary_zh_cn\":\"在4轮内取得关卡胜利即可满足该目标。\",\"tags\":[\"battle-target\",\"cycle\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3001"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12967210961986691944"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12967210961986691944"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3001"
+          },
+          "summary_en": {
+            "String": "The target succeeds when the stage is won within 4 cycles."
+          },
+          "summary_zh_cn": {
+            "String": "在4轮内取得关卡胜利即可满足该目标。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3002"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Victory within 2 cycles"
+          },
+          "name_zh_cn": {
+            "String": "不超过2轮战斗胜利"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":2,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3002\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3002\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Victory within 2 cycles\",\"name_zh_cn\":\"不超过2轮战斗胜利\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_TurnLimit_PeakBattle_2\",\"source_numeric_id\":3002,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c018c830bd7938ea15fbfe67cde2ab8319c07e7486f5a6813280680a282885cb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=6566380338945159645\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c6d0c26b521aef3b59090fbdae859fd35afac4e727487de822e1466abd72e32d\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=6566380338945159645\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=6566380338945159645\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"15f40cd4947644ea0ecff02de6ee94879d69763e0b090f95e64826b0cec8757d\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=6566380338945159645\"}],\"summary_en\":\"The target succeeds when the stage is won within 2 cycles.\",\"summary_zh_cn\":\"在2轮内取得关卡胜利即可满足该目标。\",\"tags\":[\"battle-target\",\"cycle\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3002"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=6566380338945159645"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=6566380338945159645"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3002"
+          },
+          "summary_en": {
+            "String": "The target succeeds when the stage is won within 2 cycles."
+          },
+          "summary_zh_cn": {
+            "String": "在2轮内取得关卡胜利即可满足该目标。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3003"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Victory within 6 cycles"
+          },
+          "name_zh_cn": {
+            "String": "不超过6轮战斗胜利"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":6,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3003\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3003\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Victory within 6 cycles\",\"name_zh_cn\":\"不超过6轮战斗胜利\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_TurnLimit_PeakBattle_3\",\"source_numeric_id\":3003,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3003\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d57427589e92aaab6348fe833e44e78ccaba6af1db7ee7226309450a12e540cc\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3003\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13550969154333397837\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6c684eb2cebf2aaa479b2782b5452e7f33ffe9967bb6cf514d0f30a9f18a7c62\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13550969154333397837\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13550969154333397837\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2a3a21841836d52229725b3a1107399ff41c307fe3f8998aefeb55a383666966\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13550969154333397837\"}],\"summary_en\":\"The target succeeds when the stage is won within 6 cycles.\",\"summary_zh_cn\":\"在6轮内取得关卡胜利即可满足该目标。\",\"tags\":[\"battle-target\",\"cycle\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3003"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3003"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13550969154333397837"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13550969154333397837"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3003"
+          },
+          "summary_en": {
+            "String": "The target succeeds when the stage is won within 6 cycles."
+          },
+          "summary_zh_cn": {
+            "String": "在6轮内取得关卡胜利即可满足该目标。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3004"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Victory within 4 cycles"
+          },
+          "name_zh_cn": {
+            "String": "不超过4轮战斗胜利"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":4,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3004\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3004\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Victory within 4 cycles\",\"name_zh_cn\":\"不超过4轮战斗胜利\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_TurnLimit_PeakBattle_4\",\"source_numeric_id\":3004,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3004\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d04c90f90703eb2d885048b9e519292e22d7faa08d0434564d5dea105721b200\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3004\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14482168213018670964\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e636830bf525c999d6d3f4a181a5eccf46900051d1c1ac565647941c4c0f2445\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14482168213018670964\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14482168213018670964\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3a8e982a7bee962047db3f77145c5a300b1413566c83a9af933c644fc444d953\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14482168213018670964\"}],\"summary_en\":\"The target succeeds when the stage is won within 4 cycles.\",\"summary_zh_cn\":\"在4轮内取得关卡胜利即可满足该目标。\",\"tags\":[\"battle-target\",\"cycle\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3004"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3004"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14482168213018670964"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14482168213018670964"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3004"
+          },
+          "summary_en": {
+            "String": "The target succeeds when the stage is won within 4 cycles."
+          },
+          "summary_zh_cn": {
+            "String": "在4轮内取得关卡胜利即可满足该目标。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3005"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Victory within 2 cycles"
+          },
+          "name_zh_cn": {
+            "String": "不超过2轮战斗胜利"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":2,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3005\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3005\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Victory within 2 cycles\",\"name_zh_cn\":\"不超过2轮战斗胜利\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_TurnLimit_PeakBattle_5\",\"source_numeric_id\":3005,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3005\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3b7b3d75037c4ea2733f9cbd4f9374f7d0bd51c16e3f7d979fc2d2df2717fbae\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3005\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=2827694259035707914\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c7d02615ef8b2b69e19f85fb2c2cb96792872ac2ab7647d35f6a3bba2cea7822\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=2827694259035707914\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=2827694259035707914\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"433e8b171bda25bb3259fa7d84a464d1a42b282f803da0958c1c8db239e2ff7b\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=2827694259035707914\"}],\"summary_en\":\"The target succeeds when the stage is won within 2 cycles.\",\"summary_zh_cn\":\"在2轮内取得关卡胜利即可满足该目标。\",\"tags\":[\"battle-target\",\"cycle\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3005"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3005"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=2827694259035707914"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=2827694259035707914"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3005"
+          },
+          "summary_en": {
+            "String": "The target succeeds when the stage is won within 2 cycles."
+          },
+          "summary_zh_cn": {
+            "String": "在2轮内取得关卡胜利即可满足该目标。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3007"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Plight victory within 2 cycles"
+          },
+          "name_zh_cn": {
+            "String": "困厄王棋不超过2轮战斗胜利"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"comparison\":\"LessEqual\",\"comparison_parameter\":2,\"coverage_state\":\"DataReady\",\"evaluation_boundary\":\"SuccessfulStageTerminal\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-target.3007\",\"kind\":\"BattleTarget\",\"manifest_record_ids\":[\"battle_targets:target:3007\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Plight victory within 2 cycles\",\"name_zh_cn\":\"困厄王棋不超过2轮战斗胜利\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"satisfied_value\":1,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_ability_name\":\"BattleTarget_TurnLimit_PeakBattle_7\",\"source_numeric_id\":3007,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3007\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active stage definition explicitly selects this target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"29e2cdd704d5ad88f64211b1b93d29083e06fec3107c6c6db6b42ff397223cb2\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3007\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4060858115664570856\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released target text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"595ede182b1bdc27561eb188f4587c4e89ef1025e41daca30272ea4dce60016e\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4060858115664570856\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4060858115664570856\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released target text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a87684c3c13938697dc8e4ab38aff60fcc79d7a0ddc4ade5bc4bcb466985dabb\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4060858115664570856\"}],\"summary_en\":\"The target succeeds when the stage is won within 2 cycles.\",\"summary_zh_cn\":\"在2轮内取得关卡胜利即可满足该目标。\",\"tags\":[\"battle-target\",\"cycle\"],\"unsatisfied_value\":0}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3007"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3007"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4060858115664570856"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4060858115664570856"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-target.3007"
+          },
+          "summary_en": {
+            "String": "The target succeeds when the stage is won within 2 cycles."
+          },
+          "summary_zh_cn": {
+            "String": "在2轮内取得关卡胜利即可满足该目标。"
+          }
+        }
+      }
+    ]
+  }
+}

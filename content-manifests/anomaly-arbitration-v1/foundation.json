@@ -1,0 +1,552 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-foundation.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "batch": "G13-P0-B1",
+  "planned_phases": 5,
+  "fixed_batches": 25,
+  "launch_commit": "5d1c04605d547ba147cf9661f33772b8153ef774",
+  "launch_tree": "53f339ddd8a8d785b02d0c40680934b8f768948f",
+  "launch_remote": {
+    "remote": "origin",
+    "branch": "codex/goal13-anomaly-arbitration-reference",
+    "push_command": "git push -u origin codex/goal13-anomaly-arbitration-reference",
+    "verification_command": "git rev-parse HEAD && git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference",
+    "verified_commit": "5d1c04605d547ba147cf9661f33772b8153ef774"
+  },
+  "required_snapshot": {
+    "goal_id": "standard-universe-reference-v1",
+    "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+    "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+    "release_policy_sha256": "7b3cf717aef891af5a6c1538f6b2850ac690364b320269145eaae5ce2bbcc02d",
+    "release_evidence_sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75"
+  },
+  "source_snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "reproduced_on": "2026-07-29",
+    "repositories": [
+      {
+        "cache_name": "turnbasedgamedata",
+        "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "tree": "2df8981c1bea512e21c8c900920c63002b381056"
+      },
+      {
+        "cache_name": "StarRailRes",
+        "remote": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+        "tree": "1e6892227905e0dad002bb117d63464d7a5640a6"
+      }
+    ],
+    "fetch_contract": "tools/anomaly-arbitration-reference/fetch-sources.sh",
+    "verification_contract": "tools/anomaly-arbitration-reference/verify-foundation.mjs",
+    "reproduction_command": "cache_root=$(mktemp -d /tmp/starclock-g13-source-repro.XXXXXX) && tools/anomaly-arbitration-reference/fetch-sources.sh \"$cache_root\" /Users/mikai/CLionProjects/starclock/.cache/content-reference",
+    "reproduction_result": "the remote-only GitLab partial clone made no progress during a bounded wait and was terminated; an isolated copy-on-write materialization from the clean connected fixed-commit cache succeeded twice and retained canonical origins",
+    "shared_cache_comparison": "all 18 required turnbasedgamedata blobs and 3 StarRailRes root blobs were byte-identical without changing the shared sparse cache"
+  },
+  "required_source_entries": {
+    "turnbased_rows": 18,
+    "turnbased_rows_sha256": "762d4b79a8cc2afd1eaa01f68d41be2bcc2ba59b1e98b50f83f23300638c90df",
+    "starrailres_rows": 3,
+    "starrailres_rows_sha256": "864fa4ed09713b2564d8ec3304993d10fca103b0ce347debb1880ef258fa71a4",
+    "canonical_encoding": "JSON.stringify(path-sorted [{path,bytes,sha256}]) plus LF",
+    "turnbased_files": [
+      {
+        "path": "Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json",
+        "bytes": 811011,
+        "sha256": "def64ddc3dcd6badb6c18b534585c5b994a86542702aa9a02b8ad234df6049a9"
+      },
+      {
+        "path": "Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.layout.json",
+        "bytes": 12270,
+        "sha256": "884109fd7cc5bbe36f843f7ae83138cc8ca0f943025e4eb12060f080b2749d7a"
+      },
+      {
+        "path": "ExcelOutput/BattleEventConfig.json",
+        "bytes": 311033,
+        "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee"
+      },
+      {
+        "path": "ExcelOutput/BattleTargetConfig.json",
+        "bytes": 58608,
+        "sha256": "f20e322767233172ebb2995a7519e187e0a2b60cb9871dc055f21a2e0142d122"
+      },
+      {
+        "path": "ExcelOutput/ChallengePeakBossConfig.json",
+        "bytes": 2503,
+        "sha256": "b52a1fb0479195aa0be750840be050524e364eb4c12b5ca3160d3e02941b222a"
+      },
+      {
+        "path": "ExcelOutput/ChallengePeakCommonConst.json",
+        "bytes": 3730,
+        "sha256": "5a75fb5bfc973c6f5988c5856e606ea7d114fbb02dc70b2e416f12061722d9cb"
+      },
+      {
+        "path": "ExcelOutput/ChallengePeakConfig.json",
+        "bytes": 14623,
+        "sha256": "e6ceba6e59322c948d89335c1afceeec3932b7c06e62bdaf76daa4b0a022c1f1"
+      },
+      {
+        "path": "ExcelOutput/ChallengePeakGroupConfig.json",
+        "bytes": 9001,
+        "sha256": "673b85595bbd1d0548c5fc1c4df8e2141fbd4236c6673bd15aaf51b1d8fa6e03"
+      },
+      {
+        "path": "ExcelOutput/ChallengePeakReward.json",
+        "bytes": 1657,
+        "sha256": "9e3fa89419eb5db1c16e0608bf2adb1ffef411d3a4174c7c27fc839cd67a92b4"
+      },
+      {
+        "path": "ExcelOutput/ChallengePeakRewardOR.json",
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "path": "ExcelOutput/MazeBuff.json",
+        "bytes": 1415760,
+        "sha256": "2fab98b723ee20d8798c68e200cc9c3704abc347b0983b2955cbd40b85bfeeac"
+      },
+      {
+        "path": "ExcelOutput/MonsterConfig.json",
+        "bytes": 4089472,
+        "sha256": "258904054b45e0beba36649202c0dabdc17e4a061d39b26f6fbdd66f98de8e3a"
+      },
+      {
+        "path": "ExcelOutput/MonsterSkillConfig.json",
+        "bytes": 2525751,
+        "sha256": "89c32150712f729ed79dff097ca0d147da46fd5a368bdd0638afb98a3fd737a8"
+      },
+      {
+        "path": "ExcelOutput/MonsterStatusConfig.json",
+        "bytes": 322987,
+        "sha256": "6c8fd02a63a8ee18583ca103d2f2208b969e3d69a0a3ea4cb796ecb0bb3935ce"
+      },
+      {
+        "path": "ExcelOutput/MonsterTemplateConfig.json",
+        "bytes": 918769,
+        "sha256": "4817012a27de2b4fb7da06027ceb98c5e268b77c52d5488d474bebb27f479844"
+      },
+      {
+        "path": "ExcelOutput/StageConfig.json",
+        "bytes": 25168437,
+        "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+      },
+      {
+        "path": "TextMap/TextMapCHS.json",
+        "bytes": 48996604,
+        "sha256": "ec49e07932b4ed8aba9679e247d8e554ca69e831fea7931d94682551de567147"
+      },
+      {
+        "path": "TextMap/TextMapEN.json",
+        "bytes": 55206201,
+        "sha256": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+      }
+    ],
+    "starrailres_files": [
+      {
+        "path": "LICENSE",
+        "bytes": 34522,
+        "sha256": "20b067f86de375aae6db0f283ab2e65de24d537733b89bd58432c101259d84cf"
+      },
+      {
+        "path": "README.md",
+        "bytes": 1987,
+        "sha256": "395cb9b420c4ba24ca3788098a1b9e9169577439b443672e0b8d546234216f5c"
+      },
+      {
+        "path": "info.json",
+        "bytes": 68,
+        "sha256": "7367a8d2bc67094638caa6dc4f950b1464ceeecab3f8e34dba299da34d3bc465"
+      }
+    ]
+  },
+  "inherited_reference": {
+    "source_inventory_path": "content-manifests/standard-universe-v1/source-inventory.json",
+    "source_inventory_sha256": "1d5c7b03fb11f7cae7c7dad3086b6d4feb5cfd8a056ced60db558a4ac3599e7d",
+    "source_manifest_path": "content-manifests/standard-universe-v1/content-manifest.json",
+    "source_manifest_sha256": "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216",
+    "normalized_pack_index_path": "content-reference/standard-universe-v1/pack-index.json",
+    "normalized_pack_index_sha256": "31b1ec5978fb910df65471f486feb446a754b8d1d041a6ddf93e1b1d9674e542",
+    "universe_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "preserved_core_runtime_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "ownership_checkpoints": [
+    {
+      "goal": "G07",
+      "mode": "StandardUniverse",
+      "commit": "4f466df77a25694777ccfddbdce7e6bdeabb0931",
+      "tree": "b1a43fd98ac6d84d82867fa0c465c2f9f162b124",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "master",
+      "files": [
+        {
+          "path": "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
+          "sha256": "e5b16bb26e56b55c3f0af6f70ea0988c51c9cdc4a87c3269027096cbe3d645f2",
+          "schema_revision": "starclock.goal07-retained-audit.v1"
+        },
+        {
+          "path": "content-manifests/standard-universe-mechanics-complete-v1/content-partitions.json",
+          "sha256": "b9138398851f8c353c762691af4c044a0b5c1ad400cbca0227f013f8545e3237",
+          "schema_revision": "starclock.goal07-content-partitions.v1"
+        }
+      ],
+      "records": 2201,
+      "rules": 786,
+      "fixtures": 78,
+      "boundary": "latest committed Goal 07 ownership and partition checkpoint available during audit"
+    },
+    {
+      "goal": "G08",
+      "mode": "GoldAndGears",
+      "commit": "43b989c4f1f48842910329af3c60e76da8128d90",
+      "tree": "d85aca20df2cab748b0f1311fa042a38f0777cc7",
+      "remote_reachable": false,
+      "files": [
+        {
+          "path": "content-manifests/gold-and-gears-v1/source-inventory.json",
+          "sha256": "39ab554ce600fa9932efa1517978db16d51683e93f4de1be68a88b68f26bcece",
+          "schema_revision": "starclock.gold-and-gears-source-inventory.v1"
+        },
+        {
+          "path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+          "sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+          "schema_revision": "starclock.gold-and-gears-content-manifest.v1"
+        }
+      ],
+      "records": 7913,
+      "mode_owned": 7199,
+      "shared": 714,
+      "boundary": "committed local checkpoint; no configured origin branch contains it"
+    },
+    {
+      "goal": "G09",
+      "mode": "SwarmDisaster",
+      "commit": "9bd2ad285de4c10e7ab060f00bf078855923a09c",
+      "tree": "fcf092232b14ee06ca11c5a76da8902014a9e16f",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "codex/goal09-swarm-disaster-reference",
+      "files": [
+        {
+          "path": "content-manifests/swarm-disaster-v1/source-inventory.json",
+          "sha256": "fe52861f70081d74ff3ac8154b23035a8861e388a80237d04764797404b207dc",
+          "schema_revision": "starclock.swarm-disaster-source-inventory.v1"
+        },
+        {
+          "path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+          "sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+          "schema_revision": "starclock.swarm-disaster-content-manifest.v1"
+        }
+      ],
+      "records": 6963,
+      "mode_owned": 6305,
+      "shared": 658,
+      "boundary": "remote-backed content-manifest checkpoint"
+    },
+    {
+      "goal": "G10",
+      "mode": "UnknowableDomain",
+      "commit": "ce2f6b209ae24c1742365d49c57422fce0145683",
+      "tree": "d072f124b57624a3a7e65ad5694ce12aaa6e6d6f",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "codex/goal10-unknowable-domain-reference",
+      "files": [
+        {
+          "path": "content-manifests/unknowable-domain-v1/source-inventory.json",
+          "sha256": "20fad8542066895912cf24dfbc56d4a9cb37733c37fad5ce0898e7e3341dbaa5",
+          "schema_revision": "starclock.unknowable-domain-source-inventory.v1"
+        },
+        {
+          "path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+          "sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+          "schema_revision": "starclock.unknowable-domain-content-manifest.v1"
+        }
+      ],
+      "records": 5377,
+      "mode_owned": 5243,
+      "shared": 134,
+      "boundary": "remote-backed content-manifest checkpoint"
+    },
+    {
+      "goal": "G11",
+      "mode": "DivergentUniverse",
+      "commit": "f202c1bd0769922be394d4983dc4d0f0f3121779",
+      "tree": "c91313bce877085565ae1134728cd1608000fe39",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "codex/goal11-divergent-universe-reference",
+      "files": [
+        {
+          "path": "content-manifests/divergent-universe-v1/source-inventory.json",
+          "sha256": "60d9a9cd6798a2a68ce146bcecefe2edb5b5d54fcba4873b03dbe8d5201b6dc4",
+          "schema_revision": "starclock.divergent-universe-source-inventory.v1"
+        }
+      ],
+      "inventory_records": 2684,
+      "committed_ownership_manifest_available": false,
+      "boundary": "remote-backed source-inventory checkpoint; no committed Goal 11 ownership manifest existed"
+    },
+    {
+      "goal": "G12",
+      "mode": "CurrencyWars",
+      "commit": "74cb56a228d03f05ee4e27410c074aca159d5393",
+      "tree": "a099b06a34effaae9d9a55f77a1dfe413f09d4db",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "codex/goal12-currency-wars-reference",
+      "files": [
+        {
+          "path": "content-manifests/currency-wars-v1/foundation.json",
+          "sha256": "95c562645127f9e5a9aed0ec6253293dc01b7d46042ff59fe7f165cce7fefc09",
+          "schema_revision": "starclock.currency-wars-foundation.v1"
+        }
+      ],
+      "committed_ownership_manifest_available": false,
+      "boundary": "remote-backed foundation checkpoint; no committed Goal 12 source or ownership manifest existed"
+    }
+  ],
+  "worktree_audit": {
+    "audit_date": "2026-07-29",
+    "rule": "other worktree changes are protected and never consumed as authoritative ownership evidence",
+    "observations": [
+      {
+        "goal": "G07",
+        "worktree": "no dedicated Goal 07 checkout reported by git worktree list",
+        "checkpoint": "merged committed manifests at 4f466df77a25694777ccfddbdce7e6bdeabb0931"
+      },
+      {
+        "goal": "G08",
+        "worktree": "/Users/mikai/CLionProjects/starclock",
+        "branch": "codex/goal08-gold-gears-reference",
+        "head": "1dc125e666c92b9f0c7e271a9e78948001f7d0e9",
+        "uncommitted_changes_observed": true
+      },
+      {
+        "goal": "G09",
+        "worktree": "/Users/mikai/.codex/worktrees/a794/starclock",
+        "branch": "codex/goal09-swarm-disaster-reference",
+        "head": "8948bc4d71a4409d00c8ff1ad268a253b3fc2c71",
+        "uncommitted_changes_observed": true
+      },
+      {
+        "goal": "G10",
+        "worktree": "/Users/mikai/.codex/worktrees/7c74/starclock",
+        "branch": "codex/goal10-unknowable-domain-reference",
+        "head": "3203aae4b743ea57617c3e7a95940c9119b6f68d",
+        "uncommitted_changes_observed": true
+      },
+      {
+        "goal": "G11",
+        "worktree": "/Users/mikai/.codex/worktrees/d0cb/starclock",
+        "branch": "codex/goal11-divergent-universe-reference",
+        "head": "f202c1bd0769922be394d4983dc4d0f0f3121779",
+        "uncommitted_changes_observed": true
+      },
+      {
+        "goal": "G12",
+        "worktree": "/Users/mikai/.codex/worktrees/b53b/starclock",
+        "branch": "codex/goal12-currency-wars-reference",
+        "head": "74cb56a228d03f05ee4e27410c074aca159d5393",
+        "uncommitted_changes_observed": true
+      },
+      {
+        "goal": "G13",
+        "worktree": "/Users/mikai/.codex/worktrees/bfb2/starclock",
+        "branch": "codex/goal13-anomaly-arbitration-reference",
+        "head_before_batch_mutation": "5d1c04605d547ba147cf9661f33772b8153ef774",
+        "uncommitted_changes_observed": false
+      }
+    ]
+  },
+  "source_entry_contract": {
+    "dedicated_tables": [
+      "ExcelOutput/ChallengePeakBossConfig.json",
+      "ExcelOutput/ChallengePeakCommonConst.json",
+      "ExcelOutput/ChallengePeakConfig.json",
+      "ExcelOutput/ChallengePeakGroupConfig.json",
+      "ExcelOutput/ChallengePeakReward.json",
+      "ExcelOutput/ChallengePeakRewardOR.json"
+    ],
+    "direct_ability_entries": [
+      "Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json"
+    ],
+    "layout_companions": [
+      "Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.layout.json"
+    ],
+    "text_maps": [
+      "TextMap/TextMapCHS.json",
+      "TextMap/TextMapEN.json"
+    ],
+    "shared_table_seeds": [
+      "ExcelOutput/StageConfig.json",
+      "ExcelOutput/BattleTargetConfig.json",
+      "ExcelOutput/MazeBuff.json",
+      "ExcelOutput/BattleEventConfig.json",
+      "ExcelOutput/MonsterConfig.json",
+      "ExcelOutput/MonsterTemplateConfig.json",
+      "ExcelOutput/MonsterSkillConfig.json",
+      "ExcelOutput/MonsterStatusConfig.json"
+    ],
+    "planning_candidates": {
+      "active_group": 8,
+      "aliases": [
+        801,
+        802,
+        803,
+        804
+      ],
+      "stage_ids": [
+        30508011,
+        30508012,
+        30508013,
+        30508021,
+        30508022
+      ],
+      "battle_target_ids": [
+        3000,
+        3001,
+        3002,
+        3003,
+        3004,
+        3005,
+        3007
+      ],
+      "battle_event_ids": [
+        30502,
+        30503,
+        30504
+      ],
+      "admission_state": "planning-only-until-generated-selector-closure"
+    },
+    "membership_rule": "explicit-active-version-selector-transitive-reference-or-inherited-stable-id-closure",
+    "seed_is_denominator": false,
+    "zero_pool_rule": "Blessing, Curio, Occurrence, service, currency and analogous zero denominators require generated selector-closure evidence"
+  },
+  "sora_contract": {
+    "policy_path": "policy/sora-toolchain.json",
+    "policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a",
+    "required_version": "0.3.0",
+    "system_path_observation": "0.2.0",
+    "system_path_is_authority": false,
+    "pinned_local_install_is_authority": true
+  },
+  "parallel_boundary": {
+    "branch": "codex/goal13-anomaly-arbitration-reference",
+    "upstream": "origin/codex/goal13-anomaly-arbitration-reference",
+    "separate_branch_required": true,
+    "other_goal_worktrees_may_run_concurrently": true,
+    "shared_generated_output_mutation": false,
+    "owned_roots": [
+      "content-manifests/anomaly-arbitration-v1/",
+      "content-reference/anomaly-arbitration-v1/",
+      "config/anomaly-arbitration/",
+      "config/anomaly-arbitration-generated/",
+      "tools/anomaly-arbitration-reference/",
+      "evidence/anomaly-arbitration-reference-v1/"
+    ],
+    "owned_goal_documents": [
+      "docs/goals/13-anomaly-arbitration-reference-data.md",
+      "docs/goals/13-anomaly-arbitration-reference-data-status.md",
+      "docs/goals/13-anomaly-arbitration-reference-data-prompt.md"
+    ],
+    "protected_roots": [
+      "content-manifests/standard-universe-v1/",
+      "content-reference/standard-universe-v1/",
+      "content-manifests/standard-universe-mechanics-complete-v1/",
+      "content-manifests/gold-and-gears-v1/",
+      "content-reference/gold-and-gears-v1/",
+      "config/gold-and-gears/",
+      "config/gold-and-gears-generated/",
+      "content-manifests/swarm-disaster-v1/",
+      "content-reference/swarm-disaster-v1/",
+      "config/swarm-disaster/",
+      "config/swarm-disaster-generated/",
+      "content-manifests/unknowable-domain-v1/",
+      "content-reference/unknowable-domain-v1/",
+      "config/unknowable-domain/",
+      "config/unknowable-domain-generated/",
+      "content-manifests/divergent-universe-v1/",
+      "content-reference/divergent-universe-v1/",
+      "config/divergent-universe/",
+      "config/divergent-universe-generated/",
+      "content-manifests/currency-wars-v1/",
+      "content-reference/currency-wars-v1/",
+      "config/currency-wars/",
+      "config/currency-wars-generated/",
+      "config/universe-generated/",
+      "config/generated/",
+      "evidence/standard-universe-reference-v1/",
+      "evidence/gold-and-gears-reference-v1/",
+      "evidence/swarm-disaster-reference-v1/",
+      "evidence/unknowable-domain-reference-v1/",
+      "evidence/divergent-universe-reference-v1/",
+      "evidence/currency-wars-reference-v1/",
+      "tools/gold-and-gears-reference/",
+      "tools/swarm-disaster-reference/",
+      "tools/unknowable-domain-reference/",
+      "tools/divergent-universe-reference/",
+      "tools/currency-wars-reference/",
+      "tools/goal07/"
+    ]
+  },
+  "scope": {
+    "result": "candidate-reference-bundle",
+    "includes": [
+      "stable family and active Version 4.4 period selection",
+      "three Knight stages, one King stage, King protection and Plight",
+      "three disjoint recorded teams, loadout uniqueness, re-challenge, replacement and reset",
+      "current and best progress, direct-clear shortcut and Arbitral Quadrant",
+      "independent clocks, first-cycle action value, wave carry and low-cycle effects",
+      "targets, stars, aggregation and settlement",
+      "reachable shared challenge records and audited analogous content pools",
+      "exact StageConfig waves, enemies, traits, abilities and bosses",
+      "bilingual independent summaries, provenance, coverage and semantic review fixtures",
+      "isolated Sora schemas, generated readers, exports and openpyxl workbooks"
+    ],
+    "excludes": [
+      "runtime lowering, handlers, controllers, CLI, Agent, MCP or playable flow",
+      "starclock-combat, starclock-activity, starclock-mode-challenge, starclock-build or shared runtime semantics",
+      "story prose, presentation, assets, audio and UI",
+      "account rewards, account history, avatar frames, medals and item payloads",
+      "wall-clock rotation behavior and historical periods",
+      "unreleased, preview, test-server or leaked content",
+      "other-mode data except ownership, exclusion or mechanical prerequisite evidence"
+    ]
+  },
+  "authoring_contract": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "exporter": "sora-cli-0.3.0",
+    "production_artifact": "sora",
+    "json_role": "staging-and-debug-only",
+    "workbooks": [
+      "AnomalyArbitration.xlsx",
+      "AnomalyArbitrationBindings.xlsx",
+      "AnomalyArbitrationReview.xlsx"
+    ]
+  },
+  "documents": [
+    "docs/goals/13-anomaly-arbitration-reference-data.md",
+    "docs/goals/13-anomaly-arbitration-reference-data-status.md",
+    "docs/goals/13-anomaly-arbitration-reference-data-prompt.md",
+    "evidence/anomaly-arbitration-reference-v1/foundation.md"
+  ],
+  "contracts": {
+    "goal03_snapshot_is_immutable": true,
+    "shared_source_cache_is_read_only": true,
+    "challenge_peak_seeds_are_not_denominators": true,
+    "planning_ids_are_not_membership_evidence": true,
+    "shared_rows_require_explicit_reachability": true,
+    "empty_content_pools_require_selector_closure": true,
+    "goal07_through_goal12_uncommitted_artifacts_are_not_authoritative": true,
+    "shared_rows_reconcile_by_path_locator_and_digest": true,
+    "ownership_is_explicit_and_fail_closed": true,
+    "source_rows_and_mechanics_require_provenance": true,
+    "exact_and_approximate_evidence_are_distinct": true,
+    "excel_is_the_only_authoritative_content_surface": true,
+    "goal13_artifacts_are_path_isolated": true,
+    "runtime_work_is_deferred": true
+  }
+}

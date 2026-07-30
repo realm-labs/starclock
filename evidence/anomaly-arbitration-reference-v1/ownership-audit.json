@@ -1,0 +1,59 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-ownership-audit.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "game_version": "4.4",
+  "active_period": {
+    "group_id": 8,
+    "title_hash": "13457040013447238093",
+    "name_en": "Enwreathed by the World",
+    "name_zh_cn": "尘世卷中",
+    "aliases": [
+      "801",
+      "802",
+      "803",
+      "804"
+    ],
+    "stage_ids": [
+      "30508011",
+      "30508012",
+      "30508013",
+      "30508021",
+      "30508022"
+    ]
+  },
+  "manifest": {
+    "sha256": "84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4",
+    "rows": 392,
+    "anomaly_arbitration": 76,
+    "shared": 316,
+    "coverage_data_ready": 392,
+    "coverage_missing_or_duplicate": 0
+  },
+  "normalized_pack": {
+    "files": 37,
+    "rows": 2103,
+    "sources": 824,
+    "shared_reconciliation_rows": 316,
+    "shared_conflicts": 0,
+    "pack_index_sha256": "923394ff72bddcc86318363e2ef248ee2d47ec05e19b60001aa3f7c1bd7dbdf3"
+  },
+  "exclusions": {
+    "rows": 106,
+    "historical_period_rows": 77,
+    "account_reward_rows": 13,
+    "excluded_constant_rows": 15,
+    "presentation_rows": 1,
+    "normalized_identity_leaks": 0
+  },
+  "row_contract": {
+    "bilingual_missing": 0,
+    "provenance_missing_or_unresolved": 0,
+    "manifest_links_unresolved": 0,
+    "stable_references_unresolved": 0,
+    "quality_labels_invalid": 0,
+    "runtime_executable_rows": 0,
+    "non_data_ready_rows": 0
+  },
+  "command": "node tools/anomaly-arbitration-reference/audit-release.mjs",
+  "result": "Passed"
+}

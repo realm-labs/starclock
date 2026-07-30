@@ -1,0 +1,277 @@
+{
+  "table": {
+    "name": "ArbObjectives",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3001"
+              },
+              {
+                "String": "battle_targets:target:3002"
+              },
+              {
+                "String": "battle_targets:target:3003"
+              },
+              {
+                "String": "battle_targets:target:3004"
+              },
+              {
+                "String": "battle_targets:target:3005"
+              },
+              {
+                "String": "battle_targets:target:3007"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Cycle target evaluation"
+          },
+          "name_zh_cn": {
+            "String": "轮次目标评估"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"boundary\":\"SuccessfulStageTerminal\",\"comparison\":\"LessEqual\",\"coverage_state\":\"DataReady\",\"evaluation_order\":10,\"evidence_quality\":\"ExactStructured\",\"failed_attempt_satisfies\":false,\"id\":\"objective.evaluate-cycle-targets\",\"kind\":\"ObjectiveRule\",\"manifest_record_ids\":[\"battle_targets:target:3001\",\"battle_targets:target:3002\",\"battle_targets:target:3003\",\"battle_targets:target:3004\",\"battle_targets:target:3005\",\"battle_targets:target:3007\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Cycle target evaluation\",\"name_zh_cn\":\"轮次目标评估\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c018c830bd7938ea15fbfe67cde2ab8319c07e7486f5a6813280680a282885cb\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3003\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d57427589e92aaab6348fe833e44e78ccaba6af1db7ee7226309450a12e540cc\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3003\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3004\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d04c90f90703eb2d885048b9e519292e22d7faa08d0434564d5dea105721b200\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3004\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3005\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3b7b3d75037c4ea2733f9cbd4f9374f7d0bd51c16e3f7d979fc2d2df2717fbae\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3005\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3007\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact LessEqual cycle target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"29e2cdd704d5ad88f64211b1b93d29083e06fec3107c6c6db6b42ff397223cb2\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3007\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"summary_en\":\"Cycle targets compare the consumed stage-local cycle count at successful terminal.\",\"summary_zh_cn\":\"轮次目标在成功终局时比较关卡局部已消耗轮次。\",\"tags\":[\"cycle\",\"evaluation\",\"objective\"],\"value_source\":\"ConsumedStageLocalCycles\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3002"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3003"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3004"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3005"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3007"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.evaluate-cycle-targets"
+          },
+          "summary_en": {
+            "String": "Cycle targets compare the consumed stage-local cycle count at successful terminal."
+          },
+          "summary_zh_cn": {
+            "String": "轮次目标在成功终局时比较关卡局部已消耗轮次。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3001"
+              },
+              {
+                "String": "battle-target.3002"
+              },
+              {
+                "String": "battle-target.3003"
+              },
+              {
+                "String": "battle-target.3004"
+              },
+              {
+                "String": "battle-target.3005"
+              },
+              {
+                "String": "battle-target.3007"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_targets:target:3000"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "No-downed target evaluation"
+          },
+          "name_zh_cn": {
+            "String": "无人倒下目标评估"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"boundary\":\"SuccessfulStageTerminal\",\"comparison\":\"LessEqual\",\"comparison_parameter\":0,\"coverage_state\":\"DataReady\",\"evaluation_order\":20,\"evidence_quality\":\"ExactStructured\",\"failed_attempt_satisfies\":false,\"id\":\"objective.evaluate-no-downed\",\"kind\":\"ObjectiveRule\",\"manifest_record_ids\":[\"battle_targets:target:3000\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"No-downed target evaluation\",\"name_zh_cn\":\"无人倒下目标评估\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3000\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exact no-downed-character target.\",\"path_or_page\":\"ExcelOutput/BattleTargetConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"summary_en\":\"The survival target is satisfied only when victory commits with zero downed party members.\",\"summary_zh_cn\":\"仅当胜利提交时我方倒下人数为零，生存目标才满足。\",\"tags\":[\"evaluation\",\"objective\",\"survival\"],\"value_source\":\"DownedPartyMemberCount\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleTargetConfig.json:ID=3000"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.evaluate-no-downed"
+          },
+          "summary_en": {
+            "String": "The survival target is satisfied only when victory commits with zero downed party members."
+          },
+          "summary_zh_cn": {
+            "String": "仅当胜利提交时我方倒下人数为零，生存目标才满足。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Per-stage star evaluation"
+          },
+          "name_zh_cn": {
+            "String": "逐关星级评估"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"boundary\":\"SuccessfulStageTerminal\",\"combination_scope\":\"OneCompletedAttempt\",\"combine_across_attempts\":false,\"coverage_state\":\"DataReady\",\"evaluation_order\":30,\"evidence_quality\":\"ExactPublicText\",\"id\":\"objective.stage-star-evaluation\",\"kind\":\"ObjectiveRule\",\"manifest_record_ids\":[\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Per-stage star evaluation\",\"name_zh_cn\":\"逐关星级评估\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"star_value_rule\":\"CountSatisfiedActiveTargets\",\"summary_en\":\"A successful stage result counts its satisfied active targets once and never combines targets from separate attempts.\",\"summary_zh_cn\":\"成功关卡结果仅计算本次满足的当期目标，不合并不同尝试的目标。\",\"tags\":[\"evaluation\",\"stage\",\"star\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "objective.stage-star-evaluation"
+          },
+          "summary_en": {
+            "String": "A successful stage result counts its satisfied active targets once and never combines targets from separate attempts."
+          },
+          "summary_zh_cn": {
+            "String": "成功关卡结果仅计算本次满足的当期目标，不合并不同尝试的目标。"
+          },
+          "target_stable_keys": {
+            "List": [
+              {
+                "String": "battle-target.3000"
+              },
+              {
+                "String": "battle-target.3001"
+              },
+              {
+                "String": "battle-target.3002"
+              },
+              {
+                "String": "battle-target.3003"
+              },
+              {
+                "String": "battle-target.3004"
+              },
+              {
+                "String": "battle-target.3005"
+              },
+              {
+                "String": "battle-target.3007"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

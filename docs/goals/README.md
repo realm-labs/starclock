@@ -23,7 +23,13 @@ commit-sized implementation work. Each goal package contains:
 | Goal 10 — Unknowable Domain Reference Data | Version 4.4 Unknowable Domain manifests, stage/Alignment/Scepter/Component mechanics, provenance, isolated Excel/Sora authoring and review fixtures; no runtime | Complete | [Plan](10-unknowable-domain-reference-data.md) | [Ledger](10-unknowable-domain-reference-data-status.md) | [Prompt](10-unknowable-domain-reference-data-prompt.md) |
 | Goal 11 — Divergent Universe Reference Data | Version 4.4 Divergent Universe manifests, stage/Arithmetic Mapping/Equation/Curio/Titan mechanics, provenance, isolated Excel/Sora authoring and review fixtures; no runtime | Complete | [Plan](11-divergent-universe-reference-data.md) | [Ledger](11-divergent-universe-reference-data-status.md) | [Prompt](11-divergent-universe-reference-data-prompt.md) |
 | Goal 12 — Currency Wars Reference Data | Version 4.4 Currency Wars manifests, flow/Squad-HP/economy/roster/star/Bond/Empowerment mechanics, provenance, isolated Excel/Sora authoring and review fixtures; no runtime | Complete | [Plan](12-currency-wars-reference-data.md) | [Ledger](12-currency-wars-reference-data-status.md) | [Prompt](12-currency-wars-reference-data-prompt.md) |
+| Goal 13 — Anomaly Arbitration Reference Data | Version 4.4 active-period manifests, Knight records, King/Plight, clocks, Arbitral Quadrant, targets, traits, encounters, provenance and isolated Excel/Sora review fixtures; no runtime | Complete; Candidate reference data, runtime unreleased | [Plan](13-anomaly-arbitration-reference-data.md) | [Ledger](13-anomaly-arbitration-reference-data-status.md) | [Prompt](13-anomaly-arbitration-reference-data-prompt.md) |
 
 The plan defines what completion means. The ledger is the resumable source of
 truth. The prompt must not override either document; it instructs the executor
 to follow them until all terminal gates are evidenced.
+
+Goal 12 is reserved by the active
+`codex/goal12-currency-wars-reference` worktree. Its independently owned package
+will be reconciled into this shared index at merge time; Goal 13 does not edit
+or duplicate that worktree's artifacts.

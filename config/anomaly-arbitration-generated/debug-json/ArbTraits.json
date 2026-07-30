@@ -1,0 +1,487 @@
+{
+  "table": {
+    "name": "ArbTraits",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033023"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Taunting"
+          },
+          "name_zh_cn": {
+            "String": "挑衅"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033023\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_0008\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033023\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Taunting\",\"name_zh_cn\":\"挑衅\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033023,\"source_parameters\":[\"6\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033023\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"73b929f0b4c5180aaa505c9363941f4a093e6c82e73f84b87aa87db3b776f98d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023\"}],\"stage_ids\":[\"stage.knight-1\"],\"summary_en\":\"After six allied attacks, an enemy acts immediately; its tally clears at its turn start.\",\"summary_zh_cn\":\"敌方受到我方六次攻击后立即行动，计数在其回合开始时清空。\",\"tags\":[\"enemy-trait\",\"knight-1\"]}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033023"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033023"
+          },
+          "summary_en": {
+            "String": "After six allied attacks, an enemy acts immediately; its tally clears at its turn start."
+          },
+          "summary_zh_cn": {
+            "String": "敌方受到我方六次攻击后立即行动，计数在其回合开始时清空。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033038"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Depowered"
+          },
+          "name_zh_cn": {
+            "String": "失能"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033038\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_0013\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033038\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Depowered\",\"name_zh_cn\":\"失能\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033038,\"source_parameters\":[\"0.5\",\"0.5\",\"2\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033038\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"92290f155a9007f2d294f9f97bb3b3b243693bc9f6cb62ae5a188b6fee80eb4f\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033038\"}],\"stage_ids\":[\"stage.knight-2\"],\"summary_en\":\"On entry, allies lose 50% Energy and have 50% lower off-turn Energy regeneration for two turns.\",\"summary_zh_cn\":\"入战时我方失去50%能量，回合外能量恢复效率降低50%，持续两回合。\",\"tags\":[\"enemy-trait\",\"knight-2\"]}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033038"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033038"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033038"
+          },
+          "summary_en": {
+            "String": "On entry, allies lose 50% Energy and have 50% lower off-turn Energy regeneration for two turns."
+          },
+          "summary_zh_cn": {
+            "String": "入战时我方失去50%能量，回合外能量恢复效率降低50%，持续两回合。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033051"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Equilibrium"
+          },
+          "name_zh_cn": {
+            "String": "均衡"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033051\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_0016\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033051\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Equilibrium\",\"name_zh_cn\":\"均衡\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033051,\"source_parameters\":[\"1\",\"0.2\",\"1\",\"0.15\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033051\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"64450cb0242a8a250c2657184755662cc92791d1875bf6f215375a0a247fbb7a\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051\"}],\"stage_ids\":[\"stage.king-normal\"],\"summary_en\":\"At battle start, the fastest ally loses 20% SPD and the slowest gains 15% SPD.\",\"summary_zh_cn\":\"战斗开始时，最快的一名我方角色速度降低20%，最慢的一名提高15%。\",\"tags\":[\"enemy-trait\",\"king-normal\"]}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033051"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033051"
+          },
+          "summary_en": {
+            "String": "At battle start, the fastest ally loses 20% SPD and the slowest gains 15% SPD."
+          },
+          "summary_zh_cn": {
+            "String": "战斗开始时，最快的一名我方角色速度降低20%，最慢的一名提高15%。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033052"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Equilibrium+"
+          },
+          "name_zh_cn": {
+            "String": "均衡+"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033052\",\"in_battle_binding_key\":\"ChallengePeakBattle_EnhancedAbility_0016\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033052\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Equilibrium+\",\"name_zh_cn\":\"均衡+\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033052,\"source_parameters\":[\"2\",\"0.2\",\"1\",\"0.15\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033052\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bcfade90ef97cac5912232f9e0b08bed05d4065b2160798694fd5b4e9f88754f\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052\"}],\"stage_ids\":[\"stage.king-plight\"],\"summary_en\":\"At battle start, the two fastest allies lose 20% SPD and the slowest gains 15% SPD.\",\"summary_zh_cn\":\"战斗开始时，最快的两名我方角色速度降低20%，最慢的一名提高15%。\",\"tags\":[\"enemy-trait\",\"king-plight\"]}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033052"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033052"
+          },
+          "summary_en": {
+            "String": "At battle start, the two fastest allies lose 20% SPD and the slowest gains 15% SPD."
+          },
+          "summary_zh_cn": {
+            "String": "战斗开始时，最快的两名我方角色速度降低20%，最慢的一名提高15%。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033058"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Hemovore"
+          },
+          "name_zh_cn": {
+            "String": "血嗜"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033058\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_0018\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033058\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Hemovore\",\"name_zh_cn\":\"血嗜\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033058,\"source_parameters\":[\"500\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033058\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8ae2fd85dab09b48ce55d5c7e6fb2e6f43cefaf7d992aa0e792c6f2739c4049e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033058\"}],\"stage_ids\":[\"stage.knight-3\"],\"summary_en\":\"At each ally turn start, that ally loses 500 HP; the loss can be fatal.\",\"summary_zh_cn\":\"我方角色回合开始时损失500点生命值，且该损失可以致命。\",\"tags\":[\"enemy-trait\",\"knight-3\"]}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033058"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033058"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033058"
+          },
+          "summary_en": {
+            "String": "At each ally turn start, that ally loses 500 HP; the loss can be fatal."
+          },
+          "summary_zh_cn": {
+            "String": "我方角色回合开始时损失500点生命值，且该损失可以致命。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033063"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Flow Break"
+          },
+          "name_zh_cn": {
+            "String": "破势"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033063\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_0019\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033063\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Flow Break\",\"name_zh_cn\":\"破势\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033063,\"source_parameters\":[\"0.02\",\"0.04\",\"10\",\"5\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033063\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"42f95c81c765cbf696270e07b5b021ea5dac2f6f2c765dd78b369664e9705a2f\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033063\"}],\"stage_ids\":[\"stage.knight-2\"],\"summary_en\":\"Allied hits stack 2% damage reduction and 4% CRIT-DMG reduction on enemies up to ten; Follow-Up or Aha endpoints remove five.\",\"summary_zh_cn\":\"我方命中使敌方叠加2%减伤与4%暴伤减免，最多十层；追加攻击或阿哈时刻结束移除五层。\",\"tags\":[\"enemy-trait\",\"knight-2\"]}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033063"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033063"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033063"
+          },
+          "summary_en": {
+            "String": "Allied hits stack 2% damage reduction and 4% CRIT-DMG reduction on enemies up to ten; Follow-Up or Aha endpoints remove five."
+          },
+          "summary_zh_cn": {
+            "String": "我方命中使敌方叠加2%减伤与4%暴伤减免，最多十层；追加攻击或阿哈时刻结束移除五层。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033069"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enrage"
+          },
+          "name_zh_cn": {
+            "String": "激怒"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033069\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_0020\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033069\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Enrage\",\"name_zh_cn\":\"激怒\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033069,\"source_parameters\":[\"0.3\",\"4\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033069\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"de173a4af3611a9240e09d0c9b48425dabf8d32d27a496ea68cb708f4d943ad9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069\"}],\"stage_ids\":[\"stage.king-normal\"],\"summary_en\":\"Each allied Ultimate gives all enemies one 30% SPD stack, up to four, cleared at enemy turn start.\",\"summary_zh_cn\":\"我方每次施放终结技使敌方全体叠加一层30%速度提高，最多四层，并在敌方回合开始时清空。\",\"tags\":[\"enemy-trait\",\"king-normal\"]}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033069"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033069"
+          },
+          "summary_en": {
+            "String": "Each allied Ultimate gives all enemies one 30% SPD stack, up to four, cleared at enemy turn start."
+          },
+          "summary_zh_cn": {
+            "String": "我方每次施放终结技使敌方全体叠加一层30%速度提高，最多四层，并在敌方回合开始时清空。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "stage_traits:trait:3033070"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Enrage+"
+          },
+          "name_zh_cn": {
+            "String": "激怒+"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"trait.3033070\",\"in_battle_binding_key\":\"ChallengePeakBattle_EnhancedAbility_0020\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"EnemyTrait\",\"manifest_record_ids\":[\"stage_traits:trait:3033070\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Enrage+\",\"name_zh_cn\":\"激怒+\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":3033070,\"source_parameters\":[\"0.5\",\"4\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033070\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active normal or Plight TagList selects this exact MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"728d745f99cd5e53a1535d539f9f58640f9c5098e77df83ade325331af8a4350\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070\"}],\"stage_ids\":[\"stage.king-plight\"],\"summary_en\":\"Each allied Ultimate gives all enemies one 50% SPD stack, up to four, cleared at enemy turn start.\",\"summary_zh_cn\":\"我方每次施放终结技使敌方全体叠加一层50%速度提高，最多四层，并在敌方回合开始时清空。\",\"tags\":[\"enemy-trait\",\"king-plight\"]}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033070"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "trait.3033070"
+          },
+          "summary_en": {
+            "String": "Each allied Ultimate gives all enemies one 50% SPD stack, up to four, cleared at enemy turn start."
+          },
+          "summary_zh_cn": {
+            "String": "我方每次施放终结技使敌方全体叠加一层50%速度提高，最多四层，并在敌方回合开始时清空。"
+          }
+        }
+      }
+    ]
+  }
+}
