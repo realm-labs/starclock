@@ -9,6 +9,7 @@ mod dice_resolution;
 mod error;
 mod knowledge;
 mod knowledge_execution;
+mod knowledge_resolution;
 mod map_overlay;
 mod plane_transition;
 mod state;
@@ -27,6 +28,9 @@ pub use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
 pub use dice_resolution::GOLD_AND_GEARS_DICE_RUNTIME_REVISION;
 pub use error::GoldAndGearsEntryError;
 pub use knowledge::GOLD_AND_GEARS_KNOWLEDGE_REVISION;
+pub use knowledge_resolution::{
+    GOLD_AND_GEARS_KNOWLEDGE_SIMULTANEOUS_REVISION, GoldAndGearsKnowledgeResolution,
+};
 pub use plane_transition::GOLD_AND_GEARS_PLANE_COMPLETION_REVISION;
 
 const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
@@ -40,6 +44,8 @@ mod dice_face_tests;
 mod dice_loadout_tests;
 #[cfg(test)]
 mod dice_resolution_tests;
+#[cfg(test)]
+mod knowledge_resolution_tests;
 #[cfg(test)]
 mod knowledge_tests;
 #[cfg(test)]

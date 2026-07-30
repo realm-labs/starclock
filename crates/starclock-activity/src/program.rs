@@ -1,13 +1,14 @@
 use crate::{
     ActivityEdgeId, ActivityGraphDefinition, ActivityInventoryId, ActivityModifierId,
     ActivityOptionId, ActivityProgramId, ActivitySlotId, ActivityStateDefinition,
-    ActivityTerminalOutcome, ActivityValue, ParticipantId, SlotValueKind,
+    ActivityTerminalOutcome, ActivityValue, NodeId, ParticipantId, SlotValueKind,
 };
 use starclock_combat::{Energy, Hp, Ratio};
 
 pub const MAX_ACTIVITY_PROGRAM_OPERATIONS: usize = 8_192;
 pub const MAX_ACTIVITY_PROGRAM_DEPTH: usize = 16;
 pub const MAX_ACTIVITY_OPTIONS: usize = 256;
+pub const ACTIVITY_RELOCATION_REVISION: &str = "activity-relocation-v1";
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 #[repr(u8)]
@@ -181,6 +182,12 @@ pub enum ActivityOperation {
         energy: Energy,
     },
     Traverse(ActivityEdgeId),
+    /// Relocates to an existing graph node without consuming an authored edge.
+    ///
+    /// This is reserved for validated domain mechanics that explicitly
+    /// override ordinary routes. Node/total visit limits, logical scopes and
+    /// Section/Node reset policies still apply.
+    Relocate(NodeId),
     Offer {
         kind: ActivityDecisionKind,
         options: Box<[ActivityOptionDefinition]>,
@@ -311,6 +318,11 @@ fn validate_bindings(
             ActivityOperation::Traverse(edge) => {
                 if !graph.edges().iter().any(|item| item.id() == *edge) {
                     return Err(ActivityProgramBindingError::MissingEdge(*edge));
+                }
+            }
+            ActivityOperation::Relocate(node) => {
+                if graph.node(*node).is_none() {
+                    return Err(ActivityProgramBindingError::MissingNode(*node));
                 }
             }
             ActivityOperation::Offer { options, .. } => {
@@ -558,7 +570,8 @@ fn validate_operations(
             }
             ActivityOperation::SetParticipantEnergy { .. }
             | ActivityOperation::RemoveModifier { .. }
-            | ActivityOperation::Traverse(_) => {}
+            | ActivityOperation::Traverse(_)
+            | ActivityOperation::Relocate(_) => {}
         }
     }
     Ok(())
@@ -655,6 +668,7 @@ pub enum ActivityProgramBindingError {
     MissingInventory(ActivityInventoryId),
     MissingModifier(ActivityModifierId),
     MissingEdge(ActivityEdgeId),
+    MissingNode(NodeId),
     UnsupportedSlotType(ActivitySlotId),
     UnsupportedExpressionType,
     TypeMismatch(ActivitySlotId),

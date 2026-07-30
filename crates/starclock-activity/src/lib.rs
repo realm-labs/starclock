@@ -108,10 +108,10 @@ pub use participant::{
     ParticipantLockError, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
 };
 pub use program::{
-    ActivityCondition, ActivityDecisionKind, ActivityExpression, ActivityOperation,
-    ActivityOptionDefinition, ActivityProgramBindingError, ActivityProgramDefinition,
-    ActivityProgramDefinitionError, ActivityValueType, MAX_ACTIVITY_OPTIONS,
-    MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
+    ACTIVITY_RELOCATION_REVISION, ActivityCondition, ActivityDecisionKind, ActivityExpression,
+    ActivityOperation, ActivityOptionDefinition, ActivityProgramBindingError,
+    ActivityProgramDefinition, ActivityProgramDefinitionError, ActivityValueType,
+    MAX_ACTIVITY_OPTIONS, MAX_ACTIVITY_PROGRAM_DEPTH, MAX_ACTIVITY_PROGRAM_OPERATIONS,
 };
 pub use projection::{
     BattleOutcome, BattleResult, BattleResultConfiguration, BattleResultIdentity,

@@ -1126,7 +1126,6 @@ impl GraphActivityResolution {
         self.activity.player_view()
     }
 }
-
 fn validate_edge_ownership(
     node: NodeId,
     operations: &[crate::ActivityOperation],
@@ -1140,6 +1139,11 @@ fn validate_edge_ownership(
                     .iter()
                     .any(|item| item.id() == *edge && item.from() == node)
                 {
+                    return Err(GraphActivityDefinitionError::InvalidProgramBinding(node));
+                }
+            }
+            crate::ActivityOperation::Relocate(target) => {
+                if graph.node(*target).is_none() {
                     return Err(GraphActivityDefinitionError::InvalidProgramBinding(node));
                 }
             }
@@ -1159,10 +1163,10 @@ fn validate_edge_ownership(
     }
     Ok(())
 }
-
 fn contains_boundary_operation(operations: &[ActivityOperation]) -> bool {
     operations.iter().any(|operation| match operation {
         ActivityOperation::Traverse(_)
+        | ActivityOperation::Relocate(_)
         | ActivityOperation::Offer { .. }
         | ActivityOperation::Terminal(_) => true,
         ActivityOperation::Conditional {
@@ -1171,7 +1175,6 @@ fn contains_boundary_operation(operations: &[ActivityOperation]) -> bool {
         _ => false,
     })
 }
-
 fn committed(
     outcome: ActivityTransactionOutcome,
 ) -> Result<Vec<ActivityTransactionEvent>, GraphActivityCommandError> {

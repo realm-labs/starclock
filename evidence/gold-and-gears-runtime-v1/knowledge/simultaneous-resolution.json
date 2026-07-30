@@ -1,0 +1,117 @@
+{
+  "schema_revision": "starclock.gold-and-gears-simultaneous-resolution.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P3-B5",
+  "observed_on": "2026-07-30",
+  "result": "Pass",
+  "catalog_input": {
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b",
+    "knowledge_rules": 22,
+    "semantic_fixture_families_executed": 1
+  },
+  "simultaneous_policy": {
+    "revision": "knowledge-simultaneous-resolution-v1",
+    "evidence_quality": "ProjectPolicy",
+    "replacement_condition": "replace only with released observation evidence and a revisioned compatibility decision",
+    "tier_order": [
+      "movement-destination",
+      "after-movement-face-effects",
+      "knowledge-mutations",
+      "selected-dice-callbacks",
+      "collapse",
+      "rewards"
+    ],
+    "face_order": "selected-face-id",
+    "collapse_target_order": "stable-node-id-ascending",
+    "duplicate_collapse_targets": "Rejected",
+    "program_count": 1,
+    "same_cause_chain": true,
+    "tier_markers": 6
+  },
+  "relocation": {
+    "revision": "activity-relocation-v1",
+    "ordinary_route_operation": "Traverse",
+    "knowledge_override_operation": "Relocate",
+    "override_requires_eligible_knowledge_target": true,
+    "requires_existing_graph_node": true,
+    "consumes_authored_edge": false,
+    "enforces_node_visit_limit": true,
+    "enforces_total_visit_limit": true,
+    "transitions_logical_scopes": true,
+    "applies_section_and_node_resets": true,
+    "emits_typed_event": "NodeRelocated"
+  },
+  "atomicity": {
+    "state_rollback_on_stale_face": true,
+    "state_rollback_on_invalid_collapse": true,
+    "rng_rollback_on_late_validation_failure": true,
+    "after_movement_scope_uses_destination": true,
+    "face_protection_precedes_collapse": true,
+    "reward_follows_collapse": true,
+    "all_mutation_uses_activity_operations": true,
+    "runtime_json_file_reads": 0
+  },
+  "semantic_fixture": {
+    "name": "knowledge-lifecycle",
+    "production_programs": true,
+    "ordered_actions": [
+      "Apply",
+      "Query",
+      "Countdown",
+      "Preserve"
+    ],
+    "access_counts": [
+      15,
+      1,
+      5,
+      1
+    ],
+    "countdown_entry_recovery": 1,
+    "preserve_retains_knowledge": true
+  },
+  "policies": {
+    "G14-R06": "VersionedExecutablePolicy",
+    "G14-R07": "VersionedExecutablePolicy"
+  },
+  "validation": {
+    "all_six_tiers_emit_in_order": true,
+    "same_program_events_share_cause": true,
+    "ordinary_edges_remain_authoritative_routes": true,
+    "non_edge_override_requires_knowledge_eligibility": true,
+    "collapse_targets_are_stably_sorted": true,
+    "duplicate_collapse_targets_reject": true,
+    "after_movement_selectors_anchor_to_destination": true,
+    "late_compile_failure_restores_rng": true,
+    "late_runtime_rejection_restores_state": true,
+    "production_semantic_fixture_matches": true
+  },
+  "tests": {
+    "focused_resolution_tests_passed": 5,
+    "activity_suite_passed": 49,
+    "entry_suite_passed": 45,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "cold_quick_attempt": "BudgetExceededAfterBuilding67SelectedHarnesses",
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "141.4",
+    "quick_selected_harnesses": 67,
+    "quick_direct_packages": 2,
+    "quick_downstream_packages_checked": 7,
+    "full_gate_passed": true,
+    "full_gate_seconds": "489.7",
+    "full_workspace_harnesses": 138
+  },
+  "commands": [
+    "cargo test -p starclock-activity --test activity_transaction --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry::knowledge_resolution_tests --all-features",
+    "cargo test -p starclock-activity --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-activity -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/goal14/verify-phase3-b5.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

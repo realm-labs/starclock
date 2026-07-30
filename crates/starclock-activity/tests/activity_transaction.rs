@@ -1,13 +1,14 @@
 use starclock_activity::{
-    ActivityCause, ActivityCondition, ActivityEdgeCondition, ActivityEdgeDefinition,
-    ActivityEdgeId, ActivityExpression, ActivityGraphDefinition, ActivityInventoryDefinition,
-    ActivityInventoryId, ActivityModifierDefinition, ActivityModifierId, ActivityModifierOwner,
-    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
-    ActivityOptionId, ActivityProgramBindingError, ActivityProgramDefinition,
-    ActivityProgramDefinitionError, ActivityProgramId, ActivityScope, ActivitySlotDefinition,
-    ActivitySlotId, ActivityStateDefinition, ActivityStateSource, ActivityStateVisibility,
-    ActivityTerminalOutcome, ActivityTransactionOutcome, ActivityTransactionRejection,
-    ActivityTransactionState, ActivityValue, NodeId, SectionId, SlotCarryPolicy,
+    ACTIVITY_RELOCATION_REVISION, ActivityCause, ActivityCondition, ActivityEdgeCondition,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityGraphDefinition,
+    ActivityInventoryDefinition, ActivityInventoryId, ActivityModifierDefinition,
+    ActivityModifierId, ActivityModifierOwner, ActivityNodeDefinition, ActivityNodeKind,
+    ActivityOperation, ActivityOptionDefinition, ActivityOptionId, ActivityProgramBindingError,
+    ActivityProgramDefinition, ActivityProgramDefinitionError, ActivityProgramId, ActivityScope,
+    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
+    ActivityStateVisibility, ActivityTerminalOutcome, ActivityTransactionEventKind,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+    ActivityValue, NodeId, SectionId, SlotCarryPolicy,
 };
 
 #[test]
@@ -58,6 +59,37 @@ fn ordered_program_commits_slots_inventory_modifiers_graph_and_decision_atomical
     let selected = state.apply_option(option_id(1), cause_at(2, node(2)), &graph());
     assert!(matches!(selected, ActivityTransactionOutcome::Committed(events) if events.len() == 1));
     assert_eq!(state.terminal(), Some(ActivityTerminalOutcome::Completed));
+}
+
+#[test]
+fn explicit_relocation_obeys_graph_node_and_visit_contracts_without_an_edge() {
+    assert_eq!(ACTIVITY_RELOCATION_REVISION, "activity-relocation-v1");
+    let graph = graph();
+    let mut state = runtime();
+    let program =
+        ActivityProgramDefinition::new(program_id(1), vec![ActivityOperation::Relocate(node(3))])
+            .unwrap();
+    program.validate_against(&definition(), &graph).unwrap();
+    let outcome = state.apply_program(&program, cause(1), &graph);
+    assert!(matches!(
+        outcome,
+        ActivityTransactionOutcome::Committed(events)
+            if matches!(
+                events.last().map(|event| event.kind()),
+                Some(ActivityTransactionEventKind::NodeRelocated(target)) if *target == node(3)
+            )
+    ));
+    assert_eq!(state.current_node(), node(3));
+    assert_eq!(state.node_visits(node(3)), 1);
+    assert_eq!(state.edge_traversals(edge_id(1)), 0);
+
+    let invalid =
+        ActivityProgramDefinition::new(program_id(2), vec![ActivityOperation::Relocate(node(99))])
+            .unwrap();
+    assert_eq!(
+        invalid.validate_against(&definition(), &graph).unwrap_err(),
+        ActivityProgramBindingError::MissingNode(node(99))
+    );
 }
 
 #[test]

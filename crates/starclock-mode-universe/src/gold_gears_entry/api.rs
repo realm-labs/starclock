@@ -27,6 +27,9 @@ use super::{
         compile_domain_entry, compile_face_effect, compile_mark_for_collapse, knowledge_countdown,
         knowledge_nodes, movement_targets,
     },
+    knowledge_resolution::{
+        GoldAndGearsKnowledgeResolution, KnowledgeResolutionContext, compile_resolution,
+    },
     map_overlay::{MapRuntimeCatalog, NODE_STATE_BLANKED},
     plane_transition::PlaneTransitionRuntimeCatalog,
     state::compile_state,
@@ -732,6 +735,28 @@ impl GoldAndGearsRuntimeInstance {
             state,
             anchor,
             explicit_target,
+            rng,
+        )
+    }
+
+    /// Compiles movement, after-movement face work, Knowledge mutation,
+    /// selected-dice callbacks, collapse and derived rewards into one ordered
+    /// Activity transaction.
+    pub fn compile_knowledge_resolution(
+        &self,
+        state: &ActivityTransactionState,
+        request: &GoldAndGearsKnowledgeResolution,
+        rng: &mut ActivityRngStreams,
+    ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+        compile_resolution(
+            KnowledgeResolutionContext {
+                catalog: &self.knowledge,
+                map: &self.map,
+                graph: &self.graph,
+                dice: &self.dice_runtime,
+            },
+            state,
+            request,
             rng,
         )
     }

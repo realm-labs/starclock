@@ -35,6 +35,7 @@ const COLLAPSE_PROGRAM_BASE: u32 = 0x47A0_0000;
 const DOMAIN_ENTRY_PROGRAM_BASE: u32 = 0x47B0_0000;
 const COUNTDOWN_PROGRAM_ID: u32 = 0x47C0_0001;
 
+#[derive(Clone, Copy)]
 pub(super) struct KnowledgeFaceContext<'a> {
     pub(super) catalog: &'a KnowledgeRuntimeCatalog,
     pub(super) map: &'a MapRuntimeCatalog,
@@ -49,24 +50,36 @@ pub(super) fn compile_face_effect(
     explicit_target: Option<NodeId>,
     rng: &mut ActivityRngStreams,
 ) -> Result<Option<ActivityProgramDefinition>, GoldAndGearsEntryError> {
+    compile_face_effect_at(context, state, anchor, explicit_target, None, rng)
+}
+
+pub(super) fn compile_face_effect_at(
+    context: KnowledgeFaceContext<'_>,
+    state: &ActivityTransactionState,
+    selected_source: Option<NodeId>,
+    explicit_target: Option<NodeId>,
+    event_node: Option<NodeId>,
+    rng: &mut ActivityRngStreams,
+) -> Result<Option<ActivityProgramDefinition>, GoldAndGearsEntryError> {
     let face_id = counter_value(state, DICE_RESOLUTION_SLOT, DICE_RESOLUTION_FACE_KEY)
         .and_then(|value| u32::try_from(value).ok())
         .ok_or(GoldAndGearsEntryError::DiceFaceNotRolled)?;
     let Some(rule) = context.catalog.rule_for_face(face_id) else {
         return Ok(None);
     };
-    validate_anchor(context.map, context.graph, state, rule, anchor)?;
+    validate_anchor(context.map, context.graph, state, rule, selected_source)?;
+    let scope_anchor = candidate_anchor(rule, selected_source, event_node);
     rng.transact(|working| {
         let targets = select_targets(
-            context.map,
-            context.graph,
+            context,
             state,
             rule,
-            anchor,
+            selected_source,
+            scope_anchor,
             explicit_target,
             working,
         )?;
-        let operations = rule_operations(context, state, rule, anchor, &targets, working)?;
+        let operations = rule_operations(context, state, rule, selected_source, &targets, working)?;
         let id = FACE_PROGRAM_BASE
             .checked_add(face_id)
             .and_then(ActivityProgramId::new)
@@ -157,7 +170,16 @@ pub(super) fn compile_domain_entry(
     state: &ActivityTransactionState,
     target: NodeId,
 ) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
-    if knowledge_value(state, target) == 0 {
+    compile_domain_entry_planned(dice, state, target, false)
+}
+
+pub(super) fn compile_domain_entry_planned(
+    dice: &CompiledDiceRuntime,
+    state: &ActivityTransactionState,
+    target: NodeId,
+    planned_knowledge: bool,
+) -> Result<ActivityProgramDefinition, GoldAndGearsEntryError> {
+    if knowledge_value(state, target) == 0 && !planned_knowledge {
         return Err(GoldAndGearsEntryError::InvalidKnowledgeTarget);
     }
     let mut operations = vec![require_nonzero(KNOWLEDGE_SLOT, node_key(target))];
@@ -173,8 +195,10 @@ pub(super) fn compile_domain_entry(
             beacon_id: None,
             has_knowledge: true,
             non_adjacent: false,
-            knowledge_domain_count: u32::try_from(knowledge_nodes(state).len())
-                .map_err(|_| GoldAndGearsEntryError::InvalidKnowledgeRuntime)?,
+            knowledge_domain_count: u32::try_from(
+                knowledge_nodes(state).len() + usize::from(planned_knowledge),
+            )
+            .map_err(|_| GoldAndGearsEntryError::InvalidKnowledgeRuntime)?,
         },
     )? {
         operations.extend(passive.operations().iter().cloned());
@@ -224,22 +248,26 @@ pub(super) fn knowledge_nodes(state: &ActivityTransactionState) -> Box<[NodeId]>
 }
 
 fn select_targets(
-    map: &MapRuntimeCatalog,
-    graph: &ActivityGraphDefinition,
+    context: KnowledgeFaceContext<'_>,
     state: &ActivityTransactionState,
     rule: &RuntimeKnowledgeRule,
-    anchor: Option<NodeId>,
+    selected_source: Option<NodeId>,
+    scope_anchor: Option<NodeId>,
     explicit_target: Option<NodeId>,
     rng: &mut ActivityRngStreams,
 ) -> Result<Vec<NodeId>, GoldAndGearsEntryError> {
     if rule.selection == KnowledgeSelection::RandomPerSource {
-        if explicit_target.is_some() || anchor.is_some() {
+        if explicit_target.is_some() || selected_source.is_some() {
             return Err(GoldAndGearsEntryError::InvalidKnowledgeTarget);
         }
         let mut selected = Vec::new();
         for source in knowledge_nodes(state).iter().copied() {
-            let candidates =
-                map.knowledge_candidates(state, graph, rule.scope_name(), Some(source))?;
+            let candidates = context.map.knowledge_candidates(
+                state,
+                context.graph,
+                rule.scope_name(),
+                Some(source),
+            )?;
             selected.extend(random_targets(
                 candidates.into_vec(),
                 parameter_count(rule, 1)?,
@@ -250,7 +278,10 @@ fn select_targets(
         selected.dedup();
         return Ok(selected);
     }
-    let mut candidates = map.knowledge_candidates(state, graph, rule.scope_name(), anchor)?;
+    let mut candidates =
+        context
+            .map
+            .knowledge_candidates(state, context.graph, rule.scope_name(), scope_anchor)?;
     candidates.sort_unstable();
     if candidates.windows(2).any(|pair| pair[0] == pair[1]) {
         return Err(GoldAndGearsEntryError::InvalidKnowledgeRuntime);
@@ -472,6 +503,21 @@ fn validate_anchor(
     Ok(())
 }
 
+fn candidate_anchor(
+    rule: &RuntimeKnowledgeRule,
+    selected_source: Option<NodeId>,
+    event_node: Option<NodeId>,
+) -> Option<NodeId> {
+    match rule.operation {
+        KnowledgeOperation::CopySelectedDomainToAdjacentAndApply
+        | KnowledgeOperation::CopySelectedDomainToPlaneAndApply
+        | KnowledgeOperation::PropagateFromSelectedDomain
+        | KnowledgeOperation::RemoveKnowledgeAndReward => selected_source,
+        KnowledgeOperation::ApplyAdjacentToCurrentDomain => event_node,
+        _ => None,
+    }
+}
+
 fn apply_knowledge(operations: &mut Vec<ActivityOperation>, targets: &[NodeId]) {
     for target in targets {
         operations.push(set_counter(
@@ -543,7 +589,7 @@ fn parameter_integer(
     Ok(value / 1_000_000)
 }
 
-fn knowledge_value(state: &ActivityTransactionState, node: NodeId) -> i64 {
+pub(super) fn knowledge_value(state: &ActivityTransactionState, node: NodeId) -> i64 {
     counter_value(state, KNOWLEDGE_SLOT, node_key(node)).unwrap_or(0)
 }
 
