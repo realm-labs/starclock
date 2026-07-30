@@ -1,0 +1,204 @@
+{
+  "schema_revision": "starclock.goal16-foundation.v1",
+  "goal_id": "galactic-baseballer-reference-v1",
+  "batch": "G16-P0-B1",
+  "planned_phases": 5,
+  "fixed_batches": 20,
+  "branch": "codex/goal16-galactic-baseballer-reference",
+  "branch_base": {
+    "commit": "0191cc71b1735d6e101e6e04817181423c599232",
+    "tree": "07ff8766ec6a7e734ce33087033444c73d3a2eb4"
+  },
+  "goal_numbering": {
+    "requested": 15,
+    "selected": 16,
+    "reason": "Goal 15 was already checked out by codex/goal15-pure-fiction-reference",
+    "batch_prefix": "G16"
+  },
+  "required_snapshot": {
+    "goal_id": "standard-universe-reference-v1",
+    "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+    "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+    "source_inventory_sha256": "1d5c7b03fb11f7cae7c7dad3086b6d4feb5cfd8a056ced60db558a4ac3599e7d",
+    "source_manifest_sha256": "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216",
+    "universe_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "core_runtime_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "source_snapshot": {
+    "game_version": "4.4",
+    "inherited_access_date": "2026-07-22",
+    "launch_audit_date": "2026-07-30",
+    "repositories": [
+      {
+        "id": "turnbasedgamedata",
+        "cache_path": "/Users/mikai/CLionProjects/starclock/.cache/content-reference/turnbasedgamedata",
+        "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "tree": "2df8981c1bea512e21c8c900920c63002b381056",
+        "clean": true
+      },
+      {
+        "id": "StarRailRes",
+        "cache_path": "/Users/mikai/CLionProjects/starclock/.cache/content-reference/StarRailRes",
+        "remote": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+        "tree": "1e6892227905e0dad002bb117d63464d7a5640a6",
+        "clean": true
+      }
+    ],
+    "launch_receipts": [
+      {
+        "path": "TextMap/TextMapCHS.json",
+        "sha256": "ec49e07932b4ed8aba9679e247d8e554ca69e831fea7931d94682551de567147"
+      },
+      {
+        "path": "TextMap/TextMapEN.json",
+        "sha256": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+      },
+      {
+        "path": "ExcelOutput/StageConfig.json",
+        "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+      }
+    ],
+    "fetch_contract": "tools/content-reference/fetch-sources.ps1",
+    "cache_mutation_allowed": false
+  },
+  "profiles": [
+    {
+      "stable_id": "galactic-baseballer.departure.v2_2",
+      "release_version": "2.2",
+      "role": "original-profile"
+    },
+    {
+      "stable_id": "galactic-baseballer.demon-king.v3_3",
+      "release_version": "3.3",
+      "role": "expanded-profile"
+    }
+  ],
+  "profile_contract": {
+    "shared_base_required": true,
+    "later_profile_does_not_replace_original": true,
+    "membership_requires_released_reachability": true,
+    "shared_rows_reconcile_by_stable_id_locator_and_digest": true,
+    "version_4_4_corrections_apply_explicitly": true
+  },
+  "parallel_boundary": {
+    "worktree": "/Users/mikai/.codex/worktrees/82e2/starclock",
+    "main_worktree": "/Users/mikai/CLionProjects/starclock",
+    "separate_branch_required": true,
+    "origin_dry_run_push_verified": true,
+    "owned_roots": [
+      "content-manifests/galactic-baseballer-v1/",
+      "content-reference/galactic-baseballer-v1/",
+      "config/galactic-baseballer/",
+      "config/galactic-baseballer-generated/",
+      "tools/galactic-baseballer-reference/",
+      "evidence/galactic-baseballer-reference-v1/"
+    ],
+    "protected_roots": [
+      "config/generated/",
+      "config/universe-generated/",
+      "config/gold-and-gears-generated/",
+      "config/swarm-disaster-generated/",
+      "config/unknowable-domain-generated/",
+      "config/divergent-universe-generated/",
+      "config/currency-wars-generated/",
+      "config/anomaly-arbitration-generated/",
+      "content-manifests/standard-universe-v1/",
+      "content-manifests/gold-and-gears-v1/",
+      "content-manifests/swarm-disaster-v1/",
+      "content-manifests/unknowable-domain-v1/",
+      "content-manifests/divergent-universe-v1/",
+      "content-manifests/currency-wars-v1/",
+      "content-manifests/anomaly-arbitration-v1/",
+      "evidence/standard-universe-reference-v1/",
+      "evidence/gold-and-gears-reference-v1/",
+      "evidence/swarm-disaster-reference-v1/",
+      "evidence/unknowable-domain-reference-v1/",
+      "evidence/divergent-universe-reference-v1/",
+      "evidence/currency-wars-reference-v1/",
+      "evidence/anomaly-arbitration-reference-v1/"
+    ]
+  },
+  "scope": {
+    "result": "candidate-reference-bundle",
+    "includes": [
+      "two released versioned profiles over a shared base",
+      "released-source inventory and row-level provenance",
+      "stages, difficulties, phases, waves, enemies and bosses",
+      "team growth, offers, inventory slots and failure boundaries",
+      "all weapons, accessories, levels, triggers and synthesis graphs",
+      "Adventure Strategies and mechanical persistent progression",
+      "score, rating, clear and settlement rules",
+      "semantic review fixtures",
+      "isolated Sora schemas, readers, exports and openpyxl workbooks"
+    ],
+    "excludes": [
+      "runtime lowering or runtime release",
+      "shared combat, activity, build, RNG, replay or formula changes",
+      "story prose, dialogue, presentation and assets",
+      "account reward payloads except mechanical locators",
+      "preview, beta, leaked or unreleased content",
+      "other-mode ownership"
+    ]
+  },
+  "authoring_contract": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl==3.1.5",
+    "exporter": "sora-cli==0.3.0",
+    "production_artifact": "sora",
+    "json_role": "research-staging-and-debug-only",
+    "complete_no_overwrite_generation": true,
+    "byte_identical_double_generation": true,
+    "all_sheet_and_column_visual_review": true,
+    "standalone_reader_loads_every_row": true
+  },
+  "semantic_families": [
+    "profile-version-selection",
+    "stage-difficulty-selection",
+    "wave-phase-progression",
+    "experience-team-upgrade",
+    "random-upgrade-candidates",
+    "weapon-acquire-duplicate-upgrade",
+    "accessory-acquire-duplicate-upgrade",
+    "slot-cap-expansion-replacement",
+    "autonomous-weapon-action",
+    "character-action-triggered-weapon",
+    "resonant-accessory-binding",
+    "legendary-synthesis",
+    "twin-synthesis",
+    "esteemed-ultimate-synthesis",
+    "adventure-strategy",
+    "team-bonus",
+    "cosmic-store-progression",
+    "score-rating-clear",
+    "boss-phase-final-settlement",
+    "no-legal-candidate-rejection-invariance"
+  ],
+  "publication": {
+    "remote": "origin",
+    "push_after_every_batch": true,
+    "verify_local_tracking_and_ls_remote_equality": true,
+    "pull_request_authorized": false,
+    "history_rewrite_authorized": false
+  },
+  "documents": [
+    "docs/goals/16-galactic-baseballer-reference-data.md",
+    "docs/goals/16-galactic-baseballer-reference-data-status.md",
+    "docs/goals/16-galactic-baseballer-reference-data-prompt.md",
+    "docs/goal-16-foundation.md"
+  ],
+  "contracts": {
+    "released_public_evidence_only": true,
+    "goal03_snapshot_is_immutable": true,
+    "source_prefix_and_id_adjacency_are_not_membership": true,
+    "synthesis_edges_require_explicit_evidence": true,
+    "coverage_denominators_never_shrink": true,
+    "source_rows_and_mechanics_require_provenance": true,
+    "exact_and_approximate_evidence_are_distinct": true,
+    "every_policy_has_two_rejected_alternatives": true,
+    "excel_is_the_only_authoritative_content_surface": true,
+    "goal16_artifacts_are_path_isolated": true,
+    "runtime_work_is_deferred": true
+  }
+}
