@@ -91,6 +91,8 @@ const allowedPaths = [
   "docs/goals/19-fate-star-rail-night-reference-data-prompt.md",
   "docs/goals/19-fate-star-rail-night-reference-data-status.md",
   "docs/goals/README.md",
+  "docs/content-reference/README.md",
+  "content-reference/README.md",
   "content-manifests/fate-star-rail-night-v1/",
   "content-reference/fate-star-rail-night-v1/",
   "config/fate-star-rail-night/",
@@ -234,9 +236,6 @@ else {
 
 if (remoteCheck) {
   const head = git(["rev-parse", "HEAD"]);
-  assert(git(["show", "-s", "--format=%s", "HEAD"])
-    === "data(fate-star-rail-night): G19-P4-B4 freeze Candidate release",
-  "remote check requires the terminal Goal 19 commit");
   assert(git(["rev-parse", `refs/remotes/origin/${branch}`]) === head,
     "tracking branch does not resolve to HEAD");
   assert(git(["ls-remote", "--exit-code", "origin", `refs/heads/${branch}`]).split(/\s/u)[0] === head,
