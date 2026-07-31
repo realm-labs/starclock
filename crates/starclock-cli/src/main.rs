@@ -2,6 +2,7 @@
 
 #![forbid(unsafe_code)]
 
+mod gold_gears_v1;
 mod standard_v1;
 mod universe_v1;
 
@@ -58,11 +59,29 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             catalog_coverage(rest)
         }
         [group, command, rest @ ..] if group == "battle" && command == "run" => battle_run(rest),
+        [group, command, rest @ ..]
+            if group == "universe" && command == "run" && gold_gears_v1::requested(rest) =>
+        {
+            gold_gears_v1::run(rest).map_err(CliError::GoldAndGears)
+        }
         [group, command, rest @ ..] if group == "universe" && command == "run" => {
             universe_v1::run(rest).map_err(CliError::Universe)
         }
+        [group, command, rest @ ..]
+            if group == "universe" && command == "coverage" && gold_gears_v1::requested(rest) =>
+        {
+            gold_gears_v1::coverage(rest).map_err(CliError::GoldAndGears)
+        }
         [group, command, rest @ ..] if group == "universe" && command == "coverage" => {
             universe_v1::coverage(rest).map_err(CliError::Universe)
+        }
+        [group, scope, command, rest @ ..]
+            if group == "universe"
+                && scope == "config"
+                && command == "validate"
+                && gold_gears_v1::requested(rest) =>
+        {
+            gold_gears_v1::config_validate(rest).map_err(CliError::GoldAndGears)
         }
         [group, scope, command, rest @ ..]
             if group == "universe" && scope == "config" && command == "validate" =>
@@ -74,7 +93,7 @@ fn run(args: Vec<String>) -> Result<(), CliError> {
             replay_verify(file, rest)
         }
         _ => Err(CliError::Usage(
-            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--json] | universe coverage [--json] | universe run --world ID --difficulty-index N --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
+            "starclock config validate [--bundle PATH] [--json] | catalog coverage [--goal core-combat-v1] [--category NAME] [--json] | battle run --scenario ID --seed U64 [--controller baseline|replay] [--replay-out PATH] [--json] | universe config validate [--mode gold-and-gears] [--json] | universe coverage [--mode gold-and-gears] [--json] | universe run (--world ID --difficulty-index N | --mode gold-and-gears) --seed U64 [--controller baseline] [--replay-out PATH] [--json] | replay verify FILE [--json] | mcp serve --transport stdio | mcp serve --transport streamable-http --development-loopback --bind IP:PORT --allow-origin ORIGIN",
         )),
     }
 }
@@ -452,6 +471,9 @@ fn replay_verify(file: &str, args: &[String]) -> Result<(), CliError> {
         }
     };
     let bytes = fs::read(file).map_err(CliError::Io)?;
+    if gold_gears_v1::is_replay(&bytes) {
+        return gold_gears_v1::verify_replay(&bytes, json).map_err(CliError::GoldAndGears);
+    }
     if universe_v1::is_universe_replay_v2(&bytes) {
         return universe_v1::verify_replay(&bytes, json).map_err(CliError::Universe);
     }
@@ -680,6 +702,7 @@ enum CliError {
     Mcp(starclock_mcp::stdio::StdioServeError),
     McpHttp(starclock_mcp::http::HttpServeError),
     Universe(universe_v1::UniverseCliError),
+    GoldAndGears(gold_gears_v1::GoldAndGearsCliError),
 }
 
 impl CliError {
@@ -693,6 +716,7 @@ impl CliError {
             Self::Io(_) => 7,
             Self::Mcp(_) | Self::McpHttp(_) => 8,
             Self::Universe(error) => error.exit_code(),
+            Self::GoldAndGears(error) => error.exit_code(),
         }
     }
 }
@@ -728,6 +752,7 @@ impl fmt::Display for CliError {
             Self::Mcp(error) => write!(formatter, "MCP service error: {error}"),
             Self::McpHttp(error) => write!(formatter, "MCP service error: {error}"),
             Self::Universe(error) => error.fmt(formatter),
+            Self::GoldAndGears(error) => error.fmt(formatter),
         }
     }
 }

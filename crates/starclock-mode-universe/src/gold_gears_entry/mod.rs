@@ -1,6 +1,7 @@
 //! Gold and Gears entry validation and generic Activity-state compilation.
 mod api;
 mod baseline_controller;
+pub mod baseline_fixture;
 mod battle_enemy_catalog;
 mod battle_execution;
 mod battle_materialization;

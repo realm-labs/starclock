@@ -73,6 +73,16 @@ impl RecordedGoldAndGearsRun {
     pub fn action_count(&self) -> usize {
         self.execution.replay.len()
     }
+
+    #[must_use]
+    pub fn battle_command_count(&self) -> usize {
+        self.execution
+            .replay
+            .iter()
+            .filter_map(|step| step.battle.as_ref())
+            .map(|battle| battle.report.trace().len())
+            .sum()
+    }
 }
 
 /// Successful verification receipt for one complete replay.

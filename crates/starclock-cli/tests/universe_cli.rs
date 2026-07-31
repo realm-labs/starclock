@@ -41,6 +41,63 @@ fn universe_configuration_and_coverage_are_machine_readable() {
 }
 
 #[test]
+fn gold_and_gears_configuration_and_coverage_are_machine_readable() {
+    let validation = output(&[
+        "universe",
+        "config",
+        "validate",
+        "--mode",
+        "gold-and-gears",
+        "--json",
+    ]);
+    assert!(validation.status.success(), "{validation:?}");
+    assert_eq!(
+        text(validation.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"universe-config-validation\",\"mode\":\"gold-and-gears\",\"valid\":true,\"bundle_sha256\":\"97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b\",\"tables\":52,\"rows\":29140,\"source_obligations\":7913,\"mechanic_rules\":1224,\"fixtures\":18,\"policy_boundaries\":16}"
+    );
+
+    let coverage = output(&["universe", "coverage", "--mode", "gold-and-gears", "--json"]);
+    assert!(coverage.status.success(), "{coverage:?}");
+    assert_eq!(
+        text(coverage.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"universe-coverage\",\"mode\":\"gold-and-gears\",\"goal_id\":\"gold-and-gears-runtime-v1\",\"source_categories\":42,\"runtime_slices\":44,\"source_obligations\":7913,\"integrated\":7181,\"shared_integrated\":706,\"external_outcomes\":8,\"metadata\":18,\"mechanic_rules\":1224,\"fixtures\":18,\"native_handlers\":0,\"coverage_digest\":\"f2d927d197cb77c548522bf39383a68e927f3881412f44dee8a0b4302c38ca9d\"}"
+    );
+}
+
+#[test]
+fn gold_and_gears_human_diagnostics_match_the_json_run() {
+    let validation = output(&["universe", "config", "validate", "--mode", "gold-and-gears"]);
+    assert!(validation.status.success(), "{validation:?}");
+    assert_eq!(
+        text(validation.stdout).trim(),
+        "universe config valid mode=gold-and-gears bundle_sha256=97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b tables=52 rows=29140 source_obligations=7913 rules=1224 fixtures=18 policies=16"
+    );
+
+    let coverage = output(&["universe", "coverage", "--mode", "gold-and-gears"]);
+    assert!(coverage.status.success(), "{coverage:?}");
+    assert_eq!(
+        text(coverage.stdout).trim(),
+        "universe coverage mode=gold-and-gears goal=gold-and-gears-runtime-v1 categories=42 slices=44 source_obligations=7913 integrated=7181 shared_integrated=706 external_outcomes=8 metadata=18 rules=1224 fixtures=18 native_handlers=0 digest=f2d927d197cb77c548522bf39383a68e927f3881412f44dee8a0b4302c38ca9d"
+    );
+
+    let run = output(&[
+        "universe",
+        "run",
+        "--mode",
+        "gold-and-gears",
+        "--seed",
+        "14001",
+        "--controller",
+        "baseline",
+    ]);
+    assert!(run.status.success(), "{run:?}");
+    assert_eq!(
+        text(run.stdout).trim(),
+        "universe completed mode=gold-and-gears seed=14001 profile=gold-gears.profile.v1 controller=baseline battle_executor=gold-and-gears-nested-battle-execution-v1 fixture_accuracy=SyntheticBalanceIndependentNotObservedNumericParity component_root=e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3 actions=62 nested_battles=17 battle_commands=97 hash=aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455 replay_bytes=107359 replay_sha256=71ad733fb0c1a222d70cfd76f755bab65e23f1ca13ea81c3b612e74d0dc277ac"
+    );
+}
+
+#[test]
 fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     let replay = fixture_path("run");
     let corrupt = fixture_path("corrupt");
@@ -101,6 +158,60 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     let rejected = output(&["replay", "verify", corrupt.to_str().unwrap()]);
     assert_eq!(rejected.status.code(), Some(4));
     assert!(text(rejected.stderr).contains("universe replay error"));
+
+    fs::remove_file(replay).unwrap();
+    fs::remove_file(corrupt).unwrap();
+}
+
+#[test]
+fn gold_and_gears_run_round_trips_component_replay_and_detects_corruption() {
+    let replay = fixture_path("gold-run");
+    let corrupt = fixture_path("gold-corrupt");
+    for path in [&replay, &corrupt] {
+        let _ = fs::remove_file(path);
+    }
+
+    let run = output(&[
+        "universe",
+        "run",
+        "--mode",
+        "gold-and-gears",
+        "--seed",
+        "14001",
+        "--controller",
+        "baseline",
+        "--replay-out",
+        replay.to_str().unwrap(),
+        "--json",
+    ]);
+    assert!(run.status.success(), "{run:?}");
+    assert_eq!(
+        text(run.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"universe-run\",\"mode\":\"gold-and-gears\",\"seed\":14001,\"profile\":\"gold-gears.profile.v1\",\"area\":\"gold-gears.area.401\",\"path\":\"universe.path.abundance\",\"custom_dice\":\"gold-gears.custom-dice.101\",\"controller\":\"baseline\",\"battle_executor\":\"gold-and-gears-nested-battle-execution-v1\",\"fixture_accuracy\":\"SyntheticBalanceIndependentNotObservedNumericParity\",\"component_root\":\"e52ba8dc22197daa70cbdc6e40f9327bc757e12bd17ae11a8fe65c410c780dc3\",\"actions\":62,\"nested_battles\":17,\"battle_commands\":97,\"terminal\":\"completed\",\"state_hash\":\"aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455\",\"replay_bytes\":107359,\"replay_sha256\":\"71ad733fb0c1a222d70cfd76f755bab65e23f1ca13ea81c3b612e74d0dc277ac\"}"
+    );
+
+    let replay_bytes = fs::read(&replay).unwrap();
+    assert_eq!(replay_bytes.len(), 107_359);
+    let decoded = starclock_replay::format_v2::decode_replay_v2(&replay_bytes).unwrap();
+    assert_eq!(decoded.header().components().components().len(), 10);
+    assert!(decoded.records().iter().any(|record| {
+        record.kind() == starclock_replay::record::RecordKind::AcceptedBattleCommand
+    }));
+
+    let verified = output(&["replay", "verify", replay.to_str().unwrap(), "--json"]);
+    assert!(verified.status.success(), "{verified:?}");
+    assert_eq!(
+        text(verified.stdout).trim(),
+        "{\"schema_revision\":\"starclock-cli-gold-and-gears-v1\",\"kind\":\"replay-verify\",\"entry\":\"gold-and-gears\",\"actions\":62,\"nested_battles\":17,\"battle_commands\":97,\"terminal\":\"completed\",\"state_hash\":\"aa084c9c37e8c3b251fa3e97c6145668997a8160b9db2d7264a5e53c767f8455\"}"
+    );
+
+    let mut changed = replay_bytes;
+    let last = changed.len() - 1;
+    changed[last] ^= 1;
+    fs::write(&corrupt, changed).unwrap();
+    let rejected = output(&["replay", "verify", corrupt.to_str().unwrap()]);
+    assert_eq!(rejected.status.code(), Some(4));
+    assert!(text(rejected.stderr).contains("gold-and-gears replay error"));
 
     fs::remove_file(replay).unwrap();
     fs::remove_file(corrupt).unwrap();
