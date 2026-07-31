@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Encounters and closure |
 | Active batch | — |
-| Next unblocked batch | `G18-P2-B2` |
+| Next unblocked batch | `G18-P2-B3` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -43,7 +43,7 @@
 | `G18-P1-B3` | `Complete` | This row's containing commit | Imported three AV/timeout contracts, three boss-progress projections, exact scoring items `90004`/`90005` with preserved postfix programs, six target objectives and six ordered star thresholds (`4000/5200/6600`). |
 | `G18-P1-B4` | `Complete` | This row's containing commit | Imported 11 exact MazeBuff bindings/parameters, Ruinous Embers (`0.25` Skill/`0.15` Ultimate taken), Steadfast Safeguard break contribution, nine bilingual Axiom options and 11 mechanic contributions. |
 | `G18-P2-B1` | `Complete` | This row's containing commit | Imported six generated exact-zero pool audits and 18 reference-only ability bindings (seven StrongChallenge programs plus 11 active MazeBuff bindings). |
-| `G18-P2-B2` | `Pending` | — | Encounters, waves, slots, variants and level bindings. |
+| `G18-P2-B2` | `Complete` | This row's containing commit | Imported nine exact node encounters/map events, nine event-owned wave selectors, ten direct boss slots (including difficulty-4 auxiliary scoring boss), and ten concrete variants with stats, weaknesses, skills, summons and AI overrides. |
 | `G18-P2-B3` | `Pending` | — | Enemy/program closure and generated review metadata. |
 | `G18-P3-B1` | `Pending` | — | Sora schemas/readers/exports and three generated workbooks. |
 | `G18-P3-B2` | `Pending` | — | Sora/workbook drift and rendered visual verification. |
@@ -81,3 +81,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | `G18-P1-B3` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B3`; focused inspection of `StrongChallenge_Scoring_Ability.json` | Generated 21 clock/progress/score/objective/star rows; scoring constants and timeout events retained without decoding postfix bytecode into runtime behavior. |
 | 2026-08-01 | `G18-P1-B4` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B4`; CHS/EN TextMap cross-check | Generated 33 unique-mechanic rows; exact bindings and canonical decimal strings preserved, runtime rows remain zero. |
 | 2026-08-01 | `G18-P2-B1` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P2-B1` | Generated 24 DataReady pool/binding rows; all six audited content families remain exact-zero. |
+| 2026-08-01 | `G18-P2-B2` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P2-B2` | Generated 38 encounter/wave/slot/enemy rows from active stage, stage-extra and Tierce selectors. |
