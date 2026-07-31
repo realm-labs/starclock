@@ -15,9 +15,9 @@
     "long_prose_committed": false
   },
   "counts": {
-    "files": 177,
-    "json_files": 174,
-    "top_level_rows": 959455,
+    "files": 179,
+    "json_files": 176,
+    "top_level_rows": 959606,
     "categories": {
       "BilingualTextMap": 2,
       "FateFocusedConfig": 33,
@@ -25,11 +25,11 @@
       "FateRinTable": 25,
       "FateTable": 26,
       "IdentityCrossCheck": 48,
-      "SharedTable": 8,
+      "SharedTable": 10,
       "SourceMetadata": 4
     },
     "dispositions": {
-      "ClosureCandidate": 41,
+      "ClosureCandidate": 43,
       "EvidenceOnly": 57,
       "SelectorSeed": 79
     },
@@ -1303,6 +1303,28 @@
     },
     {
       "repository": "turnbasedgamedata",
+      "path": "ExcelOutput/BattleArea.json",
+      "bytes": 10978,
+      "sha256": "5c02499b564cd0aaefd6fee7e5bc764919e1817b8fcd3f95e853711391845684",
+      "json": true,
+      "json_shape": "array",
+      "top_level_rows": 96,
+      "category": "SharedTable",
+      "disposition": "ClosureCandidate"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "ExcelOutput/BattleAreaUnifiedConfig.json",
+      "bytes": 1472,
+      "sha256": "7c598a357955c736f13b6f0c34d0b99397e25fe40fd6bc5c26a14fa1e71a20dd",
+      "json": true,
+      "json_shape": "array",
+      "top_level_rows": 55,
+      "category": "SharedTable",
+      "disposition": "ClosureCandidate"
+    },
+    {
+      "repository": "turnbasedgamedata",
       "path": "ExcelOutput/BattleEventConfig.json",
       "bytes": 311033,
       "sha256": "e0fe7662fc2b4ab12c15913ed63891818c6365fdda8fa92b69dc1b0a7c2b07ee",
@@ -2204,5 +2226,5 @@
       "reason": "Evidence-only unless a row proves a mechanical unlock or graph locator."
     }
   ],
-  "canonical_records_sha256": "48ebe84694b6508aa75c7f95cb6a4e1b85e206dd4b1b1bd886552a73ca20f025"
+  "canonical_records_sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
 }

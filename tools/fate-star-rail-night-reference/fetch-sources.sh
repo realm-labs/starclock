@@ -59,6 +59,8 @@ git -C "${turn_target}" sparse-checkout set --no-cone \
   '/README.md' \
   '/ExcelOutput/Fate*.json' \
   '/ExcelOutput/StageConfig.json' \
+  '/ExcelOutput/BattleArea.json' \
+  '/ExcelOutput/BattleAreaUnifiedConfig.json' \
   '/ExcelOutput/BattleEventConfig.json' \
   '/ExcelOutput/BattleTargetConfig.json' \
   '/ExcelOutput/MazeBuff.json' \

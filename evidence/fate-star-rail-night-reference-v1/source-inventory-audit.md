@@ -2,9 +2,11 @@
 
 ## Result
 
-`G19-P0-B2` inventories 177 materialized source files and 959,455 top-level
-JSON rows at canonical receipt digest
-`48ebe84694b6508aa75c7f95cb6a4e1b85e206dd4b1b1bd886552a73ca20f025`.
+`G19-P0-B2` initially inventoried 177 materialized source files and 959,455
+top-level JSON rows. P0-B3 reference closure added `BattleArea.json` and
+`BattleAreaUnifiedConfig.json`; the current reproducible inventory is 179
+files / 959,606 top-level rows at canonical receipt digest
+`13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3`.
 The large row count includes complete bilingual TextMaps and identity indexes;
 it is not a content denominator.
 
@@ -14,7 +16,7 @@ it is not a content denominator.
 | Dedicated `Fate` tables | 26 | Newly discovered primary selector seeds |
 | `Config/Gameplays/Fate` | 31 | Selector seeds |
 | FateRin-focused AI/ability/event layouts | 33 | Transitive closure candidates |
-| Shared Stage/battle/enemy tables | 8 | Transitive closure candidates |
+| Shared Stage/battle/enemy tables | 10 | Transitive closure candidates; two BattleArea join tables added by P0-B3 |
 | CHS/EN TextMaps | 2 | Bilingual evidence only |
 | StarRailRes identity indexes | 48 | Independent identity cross-checks only |
 | Source metadata | 4 | Evidence only |
