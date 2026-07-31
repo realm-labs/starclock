@@ -69,6 +69,13 @@ export const TABLES = [
   table("G19-P3-B3", "combat", "MazeBuffs", ["FateMazeBuff", "MazeBuff"]),
   table("G19-P3-B3", "combat", "BattleEvents", ["BattleEvent"]),
   table("G19-P3-B3", "combat", "BattleTargets", ["BattleTarget"]),
+  table("G19-P3-B4", "review", "Sources", [], { derived: "sources" }),
+  table("G19-P3-B4", "review", "ContentAudit", [], { derived: "content-audit" }),
+  table("G19-P3-B4", "review", "Coverage", [], { derived: "coverage" }),
+  table("G19-P3-B4", "review", "ResearchGaps", [], { derived: "research-gaps" }),
+  table("G19-P3-B4", "review", "Reconciliation", [], { derived: "reconciliation" }),
+  table("G19-P3-B4", "review", "ReviewFixtures", [], { derived: "review-fixtures" }),
+  table("G19-P3-B4", "review", "PackFiles", [], { derived: "pack-files" }),
 ];
 
 export function tablesThrough(batch) {
@@ -80,6 +87,7 @@ export function tablesThrough(batch) {
 
 export function rowsForTable(root, definition) {
   if (definition.derived === "profile") return [profileRow(root)];
+  if (definition.derived) return reviewRows(root, definition.derived);
   const referenceRoot = resolve(root, "content-reference/fate-star-rail-night-v1");
   const files = [
     "profile-graph.json",
@@ -98,6 +106,63 @@ export function rowsForTable(root, definition) {
   const records = files.flatMap((file) =>
     json(resolve(referenceRoot, file)).records ?? []);
   return records.filter(({ family }) => familySet.has(family));
+}
+
+function reviewRows(root, kind) {
+  const referenceRoot = resolve(root, "content-reference/fate-star-rail-night-v1");
+  if (kind === "content-audit") {
+    const families = new Set([
+      "FateAvatarDescription",
+      "FateBroadcast",
+      "FateFocusedLayout",
+      "FateMasterTalk",
+      "FateMiscDisplay",
+      "FateRinMainMissions",
+      "FateRinResidentReward",
+      "FateRinSwitchDayTalk",
+      "PoolAudit",
+    ]);
+    const records = [
+      "participants.json",
+      "fight-flow.json",
+      "pool-audits.json",
+    ].flatMap((file) => json(resolve(referenceRoot, file)).records ?? []);
+    return records.filter(({ family }) => families.has(family));
+  }
+  const definitions = {
+    sources: ["sources.json", "sources", "source_id", "SourceReceipt"],
+    coverage: ["coverage.json", "rows", "obligation_id", "CoverageReceipt"],
+    "research-gaps": ["research-gaps.json", "policies", "policy_id", "ResearchPolicy"],
+    reconciliation: ["reconciliation.json", "receipts", "peer_goal", "ReconciliationReceipt"],
+    "review-fixtures": ["review-fixtures.json", "fixtures", "fixture_id", "ReviewFixture"],
+    "pack-files": ["pack-index.json", "files", "path", "PackFile"],
+  };
+  const [file, key, identity, family] = definitions[kind] ?? [];
+  if (!file) throw new Error(`unknown derived review table ${kind}`);
+  return json(resolve(referenceRoot, file))[key].map((payload, index) =>
+    reviewEnvelope(family, payload[identity] ?? `${kind}.${index + 1}`, payload));
+}
+
+function reviewEnvelope(family, identity, payload) {
+  const stable = String(identity).toLowerCase().replace(/[^a-z0-9._-]+/gu, "-");
+  return {
+    stable_id: `fate-star-rail-night.review.${family.toLowerCase()}.${stable}`,
+    family,
+    name_zh: `${family} ${identity}`,
+    name_en: `${family} ${identity}`,
+    summary_zh: "保留审计身份和规范化负载。",
+    summary_en: "Retains the audit identity and canonical payload.",
+    ownership: "EvidenceOnly",
+    disposition: "EvidenceOnly",
+    enabled: false,
+    source_refs: [],
+    evidence_quality: payload.evidence_quality ?? "DerivedAudit",
+    mechanism_quality: payload.mechanism_quality ?? "AuditOnly",
+    confidence: "EvidenceOnly",
+    text_hashes: [],
+    mechanic_payload: payload,
+    notes: "Review-only row; excluded from runtime and the mechanical row denominator.",
+  };
 }
 
 export function workbookFor(definition) {
