@@ -57,7 +57,7 @@ fi
 git -C "${turn_target}" sparse-checkout init --no-cone
 git -C "${turn_target}" sparse-checkout set --no-cone \
   '/README.md' \
-  '/ExcelOutput/FateRin*.json' \
+  '/ExcelOutput/Fate*.json' \
   '/ExcelOutput/StageConfig.json' \
   '/ExcelOutput/BattleEventConfig.json' \
   '/ExcelOutput/BattleTargetConfig.json' \

@@ -76,6 +76,43 @@ FateRinStoryFight.json
 FateRinSwitchDayTalk.json
 ```
 
+`G19-P0-B2` expanded the planning oracle with the distinct 26-table
+`Fate*.json` gameplay family. These rows are primary selector seeds rather than
+Currency Wars copies:
+
+```text
+FateAffix.json
+FateArea.json
+FateAvatarDescription.json
+FateBattleZone.json
+FateBroadcast.json
+FateBuff.json
+FateBuffSlot.json
+FateClazz.json
+FateConstValueClient.json
+FateConstValueCommon.json
+FateDiffPassProgress.json
+FateDifficulty.json
+FateExpReward.json
+FateHandbookMaster.json
+FateHougu.json
+FateMaster.json
+FateMasterTalk.json
+FateMazeBuff.json
+FateMiscDisplay.json
+FateMonsterPool.json
+FatePhase.json
+FateReiju.json
+FateReijuAffix.json
+FateStatusConfig.json
+FateTrait.json
+FateTraitBuff.json
+```
+
+This discovery corrects the narrower planning seed without rewriting the B1
+receipt. Membership and exact denominators still wait for P0-B3 selector and
+reference closure.
+
 The focused inventory must follow exact selectors into:
 
 ```text
