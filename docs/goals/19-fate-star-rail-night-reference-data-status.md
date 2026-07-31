@@ -9,7 +9,7 @@
 | Active phase | Phase 3 — Excel and Sora |
 | Active phase | Phase 4 — Audit and freeze |
 | Active batch | — |
-| Next unblocked batch | `G19-P4-B3` |
+| Next unblocked batch | `G19-P4-B4` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -70,7 +70,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P3-B6` | `Complete` | This row's containing commit | Exported all 48 tables and completed generated-reader plus every-sheet visual QA. P4-B2 regenerated the current 5,936-row bundle at `ce195a55…9bc7` / tree `5bbda6ed…c0a6`; the standalone loader parses every table and the corrected 144-band visual evidence remains `PassedHumanInspection` with zero severe defect. |
 | `G19-P4-B1` | `Complete` | This row's containing commit | Independently audited 1,904 unique manifest obligations against 1,904 unique coverage receipts, 1,491 DataReady + 413 EvidenceOnly dispositions, thirteen explicit policies and zero unresolved rows. All 2,018 normalized rows have unique stable IDs, bilingual names/summaries and exact provenance; all 1,914 source receipts are unique. Six selector pools remain exact zero, RtBattle/GridFight exclusions do not leak and runtime crates contain no Fate reference path. |
 | `G19-P4-B2` | `Complete` | This row's containing commit | Executed 58 fixtures / 118 source-backed assertions and verified all thirteen `IdentityOnlyNoOperationLowering` policies, rejected alternatives and released-evidence replacement conditions. The audit exposed two missing policy fixture links for BattleEvent/BattleTarget; added disabled ResearchRequired boundary fixtures, regenerated the 17-file pack, workbooks, Sora bundle/debug export and 144-band visual evidence, then reran byte-stability and generated-reader checks. |
-| `G19-P4-B3` | `Pending` | — | Reconcile overlaps and run full regeneration/clean-checkout acceptance. |
+| `G19-P4-B3` | `Complete` | This row's containing commit | Locked and reverified the three concurrent frozen manifests at commits `6b30afec`, `50fa7e37` and `f9f70e20`. Exact path+locator+digest comparison yields zero exact shared receipts and zero same-locator digest conflicts, so no definition is copied or silently unified. Regenerated the pack (`59bcb142…171d`), 5,936-row workbooks, Sora export and 144-band visual evidence. After recording missing Sora archive and default-Python/openpyxl prerequisites, the corrected full gate passed 28 generated checks, Clippy and 33 workspace harnesses in 451.0 seconds. |
 | `G19-P4-B4` | `Pending` | — | Freeze Candidate release evidence and completion snapshot. |
 
 ## Frozen counters

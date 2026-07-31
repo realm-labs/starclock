@@ -3,9 +3,9 @@
 Pinned Sora 0.3.0 exported 48 debug tables and a Zstandard binary bundle. All
 5,936 rows retain their private ordinal and normalized stable key. Independent
 full regeneration is byte-identical at generated-tree digest
-`5bbda6ed878ef860175e3eccfcb82294ac49e84eee6c28e75bafb8b41857c0a6`;
+`47179254fe22123e0c03f888cf310a35dbaab3faa14ffcecd42570153ad1f5df`;
 the bundle digest is
-`ce195a55c5056415a1672d50c4329bcea43173edc71bc0d4aa9fd0b130ed9bc7`.
+`f2897da1190ebfe5d6634982382b1bcd5eadcda50b2a050ef1be247b78343336`.
 The standalone locked Rust loader parses the bundle and iterates all 48
 non-empty generated readers for exactly 5,936 rows. Nothing is imported by a
 runtime crate.

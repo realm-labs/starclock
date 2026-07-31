@@ -10,6 +10,8 @@ const check = process.argv.includes("--check");
 const packRoot = path.join(root, "content-reference/fate-star-rail-night-v1");
 const manifest = json(path.join(root,
   "content-manifests/fate-star-rail-night-v1/content-manifest.json"));
+const peerLock = json(path.join(root,
+  "content-manifests/fate-star-rail-night-v1/peer-reconciliation-lock.json"));
 const partitionNames = [
   "profile-graph.json", "participants.json", "noble-phantasms.json",
   "effects.json", "command-spells.json", "progression-traits.json",
@@ -128,10 +130,26 @@ const localTriples = new Map(manifest.obligations.map((obligation) => [
   receiptKey(obligation.source_path, obligation.locator, obligation.source_sha256),
   obligation.obligation_id,
 ]));
+const localLocators = new Map(manifest.obligations.map((obligation) => [
+  locatorKey(obligation.source_path, obligation.locator),
+  { obligation_id: obligation.obligation_id, sha256: obligation.source_sha256 },
+]));
 const reconciliation = peerManifestPaths.map((relative) => {
   const bytes = fs.readFileSync(path.join(root, relative));
-  const triples = collectTriples(JSON.parse(bytes.toString("utf8")));
+  const document = JSON.parse(bytes.toString("utf8"));
+  const triples = collectTriples(document);
+  const peerLocators = collectLocators(document);
   const matches = [...triples].filter((key) => localTriples.has(key)).sort();
+  const conflicts = [...peerLocators].flatMap(([key, digests]) => {
+    const local = localLocators.get(key);
+    if (!local || digests.has(local.sha256)) return [];
+    return [{
+      local_obligation_id: local.obligation_id,
+      locator: key,
+      local_sha256: local.sha256,
+      peer_sha256: [...digests].sort(compareText),
+    }];
+  }).sort((left, right) => compareText(left.locator, right.locator));
   return {
     peer_goal: relative.split("/")[1],
     peer_manifest: relative,
@@ -141,20 +159,31 @@ const reconciliation = peerManifestPaths.map((relative) => {
       semantic_result: "SharedIdentical",
     })),
     match_count: matches.length,
-    conflict_count: 0,
-    decision: matches.length === 0 ? "DistinctByExactReceipt" : "ReferenceSharedIdentity",
-    note: "Compared exact source path + row locator + evidence digest; names and ID adjacency were ignored.",
+    conflicts,
+    conflict_count: conflicts.length,
+    decision: conflicts.length > 0 ? "ConflictingEvidenceDigest"
+      : matches.length === 0 ? "DistinctByExactReceipt" : "ReferenceSharedIdentity",
+    note: "Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.",
   };
 });
-for (const peer of ["pure-fiction-v1", "memory-of-chaos-v1", "apocalyptic-shadow-v1"])
-  reconciliation.push({
-    peer_goal: peer,
-    peer_manifest: "pending-concurrent-merge",
-    peer_manifest_sha256: "",
-    exact_receipt_matches: [], match_count: 0, conflict_count: 0,
-    decision: "PendingMergeReconciliation",
-    note: "The concurrent branch is reconciled after merge from its committed exact receipts.",
-  });
+for (const peer of peerLock.peers) {
+  const expected = {
+    peer_goal: peer.peer_goal,
+    peer_manifest: peer.peer_manifest,
+    peer_manifest_sha256: peer.peer_manifest_sha256,
+    exact_receipt_matches: peer.exact_receipt_matches,
+    match_count: peer.match_count,
+    conflicts: peer.conflicts,
+    conflict_count: peer.conflict_count,
+    decision: peer.decision,
+    note: "Compared exact source path + row locator + evidence digest and separately rejected same-locator digest drift; names and ID adjacency were ignored.",
+  };
+  const observed = reconciliation.find(({ peer_goal: goal }) =>
+    goal === peer.peer_goal);
+  if (observed) assert(canonical(observed) === canonical(expected),
+    `peer reconciliation drift ${peer.peer_goal}`);
+  else reconciliation.push(expected);
+}
 reconciliation.sort((left, right) => compareText(left.peer_goal, right.peer_goal));
 
 const coverage = {
@@ -235,7 +264,8 @@ function collectTriples(value, output = new Set()) {
   else if (value && typeof value === "object") {
     const sourcePath = value.source_path ?? value.path ?? value.relative_path;
     const locator = value.locator ?? value.source_locator ?? value.row_locator;
-    const sha256 = value.source_sha256 ?? value.sha256 ?? value.evidence_digest;
+    const sha256 = value.source_sha256 ?? value.sha256 ??
+      value.evidence_digest ?? value.evidence_sha256;
     if (typeof sourcePath === "string" && typeof locator === "string" &&
       typeof sha256 === "string" && /^[a-f0-9]{64}$/u.test(sha256))
       output.add(receiptKey(sourcePath, locator, sha256));
@@ -244,8 +274,31 @@ function collectTriples(value, output = new Set()) {
   return output;
 }
 
+function collectLocators(value, output = new Map()) {
+  if (Array.isArray(value)) for (const entry of value) collectLocators(entry, output);
+  else if (value && typeof value === "object") {
+    const sourcePath = value.source_path ?? value.path ?? value.relative_path;
+    const locator = value.locator ?? value.source_locator ?? value.row_locator;
+    const sha256 = value.source_sha256 ?? value.sha256 ??
+      value.evidence_digest ?? value.evidence_sha256;
+    if (typeof sourcePath === "string" && typeof locator === "string" &&
+      typeof sha256 === "string" && /^[a-f0-9]{64}$/u.test(sha256)) {
+      const key = locatorKey(sourcePath, locator);
+      const digests = output.get(key) ?? new Set();
+      digests.add(sha256);
+      output.set(key, digests);
+    }
+    for (const child of Object.values(value)) collectLocators(child, output);
+  }
+  return output;
+}
+
 function receiptKey(sourcePath, locator, sha256) {
   return `${sourcePath}\u001f${locator}\u001f${sha256}`;
+}
+
+function locatorKey(sourcePath, locator) {
+  return `${sourcePath}\u001f${locator}`;
 }
 
 function canonical(value) {
