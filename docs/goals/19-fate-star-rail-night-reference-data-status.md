@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Encounters and complete pack |
 | Active batch | — |
-| Next unblocked batch | `G19-P2-B4` |
+| Next unblocked batch | `G19-P2-B5` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -59,7 +59,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P2-B1` | `Complete` | This row's containing commit | Materialized six `0/0/0` selector-closure audits at `e2107a08…7de0` for Blessing, Curio, Occurrence, Shop, Service and generic run currency. Fate-owned positive families remain distinct; focused/quick gates and remote publication pass. |
 | `G19-P2-B2` | `Complete` | This row's containing commit | Normalized 67 shared bindings at `0cd67f04…674a`: 18 BattleAreas, thirteen unified configs, 23 MazeBuffs, two BattleEvents and eleven BattleTargets. 54 typed/direct rows are DataReady; thirteen scalar event/target matches remain bounded research for P2-B5. Focused/quick gates and remote publication pass. |
 | `G19-P2-B3` | `Complete` | This row's containing commit | Expanded eight FateActivity obligations into 112 DataReady rows at `b8db101d…24e5`: eight stages, 24 ordered waves and eighty ordered slots. Derived children retain parent provenance without enlarging the exact-once denominator; focused/quick gates and remote publication pass. |
-| `G19-P2-B4` | `Pending` | — | Import enemy/AI/ability/phase and event-specific participant closure. |
+| `G19-P2-B4` | `Complete` | This row's containing commit | Closed eighteen manifest rows at `07e489d2…2d5b` (five variants, five templates, eight skills) plus ten template-derived character/AI program receipts at `fdbbfb0c…6372`; 15 AnimEvent paths are presentation exclusions and no typed separate ability-program path exists. Primary inventory remains stable; focused/quick gates and remote publication pass. |
 | `G19-P2-B5` | `Pending` | — | Generate rules, sources, coverage, gaps, reconciliation, fixtures and index. |
 | `G19-P3-B1` | `Pending` | — | Add profile/graph/participant/progression Sora tables. |
 | `G19-P3-B2` | `Pending` | — | Add Mystic Code/deck/resource/Command Spell/trait Sora tables. |

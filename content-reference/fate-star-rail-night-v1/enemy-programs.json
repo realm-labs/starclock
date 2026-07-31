@@ -1,0 +1,314 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-enemy-programs.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P2-B4",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "parent_template_obligations": 5,
+  "counts": {
+    "records": 10,
+    "character_configs": 5,
+    "ai_configs": 5,
+    "presentation_exclusions": 15
+  },
+  "exact_ability_program_boundary": "No released typed path from these five templates selects a separate ability-program file; eight MonsterSkillConfig rows are the exact skill closure.",
+  "presentation_exclusions": [
+    "Config/ConfigAnimEvents/Monster/Audio/Monster_AML_Minion02_00_Audio_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Audio/Monster_AML_Minion03_00_Audio_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Audio/Monster_XP_Elite01_00_Audio_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Audio/Monster_XP_Minion01_00_Audio_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Audio/Monster_XP_Minion04_00_Audio_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Designer/Monster_AML_Minion02_00_Designer_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Designer/Monster_AML_Minion03_00_Designer_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Designer/Monster_XP_Elite01_00_Designer_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Designer/Monster_XP_Minion01_00_Designer_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Designer/Monster_XP_Minion04_00_Designer_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Effect/Monster_AML_Minion02_00_Effect_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Effect/Monster_AML_Minion03_00_Effect_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Effect/Monster_XP_Elite01_00_Effect_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Effect/Monster_XP_Minion01_00_Effect_AnimEvent.json",
+    "Config/ConfigAnimEvents/Monster/Effect/Monster_XP_Minion04_00_Effect_AnimEvent.json"
+  ],
+  "records": [
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.aiconfig.8001010",
+      "family": "EnemyProgram",
+      "name_zh": "8001010 AIConfig 配置",
+      "name_en": "8001010 AIConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+          "locator": "file",
+          "sha256": "1a0b5e6f2307d7f0c84a95f9e76083f4cad36007fe9b73b0397681e4186f724d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8001010",
+        "program_kind": "AIConfig",
+        "bytes": "861",
+        "program_sha256": "1a0b5e6f2307d7f0c84a95f9e76083f4cad36007fe9b73b0397681e4186f724d"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.aiconfig.8002040",
+      "family": "EnemyProgram",
+      "name_zh": "8002040 AIConfig 配置",
+      "name_en": "8002040 AIConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigAI/Monster_XP_Minion04_00_AI.json",
+          "locator": "file",
+          "sha256": "e529ac1f6ba0546330388657f71acc35520ea190718a0b51450199ba62a32df2"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8002040",
+        "program_kind": "AIConfig",
+        "bytes": "2657",
+        "program_sha256": "e529ac1f6ba0546330388657f71acc35520ea190718a0b51450199ba62a32df2"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.aiconfig.8003020",
+      "family": "EnemyProgram",
+      "name_zh": "8003020 AIConfig 配置",
+      "name_en": "8003020 AIConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigAI/Monster_XP_Elite01_00_AI.json",
+          "locator": "file",
+          "sha256": "21ae910a3deac9785fa638ba476bfc648da79af24507282620c7952fd83a07a4"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8003020",
+        "program_kind": "AIConfig",
+        "bytes": "12997",
+        "program_sha256": "21ae910a3deac9785fa638ba476bfc648da79af24507282620c7952fd83a07a4"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.aiconfig.8012010",
+      "family": "EnemyProgram",
+      "name_zh": "8012010 AIConfig 配置",
+      "name_en": "8012010 AIConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigAI/Monster_AML_Minion02_00_AI.json",
+          "locator": "file",
+          "sha256": "15c7ee1180d86cc69dcdd0b2170c166b790f11378f47bc460af9470de2b0071e"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8012010",
+        "program_kind": "AIConfig",
+        "bytes": "2122",
+        "program_sha256": "15c7ee1180d86cc69dcdd0b2170c166b790f11378f47bc460af9470de2b0071e"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.aiconfig.8012020",
+      "family": "EnemyProgram",
+      "name_zh": "8012020 AIConfig 配置",
+      "name_en": "8012020 AIConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigAI/Monster_AML_Minion03_00_AI.json",
+          "locator": "file",
+          "sha256": "1e361d0d176aea5a6fb62093730c11f0c438cd2b2bfa363f011fd4ec0260bf36"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8012020",
+        "program_kind": "AIConfig",
+        "bytes": "3877",
+        "program_sha256": "1e361d0d176aea5a6fb62093730c11f0c438cd2b2bfa363f011fd4ec0260bf36"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.character-config.8001010",
+      "family": "EnemyProgram",
+      "name_zh": "8001010 CharacterConfig 配置",
+      "name_en": "8001010 CharacterConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigCharacter/Monster/Monster_XP_Minion01_00_Config.json",
+          "locator": "file",
+          "sha256": "662f80780caa1f5af149c9591e4d0d4734b438a4be621f3b0f0f317f736e17df"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8001010",
+        "program_kind": "CharacterConfig",
+        "bytes": "2329",
+        "program_sha256": "662f80780caa1f5af149c9591e4d0d4734b438a4be621f3b0f0f317f736e17df"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.character-config.8002040",
+      "family": "EnemyProgram",
+      "name_zh": "8002040 CharacterConfig 配置",
+      "name_en": "8002040 CharacterConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigCharacter/Monster/Monster_XP_Minion04_00_Config.json",
+          "locator": "file",
+          "sha256": "38cad2c472623482a9078f28705d95dab305b0b1f54e2513acad0fde33963dba"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8002040",
+        "program_kind": "CharacterConfig",
+        "bytes": "3269",
+        "program_sha256": "38cad2c472623482a9078f28705d95dab305b0b1f54e2513acad0fde33963dba"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.character-config.8003020",
+      "family": "EnemyProgram",
+      "name_zh": "8003020 CharacterConfig 配置",
+      "name_en": "8003020 CharacterConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigCharacter/Monster/Monster_XP_Elite01_00_Config.json",
+          "locator": "file",
+          "sha256": "bb652a4c3caf57471a681a012f2470dc9a9e2c40e634889dfc2d221045f9b22d"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8003020",
+        "program_kind": "CharacterConfig",
+        "bytes": "6317",
+        "program_sha256": "bb652a4c3caf57471a681a012f2470dc9a9e2c40e634889dfc2d221045f9b22d"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.character-config.8012010",
+      "family": "EnemyProgram",
+      "name_zh": "8012010 CharacterConfig 配置",
+      "name_en": "8012010 CharacterConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigCharacter/Monster/Monster_AML_Minion02_00_Config.json",
+          "locator": "file",
+          "sha256": "51acb1dcc92e20006ada2b10794b7ab06b3e3d297202738112d91b4ad0378c01"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8012010",
+        "program_kind": "CharacterConfig",
+        "bytes": "3264",
+        "program_sha256": "51acb1dcc92e20006ada2b10794b7ab06b3e3d297202738112d91b4ad0378c01"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    },
+    {
+      "stable_id": "fate-star-rail-night.enemy-program.character-config.8012020",
+      "family": "EnemyProgram",
+      "name_zh": "8012020 CharacterConfig 配置",
+      "name_en": "8012020 CharacterConfig configuration",
+      "summary_zh": "保留敌人配置身份、大小与摘要，不复制或执行上游程序。",
+      "summary_en": "Retains enemy configuration identity, size and digest without copying or executing the upstream program.",
+      "ownership": "Shared",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "Config/ConfigCharacter/Monster/Monster_AML_Minion03_00_Config.json",
+          "locator": "file",
+          "sha256": "b0524320ae012183335cab51297efe0fb97c13341eefa5ee4123b42c7011894c"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ProgramDigestExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "enemy_template_source_id": "8012020",
+        "program_kind": "CharacterConfig",
+        "bytes": "2955",
+        "program_sha256": "b0524320ae012183335cab51297efe0fb97c13341eefa5ee4123b42c7011894c"
+      },
+      "notes": "Runtime lowering is excluded; presentation AnimEvent references are named exclusions."
+    }
+  ],
+  "canonical_records_sha256": "fdbbfb0cdca9ab5484fb0e73a7586a82b5cd5f6f000aaa05651506f184876372"
+}

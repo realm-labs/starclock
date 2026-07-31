@@ -16,7 +16,8 @@ const turnRoot = path.join(sourceCache, "turnbasedgamedata");
 const resRoot = path.join(sourceCache, "StarRailRes");
 
 const records = [
-  ...walk(turnRoot).map((relative) => sourceRecord(
+  ...walk(turnRoot).filter((relative) => !supplementalEnemyProgram(relative))
+    .map((relative) => sourceRecord(
     "turnbasedgamedata", turnRoot, relative, classifyTurn(relative))),
   ...walk(resRoot).map((relative) => sourceRecord(
     "StarRailRes", resRoot, relative, classifyRes(relative))),
@@ -132,6 +133,21 @@ function classifyRes(relative) {
   if (relative.startsWith("index_new/"))
     return { category: "IdentityCrossCheck", disposition: "EvidenceOnly" };
   return { category: "SourceMetadata", disposition: "EvidenceOnly" };
+}
+
+function supplementalEnemyProgram(relative) {
+  return [
+    "Config/ConfigCharacter/Monster/Monster_XP_Minion01_00_Config.json",
+    "Config/ConfigCharacter/Monster/Monster_XP_Minion04_00_Config.json",
+    "Config/ConfigCharacter/Monster/Monster_XP_Elite01_00_Config.json",
+    "Config/ConfigCharacter/Monster/Monster_AML_Minion02_00_Config.json",
+    "Config/ConfigCharacter/Monster/Monster_AML_Minion03_00_Config.json",
+    "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+    "Config/ConfigAI/Monster_XP_Minion04_00_AI.json",
+    "Config/ConfigAI/Monster_XP_Elite01_00_AI.json",
+    "Config/ConfigAI/Monster_AML_Minion02_00_AI.json",
+    "Config/ConfigAI/Monster_AML_Minion03_00_AI.json",
+  ].includes(relative);
 }
 
 function exclusion(id, selector, paths, reason) {

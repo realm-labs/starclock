@@ -74,7 +74,17 @@ git -C "${turn_target}" sparse-checkout set --no-cone \
   '/Config/ConfigAI/*FateRin*.json' \
   '/Config/ConfigCharacter/BattleEvent/Activity_FateRin_*.json' \
   '/Config/ConfigAbility/Monster/*FateRin*.json' \
-  '/Config/ConfigAnimEvents/Monster/Designer/*FateRin*.json'
+  '/Config/ConfigAnimEvents/Monster/Designer/*FateRin*.json' \
+  '/Config/ConfigCharacter/Monster/Monster_XP_Minion01_00_Config.json' \
+  '/Config/ConfigCharacter/Monster/Monster_XP_Minion04_00_Config.json' \
+  '/Config/ConfigCharacter/Monster/Monster_XP_Elite01_00_Config.json' \
+  '/Config/ConfigCharacter/Monster/Monster_AML_Minion02_00_Config.json' \
+  '/Config/ConfigCharacter/Monster/Monster_AML_Minion03_00_Config.json' \
+  '/Config/ConfigAI/Monster_Common_SequenceThree_AI.json' \
+  '/Config/ConfigAI/Monster_XP_Minion04_00_AI.json' \
+  '/Config/ConfigAI/Monster_XP_Elite01_00_AI.json' \
+  '/Config/ConfigAI/Monster_AML_Minion02_00_AI.json' \
+  '/Config/ConfigAI/Monster_AML_Minion03_00_AI.json'
 git -C "${turn_target}" checkout --detach "${turn_revision}"
 git -C "${turn_target}" sparse-checkout reapply
 
