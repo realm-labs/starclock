@@ -37,6 +37,14 @@ export async function source(relativePath) {
   return losslessJson(await readFile(path.join(sourceRoot, relativePath)));
 }
 
+export async function sourceWithDecimalStrings(relativePath) {
+  const bytes = await readFile(path.join(sourceRoot, relativePath));
+  return losslessJson(Buffer.from(bytes).toString("utf8").replace(
+    /(:\s*|[\[,]\s*)(-?\d+\.\d+)(?=\s*[,}\]])/gu,
+    '$1"$2"',
+  ));
+}
+
 export function losslessJson(bytes) {
   return JSON.parse(Buffer.from(bytes).toString("utf8").replace(
     /(:\s*|[\[,]\s*)(-?\d{16,})(?=\s*[,}\]])/gu,
@@ -101,6 +109,21 @@ export function publicRef(
     quality: "ExactPublicText",
     mechanism_quality: mechanismQuality,
     note: fact,
+  };
+}
+
+export function rawStructuredRef(relativePath, locator, value, note) {
+  return {
+    id: `turnbasedgamedata:${relativePath}:${locator}`,
+    repository_or_url: "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+    revision_or_access_date: sourceRevision,
+    game_version: "4.4",
+    path_or_page: relativePath,
+    row_locator: locator,
+    evidence_sha256: digest(value),
+    quality: "ExactStructured",
+    mechanism_quality: "ExactProgramProjection",
+    note,
   };
 }
 
