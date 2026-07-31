@@ -62,6 +62,13 @@ three Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
 peer reconciliation, approximation register and semantic fixtures. It remains
 reference-only and does not enter any production runtime bundle.
 
+The isolated Version 4.4 Fate/Star Rail Night Candidate reference lives under
+`fate-star-rail-night-v1/`. It has a frozen 1,904-obligation manifest, a
+2,018-record normalized pack, four Excel/openpyxl workbooks, a 48-table Sora
+0.3.0 review bundle, provenance, peer reconciliation, thirteen replacement
+boundaries and 58 semantic fixtures. It remains reference-only and does not
+enter any production runtime bundle.
+
 The post-merge audit for all six Candidate packages is generated at
 `evidence/reference-integration-v1/merged-mode-audit.json`. It binds their
 final completion commits, proves the merged manifests and release evidence are

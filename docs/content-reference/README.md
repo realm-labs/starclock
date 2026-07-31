@@ -191,6 +191,24 @@ the isolated Sora review bundle digest is
 Exact counts, evidence and the remaining runtime boundary are recorded in the
 [Goal 13 ledger](../goals/13-anomaly-arbitration-reference-data-status.md).
 
+## Fate/Star Rail Night Candidate reference
+
+Goal 19 freezes a separate Version 4.4 Fate/Star Rail Night reference package
+under `content-reference/fate-star-rail-night-v1/`. Its 1,904 obligations are
+fully accounted: 1,491 are eligible DataReady, 413 are EvidenceOnly and
+thirteen exact identities are conservatively policy-bound with released-source
+replacement conditions. The normalized pack contains 2,018 records, 1,914
+source receipts, six exact-zero selector proofs, 58 semantic fixtures and zero
+runtime-executable profiles. Four isolated authoring workbooks and the
+48-table Candidate Sora bundle remain review artifacts only.
+
+The complete reference tree digest is
+`edfd1fd99eac92b89e78fffbafe2fd9e4f1fcefc7481bafbea583b80c797e68f`;
+the isolated Sora review bundle digest is
+`f2897da1190ebfe5d6634982382b1bcd5eadcda50b2a050ef1be247b78343336`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 19 ledger](../goals/19-fate-star-rail-night-reference-data-status.md).
+
 ## Merged Candidate integration
 
 The generated

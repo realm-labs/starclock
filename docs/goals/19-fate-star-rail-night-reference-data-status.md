@@ -5,11 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `fate-star-rail-night-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 3 — Excel and Sora |
-| Active phase | Phase 4 — Audit and freeze |
+| State | `Complete` — Candidate reference data; runtime unreleased |
+| Active phase | Complete |
 | Active batch | — |
-| Next unblocked batch | `G19-P4-B4` |
+| Next unblocked batch | — |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -40,7 +39,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | Phase 1 — Unique activity systems | `Complete` | Seven normalized partitions contain 1,805 direct records: 1,392 enabled mode facts and all 413 evidence-only obligations; with six zero records, the complete 1,398 Fate-owned denominator is accounted. |
 | Phase 2 — Encounters and complete pack | `Complete` | The 17-file pack accounts 1,904/1,904 obligations, 1,491 eligible DataReady rows, 413 evidence-only rows, 13 replaceable policies, 58 fixtures and zero unresolved records. |
 | Phase 3 — Excel and Sora | `Complete` | 48 non-empty Sora tables / 5,936 rows, four byte-stable openpyxl workbooks, a byte-stable binary/debug export loaded through all generated readers, and every-sheet visual QA are complete. |
-| Phase 4 — Audit and freeze | `Pending` | Awaiting ownership audit, semantic execution, reconciliation and Candidate release. |
+| Phase 4 — Audit and freeze | `Complete` | Exact-once ownership, semantic fixtures, replacement boundaries and immutable peer manifests pass. The terminal verifier regenerates four workbooks and the 48-table Sora release byte-identically; Candidate evidence freezes all counters, digests and 25 prerequisite batch commits. |
 
 ## Batch ledger
 
@@ -66,12 +65,12 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P3-B2` | `Complete` | This row's containing commit | Added fourteen binding Sora tables with 597 exact-once rows for Masters, Servants, Noble Phantasms and levels, rarity/tag/keyword catalogs, decks/recommendations, Command Spells/affixes, resources and typed rule/lifecycle binding receipts. Together with B1 the isolated project exposes 28 non-empty tables / 751 rows with no duplicate stable key; opaque programs remain digests and are not lowered into runtime. |
 | `G19-P3-B3` | `Complete` | This row's containing commit | Added thirteen combat Sora tables with 849 exact-once rows spanning stage/area/encounter graphs, waves/slots, enemy identities/program receipts, status/buff/MazeBuff definitions and bounded BattleEvent/BattleTarget bindings. The cumulative 41 gameplay tables contain 1,600 unique stable keys; event/target policies remain reference identities without invented operations. |
 | `G19-P3-B4` | `Complete` | This row's containing commit | Added seven review tables and the 48-table Sora foundation. P4-B2's policy-fixture correction updates the current review denominator to 58 fixtures and the complete workbook denominator to 5,936 rows without changing the 48-table schema, four templates or 50 isolated readers. No generated reader is imported by runtime. |
-| `G19-P3-B5` | `Complete` | This row's containing commit | Authored four clean-target workbooks with pinned `openpyxl==3.1.5`, exact Sora metadata, filters/frozen panes/validations and no formulas. P4-B2 regenerated the current 48 sheets / 5,936 rows twice byte-identically at digests `4836dd77…8932`, `c191e548…31f5`, `e0536821…d30f` and `99f721b9…06c`. |
-| `G19-P3-B6` | `Complete` | This row's containing commit | Exported all 48 tables and completed generated-reader plus every-sheet visual QA. P4-B2 regenerated the current 5,936-row bundle at `ce195a55…9bc7` / tree `5bbda6ed…c0a6`; the standalone loader parses every table and the corrected 144-band visual evidence remains `PassedHumanInspection` with zero severe defect. |
+| `G19-P3-B5` | `Complete` | This row's containing commit | Authored four clean-target workbooks with pinned `openpyxl==3.1.5`, exact Sora metadata, filters/frozen panes/validations and no formulas. P4-B2 regenerated the current 48 sheets / 5,936 rows twice byte-identically at digests `bb56d38b…74ea`, `c191e548…31f5`, `e0536821…d30f` and `99d68277…67e8`. |
+| `G19-P3-B6` | `Complete` | This row's containing commit | Exported all 48 tables and completed generated-reader plus every-sheet visual QA. P4-B2 regenerated the current 5,936-row bundle at `f2897da1…336` / tree `47179254…5df`; the standalone loader parses every table and the corrected 144-band visual evidence remains `PassedHumanInspection` with zero severe defect. |
 | `G19-P4-B1` | `Complete` | This row's containing commit | Independently audited 1,904 unique manifest obligations against 1,904 unique coverage receipts, 1,491 DataReady + 413 EvidenceOnly dispositions, thirteen explicit policies and zero unresolved rows. All 2,018 normalized rows have unique stable IDs, bilingual names/summaries and exact provenance; all 1,914 source receipts are unique. Six selector pools remain exact zero, RtBattle/GridFight exclusions do not leak and runtime crates contain no Fate reference path. |
 | `G19-P4-B2` | `Complete` | This row's containing commit | Executed 58 fixtures / 118 source-backed assertions and verified all thirteen `IdentityOnlyNoOperationLowering` policies, rejected alternatives and released-evidence replacement conditions. The audit exposed two missing policy fixture links for BattleEvent/BattleTarget; added disabled ResearchRequired boundary fixtures, regenerated the 17-file pack, workbooks, Sora bundle/debug export and 144-band visual evidence, then reran byte-stability and generated-reader checks. |
 | `G19-P4-B3` | `Complete` | This row's containing commit | Locked and reverified the three concurrent frozen manifests at commits `6b30afec`, `50fa7e37` and `f9f70e20`. Exact path+locator+digest comparison yields zero exact shared receipts and zero same-locator digest conflicts, so no definition is copied or silently unified. Regenerated the pack (`59bcb142…171d`), 5,936-row workbooks, Sora export and 144-band visual evidence. After recording missing Sora archive and default-Python/openpyxl prerequisites, the corrected full gate passed 28 generated checks, Clippy and 33 workspace harnesses in 451.0 seconds. |
-| `G19-P4-B4` | `Pending` | — | Freeze Candidate release evidence and completion snapshot. |
+| `G19-P4-B4` | `Complete` | This row's containing commit | Froze machine-verifiable Candidate evidence at `evidence/fate-star-rail-night-reference-v1/release/release-evidence.json` (`a5097123…6fbf`), pinning 1,904 obligations, 2,018 normalized records, 1,914 sources, thirteen policies, 58 fixtures, four workbooks, 144 visual bands, 48 Sora tables / 5,936 rows and zero runtime profiles. The ordered terminal verifier rechecked pack/semantic/peer evidence, regenerated all workbooks and Sora artifacts byte-identically and loaded every generated reader. The containing commit must be pushed and verified by exact local/tracking/remote equality. |
 
 ## Frozen counters
 
@@ -87,22 +86,27 @@ proofs. Never reduce this denominator to make later coverage pass.
 |---|---|---|---|
 | `G19-R01` | `ResolvedNarrowed` | Which Fate/FateRin/shared tables, config programs, stages and enemy files close the focused inventory? The current 179-file inventory includes 51 dedicated tables, 64 configs, ten shared join tables, TextMaps and identity indexes; P2 retains transitive BattleEvent/enemy-program work. | P0-B2/P0-B3 |
 | `G19-R02` | `Resolved` | Which selectors prove released/permanent Fate/Star Rail Night membership and exclude Currency Wars/RtBattle/unrelated rows? Direct Fate tables/configs plus typed closure own the pack; 166 RtBattle and 23 Currency Wars Trait paths remain named exclusions. | P0-B3 |
-| `G19-R03` | `Open` | What exact graph, Case Board, day/progress and unlock lifecycle is mechanical? | P1-B1 |
-| `G19-R04` | `Open` | What are exact Master/Servant/team/trial/loadout uniqueness and invalidation scopes? | P1-B2 |
-| `G19-R05` | `Open` | What are every Mystic Code candidate, acquisition, cost, target, effect, repeat, upgrade and teardown rule? | P1-B3–B4 |
-| `G19-R06` | `Open` | How do magical energy and Command Spell/Reiju choices, rerolls and resources settle? | P1-B5 |
-| `G19-R07` | `Open` | How do progression, traits/affixes, owner/init loadouts and state carry compose? | P1-B6 |
-| `G19-R08` | `Open` | Which story/map/Infinite Trial fights, affixes, objectives and retry/settlement rules are enabled? | P1-B7/P2-B2 |
-| `G19-R09` | `Open` | Which StageConfig waves, enemies, AI, skills, statuses and abilities define every fight? | P2-B3–B4 |
+| `G19-R03` | `ResolvedReferenceBound` | The exact graph, Case Boards, nodes, phases, zones, difficulty/day progress and authored unlock locators are normalized; unavailable runtime lifecycle meaning remains outside this reference-only Goal. | P1-B1/P4-B1 |
+| `G19-R04` | `ResolvedReferenceBound` | Master, Servant, avatar, team, owner and initial-loadout identities are normalized without inventing name-based uniqueness or invalidation behavior. | P1-B2/P4-B1 |
+| `G19-R05` | `ResolvedFixtureBound` | Noble Phantasm/Conceptual Mystic Code identities, configs, catalogs, decks, effects and selection facts are exact; hidden target/order/stack/teardown operations remain explicit fixture-bound boundaries. | P1-B3–B4/P4-B2 |
+| `G19-R06` | `ResolvedFixtureBound` | Command Spell/Reiju definitions, affixes, constants and program receipts are normalized; hidden settlement/order/reroll timing is explicitly not lowered. | P1-B5/P4-B2 |
+| `G19-R07` | `ResolvedFixtureBound` | Affixes, experience, traits, levels, initial owner/loadout bindings and program receipts are normalized; carry/reset timing remains a declared runtime boundary. | P1-B6/P4-B2 |
+| `G19-R08` | `ResolvedReferenceBound` | Enabled challenge/story/map/Infinite Trial fight locators and monster pools are separated from 411 evidence-only presentation/reward rows; no reward or story payload enters mechanics. | P1-B7/P2-B2/P4-B1 |
+| `G19-R09` | `ResolvedReferenceBound` | Eight stages, 24 waves, 80 slots, variants, templates, skills and ten enemy-program receipts close every selected encounter without inventing a separate ability-program path. | P2-B3–B4/P4-B1 |
 | `G19-R10` | `ResolvedFixtureBound` | Which hidden ordering, timing, weights, caps, rounding and fallbacks remain unavailable? Thirteen BattleEvent/BattleTarget operation meanings use `IdentityOnlyNoOperationLowering`, each with alternatives, fixture and released-evidence replacement condition. | P2-B5/P4-B2 |
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Remote verification | — |
-| Reference bundle | — |
-| Coverage | Pending G19-P0-B3 |
-| Runtime profile | Unreleased |
+| Final state | `Complete` — Candidate reference data; runtime unreleased |
+| Completion commit | This row's containing `G19-P4-B4` commit |
+| Remote verification | Required exact local/tracking/`git ls-remote` equality for the containing commit |
+| Reference bundle | `content-reference/fate-star-rail-night-v1/`; full tree SHA-256 `edfd1fd99eac92b89e78fffbafe2fd9e4f1fcefc7481bafbea583b80c797e68f` |
+| Coverage | 1,904/1,904 accounted; 1,491 eligible DataReady, 413 EvidenceOnly, thirteen policy-bound, zero unresolved |
+| Workbooks | Four byte-identical openpyxl workbooks; 48 sheets / 5,936 rows; 144 visual-review bands passed |
+| Sora release | 48 tables / 5,936 independently loaded rows; bundle SHA-256 `f2897da1190ebfe5d6634982382b1bcd5eadcda50b2a050ef1be247b78343336` |
+| Release evidence | `evidence/fate-star-rail-night-reference-v1/release/release-evidence.json`; SHA-256 `a5097123d4f50062b5e2e02da024216cd89850b9f65c97c3f74d8eda4b266fbf` |
+| Full gate | At pushed `6931110d`: 28 generated checks, Clippy and 33 workspace harnesses passed in 451.0 seconds |
+| Clean checkout | Detached pushed `6931110d` passed focused Candidate checks and the quick repository gate; tracked status remained clean |
+| Runtime profile | `Unreleased`; zero runtime-enabled profiles and no runtime import |
