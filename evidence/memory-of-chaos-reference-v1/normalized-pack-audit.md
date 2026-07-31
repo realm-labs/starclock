@@ -8,7 +8,7 @@
 - Shared reconciliation receipts: 305 (0 conflicts)
 - Field-level nonblocking research gaps: 29
 - Semantic fixture families: 18/18
-- Canonical pack digest: `c3ac1c7fd2edd78c06430f30277ee214fc38ab27c8c1ea76adb5b2c969977330`
+- Canonical pack digest: `23c51c3f56daf63eae898c40d0720d400a64ad85326cdbd178ed9eff02cea8ac`
 - Blocking research gaps: 0
 - Runtime executable/publishable rows: 0
 

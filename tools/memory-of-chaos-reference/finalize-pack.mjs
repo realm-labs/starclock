@@ -208,8 +208,8 @@ const fixtureDefinitions = [
   ["ordinary-stage-order", "ExactStructured", ["ordinary_stages:stage-5201", "ordinary_stages:stage-5212"], ["enumerate active ordinary stages"], ["ordered IDs are 5201 through 5212", "terminal outcomes are fail-closed"]],
   ["tierce-selected-extension", "ProjectPolicy", ["tierce:tierce-5213"], ["complete stage 5212", "select Tierce 5213"], ["one independent encounter 30123123", "45 cycles", "ordinary state not carried"]],
   ["participant-uniqueness", "ProjectPolicy", ["participant_and_attempt_contracts:ordinary-team-slots", "participant_and_attempt_contracts:combat-form-uniqueness"], ["submit two node teams", "validate combat-form identities"], ["two disjoint teams accepted", "duplicate combat form rejected"]],
-  ["loadout-lock-retry", "ProjectPolicy", ["participant_and_attempt_contracts:loadout-lock", "participant_and_attempt_contracts:retry-reset"], ["start attempt", "request mutation", "retry whole stage"], ["post-start mutation rejected byte-identically", "retry creates fresh attempt"]],
-  ["cycle-first-av-window", "ProjectPolicy", ["clock_and_resource_contracts:cycle-action-value-preset"], ["start fresh battle", "consume 150 AV"], ["first window is 150 AV", "later windows are 100 AV"]],
+  ["loadout-lock-retry", "ProjectPolicy", ["participant_and_attempt_contracts:loadout-instance-lock", "participant_and_attempt_contracts:attempt-retry-reset"], ["start attempt", "request mutation", "retry whole stage"], ["post-start mutation rejected byte-identically", "retry creates fresh attempt"]],
+  ["cycle-first-av-window", "ProjectPolicy", ["clock_and_resource_contracts:first-cycle-av-window"], ["start fresh battle", "consume 150 AV"], ["first window is 150 AV", "later windows are 100 AV"]],
   ["cycle-node-wave-carry", "ProjectPolicy", ["clock_and_resource_contracts:node-cycle-carry", "clock_and_resource_contracts:wave-cycle-carry"], ["cross wave", "cross node", "reach zero boundary"], ["remaining cycles persist", "wave elapsed AV resets", "Node 2 opens fresh 150 AV window"]],
   ["objective-star-aggregation", "ProjectPolicy", ["objectives:target-251", "objectives:target-252", "objectives:target-253"], ["complete multiple attempts with different objectives"], ["best objectives latch independently", "failed attempts contribute nothing"]],
   ["turbulence-hit-accumulation", "ExactStructured", ["turbulence_and_battle_event:maze-buff-3030146"], ["use Ultimate", "use Follow-Up ATK"], ["one hit stored per qualifying action", "multi-hit action does not multiply gain"]],
@@ -239,7 +239,10 @@ const fixtureCaseIds = {
   "turbulence-cap-cycle-start": ["fixture.turbulence-cap-cycle-start.empty-target-reset"],
   "turbulence-target-true-damage": ["fixture.turbulence-target-true-damage.random-per-hit", "fixture.turbulence-target-true-damage.rank-coefficients"],
   "initial-resources": ["fixture.initial-resources.fresh-node-reset", "fixture.initial-resources.tierce-config-equality"],
-  "battle-entry-operations": ["fixture.battle-entry-operations.resolved-technique-contribution"],
+  "battle-entry-operations": [
+    "fixture.battle-entry-operations.resolved-technique-contribution",
+    "fixture.event-config-binding.active-turbulence-chain",
+  ],
 };
 const fixtures = fixtureDefinitions.map(([family, quality, sourceIds, commands, facts], index) => record({
   id: `fixture.${family}`,

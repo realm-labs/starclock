@@ -242,8 +242,8 @@
       "ownership": "MemoryOfChaos",
       "coverage_state": "DataReady",
       "source_record_ids": [
-        "participant_and_attempt_contracts:loadout-lock",
-        "participant_and_attempt_contracts:retry-reset"
+        "participant_and_attempt_contracts:attempt-retry-reset",
+        "participant_and_attempt_contracts:loadout-instance-lock"
       ],
       "evidence_refs": [],
       "tags": [
@@ -304,7 +304,7 @@
       "ownership": "MemoryOfChaos",
       "coverage_state": "DataReady",
       "source_record_ids": [
-        "clock_and_resource_contracts:cycle-action-value-preset"
+        "clock_and_resource_contracts:first-cycle-av-window"
       ],
       "evidence_refs": [],
       "tags": [
@@ -715,7 +715,8 @@
       ],
       "family": "battle-entry-operations",
       "case_ids": [
-        "fixture.battle-entry-operations.resolved-technique-contribution"
+        "fixture.battle-entry-operations.resolved-technique-contribution",
+        "fixture.event-config-binding.active-turbulence-chain"
       ],
       "mechanism_quality_floor": "ExactStructured",
       "canonical_seed": "eefca260b92e0498be6abb1d293c7228",
