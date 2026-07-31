@@ -23,6 +23,8 @@ use super::{
     curio_runtime::GoldAndGearsCurioRuntimeCatalog,
     occurrence_runtime::GoldAndGearsOccurrenceRuntimeCatalog,
     path_boost_rule_runtime::GoldAndGearsPathBoostRuleRuntimeCatalog,
+    progression_runtime::ProgressionRuntimeCatalog,
+    resonance_rule_runtime::GoldAndGearsResonanceRuleRuntimeCatalog,
     service_adventure_runtime::GoldAndGearsServiceAdventureRuntimeCatalog,
     state_layout::BLESSING_INVENTORY,
 };
@@ -67,6 +69,7 @@ pub(super) struct GoldAndGearsContentRuntimeCatalog {
     pub(super) occurrences: Arc<GoldAndGearsOccurrenceRuntimeCatalog>,
     pub(super) service_adventure: Arc<GoldAndGearsServiceAdventureRuntimeCatalog>,
     pub(super) path_boost_rules: Arc<GoldAndGearsPathBoostRuleRuntimeCatalog>,
+    pub(super) resonance_rules: Arc<GoldAndGearsResonanceRuleRuntimeCatalog>,
     digests: GoldAndGearsSharedContentDigests,
 }
 
@@ -74,6 +77,7 @@ impl GoldAndGearsContentRuntimeCatalog {
     pub(super) fn compile(
         content: &GoldAndGearsContentCatalog,
         unique: &crate::gold_gears_unique::GoldAndGearsUniqueCatalog,
+        progression: &ProgressionRuntimeCatalog,
     ) -> Result<Self, GoldAndGearsEntryError> {
         let core = starclock_data::catalog::load(CORE_BUNDLE)
             .map_err(|_| GoldAndGearsEntryError::InvalidSharedContentRuntime)?;
@@ -104,6 +108,11 @@ impl GoldAndGearsContentRuntimeCatalog {
         let path_boost_rules = Arc::new(GoldAndGearsPathBoostRuleRuntimeCatalog::compile(
             content, unique, &standard, &blessings,
         )?);
+        let resonance_rules = Arc::new(GoldAndGearsResonanceRuleRuntimeCatalog::compile(
+            unique,
+            &standard,
+            progression,
+        )?);
         let digests = GoldAndGearsSharedContentDigests {
             blessing: blessings.digest(),
             path: paths.digest(),
@@ -117,6 +126,7 @@ impl GoldAndGearsContentRuntimeCatalog {
             occurrences,
             service_adventure,
             path_boost_rules,
+            resonance_rules,
             digests,
         })
     }

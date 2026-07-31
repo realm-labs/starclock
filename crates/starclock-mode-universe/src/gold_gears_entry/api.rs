@@ -216,7 +216,9 @@ impl GoldAndGearsRuntimeFactory {
             return Err(GoldAndGearsEntryError::InvalidCatalog);
         }
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
-        let content_runtime = GoldAndGearsContentRuntimeCatalog::compile(&content, &unique)?;
+        let progression = ProgressionRuntimeCatalog::compile(&unique)?;
+        let content_runtime =
+            GoldAndGearsContentRuntimeCatalog::compile(&content, &unique, &progression)?;
         let cognition = CognitionRuntimeCatalog::compile(&unique)?;
         let transitions = PlaneTransitionRuntimeCatalog::compile(&structural)?;
         let dice_loadouts = DiceLoadoutRuntimeCatalog::compile(&unique)?;
@@ -225,7 +227,6 @@ impl GoldAndGearsRuntimeFactory {
         let knowledge = KnowledgeRuntimeCatalog::compile(&unique)?;
         let neural = NeuralRuntimeCatalog::compile(&unique)?;
         let conundrum = ConundrumRuntimeCatalog::compile(&unique)?;
-        let progression = ProgressionRuntimeCatalog::compile(&unique)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),

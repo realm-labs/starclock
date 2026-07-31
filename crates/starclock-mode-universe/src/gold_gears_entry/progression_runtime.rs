@@ -168,6 +168,7 @@ impl GoldAndGearsResonanceContribution {
 }
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[repr(u8)]
 pub enum GoldAndGearsResonanceKind {
     Resonance,
     Formation,
@@ -387,6 +388,25 @@ impl ProgressionRuntimeCatalog {
             bonuses: bonuses.into_boxed_slice(),
             paths: paths.into_boxed_slice(),
         })
+    }
+
+    pub(super) fn resonance_contribution(
+        &self,
+        source: &str,
+    ) -> Option<&GoldAndGearsResonanceContribution> {
+        self.paths
+            .iter()
+            .flat_map(|path| {
+                std::iter::once(&path.resonance)
+                    .chain(path.formations.iter())
+                    .chain(path.extrapolations.iter())
+                    .chain(
+                        path.interplays
+                            .iter()
+                            .map(|interplay| &interplay.contribution),
+                    )
+            })
+            .find(|contribution| contribution.source() == source)
     }
 
     pub(super) fn select(
