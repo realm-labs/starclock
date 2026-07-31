@@ -1,0 +1,64 @@
+{
+  "table": {
+    "name": "PfSpawnProgram",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.spawn_policy"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Continuous enemy refill"
+          },
+          "name_zh_cn": {
+            "String": "敌人连续补位"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"end_of_pool\":\"finalize-or-clock-expiry\",\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"spawn.continuous-refill\",\"kind\":\"spawn-program\",\"manifest_record_ids\":[\"pf.contract.spawn_policy\"],\"maximum_authored_slots\":63,\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Continuous enemy refill\",\"name_zh_cn\":\"敌人连续补位\",\"ordering\":\"authored-wave-then-slot\",\"ownership\":\"PureFiction\",\"refill_boundary\":\"after-defeat-settlement\",\"release_state\":\"Released\",\"replacement_condition\":\"replace policy ordering when released engine observation is retained\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"simultaneous_defeat_order\":\"stable-slot-order\",\"source_record_ids\":[\"source.pf.contract.spawn_policy\"],\"summary_en\":\"The selected StageConfig infinite group refills defeated slots within a bounded clock.\",\"summary_zh_cn\":\"选定StageConfig的无限组在有限时钟内补充已被击败的槽位。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.spawn_policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "spawn.continuous-refill"
+          },
+          "summary_en": {
+            "String": "The selected StageConfig infinite group refills defeated slots within a bounded clock."
+          },
+          "summary_zh_cn": {
+            "String": "选定StageConfig的无限组在有限时钟内补充已被击败的槽位。"
+          }
+        }
+      }
+    ]
+  }
+}

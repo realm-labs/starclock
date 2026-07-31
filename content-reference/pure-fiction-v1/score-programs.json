@@ -1,0 +1,88 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "score-programs.json",
+  "record_kind": "score-program",
+  "records": [
+    {
+      "id": "score.damage",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "score-program",
+      "name_en": "Damage progress score",
+      "name_zh_cn": "伤害进度得分",
+      "summary_en": "Retain partial authoritative damage progress where the released scoring program awards it.",
+      "summary_zh_cn": "在已发布计分程序授予时保留权威伤害进度。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.score_aggregation"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.score_aggregation"
+      ],
+      "runtime_executable": false,
+      "source": "applied-damage",
+      "displayed_damage_used": false,
+      "simultaneous_order": "event-sequence"
+    },
+    {
+      "id": "score.defeat",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "score-program",
+      "name_en": "Defeat score",
+      "name_zh_cn": "击败得分",
+      "summary_en": "Award the StageConfig scoring-group defeat contribution from authoritative defeat events.",
+      "summary_zh_cn": "按StageConfig计分组从权威击败事件记入得分。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.score_aggregation"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.score_aggregation"
+      ],
+      "runtime_executable": false,
+      "source": "defeat-event",
+      "attribution": "defeated-hostile",
+      "cap": "stage-clear-score-boundary",
+      "rounding": "integer"
+    },
+    {
+      "id": "score.stage-aggregation",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "score-program",
+      "name_en": "Stage score aggregation",
+      "name_zh_cn": "关卡分数聚合",
+      "summary_en": "Sum finalized node scores and evaluate ordered active thresholds.",
+      "summary_zh_cn": "汇总已结算节点分数并判定当前有序阈值。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.score_aggregation"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.score_aggregation"
+      ],
+      "runtime_executable": false,
+      "aggregation": "sum-node-scores",
+      "ordinary_clear_score": 30000,
+      "tierce_clear_score": 45000
+    }
+  ]
+}

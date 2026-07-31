@@ -1,0 +1,490 @@
+
+[[tables]]
+name = "PfSourceRecord"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "SourceRecord"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfContentAudit"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "ContentAudit"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfCoverage"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "Coverage"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfResearchGap"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "ResearchGap"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfReconciliation"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "Reconciliation"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfSemanticFixture"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "SemanticFixture"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "PfPackFile"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "PureFictionReview.xlsx"
+sheet = "PackFile"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 1600]
+[[tables.fields]]
+name = "row_order"
+type = "i32"
+range = [1, 1000000]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 3000]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 8000]
+[[tables.fields]]
+name = "ownership"
+type = "enum<PfOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<PfCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<PfEvidenceQuality>"
+[[tables.fields]]
+name = "mechanism_quality"
+type = "enum<PfMechanismQuality>"
+[[tables.fields]]
+name = "manifest_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 4096]
+[[tables.fields]]
+name = "payload_json"
+type = "string"
+length = [2, 1000000]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true

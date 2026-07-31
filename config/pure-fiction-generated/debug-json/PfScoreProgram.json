@@ -1,0 +1,178 @@
+{
+  "table": {
+    "name": "PfScoreProgram",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.score_aggregation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Damage progress score"
+          },
+          "name_zh_cn": {
+            "String": "伤害进度得分"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"displayed_damage_used\":false,\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"score.damage\",\"kind\":\"score-program\",\"manifest_record_ids\":[\"pf.contract.score_aggregation\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Damage progress score\",\"name_zh_cn\":\"伤害进度得分\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"simultaneous_order\":\"event-sequence\",\"source\":\"applied-damage\",\"source_record_ids\":[\"source.pf.contract.score_aggregation\"],\"summary_en\":\"Retain partial authoritative damage progress where the released scoring program awards it.\",\"summary_zh_cn\":\"在已发布计分程序授予时保留权威伤害进度。\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.score_aggregation"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "score.damage"
+          },
+          "summary_en": {
+            "String": "Retain partial authoritative damage progress where the released scoring program awards it."
+          },
+          "summary_zh_cn": {
+            "String": "在已发布计分程序授予时保留权威伤害进度。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.score_aggregation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Defeat score"
+          },
+          "name_zh_cn": {
+            "String": "击败得分"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"attribution\":\"defeated-hostile\",\"cap\":\"stage-clear-score-boundary\",\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"score.defeat\",\"kind\":\"score-program\",\"manifest_record_ids\":[\"pf.contract.score_aggregation\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Defeat score\",\"name_zh_cn\":\"击败得分\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"rounding\":\"integer\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source\":\"defeat-event\",\"source_record_ids\":[\"source.pf.contract.score_aggregation\"],\"summary_en\":\"Award the StageConfig scoring-group defeat contribution from authoritative defeat events.\",\"summary_zh_cn\":\"按StageConfig计分组从权威击败事件记入得分。\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.score_aggregation"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "score.defeat"
+          },
+          "summary_en": {
+            "String": "Award the StageConfig scoring-group defeat contribution from authoritative defeat events."
+          },
+          "summary_zh_cn": {
+            "String": "按StageConfig计分组从权威击败事件记入得分。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.contract.score_aggregation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "Stage score aggregation"
+          },
+          "name_zh_cn": {
+            "String": "关卡分数聚合"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"aggregation\":\"sum-node-scores\",\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"game_version_snapshot\":\"4.4\",\"id\":\"score.stage-aggregation\",\"kind\":\"score-program\",\"manifest_record_ids\":[\"pf.contract.score_aggregation\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"Stage score aggregation\",\"name_zh_cn\":\"关卡分数聚合\",\"ordinary_clear_score\":30000,\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.contract.score_aggregation\"],\"summary_en\":\"Sum finalized node scores and evaluate ordered active thresholds.\",\"summary_zh_cn\":\"汇总已结算节点分数并判定当前有序阈值。\",\"tierce_clear_score\":45000}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.contract.score_aggregation"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "score.stage-aggregation"
+          },
+          "summary_en": {
+            "String": "Sum finalized node scores and evaluate ordered active thresholds."
+          },
+          "summary_zh_cn": {
+            "String": "汇总已结算节点分数并判定当前有序阈值。"
+          }
+        }
+      }
+    ]
+  }
+}

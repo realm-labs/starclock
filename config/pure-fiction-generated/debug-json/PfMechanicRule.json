@@ -1,0 +1,1432 @@
+{
+  "table": {
+    "name": "PfMechanicRule",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000001
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.attempt_abandon"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "attempt_abandon"
+          },
+          "name_zh_cn": {
+            "String": "attempt_abandon"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"attempt_abandon\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.attempt_abandon\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.attempt_abandon\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"attempt_abandon\",\"name_zh_cn\":\"attempt_abandon\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.attempt_abandon\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.attempt_abandon"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.attempt_abandon"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000002
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.attempt_begin"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "attempt_begin"
+          },
+          "name_zh_cn": {
+            "String": "attempt_begin"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"attempt_begin\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.attempt_begin\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.attempt_begin\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"attempt_begin\",\"name_zh_cn\":\"attempt_begin\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.attempt_begin\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.attempt_begin"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.attempt_begin"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000003
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.attempt_retry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "attempt_retry"
+          },
+          "name_zh_cn": {
+            "String": "attempt_retry"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"attempt_retry\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.attempt_retry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.attempt_retry\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"attempt_retry\",\"name_zh_cn\":\"attempt_retry\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.attempt_retry\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.attempt_retry"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.attempt_retry"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000004
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.cacophony_2261"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "cacophony_2261"
+          },
+          "name_zh_cn": {
+            "String": "cacophony_2261"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"cacophony_2261\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.cacophony_2261\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.cacophony_2261\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"cacophony_2261\",\"name_zh_cn\":\"cacophony_2261\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.cacophony_2261\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.cacophony_2261"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.cacophony_2261"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000005
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.cacophony_2263"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "cacophony_2263"
+          },
+          "name_zh_cn": {
+            "String": "cacophony_2263"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"cacophony_2263\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.cacophony_2263\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.cacophony_2263\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"cacophony_2263\",\"name_zh_cn\":\"cacophony_2263\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.cacophony_2263\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.cacophony_2263"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.cacophony_2263"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000006
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.cacophony_2264"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "cacophony_2264"
+          },
+          "name_zh_cn": {
+            "String": "cacophony_2264"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"cacophony_2264\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.cacophony_2264\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.cacophony_2264\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"cacophony_2264\",\"name_zh_cn\":\"cacophony_2264\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.cacophony_2264\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.cacophony_2264"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.cacophony_2264"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000007
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.clock_expiry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "clock_expiry"
+          },
+          "name_zh_cn": {
+            "String": "clock_expiry"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"clock_expiry\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.clock_expiry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.clock_expiry\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"clock_expiry\",\"name_zh_cn\":\"clock_expiry\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.clock_expiry\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.clock_expiry"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.clock_expiry"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000008
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.clock_tick"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "clock_tick"
+          },
+          "name_zh_cn": {
+            "String": "clock_tick"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"clock_tick\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.clock_tick\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.clock_tick\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"clock_tick\",\"name_zh_cn\":\"clock_tick\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.clock_tick\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.clock_tick"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.clock_tick"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000009
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.continuous_spawn"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "continuous_spawn"
+          },
+          "name_zh_cn": {
+            "String": "continuous_spawn"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"continuous_spawn\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.continuous_spawn\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.continuous_spawn\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"continuous_spawn\",\"name_zh_cn\":\"continuous_spawn\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.continuous_spawn\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.continuous_spawn"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.continuous_spawn"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000010
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.damage_score"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "damage_score"
+          },
+          "name_zh_cn": {
+            "String": "damage_score"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"damage_score\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.damage_score\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.damage_score\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"damage_score\",\"name_zh_cn\":\"damage_score\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.damage_score\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.damage_score"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.damage_score"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000011
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.defeat_score"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "defeat_score"
+          },
+          "name_zh_cn": {
+            "String": "defeat_score"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"defeat_score\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.defeat_score\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.defeat_score\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"defeat_score\",\"name_zh_cn\":\"defeat_score\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.defeat_score\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.defeat_score"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.defeat_score"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000012
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.fever_teardown"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "fever_teardown"
+          },
+          "name_zh_cn": {
+            "String": "fever_teardown"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"fever_teardown\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.fever_teardown\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.fever_teardown\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"fever_teardown\",\"name_zh_cn\":\"fever_teardown\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.fever_teardown\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.fever_teardown"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.fever_teardown"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000013
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.fever_transition"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "fever_transition"
+          },
+          "name_zh_cn": {
+            "String": "fever_transition"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"fever_transition\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.fever_transition\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.fever_transition\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"fever_transition\",\"name_zh_cn\":\"fever_transition\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.fever_transition\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.fever_transition"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.fever_transition"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000014
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.grit_gain"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "grit_gain"
+          },
+          "name_zh_cn": {
+            "String": "grit_gain"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"grit_gain\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.grit_gain\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.grit_gain\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"grit_gain\",\"name_zh_cn\":\"grit_gain\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.grit_gain\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.grit_gain"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.grit_gain"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000015
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.initial_resources"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "initial_resources"
+          },
+          "name_zh_cn": {
+            "String": "initial_resources"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"initial_resources\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.initial_resources\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.initial_resources\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"initial_resources\",\"name_zh_cn\":\"initial_resources\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.initial_resources\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.initial_resources"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.initial_resources"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000016
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.loadout_lock"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "loadout_lock"
+          },
+          "name_zh_cn": {
+            "String": "loadout_lock"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"loadout_lock\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.loadout_lock\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.loadout_lock\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"loadout_lock\",\"name_zh_cn\":\"loadout_lock\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.loadout_lock\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.loadout_lock"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.loadout_lock"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000017
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.node_transition"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "node_transition"
+          },
+          "name_zh_cn": {
+            "String": "node_transition"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"node_transition\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.node_transition\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.node_transition\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"node_transition\",\"name_zh_cn\":\"node_transition\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.node_transition\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.node_transition"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.node_transition"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000018
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.objective_aggregation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "objective_aggregation"
+          },
+          "name_zh_cn": {
+            "String": "objective_aggregation"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"objective_aggregation\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.objective_aggregation\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.objective_aggregation\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"objective_aggregation\",\"name_zh_cn\":\"objective_aggregation\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.objective_aggregation\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.objective_aggregation"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.objective_aggregation"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000019
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.participant_uniqueness"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "participant_uniqueness"
+          },
+          "name_zh_cn": {
+            "String": "participant_uniqueness"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"participant_uniqueness\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.participant_uniqueness\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.participant_uniqueness\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"participant_uniqueness\",\"name_zh_cn\":\"participant_uniqueness\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.participant_uniqueness\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.participant_uniqueness"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.participant_uniqueness"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000020
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.profile_entry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "profile_entry"
+          },
+          "name_zh_cn": {
+            "String": "profile_entry"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"profile_entry\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.profile_entry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.profile_entry\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"profile_entry\",\"name_zh_cn\":\"profile_entry\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.profile_entry\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.profile_entry"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.profile_entry"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000021
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.score_cap"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "score_cap"
+          },
+          "name_zh_cn": {
+            "String": "score_cap"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"score_cap\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.score_cap\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.score_cap\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"score_cap\",\"name_zh_cn\":\"score_cap\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.score_cap\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.score_cap"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.score_cap"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000022
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.simultaneous_defeat"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "simultaneous_defeat"
+          },
+          "name_zh_cn": {
+            "String": "simultaneous_defeat"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"simultaneous_defeat\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.simultaneous_defeat\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.simultaneous_defeat\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"simultaneous_defeat\",\"name_zh_cn\":\"simultaneous_defeat\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.simultaneous_defeat\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.simultaneous_defeat"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.simultaneous_defeat"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000023
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.stage_unlock"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "stage_unlock"
+          },
+          "name_zh_cn": {
+            "String": "stage_unlock"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"stage_unlock\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.stage_unlock\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.stage_unlock\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"stage_unlock\",\"name_zh_cn\":\"stage_unlock\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.stage_unlock\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.stage_unlock"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.stage_unlock"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000024
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.tierce_entry"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "tierce_entry"
+          },
+          "name_zh_cn": {
+            "String": "tierce_entry"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"tierce_entry\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.tierce_entry\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.tierce_entry\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"tierce_entry\",\"name_zh_cn\":\"tierce_entry\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.tierce_entry\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 24
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.tierce_entry"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.tierce_entry"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23000025
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "pf.rule.tierce_settlement"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "DeterministicProjectPolicyNotObservedParity"
+          },
+          "name_en": {
+            "String": "tierce_settlement"
+          },
+          "name_zh_cn": {
+            "String": "tierce_settlement"
+          },
+          "ownership": {
+            "String": "PureFiction"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"enabled\":true,\"evidence_quality\":\"ProjectPolicy\",\"family\":\"tierce_settlement\",\"game_version_snapshot\":\"4.4\",\"id\":\"pf.rule.tierce_settlement\",\"kind\":\"mechanic-rule\",\"manifest_record_ids\":[\"pf.rule.tierce_settlement\"],\"mechanism_quality\":\"DeterministicProjectPolicyNotObservedParity\",\"name_en\":\"tierce_settlement\",\"name_zh_cn\":\"tierce_settlement\",\"ownership\":\"PureFiction\",\"release_state\":\"Released\",\"runtime_executable\":false,\"runtime_lowering\":\"Unreleased\",\"schema_revision\":\"starclock.pure-fiction-row.v1\",\"source_record_ids\":[\"source.pf.rule.tierce_settlement\"],\"summary_en\":\"A frozen reference contribution family; it is not executable runtime behavior.\",\"summary_zh_cn\":\"冻结的资料贡献族；并非可执行运行时行为。\",\"typed_operation_owner\":\"future-pure-fiction-runtime\"}"
+          },
+          "row_order": {
+            "Integer": 25
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "source.pf.rule.tierce_settlement"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "pf.rule.tierce_settlement"
+          },
+          "summary_en": {
+            "String": "A frozen reference contribution family; it is not executable runtime behavior."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的资料贡献族；并非可执行运行时行为。"
+          }
+        }
+      }
+    ]
+  }
+}

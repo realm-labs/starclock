@@ -1,0 +1,35 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "profiles.json",
+  "record_kind": "profile",
+  "records": [
+    {
+      "id": "pf.profile.v1",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "profile",
+      "name_en": "Pure Fiction",
+      "name_zh_cn": "虚构叙事",
+      "summary_en": "A released rotating two-team score challenge family.",
+      "summary_zh_cn": "已发布的轮换双队计分挑战玩法家族。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.profile.v1"
+      ],
+      "source_record_ids": [
+        "source.pf.profile.v1"
+      ],
+      "runtime_executable": false,
+      "family": "PureFiction",
+      "content_lane": "Candidate",
+      "runtime_state": "Unreleased"
+    }
+  ]
+}

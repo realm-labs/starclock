@@ -1,0 +1,83 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "participant-policies.json",
+  "record_kind": "participant-policy",
+  "records": [
+    {
+      "id": "participant.character-form-unique",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Character form uniqueness",
+      "name_zh_cn": "角色形态唯一性",
+      "summary_en": "Character form uniqueness",
+      "summary_zh_cn": "角色形态唯一性",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.participant_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.participant_policy"
+      ],
+      "runtime_executable": false,
+      "scope": "simultaneous-stage-teams"
+    },
+    {
+      "id": "participant.loadout-instance-lock",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "loadout-lock",
+      "name_en": "Light Cone and Relic instance locks",
+      "name_zh_cn": "光锥与遗器实例锁定",
+      "summary_en": "Light Cone and Relic instance locks",
+      "summary_zh_cn": "光锥与遗器实例锁定",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.loadout_lock"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.loadout_lock"
+      ],
+      "runtime_executable": false,
+      "snapshot_scope": "attempt",
+      "duplicate_rejection_atomic": true
+    },
+    {
+      "id": "participant.two-disjoint-teams",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "participant-policy",
+      "name_en": "Two disjoint stage teams",
+      "name_zh_cn": "两支互斥关卡队伍",
+      "summary_en": "Two disjoint stage teams",
+      "summary_zh_cn": "两支互斥关卡队伍",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.contract.participant_policy"
+      ],
+      "source_record_ids": [
+        "source.pf.contract.participant_policy"
+      ],
+      "runtime_executable": false,
+      "team_count": 2,
+      "uniqueness_scope": "stage-attempt"
+    }
+  ]
+}

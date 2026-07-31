@@ -1,0 +1,171 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "objectives.json",
+  "record_kind": "objective",
+  "records": [
+    {
+      "id": "pf.objective.2001",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "objective",
+      "name_en": "Total score 40000",
+      "name_zh_cn": "总分达到40000",
+      "summary_en": "An active ordinary-stage total-score star threshold.",
+      "summary_zh_cn": "当前普通关卡的总分星级阈值。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.objective.2001"
+      ],
+      "source_record_ids": [
+        "source.pf.objective.2001"
+      ],
+      "runtime_executable": false,
+      "target_id": 2001,
+      "threshold": 40000,
+      "comparison": "greater-than-or-equal",
+      "family": "ordinary"
+    },
+    {
+      "id": "pf.objective.2002",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "objective",
+      "name_en": "Total score 50000",
+      "name_zh_cn": "总分达到50000",
+      "summary_en": "An active ordinary-stage total-score star threshold.",
+      "summary_zh_cn": "当前普通关卡的总分星级阈值。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.objective.2002"
+      ],
+      "source_record_ids": [
+        "source.pf.objective.2002"
+      ],
+      "runtime_executable": false,
+      "target_id": 2002,
+      "threshold": 50000,
+      "comparison": "greater-than-or-equal",
+      "family": "ordinary"
+    },
+    {
+      "id": "pf.objective.2003",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "objective",
+      "name_en": "Total score 60000",
+      "name_zh_cn": "总分达到60000",
+      "summary_en": "An active ordinary-stage total-score star threshold.",
+      "summary_zh_cn": "当前普通关卡的总分星级阈值。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.objective.2003"
+      ],
+      "source_record_ids": [
+        "source.pf.objective.2003"
+      ],
+      "runtime_executable": false,
+      "target_id": 2003,
+      "threshold": 60000,
+      "comparison": "greater-than-or-equal",
+      "family": "ordinary"
+    },
+    {
+      "id": "pf.objective.4001",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "objective",
+      "name_en": "Tierce target 1",
+      "name_zh_cn": "第三战区目标1",
+      "summary_en": "A Tierce target retained from the selected obfuscated released row.",
+      "summary_zh_cn": "从选定的已发布混淆行保留的第三战区目标。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.objective.4001"
+      ],
+      "source_record_ids": [
+        "source.pf.objective.4001"
+      ],
+      "runtime_executable": false,
+      "target_id": 4001,
+      "family": "tierce",
+      "exact_threshold_source": "ChallengeStoryMazeTierce",
+      "threshold_policy": "preserve-target-id-until-decoded"
+    },
+    {
+      "id": "pf.objective.4002",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "objective",
+      "name_en": "Tierce target 2",
+      "name_zh_cn": "第三战区目标2",
+      "summary_en": "A Tierce target retained from the selected obfuscated released row.",
+      "summary_zh_cn": "从选定的已发布混淆行保留的第三战区目标。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.objective.4002"
+      ],
+      "source_record_ids": [
+        "source.pf.objective.4002"
+      ],
+      "runtime_executable": false,
+      "target_id": 4002,
+      "family": "tierce",
+      "exact_threshold_source": "ChallengeStoryMazeTierce",
+      "threshold_policy": "preserve-target-id-until-decoded"
+    },
+    {
+      "id": "pf.objective.4003",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "objective",
+      "name_en": "Tierce target 3",
+      "name_zh_cn": "第三战区目标3",
+      "summary_en": "A Tierce target retained from the selected obfuscated released row.",
+      "summary_zh_cn": "从选定的已发布混淆行保留的第三战区目标。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.objective.4003"
+      ],
+      "source_record_ids": [
+        "source.pf.objective.4003"
+      ],
+      "runtime_executable": false,
+      "target_id": 4003,
+      "family": "tierce",
+      "exact_threshold_source": "ChallengeStoryMazeTierce",
+      "threshold_policy": "preserve-target-id-until-decoded"
+    }
+  ]
+}
