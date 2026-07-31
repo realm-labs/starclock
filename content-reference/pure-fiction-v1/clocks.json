@@ -1,0 +1,133 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "clocks.json",
+  "record_kind": "clock",
+  "records": [
+    {
+      "id": "pf.clock.20241",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "clock",
+      "name_en": "Stage 20241 node clock",
+      "name_zh_cn": "关卡20241节点时钟",
+      "summary_en": "A node-scoped Pure Fiction turn budget from the active stage-extra row.",
+      "summary_zh_cn": "来自当前关卡扩展行的节点级虚构叙事回合预算。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.clock.20241"
+      ],
+      "source_record_ids": [
+        "source.pf.clock.20241"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20241,
+      "scope": "node",
+      "turn_limit": 5,
+      "independent_between_nodes": true,
+      "timeout_behavior": "finalize-current-score",
+      "tick_boundary": "cycle-window",
+      "first_window_av": "150",
+      "later_window_av": "100"
+    },
+    {
+      "id": "pf.clock.20242",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "clock",
+      "name_en": "Stage 20242 node clock",
+      "name_zh_cn": "关卡20242节点时钟",
+      "summary_en": "A node-scoped Pure Fiction turn budget from the active stage-extra row.",
+      "summary_zh_cn": "来自当前关卡扩展行的节点级虚构叙事回合预算。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.clock.20242"
+      ],
+      "source_record_ids": [
+        "source.pf.clock.20242"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20242,
+      "scope": "node",
+      "turn_limit": 5,
+      "independent_between_nodes": true,
+      "timeout_behavior": "finalize-current-score",
+      "tick_boundary": "cycle-window",
+      "first_window_av": "150",
+      "later_window_av": "100"
+    },
+    {
+      "id": "pf.clock.20243",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "clock",
+      "name_en": "Stage 20243 node clock",
+      "name_zh_cn": "关卡20243节点时钟",
+      "summary_en": "A node-scoped Pure Fiction turn budget from the active stage-extra row.",
+      "summary_zh_cn": "来自当前关卡扩展行的节点级虚构叙事回合预算。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.clock.20243"
+      ],
+      "source_record_ids": [
+        "source.pf.clock.20243"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20243,
+      "scope": "node",
+      "turn_limit": 4,
+      "independent_between_nodes": true,
+      "timeout_behavior": "finalize-current-score",
+      "tick_boundary": "cycle-window",
+      "first_window_av": "150",
+      "later_window_av": "100"
+    },
+    {
+      "id": "pf.clock.20244",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "clock",
+      "name_en": "Stage 20244 node clock",
+      "name_zh_cn": "关卡20244节点时钟",
+      "summary_en": "A node-scoped Pure Fiction turn budget from the active stage-extra row.",
+      "summary_zh_cn": "来自当前关卡扩展行的节点级虚构叙事回合预算。",
+      "game_version_snapshot": "4.4",
+      "ownership": "PureFiction",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.clock.20244"
+      ],
+      "source_record_ids": [
+        "source.pf.clock.20244"
+      ],
+      "runtime_executable": false,
+      "stage_id": 20244,
+      "scope": "node",
+      "turn_limit": 4,
+      "independent_between_nodes": true,
+      "timeout_behavior": "finalize-current-score",
+      "tick_boundary": "cycle-window",
+      "first_window_av": "150",
+      "later_window_av": "100"
+    }
+  ]
+}

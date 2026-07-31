@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
 | Active batch | — |
-| Next unblocked batch | `G15-P1-B3` |
+| Next unblocked batch | `G15-P1-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -47,7 +47,7 @@
 | `G15-P0-B4` | `Complete` | This row's containing commit | `origin` / `codex/goal15-pure-fiction-reference`; pushed and remotely resolved exactly. `contracts.mjs --check` freezes 36 normalized pack files, the common bilingual/provenance envelope, five evidence and mechanism qualities, canonical decimal/JSON/order rules, source-path/locator/digest reconciliation, 37 isolated Sora tables across three workbooks and the closed reference-only semantic fixture fact language. The phase full gate passed generated-artifact checks through the production catalog boundary, then was interrupted during a 17-minute concurrent-worktree Clippy compile; the change-aware gate passed in 129.7s and the mandatory clean full gate remains owned by P4-B3. |
 | `G15-P1-B1` | `Complete` | This row's containing commit | Pushed to `origin/codex/goal15-pure-fiction-reference` and remotely resolved exactly. Imported one profile, one active season, four ordinary stages, eight ordinary nodes, one Tierce node and one Tierce/Starward record; preserves predecessor order, exact selectors, objectives, turn limits and clear scores without inventing a second Tierce team. |
 | `G15-P1-B2` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on the execution branch. Imported three participant/loadout lock policies and five accepted/rejected/timeout/abandon/retry records with stage-attempt uniqueness, whole-loadout snapshotting and byte-identical rejection requirements; all unpublished scope details remain visible ProjectPolicy boundaries. |
-| `G15-P1-B3` | `Pending` | — | Import clocks, wave boundaries, continuous spawn/refill programs, timeout and early completion. |
+| `G15-P1-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported four exact stage turn budgets plus one bounded continuous-refill policy, preserving 150/100 AV windows as an explicit challenge preset, independent node clocks, authored wave/slot order, stable simultaneous-defeat settlement, timeout score finalization and a stronger-evidence replacement condition. |
 | `G15-P1-B4` | `Pending` | — | Import defeat/damage scoring, attribution, caps, simultaneous outcomes, objectives, stars and aggregation. |
 | `G15-P1-B5` | `Pending` | — | Import Whimsicality and Grit/Fever gain, states, thresholds, effects, target policies, transitions and teardown. |
 | `G15-P1-B6` | `Pending` | — | Import selectable Cacophony choices, eligibility, timing, parameters, base-rule interactions and battle contributions. |
