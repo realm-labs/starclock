@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `apocalyptic-shadow-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 1 — Mode systems |
+| Active phase | Phase 2 — Encounters and closure |
 | Active batch | — |
-| Next unblocked batch | `G18-P2-B1` |
+| Next unblocked batch | `G18-P2-B2` |
 | Snapshot | Version 4.4 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -26,7 +26,7 @@
 |---|---|---|
 | Phase 0 — Foundation and frozen denominator | `Complete` | Snapshots/isolation, 59-file inventory, 129-obligation manifest, six exact-zero proofs and normalized/evidence/authoring/fixture contracts frozen. |
 | Phase 1 — Mode systems | `Complete` | Profile/lifecycle, AV/progress/score, Steadfast Safeguard, Ruinous Embers, Word Shatter and all nine active Axiom options imported as runtime-disabled data. |
-| Phase 2 — Encounters and closure | `Pending` | Awaiting pools, exact encounters and enemy/program closure. |
+| Phase 2 — Encounters and closure | `InProgress` | Six exact-zero pool audits and 18 active buff/program bindings imported; encounter closure continues. |
 | Phase 3 — Excel/Sora authoring | `Pending` | Awaiting isolated schemas, workbooks, readers and bundle. |
 | Phase 4 — Candidate freeze | `Pending` | Awaiting audits, fixtures, regeneration and release evidence. |
 
@@ -42,7 +42,7 @@
 | `G18-P1-B2` | `Complete` | This row's containing commit | Imported four participant/uniqueness policies, nine node team slots, three loadout records, five attempt outcomes and four transition contracts; rejected starts are atomic and all rows remain review-only. |
 | `G18-P1-B3` | `Complete` | This row's containing commit | Imported three AV/timeout contracts, three boss-progress projections, exact scoring items `90004`/`90005` with preserved postfix programs, six target objectives and six ordered star thresholds (`4000/5200/6600`). |
 | `G18-P1-B4` | `Complete` | This row's containing commit | Imported 11 exact MazeBuff bindings/parameters, Ruinous Embers (`0.25` Skill/`0.15` Ultimate taken), Steadfast Safeguard break contribution, nine bilingual Axiom options and 11 mechanic contributions. |
-| `G18-P2-B1` | `Pending` | — | Pool audits and selected challenge/config relationships. |
+| `G18-P2-B1` | `Complete` | This row's containing commit | Imported six generated exact-zero pool audits and 18 reference-only ability bindings (seven StrongChallenge programs plus 11 active MazeBuff bindings). |
 | `G18-P2-B2` | `Pending` | — | Encounters, waves, slots, variants and level bindings. |
 | `G18-P2-B3` | `Pending` | — | Enemy/program closure and generated review metadata. |
 | `G18-P3-B1` | `Pending` | — | Sora schemas/readers/exports and three generated workbooks. |
@@ -80,3 +80,4 @@ Counters are frozen by `G18-P0-B3`; no planning-time estimate is a denominator.
 | 2026-08-01 | `G18-P1-B2` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B2` | Generated 25 DataReady participant/loadout/attempt/transition review rows with no runtime lowering. |
 | 2026-08-01 | `G18-P1-B3` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B3`; focused inspection of `StrongChallenge_Scoring_Ability.json` | Generated 21 clock/progress/score/objective/star rows; scoring constants and timeout events retained without decoding postfix bytecode into runtime behavior. |
 | 2026-08-01 | `G18-P1-B4` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P1-B4`; CHS/EN TextMap cross-check | Generated 33 unique-mechanic rows; exact bindings and canonical decimal strings preserved, runtime rows remain zero. |
+| 2026-08-01 | `G18-P2-B1` | `node tools/apocalyptic-shadow-reference/build-pack.mjs --batch=G18-P2-B1` | Generated 24 DataReady pool/binding rows; all six audited content families remain exact-zero. |

@@ -344,3 +344,240 @@ if (batch === "G18-P1-B4") {
       { buff_id: id, runtime_lowering: "Unreleased" })),
   ]);
 }
+
+if (batch === "G18-P2-B1") {
+  const proofs = JSON.parse(await readFile(path.join(root,
+    "content-manifests/apocalyptic-shadow-v1/pool-selector-proofs.json")));
+  await emit("pool-audits.json", "pool-audit", proofs.proofs.map((proof) =>
+    envelope(`pool-audit.${proof.family}`, "pool-audit",
+      `${proof.family} exact-zero selector proof`, `${proof.family}精确零选择器证明`,
+      "The complete active selector closure exposes no member selector.",
+      "完整当前选择器闭包未暴露任何成员选择器。",
+      [`zero-pool.${proof.family}`], {
+        audited_selected_row_count: proof.audited_selected_row_count,
+        selector_count: proof.selector_count,
+        conclusion: proof.conclusion,
+      }, { evidenceQuality: "ProjectPolicy" })));
+  const programRows = manifest.categories.mechanic_programs.map((record) =>
+    envelope(`ability-binding.${record.id.slice(8)}`, "ability-binding",
+      record.id.slice(8), record.id.slice(8),
+      "A selected StrongChallenge ability program retained as immutable evidence.",
+      "作为不可变证据保留的StrongChallenge能力程序。", [record.id], {
+        source_path: record.source_path, binding_scope: "challenge-boss",
+        program_interpretation: "reference-only",
+      }));
+  const buffRows = manifest.categories.buffs.map((record) => envelope(
+    `ability-binding.${record.id}`, "ability-binding", record.id, record.id,
+    "An active MazeBuff-to-stage-ability binding.",
+    "当前迷宫增益到关卡能力的绑定。", [record.id], {
+      buff_id: Number(record.id.slice(5)), binding_scope: "active-period",
+    }));
+  await emit("ability-bindings.json", "ability-binding",
+    [...programRows, ...buffRows]);
+}
+
+if (batch === "G18-P2-B2") {
+  const encounterRows = [];
+  const waveRows = [];
+  const slotRows = [];
+  for (const stage of stages) {
+    const closure = stageExtras.find((row) => row.ID === stage.ID);
+    for (const side of [1, 2]) {
+      const nodeId = `node.${stage.ID}.${side}`;
+      const encounterId = `encounter.${stage.ID}.${side}`;
+      encounterRows.push(envelope(encounterId, "encounter",
+        `Encounter ${stage.ID}.${side}`, `遭遇${stage.ID}.${side}`,
+        "An exact active-node map-event and NPC-monster selector.",
+        "当前节点的精确地图事件与NPC怪物选择器。", [nodeId], {
+          node_id: nodeId, event_id: stage[`EventIDList${side}`][0],
+          npc_monster_id: stage[`NpcMonsterIDList${side}`][0],
+          maze_group_id: stage[`MazeGroupID${side}`],
+        }));
+      waveRows.push(envelope(`encounter-wave.${stage.ID}.${side}.1`,
+        "encounter-wave", `Encounter ${stage.ID}.${side} wave selector`,
+        `遭遇${stage.ID}.${side}波次选择器`,
+        "The map event owns wave/phase execution; this row preserves its direct boss selector.",
+        "地图事件拥有波次/阶段执行；本行保留其直接首领选择器。", [nodeId], {
+          encounter_id: encounterId, wave_order: 1,
+          event_owned_phase_expansion: true,
+        }));
+      const monsterId = closure[`MonsterID${side}`];
+      slotRows.push(envelope(`enemy-slot.${stage.ID}.${side}.1`, "enemy-slot",
+        `Boss slot ${stage.ID}.${side}`, `首领槽位${stage.ID}.${side}`,
+        "The concrete difficulty-scaled boss variant selected for this node.",
+        "为该节点选择的具体难度首领变体。", [`enemy.${monsterId}`, nodeId], {
+          encounter_id: encounterId, wave_order: 1, slot_order: 1,
+          monster_id: monsterId, role: "primary-boss",
+        }, { ownership: "Shared" }));
+    }
+  }
+  const auxiliary = stageExtras.find((row) => row.ID === 30194).MonsterID3;
+  slotRows.push(envelope("enemy-slot.30194.auxiliary", "enemy-slot",
+    "Difficulty 4 auxiliary scoring boss", "难度4辅助计分首领",
+    "An additional concrete boss variant selected by the active stage-extra row.",
+    "当前关卡扩展行选择的额外具体首领变体。",
+    [`enemy.${auxiliary}`, "node.30194.1"], {
+      encounter_id: "encounter.30194.1", wave_order: 1, slot_order: 2,
+      monster_id: auxiliary, role: "auxiliary-scoring-boss",
+    }, { ownership: "Shared" }));
+  encounterRows.push(envelope("encounter.30195.1", "encounter",
+    "Tierce encounter", "第三战区遭遇",
+    "The Tierce map-event selector for released record 30195.",
+    "已发布第三战区记录30195的地图事件选择器。", ["node.30195.1"], {
+      node_id: "node.30195.1", event_id: 420494,
+      npc_monster_id: 3003015, maze_group_id: 8,
+    }));
+  waveRows.push(envelope("encounter-wave.30195.1.1", "encounter-wave",
+    "Tierce wave selector", "第三战区波次选择器",
+    "The Tierce event-owned boss phase selector.", "第三战区事件拥有的首领阶段选择器。",
+    ["node.30195.1"], { encounter_id: "encounter.30195.1",
+      wave_order: 1, event_owned_phase_expansion: true }));
+  slotRows.push(envelope("enemy-slot.30195.1.1", "enemy-slot",
+    "Tierce boss slot", "第三战区首领槽位", "The direct Tierce NPC monster selector.",
+    "第三战区的直接NPC怪物选择器。", ["enemy.3003015", "node.30195.1"], {
+      encounter_id: "encounter.30195.1", wave_order: 1, slot_order: 1,
+      monster_id: 3003015, role: "primary-boss",
+    }, { ownership: "Shared" }));
+  await emit("encounters.json", "encounter", encounterRows);
+  await emit("encounter-waves.json", "encounter-wave", waveRows);
+  await emit("enemy-slots.json", "enemy-slot", slotRows);
+  const monsters = tableRows(await sourceJson("ExcelOutput/MonsterConfig.json"));
+  await emit("enemies.json", "enemy", manifest.categories.enemy_variants.map((record) => {
+    const monsterId = Number(record.id.slice(6));
+    const row = monsters.find((candidate) => candidate.MonsterID === monsterId);
+    return envelope(record.id, "enemy", `Enemy ${monsterId}`, `敌人${monsterId}`,
+      "A concrete active-period boss variant with exact template, stats, weaknesses and skill closure.",
+      "带精确模板、属性、弱点与技能闭包的当前周期具体首领变体。", [record.id], {
+        monster_id: monsterId, template_id: row.MonsterTemplateID,
+        hard_level_group: row.HardLevelGroup ?? null,
+        stat_ratios: {
+          attack: String(row.AttackModifyRatio?.Value ?? 1),
+          defence: String(row.DefenceModifyRatio?.Value ?? 1),
+          hp: String(row.HPModifyRatio?.Value ?? 1),
+          speed: String(row.SpeedModifyRatio?.Value ?? 1),
+          stance: String(row.StanceModifyRatio?.Value ?? 1),
+        },
+        weaknesses: row.StanceWeakList ?? [], skill_ids: row.SkillList ?? [],
+        summon_template_ids: row.SummonIDList ?? [],
+        override_ai_path: row.OverrideAIPath ?? "",
+      }, { ownership: "Shared" });
+  }));
+}
+
+if (batch === "G18-P2-B3") {
+  const skills = tableRows(await sourceJson("ExcelOutput/MonsterSkillConfig.json"));
+  await emit("enemy-skills.json", "enemy-skill",
+    manifest.categories.enemy_skills.map((record) => {
+      const skillId = Number(record.id.slice(12));
+      const row = skills.find((candidate) => candidate.SkillID === skillId);
+      return envelope(record.id, "enemy-skill", `Enemy skill ${skillId}`,
+        `敌方技能${skillId}`, "An exact skill binding reachable from an active boss variant.",
+        "可由当前首领变体到达的精确技能绑定。", [record.id], {
+          skill_id: skillId, trigger_key: row.SkillTriggerKey,
+          damage_type: row.DamageType ?? null, attack_type: row.AttackType ?? null,
+          sp_hit_base: String(row.SPHitBase?.Value ?? 0),
+          delay_ratio: String(row.DelayRatio?.Value ?? 0),
+          ai_cd: row.AI_CD ?? null, ai_icd: row.AI_ICD ?? null,
+          phases: row.PhaseList ?? [],
+          parameters: (row.ParamList ?? []).map((value) => String(value.Value ?? value)),
+          modifier_names: row.ModifierList ?? [],
+          extra_effect_ids: row.ExtraEffectIDList ?? [],
+        }, { ownership: "Shared" });
+    }));
+  await emit("enemy-statuses.json", "enemy-status", []);
+
+  const fixtureContract = JSON.parse(await readFile(path.join(root,
+    "content-manifests/apocalyptic-shadow-v1/fixture-contract.json")));
+  await emit("mechanic-rules.json", "mechanic-rule",
+    fixtureContract.required_families.map((family) => envelope(
+      `mechanic-rule.${family.id}`, "mechanic-rule", family.id, family.id,
+      "A non-shrinking semantic review family; it does not execute runtime behavior.",
+      "不可缩减的语义复核族；不执行运行时行为。", ["apocalyptic-shadow-v1"], {
+        family_id: family.id, minimum_cases: family.minimum_cases,
+        runtime_lowering: "Unreleased",
+      }, { evidenceQuality: "ProjectPolicy" })));
+
+  const sourceRows = Object.values(manifest.categories).flat().map((record) => ({
+    id: `source.${record.id}`,
+    schema_revision: "starclock.apocalyptic-shadow-row.v1",
+    kind: "source", name_en: record.id, name_zh_cn: record.id,
+    summary_en: "Manifest evidence locator.", summary_zh_cn: "清单证据定位器。",
+    ownership: record.ownership, coverage_state: "DataReady",
+    evidence_quality: record.evidence_quality,
+    mechanism_quality: record.evidence_quality === "ProjectPolicy"
+      ? "PolicyBoundary" : "ExactRelationship",
+    manifest_record_ids: [record.id],
+    source_refs: [sourceRef(record.id)],
+    source_id: `src.${record.id}`, runtime_executable: false,
+  }));
+  await emit("sources.json", "source", sourceRows);
+
+  const peerManifestPath = path.join(root,
+    "content-manifests/anomaly-arbitration-v1/content-manifest.json");
+  const peer = JSON.parse(await readFile(peerManifestPath));
+  const peerRows = Object.values(peer.categories).flat();
+  const receipts = manifest.categories.enemy_variants
+    .concat(manifest.categories.enemy_templates, manifest.categories.enemy_skills)
+    .map((record) => {
+      const exact = peerRows.find((candidate) => candidate.source_path === record.source_path
+        && candidate.row_locator === record.row_locator);
+      return envelope(`reconciliation.${record.id}`, "reconciliation", record.id,
+        record.id, "Shared source identity reconciliation receipt.",
+        "共享来源身份对账回执。", [record.id], {
+          source_path: record.source_path, row_locator: record.row_locator,
+          peer_goal_id: exact ? "anomaly-arbitration-reference-v1"
+            : "classic-challenge-peer-set",
+          peer_record_id: exact?.id ?? null,
+          outcome: exact ? "ExactSourceIdentity" : "NoExactLocatorOverlap",
+          content_conflict: false,
+          peer_artifact_mutated: false,
+        }, { ownership: "Shared" });
+    });
+  await emit("reconciliation.json", "reconciliation", receipts);
+  await emit("research-gaps.json", "research-gap", [
+    envelope("gap.runtime-postfix-lowering", "research-gap",
+      "Postfix scoring runtime lowering excluded", "后缀计分运行时降级排除",
+      "Exact opcode bytes and constants are retained; evaluator semantics belong to a future runtime goal.",
+      "精确保留操作码字节与常量；求值器语义属于未来运行时目标。",
+      ["program.StrongChallenge_Scoring_Ability"], {
+        blocking: false, owner: "future-apocalyptic-shadow-runtime",
+        replacement_condition: "runtime goal proves evaluator semantics",
+      }),
+  ]);
+  await emit("coverage.json", "coverage", Object.values(manifest.categories).flat()
+    .map((record) => envelope(`coverage.${record.id}`, "coverage", record.id,
+      record.id, "One manifest obligation is accounted exactly once.",
+      "一个清单义务被精确计数一次。", [record.id], {
+        manifest_category: Object.entries(manifest.categories)
+          .find(([, values]) => values.some((value) => value.id === record.id))[0],
+        manifest_record_id: record.id, accounted_count: 1,
+        disposition: record.disposition,
+      }, { ownership: record.ownership,
+        evidenceQuality: record.evidence_quality })));
+
+  const fixtures = [];
+  for (const family of fixtureContract.required_families) {
+    for (let index = 1; index <= family.minimum_cases; index += 1) {
+      fixtures.push(envelope(`fixture.${family.id}.${index}`, "review-fixture",
+        `${family.id} case ${index}`, `${family.id}用例${index}`,
+        "A deterministic Candidate data review assertion.",
+        "确定性的Candidate资料复核断言。", ["apocalyptic-shadow-v1"], {
+          fixture_id: `fixture.${family.id}.${index}`,
+          family_id: family.id, case_order: index,
+          inputs: { profile: "apocalyptic-shadow-v1", case: index },
+          expected: { data_ready: true, runtime_executable: false },
+          evidence_ref_ids: ["src.apocalyptic-shadow-v1"],
+          blocking_gap_ids: [],
+        }, { evidenceQuality: "ProjectPolicy" }));
+    }
+  }
+  await emit("review-fixtures.json", "review-fixture", fixtures);
+  await emit("manifest.json", "manifest-receipt", [envelope(
+    "manifest.apocalyptic-shadow-v1", "manifest-receipt", "Manifest receipt",
+    "清单回执", "The frozen manifest denominator and active selector receipt.",
+    "冻结清单分母与当前选择器回执。", ["apocalyptic-shadow-v1"], {
+      manifest_record_count: manifest.counts.records,
+      active_selector: manifest.active_selector,
+      exact_once_required: true,
+    }, { evidenceQuality: "ProjectPolicy" })]);
+}
