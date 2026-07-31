@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Content pools, services, events and enemies |
 | Active batch | — |
-| Next unblocked batch | `G15-P2-B1` |
+| Next unblocked batch | `G15-P2-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -52,7 +52,7 @@
 | `G15-P1-B5` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the two selected Whimsicality/base bindings and all three Grit/Fever contributions (`3031227`–`3031229`) with exact stage-ability keys and canonical parameter vectors; hidden target/tie behavior remains fixture-bound ProjectPolicy rather than observed parity. |
 | `G15-P1-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported all three selectable Cacophonies (`3031359`, `3031362`, `3031361`) with exact post-character-birth binding keys and canonical parameter order; attempt-node choice locking and base-rule interaction remain explicit future-runtime contribution boundaries. |
 | `G15-P1-B7` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the battle-entry resource, retry restoration and cross-battle projection boundary; absence of a selected season override is recorded as ProjectPolicy with a field-level replacement condition, while exact Tierce identity/score/target contributions remain in the P1-B1 record. |
-| `G15-P2-B1` | `Pending` | — | Freeze selector-backed nonzero or exact-zero Blessing, Curio, Occurrence and event-choice pools. |
+| `G15-P2-B1` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Generated exact-zero selector-closure proofs for Blessing, Curio, Occurrence and event-choice families; each distinguishes the complete 796-obligation active selector from reward/account tables and records zero selectors and zero reachable members. |
 | `G15-P2-B2` | `Pending` | — | Freeze selector-backed nonzero or exact-zero service, currency, shop and other content pools. |
 | `G15-P2-B3` | `Pending` | — | Import challenge definitions, themes, MazeBuffs, BattleEvents, stage templates and config/ability relationships. |
 | `G15-P2-B4` | `Pending` | — | Import exact StageConfig encounters, waves, spawn slots, variants, levels and difficulty bindings. |

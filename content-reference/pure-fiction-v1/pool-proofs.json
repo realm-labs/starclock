@@ -1,0 +1,125 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "pool-proofs.json",
+  "record_kind": "pool-proof",
+  "records": [
+    {
+      "id": "pf.zero-proof.blessing",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "blessing exact-zero proof",
+      "name_zh_cn": "blessing精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.blessing"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.blessing"
+      ],
+      "runtime_executable": false,
+      "family": "blessing",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    },
+    {
+      "id": "pf.zero-proof.curio",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "curio exact-zero proof",
+      "name_zh_cn": "curio精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.curio"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.curio"
+      ],
+      "runtime_executable": false,
+      "family": "curio",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    },
+    {
+      "id": "pf.zero-proof.event_choice",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "event_choice exact-zero proof",
+      "name_zh_cn": "event_choice精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.event_choice"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.event_choice"
+      ],
+      "runtime_executable": false,
+      "family": "event_choice",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    },
+    {
+      "id": "pf.zero-proof.occurrence",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "occurrence exact-zero proof",
+      "name_zh_cn": "occurrence精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.occurrence"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.occurrence"
+      ],
+      "runtime_executable": false,
+      "family": "occurrence",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    }
+  ]
+}
