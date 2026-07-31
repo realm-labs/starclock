@@ -8,14 +8,14 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | — |
-| Next unblocked batch | `G17-P0-B2` |
+| Next unblocked batch | `G17-P0-B3` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Planning cache audit | 2026-07-30: both caches clean/detached at pinned commits; origins, required commit/blob readability and connectivity verified; execution must reproduce in `G17-P0-B1` |
 | Starting source oracle | Dedicated `ChallengeMaze*`/schedule/target/const tables; shared entry, MazeBuff, BattleEvent, StageConfig, monster and config/ability closure; CHS/EN TextMaps |
 | Active-season hypothesis | Schedule `201033` → group `1033` (`学院怪谈` / `Academy Ghost Story`) → rows `5201`–`5212`, Tierce `5213`, MazeBuff `3030146`, targets `251`–`253`, 25 StageConfig candidates and Battle Event `30146`; not a denominator until `G17-P0-B3` |
-| Focused inventory | Pending `G17-P0-B2` |
+| Focused inventory | 2,703 pinned receipts: 2,646 inherited Goal 03 enemy/mechanic files, 10 dedicated Memory/Forgotten Hall tables, 17 shared entry/stage/event/config/TextMap seeds, 26 named adjacent Challenge exclusions, one additional Challenge evidence table and three StarRailRes identity receipts |
 | Content manifest | Denominators pending `G17-P0-B3` |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -42,7 +42,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G17-P0-B1` | `Complete` | This row's containing commit | Reproduced 28 required-file receipts in isolated clean/detached caches at `turnbasedgamedata@fd978d6e…c3568` and `StarRailRes@7b349e39…7a93`; verified origins, commit/blob readability and `git fsck --connectivity-only --no-dangling`. Goal 03 is Complete at immutable commit `60ca52ed…89de`. The execution branch/upstream/base, all registered worktrees, six writable roots and eight committed Goal 07–13/16 ownership inputs are frozen in `content-manifests/memory-of-chaos-v1/foundation.json`. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/foundation.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
-| `G17-P0-B2` | `Pending` | — | Inventory dedicated/adjacent tables, entry mappings, config/ability programs, TextMaps, StageConfig, enemies and exclusions. |
+| `G17-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` with 2,703 pinned receipts: 2,646 inherited Goal 03 enemy/mechanic files, 10 dedicated Memory/Forgotten Hall tables, 17 shared entry/stage/event/config/TextMap seeds, 26 named adjacent Challenge exclusions, one remaining Challenge evidence table and three StarRailRes identity receipts. The 25 active StageConfig rows remain planning candidates; membership and transitive closure are reserved for P0-B3. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos node tools/memory-of-chaos-reference/inventory.mjs --check`, `git diff --check`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push command `git push origin HEAD:codex/goal17-memory-of-chaos-reference`; verification command `git ls-remote --exit-code origin refs/heads/codex/goal17-memory-of-chaos-reference` must resolve to this row's containing commit. |
 | `G17-P0-B3` | `Pending` | — | Freeze active-season selectors, exact obligations/counts, Tierce semantics, ownership, reachability, proven-empty pools and exclusions. |
 | `G17-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G17-P1-B1` | `Pending` | — | Import profile, active season, entry/unlocks, floors/stages, ordinary nodes, Tierce identity, legal order and outcomes. |
