@@ -1,0 +1,158 @@
+{
+  "schema_revision": "pure-fiction-normalized-contract-v1",
+  "common_envelope": [
+    "id",
+    "name_en",
+    "name_zh_cn",
+    "summary_en",
+    "summary_zh_cn",
+    "game_version_snapshot",
+    "owner",
+    "release_state",
+    "enabled",
+    "coverage_state",
+    "source_record_ids"
+  ],
+  "evidence_fields": [
+    "publisher",
+    "url_or_repository",
+    "revision_or_access_date",
+    "game_version",
+    "path_or_page",
+    "row_locator",
+    "evidence_digest",
+    "quality",
+    "mechanism_quality",
+    "note"
+  ],
+  "qualities": [
+    "ExactStructured",
+    "ExactPublicText",
+    "Observed",
+    "ApproximateFromReleasedText",
+    "ProjectPolicy"
+  ],
+  "mechanism_qualities": [
+    "Exact",
+    "ReleasedText",
+    "Observed",
+    "Approximate",
+    "DeterministicProjectPolicyNotObservedParity"
+  ],
+  "canonical_encoding": {
+    "json": "UTF-8, two-space indentation, LF, one terminal newline",
+    "decimal": "canonical base-10 string without exponent",
+    "set_order": "ascending stable ID or Unicode stable-key order",
+    "semantic_order": "preserve authored wave, slot, parameter and operation order",
+    "hash": "SHA-256 over exact committed bytes"
+  },
+  "normalized_files": [
+    "profiles.json",
+    "seasons.json",
+    "stages.json",
+    "nodes.json",
+    "tierce-starward.json",
+    "participant-policies.json",
+    "attempt-policies.json",
+    "clocks.json",
+    "spawn-programs.json",
+    "score-programs.json",
+    "objectives.json",
+    "seasonal-mechanics.json",
+    "cacophonies.json",
+    "initial-resources.json",
+    "pool-proofs.json",
+    "themes.json",
+    "maze-buffs.json",
+    "battle-events.json",
+    "ability-programs.json",
+    "encounters.json",
+    "waves.json",
+    "enemy-slots.json",
+    "enemy-variants.json",
+    "enemy-templates.json",
+    "enemy-skills.json",
+    "enemy-character-configs.json",
+    "enemy-ai.json",
+    "enemy-abilities.json",
+    "enemy-statuses.json",
+    "mechanic-rules.json",
+    "sources.json",
+    "coverage.json",
+    "research-gaps.json",
+    "reconciliation.json",
+    "semantic-fixtures.json",
+    "pack-index.json"
+  ],
+  "workbook_tables": {
+    "PureFiction.xlsx": [
+      "Profile",
+      "Season",
+      "Stage",
+      "Node",
+      "TierceStarward",
+      "ParticipantPolicy",
+      "AttemptPolicy"
+    ],
+    "PureFictionBindings.xlsx": [
+      "Clock",
+      "SpawnProgram",
+      "ScoreProgram",
+      "Objective",
+      "SeasonalMechanic",
+      "Cacophony",
+      "InitialResource",
+      "PoolProof",
+      "Theme",
+      "MazeBuff",
+      "BattleEvent",
+      "AbilityProgram",
+      "Encounter",
+      "Wave",
+      "EnemySlot",
+      "EnemyVariant",
+      "EnemyTemplate",
+      "EnemySkill",
+      "EnemyCharacterConfig",
+      "EnemyAI",
+      "EnemyAbility",
+      "EnemyStatus",
+      "MechanicRule"
+    ],
+    "PureFictionReview.xlsx": [
+      "SourceRecord",
+      "ContentAudit",
+      "Coverage",
+      "ResearchGap",
+      "Reconciliation",
+      "SemanticFixture",
+      "PackFile"
+    ]
+  },
+  "reconciliation_key": [
+    "source_path",
+    "source_locator",
+    "evidence_digest"
+  ],
+  "fixture_contract": {
+    "required_fields": [
+      "id",
+      "family",
+      "input_ids",
+      "initial_state",
+      "commands",
+      "expected_facts",
+      "evidence_quality",
+      "replacement_condition"
+    ],
+    "fact_language": [
+      "equals",
+      "contains",
+      "ordered_equals",
+      "absent"
+    ],
+    "execution_status": "reference_review_only"
+  },
+  "runtime_status": "Unreleased",
+  "contract_digest": "fa2d66daa6610f3fc8ffd2d5dff025e2787ec1adc25e86612318980313b5fc55"
+}
