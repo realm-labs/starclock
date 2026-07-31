@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique activity systems |
 | Active batch | — |
-| Next unblocked batch | `G19-P1-B4` |
+| Next unblocked batch | `G19-P1-B5` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -52,7 +52,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P1-B1` | `Complete` | This row's containing commit | Normalized 99 enabled rows at `0054237e…0b9b`: three areas, seven difficulties, ten phases, twelve battle zones, eight difficulty-progress rows, seven day-progress rows, six boards/18 nodes, four challenge fights, six story-fight locators and 18 map group/fight rows. Bilingual/provenance and lossless 64-bit/canonical-number checks pass; publication is remote-verified before B2. |
 | `G19-P1-B2` | `Complete` | This row's containing commit | Normalized 85 participant records at `16b2b37b…5e8b`: eight classes, 21 handbook Masters, 21 Master rows, six avatars, ten Case Board Servants, nine teams, six owners and two Master config digests. 83 are enabled and two description rows evidence-only; no name-based uniqueness/loadout inference. Focused/quick gates and remote publication pass. |
 | `G19-P1-B3` | `Complete` | This row's containing commit | Normalized 172 enabled Noble Phantasm/catalog rows at `7f7c6ef2…2223`: 34 core identities, 107 FateRin configs, three rarities, five tags, twelve keywords, four decks and seven recommendations. Core/config identities remain distinct and source-linked; focused/quick gates and remote publication pass. |
-| `G19-P1-B4` | `Pending` | — | Import Mystic Code costs, targets, effects, upgrades and lifecycle. |
+| `G19-P1-B4` | `Complete` | This row's containing commit | Normalized 671 enabled effect rows at `38530013…b378`: 51 buffs, twelve slots, 383 Fate MazeBuff rows, 141 statuses, 64 trait buffs and twenty challenge selections. Parameter vectors are canonical and definition/state families stay separate; hidden target/order/stack/teardown semantics remain fixture-bound. Focused/quick gates and remote publication pass. |
 | `G19-P1-B5` | `Pending` | — | Import energy, Command Spells/Reiju, choices and resource transitions. |
 | `G19-P1-B6` | `Pending` | — | Import owners, traits/affixes, progression and carry/reset. |
 | `G19-P1-B7` | `Pending` | — | Import story/map/Infinite Trial flow, objectives, retry and settlement. |
