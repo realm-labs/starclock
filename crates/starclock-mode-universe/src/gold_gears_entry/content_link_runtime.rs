@@ -25,6 +25,7 @@ use super::{
     path_boost_rule_runtime::GoldAndGearsPathBoostRuleRuntimeCatalog,
     progression_runtime::ProgressionRuntimeCatalog,
     resonance_rule_runtime::GoldAndGearsResonanceRuleRuntimeCatalog,
+    semantic_fixture_runtime::GoldAndGearsSemanticFixtureRuntimeCatalog,
     service_adventure_runtime::GoldAndGearsServiceAdventureRuntimeCatalog,
     state_layout::BLESSING_INVENTORY,
 };
@@ -70,6 +71,7 @@ pub(super) struct GoldAndGearsContentRuntimeCatalog {
     pub(super) service_adventure: Arc<GoldAndGearsServiceAdventureRuntimeCatalog>,
     pub(super) path_boost_rules: Arc<GoldAndGearsPathBoostRuleRuntimeCatalog>,
     pub(super) resonance_rules: Arc<GoldAndGearsResonanceRuleRuntimeCatalog>,
+    pub(super) semantic_fixtures: Arc<GoldAndGearsSemanticFixtureRuntimeCatalog>,
     digests: GoldAndGearsSharedContentDigests,
 }
 
@@ -113,6 +115,8 @@ impl GoldAndGearsContentRuntimeCatalog {
             &standard,
             progression,
         )?);
+        let semantic_fixtures =
+            Arc::new(GoldAndGearsSemanticFixtureRuntimeCatalog::compile(content)?);
         let digests = GoldAndGearsSharedContentDigests {
             blessing: blessings.digest(),
             path: paths.digest(),
@@ -127,6 +131,7 @@ impl GoldAndGearsContentRuntimeCatalog {
             service_adventure,
             path_boost_rules,
             resonance_rules,
+            semantic_fixtures,
             digests,
         })
     }

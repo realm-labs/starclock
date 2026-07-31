@@ -112,6 +112,33 @@ impl GoldAndGearsContentCatalog {
             + self.review_fixtures.len()
             + self.pack_index.len()
     }
+
+    pub(crate) fn review_fixture_keys(&self) -> impl ExactSizeIterator<Item = &str> {
+        self.review_fixtures.iter().map(|row| row.key.as_str())
+    }
+
+    pub(crate) fn encounter_fixture_shape(&self, group_key: &str) -> Option<(usize, usize)> {
+        let group = self
+            .encounter_groups
+            .iter()
+            .find(|group| group.key.as_str() == group_key)?;
+        let waves = self
+            .encounter_waves
+            .iter()
+            .filter(|wave| wave.group_id == group.id)
+            .collect::<Vec<_>>();
+        let slot_count = waves.iter().map(|wave| wave.slots.len()).sum();
+        let boss_choice_count = waves
+            .iter()
+            .flat_map(|wave| {
+                self.enemy_slots
+                    .iter()
+                    .filter(move |slot| slot.wave_id == wave.id)
+            })
+            .map(|slot| slot.boss_choices.len())
+            .sum();
+        Some((slot_count, boss_choice_count))
+    }
 }
 
 #[cfg(test)]

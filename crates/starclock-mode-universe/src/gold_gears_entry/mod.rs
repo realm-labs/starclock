@@ -27,6 +27,7 @@ mod plane_transition;
 mod profile_rule_runtime;
 mod progression_runtime;
 mod resonance_rule_runtime;
+mod semantic_fixture_runtime;
 mod service_adventure_rule_runtime;
 mod service_adventure_runtime;
 mod service_adventure_types;
@@ -126,6 +127,10 @@ pub use resonance_rule_runtime::{
     GoldAndGearsResonanceRuleAccuracy, GoldAndGearsResonanceRuleBinding,
     GoldAndGearsResonanceRuleKind, GoldAndGearsResonanceRuleOwnership,
 };
+pub use semantic_fixture_runtime::{
+    GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION, GoldAndGearsSemanticFixtureBinding,
+    GoldAndGearsSemanticFixtureExecutionKind, GoldAndGearsSemanticFixtureProbe,
+};
 pub use service_adventure_rule_runtime::GOLD_AND_GEARS_SERVICE_ADVENTURE_EXECUTION_REVISION;
 pub use service_adventure_runtime::{
     GOLD_AND_GEARS_ADVENTURE_POLICY_ACCURACY, GOLD_AND_GEARS_ADVENTURE_POLICY_REVISION,
@@ -181,6 +186,8 @@ mod profile_rule_runtime_tests;
 mod progression_runtime_tests;
 #[cfg(test)]
 mod resonance_rule_runtime_tests;
+#[cfg(test)]
+mod semantic_fixture_runtime_tests;
 #[cfg(test)]
 mod service_adventure_rule_runtime_tests;
 #[cfg(test)]
