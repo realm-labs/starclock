@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Content pools, services, events and enemies |
 | Active batch | — |
-| Next unblocked batch | `G15-P2-B3` |
+| Next unblocked batch | `G15-P2-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -54,7 +54,7 @@
 | `G15-P1-B7` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported the battle-entry resource, retry restoration and cross-battle projection boundary; absence of a selected season override is recorded as ProjectPolicy with a field-level replacement condition, while exact Tierce identity/score/target contributions remain in the P1-B1 record. |
 | `G15-P2-B1` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Generated exact-zero selector-closure proofs for Blessing, Curio, Occurrence and event-choice families; each distinguishes the complete 796-obligation active selector from reward/account tables and records zero selectors and zero reachable members. |
 | `G15-P2-B2` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Extended the generated exact-zero closure to service, currency and shop, yielding seven fail-closed pool proofs with no inferred membership from rewards, names, shared tables or adjacent challenge rows. |
-| `G15-P2-B3` | `Pending` | — | Import challenge definitions, themes, MazeBuffs, BattleEvents, stage templates and config/ability relationships. |
+| `G15-P2-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly. Imported theme 4, all eight active MazeBuff bindings, neutral continuous-spawn BattleEvent `31001` and four `FantasticStory*` programs reached by exact binding-key matches; program bytes remain immutable reference evidence and are not treated as executable handlers. |
 | `G15-P2-B4` | `Pending` | — | Import exact StageConfig encounters, waves, spawn slots, variants, levels and difficulty bindings. |
 | `G15-P2-B5` | `Pending` | — | Import enemy skills/statuses/AI/abilities, summons, linked actors, boss phases and rule contributions. |
 | `G15-P2-B6` | `Pending` | — | Generate mechanics, sources, coverage, research gaps, fixtures and pack index. |

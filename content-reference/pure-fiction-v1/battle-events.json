@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.pure-fiction-normalized-file.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "profile": "pure-fiction-v1",
+  "file": "battle-events.json",
+  "record_kind": "battle-event",
+  "records": [
+    {
+      "id": "pf.battle-event.31001",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "battle-event",
+      "name_en": "Continuous spawn battle event",
+      "name_zh_cn": "连续刷新战斗事件",
+      "summary_en": "The exact neutral battle event selected by all nine active StageConfig rows.",
+      "summary_zh_cn": "九个当前StageConfig行共同选择的精确中立战斗事件。",
+      "game_version_snapshot": "4.4",
+      "ownership": "Shared",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "Exact",
+      "manifest_record_ids": [
+        "pf.battle-event.31001"
+      ],
+      "source_record_ids": [
+        "source.pf.battle-event.31001"
+      ],
+      "runtime_executable": false,
+      "battle_event_id": 31001,
+      "team": "TeamNeutral",
+      "subtype": "ChallengerEvent",
+      "ability_list": [
+        "BattleEventAbility_SummonMonsterInfinite",
+        "Local_SPAdd_Modify"
+      ],
+      "parameters": [
+        "0.3"
+      ],
+      "base_hp": "90"
+    }
+  ]
+}
