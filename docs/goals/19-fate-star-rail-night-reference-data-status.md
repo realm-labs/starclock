@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Encounters and complete pack |
 | Active batch | — |
-| Next unblocked batch | `G19-P2-B5` |
+| Next unblocked batch | `G19-P3-B1` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -37,7 +37,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Reproduced sources, corrected the Fate/FateRin oracle, froze 1,904 obligations and six exact-zero pools, then bound 48 sheets across four workbook/evidence/Sora contracts. |
 | Phase 1 — Unique activity systems | `Complete` | Seven normalized partitions contain 1,805 direct records: 1,392 enabled mode facts and all 413 evidence-only obligations; with six zero records, the complete 1,398 Fate-owned denominator is accounted. |
-| Phase 2 — Encounters and complete pack | `InProgress` | `G19-P2-B1` is materializing exact-zero generic pool audits. |
+| Phase 2 — Encounters and complete pack | `Complete` | The 17-file pack accounts 1,904/1,904 obligations, 1,491 eligible DataReady rows, 413 evidence-only rows, 13 replaceable policies, 56 fixtures and zero unresolved records. |
 | Phase 3 — Excel and Sora | `Pending` | Awaiting isolated schemas/readers, four workbooks, deterministic exports and visual QA. |
 | Phase 4 — Audit and freeze | `Pending` | Awaiting ownership audit, semantic execution, reconciliation and Candidate release. |
 
@@ -60,7 +60,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P2-B2` | `Complete` | This row's containing commit | Normalized 67 shared bindings at `0cd67f04…674a`: 18 BattleAreas, thirteen unified configs, 23 MazeBuffs, two BattleEvents and eleven BattleTargets. 54 typed/direct rows are DataReady; thirteen scalar event/target matches remain bounded research for P2-B5. Focused/quick gates and remote publication pass. |
 | `G19-P2-B3` | `Complete` | This row's containing commit | Expanded eight FateActivity obligations into 112 DataReady rows at `b8db101d…24e5`: eight stages, 24 ordered waves and eighty ordered slots. Derived children retain parent provenance without enlarging the exact-once denominator; focused/quick gates and remote publication pass. |
 | `G19-P2-B4` | `Complete` | This row's containing commit | Closed eighteen manifest rows at `07e489d2…2d5b` (five variants, five templates, eight skills) plus ten template-derived character/AI program receipts at `fdbbfb0c…6372`; 15 AnimEvent paths are presentation exclusions and no typed separate ability-program path exists. Primary inventory remains stable; focused/quick gates and remote publication pass. |
-| `G19-P2-B5` | `Pending` | — | Generate rules, sources, coverage, gaps, reconciliation, fixtures and index. |
+| `G19-P2-B5` | `Complete` | This row's containing commit | Assembled 17 files / 2,018 normalized records at pack digest `ae040b74…ecc3`; coverage is 1,904/1,904 with 1,491 eligible DataReady, 413 evidence-only, 13 explicit replaceable policies and zero unresolved. Generated 1,914 source receipts, 56 family fixtures and 11 peer reconciliation receipts (three concurrent peers deferred to merge). Focused/quick gates and remote publication pass. |
 | `G19-P3-B1` | `Pending` | — | Add profile/graph/participant/progression Sora tables. |
 | `G19-P3-B2` | `Pending` | — | Add Mystic Code/deck/resource/Command Spell/trait Sora tables. |
 | `G19-P3-B3` | `Pending` | — | Add fight/buff/encounter/wave/enemy/mechanic-binding Sora tables. |
@@ -93,7 +93,7 @@ proofs. Never reduce this denominator to make later coverage pass.
 | `G19-R07` | `Open` | How do progression, traits/affixes, owner/init loadouts and state carry compose? | P1-B6 |
 | `G19-R08` | `Open` | Which story/map/Infinite Trial fights, affixes, objectives and retry/settlement rules are enabled? | P1-B7/P2-B2 |
 | `G19-R09` | `Open` | Which StageConfig waves, enemies, AI, skills, statuses and abilities define every fight? | P2-B3–B4 |
-| `G19-R10` | `Open` | Which hidden ordering, timing, weights, caps, rounding and fallbacks remain unavailable? | P2-B5/P4-B2 |
+| `G19-R10` | `ResolvedFixtureBound` | Which hidden ordering, timing, weights, caps, rounding and fallbacks remain unavailable? Thirteen BattleEvent/BattleTarget operation meanings use `IdentityOnlyNoOperationLowering`, each with alternatives, fixture and released-evidence replacement condition. | P2-B5/P4-B2 |
 
 ## Completion record
 
