@@ -106,6 +106,10 @@
       "command": ["node", "tools/reference-integration/verify.mjs", "--check"]
     },
     {
+      "name": "merged high-priority reference integration",
+      "command": ["node", "tools/high-priority-reference-integration/verify.mjs", "--check"]
+    },
+    {
       "name": "production Excel and Sora configuration golden",
       "command": ["node", "tools/config-production/verify.mjs"]
     },

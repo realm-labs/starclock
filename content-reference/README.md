@@ -62,6 +62,25 @@ three Excel/openpyxl workbooks, Sora 0.3.0 project, provenance, coverage,
 peer reconciliation, approximation register and semantic fixtures. It remains
 reference-only and does not enter any production runtime bundle.
 
+The isolated Version 4.4 Pure Fiction Candidate reference lives under
+`pure-fiction-v1/`. Its frozen 796-obligation manifest is fully DataReady; the
+pack includes three Excel/openpyxl workbooks, 37 Sora tables, provenance,
+shared-row reconciliation, 25 rules and 18 semantic fixtures. It remains
+reference-only and does not enter any production runtime bundle.
+
+The isolated Version 4.4 Memory of Chaos Candidate reference lives under
+`memory-of-chaos-v1/`. Its frozen 477-obligation manifest is fully DataReady;
+the pack includes three Excel/openpyxl workbooks, 27 Sora tables, exact
+season/Tierce encounter closure, 305 shared reconciliations and 18 semantic
+families. It remains reference-only and does not enter any production runtime
+bundle.
+
+The isolated Version 4.4 Apocalyptic Shadow Candidate reference lives under
+`apocalyptic-shadow-v1/`. Its frozen 129-obligation manifest and 1,246-row
+pack include three Excel/openpyxl workbooks, 35 Sora tables, 81 shared
+reconciliations and 42 fixtures. It remains reference-only and does not enter
+any production runtime bundle.
+
 The isolated Version 4.4 Fate/Star Rail Night Candidate reference lives under
 `fate-star-rail-night-v1/`. It has a frozen 1,904-obligation manifest, a
 2,018-record normalized pack, four Excel/openpyxl workbooks, a 48-table Sora
@@ -74,3 +93,10 @@ The post-merge audit for all six Candidate packages is generated at
 final completion commits, proves the merged manifests and release evidence are
 unchanged, covers all 15 mode pairs and fails on any factual evidence conflict
 or runtime-boundary leak.
+
+The separate four-way post-merge audit for Pure Fiction, Memory of Chaos,
+Apocalyptic Shadow and Fate/Star Rail Night is generated at
+`evidence/high-priority-reference-integration-v1/merged-mode-audit.json`. It
+checks all six pairs at both literal receipt and canonical upstream-identity
+layers, records identity coordination required before runtime lowering and
+fails on factual evidence drift or runtime leakage.

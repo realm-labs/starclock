@@ -1,0 +1,295 @@
+{
+  "schema_revision": "starclock.high-priority-reference-integration.v1",
+  "observed_on": "2026-08-01",
+  "result": "PassWithIdentityCoordination",
+  "scope": "Merged Goal 15, 17, 18 and 19 Candidate reference snapshots.",
+  "mode_count": 4,
+  "manifest_obligation_count": 3306,
+  "shared_obligation_count": 1085,
+  "pairwise_mode_pair_count": 6,
+  "literal_exact_overlap_count": 1,
+  "canonical_additional_overlap_count": 1,
+  "factual_conflict_count": 0,
+  "runtime_leakage_count": 0,
+  "stable_identity_coordination_required": true,
+  "immutable_release_snapshots_registered": true,
+  "modes": [
+    {
+      "goal": "G15",
+      "goal_id": "pure-fiction-reference-v1",
+      "mode": "pure-fiction",
+      "completion_commit": "2e56bdb14622b8afbdbea333b871e661cb4a3fe9",
+      "completion_tree": "4af3e29a5339db389992d70d3c537b8aa75b5f18",
+      "post_completion_verifier_fix": null,
+      "manifest_path": "content-manifests/pure-fiction-v1/content-manifest.json",
+      "manifest_file_sha256": "2593bf83e09bef8f1139720972ed6b846c20b9f3e3154a3defbb8d4a916a1027",
+      "manifest_semantic_sha256": "87134542a1c5df36aa499a04080c204df69effd8a596fb3c9451613895ba450e",
+      "manifest_digest_kind": "CanonicalObligationSemanticDigest",
+      "obligations": 796,
+      "shared": 606,
+      "release_evidence_path": "evidence/pure-fiction-v1/release/release-evidence.json",
+      "release_evidence_sha256": "d9ae1addd2c7898c9637da7367138f6b06e31f73360941123b776579d5316fac",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G17",
+      "goal_id": "memory-of-chaos-reference-v1",
+      "mode": "memory-of-chaos",
+      "completion_commit": "ae6abdfa71af8caf7b557baa35ec392daedd3c2a",
+      "completion_tree": "15d48eb63963ff4ad0323300d4510873529c74ba",
+      "post_completion_verifier_fix": null,
+      "manifest_path": "content-manifests/memory-of-chaos-v1/content-manifest.json",
+      "manifest_file_sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce",
+      "manifest_semantic_sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce",
+      "manifest_digest_kind": "ManifestFileSha256",
+      "obligations": 477,
+      "shared": 305,
+      "release_evidence_path": "evidence/memory-of-chaos-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "38d1f113096dd58b0458ffcebd9b0044f8d9c8e5f51783e0b4e48d1612349585",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G18",
+      "goal_id": "apocalyptic-shadow-reference-v1",
+      "mode": "apocalyptic-shadow",
+      "completion_commit": "f9f70e208b2b69f74e31f01eef0e5d620fc959bb",
+      "completion_tree": "1dd6d69accec9eb9ede8fa18422dd658d01a20c4",
+      "post_completion_verifier_fix": null,
+      "manifest_path": "content-manifests/apocalyptic-shadow-v1/content-manifest.json",
+      "manifest_file_sha256": "d64e4e3609f6818e5e0d072205010f3d39082ddaab260e0e5b1ca20e037c23b1",
+      "manifest_semantic_sha256": "d64e4e3609f6818e5e0d072205010f3d39082ddaab260e0e5b1ca20e037c23b1",
+      "manifest_digest_kind": "ManifestFileSha256",
+      "obligations": 129,
+      "shared": 81,
+      "release_evidence_path": "evidence/apocalyptic-shadow-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "7900aa12f55401ead510cbc6654c1148abafd400657e80c13b70358119d8dd25",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    },
+    {
+      "goal": "G19",
+      "goal_id": "fate-star-rail-night-reference-v1",
+      "mode": "fate-star-rail-night",
+      "completion_commit": "9fdc978e9e13106d479a6c7790dabaf744a8fdae",
+      "completion_tree": "7f97be286a9b80677412d416a4d723a92823137d",
+      "post_completion_verifier_fix": "5517b2174f89340ae5b88650bf0c6fa686c44b1c",
+      "manifest_path": "content-manifests/fate-star-rail-night-v1/content-manifest.json",
+      "manifest_file_sha256": "7935951f5b14abf07f6cc1fdf37d70c1d60da12212586cee96bb3e6f787bb5b6",
+      "manifest_semantic_sha256": "7935951f5b14abf07f6cc1fdf37d70c1d60da12212586cee96bb3e6f787bb5b6",
+      "manifest_digest_kind": "ManifestFileSha256",
+      "obligations": 1904,
+      "shared": 93,
+      "release_evidence_path": "evidence/fate-star-rail-night-reference-v1/release/release-evidence.json",
+      "release_evidence_sha256": "a5097123d4f50062b5e2e02da024216cd89850b9f65c97c3f74d8eda4b266fbf",
+      "current_tree_matches_completion_snapshot": true,
+      "runtime_loading": "Disabled"
+    }
+  ],
+  "literal_receipt_matrix": [
+    {
+      "pair": "G15/G17",
+      "common_source_path_count": 4,
+      "exact_match_count": 1,
+      "conflict_count": 0,
+      "exact_matches": [
+        {
+          "path": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=2032010",
+          "sha256": "8a2bb34af2bf0eb22d42ce31a6cbdd20526ac736ebed7e649dacee839e9fba81",
+          "left_ids": [
+            "pf.enemy.2032010"
+          ],
+          "right_ids": [
+            "enemy-variant-2032010"
+          ],
+          "ownership_labels": [
+            "Shared"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "pair": "G15/G18",
+      "common_source_path_count": 4,
+      "exact_match_count": 0,
+      "conflict_count": 0,
+      "exact_matches": [],
+      "conflicts": []
+    },
+    {
+      "pair": "G15/G19",
+      "common_source_path_count": 6,
+      "exact_match_count": 0,
+      "conflict_count": 0,
+      "exact_matches": [],
+      "conflicts": []
+    },
+    {
+      "pair": "G17/G18",
+      "common_source_path_count": 2,
+      "exact_match_count": 0,
+      "conflict_count": 0,
+      "exact_matches": [],
+      "conflicts": []
+    },
+    {
+      "pair": "G17/G19",
+      "common_source_path_count": 4,
+      "exact_match_count": 0,
+      "conflict_count": 0,
+      "exact_matches": [],
+      "conflicts": []
+    },
+    {
+      "pair": "G18/G19",
+      "common_source_path_count": 4,
+      "exact_match_count": 0,
+      "conflict_count": 0,
+      "exact_matches": [],
+      "conflicts": []
+    }
+  ],
+  "canonical_identity_audit": {
+    "additional_overlap_count": 1,
+    "conflict_count": 0,
+    "overlaps": [
+      {
+        "canonical_identity": "MonsterTemplateConfig:MonsterTemplateID=8003020",
+        "modes": [
+          "pure-fiction",
+          "fate-star-rail-night"
+        ],
+        "pure_fiction_locator": "MonsterTemplateID=8003020",
+        "fate_star_rail_night_locator": "index:533",
+        "canonical_fact_sha256": "536f125e8c936d5f6cbfb5785db6763f57dec4e5062ecd717d13ba99e63f553d",
+        "common_facts": {
+          "rank": "Elite",
+          "character_config": "Config/ConfigCharacter/Monster/Monster_XP_Elite01_00_Config.json",
+          "attack": "18",
+          "defence": "210",
+          "hp": "930",
+          "speed": "120",
+          "stance": "300"
+        },
+        "disposition": "SharedCanonicalIdentityDifferentLiteralReceipts"
+      }
+    ],
+    "rule": "Literal receipts remain provenance; upstream primary keys provide a second identity layer."
+  },
+  "stable_identity_audit": {
+    "cross_mode_collision_count": 3,
+    "cross_mode_collisions": [
+      {
+        "id": "attempt.abandon",
+        "modes": [
+          "pure-fiction",
+          "apocalyptic-shadow"
+        ],
+        "disposition": "RequireModeQualificationOrSharedOwnerBeforeRuntime"
+      },
+      {
+        "id": "attempt.accepted-start",
+        "modes": [
+          "pure-fiction",
+          "apocalyptic-shadow"
+        ],
+        "disposition": "RequireModeQualificationOrSharedOwnerBeforeRuntime"
+      },
+      {
+        "id": "attempt.rejected-start",
+        "modes": [
+          "pure-fiction",
+          "apocalyptic-shadow"
+        ],
+        "disposition": "RequireModeQualificationOrSharedOwnerBeforeRuntime"
+      }
+    ],
+    "pure_fiction_intentional_alias_count": 8,
+    "pure_fiction_intentional_aliases": [
+      {
+        "id": "pf.buff.3031220",
+        "materialized_views": [
+          "maze-buffs.json",
+          "seasonal-mechanics.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031225",
+        "materialized_views": [
+          "maze-buffs.json",
+          "seasonal-mechanics.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031227",
+        "materialized_views": [
+          "maze-buffs.json",
+          "seasonal-mechanics.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031228",
+        "materialized_views": [
+          "maze-buffs.json",
+          "seasonal-mechanics.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031229",
+        "materialized_views": [
+          "maze-buffs.json",
+          "seasonal-mechanics.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031359",
+        "materialized_views": [
+          "cacophonies.json",
+          "maze-buffs.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031361",
+        "materialized_views": [
+          "cacophonies.json",
+          "maze-buffs.json"
+        ]
+      },
+      {
+        "id": "pf.buff.3031362",
+        "materialized_views": [
+          "cacophonies.json",
+          "maze-buffs.json"
+        ]
+      }
+    ],
+    "factual_conflict": false,
+    "runtime_blocking_condition": "Resolve unqualified cross-mode IDs before any runtime registry composition."
+  },
+  "runtime_isolation": {
+    "runtime_enabled_profiles": 0,
+    "crate_reference_matches": []
+  },
+  "merge_resolution": {
+    "repository_generated_reader_exclusions": [
+      "config/pure-fiction-generated/readers/rust",
+      "config/memory-of-chaos-generated/readers/rust",
+      "config/apocalyptic-shadow-generated/readers/rust",
+      "config/fate-star-rail-night-generated/readers/rust"
+    ],
+    "policy_union_preserved": true,
+    "goal_index_union_preserved": true,
+    "frozen_peer_locks_mutated": false
+  },
+  "conclusions": [
+    "All 3,306 obligations remain byte-identical to their completion snapshots.",
+    "All six literal receipt pairs have zero factual digest conflicts.",
+    "Pure Fiction and Memory of Chaos share exact MonsterID=2032010 evidence.",
+    "Pure Fiction and Fate share canonical MonsterTemplateID=8003020 facts despite different locator conventions.",
+    "Three unqualified attempt-policy IDs and eight Pure Fiction materialized-view aliases require explicit identity handling before runtime lowering.",
+    "All four packages remain Candidate reference data with runtime loading disabled."
+  ]
+}

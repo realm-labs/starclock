@@ -191,6 +191,30 @@ the isolated Sora review bundle digest is
 Exact counts, evidence and the remaining runtime boundary are recorded in the
 [Goal 13 ledger](../goals/13-anomaly-arbitration-reference-data-status.md).
 
+## Pure Fiction Candidate reference
+
+Goal 15 freezes `content-reference/pure-fiction-v1/`: 796/796 DataReady
+obligations, 6,014 normalized rows, 606 shared receipts, 25 rules and 18
+fixtures. Its three workbooks and 37-table Sora bundle remain review-only.
+Exact release evidence is recorded in the
+[Goal 15 ledger](../goals/15-pure-fiction-reference-data-status.md).
+
+## Memory of Chaos Candidate reference
+
+Goal 17 freezes `content-reference/memory-of-chaos-v1/`: 477/477 DataReady
+obligations, 1,521 normalized rows, 305 shared reconciliation receipts, 29
+nonblocking policy boundaries and 18 semantic families. Its three workbooks
+and 27-table Sora bundle remain review-only. Exact release evidence is recorded
+in the [Goal 17 ledger](../goals/17-memory-of-chaos-reference-data-status.md).
+
+## Apocalyptic Shadow Candidate reference
+
+Goal 18 freezes `content-reference/apocalyptic-shadow-v1/`: 129/129
+obligations, 1,246 DataReady normalized rows, 81 shared receipts and 42
+fixtures. Its three workbooks and 35-table Sora bundle remain review-only.
+Exact release evidence is recorded in the
+[Goal 18 ledger](../goals/18-apocalyptic-shadow-reference-data-status.md).
+
 ## Fate/Star Rail Night Candidate reference
 
 Goal 19 freezes a separate Version 4.4 Fate/Star Rail Night reference package
@@ -218,3 +242,12 @@ binds the final Goal 08-13 completion commits after merge. It verifies all
 factual evidence conflicts and zero runtime-enabled Candidate modes. Historical
 release evidence remains unchanged; the integration audit records current-tree
 compatibility separately.
+
+The additional
+[`high-priority merged audit`](../../evidence/high-priority-reference-integration-v1/merged-mode-audit.json)
+binds Goals 15 and 17-19 after merge. It verifies 3,306 obligations and all six
+mode pairs, preserves literal provenance while adding canonical upstream-key
+comparison, records zero factual conflicts and keeps all four runtime profiles
+disabled. Three unqualified cross-mode policy IDs and eight intentional Pure
+Fiction materialized-view aliases remain explicit pre-runtime coordination
+items rather than silently merged identities.
