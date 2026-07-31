@@ -1,6 +1,9 @@
 //! Gold and Gears entry validation and generic Activity-state compilation.
 
 mod api;
+mod battle_enemy_catalog;
+mod battle_materialization;
+mod battle_snapshot;
 mod cognition;
 mod content_link_runtime;
 mod conundrum_auxiliary_runtime;
@@ -41,6 +44,16 @@ mod validate;
 pub use api::{
     GOLD_AND_GEARS_ENTRY_REVISION, GOLD_AND_GEARS_TOPOLOGY_REVISION, GoldAndGearsEntry,
     GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+};
+pub use battle_enemy_catalog::{
+    GOLD_AND_GEARS_ENEMY_DEFINITION_REVISION, GoldAndGearsEnemyDefinitionBinding,
+};
+pub use battle_materialization::{
+    GOLD_AND_GEARS_BATTLE_MATERIALIZATION_REVISION, GoldAndGearsBattleMaterialization,
+};
+pub use battle_snapshot::{
+    GOLD_AND_GEARS_BATTLE_SNAPSHOT_REVISION, GoldAndGearsBattleAssemblyContext,
+    GoldAndGearsBattleContributionSnapshot,
 };
 pub use cognition::GOLD_AND_GEARS_COGNITION_REVISION;
 pub use content_link_runtime::{

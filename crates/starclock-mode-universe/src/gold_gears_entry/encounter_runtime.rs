@@ -453,6 +453,19 @@ impl CompiledEncounterRuntime {
 }
 
 impl GoldAndGearsRuntimeInstance {
+    pub(super) fn encounter_role_for_node(
+        &self,
+        state: &ActivityTransactionState,
+        node: NodeId,
+    ) -> Option<GoldAndGearsEncounterRole> {
+        let plane = self
+            .graph
+            .node(node)
+            .and_then(|definition| u8::try_from(definition.section().get()).ok())?;
+        let domain = self.map.node_domain_key(state, node)?;
+        role_for_domain(domain, plane).ok()
+    }
+
     /// Resolves the current combat-capable domain into one immutable encounter.
     ///
     /// Group and weighted-member draws are transactional and use only the

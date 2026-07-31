@@ -247,6 +247,19 @@ impl ActivityTransactionState {
     pub fn slot(&self, id: ActivitySlotId) -> Option<&ActivityValue> {
         self.slots.get(&id)
     }
+    /// Returns one inventory snapshot in canonical content-ID order.
+    ///
+    /// This is a read-only battle-snapshot boundary. Callers cannot mutate the
+    /// inventory except through accepted Activity commands.
+    #[must_use]
+    pub fn inventory_entries(
+        &self,
+        id: ActivityInventoryId,
+    ) -> Option<impl ExactSizeIterator<Item = (u64, u32)> + '_> {
+        self.inventories
+            .get(&id)
+            .map(|entries| entries.iter().map(|(content, count)| (*content, *count)))
+    }
     #[must_use]
     pub(crate) fn counter_value(&self, id: ActivitySlotId, key: u64) -> Option<i64> {
         match self.slots.get(&id)? {

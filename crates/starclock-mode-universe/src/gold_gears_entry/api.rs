@@ -10,6 +10,7 @@ use starclock_activity::{
 
 use super::{
     EXPECTED_PROFILE_KEY, GoldAndGearsEntryError,
+    battle_enemy_catalog::GoldAndGearsBattleCatalogComposition,
     cognition::CognitionRuntimeCatalog,
     content_link_runtime::GoldAndGearsContentRuntimeCatalog,
     conundrum_runtime::{CompiledConundrumRuntime, ConundrumRuntimeCatalog},
@@ -196,6 +197,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
     pub(super) runtime_coverage: Arc<RuntimeCoverageCatalog>,
     pub(super) encounters: Arc<EncounterRuntimeCatalog>,
+    pub(super) battle_catalog: Arc<GoldAndGearsBattleCatalogComposition>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -234,6 +236,11 @@ impl GoldAndGearsRuntimeFactory {
         let conundrum = ConundrumRuntimeCatalog::compile(&unique)?;
         let runtime_coverage =
             RuntimeCoverageCatalog::compile(&content, &unique, &content_runtime)?;
+        let battle_catalog = GoldAndGearsBattleCatalogComposition::compile(
+            &content,
+            &content_runtime.standard,
+            content_runtime.battle_catalog.combat_catalog(),
+        )?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -250,6 +257,7 @@ impl GoldAndGearsRuntimeFactory {
             content_runtime: Arc::new(content_runtime),
             runtime_coverage: Arc::new(runtime_coverage),
             encounters: Arc::new(encounters),
+            battle_catalog: Arc::new(battle_catalog),
         })
     }
 
@@ -436,6 +444,7 @@ impl GoldAndGearsRuntimeFactory {
             progression_catalog: Arc::clone(&self.progression),
             content_runtime: Arc::clone(&self.content_runtime),
             encounter_runtime,
+            battle_catalog: Arc::clone(&self.battle_catalog),
         })
     }
 
@@ -492,6 +501,7 @@ pub struct GoldAndGearsRuntimeInstance {
     pub(super) progression_catalog: Arc<ProgressionRuntimeCatalog>,
     pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
     pub(super) encounter_runtime: CompiledEncounterRuntime,
+    pub(super) battle_catalog: Arc<GoldAndGearsBattleCatalogComposition>,
 }
 
 impl GoldAndGearsRuntimeInstance {
