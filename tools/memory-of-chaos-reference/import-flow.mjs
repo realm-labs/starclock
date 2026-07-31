@@ -280,6 +280,21 @@ const tierceRecord = record({
       "ClockCarry",
       "SettlementSemantics",
     ],
+    activity_projection: {
+      section_kind: "SeparateTierceExtension",
+      carries_ordinary_stage_state: false,
+      participant_policy: "UnresolvedFailClosed",
+      clock: {
+        initial_remaining_cycles: 45,
+        ownership_scope: "IndependentTierceSectionProjectPolicy",
+        carry_from_ordinary_floor_12: false,
+      },
+      encounter_ids: tierce.HFIAAGAKFMD.map((id) => `encounter.${id}`),
+      objective_ids: tierce.OGEOMCGNNMP.map((id) => `objective.${id}`),
+      settlement_scope: "IndependentTierceBestObjectiveRecordProjectPolicy",
+      reward_payloads_included: false,
+      runtime_publishable: false,
+    },
   },
 });
 

@@ -400,8 +400,8 @@
       "kind": "ClockRule",
       "name_en": "Wave cycle carry",
       "name_zh_cn": "波次间轮次携带",
-      "summary_en": "A wave transition preserves the current remaining cycles and current cycle AV position.",
-      "summary_zh_cn": "波次转移保持当前剩余轮次和本轮行动值位置。",
+      "summary_en": "A wave transition preserves remaining cycles but resets elapsed Action Value to the initial window.",
+      "summary_zh_cn": "波次转移保留剩余轮次，但把已消耗行动值重置到初始窗口。",
       "game_version": "4.4",
       "ownership": "MemoryOfChaos",
       "coverage_state": "DataReady",
@@ -420,34 +420,47 @@
           "quality": "ProjectPolicy",
           "mechanism_quality": "PolicyBoundary",
           "note": "Non-shrinking wave-cycle-carry clock obligation."
+        },
+        {
+          "id": "fandom:forgotten-hall:wave-battle-av-reset",
+          "repository_or_url": "https://honkai-star-rail.fandom.com/wiki/Forgotten_Hall",
+          "revision_or_access_date": "accessed 2026-08-01",
+          "game_version": "stable-family cross-check accessed during Version 4.4",
+          "path_or_page": "https://honkai-star-rail.fandom.com/wiki/Forgotten_Hall",
+          "row_locator": "Scoring",
+          "evidence_sha256": "1ee057f169fdc9bc4a6bf9834e9946346bde739981a16a0642ba0d1cda8beb6c",
+          "quality": "ExactPublicText",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Independent released public cross-check states that the stage Cycle budget is shared across battles/Nodes while elapsed Action Value resets to its initial value at a new wave or battle."
         }
       ],
       "tags": [
+        "av-reset",
         "carry",
-        "no-reset",
         "wave"
       ],
-      "evidence_quality": "ProjectPolicy",
+      "evidence_quality": "ExactPublicCrossCheckWithProjectPolicyBoundary",
       "mechanism_quality": "PolicyBoundary",
       "reset_remaining_cycles_on_wave": false,
-      "reset_cycle_action_value_on_wave": false,
+      "reset_cycle_action_value_on_wave": true,
+      "next_wave_initial_action_value": "150",
       "transition_order": "AfterActionAfterBoundedReactions",
       "wave_start_rules_after_transition": true,
       "approximations": [
         {
-          "known_facts": "All selected StageConfig rows declare two waves; the generic wave lifecycle preserves surviving allied state unless authored otherwise, and no selected row declares a clock reset.",
-          "selected_behavior": "Carry both the Section cycle value and current per-battle AV position through an ordinary wave transition.",
+          "known_facts": "All selected StageConfig rows declare two waves; independent released public evidence says remaining Cycles are shared while elapsed Action Value resets at a new wave or battle.",
+          "selected_behavior": "Carry the Section remaining-cycle integer and initialize the new wave with the 150-AV first window.",
           "rejected_alternatives": [
-            "grant a new 150-AV cycle per wave",
+            "carry partial elapsed AV",
             "decrement once solely because a wave ended",
             "reset the stage budget"
           ],
-          "rationale": "Fail-closed no-reset semantics avoid inventing time and match the absence of a selected reset operation.",
+          "rationale": "This separates the shared Activity clock from the battle-local wave Action Value window and follows the strongest available released cross-check.",
           "affected_fixture_ids": [
-            "fixture.cycle-node-wave-carry.wave-no-reset"
+            "fixture.cycle-node-wave-carry.wave-av-reset"
           ],
           "confidence": "Medium",
-          "replacement_condition": "Replace with a released StageCommonTemplate branch or wave transition trace selecting a reset."
+          "replacement_condition": "Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch."
         }
       ],
       "runtime_executable": false

@@ -7,7 +7,7 @@
 - Ordinary nodes: 24 derived ordered node selectors
 - Tierce: `5213`, separately selected after `5212`
 - Claimed frozen obligations: 18, each exactly once
-- Normalized flow digest: `5eb8582251a2bc9ea4cc5994697c58f7d2db21a95ebd359a49a62a145d4b63a6`
+- Normalized flow digest: `e818400ad6856fa6415db7790f73e4f5a92d1e5f00ba61e824e6445a3d553f78`
 - Runtime executable rows: 0
 
 Tierce selection proves one extension encounter, objectives `601`–`603`

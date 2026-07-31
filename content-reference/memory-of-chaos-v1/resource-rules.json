@@ -1,0 +1,397 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "resource-rules.json",
+  "record_kind": "ResourceOrProjectionRule",
+  "records": [
+    {
+      "id": "resource.initial-node-state",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "InitialResourceRule",
+      "name_en": "Initial node battle resources",
+      "name_zh_cn": "节点战斗初始资源",
+      "summary_en": "Each fresh node battle begins at full HP, half maximum Energy and the team's maximum Skill Points under an explicit Candidate policy.",
+      "summary_zh_cn": "按明确候选策略，每个新节点战斗以满生命、最大能量的一半和队伍技能点上限开始。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:initial-hp-energy-skill-points"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:initial-hp-energy-skill-points",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:initial-hp-energy-skill-points",
+          "evidence_sha256": "5ac9aff0e5a5a3add3cd579f92080957570123c0cd01a0ccf345e1cceea79d3e",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking initial-resource obligation."
+        },
+        {
+          "id": "hoyolab:18067001:combat-resources",
+          "repository_or_url": "https://www.hoyolab.com/article/18067001",
+          "revision_or_access_date": "accessed 2026-08-01",
+          "game_version": "1.0 stable-family cross-check",
+          "path_or_page": "https://www.hoyolab.com/article/18067001",
+          "row_locator": "Combat Resources",
+          "evidence_sha256": "4b99219edff51dab06cc751314226c85c1519e4846a59ece34114d1cab0e3e15",
+          "quality": "ExactPublicText",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Released public guide evidence states that Forgotten Hall refills Skill Points to the team maximum and starts characters with half-charged Ultimate Energy."
+        },
+        {
+          "id": "turnbasedgamedata:Config/Level/StageCommonTemplate.json:main task list containing CreatePlayerTeam",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/Level/StageCommonTemplate.json",
+          "row_locator": "main task list containing CreatePlayerTeam",
+          "evidence_sha256": "8f21c3c496ff0c9fb0340cf1a83f41810676e75150ccbf2ac33045317a9f7bbb",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact shared stage program ordering for ability/buff binding, team creation, waves and battle entry."
+        }
+      ],
+      "tags": [
+        "energy",
+        "hp",
+        "initial-state",
+        "skill-points"
+      ],
+      "scope": "FreshNodeBattle",
+      "hp_initialization": {
+        "kind": "RatioOfMax",
+        "value": "1"
+      },
+      "energy_initialization": {
+        "kind": "RatioOfMax",
+        "value": "0.5"
+      },
+      "skill_point_initialization": {
+        "kind": "TeamMaximum",
+        "numeric_value": "CatalogResolved"
+      },
+      "reset_for_node2": true,
+      "carry_hp_energy_skill_points_between_nodes": false,
+      "applies_to_ordinary_config_id": 200001,
+      "applies_to_tierce_config_id": 200001,
+      "tierce_inheritance_quality": "ProjectPolicyFromExactSelectorEquality",
+      "authoritative_decimals": "CanonicalStrings",
+      "approximations": [
+        {
+          "known_facts": "Stable-family released guidance supports half Energy and maximum Skill Points; no active Version 4.4 row in the frozen closure encodes allied initial HP or the semantic definition of ConfigList 200001.",
+          "selected_behavior": "Initialize each fresh node at full HP, half max Energy and the resolved team's Skill Point maximum.",
+          "rejected_alternatives": [
+            "carry HP/Energy/SP from the other team",
+            "start damaged",
+            "hard-code a universal numeric SP maximum"
+          ],
+          "rationale": "Per-battle reset follows independent team ownership and leaves team-specific maximum SP catalog-resolved.",
+          "affected_fixture_ids": [
+            "fixture.initial-resources.fresh-node-reset"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with a released Version 4.4 battle-start resource trace or decoded ConfigList 200001 definition."
+        },
+        {
+          "known_facts": "All 24 ordinary node selectors and Tierce 5213 select ConfigList 200001, but the pinned sparse source does not expose that identifier's schema.",
+          "selected_behavior": "Apply the same Candidate initial-resource policy to Tierce while retaining the unresolved selector meaning.",
+          "rejected_alternatives": [
+            "invent Tierce-only resource overrides",
+            "inherit ordinary mutable battle state",
+            "treat numeric equality alone as observed semantics"
+          ],
+          "rationale": "Selector equality is strong compatibility evidence but remains explicitly weaker than a decoded definition.",
+          "affected_fixture_ids": [
+            "fixture.initial-resources.tierce-config-equality"
+          ],
+          "confidence": "Low",
+          "replacement_condition": "Replace when ConfigList 200001 is decoded or a released Tierce resource trace is available."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "resource.battle-entry-operations",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "BattleEntryRule",
+      "name_en": "Battle-entry operation order",
+      "name_zh_cn": "战斗入场操作顺序",
+      "summary_en": "Binds stage abilities and Turbulence, creates the player team and BattleEvent, creates the wave, applies entry effects and starts battle in source order.",
+      "summary_zh_cn": "按来源顺序绑定关卡能力与记忆紊流、创建我方与战斗事件、创建波次、应用入场效果并开始战斗。",
+      "game_version": "4.4",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:battle-entry-operations"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:battle-entry-operations",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:battle-entry-operations",
+          "evidence_sha256": "6f12b2510faaf2c4da0c6fed66822c067229916b9492ec1c2d5080c21a03eab1",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking battle-entry obligation."
+        },
+        {
+          "id": "turnbasedgamedata:Config/Level/StageCommonTemplate.json:main task list containing CreatePlayerTeam",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/Level/StageCommonTemplate.json",
+          "row_locator": "main task list containing CreatePlayerTeam",
+          "evidence_sha256": "8f21c3c496ff0c9fb0340cf1a83f41810676e75150ccbf2ac33045317a9f7bbb",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactProgramProjection",
+          "note": "Exact shared stage program ordering for ability/buff binding, team creation, waves and battle entry."
+        },
+        {
+          "id": "honkai-gg:forgotten-hall:technique-entry",
+          "repository_or_url": "https://honkai.gg/forgotten-hall-overview/",
+          "revision_or_access_date": "accessed 2026-08-01",
+          "game_version": "stable-family cross-check",
+          "path_or_page": "https://honkai.gg/forgotten-hall-overview/",
+          "row_locator": "pre-battle preparation",
+          "evidence_sha256": "212bb3126b374b31c20ecd7e5d18a959fe8c4a0d8d99c3c3da15a16ba4879317",
+          "quality": "ExactPublicText",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Independent released public guidance describes consuming Technique Points before Forgotten Hall battle entry to establish technique effects."
+        }
+      ],
+      "tags": [
+        "battle-event",
+        "entry",
+        "stage-program",
+        "technique"
+      ],
+      "shared_level_program": "Config/Level/StageCommonTemplate.json",
+      "selected_stage_count": 25,
+      "ordered_program_operations": [
+        {
+          "source_index": 4,
+          "operation_type": "RPG.GameCore.AddStageAbilityByName"
+        },
+        {
+          "source_index": 5,
+          "operation_type": "RPG.GameCore.AddStageAbilityByName"
+        },
+        {
+          "source_index": 6,
+          "operation_type": "RPG.GameCore.AddStageAbilityByName"
+        },
+        {
+          "source_index": 7,
+          "operation_type": "RPG.GameCore.LevelLockFeature"
+        },
+        {
+          "source_index": 8,
+          "operation_type": "RPG.GameCore.AddMazeBuffBinding"
+        },
+        {
+          "source_index": 9,
+          "operation_type": "RPG.GameCore.AddActivityMazeBuffBinding"
+        },
+        {
+          "source_index": 10,
+          "operation_type": "RPG.GameCore.CreatePlayerTeam"
+        },
+        {
+          "source_index": 13,
+          "operation_type": "RPG.GameCore.WaveMonster"
+        },
+        {
+          "source_index": 14,
+          "operation_type": "RPG.GameCore.AddMazeBuffBinding"
+        },
+        {
+          "source_index": 18,
+          "operation_type": "RPG.GameCore.AddMazeBuffBinding"
+        },
+        {
+          "source_index": 25,
+          "operation_type": "RPG.GameCore.ApplyBattleGM"
+        },
+        {
+          "source_index": 26,
+          "operation_type": "RPG.GameCore.UsePassiveSkill"
+        },
+        {
+          "source_index": 29,
+          "operation_type": "RPG.GameCore.TriggerModifierEnterBattle"
+        },
+        {
+          "source_index": 35,
+          "operation_type": "RPG.GameCore.StartBattle"
+        }
+      ],
+      "exact_relations": [
+        "StageAbilityBindingsBeforeCreatePlayerTeam",
+        "ActivityMazeBuffBindingBeforeCreatePlayerTeam",
+        "CreateBattleEventEntityFromStageAfterCreatePlayerTeam",
+        "WaveMonsterBeforeBattleStart",
+        "CharacterAbilityBindingsAfterWaveCreation",
+        "TriggerModifierEnterBattleBeforeBattleStart"
+      ],
+      "resolved_technique_effects": "OptionalBattleSpecContributionProjectPolicy",
+      "technique_point_consumption": "OutsideBattleAndReferencePack",
+      "initial_resource_rule_id": "resource.initial-node-state",
+      "turbulence_id": "turbulence.3030146",
+      "battle_event_id": "turbulence-program.30146",
+      "approximations": [
+        {
+          "known_facts": "The exact shared level program orders generic bindings/team/wave/entry operations; independent released guidance supports pre-battle Technique use, but the frozen active selector closure contains no technique transaction rows.",
+          "selected_behavior": "Accept only already-resolved Technique battle-entry contributions in BattleSpec, apply them at TriggerModifierEnterBattle, and keep Technique Point spending outside battle state.",
+          "rejected_alternatives": [
+            "let combat query account Technique Points",
+            "execute arbitrary technique scripts",
+            "discard a validated entry contribution"
+          ],
+          "rationale": "This preserves adapter/build/activity ownership and the exact shared entry boundary without adding runtime scripting.",
+          "affected_fixture_ids": [
+            "fixture.battle-entry-operations.resolved-technique-contribution"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace ordering details with released Version 4.4 entry traces or a decoded ConfigList/technique projection program."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "projection.ordinary-stage",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "CrossBattleProjection",
+      "name_en": "Ordinary stage result projection",
+      "name_zh_cn": "常规关卡结果投影",
+      "summary_en": "Node 1 projects victory, remaining cycles and downed-state audit; Node 2 finalizes the same stage objectives without carrying battle resources.",
+      "summary_zh_cn": "节点1投影胜利、剩余轮次和倒下状态；节点2在不携带战斗资源的前提下结算同一关卡目标。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:node-cycle-carry",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:node-cycle-carry",
+          "evidence_sha256": "0ccbb70765fa44d707ea04d3353b04f14cf7177276a910a4720ed94a01045e03",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Frozen cross-node clock projection obligation."
+        }
+      ],
+      "tags": [
+        "activity",
+        "battle-result",
+        "ordinary",
+        "projection"
+      ],
+      "node1_to_section": [
+        "Victory",
+        "RemainingCycles",
+        "AnyDownedCombatForm"
+      ],
+      "node2_to_section": [
+        "Victory",
+        "RemainingCycles",
+        "AnyDownedCombatForm"
+      ],
+      "battle_state_not_projected": [
+        "HP",
+        "Energy",
+        "SkillPoints",
+        "Effects",
+        "ActionGauge",
+        "BattleRng"
+      ],
+      "final_stage_projection": [
+        "Completion",
+        "ObjectiveReceipts",
+        "StarCount",
+        "AuditResult"
+      ],
+      "account_rewards_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "projection.tierce-5213",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "CrossBattleProjection",
+      "name_en": "Tierce extension projection",
+      "name_zh_cn": "Tierce扩展关投影",
+      "summary_en": "Treats Tierce 5213 as an independent one-encounter extension with 45 cycles and objectives 601–603, without ordinary-stage state carry.",
+      "summary_zh_cn": "将Tierce 5213作为独立单遭遇扩展关，使用45轮与目标601–603，不携带常规关卡状态。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeTierce.json:PHFMCACHFIJ=5213",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeTierce.json",
+          "row_locator": "PHFMCACHFIJ=5213",
+          "evidence_sha256": "8b9a3f7d8c8f3feb702759575ffbb7d9cd2887cc1d9e8ed57c8016b3cf1122da",
+          "quality": "ExactStructured",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Exact Tierce predecessor, encounter, countdown and objective bindings."
+        }
+      ],
+      "tags": [
+        "activity",
+        "projection",
+        "tierce"
+      ],
+      "upstream_tierce_id": 5213,
+      "predecessor_stage_id": "stage.5212",
+      "topology": "SeparateSelectedExtension",
+      "encounter_ids": [
+        "encounter.30123123"
+      ],
+      "initial_remaining_cycles": 45,
+      "objective_ids": [
+        "objective.601",
+        "objective.602",
+        "objective.603"
+      ],
+      "carries_ordinary_stage_state": false,
+      "participant_policy": "UnresolvedFailClosed",
+      "settlement": "IndependentBestObjectiveRecordProjectPolicy",
+      "account_rewards_included": false,
+      "runtime_publishable": false,
+      "approximations": [
+        {
+          "known_facts": "Group 1033 selects Tierce 5213 once after 5212; the exact row binds one encounter, countdown 45 and objectives 601–603, but participant and settlement schema fields remain obfuscated.",
+          "selected_behavior": "Create an independent extension Section with no ordinary state carry; keep participant resolution fail-closed and settlement reward-free.",
+          "rejected_alternatives": [
+            "ordinary third node",
+            "third team inferred from name",
+            "carry floor-12 clock",
+            "reuse ordinary reward settlement"
+          ],
+          "rationale": "The policy preserves every proved binding without turning obfuscated adjacency into runtime semantics.",
+          "affected_fixture_ids": [
+            "fixture.tierce-selected-extension.independent-projection"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace participant and settlement fields with a decoded ChallengeMazeTierce schema or released extension trace."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

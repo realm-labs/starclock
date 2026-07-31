@@ -69,6 +69,27 @@
         "ClockCarry",
         "SettlementSemantics"
       ],
+      "activity_projection": {
+        "section_kind": "SeparateTierceExtension",
+        "carries_ordinary_stage_state": false,
+        "participant_policy": "UnresolvedFailClosed",
+        "clock": {
+          "initial_remaining_cycles": 45,
+          "ownership_scope": "IndependentTierceSectionProjectPolicy",
+          "carry_from_ordinary_floor_12": false
+        },
+        "encounter_ids": [
+          "encounter.30123123"
+        ],
+        "objective_ids": [
+          "objective.601",
+          "objective.602",
+          "objective.603"
+        ],
+        "settlement_scope": "IndependentTierceBestObjectiveRecordProjectPolicy",
+        "reward_payloads_included": false,
+        "runtime_publishable": false
+      },
       "runtime_executable": false
     }
   ]

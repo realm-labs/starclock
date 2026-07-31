@@ -5,10 +5,10 @@
 - Ordinary ownership: one Section clock (ProjectPolicy)
 - First/later cycle Action Value: 150 / 100 (ProjectPolicy; no active selector found)
 - Node carry: integer remaining cycles only; Node 2 starts a fresh timeline
-- Wave carry: no cycle or AV reset
+- Wave carry: remaining cycles persist; elapsed AV resets to the initial window
 - Expiry: zero after tick fails before cycle-start effects
 - Tierce clock composition: deferred and not inherited
-- Normalized clock digest: `6d2653bd13eabfd195b23b351f1866e117c6d77fd9dd3c3d2b5cfe3d2c705873`
+- Normalized clock digest: `5d99b776ed5b9b5521e742b14c538aa374e803e998f4328c5dbba1de512c365a`
 - Runtime executable rows: 0
 
 Only the per-stage value 30 is ExactStructured. Ownership, AV windows,

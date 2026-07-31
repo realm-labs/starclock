@@ -6,6 +6,7 @@ import {
   assertSource,
   digest,
   normalizedFile,
+  publicRef,
   record,
   source,
   sourceRecordId,
@@ -28,6 +29,14 @@ const countdownEvidence = activeStages.map(({ ID }) => structuredRef(
   `stage-${ID}`,
   `Exact ChallengeCountDown=30 on active ordinary stage ${ID}.`,
 ));
+const waveResetGuide = publicRef(
+  "fandom:forgotten-hall:wave-battle-av-reset",
+  "https://honkai-star-rail.fandom.com/wiki/Forgotten_Hall",
+  "Scoring",
+  "Independent released public cross-check states that the stage Cycle budget is shared across battles/Nodes while elapsed Action Value resets to its initial value at a new wave or battle.",
+  "IdentityCrossCheck",
+  "stable-family cross-check accessed during Version 4.4",
+);
 
 function clockPolicy({
   obligation,
@@ -183,21 +192,24 @@ const records = [
     id: "clock.wave-carry",
     nameEn: "Wave cycle carry",
     nameZh: "波次间轮次携带",
-    summaryEn: "A wave transition preserves the current remaining cycles and current cycle AV position.",
-    summaryZh: "波次转移保持当前剩余轮次和本轮行动值位置。",
+    summaryEn: "A wave transition preserves remaining cycles but resets elapsed Action Value to the initial window.",
+    summaryZh: "波次转移保留剩余轮次，但把已消耗行动值重置到初始窗口。",
     fields: {
       reset_remaining_cycles_on_wave: false,
-      reset_cycle_action_value_on_wave: false,
+      reset_cycle_action_value_on_wave: true,
+      next_wave_initial_action_value: "150",
       transition_order: "AfterActionAfterBoundedReactions",
       wave_start_rules_after_transition: true,
     },
-    knownFacts: "All selected StageConfig rows declare two waves; the generic wave lifecycle preserves surviving allied state unless authored otherwise, and no selected row declares a clock reset.",
-    selectedBehavior: "Carry both the Section cycle value and current per-battle AV position through an ordinary wave transition.",
-    rejectedAlternatives: ["grant a new 150-AV cycle per wave", "decrement once solely because a wave ended", "reset the stage budget"],
-    rationale: "Fail-closed no-reset semantics avoid inventing time and match the absence of a selected reset operation.",
-    fixture: "fixture.cycle-node-wave-carry.wave-no-reset",
-    replacementCondition: "Replace with a released StageCommonTemplate branch or wave transition trace selecting a reset.",
-    tags: ["carry", "wave", "no-reset"],
+    knownFacts: "All selected StageConfig rows declare two waves; independent released public evidence says remaining Cycles are shared while elapsed Action Value resets at a new wave or battle.",
+    selectedBehavior: "Carry the Section remaining-cycle integer and initialize the new wave with the 150-AV first window.",
+    rejectedAlternatives: ["carry partial elapsed AV", "decrement once solely because a wave ended", "reset the stage budget"],
+    rationale: "This separates the shared Activity clock from the battle-local wave Action Value window and follows the strongest available released cross-check.",
+    fixture: "fixture.cycle-node-wave-carry.wave-av-reset",
+    replacementCondition: "Replace with a released Version 4.4 wave transition gauge trace or decoded scheduler branch.",
+    extraEvidence: [waveResetGuide],
+    evidenceQuality: "ExactPublicCrossCheckWithProjectPolicyBoundary",
+    tags: ["carry", "wave", "av-reset"],
   }),
   clockPolicy({
     obligation: "expiry-failure-order",
@@ -252,7 +264,7 @@ await writeText(
 - Ordinary ownership: one Section clock (ProjectPolicy)
 - First/later cycle Action Value: 150 / 100 (ProjectPolicy; no active selector found)
 - Node carry: integer remaining cycles only; Node 2 starts a fresh timeline
-- Wave carry: no cycle or AV reset
+- Wave carry: remaining cycles persist; elapsed AV resets to the initial window
 - Expiry: zero after tick fails before cycle-start effects
 - Tierce clock composition: deferred and not inherited
 - Normalized clock digest: \`${clockDigest}\`
