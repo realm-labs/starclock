@@ -7,8 +7,9 @@
 | Goal ID | `fate-star-rail-night-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 3 — Excel and Sora |
+| Active phase | Phase 4 — Audit and freeze |
 | Active batch | — |
-| Next unblocked batch | `G19-P4-B1` |
+| Next unblocked batch | `G19-P4-B2` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -67,7 +68,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P3-B4` | `Complete` | This row's containing commit | Added seven review tables: 1,914 source receipts, 419 content/zero-pool audit rows, 1,904 coverage receipts, 13 policies, 11 reconciliation receipts, 56 fixtures and 17 pack-file rows. The complete project has 48 non-empty tables / 5,934 unique workbook rows. Pinned Sora 0.3.0 generated four canonical templates, one schema lock and 50 isolated Rust reader files; independent clean regeneration is byte-identical at tree `96478ee7…77c2`. No generated reader is imported by runtime. |
 | `G19-P3-B5` | `Complete` | This row's containing commit | Authored all four clean-target workbooks with pinned `openpyxl==3.1.5`: 48 sheets / 5,934 rows. Every sheet preserves the seven Sora metadata rows and exact schema order, uses frozen panes, filters, bounded widths, semantic validations and policy/evidence conditional formatting. All cells round-trip exactly, formulas are forbidden and two independent generations are byte-identical to the committed targets at digests `9dde5a7e…e1fe`, `c191e548…31f5`, `e0536821…d30f` and `dfa59026…5ec`. |
 | `G19-P3-B6` | `Complete` | This row's containing commit | Exported all 48 tables / 5,934 rows to a pinned Sora 0.3.0 Zstandard bundle and 48 debug tables. Independent full regeneration is byte-identical at tree `3731b9d2…f50b`; the standalone locked loader parses the bundle and iterates every non-empty generated table. Artifact-tool rendered all 48 sheets across 144 complete column bands; four contact sheets were inspected with zero severe defect and recorded as `PassedHumanInspection`. |
-| `G19-P4-B1` | `Pending` | — | Audit exact-once coverage, selectors, ownership, provenance and exclusions. |
+| `G19-P4-B1` | `Complete` | This row's containing commit | Independently audited 1,904 unique manifest obligations against 1,904 unique coverage receipts, 1,491 DataReady + 413 EvidenceOnly dispositions, thirteen explicit policies and zero unresolved rows. All 2,018 normalized rows have unique stable IDs, bilingual names/summaries and exact provenance; all 1,914 source receipts are unique. Six selector pools remain exact zero, RtBattle/GridFight exclusions do not leak and runtime crates contain no Fate reference path. |
 | `G19-P4-B2` | `Pending` | — | Execute semantic fixtures and replacement checks. |
 | `G19-P4-B3` | `Pending` | — | Reconcile overlaps and run full regeneration/clean-checkout acceptance. |
 | `G19-P4-B4` | `Pending` | — | Freeze Candidate release evidence and completion snapshot. |
