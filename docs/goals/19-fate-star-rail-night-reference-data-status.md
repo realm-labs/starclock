@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `fate-star-rail-night-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 1 — Unique activity systems |
+| Active phase | Phase 2 — Encounters and complete pack |
 | Active batch | — |
-| Next unblocked batch | `G19-P2-B1` |
+| Next unblocked batch | `G19-P2-B2` |
 | Snapshot | Version 4.4 / released 2026-07-24 / access 2026-08-01 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -37,7 +37,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Reproduced sources, corrected the Fate/FateRin oracle, froze 1,904 obligations and six exact-zero pools, then bound 48 sheets across four workbook/evidence/Sora contracts. |
 | Phase 1 — Unique activity systems | `Complete` | Seven normalized partitions contain 1,805 direct records: 1,392 enabled mode facts and all 413 evidence-only obligations; with six zero records, the complete 1,398 Fate-owned denominator is accounted. |
-| Phase 2 — Encounters and complete pack | `Pending` | Awaiting pools, configs, encounters, enemy closure, rules and fixtures. |
+| Phase 2 — Encounters and complete pack | `InProgress` | `G19-P2-B1` is materializing exact-zero generic pool audits. |
 | Phase 3 — Excel and Sora | `Pending` | Awaiting isolated schemas/readers, four workbooks, deterministic exports and visual QA. |
 | Phase 4 — Audit and freeze | `Pending` | Awaiting ownership audit, semantic execution, reconciliation and Candidate release. |
 
@@ -56,7 +56,7 @@ than a passed gate. `G19-P0-B1` owns the clean rerun and exact command record.
 | `G19-P1-B5` | `Complete` | This row's containing commit | Normalized 223 enabled resource rows at `1cf7ed0c…fcc7`: 70 Command Spells/Reiju, 60 affixes, 71 common/client constants and 22 Reiju program digests. Definitions/affixes/constants/program identities remain separate; hidden settlement/order/reroll timing stays fixture-bound. Focused/quick gates and remote publication pass. |
 | `G19-P1-B6` | `Complete` | This row's containing commit | Normalized 137 enabled progression rows at `9c34bfff…bedf`: 71 affixes, thirty experience steps, nineteen traits, four levels, six initial owner/Noble-Phantasm bindings and seven trait program digests. Definition/progression/loadout identities stay separate and carry/reset timing remains fixture-bound. Focused/quick gates and remote publication pass. |
 | `G19-P1-B7` | `Complete` | This row's containing commit | Normalized 418 rows at `4f62f92e…768b`: seven enabled monster pools and 411 explicit evidence-only broadcast/talk/display/mission/reward/layout locators. Phase 1 closes all 1,805 direct rows (1,392 enabled + 413 evidence-only); no prose, rewards, assets or programs enter mechanics. Focused/quick gates and remote publication pass. |
-| `G19-P2-B1` | `Pending` | — | Freeze reachable or exact-zero generic content/service/shop/currency pools. |
+| `G19-P2-B1` | `Complete` | This row's containing commit | Materialized six `0/0/0` selector-closure audits at `e2107a08…7de0` for Blessing, Curio, Occurrence, Shop, Service and generic run currency. Fate-owned positive families remain distinct; focused/quick gates and remote publication pass. |
 | `G19-P2-B2` | `Pending` | — | Import fight/buff/BattleEvent/MazeBuff/config relationships. |
 | `G19-P2-B3` | `Pending` | — | Import exact StageConfig encounters, waves, slots, variants and difficulty. |
 | `G19-P2-B4` | `Pending` | — | Import enemy/AI/ability/phase and event-specific participant closure. |

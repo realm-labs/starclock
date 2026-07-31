@@ -1,0 +1,182 @@
+{
+  "schema_revision": "starclock.fate-star-rail-night-shared-normalized.v1",
+  "goal_id": "fate-star-rail-night-reference-v1",
+  "batch": "G19-P2-B1",
+  "purpose": "generated selector-closure audits for absent generic pools",
+  "manifest_binding": "d3d6000e3709fa6fd105104ab1b6b586bf0d804ef65c4e3a6e824d6457a6684e",
+  "counts": {
+    "manifest_obligations": 6,
+    "records": 6,
+    "families": {
+      "PoolAudit": 6
+    },
+    "disposition": {
+      "DataReady": 6
+    }
+  },
+  "records": [
+    {
+      "stable_id": "fate-star-rail-night.pool-audit.blessing",
+      "family": "PoolAudit",
+      "name_zh": "Blessing 池审计",
+      "name_en": "Blessing pool audit",
+      "summary_zh": "完整 Fate/FateRin 选择器闭包中没有可达的通用池成员。",
+      "summary_en": "No generic pool member is reachable from the complete Fate/FateRin selector closure.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "content-manifests/fate-star-rail-night-v1/source-inventory.json",
+          "locator": "selector-closure:Blessing",
+          "sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "SelectorClosureExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "required": "0",
+        "accounted": "0",
+        "data_ready": "0"
+      },
+      "notes": "No dedicated Fate/FateRin table, Fate gameplay config or selected transitive shared row exposes this generic family."
+    },
+    {
+      "stable_id": "fate-star-rail-night.pool-audit.curio",
+      "family": "PoolAudit",
+      "name_zh": "Curio 池审计",
+      "name_en": "Curio pool audit",
+      "summary_zh": "完整 Fate/FateRin 选择器闭包中没有可达的通用池成员。",
+      "summary_en": "No generic pool member is reachable from the complete Fate/FateRin selector closure.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "content-manifests/fate-star-rail-night-v1/source-inventory.json",
+          "locator": "selector-closure:Curio",
+          "sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "SelectorClosureExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "required": "0",
+        "accounted": "0",
+        "data_ready": "0"
+      },
+      "notes": "No dedicated Fate/FateRin table, Fate gameplay config or selected transitive shared row exposes this generic family."
+    },
+    {
+      "stable_id": "fate-star-rail-night.pool-audit.occurrence",
+      "family": "PoolAudit",
+      "name_zh": "Occurrence 池审计",
+      "name_en": "Occurrence pool audit",
+      "summary_zh": "完整 Fate/FateRin 选择器闭包中没有可达的通用池成员。",
+      "summary_en": "No generic pool member is reachable from the complete Fate/FateRin selector closure.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "content-manifests/fate-star-rail-night-v1/source-inventory.json",
+          "locator": "selector-closure:Occurrence",
+          "sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "SelectorClosureExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "required": "0",
+        "accounted": "0",
+        "data_ready": "0"
+      },
+      "notes": "No dedicated Fate/FateRin table, Fate gameplay config or selected transitive shared row exposes this generic family."
+    },
+    {
+      "stable_id": "fate-star-rail-night.pool-audit.run-currency",
+      "family": "PoolAudit",
+      "name_zh": "RunCurrency 池审计",
+      "name_en": "RunCurrency pool audit",
+      "summary_zh": "完整 Fate/FateRin 选择器闭包中没有可达的通用池成员。",
+      "summary_en": "No generic pool member is reachable from the complete Fate/FateRin selector closure.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "content-manifests/fate-star-rail-night-v1/source-inventory.json",
+          "locator": "selector-closure:RunCurrency",
+          "sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "SelectorClosureExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "required": "0",
+        "accounted": "0",
+        "data_ready": "0"
+      },
+      "notes": "No dedicated Fate/FateRin table, Fate gameplay config or selected transitive shared row exposes this generic family."
+    },
+    {
+      "stable_id": "fate-star-rail-night.pool-audit.service",
+      "family": "PoolAudit",
+      "name_zh": "Service 池审计",
+      "name_en": "Service pool audit",
+      "summary_zh": "完整 Fate/FateRin 选择器闭包中没有可达的通用池成员。",
+      "summary_en": "No generic pool member is reachable from the complete Fate/FateRin selector closure.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "content-manifests/fate-star-rail-night-v1/source-inventory.json",
+          "locator": "selector-closure:Service",
+          "sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "SelectorClosureExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "required": "0",
+        "accounted": "0",
+        "data_ready": "0"
+      },
+      "notes": "No dedicated Fate/FateRin table, Fate gameplay config or selected transitive shared row exposes this generic family."
+    },
+    {
+      "stable_id": "fate-star-rail-night.pool-audit.shop",
+      "family": "PoolAudit",
+      "name_zh": "Shop 池审计",
+      "name_en": "Shop pool audit",
+      "summary_zh": "完整 Fate/FateRin 选择器闭包中没有可达的通用池成员。",
+      "summary_en": "No generic pool member is reachable from the complete Fate/FateRin selector closure.",
+      "ownership": "FateStarRailNight",
+      "disposition": "DataReady",
+      "enabled": true,
+      "source_refs": [
+        {
+          "path": "content-manifests/fate-star-rail-night-v1/source-inventory.json",
+          "locator": "selector-closure:Shop",
+          "sha256": "13d5f1a574482f5587f2f72455ffe7133d2f432e8d98d951a469fd97f3b8d4c3"
+        }
+      ],
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "SelectorClosureExact",
+      "confidence": "High",
+      "mechanic_payload": {
+        "required": "0",
+        "accounted": "0",
+        "data_ready": "0"
+      },
+      "notes": "No dedicated Fate/FateRin table, Fate gameplay config or selected transitive shared row exposes this generic family."
+    }
+  ],
+  "canonical_records_sha256": "e2107a08a06a6c0a2dd633ac0855829ffd18b341f4632ee2ec7cf739ba657de0"
+}
