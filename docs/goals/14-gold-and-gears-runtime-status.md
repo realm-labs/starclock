@@ -6,15 +6,15 @@
 |---|---|
 | Goal ID | `gold-and-gears-runtime-v1` |
 | State | `InProgress` |
-| Active phase | Phase 5 — Complete mechanic partitions |
+| Active phase | Phase 6 — Encounters and full-run integration |
 | Active batch | None |
-| Next unblocked batch | `G14-P5-B2` |
+| Next unblocked batch | `G14-P6-B1` |
 | Snapshot | Version 4.4 / Goal 08 reference release dated 2026-07-29 |
 | Profile | `gold-gears.profile.v1` |
 | Candidate bundle | `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b` |
 | Normalized pack | `ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623` |
 | Runtime denominator | 7,913 source obligations / 1,224 rules / 18 fixture families |
-| Inherited policy boundaries | 16; runtime dispositions pending |
+| Inherited policy boundaries | 16; 14 terminal / 2 pending |
 | Content lane | Candidate reference input; target `Released` runtime component |
 | Blocking condition | None |
 
@@ -27,7 +27,7 @@
 | Phase 2 — Entry, topology and Cognition | `Complete` | `G14-P2-B1`–`B5`: caller-explicit entry, 17 typed slots, canonical three-plane graph, typed map overlays, 13 Cognition ranges, 20 Secret frontiers, six explicit boss choices and atomic plane/final transitions verified. |
 | Phase 3 — Custom Dice and Knowledge | `Complete` | `G14-P3-B1`–`B5`: six-slot dice loadouts, typed dice lifecycle and face effects, all 22 Knowledge rules, six-tier atomic movement/Knowledge/collapse/reward resolution, rollback, causality and production fixture parity verified. |
 | Phase 4 — Progression, content and battle contributions | `Complete` | `G14-P4-B1`–`B5`: Neural progression, independent Conundrum composition, Path/Resonance progression, shared and Gold-owned content, Occurrences, services and Adventure outcomes compile into immutable Activity/battle contributions. |
-| Phase 5 — Mechanic partitions | `Pending` | None |
+| Phase 5 — Mechanic partitions | `Complete` | `G14-P5-M01`–`M09` plus `B1`–`B2`: all 1,224 rules and 18 semantic fixture families execute through production bindings; 7,913/1,224/18 exact-once coverage, typed owners, zero gaps/duplicates/orphans/native handlers/shared stable-ID branches and fail-closed factory validation verified. |
 | Phase 6 — Encounters and full-run integration | `Pending` | None |
 | Phase 7 — Replay, controllers and external surfaces | `Pending` | None |
 | Phase 8 — Hardening and release | `Pending` | None |
@@ -73,7 +73,7 @@ commands, counts, digests and executable evidence in the completing commit.
 | `G14-P5-M08` | `Complete` | This batch commit | Focused four-test Path-boost rule suite; full 104-test Gold entry suite; focused Clippy; dependency policy; workspace check; `node tools/goal14/verify-phase5-m08.mjs`; quick passed in 159.0s with 53 selected harnesses, one direct and three downstream packages and a Rust cache miss, final-tree quick passed in 5.8s with a cache hit and two deferred inputs, and full passed in 420.5s with 138 workspace harnesses and four cache-dependent checks skipped; all 495 frozen exact-public rules bind terminally as nine Gold `CombatRuleIr` Path boosts, 162 shared Blessing definitions and 324 shared Blessing levels; the aggregate fixture commits 162 acquisitions and 162 enhancements, projects both exact levels for all Blessings, executes 16 generic combat modifier definitions across all nine Path stats with zero RNG, and closes execution digest `7d51e9f2f62e5a264d1c63480f78aa97e71b4ce6073f2a4e12ad5c16843761ee`, combat digest `5664b8314469e7d88551ded855becddd7b457b50771452bfdf28ddb739b56df7` and state hash `55e512c5900720ab7537f60befec3f47970f24339257d6a7e77461582c097422`. |
 | `G14-P5-M09` | `Complete` | This batch commit | Focused four-test Resonance/Interplay/Extrapolation rule suite; full 108-test Gold entry suite; focused Clippy; dependency policy; workspace check; `node tools/goal14/verify-phase5-m09.mjs`; repeated cold/warm quick attempts exposed the 180s Windows variance boundary, then the optimized warm quick passed in 173.1s with 53 harnesses, one direct and three downstream packages and a Rust cache miss, and the final-tree quick receipt passed in 6.4s with a cache hit and two deferred inputs; full produced a passing final receipt in 601.2s with 138 workspace harnesses and four cache-dependent checks skipped, 0.4s after the outer execution wrapper's 600s timeout; all 90 frozen rules bind terminally as 36 shared Resonance/Formation rules, 18 exact-public Gold Interplays and 36 visibly versioned Gold Extrapolations; all shared rules reuse released executors, player contributions and enemy-relative extrapolations lower to source-attributed immutable combat IR, only Encounter RNG advances, and execution/player/enemy digests close as `ae2a70113b5ae209282b9aa77a379f76f9b71216e6e15fe7e72acaf0a38317eb`, `e559973235fd92eb68a0aebb69fbb6655a6cc8c3022404424afb28111f717e2f` and `afa8c9779868558a8326fa0a371067fb7f392dacd9cfd8d3acb61d486056a93c`. |
 | `G14-P5-B1` | `Complete` | This batch commit | Focused four-test semantic-fixture binding suite; full 112-test Gold entry suite; focused Clippy; dependency policy; workspace check; `node tools/goal14/verify-phase5-b1.mjs`; the first cold quick built 53 harnesses in 104.0s then exhausted the 180s budget, a warm run produced a passing one-direct/three-downstream receipt before its outer output handle expired, an explicit no-cache audit later built in 0.5s but again exhausted the execution budget, the retained receipt passed quick in 8.2s, and the final-tree quick passed in 8.9s with a Rust cache hit and two deferred inputs; full passed in 453.1s with 138 workspace harnesses and four cache-dependent checks skipped; all 18 frozen fixture families bind exactly once to 17 production runtime regressions and one production-catalog probe, closing 63 ordered operations, 36 expected facts, 46 source bindings and all nine mechanic partitions / 1,224 rules with execution digest `2b69ec29dde6fde1dc6cac9ea10baea5d34c28f39d3d03a41f74d5f340b52832`; encounter fixture metadata resolves exact two-slot/two-boss catalog facts while actual encounter selection remains truthfully owned by `G14-P6-B1`. |
-| `G14-P5-B2` | `Pending` | None | Prove exact-once runtime completeness. |
+| `G14-P5-B2` | `Complete` | This batch commit | Focused four-test runtime-coverage suite; full 116-test Gold entry suite; focused Clippy; dependency policy; workspace check; native-handler audit; `node tools/goal14/verify-phase5-b2.mjs`; repeated default and 8×2 quick attempts were invalidated by cold compilation or concurrent external Cargo workloads, then the fully warm official quick passed within the unchanged 180s budget in 107.8s using the runner-supported 8×4 dispatch, with 53 harnesses, one direct and three downstream packages and a Rust cache miss, and the final-tree quick passed in 7.3s with a cache hit and two deferred inputs; final-tree full passed in 437.4s with 138 workspace harnesses and four cache-dependent checks skipped; every factory load now fail-closes the exact authored/runtime union of 7,913 source obligations across 42 individually pinned categories/44 disposition slices, all 1,224 rule ID/owner pairs and all 18 fixture IDs, with zero retained exact-ID rows, zero native handlers and coverage digest `f2d927d197cb77c548522bf39383a68e927f3881412f44dee8a0b4302c38ca9d`; shared domain crates contain zero Gold stable-ID branches. |
 | `G14-P6-B1` | `Pending` | None | Implement encounter and difficulty selection. |
 | `G14-P6-B2` | `Pending` | None | Materialize current-state real BattleSpecs. |
 | `G14-P6-B3` | `Pending` | None | Execute and settle real nested battles. |
@@ -159,6 +159,7 @@ without a documented data revision and compatibility decision.
 | 2026-07-31 | Execute the 38 Service/Adventure rules under `gold-and-gears-service-adventure-execution-v1`: each Gold service contribution resolves both its bridge rule and the released Universe service rule, while each Adventure accepts only its bounded external result and settles the versioned reward plan exactly once through Activity. | All 38 frozen rules are Shared and target `ReleasedSharedExecutor`; retaining the released rule identity avoids duplicating service semantics, and separating external Adventure physics from transactional reward resolution preserves authority, RNG isolation and replayable accounting. |
 | 2026-07-31 | Execute the 90 Resonance/Interplay/Extrapolation rules under `gold-and-gears-resonance-execution-v1`: reuse all 36 released shared Resonance/Formation executors, lower the 18 exact Interplays as player-owned immutable combat contributions, and lower the 36 versioned Extrapolations as enemy-relative immutable combat contributions selected only by the existing Encounter stream. | Progression remains the single owner of authored parameter lowering and selection policy; terminal binding consumes its immutable contributions instead of reparsing embedded JSON. This preserves released identity and fixed-point parameters, prevents duplicated shared semantics, makes relative enemy polarity explicit, and keeps `G14-R11` visibly non-parity until released engine evidence replaces it. |
 | 2026-07-31 | Bind all 18 frozen semantic fixture families under `gold-and-gears-semantic-fixture-execution-v1` to unique production regressions, with 17 runtime executions and one encounter catalog probe. | The frozen fixtures are review contracts rather than a second executor. Reusing production regressions closes every currently owned system/mechanic fact and all 1,224 rules without duplicating mutation paths, while keeping encounter selection explicitly pending for `G14-P6-B1` avoids claiming Phase 6 behavior from metadata-only facts. |
+| 2026-07-31 | Compile `gold-and-gears-runtime-coverage-v1` on every production factory load: 42 source categories become 44 typed owner/disposition slices, and the complete runtime rule ID/owner plus fixture ID unions must equal the authored bundle exactly. | Aggregate counts alone could hide mixed Gold/Shared categories or owner drift. The fail-closed catalog preserves the frozen 7,181 Integrated / 706 SharedIntegrated / 8 ExternalOutcome / 18 Metadata split, rejects missing, duplicate, extra or re-owned rules, retains only the digest/summary after validation and prevents offline evidence from becoming a substitute for runtime enforcement. |
 
 ## Research and policy register
 
@@ -186,13 +187,13 @@ yet earned a Goal 14 runtime disposition.
 
 ## Terminal checklist
 
-- [ ] Goals 01–08 immutable prerequisites and merged Candidate audit pass.
-- [ ] All 52 Goal 08 Sora tables load privately and validate.
-- [ ] 7,913/7,913 source obligations have exact-once runtime dispositions.
-- [ ] 1,224/1,224 mechanic rules have terminal execution evidence/dispositions.
-- [ ] All 18 semantic fixture families execute against production values.
+- [x] Goals 01–08 immutable prerequisites and merged Candidate audit pass.
+- [x] All 52 Goal 08 Sora tables load privately and validate.
+- [x] 7,913/7,913 source obligations have exact-once runtime dispositions.
+- [x] 1,224/1,224 mechanic rules have terminal execution evidence/dispositions.
+- [x] All 18 semantic fixture families execute against production values.
 - [ ] All 16 inherited policy boundaries are terminal and accurately labeled.
-- [ ] Entry, topology, Cognition, dice, Knowledge, Neural and Conundrum execute.
+- [x] Entry, topology, Cognition, dice, Knowledge, Neural and Conundrum execute.
 - [ ] Content pools, services, Adventure outcomes and encounters execute.
 - [ ] Real nested battles use current Activity state and verified projections.
 - [ ] The frozen seeded matrix completes and freshly verifies its replays.

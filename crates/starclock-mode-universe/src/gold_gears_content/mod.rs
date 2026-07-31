@@ -117,6 +117,26 @@ impl GoldAndGearsContentCatalog {
         self.review_fixtures.iter().map(|row| row.key.as_str())
     }
 
+    pub(crate) fn mechanic_rule_bindings(&self) -> impl ExactSizeIterator<Item = (&str, &str)> {
+        self.mechanic_rules
+            .iter()
+            .map(|row| (row.key.as_str(), row.owner.as_str()))
+    }
+
+    pub(crate) fn runtime_coverage_rows(
+        &self,
+    ) -> impl ExactSizeIterator<Item = (&str, i32, i32, i32, bool)> {
+        self.coverage.iter().map(|row| {
+            (
+                row.category.as_ref(),
+                row.required,
+                row.accounted,
+                row.data_ready,
+                row.blocking_gaps.is_empty(),
+            )
+        })
+    }
+
     pub(crate) fn encounter_fixture_shape(&self, group_key: &str) -> Option<(usize, usize)> {
         let group = self
             .encounter_groups

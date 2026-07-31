@@ -36,6 +36,7 @@ use super::{
     neural_runtime::{CompiledNeuralRuntime, NeuralRuntimeCatalog},
     plane_transition::PlaneTransitionRuntimeCatalog,
     progression_runtime::{CompiledProgressionRuntime, ProgressionRuntimeCatalog},
+    runtime_coverage::RuntimeCoverageCatalog,
     state::compile_state,
     topology::compile_topology,
     validate::{
@@ -192,6 +193,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) conundrum: Arc<ConundrumRuntimeCatalog>,
     pub(super) progression: Arc<ProgressionRuntimeCatalog>,
     pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
+    pub(super) runtime_coverage: Arc<RuntimeCoverageCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -227,6 +229,8 @@ impl GoldAndGearsRuntimeFactory {
         let knowledge = KnowledgeRuntimeCatalog::compile(&unique)?;
         let neural = NeuralRuntimeCatalog::compile(&unique)?;
         let conundrum = ConundrumRuntimeCatalog::compile(&unique)?;
+        let runtime_coverage =
+            RuntimeCoverageCatalog::compile(&content, &unique, &content_runtime)?;
         Ok(Self {
             structural: Arc::new(structural),
             unique: Arc::new(unique),
@@ -241,6 +245,7 @@ impl GoldAndGearsRuntimeFactory {
             conundrum: Arc::new(conundrum),
             progression: Arc::new(progression),
             content_runtime: Arc::new(content_runtime),
+            runtime_coverage: Arc::new(runtime_coverage),
         })
     }
 

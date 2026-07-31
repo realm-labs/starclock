@@ -1,0 +1,129 @@
+{
+  "schema_revision": "starclock.gold-and-gears-runtime-completeness.v1",
+  "goal_id": "gold-and-gears-runtime-v1",
+  "batch": "G14-P5-B2",
+  "observed_on": "2026-07-31",
+  "result": "Pass",
+  "frozen_inputs": {
+    "runtime_dispositions_path": "content-manifests/gold-and-gears-runtime-v1/runtime-dispositions.json",
+    "runtime_dispositions_sha256": "b835b5aa39b7a2b79b1f7bd3f6eb2026d2bfd60219cd7eebf59e3df439a32634",
+    "rule_partitions_path": "content-manifests/gold-and-gears-runtime-v1/rule-partitions.json",
+    "rule_partitions_sha256": "ddcf8eef2ace4984c34a819846d0f25d28ee475a399b6d08de0dc26de85f62c4",
+    "candidate_bundle_path": "config/gold-and-gears-generated/config.sora",
+    "candidate_bundle_sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b"
+  },
+  "production_runtime": {
+    "revision": "gold-and-gears-runtime-coverage-v1",
+    "factory_api": "GoldAndGearsRuntimeFactory::runtime_coverage_summary",
+    "coverage_digest": "f2d927d197cb77c548522bf39383a68e927f3881412f44dee8a0b4302c38ca9d",
+    "source_categories": 42,
+    "source_runtime_slices": 44,
+    "source_obligations": 7913,
+    "mechanic_rules": 1224,
+    "semantic_fixtures": 18,
+    "native_handlers": 0,
+    "retained_exact_id_rows": 0,
+    "runtime_json_file_reads": 0
+  },
+  "source_exact_once": {
+    "ids_sha256": "974fc907753839ec813a39b72820ceec1506f348258786b77cd2da43060dcfa7",
+    "contract_rows_sha256": "fcf07c9b8040b3539f5b0c470988ee5aea00a80b471437ba835805fb2d783e61",
+    "unique_ids": 7913,
+    "gaps": 0,
+    "duplicates": 0,
+    "ownership": {
+      "GoldAndGears": 7199,
+      "Shared": 714
+    },
+    "runtime_dispositions": {
+      "ExternalOutcome": 8,
+      "Integrated": 7181,
+      "Metadata": 18,
+      "SharedIntegrated": 706
+    }
+  },
+  "rule_exact_once": {
+    "ids_sha256": "088d7bea6aa5bb8e95a61e0366fa5bc00e70c05477c22fc1aec30ee649594378",
+    "contract_rows_sha256": "27fec2bcec8c7ae6cc352edef2acc3bec1c4a77df78b1e74e8496ac2bb2360eb",
+    "partition_union_sha256": "088d7bea6aa5bb8e95a61e0366fa5bc00e70c05477c22fc1aec30ee649594378",
+    "unique_ids": 1224,
+    "partitions": 9,
+    "gaps": 0,
+    "duplicates": 0,
+    "orphan_rules": 0,
+    "ownership": {
+      "GoldAndGears": 552,
+      "Shared": 672
+    },
+    "executors": {
+      "ActivityAndCombatPrograms": 145,
+      "ActivityProgram": 338,
+      "CombatModifier": 6,
+      "CombatRuleIr": 63,
+      "ReleasedSharedExecutor": 672
+    },
+    "accuracy": {
+      "ExactPublic": 967,
+      "VersionedProjectPolicy": 257
+    }
+  },
+  "fixture_exact_once": {
+    "ids_sha256": "936cd563054b3d5e34a95fd5749eca05bf760a23904b959922a6412eac92ad24",
+    "contract_rows_sha256": "a591ca98fbcee6a16db9c3c75efacd00a1c7d5aac360d7c07f9c30881180868c",
+    "unique_ids": 18,
+    "gaps": 0,
+    "duplicates": 0
+  },
+  "rejection_audit": {
+    "enabled_unimplemented_rows": 0,
+    "orphan_rules": 0,
+    "unowned_native_handlers": 0,
+    "shared_domain_gold_stable_id_branches": 0,
+    "unknown_source_categories_fail_factory_load": true,
+    "missing_duplicate_or_extra_rule_ids_fail_factory_load": true,
+    "missing_duplicate_or_extra_fixture_ids_fail_factory_load": true
+  },
+  "validation": {
+    "production_factory_compiles_coverage_on_every_load": true,
+    "all_source_categories_have_typed_owners": true,
+    "mixed_gold_shared_categories_remain_separate_slices": true,
+    "all_nine_runtime_rule_catalogs_form_the_exact_authored_union": true,
+    "all_fixture_bindings_form_the_exact_authored_union": true,
+    "no_runtime_reference_json_reads": true,
+    "no_mode_specific_branches_in_shared_domain_crates": true,
+    "protected_reference_roots_unchanged": true
+  },
+  "tests": {
+    "focused_runtime_coverage_tests_passed": 4,
+    "entry_suite_passed": 116,
+    "clippy_passed": true,
+    "dependency_policy_passed": true,
+    "workspace_check_passed": true,
+    "native_handler_audit_passed": true,
+    "quick_gate_passed": true,
+    "quick_gate_seconds": "107.8",
+    "quick_selected_harnesses": 53,
+    "quick_direct_packages": 1,
+    "quick_downstream_packages_checked": 3,
+    "quick_rust_receipt": "CacheMiss",
+    "final_quick_gate_seconds": "7.3",
+    "final_quick_rust_receipt": "CacheHit",
+    "final_quick_deferred_inputs": 2,
+    "full_gate_required": true,
+    "full_gate_passed": true,
+    "full_gate_seconds": "437.4",
+    "full_workspace_harnesses": 138,
+    "full_cache_dependent_checks_skipped": 4
+  },
+  "commands": [
+    "cargo test -p starclock-mode-universe --lib runtime_coverage_tests --all-features",
+    "cargo test -p starclock-mode-universe --lib gold_gears_entry --all-features",
+    "cargo clippy -p starclock-mode-universe --all-targets --all-features -- -D warnings",
+    "node tools/dependency-policy/verify.mjs",
+    "cargo check --workspace --all-targets --all-features",
+    "node tools/repository-check/verify-native-handlers.mjs",
+    "node tools/goal14/verify-phase5-b2.mjs",
+    "node tools/repository-check/run.mjs",
+    "node tools/repository-check/run.mjs --full"
+  ]
+}

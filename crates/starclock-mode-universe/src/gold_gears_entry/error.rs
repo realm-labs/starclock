@@ -57,6 +57,7 @@ pub enum GoldAndGearsEntryError {
     UnknownTrailblazeBonus(Box<str>),
     LockedTrailblazeBonus(Box<str>),
     InvalidProgressionRuntime,
+    InvalidRuntimeCoverage,
     InvalidPathBoostRuleRuntime,
     InvalidResonanceRuleRuntime,
     MissingProfileEntryRule,
