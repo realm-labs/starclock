@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `memory-of-chaos-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Content and encounters |
+| Active phase | Phase 3 — Sora and Excel |
 | Active batch | — |
-| Next unblocked batch | `G17-P2-B5` |
+| Next unblocked batch | `G17-P3-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -33,7 +33,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Isolated cache/Goal 03/worktree foundation, 2,703-file inventory, 477-obligation active manifest, exact Tierce outer role, 10 empty-pool proofs and the 27-file/27-table/18-fixture authoring contract are frozen and deterministic. |
 | Phase 1 — Unique mode systems | `Complete` | Profile/season flow, participants/loadouts, attempts, clocks, resources, objectives/stars, Turbulence and independent Tierce projections are normalized; every unavailable Version 4.4 semantic is explicit Candidate policy with a replacement condition. |
-| Phase 2 — Content and encounters | `Pending` | Awaiting pool zero/nonzero proofs, shared events/configs, exact StageConfig waves, enemies, AI and abilities. |
+| Phase 2 — Content and encounters | `Complete` | Ten exact-zero pool proofs, event/config relationships, 25 encounters, 50 waves, 99 slots, 41 variants/templates, 221 abilities, 594 canonical sources, 305 conflict-free shared reconciliations, 29 nonblocking field-level gaps and 18 semantic families form a 477/477 DataReady pack. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, semantic fixtures, reconciliation, regeneration and clean-checkout evidence. |
 
@@ -55,7 +55,7 @@
 | `G17-P2-B2` | `Complete` | This row's containing commit | Normalized the exact group `1033`/MazeBuff `3030146`/BattleEvent `30146`/ability relationship, identical six-value canonical-decimal parameter vectors, all 12 ordinary challenge bindings and all 25 selected StageConfig bindings to `Config/Level/StageCommonTemplate.json`. Three reference-only contributions separate damage amplification, stored-hit accumulation and cycle-start True Damage without registering runtime handlers. The sparse MazeBuff-to-BattleEvent dispatch edge and Tierce application remain explicit policy boundaries. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/import-events.mjs --check`, `git diff --check`, `node tools/repository-check/run.mjs`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push and remote-resolution verification use the Goal publication commands. |
 | `G17-P2-B3` | `Complete` | This row's containing commit | Imported all 25 selected StageConfig rows as 24 ordinary node encounters plus one independent Tierce encounter, 50 ordered waves and all 99 exact enemy slots. Every encounter records released state, level, hard/elite group, shared template, BattleEvent `30146`, mode-stage/node/team binding and canonical warning ratio; every slot has a stable order key and exact variant reference. Commands: `STARCLOCK_SOURCE_CACHE=/Users/mikai/.codex/source-caches/goal17-memory-of-chaos fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/import-encounters.mjs --check`, `git diff --check`, `node tools/repository-check/run.mjs`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push and remote-resolution verification use the Goal publication commands. |
 | `G17-P2-B4` | `Complete` | This row's containing commit | Imported the complete reachable shared enemy closure: 41 exact MonsterConfig variants, 41 matching templates and 221 abilities, each claimed once. The immutable Goal 03 definitions at `60ca52ed98c5c83d867d33bff7f88c69e0b389de` are embedded without mutation, including canonical stats, weaknesses/resistances, skill order, AI paths and overrides, summons, phases, modifiers, statuses and operation types; Goal 17 adds only reachability envelopes and provenance. Commands: `fnm exec --using 24.15.0 node tools/memory-of-chaos-reference/import-enemies.mjs --check`, `git diff --check`, `node tools/repository-check/run.mjs`. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push and remote-resolution verification use the Goal publication commands. |
-| `G17-P2-B5` | `Pending` | — | Generate mechanics, sources, coverage, research gaps, fixtures and pack index. |
+| `G17-P2-B5` | `Complete` | This row's containing commit | Closed the canonical 27-file normalized pack at 477/477 exact-once DataReady obligations. Generated 594 deduplicated evidence sources, 305 shared-row reconciliation receipts (303 Match, two CompatibleProjection, zero Conflict), 29 field-level nonblocking PolicyBound gaps, 14 category coverage rows, 18 non-shrinking semantic fixture families and a canonical pack index. Pack digest: `c3ac1c7fd2edd78c06430f30277ee214fc38ab27c8c1ea76adb5b2c969977330`. Commands: all five Phase 2 generators with `--check`, `git diff --check`, `PATH="$PWD/.cache/python/bin:$PATH" STARCLOCK_SORA_BIN=/Users/mikai/CLionProjects/starclock/.cache/tools/sora-cli-0.3.0/bin/sora fnm exec --using 24.15.0 node tools/repository-check/run.mjs --full`; the Phase 2 full gate passed in 180.5 seconds with all 33 workspace harnesses. Remote `origin`, branch `codex/goal17-memory-of-chaos-reference`; push and remote-resolution verification use the Goal publication commands. |
 | `G17-P3-B1` | `Pending` | — | Add profile/season/stage/node/Tierce/participant/attempt Sora tables. |
 | `G17-P3-B2` | `Pending` | — | Add clock/resource/objective/star/Turbulence/event/contribution Sora tables. |
 | `G17-P3-B3` | `Pending` | — | Add pool, encounter, wave, enemy and mechanic-binding Sora tables. |
@@ -107,8 +107,8 @@ generated selector-closure proof.
 | Services/currencies/shops/choices | 7 exact-zero proofs | 7 | 7 | Generated exact-zero proofs cover service, currency, shop, choice and analogous Rogue families. |
 | Encounter groups/waves/enemy slots | 124 | 124 | 124 | Twenty-five exact StageConfig encounters, 50 derived ordered waves and 99 exact enemy slots. |
 | Enemy skills/statuses/AI/abilities | 303 | 303 | 303 | Forty-one exact variants, 41 immutable Goal 03 templates and 221 immutable Goal 03 abilities, including AI/summon/phase/status/operation bindings. |
-| Mechanic rules | 18 families | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | 18 families | 0 | 0 | Non-shrinking families cover selectors, lifecycles, objectives, Turbulence, encounter and exclusion/reconciliation policies. |
+| Mechanic rules | 18 families | 18 | 18 | Reference-only semantic contributions span all frozen mechanic families; 29 unavailable fields are explicit nonblocking Candidate policies. |
+| Semantic fixtures | 18 families | 18 | 18 | Non-shrinking declarative fixtures cover selectors, lifecycles, objectives, Turbulence, encounters and exclusion/reconciliation policies. |
 
 ## Decisions
 
@@ -144,7 +144,7 @@ generated selector-closure proof.
 | `G17-R08` | `PolicyBound` | All 25 selected StageConfig rows use `Config/Level/StageCommonTemplate.json` and ConfigList `200001`; exact program order resolves battle-entry operations, while released stable-family evidence supports half Energy and team-maximum Skill Points. Full HP and the undecoded ConfigList semantics remain explicit Candidate policy; Tierce reuses the policy only from exact selector equality. | P1-B6 / P2-B2 | Replace resource initialization fields with a released Version 4.4 trace or decoded ConfigList `200001`; unsupported mappings continue to fail closed. |
 | `G17-R09` | `Closed` | The active schedule/group/stage/config closure exposes no mechanically reachable Blessing, Curio, Occurrence, service, currency, shop, choice or analogous Rogue selector. | P0-B3 / P2-B1 | Ten exact-zero proof obligations and their DataReady audit rows regenerate byte-identically; any newly reachable selector invalidates the proof. |
 | `G17-R10` | `Closed` | All 25 StageConfig encounters, 50 ordered waves, 99 slots, 41 variants/templates and 221 abilities are exact and linked. Shared dossiers retain AI paths/overrides, summons, phases, modifiers, statuses and operation types from immutable Goal 03 evidence. | P2-B3–B4 | Reopen only if the frozen selector closure changes or a shared Goal 03 identity/digest no longer reconciles. |
-| `G17-R11` | `Open` | Which hidden ordering, timing, random selection, caps, rounding and fallback fields remain unavailable after bounded research? | P2-B5 / P4-B2 | Replace each field with exact/observed evidence or a reviewed approximation/project-policy row with a concrete stronger-evidence trigger. |
+| `G17-R11` | `PolicyBound` | Twenty-nine field-level gaps remain unavailable after bounded released-source research. Every row is nonblocking, records known facts, selected behavior, rejected alternatives, rationale, fixture cases, confidence and a concrete stronger-evidence replacement trigger. | P2-B5 / P4-B2 | P4-B2 must execute every affected fixture reference and verify each replacement condition remains explicit; replace a field only with stronger released evidence. |
 
 ## Terminal checklist
 

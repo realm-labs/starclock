@@ -1,0 +1,231 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "pack-index.json",
+  "record_kind": "PackIndex",
+  "records": [
+    {
+      "id": "pack-index.memory-of-chaos-v1",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "PackIndex",
+      "name_en": "Memory of Chaos Version 4.4 reference pack",
+      "name_zh_cn": "混沌回忆4.4版本资料包",
+      "summary_en": "Canonical Candidate reference-only pack with complete exact-once coverage and no runtime publication.",
+      "summary_zh_cn": "具备完整精确计数覆盖、且不发布运行时内容的规范候选资料包。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [],
+      "evidence_refs": [],
+      "tags": [
+        "candidate",
+        "pack-index",
+        "reference-only"
+      ],
+      "lane": {
+        "initial": "Experimental",
+        "terminal": "Candidate",
+        "runtime_profile": "Unreleased",
+        "runtime_rows_allowed": false
+      },
+      "manifest_sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce",
+      "manifest_required": 477,
+      "manifest_accounted": 477,
+      "manifest_data_ready": 477,
+      "source_count": 594,
+      "reconciliation_count": 305,
+      "research_gap_count": 29,
+      "blocking_research_gap_count": 0,
+      "semantic_fixture_family_count": 18,
+      "normalized_files": [
+        {
+          "order": 1,
+          "file": "profile.json",
+          "record_kind": "ProfileOrOutcome",
+          "record_count": 4,
+          "sha256": "a9bdd50b6bd324f86ae1792b1ad95b73a67d9dab7ac58f2511081ab67d799669"
+        },
+        {
+          "order": 2,
+          "file": "seasons.json",
+          "record_kind": "SeasonOrSchedule",
+          "record_count": 2,
+          "sha256": "38eb353a6a65112ba37b50204ffaa8c7fc220993b6c26e8b369c0e620d7a5d55"
+        },
+        {
+          "order": 3,
+          "file": "entries.json",
+          "record_kind": "EntryLocator",
+          "record_count": 2,
+          "sha256": "b2185c913511c5a82cec1bec5ddc09cbddea7db8cfbe8b5cf4b07df117eb3cfb"
+        },
+        {
+          "order": 4,
+          "file": "stages.json",
+          "record_kind": "Stage",
+          "record_count": 12,
+          "sha256": "f5b164f9a8f37ab8a00d7f1632b549af2c84d3d55718ebafbd1e01aafc1e7d47"
+        },
+        {
+          "order": 5,
+          "file": "nodes.json",
+          "record_kind": "Node",
+          "record_count": 24,
+          "sha256": "3c52992f8842e5b7bb2b2f5aa3d1effb088e3ad77a6d0de2a443d7698b551049"
+        },
+        {
+          "order": 6,
+          "file": "tierce.json",
+          "record_kind": "Tierce",
+          "record_count": 1,
+          "sha256": "ec65d682f48841f34a304368cda07bedf09bcb9adfea209042a20438293105bc"
+        },
+        {
+          "order": 7,
+          "file": "participant-policies.json",
+          "record_kind": "ParticipantPolicy",
+          "record_count": 4,
+          "sha256": "3cb75aa4d918383fcecd2428fb869aba1f6e58b1f4c572fafc51cc0c7bf9f743"
+        },
+        {
+          "order": 8,
+          "file": "attempt-rules.json",
+          "record_kind": "AttemptOrTransitionRule",
+          "record_count": 2,
+          "sha256": "18439de9307aeaf17780026ea608df2b4f575229ff6682fe73bdeffcd971df5a"
+        },
+        {
+          "order": 9,
+          "file": "clock-rules.json",
+          "record_kind": "ClockRule",
+          "record_count": 6,
+          "sha256": "e40cfcfbb5749ea595cbad5533c473a58f60b48c5d8ef3db5604424179956ee9"
+        },
+        {
+          "order": 10,
+          "file": "resource-rules.json",
+          "record_kind": "ResourceOrProjectionRule",
+          "record_count": 4,
+          "sha256": "cbad402f874049a918879b666637580f23b702fac2bcc88a0189c6b09e51c383"
+        },
+        {
+          "order": 11,
+          "file": "objectives.json",
+          "record_kind": "Objective",
+          "record_count": 6,
+          "sha256": "c6b3a65c66353bc426c585fd7ee26e1ec01adf2f9b29abce85465357eba60216"
+        },
+        {
+          "order": 12,
+          "file": "turbulence.json",
+          "record_kind": "MemoryTurbulenceOrProgram",
+          "record_count": 2,
+          "sha256": "8f97fc8137b5f247bdf14241d68f564260db6e432b14ed0f072b8f7f171387a5"
+        },
+        {
+          "order": 13,
+          "file": "battle-events.json",
+          "record_kind": "BattleEventBinding",
+          "record_count": 1,
+          "sha256": "0baea6bfdc619dfc4166201591079a340affd8c4554ff1059d5d1405cc851523"
+        },
+        {
+          "order": 14,
+          "file": "rule-contributions.json",
+          "record_kind": "RuleContribution",
+          "record_count": 3,
+          "sha256": "264a0f129cda8bacbabeffd8fc84c33fa1648904bb2bd461ab84a4cdfa447f4a"
+        },
+        {
+          "order": 15,
+          "file": "pool-audits.json",
+          "record_kind": "PoolAudit",
+          "record_count": 10,
+          "sha256": "8070951c66498abc13d7654b8ba88fb6703c4579bc3a381eee34e7174843ffc9"
+        },
+        {
+          "order": 16,
+          "file": "encounters.json",
+          "record_kind": "Encounter",
+          "record_count": 25,
+          "sha256": "deb060fcd4545a87ff59fc18f890fbc86dd8b85d780908a9ce1ed7382f77c266"
+        },
+        {
+          "order": 17,
+          "file": "waves.json",
+          "record_kind": "EncounterWave",
+          "record_count": 50,
+          "sha256": "d5c13d1fbd93cec41f8e30388989d4f92af604839f0597329151865aa893102a"
+        },
+        {
+          "order": 18,
+          "file": "enemy-slots.json",
+          "record_kind": "EnemySlot",
+          "record_count": 99,
+          "sha256": "5c50a609516112f6e915b3dd922744ce4db94483962d088f4933d9669af47792"
+        },
+        {
+          "order": 19,
+          "file": "enemy-variants.json",
+          "record_kind": "EnemyVariant",
+          "record_count": 41,
+          "sha256": "ce9796d42c71acd48b43796c536b3723993866dfc810be1c9b2398ce525a01a3"
+        },
+        {
+          "order": 20,
+          "file": "enemy-templates.json",
+          "record_kind": "EnemyTemplate",
+          "record_count": 41,
+          "sha256": "478e12ae0390d35f9ffd74572ade66a93e622beebc9ff1ebcec356310f64607e"
+        },
+        {
+          "order": 21,
+          "file": "enemy-abilities.json",
+          "record_kind": "EnemyAbility",
+          "record_count": 221,
+          "sha256": "4a02b988a0029d4058cc794ce74aac3c471df9a49337bad4a0e7053070cbdc88"
+        },
+        {
+          "order": 22,
+          "file": "sources.json",
+          "record_kind": "EvidenceSource",
+          "record_count": 594,
+          "sha256": "abfcbfa31ae6332b008c908f6de0d6f65d0a62afa4942323cc31f820fda19399"
+        },
+        {
+          "order": 23,
+          "file": "reconciliation-receipts.json",
+          "record_kind": "ReconciliationReceipt",
+          "record_count": 305,
+          "sha256": "be6963aa62a02e49cd2b7ca0ea3f4ead3919e9e00146b60b11653ce020a943be"
+        },
+        {
+          "order": 24,
+          "file": "research-gaps.json",
+          "record_kind": "ResearchGap",
+          "record_count": 29,
+          "sha256": "c5607b3e9abd11f2c4f16ec0649d6904a4fd16164e5b36859c34cc891fa5c249"
+        },
+        {
+          "order": 25,
+          "file": "coverage.json",
+          "record_kind": "CoverageCategory",
+          "record_count": 14,
+          "sha256": "7819be2a738b3f666a0e8565873e5d68c1815d97f2345d535051f7404453a34b"
+        },
+        {
+          "order": 26,
+          "file": "semantic-fixtures.json",
+          "record_kind": "SemanticFixture",
+          "record_count": 18,
+          "sha256": "d87e2725490fb6dfc5d6a396c8a96b69dda65fad848f50af2073b853bc978a56"
+        }
+      ],
+      "canonical_pack_sha256": "c3ac1c7fd2edd78c06430f30277ee214fc38ab27c8c1ea76adb5b2c969977330",
+      "runtime_publishable": false,
+      "approximations": [],
+      "runtime_executable": false
+    }
+  ]
+}
