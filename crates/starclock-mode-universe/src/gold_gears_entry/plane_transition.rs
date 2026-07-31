@@ -3,7 +3,7 @@
 use starclock_activity::{
     ActivityCondition, ActivityExpression, ActivityGraphDefinition, ActivityOperation,
     ActivityProgramDefinition, ActivityProgramId, ActivitySlotId, ActivityTerminalOutcome,
-    ActivityValue, NodeId,
+    ActivityTransactionState, ActivityValue, NodeId,
 };
 
 use crate::gold_gears_structural::GoldAndGearsStructuralCatalog;
@@ -66,6 +66,32 @@ impl PlaneTransitionRuntimeCatalog {
 
     pub(super) fn choices(&self) -> impl ExactSizeIterator<Item = &str> {
         self.bosses.iter().map(|boss| boss.key.as_ref())
+    }
+
+    pub(super) fn selected_boss(
+        &self,
+        state: &ActivityTransactionState,
+        plane_layer: u8,
+    ) -> Option<&str> {
+        let ActivityValue::BoundedCounterMap(values) =
+            state.slot(slot(super::state_layout::PLANE_STATE_SLOT))?
+        else {
+            return None;
+        };
+        let value = |key| {
+            values
+                .binary_search_by_key(&key, |(candidate, _)| *candidate)
+                .ok()
+                .map(|index| values[index].1)
+        };
+        if value(PLANE_SELECTED_BOSS_LAYER_KEY) != Some(i64::from(plane_layer)) {
+            return None;
+        }
+        let source_id = u32::try_from(value(PLANE_SELECTED_BOSS_KEY)?).ok()?;
+        self.bosses
+            .iter()
+            .find(|boss| boss.source_id == source_id)
+            .map(|boss| boss.key.as_ref())
     }
 
     pub(super) fn compile_selection(

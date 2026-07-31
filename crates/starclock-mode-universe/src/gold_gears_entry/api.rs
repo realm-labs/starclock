@@ -23,6 +23,7 @@ use super::{
         CompiledDiceRuntime, DiceRuntimeCatalog, compile_cheat, compile_plane_start,
         compile_reroll, compile_roll, resolution_face, resolution_kind,
     },
+    encounter_runtime::{CompiledEncounterRuntime, EncounterRuntimeCatalog},
     knowledge::KnowledgeRuntimeCatalog,
     knowledge_execution::{
         KnowledgeFaceContext, compile_collapse, compile_countdown_initial_adjustment,
@@ -194,6 +195,7 @@ pub struct GoldAndGearsRuntimeFactory {
     pub(super) progression: Arc<ProgressionRuntimeCatalog>,
     pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
     pub(super) runtime_coverage: Arc<RuntimeCoverageCatalog>,
+    pub(super) encounters: Arc<EncounterRuntimeCatalog>,
 }
 
 impl GoldAndGearsRuntimeFactory {
@@ -218,6 +220,7 @@ impl GoldAndGearsRuntimeFactory {
             return Err(GoldAndGearsEntryError::InvalidCatalog);
         }
         let map = MapRuntimeCatalog::compile(&structural, &content)?;
+        let encounters = EncounterRuntimeCatalog::compile(&content)?;
         let progression = ProgressionRuntimeCatalog::compile(&unique)?;
         let content_runtime =
             GoldAndGearsContentRuntimeCatalog::compile(&content, &unique, &progression)?;
@@ -246,6 +249,7 @@ impl GoldAndGearsRuntimeFactory {
             progression: Arc::new(progression),
             content_runtime: Arc::new(content_runtime),
             runtime_coverage: Arc::new(runtime_coverage),
+            encounters: Arc::new(encounters),
         })
     }
 
@@ -332,6 +336,12 @@ impl GoldAndGearsRuntimeFactory {
         )?;
         let (cognition_minimum, cognition_maximum) = self.cognition.bounds(area)?;
         let topology = compile_topology(&self.structural, area)?;
+        let encounter_runtime = CompiledEncounterRuntime::compile(
+            Arc::clone(&self.encounters),
+            &self.structural,
+            area,
+            &topology,
+        )?;
         let initial_cosmic_fragments = conundrum_runtime
             .initial_cosmic_fragments(super::state_layout::INITIAL_COSMIC_FRAGMENTS)?;
         let initial_dice_rerolls =
@@ -425,6 +435,7 @@ impl GoldAndGearsRuntimeFactory {
             transitions: Arc::clone(&self.transitions),
             progression_catalog: Arc::clone(&self.progression),
             content_runtime: Arc::clone(&self.content_runtime),
+            encounter_runtime,
         })
     }
 
@@ -469,17 +480,18 @@ pub struct GoldAndGearsRuntimeInstance {
     auxiliary_conundrum: u8,
     trailblaze_bonus: Option<Box<str>>,
     state: ActivityStateDefinition,
-    graph: ActivityGraphDefinition,
+    pub(super) graph: ActivityGraphDefinition,
     planes: Box<[Box<str>]>,
     plane_starts: Box<[NodeId]>,
     plane_ends: Box<[NodeId]>,
     chessboards: Box<[Box<str>]>,
-    map: Arc<MapRuntimeCatalog>,
+    pub(super) map: Arc<MapRuntimeCatalog>,
     knowledge: Arc<KnowledgeRuntimeCatalog>,
     cognition: Arc<CognitionRuntimeCatalog>,
-    transitions: Arc<PlaneTransitionRuntimeCatalog>,
+    pub(super) transitions: Arc<PlaneTransitionRuntimeCatalog>,
     pub(super) progression_catalog: Arc<ProgressionRuntimeCatalog>,
     pub(super) content_runtime: Arc<GoldAndGearsContentRuntimeCatalog>,
+    pub(super) encounter_runtime: CompiledEncounterRuntime,
 }
 
 impl GoldAndGearsRuntimeInstance {

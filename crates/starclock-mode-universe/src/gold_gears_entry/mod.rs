@@ -13,6 +13,7 @@ mod dice_face;
 mod dice_loadout;
 mod dice_passive;
 mod dice_resolution;
+mod encounter_runtime;
 mod error;
 mod knowledge;
 mod knowledge_execution;
@@ -79,6 +80,12 @@ pub use dice_face::GOLD_AND_GEARS_DICE_FACE_REVISION;
 pub use dice_loadout::GOLD_AND_GEARS_DICE_LOADOUT_REVISION;
 pub use dice_passive::{GoldAndGearsDiceDomain, GoldAndGearsDicePassiveEvent};
 pub use dice_resolution::GOLD_AND_GEARS_DICE_RUNTIME_REVISION;
+pub use encounter_runtime::{
+    GOLD_AND_GEARS_ENCOUNTER_DIFFICULTY_REVISION, GOLD_AND_GEARS_ENCOUNTER_POLICY_ACCURACY,
+    GOLD_AND_GEARS_ENCOUNTER_POLICY_REPLACEMENT_CONDITION,
+    GOLD_AND_GEARS_ENCOUNTER_SELECTION_REVISION, GoldAndGearsEncounterEnemySlot,
+    GoldAndGearsEncounterRole, GoldAndGearsEncounterSelection, GoldAndGearsEncounterWave,
+};
 pub use error::GoldAndGearsEntryError;
 pub use knowledge::GOLD_AND_GEARS_KNOWLEDGE_REVISION;
 pub use knowledge_resolution::{
@@ -153,48 +160,4 @@ const EXPECTED_PROFILE_KEY: &str = "gold-gears.profile.v1";
 const CONUNDRUM_AREA_KEY: &str = "gold-gears.area.405";
 
 #[cfg(test)]
-mod cognition_tests;
-#[cfg(test)]
-mod content_runtime_tests;
-#[cfg(test)]
-mod conundrum_auxiliary_runtime_tests;
-#[cfg(test)]
-mod conundrum_runtime_tests;
-#[cfg(test)]
-mod conundrum_stats_modifier_tests;
-#[cfg(test)]
-mod dice_face_tests;
-#[cfg(test)]
-mod dice_loadout_tests;
-#[cfg(test)]
-mod dice_resolution_tests;
-#[cfg(test)]
-mod knowledge_resolution_tests;
-#[cfg(test)]
-mod knowledge_tests;
-#[cfg(test)]
-mod map_overlay_tests;
-#[cfg(test)]
-mod neural_runtime_tests;
-#[cfg(test)]
-mod occurrence_rule_runtime_tests;
-#[cfg(test)]
-mod occurrence_service_tests;
-#[cfg(test)]
-mod path_boost_rule_runtime_tests;
-#[cfg(test)]
-mod phase2_hardening_tests;
-#[cfg(test)]
-mod profile_rule_runtime_tests;
-#[cfg(test)]
-mod progression_runtime_tests;
-#[cfg(test)]
-mod resonance_rule_runtime_tests;
-#[cfg(test)]
-mod runtime_coverage_tests;
-#[cfg(test)]
-mod semantic_fixture_runtime_tests;
-#[cfg(test)]
-mod service_adventure_rule_runtime_tests;
-#[cfg(test)]
-mod tests;
+include!("test_modules.rs");

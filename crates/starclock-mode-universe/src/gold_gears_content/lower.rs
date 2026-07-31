@@ -4,9 +4,10 @@ use crate::{
         GoldAndGearsContentCatalog, GoldAndGearsContentError, GoldAndGearsContentErrorKind,
         types::{
             AdventureOutcome, BeaconWeight, Blessing, BlessingLevel, BlockCreateRule,
-            CatalogCoverage, CreateCountWeight, Curio, CurioState, EncounterGroup, EncounterWave,
-            EnemySlot, JsonPayload, MapEvent, MapEventEffect, MapEventTrigger, MechanicRule,
-            Occurrence, OccurrenceChoice, OccurrenceVariant, Service, StableIndexRow, StableKey,
+            CatalogCoverage, CreateCountWeight, Curio, CurioState, EncounterGroup, EncounterMember,
+            EncounterRole, EncounterWave, EnemySlot, JsonPayload, MapEvent, MapEventEffect,
+            MapEventTrigger, MechanicRule, Occurrence, OccurrenceChoice, OccurrenceVariant,
+            Service, StableIndexRow, StableKey,
         },
         validate,
     },
@@ -184,11 +185,25 @@ pub(super) fn lower(
             ))?,
             encounter_groups: collect(source.gold_gears_encounter_group().ordered_rows().map(
                 |row| {
+                    validate_encounter_group_policy(
+                        row.parent_room_id.as_deref(),
+                        &row.parent_room_scope_json,
+                        &row.difficulty_binding_json,
+                        &row.selection_policy_json,
+                        &row.stable_key,
+                    )?;
                     Ok(EncounterGroup {
                         id: row.id,
                         key: key(&row.stable_key),
+                        source_group_id: nonempty(&row.source_group_id, &row.stable_key)?,
+                        source_namespace: nonempty(&row.source_namespace, &row.stable_key)?,
+                        role: encounter_role(&row.encounter_role, &row.stable_key)?,
                         parent_room: row.parent_room_id.as_deref().map(key),
                         areas: keys(&row.eligible_area_ids),
+                        members: parse_encounter_members(
+                            &row.weighted_members_json,
+                            &row.stable_key,
+                        )?,
                         payloads: jsons(
                             [
                                 &row.parent_room_scope_json,
@@ -203,11 +218,25 @@ pub(super) fn lower(
             ))?,
             encounter_waves: collect(source.gold_gears_encounter_wave().ordered_rows().map(
                 |row| {
+                    validate_encounter_level_policy(&row.level_binding_json, &row.stable_key)?;
                     Ok(EncounterWave {
                         id: row.id,
                         key: key(&row.stable_key),
                         group_id: row.encounter_group_id,
+                        source_rogue_monster_id: nonempty(
+                            &row.source_rogue_monster_id,
+                            &row.stable_key,
+                        )?,
+                        source_stage_id: nonempty(&row.source_stage_id, &row.stable_key)?,
+                        wave_index: u16::try_from(row.wave_index)
+                            .map_err(|_| metadata_error(&row.stable_key))?,
                         slots: keys(&row.enemy_slot_ids),
+                        stage_type: nonempty(&row.stage_type, &row.stable_key)?,
+                        authored_stage_level: u16::try_from(row.authored_stage_level)
+                            .map_err(|_| metadata_error(&row.stable_key))?,
+                        hard_level_group: u16::try_from(row.hard_level_group)
+                            .map_err(|_| metadata_error(&row.stable_key))?,
+                        stage_ability_ids: boxes(row.stage_ability_ids.as_deref()),
                         payload: json(&row.level_binding_json, &row.stable_key)?,
                     })
                 },
@@ -217,6 +246,10 @@ pub(super) fn lower(
                     id: row.id,
                     key: key(&row.stable_key),
                     wave_id: row.encounter_wave_id,
+                    slot_index: u16::try_from(row.slot_index)
+                        .map_err(|_| metadata_error(&row.stable_key))?,
+                    source_slot: nonempty(&row.source_slot, &row.stable_key)?,
+                    source_monster_id: nonempty(&row.source_monster_id, &row.stable_key)?,
                     enemy: key(&row.enemy_variant_id),
                     boss_choices: optional_keys(row.boss_choice_ids.as_deref()),
                 })
@@ -416,6 +449,123 @@ struct RawBeacon {
     order: i32,
     beacon_id: String,
     weight: String,
+}
+
+#[derive(Deserialize)]
+struct RawEncounterMember {
+    order: i32,
+    source_rogue_monster_id: String,
+    source_primary_monster_id: String,
+    source_stage_id: String,
+    weight: String,
+    wave_ids: Vec<String>,
+}
+
+#[derive(Deserialize)]
+struct ParentRoomPolicy {
+    kind: String,
+    static_room_group_join: String,
+    unresolved_behavior: String,
+}
+
+#[derive(Deserialize)]
+struct DifficultyPolicy {
+    effective_level_policy_id: String,
+    unresolved_behavior: String,
+}
+
+#[derive(Deserialize)]
+struct EncounterSelectionPolicy {
+    policy_id: String,
+    candidate_order: String,
+    randomness: String,
+    unresolved_behavior: String,
+}
+
+#[derive(Deserialize)]
+struct EncounterLevelPolicy {
+    policy_id: String,
+    authored_stage_level_is_fallback: bool,
+    unresolved_area_or_plane_behavior: String,
+}
+
+fn validate_encounter_group_policy(
+    parent_room: Option<&str>,
+    parent_value: &str,
+    difficulty_value: &str,
+    selection_value: &str,
+    owner: &str,
+) -> Result<(), GoldAndGearsContentError> {
+    let parent =
+        serde_json::from_str::<ParentRoomPolicy>(parent_value).map_err(|_| json_error(owner))?;
+    let difficulty = serde_json::from_str::<DifficultyPolicy>(difficulty_value)
+        .map_err(|_| json_error(owner))?;
+    let selection = serde_json::from_str::<EncounterSelectionPolicy>(selection_value)
+        .map_err(|_| json_error(owner))?;
+    if parent_room.is_some()
+        || parent.kind != "ResolvedCombatDomain"
+        || parent.static_room_group_join != "Unpublished"
+        || parent.unresolved_behavior != "FailClosed"
+        || difficulty.effective_level_policy_id
+            != "gold-gears-difficulty-segment-by-area-and-plane-v1"
+        || difficulty.unresolved_behavior != "FailClosed"
+        || selection.policy_id != "encounter-selection-v1"
+        || selection.candidate_order != "source-group-member-order"
+        || selection.randomness != "seeded-activity-stream"
+        || selection.unresolved_behavior != "FailClosed"
+    {
+        return invalid_metadata(owner);
+    }
+    Ok(())
+}
+
+fn validate_encounter_level_policy(
+    value: &str,
+    owner: &str,
+) -> Result<(), GoldAndGearsContentError> {
+    let policy =
+        serde_json::from_str::<EncounterLevelPolicy>(value).map_err(|_| json_error(owner))?;
+    if policy.policy_id != "gold-gears-difficulty-segment-by-area-and-plane-v1"
+        || policy.authored_stage_level_is_fallback
+        || policy.unresolved_area_or_plane_behavior != "FailClosed"
+    {
+        return invalid_metadata(owner);
+    }
+    Ok(())
+}
+
+fn encounter_role(value: &str, owner: &str) -> Result<EncounterRole, GoldAndGearsContentError> {
+    match value {
+        "GuideBoss" => Ok(EncounterRole::GuideBoss),
+        "CombatPool" => Ok(EncounterRole::CombatPool),
+        "ElitePool" => Ok(EncounterRole::ElitePool),
+        "FirstPlaneBossAlternative" => Ok(EncounterRole::FirstPlaneBossAlternative),
+        "SecondPlaneBossAlternative" => Ok(EncounterRole::SecondPlaneBossAlternative),
+        "FinalBoss" => Ok(EncounterRole::FinalBoss),
+        _ => invalid_metadata(owner),
+    }
+}
+
+fn parse_encounter_members(
+    value: &str,
+    owner: &str,
+) -> Result<Box<[EncounterMember]>, GoldAndGearsContentError> {
+    let values =
+        serde_json::from_str::<Vec<RawEncounterMember>>(value).map_err(|_| json_error(owner))?;
+    validate_orders(values.iter().map(|value| value.order), owner)?;
+    values
+        .into_iter()
+        .map(|value| {
+            Ok(EncounterMember {
+                source_rogue_monster_id: nonempty(&value.source_rogue_monster_id, owner)?,
+                source_primary_monster_id: nonempty(&value.source_primary_monster_id, owner)?,
+                source_stage_id: nonempty(&value.source_stage_id, owner)?,
+                weight: positive_weight(&value.weight, owner)?,
+                waves: keys(&value.wave_ids),
+            })
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .map(Vec::into_boxed_slice)
 }
 
 #[derive(Deserialize)]
