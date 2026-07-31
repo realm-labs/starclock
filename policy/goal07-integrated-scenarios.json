@@ -21,37 +21,37 @@
   "dynamic_scenarios": [
     {
       "boundary": "blessing-acquire-enhance-replace",
-      "path": "crates/starclock-mode-universe/tests/blessing_runtime.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/blessing_runtime.rs",
       "marker": "acquire_enhance_and_replace_are_generic_atomic_inventory_programs"
     },
     {
       "boundary": "curio-acquire-charge-exhaust-repair",
-      "path": "crates/starclock-mode-universe/tests/curio_runtime.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/curio_runtime.rs",
       "marker": "acquisition_is_unique_and_charge_exhaustion_repairs_error_code"
     },
     {
       "boundary": "curio-repair-replace-remove",
-      "path": "crates/starclock-mode-universe/tests/curio_runtime.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/curio_runtime.rs",
       "marker": "immediate_repair_replacement_and_teardown_are_atomic_and_scoped"
     },
     {
       "boundary": "occurrence-curio-acquire",
-      "path": "crates/starclock-mode-universe/tests/run_runtime.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/run_runtime.rs",
       "marker": "occurrence_curio_acquisition_initializes_lifecycle_in_the_same_transaction"
     },
     {
       "boundary": "ability-tree-unlock-and-consume",
-      "path": "crates/starclock-mode-universe/tests/encounter_runtime.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs",
       "marker": "goal07_ability_tree_unlocks_reroll_and_consumes_one_first_battle_bonus_choice"
     },
     {
       "boundary": "ability-tree-battle-projection",
-      "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration.rs",
       "marker": "ability_tree_projection_changes_battle_spec_and_active_modifier_state"
     },
     {
       "boundary": "compiled-build-eidolon-reprojection",
-      "path": "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s05.rs",
+      "path": "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s05.rs",
       "marker": "space_time_prism_recompiles_each_exact_build_at_one_higher_eidolon"
     }
   ],

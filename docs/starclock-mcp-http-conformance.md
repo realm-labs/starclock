@@ -1,6 +1,6 @@
 # Starclock MCP HTTP conformance and load
 
-The retained HTTP client in `crates/starclock-mcp/tests/http_conformance.rs`
+The retained HTTP client in `crates/starclock-test-kit/tests/suites/adapter/mcp/http_conformance.rs`
 uses raw HTTP/1.1 over `TcpStream` against an ephemeral real loopback listener.
 It does not call MCP handlers directly. The client supplies the exact Host,
 Origin, protocol and bearer headers, negotiates MCP `2025-11-25`, sends the

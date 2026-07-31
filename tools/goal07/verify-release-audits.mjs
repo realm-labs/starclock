@@ -14,6 +14,11 @@ assert(options.every((option) => option === "--bless"),
 const bless = options.includes("--bless");
 const policy = json("policy/goal07-release-audits.json");
 const expected = policy.denominators;
+const completionCommit = json("policy/release-snapshots.json").goals.find(
+  ({ goal_id }) => goal_id === policy.goal_id,
+)?.completion_commit;
+assert(/^[0-9a-f]{40}$/u.test(completionCommit ?? ""),
+  "Goal 07 completion snapshot is missing");
 assert(policy.schema_revision === "starclock.goal07-release-audits.v1",
   "unexpected Goal 07 release-audit policy revision");
 assert(Object.values(policy.contracts).every((value) => value === true),
@@ -336,13 +341,15 @@ function verifyDependencyDelta() {
   const baseline = policy.dependency_baseline_commit;
   const baselineLock = capture("git", ["show", `${baseline}:Cargo.lock`]);
   const baselineRegistry = registryPackages(baselineLock);
-  const currentRegistry = registryPackages(text("Cargo.lock"));
+  const completionLockBytes = gitBytes(`${completionCommit}:Cargo.lock`);
+  const completionLock = completionLockBytes.toString("utf8");
+  const currentRegistry = registryPackages(completionLock);
   exactIds("registry package identities", baselineRegistry, currentRegistry);
   assert(currentRegistry.length === expected.reviewed_registry_packages,
     "reviewed registry-package denominator drift");
 
   const changedManifests = lines(capture("git", [
-    "diff", "--name-only", baseline, "--", "Cargo.toml",
+    "diff", "--name-only", baseline, completionCommit, "--", "Cargo.toml",
     ":(glob)crates/*/Cargo.toml",
   ]));
   const expectedManifests = [...new Set(
@@ -351,7 +358,7 @@ function verifyDependencyDelta() {
   exactIds("reviewed changed manifests", expectedManifests,
     changedManifests.sort());
   for (const edge of policy.dependency_delta.reviewed_workspace_edges) {
-    const current = text(edge.manifest);
+    const current = capture("git", ["show", `${completionCommit}:${edge.manifest}`]);
     const before = capture("git", ["show", `${baseline}:${edge.manifest}`]);
     const marker = `${edge.to} = { path = "../${edge.to}" }`;
     assert(!before.includes(marker) && current.includes(marker),
@@ -368,7 +375,8 @@ function verifyDependencyDelta() {
     reviewed_workspace_edges: policy.dependency_delta.reviewed_workspace_edges,
     baseline_cargo_lock_sha256: crypto.createHash("sha256")
       .update(baselineLock).digest("hex"),
-    current_cargo_lock_sha256: sha256("Cargo.lock"),
+    current_cargo_lock_sha256: crypto.createHash("sha256")
+      .update(completionLockBytes).digest("hex"),
   };
 }
 
@@ -410,6 +418,13 @@ function walk(directory) {
 }
 function capture(command, args) {
   return execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim();
+}
+function gitBytes(object) {
+  return execFileSync("git", ["cat-file", "blob", object], {
+    cwd: root,
+    encoding: "buffer",
+    maxBuffer: 64 * 1024 * 1024,
+  });
 }
 function lines(value) { return value.split(/\r?\n/u).filter(Boolean); }
 function sha256(relative) {

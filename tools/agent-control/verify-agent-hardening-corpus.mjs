@@ -6,7 +6,7 @@ const corpusBytes = await readFile(corpusPath);
 const corpus = JSON.parse(corpusBytes);
 const apiPolicy = JSON.parse(await readFile("policy/agent-api-v1.json", "utf8"));
 const surfaces = JSON.parse(await readFile("policy/agent-control-surfaces.json", "utf8"));
-const test = await readFile("crates/starclock-agent-api/tests/hardening_corpus.rs", "utf8");
+const test = await readFile("crates/starclock-test-kit/tests/suites/exhaustive/agent_api/hardening_corpus.rs", "utf8");
 const session = await readFile("crates/starclock-agent-api/src/session.rs", "utf8");
 const propertySources = new Map();
 for (const suite of corpus.property_suites) propertySources.set(suite.source, await readFile(suite.source, "utf8"));
@@ -39,9 +39,9 @@ for (const marker of [
 }
 if (!session.includes("AgentUInt::parse(value).map_or_else")) fail("cursor canonical-integer rejection drift");
 const expectedProperties = [
-  ["crates/starclock-agent-api/tests/schema_property_contract.rs", "0x6167_656e_742d_7631", "PROPERTY_CASES: u32 = 512"],
-  ["crates/starclock-replay/tests/property_contract.rs", "MALFORMED_SEED: u64 = 0x6d61_6c66_6f72_6d31", "cases: 256"],
-  ["crates/starclock-replay/tests/battle_property_contract.rs", "BATTLE_REPLAY_CORRUPTION_SEED: u64 = 0x6261_7474_6c65_2d31", "cases: 256"],
+  ["crates/starclock-test-kit/tests/suites/exhaustive/agent_api/schema_property_contract.rs", "0x6167_656e_742d_7631", "PROPERTY_CASES: u32 = 512"],
+  ["crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs", "MALFORMED_SEED: u64 = 0x6d61_6c66_6f72_6d31", "cases: 256"],
+  ["crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs", "BATTLE_REPLAY_CORRUPTION_SEED: u64 = 0x6261_7474_6c65_2d31", "cases: 256"],
 ];
 for (const [source, seed, cases] of expectedProperties) {
   const text = propertySources.get(source);

@@ -22,7 +22,7 @@ const player = read(
 );
 const production = read("crates/starclock-mode-universe/src/production_runtime.rs");
 const tests = read(
-  "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+  "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
 );
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");
 

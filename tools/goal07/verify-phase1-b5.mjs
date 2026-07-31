@@ -68,9 +68,9 @@ for (const marker of [
   "execute_boundary_program",
 ]) assert(runtime.includes(marker), `runtime marker is missing: ${marker}`);
 const tests = [
-  "crates/starclock-combat/tests/ability_program_execution/action_break.rs",
-  "crates/starclock-combat/tests/enemy_orchestration.rs",
-  "crates/starclock-combat/tests/damage_lifecycle.rs",
+  "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/action_break.rs",
+  "crates/starclock-test-kit/tests/suites/core/combat/enemy_orchestration.rs",
+  "crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle.rs",
   "crates/starclock-combat/src/reaction/queue.rs",
   "crates/starclock-data/src/operation_lower.rs",
 ].map(text).join("\n");

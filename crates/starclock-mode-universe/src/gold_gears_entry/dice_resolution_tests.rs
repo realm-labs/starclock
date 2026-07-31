@@ -18,13 +18,12 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_authored_dice_parts_and_path_values_compile_exactly() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.dice_runtime.denominators(), (12, 108, 39));
     assert_eq!(
         GOLD_AND_GEARS_DICE_RUNTIME_REVISION,
@@ -35,7 +34,7 @@ fn all_authored_dice_parts_and_path_values_compile_exactly() {
     for dice in &factory.unique.dice {
         for path in &factory.unique.paths {
             let instance = factory
-                .compile_entry(entry(&factory, AREA, &path.identity.stable_key, dice))
+                .compile_entry(entry(factory, AREA, &path.identity.stable_key, dice))
                 .unwrap();
             let authored = factory
                 .unique
@@ -91,7 +90,7 @@ fn all_authored_dice_parts_and_path_values_compile_exactly() {
 
 #[test]
 fn roll_and_reroll_are_spawn_isolated_and_rejection_is_byte_identical() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let neural = factory
         .unique
@@ -100,7 +99,7 @@ fn roll_and_reroll_are_spawn_isolated_and_rejection_is_byte_identical() {
         .map(|node| node.identity.stable_key.to_string())
         .collect();
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, dice).with_neural_network(neural))
+        .compile_entry(entry(factory, AREA, PATH, dice).with_neural_network(neural))
         .unwrap();
     let mut state = new_state(&instance);
     let mut rng = activity_rng(&instance, 14_302);
@@ -148,9 +147,9 @@ fn roll_and_reroll_are_spawn_isolated_and_rejection_is_byte_identical() {
 
 #[test]
 fn empty_reroll_candidates_keep_previous_consume_attempt_and_draw_nothing() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, &factory.unique.dice[0]))
+        .compile_entry(entry(factory, AREA, PATH, &factory.unique.dice[0]))
         .unwrap();
     let mut state = new_state(&instance);
     let mut rng = activity_rng(&instance, 14_303);
@@ -184,10 +183,10 @@ fn empty_reroll_candidates_keep_previous_consume_attempt_and_draw_nothing() {
 
 #[test]
 fn plane_initials_and_cheats_execute_with_exact_masks_and_no_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     for dice in &factory.unique.dice {
         let instance = factory
-            .compile_entry(entry(&factory, AREA, PATH, dice))
+            .compile_entry(entry(factory, AREA, PATH, dice))
             .unwrap();
         let active = (1..=3)
             .filter(|layer| instance.compile_dice_plane_start(*layer).unwrap().is_some())
@@ -200,7 +199,7 @@ fn plane_initials_and_cheats_execute_with_exact_masks_and_no_rng() {
         assert_eq!(active, expected);
     }
 
-    let transaction = instance_by_source(&factory, "401");
+    let transaction = instance_by_source(factory, "401");
     let mut transaction_state = new_state(&transaction);
     commit(
         &transaction,
@@ -216,7 +215,7 @@ fn plane_initials_and_cheats_execute_with_exact_masks_and_no_rng() {
         200
     );
 
-    let general = instance_by_source(&factory, "403");
+    let general = instance_by_source(factory, "403");
     let mut state = new_state(&general);
     commit(
         &general,
@@ -256,7 +255,7 @@ fn plane_initials_and_cheats_execute_with_exact_masks_and_no_rng() {
 
 #[test]
 fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let cases = [
         (
             "101",
@@ -346,7 +345,7 @@ fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
     ];
 
     for (source, event) in cases {
-        let instance = instance_by_source(&factory, source);
+        let instance = instance_by_source(factory, source);
         let mut state = new_state(&instance);
         let program = instance
             .compile_dice_passive(&state, event)
@@ -356,7 +355,7 @@ fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
     }
 
     let trotter = apply_passive(
-        &factory,
+        factory,
         "101",
         GoldAndGearsDicePassiveEvent::TrottersDefeated { count: 2 },
     );
@@ -371,7 +370,7 @@ fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
     assert_eq!(trotter.0.dice_path_boost_stacks(&trotter.1), Some(2));
 
     let collapse = apply_passive(
-        &factory,
+        factory,
         "303",
         GoldAndGearsDicePassiveEvent::KnowledgeDomainsCollapsed {
             count: 2,
@@ -389,7 +388,7 @@ fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
     );
 
     let transaction = apply_passive(
-        &factory,
+        factory,
         "401",
         GoldAndGearsDicePassiveEvent::StorePurchase {
             cosmic_fragments_spent: 250,
@@ -413,7 +412,7 @@ fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
     );
 
     let general = apply_passive(
-        &factory,
+        factory,
         "403",
         GoldAndGearsDicePassiveEvent::MovementCompleted { count: 2 },
     );
@@ -422,13 +421,13 @@ fn all_twelve_passives_emit_typed_operations_and_exact_immediate_values() {
         3
     );
 
-    assert!(instance_by_source(&factory, "203").dice_allows_same_domain_movement());
-    assert!(instance_by_source(&factory, "302").dice_preserves_knowledge_domains());
-    assert!(instance_by_source(&factory, "403").dice_persists_general_buff_faces());
+    assert!(instance_by_source(factory, "203").dice_allows_same_domain_movement());
+    assert!(instance_by_source(factory, "302").dice_preserves_knowledge_domains());
+    assert!(instance_by_source(factory, "403").dice_persists_general_buff_faces());
     assert_eq!(
-        instance_by_source(&factory, "101")
+        instance_by_source(factory, "101")
             .compile_dice_passive(
-                &new_state(&instance_by_source(&factory, "101")),
+                &new_state(&instance_by_source(factory, "101")),
                 GoldAndGearsDicePassiveEvent::TrottersDefeated { count: 0 }
             )
             .unwrap_err(),

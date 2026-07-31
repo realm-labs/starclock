@@ -1,0 +1,50 @@
+[package]
+name = "starclock-test-kit"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+autotests = false
+
+[lints]
+workspace = true
+
+[dependencies]
+starclock-agent-api = { path = "../starclock-agent-api" }
+starclock-data = { path = "../starclock-data" }
+starclock-mode-universe = { path = "../starclock-mode-universe" }
+
+[dev-dependencies]
+axum.workspace = true
+proptest.workspace = true
+rmcp.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+starclock-activity = { path = "../starclock-activity" }
+starclock-build = { path = "../starclock-build" }
+starclock-combat = { path = "../starclock-combat" }
+starclock-mcp = { path = "../starclock-mcp" }
+starclock-mode-standard = { path = "../starclock-mode-standard" }
+starclock-replay = { path = "../starclock-replay" }
+starclock-rules = { path = "../starclock-rules" }
+tokio.workspace = true
+tower.workspace = true
+
+[[test]]
+name = "universe_suite"
+path = "tests/universe_suite.rs"
+
+[[test]]
+name = "combat_suite"
+path = "tests/combat_suite.rs"
+
+[[test]]
+name = "activity_suite"
+path = "tests/activity_suite.rs"
+
+[[test]]
+name = "adapter_suite"
+path = "tests/adapter_suite.rs"
+
+[[test]]
+name = "exhaustive_suite"
+path = "tests/exhaustive_suite.rs"

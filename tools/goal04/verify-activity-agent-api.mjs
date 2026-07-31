@@ -15,7 +15,7 @@ const observation = text("crates/starclock-agent-api/src/activity_observation.rs
 const session = text("crates/starclock-agent-api/src/activity_session.rs");
 const reference = text("crates/starclock-agent-api/src/activity_reference.rs");
 const replay = text("crates/starclock-mode-universe/src/universe_replay.rs");
-const tests = text("crates/starclock-agent-api/tests/activity_session_loop.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs");
 
 for (const marker of ["pub mod activity_action", "pub mod activity_observation", "pub mod activity_session"])
   assert(facade.includes(marker), `agent facade omits ${marker}`);
@@ -52,8 +52,8 @@ for (const marker of [
 
 if (!artifactOnly) {
   execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--lib"], { cwd: root, stdio: "inherit" });
-  execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--test", "standard_session_loop"], { cwd: root, stdio: "inherit" });
-  execFileSync("cargo", ["test", "-p", "starclock-agent-api", "--test", "activity_session_loop"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-test-kit", "--test", "adapter_suite", "standard_session_loop"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-test-kit", "--test", "adapter_suite", "activity_session_loop"], { cwd: root, stdio: "inherit" });
 }
 
 const sources = [
@@ -63,7 +63,7 @@ const sources = [
   "crates/starclock-agent-api/src/activity_observation.rs",
   "crates/starclock-agent-api/src/activity_reference.rs",
   "crates/starclock-agent-api/src/activity_session.rs",
-  "crates/starclock-agent-api/tests/activity_session_loop.rs",
+  "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs",
   "crates/starclock-mode-universe/src/universe_replay.rs",
   "tools/workspace/verify-dependencies.mjs"
 ];

@@ -101,6 +101,19 @@
       "name": "starclock-rules",
       "local": ["starclock-activity", "starclock-combat"],
       "external": []
+    },
+    {
+      "name": "starclock-test-kit",
+      "local": ["starclock-activity", "starclock-agent-api", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules"],
+      "external": [
+        { "name": "axum", "requirement": "=0.8.9", "features": ["http1", "tokio"], "kind": "dev" },
+        { "name": "proptest", "requirement": "=1.11.0", "features": ["std"], "kind": "dev" },
+        { "name": "rmcp", "requirement": "=2.2.0", "features": ["client", "macros", "server", "transport-io", "transport-streamable-http-server"], "kind": "dev" },
+        { "name": "serde_json", "requirement": "=1.0.151", "features": ["std"], "kind": "dev" },
+        { "name": "sha2", "requirement": "=0.11.0", "features": [], "kind": "dev" },
+        { "name": "tokio", "requirement": "=1.53.1", "features": ["io-util", "macros", "net", "rt-multi-thread", "signal", "sync", "time"], "kind": "dev" },
+        { "name": "tower", "requirement": "=0.5.3", "features": ["util"], "kind": "dev" }
+      ]
     }
   ]
 }

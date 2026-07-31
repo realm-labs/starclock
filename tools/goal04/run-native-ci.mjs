@@ -6,9 +6,9 @@ if (process.argv.length !== 3 || !["--foundation", "--hardening"].includes(proce
 
 const hardening = [
   ["node", ["tools/goal04/verify-seeded-matrix.mjs", "."]],
-  ["cargo", ["test", "-p", "starclock-activity", "--test", "activity_hardening", "--all-features"]],
-  ["cargo", ["test", "-p", "starclock-replay", "--test", "property_contract", "--test", "battle_property_contract", "--test", "activity_replay", "--all-features"]],
-  ["cargo", ["test", "-p", "starclock-agent-api", "--test", "activity_session_loop", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-test-kit", "--test", "activity_suite", "activity_hardening", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-test-kit", "--test", "exhaustive_suite", "replay", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-test-kit", "--test", "adapter_suite", "activity_session_loop", "--all-features"]],
   ["node", ["tools/repository-check/verify-generated-drift.mjs"]],
   ["node", ["tools/goal-hardening/verify-release-contract.mjs"]],
   ["node", ["tools/agent-control/verify-goal02-release-contract.mjs"]],
@@ -48,8 +48,8 @@ for (const [command, args] of [
   ["node", ["tools/goal04/verify-universe-path-runtime.mjs", "."]],
   ["node", ["tools/goal04/verify-universe-curio-runtime.mjs", "."]],
   ["node", ["tools/goal04/verify-universe-run-runtime.mjs", "."]],
-  ["cargo", ["test", "-p", "starclock-activity", "--all-targets", "--all-features"]],
-  ["cargo", ["test", "-p", "starclock-mode-universe", "--all-targets", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-test-kit", "--test", "activity_suite", "--all-features"]],
+  ["cargo", ["test", "-p", "starclock-test-kit", "--test", "universe_suite", "--all-features"]],
   ["node", ["tools/goal04/verify-release-contract.mjs", ".", "--scaffold"]]
 ]) execFileSync(command, args, { stdio: "inherit" });
 

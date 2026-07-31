@@ -12,7 +12,7 @@ assert(policy.schema_revision === "starclock.goal04-universe-replay.v1", "unexpe
 const replay = text("crates/starclock-mode-universe/src/universe_replay.rs");
 const runner = text("crates/starclock-mode-universe/src/baseline_runner.rs");
 const payload = text("crates/starclock-replay/src/activity.rs");
-const tests = text("crates/starclock-mode-universe/tests/encounter_runtime.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs");
 
 for (const marker of [
   `STANDARD_UNIVERSE_REPLAY_ACTION_VERSION: u16 = ${policy.action_payload_version}`,
@@ -44,7 +44,7 @@ for (const marker of [
 
 if (!artifactOnly) {
   execFileSync("cargo", ["test", "-p", "starclock-replay", "--lib"], { cwd: root, stdio: "inherit" });
-  execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--test", "encounter_runtime", "complete_run_replay_verifies_and_reports_the_first_divergence"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-test-kit", "--test", "universe_suite", "complete_run_replay_verifies_and_reports_the_first_divergence"], { cwd: root, stdio: "inherit" });
 }
 
 const sources = [
@@ -52,7 +52,7 @@ const sources = [
   "crates/starclock-mode-universe/src/baseline_controller.rs",
   "crates/starclock-mode-universe/src/baseline_runner.rs",
   "crates/starclock-mode-universe/src/universe_replay.rs",
-  "crates/starclock-mode-universe/tests/encounter_runtime.rs"
+  "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs"
 ];
 const evidence = {
   schema_revision: "starclock.goal04-universe-replay-evidence.v1",

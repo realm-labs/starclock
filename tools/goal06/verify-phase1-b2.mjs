@@ -13,7 +13,7 @@ const projection = read("crates/starclock-activity/src/projection.rs");
 const preparation = read("crates/starclock-activity/src/battle_preparation.rs");
 const settlement = read("crates/starclock-activity/src/battle_settlement.rs");
 const codec = read("crates/starclock-activity/src/codec.rs");
-const boundary = read("crates/starclock-activity/tests/activity_boundary.rs");
+const boundary = read("crates/starclock-test-kit/tests/suites/activity/activity/activity_boundary.rs");
 const replay = read("crates/starclock-replay/src/activity.rs");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");
 

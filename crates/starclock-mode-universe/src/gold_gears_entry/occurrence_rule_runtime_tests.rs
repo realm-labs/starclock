@@ -13,8 +13,6 @@ use super::{
     tests::compiled_fixture,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn occurrence_partition_binds_exactly_384_terminal_rules() {
     let factory = factory();
@@ -93,7 +91,7 @@ fn occurrence_partition_binds_exactly_384_terminal_rules() {
 
 #[test]
 fn all_384_occurrence_rules_execute_through_the_production_fixture() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let mut state = ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),
@@ -149,7 +147,7 @@ fn all_384_occurrence_rules_execute_through_the_production_fixture() {
 
 #[test]
 fn occurrence_choice_execution_preserves_authored_effect_order_and_payloads() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     for choice in instance.occurrence_choices() {
         let selection = choice.outcome().uses_seeded_uniform_policy().then(|| {
             let mut rng = activity_rng(&instance, u64::from(choice.id().get()));
@@ -185,7 +183,7 @@ fn occurrence_choice_execution_preserves_authored_effect_order_and_payloads() {
 
 #[test]
 fn occurrence_selection_and_duplicate_execution_fail_without_state_or_rng_change() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let random = instance
         .occurrence_choices()
         .iter()
@@ -250,8 +248,8 @@ fn occurrence_selection_and_duplicate_execution_fail_without_state_or_rng_change
     assert_eq!(rng.snapshots(), before_rng);
 }
 
-fn factory() -> GoldAndGearsRuntimeFactory {
-    GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
+fn factory() -> &'static GoldAndGearsRuntimeFactory {
+    super::tests::shared_factory()
 }
 
 fn commit(

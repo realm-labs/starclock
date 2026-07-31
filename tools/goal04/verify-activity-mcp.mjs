@@ -14,7 +14,7 @@ const activityTools = text("crates/starclock-mcp/src/activity_tools.rs");
 const resources = text("crates/starclock-mcp/src/resources.rs");
 const authorization = text("crates/starclock-mcp/src/authorization.rs");
 const registry = text("crates/starclock-agent-api/src/activity_session/registry.rs");
-const conformance = text("crates/starclock-mcp/tests/http_conformance.rs");
+const conformance = text("crates/starclock-test-kit/tests/suites/adapter/mcp/http_conformance.rs");
 
 for (const name of policy.activity_tools)
   assert(tools.includes(`name = "${name}"`), `Activity MCP tool ${name} is missing`);
@@ -39,7 +39,8 @@ for (const marker of [
 
 if (!artifactOnly) {
   execFileSync("cargo", ["test", "-p", "starclock-agent-api", "activity_session::registry"], { cwd: root, stdio: "inherit" });
-  execFileSync("cargo", ["test", "-p", "starclock-mcp", "--all-targets", "--all-features"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-mcp", "--lib", "--all-features"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-test-kit", "--test", "adapter_suite", "mcp_", "--all-features"], { cwd: root, stdio: "inherit" });
 }
 
 const sources = [
@@ -53,7 +54,7 @@ const sources = [
   "crates/starclock-mcp/src/server.rs",
   "crates/starclock-mcp/src/stdio.rs",
   "crates/starclock-mcp/src/tools.rs",
-  "crates/starclock-mcp/tests/http_conformance.rs"
+  "crates/starclock-test-kit/tests/suites/adapter/mcp/http_conformance.rs"
 ];
 const evidence = {
   schema_revision: "starclock.goal04-activity-mcp-evidence.v1",

@@ -22,9 +22,9 @@ The initial policy uses stable formation order, authored hit order, canonical ef
 
 ## Executable evidence
 
-- `crates/starclock-combat/tests/assist_skill_subsystem.rs` covers effect grant legality, provider/actor attribution, provider-stat scaling, shared-use payment, no-cost forced use and weakness-independent Toughness reduction.
-- `crates/starclock-combat/tests/elation_subsystem.rs` covers the existing generic shared linked actor and explicit queued owner/payment envelope.
-- `crates/starclock-combat/tests/catalog_contract.rs` rejects missing and non-canonical granted ability references.
+- `crates/starclock-test-kit/tests/suites/core/combat/assist_skill_subsystem.rs` covers effect grant legality, provider/actor attribution, provider-stat scaling, shared-use payment, no-cost forced use and weakness-independent Toughness reduction.
+- `crates/starclock-test-kit/tests/suites/core/combat/elation_subsystem.rs` covers the existing generic shared linked actor and explicit queued owner/payment envelope.
+- `crates/starclock-test-kit/tests/suites/core/combat/catalog_contract.rs` rejects missing and non-canonical granted ability references.
 - The production Sora schema and data bridge carry Assist tags, effect-granted abilities, named team-resource costs and per-hit `ignores_weakness` authoring.
 
 Validation is performed with the focused combat tests, full combat/data test suites, production catalog verification, the research-register verifier and the repository gate.

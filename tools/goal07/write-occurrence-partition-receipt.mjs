@@ -149,57 +149,57 @@ const executionEvidence = [
   { path: "crates/starclock-mode-universe/src/topology.rs" },
   { path: "crates/starclock-mode-universe/src/topology/occurrence_binding.rs" },
   { path: "crates/starclock-mode-universe/src/topology_identity.rs" },
-  { path: "crates/starclock-mode-universe/tests/run_runtime.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime.rs" },
   ...(isS04 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s04.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s04.rs" },
   ] : []),
   ...(isS05 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s05.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s05.rs" },
   ] : []),
   ...(isS06 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s06.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s06.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS07 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s07.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s07.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS08 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s08.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s08.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS09 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s09.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s09.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS10 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s10.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s10.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
   ] : []),
   ...(isS11 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s11.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s11.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
   ] : []),
   ...(isS12 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s12.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s12.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS13 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s13.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s13.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS14 ? [
-    { path: "crates/starclock-mode-universe/tests/run_runtime/s14.rs" },
-    { path: "crates/starclock-mode-universe/tests/occurrence_effect_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/run_runtime/s14.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/occurrence_effect_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
   ] : []),
   ...(isS02 || isS04 || isS14
-    ? [{ path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" }]
+    ? [{ path: "crates/starclock-test-kit/tests/suites/universe/service_reviver_runtime.rs" }]
     : []),
 ];
 
@@ -281,8 +281,8 @@ const receipt = {
             ? "ExplicitExternalResult"
             : "SharedOccurrenceHandler",
       test_path: isS04 || isS05 || isS06 || isS07 || isS08 || isS09 || isS10 || isS11 || isS12 || isS13 || isS14
-        ? `crates/starclock-mode-universe/tests/run_runtime/${isS14 ? "s14" : isS13 ? "s13" : isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
-        : "crates/starclock-mode-universe/tests/run_runtime.rs",
+        ? `crates/starclock-test-kit/tests/suites/universe/run_runtime/${isS14 ? "s14" : isS13 ? "s13" : isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : isS07 ? "s07" : isS06 ? "s06" : isS05 ? "s05" : "s04"}.rs`
+        : "crates/starclock-test-kit/tests/suites/universe/run_runtime.rs",
       test_marker: isS14
         ? "goal07_p4_m13_s14_executes_mirror_interactive_arts_and_pixel_world_outcomes"
         : isS13
@@ -317,8 +317,8 @@ const receipt = {
     ...disposition(fixtures.get(id), "ProductionExecuted"),
     execution_kind: "RustTest",
     test_path: isS14
-      ? "crates/starclock-mode-universe/tests/service_reviver_runtime.rs"
-      : `crates/starclock-mode-universe/tests/run_runtime/${isS13 ? "s13" : isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : "s07"}.rs`,
+      ? "crates/starclock-test-kit/tests/suites/universe/service_reviver_runtime.rs"
+      : `crates/starclock-test-kit/tests/suites/universe/run_runtime/${isS13 ? "s13" : isS12 ? "s12" : isS11 ? "s11" : isS10 ? "s10" : isS09 ? "s09" : isS08 ? "s08" : "s07"}.rs`,
     test_marker:
       isS14
         ? "goal07_p4_m13_s14_interactive_arts_restores_exact_maximum_hp_ratio"
@@ -375,14 +375,14 @@ const receipt = {
       `python tools/goal07/author-occurrence-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify-pack.mjs .",
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      "cargo test -p starclock-mode-universe --test run_runtime --all-features",
+      "cargo test -p starclock-test-kit --test universe_suite run_runtime --all-features",
       ...(isS04 || isS14
-        ? ["cargo test -p starclock-mode-universe --test service_reviver_runtime --all-features"]
+        ? ["cargo test -p starclock-test-kit --test universe_suite service_reviver_runtime --all-features"]
         : []),
       "cargo test -p starclock-mode-universe --all-features",
-      "cargo test -p starclock-agent-api --test activity_session_loop --all-features",
+      "cargo test -p starclock-test-kit --test adapter_suite activity_session_loop --all-features",
       "cargo test -p starclock-cli --test universe_cli --all-features",
-      "cargo test -p starclock-mcp --test universe_surface_parity --all-features",
+      "cargo test -p starclock-test-kit --test adapter_suite universe_surface_parity --all-features",
       "node tools/repository-check/run.mjs",
     ],
     goldens: [evidence(golden)],

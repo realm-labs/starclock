@@ -14,11 +14,9 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn all_progression_denominators_and_revisions_are_bound() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.progression.denominators(), (5, 9, 36, 36, 18));
     assert_eq!(
         GOLD_AND_GEARS_PROGRESSION_RUNTIME_REVISION,
@@ -37,10 +35,10 @@ fn all_progression_denominators_and_revisions_are_bound() {
 
 #[test]
 fn every_trailblaze_bonus_compiles_to_an_immediate_program_or_typed_offer() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     for bonus in &factory.unique.trailblaze_bonuses {
         let instance = compile(
-            &factory,
+            factory,
             "universe.path.preservation",
             0,
             Some(&bonus.identity.stable_key),
@@ -89,7 +87,7 @@ fn every_trailblaze_bonus_compiles_to_an_immediate_program_or_typed_offer() {
 
 #[test]
 fn all_nine_path_boosts_project_the_selected_dice_increment() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let expected = [
         (
             "universe.path.preservation",
@@ -129,7 +127,7 @@ fn all_nine_path_boosts_project_the_selected_dice_increment() {
         ),
     ];
     for (path, stat) in expected {
-        let instance = compile(&factory, path, 0, None);
+        let instance = compile(factory, path, 0, None);
         let state = state_with_boost_stacks(&instance, 3);
         let contribution = instance.path_boost_contribution(&state).unwrap();
         assert_eq!(contribution.path(), path);
@@ -144,9 +142,9 @@ fn all_nine_path_boosts_project_the_selected_dice_increment() {
 
 #[test]
 fn resonance_formations_and_all_eighteen_interplays_follow_thresholds() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     for path in &factory.unique.paths {
-        let instance = compile(&factory, &path.identity.stable_key, 0, None);
+        let instance = compile(factory, &path.identity.stable_key, 0, None);
         let formations = factory
             .unique
             .resonances
@@ -199,9 +197,9 @@ fn resonance_formations_and_all_eighteen_interplays_follow_thresholds() {
 
 #[test]
 fn resonance_input_rejects_duplicates_unknown_paths_and_unknown_formations() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let path = "universe.path.abundance";
-    let instance = compile(&factory, path, 0, None);
+    let instance = compile(factory, path, 0, None);
     assert_eq!(
         instance
             .resonance_additions(&[(path.into(), 3), (path.into(), 3)], &[])
@@ -224,9 +222,9 @@ fn resonance_input_rejects_duplicates_unknown_paths_and_unknown_formations() {
 
 #[test]
 fn extrapolation_uses_only_encounter_rng_and_auxiliary_adds_one_formation() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     for auxiliary in [0, 1] {
-        let instance = compile(&factory, "universe.path.preservation", auxiliary, None);
+        let instance = compile(factory, "universe.path.preservation", auxiliary, None);
         for offered in factory.extrapolation_paths() {
             let mut rng = activity_rng(&instance, 0);
             let before = rng.snapshots();
@@ -261,8 +259,8 @@ fn extrapolation_uses_only_encounter_rng_and_auxiliary_adds_one_formation() {
 
 #[test]
 fn extrapolation_is_stable_and_rejections_do_not_advance_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, "universe.path.preservation", 1, None);
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, "universe.path.preservation", 1, None);
     let context = GoldAndGearsExtrapolationContext::new(3, true, "universe.path.abundance");
     let mut first_rng = activity_rng(&instance, 0);
     let mut second_rng = activity_rng(&instance, 0);

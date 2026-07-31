@@ -12,7 +12,7 @@
     },
     {
       "id": "selector-and-effect-timing",
-      "source": "crates/starclock-combat/tests/property_contract.rs",
+      "source": "crates/starclock-test-kit/tests/suites/exhaustive/combat/property_contract.rs",
       "seeds": ["0x7365_6c65_6374_6f72"],
       "coverage": ["selector validity", "ability timing", "effect duration timing"],
       "required_markers": ["selector_and_timing_constructors_reject_every_invalid_generated_boundary", "stack_limit != 0 && permanent != has_duration"]
@@ -26,14 +26,14 @@
     },
     {
       "id": "replay-codec-mutations",
-      "source": "crates/starclock-replay/tests/property_contract.rs",
+      "source": "crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs",
       "seeds": ["0x636f_6465_632d_7631", "0x7265_706c_6179_2d31", "0x6d61_6c66_6f72_6d31"],
       "coverage": ["codec round trip", "record framing", "truncation", "unknown kind", "sequence corruption", "oversize payload", "arbitrary bytes"],
       "required_markers": ["0..257", "0..1025", "0..4097", "FileFailurePersistence::SourceParallel"]
     },
     {
       "id": "battle-replay-corruption",
-      "source": "crates/starclock-replay/tests/battle_property_contract.rs",
+      "source": "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs",
       "seeds": ["0x6261_7474_6c65_2d31"],
       "coverage": ["512-command replay", "catalog digest", "command payload", "state payload", "record kind", "record sequence"],
       "required_markers": ["const COMMANDS: usize = 512", "corruption in 0_u8..8", "OnceLock<Vec<u8>>"]

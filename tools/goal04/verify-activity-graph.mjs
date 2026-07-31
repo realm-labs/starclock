@@ -12,8 +12,8 @@ const graph = text("crates/starclock-activity/src/graph.rs");
 const codec = text("crates/starclock-activity/src/codec.rs");
 const spec = text("crates/starclock-activity/src/spec.rs");
 const aggregate = text("crates/starclock-activity/src/aggregate.rs");
-const tests = text("crates/starclock-activity/tests/graph_definition.rs");
-const boundaryTests = text("crates/starclock-activity/tests/activity_boundary.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/activity/activity/graph_definition.rs");
+const boundaryTests = text("crates/starclock-test-kit/tests/suites/activity/activity/activity_boundary.rs");
 
 for (const marker of [
   "pub struct ActivityGraphDefinition",
@@ -73,7 +73,7 @@ const evidence = {
   },
   source_sha256: {
     graph: sha256("crates/starclock-activity/src/graph.rs"),
-    tests: sha256("crates/starclock-activity/tests/graph_definition.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/activity/activity/graph_definition.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

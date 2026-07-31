@@ -19,7 +19,7 @@ const artifactCommands = [
   ["node", "tools/benchmark/review-phase4.mjs", "--check"],
 ];
 const testCommands = [
-  ["cargo", "test", "-p", "starclock-combat", "--all-features", "--test", "numeric_formula_oracle", "--test", "damage_sustain_pipeline", "--test", "toughness_formula", "--test", "damage_lifecycle", "--test", "effect_resource_pipeline", "--test", "reaction_scheduler", "--test", "linked_lifecycle", "--test", "elation_subsystem", "--test", "enemy_orchestration", "--test", "rule_ir_contract", "--test", "catalog_contract"],
+  ["cargo", "test", "-p", "starclock-test-kit", "--test", "combat_suite", "--all-features"],
   ["cargo", "test", "-p", "starclock-rules", "--all-features"],
   ["cargo", "test", "-p", "starclock-ai", "--all-features"],
   ["cargo", "test", "-p", "starclock-data", "probe_tests", "--all-features"],

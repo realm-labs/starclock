@@ -11,7 +11,7 @@ const rng = text("crates/starclock-activity/src/activity_rng.rs");
 const codec = text("crates/starclock-activity/src/codec.rs");
 const transaction = text("crates/starclock-activity/src/transaction.rs");
 const view = text("crates/starclock-activity/src/view.rs");
-const tests = text("crates/starclock-activity/tests/activity_rng_state.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/activity/activity/activity_rng_state.rs");
 const manifest = text("crates/starclock-activity/Cargo.toml");
 
 assert(rng.includes(`ACTIVITY_RNG_REVISION: &str = "${policy.revisions.rng}"`), "Activity RNG revision differs");
@@ -68,7 +68,7 @@ const evidence = {
     codec: sha256("crates/starclock-activity/src/codec.rs"),
     transaction: sha256("crates/starclock-activity/src/transaction.rs"),
     view: sha256("crates/starclock-activity/src/view.rs"),
-    tests: sha256("crates/starclock-activity/tests/activity_rng_state.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/activity/activity/activity_rng_state.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

@@ -19,12 +19,11 @@ use super::{
     GoldAndGearsStatsConundrumModifierSet, tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn stats_partition_binds_exactly_six_versioned_policy_rules() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(
         GOLD_AND_GEARS_STATS_CONUNDRUM_MODIFIER_REVISION,
         "gold-and-gears-stats-conundrum-combat-modifier-v1"
@@ -41,7 +40,7 @@ fn stats_partition_binds_exactly_six_versioned_policy_rules() {
     let mut observed_rules = BTreeSet::new();
     let expected_counts = [0, 3, 3, 5, 5, 7, 7];
     for level in 0..=6 {
-        let set = compile(&factory, level)
+        let set = compile(factory, level)
             .compile_stats_conundrum_modifiers()
             .unwrap();
         assert_eq!(set.selected_level(), level);
@@ -84,8 +83,8 @@ fn stats_partition_binds_exactly_six_versioned_policy_rules() {
 
 #[test]
 fn stats_fixture_executes_all_active_modifiers_through_combat_resolver() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let set = compile(&factory, 6)
+    let factory = super::tests::shared_factory();
+    let set = compile(factory, 6)
         .compile_stats_conundrum_modifiers()
         .unwrap();
     let unit = UnitId::new(1).unwrap();
@@ -135,7 +134,7 @@ fn stats_fixture_executes_all_active_modifiers_through_combat_resolver() {
 
 #[test]
 fn every_enemy_stat_tier_executes_its_exact_percent_of_base_values() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let unit = UnitId::new(1).unwrap();
     for (level, expected_hp, expected_attack, expected_speed) in [
         (1, 11_000_000, 2_200_000, 1_025_000),
@@ -143,7 +142,7 @@ fn every_enemy_stat_tier_executes_its_exact_percent_of_base_values() {
         (4, 13_000_000, 2_600_000, 1_075_000),
         (6, 14_000_000, 2_800_000, 1_100_000),
     ] {
-        let set = compile(&factory, level)
+        let set = compile(factory, level)
             .compile_stats_conundrum_modifiers()
             .unwrap();
         let registry = registry(&set);
@@ -172,8 +171,8 @@ fn every_enemy_stat_tier_executes_its_exact_percent_of_base_values() {
 
 #[test]
 fn rank_berserk_and_received_attack_activation_is_fail_closed() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let set = compile(&factory, 6)
+    let factory = super::tests::shared_factory();
+    let set = compile(factory, 6)
         .compile_stats_conundrum_modifiers()
         .unwrap();
     let roles = |rank, stacks, received| {

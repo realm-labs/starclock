@@ -17,7 +17,7 @@ const materialization = read(
   "crates/starclock-mode-universe/src/battle_materialization.rs",
 );
 const production = read("crates/starclock-mode-universe/src/production_runtime.rs");
-const tests = read("crates/starclock-mode-universe/tests/battle_materialization.rs");
+const tests = read("crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");
 
 for (const [text, needle, label] of [

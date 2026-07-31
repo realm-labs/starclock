@@ -15,15 +15,15 @@ const runtime = read(
   "crates/starclock-mode-universe/src/production_runtime.rs",
 );
 const dynamicTest = read(
-  "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+  "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
 );
 const agentTest = read(
-  "crates/starclock-agent-api/tests/activity_session_loop.rs",
+  "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs",
 );
 const mcpTest = read(
-  "crates/starclock-mcp/tests/universe_surface_parity.rs",
+  "crates/starclock-test-kit/tests/suites/adapter/mcp/universe_surface_parity.rs",
 );
-const httpTest = read("crates/starclock-mcp/tests/http_conformance.rs");
+const httpTest = read("crates/starclock-test-kit/tests/suites/adapter/mcp/http_conformance.rs");
 const evidence = read(
   "docs/goal-06-replay-reconstruction-surface-parity.md",
 );

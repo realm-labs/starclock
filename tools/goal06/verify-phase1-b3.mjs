@@ -15,8 +15,8 @@ const replayV2 = read("crates/starclock-replay/src/format_v2.rs");
 const replayV3 = read("crates/starclock-replay/src/format_v3.rs");
 const nestedV3 = read("crates/starclock-replay/src/activity_v3.rs");
 const universeV3 = read("crates/starclock-mode-universe/src/universe_replay_v3.rs");
-const componentTest = read("crates/starclock-replay/tests/component_identity.rs");
-const universeTest = read("crates/starclock-mode-universe/tests/battle_materialization.rs");
+const componentTest = read("crates/starclock-test-kit/tests/suites/activity/replay/component_identity.rs");
+const universeTest = read("crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs");
 const configManifest = read("config/generated/debug-json/ConfigManifest.json");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");
 

@@ -4,17 +4,14 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_COGNITION_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GOLD_AND_GEARS_COGNITION_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
     state_layout::{COGNITION_SLOT, SECRETS_SLOT},
     tests::{compiled_fixture, entry},
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn cognition_catalog_closes_all_ranges_secrets_and_policy_metadata() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.cognition.denominators(), (13, 20, 10));
     assert_eq!(factory.cognition.initial(), 0);
     assert_eq!(
@@ -25,8 +22,8 @@ fn cognition_catalog_closes_all_ranges_secrets_and_policy_metadata() {
 
 #[test]
 fn cognition_adjustment_clamps_and_carries_without_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = runtime(&instance);
     assert_eq!(cognition(&state), 0);
 
@@ -57,8 +54,8 @@ fn cognition_adjustment_clamps_and_carries_without_rng() {
 
 #[test]
 fn plane_boss_evaluation_advances_one_secret_per_frontier() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = runtime(&instance);
 
     assert_eq!(
@@ -96,10 +93,10 @@ fn plane_boss_evaluation_advances_one_secret_per_frontier() {
 
 #[test]
 fn overlapping_secret_thresholds_use_the_frozen_tie_order() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let instance = factory
         .compile_entry(entry(
-            &factory,
+            factory,
             "gold-gears.area.403",
             &factory.unique.paths[0].identity.stable_key,
             &factory.unique.dice[0],
@@ -137,7 +134,7 @@ fn overlapping_secret_thresholds_use_the_frozen_tie_order() {
 
 #[test]
 fn every_authored_secret_can_enter_a_valid_runtime_frontier() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     for secret in &factory.unique.secrets {
         let required_area = secret.area_source.parse::<u32>().unwrap();
         let (area, range) = factory
@@ -163,7 +160,7 @@ fn every_authored_secret_can_enter_a_valid_runtime_frontier() {
             .expect("every Secret is reachable in a formal area");
         let instance = factory
             .compile_entry(entry(
-                &factory,
+                factory,
                 &area.stable_key,
                 &factory.unique.paths[0].identity.stable_key,
                 &factory.unique.dice[0],

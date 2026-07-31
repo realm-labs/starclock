@@ -15,7 +15,7 @@ const transition = read(
   "crates/starclock-mode-universe/src/dynamic_battle_assembler/transition_tests.rs",
 );
 const integration = read(
-  "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+  "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
 );
 const evidence = read("docs/goal-06-transition-battle-fixtures.md");
 const debt = read("docs/goal-06-debt-probes.md");

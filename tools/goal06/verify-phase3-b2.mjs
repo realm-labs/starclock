@@ -13,7 +13,7 @@ const has = (text, needle, label) => {
 
 const session = read("crates/starclock-agent-api/src/activity_session.rs");
 const sessionTest = read(
-  "crates/starclock-agent-api/tests/activity_session_loop.rs",
+  "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs",
 );
 const executor = read(
   "crates/starclock-mode-universe/src/nested_battle_executor.rs",

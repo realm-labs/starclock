@@ -77,7 +77,7 @@ mark consumption.
 
 ## Evidence
 
-- `crates/starclock-combat/tests/reaction_scheduler.rs` proves common-envelope
+- `crates/starclock-test-kit/tests/suites/core/combat/reaction_scheduler.rs` proves common-envelope
   execution, total ordering, cause ownership, control cancellation, explicit
   invalidation cancellation, delayed boundaries and RNG preservation.
 - `config/probes/v1a/clara-counter/` is regenerated twice by pinned Sora 0.3.0

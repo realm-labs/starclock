@@ -40,7 +40,7 @@ assert(lockedCrate?.version === policy.mcp_sdk.version && lockedCrate.license ==
 
 const surfaces = readJson("policy/agent-control-surfaces.json");
 assert(surfaces.standard_scenarios.length === policy.standard.scenarios, "Standard scenario denominator drift");
-const standardTest = read("crates/starclock-agent-api/tests/standard_session_loop.rs");
+const standardTest = read("crates/starclock-test-kit/tests/suites/adapter/agent_api/standard_session_loop.rs");
 for (const hash of policy.standard.final_hashes) assert(standardTest.includes(hash), `Standard final hash ${hash} is not frozen in the executable loop`);
 assert(standardTest.includes("EXPECTED_EXTERNAL_STEPS: [u64; 6] = [8, 2, 6, 2, 22, 22]"), "external action denominator drift");
 assert(standardTest.includes("EXPECTED_REPLAY_COMMANDS: [usize; 6] = [9, 3, 7, 3, 23, 23]"), "replay command denominator drift");

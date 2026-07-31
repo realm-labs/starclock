@@ -12,7 +12,7 @@ const slots = text("crates/starclock-mode-universe/src/encounter_slot.rs");
 const overlay = text("crates/starclock-mode-universe/src/battle_overlay.rs");
 const runtime = text("crates/starclock-mode-universe/src/runtime.rs");
 const activity = text("crates/starclock-activity/src/graph_activity.rs");
-const tests = text("crates/starclock-mode-universe/tests/encounter_runtime.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs");
 
 for (const marker of [
   "ResolvedRoomContent", "ActivityRngLabel::Encounter", "ROOM_DRAW_PURPOSE",
@@ -60,7 +60,7 @@ const evidence = {
     "crates/starclock-mode-universe/src/battle_overlay.rs",
     "crates/starclock-mode-universe/src/runtime.rs",
     "crates/starclock-activity/src/graph_activity.rs",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs"
+    "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs"
   ].map((relative) => [relative, sha256(relative)])),
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

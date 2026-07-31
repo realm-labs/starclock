@@ -18,8 +18,6 @@ use super::{
     tests::compiled_fixture,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn curio_partition_binds_exactly_160_versioned_policy_rules() {
     let factory = factory();
@@ -105,7 +103,7 @@ fn shared_content_denominators_revisions_and_inventories_are_bound() {
         "DeterministicProjectPolicyNotObservedParity"
     );
 
-    let instance = compiled_fixture(&factory);
+    let instance = compiled_fixture(factory);
     let blessing = inventory_definition(&instance, BLESSING_INVENTORY);
     assert_eq!(
         (blessing.maximum_entries(), blessing.maximum_stack()),
@@ -203,7 +201,7 @@ fn all_curio_copies_categories_and_lifecycle_denominators_are_exact() {
 #[test]
 fn blessing_selection_and_inventory_programs_use_only_reward_rng() {
     let factory = factory();
-    let instance = compiled_fixture(&factory);
+    let instance = compiled_fixture(factory);
     let mut rng = activity_rng(&instance, 14);
     let before = rng.snapshots();
     let first = instance
@@ -265,7 +263,7 @@ fn blessing_selection_and_inventory_programs_use_only_reward_rng() {
 
 #[test]
 fn offer_policy_is_fail_closed_canonical_and_excludes_owned_curios() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let normal = GoldAndGearsCurioOfferContext::full_category(
         GoldAndGearsCurioOfferSource::TrailblazeBonus,
         GoldAndGearsCurioCategory::Normal,
@@ -321,7 +319,7 @@ fn offer_policy_is_fail_closed_canonical_and_excludes_owned_curios() {
 
 #[test]
 fn curio_selection_uses_the_causal_stream_and_empty_offers_draw_nothing() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     for (source, label) in [
         (
             GoldAndGearsCurioOfferSource::TrailblazeBonus,
@@ -395,7 +393,7 @@ fn curio_selection_uses_the_causal_stream_and_empty_offers_draw_nothing() {
 
 #[test]
 fn charged_and_source_condition_curios_transition_atomically() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let charged = by_source(&instance, 201);
     assert_eq!(definition(&instance, charged).maximum_charges(), Some(2));
     let source_destroyed = by_source(&instance, 203);
@@ -447,7 +445,7 @@ fn charged_and_source_condition_curios_transition_atomically() {
 
 #[test]
 fn error_code_repair_and_fixed_contribution_are_deterministic() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let error_code = by_source(&instance, 45);
     assert_eq!(
         definition(&instance, error_code).initial_state(),
@@ -490,7 +488,7 @@ fn error_code_repair_and_fixed_contribution_are_deterministic() {
 
 #[test]
 fn replacement_teardown_and_contribution_validation_preserve_invariants() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let removed = by_source(&instance, 201);
     let acquired = by_source(&instance, 203);
     let mut state = new_state(&instance);
@@ -547,7 +545,7 @@ fn replacement_teardown_and_contribution_validation_preserve_invariants() {
 
 #[test]
 fn all_160_curio_rules_execute_through_the_production_fixture() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let definitions = instance.curio_definitions();
     let mut state = new_state(&instance);
     for definition in definitions {
@@ -598,8 +596,8 @@ fn all_160_curio_rules_execute_through_the_production_fixture() {
     );
 }
 
-fn factory() -> GoldAndGearsRuntimeFactory {
-    GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
+fn factory() -> &'static GoldAndGearsRuntimeFactory {
+    super::tests::shared_factory()
 }
 
 fn new_state(instance: &GoldAndGearsRuntimeInstance) -> ActivityTransactionState {

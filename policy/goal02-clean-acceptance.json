@@ -8,9 +8,10 @@
   "commands": [
     ["node", "tools/repository-check/run.mjs"],
     ["cargo", "test", "--manifest-path", "tools/mcp-sdk-capability/Cargo.toml", "--locked"],
-    ["cargo", "test", "-p", "starclock-agent-api", "--test", "schema_property_contract", "--test", "standard_session_loop", "--all-features"],
+    ["cargo", "test", "-p", "starclock-test-kit", "--test", "exhaustive_suite", "schema_property_contract", "--all-features"],
+    ["cargo", "test", "-p", "starclock-test-kit", "--test", "adapter_suite", "standard_session_loop", "--all-features"],
     ["cargo", "test", "-p", "starclock-cli", "--test", "mcp_stdio", "--all-features"],
-    ["cargo", "test", "-p", "starclock-mcp", "--test", "http_conformance", "--all-features"],
+    ["cargo", "test", "-p", "starclock-test-kit", "--test", "adapter_suite", "http_conformance", "--all-features"],
     ["node", "tools/agent-control/verify-agent-benchmark.mjs", "--strict", "--samples", "5"],
     ["node", "tools/agent-control/verify-mcp-http-benchmark.mjs", "--strict", "--samples", "5"],
     ["cargo", "run", "--locked", "-p", "starclock-agent-api", "--example", "g02_in_process"],

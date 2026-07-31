@@ -7,22 +7,19 @@ use starclock_activity::{
 };
 
 use super::{
-    GOLD_AND_GEARS_PLANE_COMPLETION_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
-    GoldAndGearsRuntimeInstance,
+    GOLD_AND_GEARS_PLANE_COMPLETION_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeInstance,
     state_layout::{COGNITION_SLOT, PLANE_STATE_SLOT, SECRETS_SLOT},
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn six_boss_choices_are_explicit_and_plane_completion_is_atomic() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.transitions.denominator(), 6);
     assert_eq!(
         GOLD_AND_GEARS_PLANE_COMPLETION_REVISION,
         "gold-and-gears-plane-completion-policy-v1"
     );
-    let instance = super::tests::compiled_fixture(&factory);
+    let instance = super::tests::compiled_fixture(factory);
     assert_eq!(
         instance.boss_choices().collect::<Vec<_>>(),
         [
@@ -86,8 +83,8 @@ fn six_boss_choices_are_explicit_and_plane_completion_is_atomic() {
 
 #[test]
 fn third_plane_completion_enters_the_only_terminal() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = super::tests::compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = super::tests::compiled_fixture(factory);
     let final_end = instance.plane_ends().last().unwrap();
     let mut state = ActivityTransactionState::new(instance.state_definition().clone(), final_end);
     commit(
@@ -116,8 +113,8 @@ fn third_plane_completion_enters_the_only_terminal() {
 
 #[test]
 fn missing_boss_rejects_without_state_or_rng_change() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = super::tests::compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = super::tests::compiled_fixture(factory);
     let mut state = ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.plane_ends().next().unwrap(),
@@ -165,8 +162,8 @@ fn missing_boss_rejects_without_state_or_rng_change() {
 
 #[test]
 fn map_rng_transaction_rolls_back_rejection_and_isolates_graph_draws() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = super::tests::compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = super::tests::compiled_fixture(factory);
     let mut state = ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),

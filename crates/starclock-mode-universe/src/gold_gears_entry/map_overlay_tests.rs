@@ -5,15 +5,13 @@ use starclock_activity::{
     ActivityTransactionState, ActivityValue, NodeId,
 };
 
-use super::{GoldAndGearsEntryError, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance};
-
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
+use super::{GoldAndGearsEntryError, GoldAndGearsRuntimeInstance};
 
 #[test]
 fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.map.denominators(), (115, 332, 1_091));
-    let instance = super::tests::compiled_fixture(&factory);
+    let instance = super::tests::compiled_fixture(factory);
     let mut rng = map_rng(&instance, 0x1402_0003);
     let program = instance
         .compile_plane_creation(0, &mut rng)
@@ -45,8 +43,8 @@ fn board_creation_executes_typed_domain_beacon_and_blank_overlays() {
 
 #[test]
 fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = super::tests::compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = super::tests::compiled_fixture(factory);
     let graph_digest = instance.graph_definition().digest();
     let route_source = instance
         .graph_definition()
@@ -146,8 +144,8 @@ fn replacement_copy_and_blanking_commit_atomically_without_editing_graph() {
 
 #[test]
 fn selected_map_event_executes_before_block_creation_and_is_rng_isolated() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = super::tests::compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = super::tests::compiled_fixture(factory);
     let mut creation_rng = map_rng(&instance, 0x1402_0003);
     let _ = instance
         .compile_plane_creation(0, &mut creation_rng)

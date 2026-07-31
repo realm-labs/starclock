@@ -44,6 +44,11 @@ const phase0 = json(phase0Path);
 const budget = json(budgetPath);
 const evidence = json(evidencePath);
 const goal06 = json(goal06EvidencePath);
+const completionCommit = json("policy/release-snapshots.json").goals.find(
+  ({ goal_id }) => goal_id === "standard-universe-mechanics-complete-v1",
+)?.completion_commit;
+assert(/^[0-9a-f]{40}$/u.test(completionCommit ?? ""),
+  "Goal 07 completion snapshot is missing");
 assert(
   phase0.schema_revision === "starclock.goal07-performance.v1",
   "Goal 07 Phase 0 performance policy revision drift",
@@ -245,7 +250,8 @@ function validateInputs() {
   const expected = {
     performance_budget_sha256: sha256(budgetPath),
     benchmark_source_sha256: sha256(benchmarkSource),
-    benchmark_manifest_sha256: sha256(benchmarkManifest),
+    benchmark_manifest_sha256:
+      digest(gitBytes(`${completionCommit}:${benchmarkManifest}`)),
     phase0_performance_policy_sha256: sha256(phase0Path),
     seeded_matrix_sha256: sha256(matrixPath),
     targeted_scenarios_sha256: sha256(targetedPath),
@@ -255,6 +261,14 @@ function validateInputs() {
     JSON.stringify(evidence.inputs) === JSON.stringify(expected),
     "Goal 07 performance input digest drift",
   );
+}
+
+function gitBytes(object) {
+  return execFileSync("git", ["cat-file", "blob", object], {
+    cwd: root,
+    encoding: "buffer",
+    maxBuffer: 64 * 1024 * 1024,
+  });
 }
 
 function validateRegressionReview() {

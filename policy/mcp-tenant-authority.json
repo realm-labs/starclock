@@ -41,6 +41,7 @@
   "non_loopback_startup": false,
   "verification": [
     "node tools/agent-control/verify-mcp-tenant-authority.mjs",
-    "cargo test -p starclock-mcp --all-targets --all-features"
+    "cargo test -p starclock-mcp --lib --all-features",
+    "cargo test -p starclock-test-kit --test adapter_suite mcp_ --all-features"
   ]
 }

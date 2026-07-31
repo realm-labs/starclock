@@ -13,7 +13,7 @@ const preparation = text("crates/starclock-activity/src/battle_preparation.rs");
 const transaction = text("crates/starclock-activity/src/transaction.rs");
 const view = text("crates/starclock-activity/src/view.rs");
 const replay = text("crates/starclock-replay/src/activity.rs");
-const tests = text("crates/starclock-activity/tests/battle_settlement.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/activity/activity/battle_settlement.rs");
 
 assert(new RegExp(`const MAX_COMPLETED_ACTIVITY_BATTLES: usize = ${numberLiteral(policy.bounds.maximum_completed_battles)};`).test(source), "completed-battle bound differs from policy");
 assert(projection.includes("fields.len() > 100"), "projection-field bound differs from policy");
@@ -72,7 +72,7 @@ const evidence = {
     transaction: sha256("crates/starclock-activity/src/transaction.rs"),
     view: sha256("crates/starclock-activity/src/view.rs"),
     replay: sha256("crates/starclock-replay/src/activity.rs"),
-    tests: sha256("crates/starclock-activity/tests/battle_settlement.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/activity/activity/battle_settlement.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

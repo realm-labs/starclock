@@ -1,4 +1,4 @@
-use std::{collections::BTreeMap, sync::OnceLock};
+use std::collections::BTreeMap;
 
 use starclock_activity::{
     ActivityConfigDigest, ActivityDefinitionDigest, ActivityDefinitionId,
@@ -16,8 +16,6 @@ use super::{
     GoldAndGearsResonanceRuleOwnership, GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
     tests::entry,
 };
-
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 
 #[test]
 fn resonance_partition_binds_exactly_90_terminal_rules() {
@@ -241,8 +239,7 @@ fn extrapolation_rejections_preserve_rng_and_valid_projection_polarity() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    static FACTORY: OnceLock<GoldAndGearsRuntimeFactory> = OnceLock::new();
-    FACTORY.get_or_init(|| GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap())
+    super::tests::shared_factory()
 }
 
 fn compile(

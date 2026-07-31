@@ -8,7 +8,7 @@ const bless = process.argv.includes("--bless");
 const policy = json("policy/goal04-universe-entry.json");
 assert(policy.schema_revision === "starclock.goal04-universe-entry.v1", "unexpected Universe-entry policy revision");
 const source = text("crates/starclock-mode-universe/src/entry.rs");
-const tests = text("crates/starclock-mode-universe/tests/entry_compilation.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs");
 const manifest = text("crates/starclock-mode-universe/Cargo.toml");
 
 for (const marker of [
@@ -54,7 +54,7 @@ const evidence = {
   },
   source_sha256: {
     compiler: sha256("crates/starclock-mode-universe/src/entry.rs"),
-    tests: sha256("crates/starclock-mode-universe/tests/entry_compilation.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

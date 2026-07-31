@@ -73,6 +73,12 @@ assert(agentApi.dependencies.every((dependency) => ["starclock-activity", "starc
 const mcp = packages.find((entry) => entry.name === "starclock-mcp");
 assert(mcp.dependencies.every((dependency) => ["starclock-agent-api", "allocation-counter", "axum", "rmcp", "schemars", "serde", "serde_json", "tokio", "tower"].includes(dependency.name)), "starclock-mcp may depend only on the protocol-neutral agent API, frozen official MCP SDK, reviewed HTTP service boundary, schema/JSON conversion, async runtime and benchmark-only allocator counter");
 
+const testKit = packages.find((entry) => entry.name === "starclock-test-kit");
+assert(testKit.dependencies.every((dependency) => ["axum", "proptest", "rmcp", "serde_json", "sha2", "starclock-activity", "starclock-agent-api", "starclock-build", "starclock-combat", "starclock-data", "starclock-mcp", "starclock-mode-standard", "starclock-mode-universe", "starclock-replay", "starclock-rules", "tokio", "tower"].includes(dependency.name)), "starclock-test-kit may depend only on reviewed workspace crates and existing test/runtime support dependencies");
+assert(packages.filter((entry) => entry.name !== "starclock-test-kit").every((entry) =>
+  entry.dependencies.every((dependency) => dependency.name !== "starclock-test-kit")
+), "production crates must not depend on starclock-test-kit");
+
 console.log(`Workspace dependency boundaries verified (${packages.length} crates; declarative reviewed dependency graph).`);
 
 function normalize(value) { return path.resolve(value).replaceAll("\\", "/").toLowerCase(); }

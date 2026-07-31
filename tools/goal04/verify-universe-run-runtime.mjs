@@ -12,7 +12,7 @@ const entry = text("crates/starclock-mode-universe/src/entry.rs");
 const facade = text("crates/starclock-mode-universe/src/runtime.rs");
 const topology = text("crates/starclock-mode-universe/src/topology.rs");
 const activity = text("crates/starclock-activity/src/graph_activity.rs");
-const tests = text("crates/starclock-mode-universe/tests/run_runtime.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/run_runtime.rs");
 
 for (const marker of [
   "RunRuntimeCatalog", "OccurrenceRuntimeChoice", "ServiceRuntimeDefinition",
@@ -37,12 +37,12 @@ for (const marker of [
 const numericTests = tests.replace(/(?<=\d)_(?=\d)/g, "");
 assert(numericTests.includes(`runtime.occurrence_choices().len(), ${policy.counts.occurrence_choices}`), "Occurrence-choice denominator differs");
 assert(numericTests.includes(`runtime.services().len(), ${policy.counts.services}`), "service denominator differs");
-const topologyTests = text("crates/starclock-mode-universe/tests/topology_runtime.rs").replace(/(?<=\d)_(?=\d)/g, "");
+const topologyTests = text("crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs").replace(/(?<=\d)_(?=\d)/g, "");
 assert(topologyTests.includes(`compiled.abstract_interactions().len(), ${policy.counts.abstract_interaction_bindings}`), "abstract-interaction denominator differs");
 const runtimeGolden = arrayGolden(tests, /runtime\.digest\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const abilityGolden = arrayGolden(tests, /abilities\.digest\(\),\s*\[([\s\S]*?)\]\s*\)/);
-const entryGolden = arrayGolden(text("crates/starclock-mode-universe/tests/entry_compilation.rs"), /base\.identity\(\)\.definition_digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
-const graphGolden = arrayGolden(text("crates/starclock-mode-universe/tests/topology_runtime.rs"), /runtime\.graph\(\)\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
+const entryGolden = arrayGolden(text("crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs"), /base\.identity\(\)\.definition_digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
+const graphGolden = arrayGolden(text("crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs"), /runtime\.graph\(\)\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 assert(runtimeGolden === policy.goldens.runtime_catalog_sha256, "run runtime-catalog golden differs");
 assert(abilityGolden === policy.goldens.representative_ability_contribution_sha256, "Ability Tree contribution golden differs");
 assert(entryGolden === policy.goldens.entry_definition_sha256, "run-aware entry golden differs");
@@ -72,9 +72,9 @@ const evidence = {
     "crates/starclock-mode-universe/src/entry.rs",
     "crates/starclock-mode-universe/src/runtime.rs",
     "crates/starclock-mode-universe/src/topology.rs",
-    "crates/starclock-mode-universe/tests/run_runtime.rs",
-    "crates/starclock-mode-universe/tests/entry_compilation.rs",
-    "crates/starclock-mode-universe/tests/topology_runtime.rs"
+    "crates/starclock-test-kit/tests/suites/universe/run_runtime.rs",
+    "crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs",
+    "crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs"
   ].map((relative) => [relative, sha256(relative)])),
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

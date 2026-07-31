@@ -11,7 +11,7 @@ const runtime = text("crates/starclock-mode-universe/src/path_runtime.rs");
 const topology = text("crates/starclock-mode-universe/src/topology.rs");
 const entry = text("crates/starclock-mode-universe/src/entry.rs");
 const facade = text("crates/starclock-mode-universe/src/runtime.rs");
-const tests = text("crates/starclock-mode-universe/tests/path_runtime.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/path_runtime.rs");
 
 for (const marker of [
   "PathPassiveContribution", "PathContributionSet", "ResonanceRuleContribution",
@@ -29,8 +29,8 @@ assert((tests.match(/^#\[test\]$/gm) ?? []).length === policy.focused_tests, "Pa
 
 const catalogGolden = arrayGolden(tests, /path_runtime\.digest\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const contributionGolden = arrayGolden(tests, /complete\.digest\(\),\s*\[([\s\S]*?)\]\s*\)/);
-const entryGolden = arrayGolden(text("crates/starclock-mode-universe/tests/entry_compilation.rs"), /base\.identity\(\)\.definition_digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
-const graphGolden = arrayGolden(text("crates/starclock-mode-universe/tests/topology_runtime.rs"), /runtime\.graph\(\)\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
+const entryGolden = arrayGolden(text("crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs"), /base\.identity\(\)\.definition_digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
+const graphGolden = arrayGolden(text("crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs"), /runtime\.graph\(\)\.digest\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 assert(catalogGolden === policy.goldens.runtime_catalog_sha256, "Path runtime-catalog golden differs");
 assert(contributionGolden === policy.goldens.representative_complete_contribution_sha256, "Path contribution golden differs");
 assert(entryGolden === policy.goldens.entry_definition_sha256, "Path-aware entry golden differs");
@@ -59,10 +59,10 @@ const evidence = {
     "crates/starclock-mode-universe/src/topology.rs",
     "crates/starclock-mode-universe/src/entry.rs",
     "crates/starclock-mode-universe/src/runtime.rs",
-    "crates/starclock-mode-universe/tests/path_runtime.rs",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs",
-    "crates/starclock-mode-universe/tests/entry_compilation.rs",
-    "crates/starclock-mode-universe/tests/topology_runtime.rs"
+    "crates/starclock-test-kit/tests/suites/universe/path_runtime.rs",
+    "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs",
+    "crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs",
+    "crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs"
   ].map((relative) => [relative, sha256(relative)])),
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

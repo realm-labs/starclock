@@ -1,3 +1,5 @@
+use std::sync::OnceLock;
+
 use starclock_activity::{
     ActivityScope, ActivityTerminalOutcome, ActivityValue, BuildDigest, LoadoutLockScope,
     OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
@@ -17,6 +19,11 @@ use crate::{
 use super::*;
 
 const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
+
+pub(super) fn shared_factory() -> &'static GoldAndGearsRuntimeFactory {
+    static FACTORY: OnceLock<GoldAndGearsRuntimeFactory> = OnceLock::new();
+    FACTORY.get_or_init(|| GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap())
+}
 
 fn participant_policy() -> ParticipantPolicy {
     ParticipantPolicy::new(
@@ -97,7 +104,7 @@ pub(super) fn entry(
 
 #[test]
 fn every_formal_difficulty_path_and_custom_dice_compiles() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let areas = factory
         .structural
         .areas
@@ -117,7 +124,7 @@ fn every_formal_difficulty_path_and_custom_dice_compiles() {
         for path in &paths {
             for dice in &factory.unique.dice {
                 let instance = factory
-                    .compile_entry(entry(&factory, area, path, dice))
+                    .compile_entry(entry(factory, area, path, dice))
                     .expect("valid explicit entry");
                 assert_eq!(instance.area(), area);
                 assert_eq!(instance.path(), path);
@@ -136,7 +143,7 @@ fn every_formal_difficulty_path_and_custom_dice_compiles() {
 
 #[test]
 fn full_progression_and_combined_conundrum_compile_canonically() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let area = factory
         .structural
         .areas
@@ -155,7 +162,7 @@ fn full_progression_and_combined_conundrum_compile_canonically() {
     let bonus = &factory.unique.trailblaze_bonuses[0];
     let instance = factory
         .compile_entry(
-            entry(&factory, &area.stable_key, &path.identity.stable_key, dice)
+            entry(factory, &area.stable_key, &path.identity.stable_key, dice)
                 .with_neural_network(neural)
                 .with_conundrum(6, 6, vec![CONUNDRUM_AREA_KEY.to_owned()])
                 .with_trailblaze_bonus(bonus.identity.stable_key.clone()),
@@ -189,11 +196,11 @@ fn full_progression_and_combined_conundrum_compile_canonically() {
 
 #[test]
 fn compiled_state_matches_all_seventeen_frozen_slot_families() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let dice = &factory.unique.dice[0];
     let instance = factory
         .compile_entry(entry(
-            &factory,
+            factory,
             "gold-gears.area.401",
             "universe.path.preservation",
             dice,
@@ -253,7 +260,7 @@ fn compiled_state_matches_all_seventeen_frozen_slot_families() {
 
 #[test]
 fn invalid_roster_neural_and_conundrum_inputs_fail_closed() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let dice = &factory.unique.dice[0];
     let team_policy = ParticipantPolicy::new(
         1,
@@ -267,7 +274,7 @@ fn invalid_roster_neural_and_conundrum_inputs_fail_closed() {
         "gold-gears.area.401",
         "universe.path.preservation",
         dice.identity.stable_key.clone(),
-        default_face_keys(&factory, dice),
+        default_face_keys(factory, dice),
         participants(team_policy),
     );
     assert_eq!(
@@ -284,7 +291,7 @@ fn invalid_roster_neural_and_conundrum_inputs_fail_closed() {
     let missing = factory
         .compile_entry(
             entry(
-                &factory,
+                factory,
                 "gold-gears.area.401",
                 "universe.path.preservation",
                 dice,
@@ -301,7 +308,7 @@ fn invalid_roster_neural_and_conundrum_inputs_fail_closed() {
         factory
             .compile_entry(
                 entry(
-                    &factory,
+                    factory,
                     "gold-gears.area.401",
                     "universe.path.preservation",
                     dice,
@@ -315,7 +322,7 @@ fn invalid_roster_neural_and_conundrum_inputs_fail_closed() {
         factory
             .compile_entry(
                 entry(
-                    &factory,
+                    factory,
                     CONUNDRUM_AREA_KEY,
                     "universe.path.preservation",
                     dice,
@@ -329,7 +336,7 @@ fn invalid_roster_neural_and_conundrum_inputs_fail_closed() {
 
 #[test]
 fn locked_unknown_and_incompatible_loadouts_fail_closed() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let locked = factory
         .unique
         .dice
@@ -340,7 +347,7 @@ fn locked_unknown_and_incompatible_loadouts_fail_closed() {
         "gold-gears.area.401",
         "universe.path.preservation",
         locked.identity.stable_key.clone(),
-        default_face_keys(&factory, locked),
+        default_face_keys(factory, locked),
         participants(participant_policy()),
     );
     assert_eq!(
@@ -349,7 +356,7 @@ fn locked_unknown_and_incompatible_loadouts_fail_closed() {
     );
 
     let dice = &factory.unique.dice[0];
-    let mut duplicate = default_face_keys(&factory, dice);
+    let mut duplicate = default_face_keys(factory, dice);
     duplicate[1] = duplicate[0].clone();
     let duplicate_entry = GoldAndGearsEntry::new(
         "gold-gears.area.401",
@@ -368,7 +375,7 @@ fn locked_unknown_and_incompatible_loadouts_fail_closed() {
         "gold-gears.area.999",
         "universe.path.preservation",
         dice.identity.stable_key.clone(),
-        default_face_keys(&factory, dice),
+        default_face_keys(factory, dice),
         participants(participant_policy()),
     );
     assert_eq!(
@@ -387,10 +394,10 @@ fn entry_revision_is_frozen() {
 
 #[test]
 fn formal_entry_compiles_canonical_three_plane_activity_graph() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let instance = factory
         .compile_entry(entry(
-            &factory,
+            factory,
             "gold-gears.area.401",
             &factory.unique.paths[0].identity.stable_key,
             &factory.unique.dice[0],
@@ -500,10 +507,10 @@ fn formal_entry_compiles_canonical_three_plane_activity_graph() {
 
 #[test]
 fn topology_binds_three_bounded_logical_lifetimes_to_every_board_node() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = shared_factory();
     let instance = factory
         .compile_entry(entry(
-            &factory,
+            factory,
             "gold-gears.area.405",
             &factory.unique.paths[0].identity.stable_key,
             &factory.unique.dice[0],

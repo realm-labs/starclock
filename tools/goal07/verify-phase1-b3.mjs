@@ -61,8 +61,8 @@ for (const marker of [
 ]) assert(formula.includes(marker), `formula bridge marker is missing: ${marker}`);
 
 const tests =
-  text("crates/starclock-combat/tests/modifier_pipeline.rs")
-  + text("crates/starclock-combat/tests/damage_lifecycle.rs")
+  text("crates/starclock-test-kit/tests/suites/core/combat/modifier_pipeline.rs")
+  + text("crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle.rs")
   + text("crates/starclock-data/src/catalog_modifier_tests.rs");
 for (const marker of [
   "strongest_comparator_is_authored_and_weaker_instance_remains_available",

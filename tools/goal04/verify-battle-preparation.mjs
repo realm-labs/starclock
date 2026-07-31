@@ -11,7 +11,7 @@ const source = text("crates/starclock-activity/src/battle_preparation.rs");
 const participant = text("crates/starclock-activity/src/participant.rs");
 const transaction = text("crates/starclock-activity/src/transaction.rs");
 const view = text("crates/starclock-activity/src/view.rs");
-const tests = text("crates/starclock-activity/tests/battle_preparation.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/activity/activity/battle_preparation.rs");
 
 for (const [constant, value] of [
   ["MAX_PREPARATION_TECHNIQUES", policy.bounds.maximum_techniques],
@@ -68,7 +68,7 @@ const evidence = {
     participant: sha256("crates/starclock-activity/src/participant.rs"),
     transaction: sha256("crates/starclock-activity/src/transaction.rs"),
     view: sha256("crates/starclock-activity/src/view.rs"),
-    tests: sha256("crates/starclock-activity/tests/battle_preparation.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/activity/activity/battle_preparation.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

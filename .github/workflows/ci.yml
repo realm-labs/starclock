@@ -51,7 +51,7 @@ jobs:
       - name: Run the repository gate natively
         run: node tools/repository-check/run.mjs
       - name: Execute Goal 02 schema and transport trace vectors natively
-        run: cargo test -p starclock-agent-api --test schema_property_contract --test standard_session_loop --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features && cargo test -p starclock-mcp --test http_conformance --all-features
+        run: cargo test -p starclock-test-kit --test exhaustive_suite schema_property_contract --all-features && cargo test -p starclock-test-kit --test adapter_suite --all-features && cargo test -p starclock-cli --test mcp_stdio --all-features
       - name: Execute Goal 05 real-universe hardening vectors natively
         run: node tools/goal05/run-native-hardening.mjs --run
       - name: Execute Goal 06 dynamic-assembly hardening vectors natively

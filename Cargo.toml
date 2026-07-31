@@ -31,6 +31,24 @@ unused_must_use = "deny"
 dbg_macro = "deny"
 todo = "deny"
 
+# Daily builds retain source line tables for useful backtraces without storing
+# full variable/type debug information. Dependencies omit debug information
+# entirely because they are rarely stepped through during normal development.
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+
+# Full debugger information is opt-in and uses Cargo's separate
+# `target/dev-debug` artifact directory.
+[profile.dev-debug]
+inherits = "dev"
+debug = "full"
+
+[profile.dev-debug.package."*"]
+debug = "full"
+
 # Simulation-heavy integration tests spend far more time executing deterministic
 # battle/run loops than compiling. Level 1 removes debug-build hot-loop overhead
 # without imposing release-profile compile costs on daily development.

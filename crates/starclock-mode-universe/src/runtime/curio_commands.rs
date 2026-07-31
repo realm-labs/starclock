@@ -650,7 +650,7 @@ fn integer(value: i64) -> ActivityExpression {
 #[cfg(test)]
 mod tests {
     use std::cell::Cell;
-    use std::sync::Arc;
+    use std::sync::{Arc, OnceLock};
 
     use starclock_activity::{
         BattleOutcome, BattleResult, EventDigest, ParticipantBattleState, ProjectedValue,
@@ -1131,7 +1131,9 @@ mod tests {
     }
 
     fn activity_with_seed(seed: u64) -> (StandardUniverseActivity, Arc<UniverseCatalog>) {
-        let factory = StandardUniverseRuntimeFactory::load(CORE, UNIVERSE).unwrap();
+        static FACTORY: OnceLock<StandardUniverseRuntimeFactory> = OnceLock::new();
+        let factory =
+            FACTORY.get_or_init(|| StandardUniverseRuntimeFactory::load(CORE, UNIVERSE).unwrap());
         let catalog = Arc::clone(factory.catalog());
         let world = catalog.worlds()[0].id().get();
         let instance = factory

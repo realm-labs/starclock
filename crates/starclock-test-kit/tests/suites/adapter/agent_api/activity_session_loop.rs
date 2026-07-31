@@ -1,0 +1,345 @@
+use std::{sync::Arc, thread};
+
+use sha2::{Digest, Sha256};
+use starclock_agent_api::{
+    activity_action::{AgentActivityActionKind, OfferedActivityAction},
+    activity_observation::AgentActivityStatus,
+    activity_session::{
+        ActivityAgentSession, ActivityAgentSessionFactory, CreateActivitySessionRequest,
+        PlayActivityActionRequest,
+    },
+    error::AgentErrorCode,
+    schema::{ActionToken, AgentHash, AgentSchemaRevision, AgentUInt, IdempotencyKey, SessionId},
+};
+use starclock_mode_universe::{
+    baseline_runner::{StandardUniverseBaselinePolicy, StandardUniverseBaselineRunner},
+    nested_battle_executor::UniverseNestedBattleExecutor,
+    production_runtime::StandardUniverseControllerIdentity,
+    universe_replay_v3::{
+        encode_standard_universe_trace_v3, record_baseline_run_v3, standard_universe_header_v3,
+    },
+};
+use starclock_replay::record::RecordKind;
+
+fn create(factory: &ActivityAgentSessionFactory, id: &str) -> ActivityAgentSession {
+    factory
+        .create(CreateActivitySessionRequest {
+            session_id: SessionId::parse(id).unwrap(),
+            world: AgentUInt::from_u64(1),
+            difficulty_index: AgentUInt::from_u64(0),
+            seed: AgentUInt::from_u64(1),
+        })
+        .unwrap()
+}
+
+fn selected(actions: &[OfferedActivityAction]) -> &OfferedActivityAction {
+    if let Some(engage) = actions
+        .iter()
+        .find(|action| action.kind == AgentActivityActionKind::EngageBattle)
+    {
+        return engage;
+    }
+    actions
+        .iter()
+        .max_by(|left, right| {
+            let left_priority = left
+                .priority
+                .as_ref()
+                .map_or(0, |value| value.as_str().parse::<i64>().unwrap());
+            let right_priority = right
+                .priority
+                .as_ref()
+                .map_or(0, |value| value.as_str().parse::<i64>().unwrap());
+            left_priority
+                .cmp(&right_priority)
+                .then_with(|| right.option_id.to_u64().cmp(&left.option_id.to_u64()))
+        })
+        .unwrap()
+}
+
+fn request(session: &ActivityAgentSession, sequence: u64) -> PlayActivityActionRequest {
+    let observation = session.observe().unwrap();
+    let action = selected(&observation.legal_actions);
+    PlayActivityActionRequest {
+        schema_revision: AgentSchemaRevision::V1,
+        session_id: session.session_id().clone(),
+        boundary_id: observation.boundary_id.unwrap(),
+        expected_state_hash: observation.state_hash,
+        action_token: action.token.clone(),
+        idempotency_key: IdempotencyKey::parse(&format!("activity_step_{sequence}")).unwrap(),
+    }
+}
+
+fn drive_to_terminal(session: &mut ActivityAgentSession) -> u64 {
+    let mut external_steps = 0_u64;
+    while session.terminal().is_none() {
+        assert!(external_steps < 1_000);
+        let next = request(session, external_steps);
+        session.apply_action(next).unwrap();
+        external_steps += 1;
+    }
+    external_steps
+}
+
+#[test]
+fn activity_session_exposes_only_tokens_settles_battles_and_round_trips_replay() {
+    let factory = starclock_test_kit::activity_agent_session_factory();
+    let mut session = create(factory, "session_activity_loop");
+    let initial = session.observe().unwrap();
+    assert_eq!(initial.status, AgentActivityStatus::AwaitingAction);
+    assert_eq!(initial.legal_actions.len(), 9);
+    assert!(
+        initial
+            .legal_actions
+            .iter()
+            .all(|action| action.token.as_str().starts_with("u_"))
+    );
+    let json = serde_json::to_string(&initial).unwrap();
+    for private in ["battle_spec", "rng", "generated", "sora"] {
+        assert!(!json.contains(private), "projection leaked {private}");
+    }
+
+    let first = request(&session, 0);
+    let initial_hash = session.state_hash();
+    let mut forged = first.clone();
+    forged.action_token = ActionToken::parse("u_forged").unwrap();
+    assert_eq!(
+        session.apply_action(forged).unwrap_err().code,
+        AgentErrorCode::InvalidActionToken
+    );
+    assert_eq!(session.state_hash(), initial_hash);
+
+    let mut stale = first.clone();
+    stale.expected_state_hash = AgentHash::from_bytes([0x55; 32]);
+    assert_eq!(
+        session.apply_action(stale).unwrap_err().code,
+        AgentErrorCode::StaleStateHash
+    );
+    assert_eq!(session.state_hash(), initial_hash);
+
+    let first_response = session.apply_action(first.clone()).unwrap();
+    assert_eq!(
+        session.apply_action(first).unwrap(),
+        first_response,
+        "idempotent retry must return byte-equivalent owned data"
+    );
+
+    let mut external_steps = 1_u64;
+    while session.terminal().is_none() {
+        assert!(external_steps < 1_000);
+        let next = request(&session, external_steps);
+        session.apply_action(next).unwrap();
+        external_steps += 1;
+    }
+    assert_eq!(external_steps, 32);
+    assert_eq!(
+        session.terminal(),
+        Some(starclock_activity::ActivityTerminalOutcome::Completed)
+    );
+    assert_eq!(
+        session.observe().unwrap().status,
+        AgentActivityStatus::Completed
+    );
+
+    let replay = session.export_replay().unwrap();
+    assert!(replay.complete());
+    assert_eq!(replay.action_count().as_str(), "35");
+    assert_eq!(replay.bytes().len(), 25_673);
+    assert_eq!(
+        replay.sha256().as_str(),
+        "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b"
+    );
+    assert_eq!(
+        replay.action_count().to_u64(),
+        session.replay_action_count() as u64
+    );
+    assert!(starclock_replay::format_v3::decode_replay_v3(replay.bytes()).is_ok());
+    let verified = session.verify_replay(factory, replay.bytes()).unwrap();
+    assert_eq!(verified.action_count, replay.action_count().clone());
+    assert_eq!(verified.final_state_hash, session.state_hash());
+    assert_eq!(verified.nested_battles.as_str(), "3");
+    assert_eq!(
+        verified.final_state_hash.as_str(),
+        "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b"
+    );
+
+    let mut corrupt = replay.bytes().to_vec();
+    let last = corrupt.len() - 1;
+    corrupt[last] ^= 1;
+    assert_eq!(
+        session.verify_replay(factory, &corrupt).unwrap_err().code,
+        AgentErrorCode::ReplayDiverged
+    );
+
+    session.close();
+    assert_eq!(
+        session.observe().unwrap().status,
+        AgentActivityStatus::Closed
+    );
+}
+
+#[test]
+fn activity_replay_corruption_corpus_is_total_and_live_session_is_inert() {
+    const CORPUS_CASES: usize = 16;
+    const VERIFY_WORKERS: usize = 4;
+
+    let factory = starclock_test_kit::activity_agent_session_factory();
+    let mut session = create(factory, "session_activity_replay_corpus");
+    assert_eq!(drive_to_terminal(&mut session), 32);
+    let replay = session.export_replay().unwrap();
+    let replay_bytes = replay.bytes();
+    let original_hash = session.state_hash();
+    let original_actions = session.replay_action_count();
+
+    let rejected = thread::scope(|scope| {
+        let handles = (0..VERIFY_WORKERS)
+            .map(|worker| {
+                scope.spawn(move || {
+                    (worker..CORPUS_CASES)
+                        .step_by(VERIFY_WORKERS)
+                        .map(|case| {
+                            let mut malformed = replay_bytes.to_vec();
+                            match case % 3 {
+                                0 => malformed.truncate(case * malformed.len() / CORPUS_CASES),
+                                1 => malformed.push(u8::try_from(case).unwrap()),
+                                _ => {
+                                    let last = malformed.len() - 1;
+                                    let final_state_byte = last - ((case / 3) % 32);
+                                    malformed[final_state_byte] ^= 1_u8 << (case % 8);
+                                }
+                            }
+                            (
+                                case,
+                                factory
+                                    .verify_replay(
+                                        &AgentUInt::from_u64(1),
+                                        &AgentUInt::from_u64(0),
+                                        &AgentUInt::from_u64(1),
+                                        &malformed,
+                                    )
+                                    .is_err(),
+                            )
+                        })
+                        .collect::<Vec<_>>()
+                })
+            })
+            .collect::<Vec<_>>();
+        handles
+            .into_iter()
+            .flat_map(|handle| handle.join().unwrap())
+            .collect::<Vec<_>>()
+    });
+    for (case, was_rejected) in rejected {
+        assert!(
+            was_rejected,
+            "malformed replay case {case} unexpectedly verified"
+        );
+    }
+    assert_eq!(session.state_hash(), original_hash);
+    assert_eq!(session.replay_action_count(), original_actions);
+
+    let verified = session.verify_replay(factory, replay_bytes).unwrap();
+    assert_eq!(verified.final_state_hash, original_hash);
+}
+
+#[test]
+fn concurrent_real_sessions_share_catalog_but_not_mutable_state() {
+    const SESSIONS: usize = 16;
+
+    let factory = Arc::new(starclock_test_kit::activity_agent_session_factory().clone());
+    let handles = (0..SESSIONS)
+        .map(|ordinal| {
+            let factory = Arc::clone(&factory);
+            thread::spawn(move || {
+                let mut session = create(&factory, &format!("session_activity_parallel_{ordinal}"));
+                let external_steps = drive_to_terminal(&mut session);
+                let replay = session.export_replay().unwrap();
+                (
+                    external_steps,
+                    session.state_hash(),
+                    replay.sha256().clone(),
+                    replay.bytes().len(),
+                )
+            })
+        })
+        .collect::<Vec<_>>();
+    let results = handles
+        .into_iter()
+        .map(|handle| handle.join().unwrap())
+        .collect::<Vec<_>>();
+    assert_eq!(results.len(), SESSIONS);
+    assert!(results.iter().all(|result| result == &results[0]));
+    assert_eq!(results[0].0, 32);
+    assert_eq!(
+        results[0].1.as_str(),
+        "64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b"
+    );
+    assert_eq!(
+        results[0].2.as_str(),
+        "ec9aff4e3f12e9af7ee0711813ccd982d5fe72172efc2dacf34eff6a244a398b"
+    );
+    assert_eq!(results[0].3, 25_673);
+}
+
+#[test]
+fn baseline_and_agent_surfaces_emit_identical_authoritative_nested_trace() {
+    let runtime_factory = starclock_test_kit::standard_universe_factory();
+    let controller = StandardUniverseControllerIdentity {
+        id: "baseline-controller",
+        revision: StandardUniverseBaselineRunner::REVISION,
+        digest: [0x65; 32],
+    };
+    let instance = runtime_factory.start(1, 0, 1, controller).unwrap();
+    let profile_id = instance.profile_id().to_owned();
+    let components = instance.components().clone();
+    let compatibility = instance.compatibility().clone();
+    let assembler = Arc::clone(instance.battle_assembler());
+    let (_, mut activity, _, _, _) = instance.into_dynamic_parts();
+    let header =
+        standard_universe_header_v3(compatibility, components, 1, &activity, &profile_id).unwrap();
+    let mut executor = UniverseNestedBattleExecutor::dynamic();
+    let recorded = record_baseline_run_v3(
+        &mut activity,
+        &StandardUniverseBaselinePolicy::default(),
+        &assembler,
+        &mut executor,
+    )
+    .unwrap();
+    let baseline = encode_standard_universe_trace_v3(&header, &recorded).unwrap();
+
+    let agent_factory = starclock_test_kit::activity_agent_session_factory();
+    let mut agent = create(agent_factory, "session_activity_cross_surface");
+    drive_to_terminal(&mut agent);
+    let agent_replay = agent.export_replay().unwrap();
+
+    assert_eq!(
+        nested_authority_digest(&baseline),
+        nested_authority_digest(agent_replay.bytes()),
+        "controller diagnostics and component identity may differ, but nested commands, events, \
+         states and results must not"
+    );
+    assert_eq!(
+        AgentHash::from_bytes(activity.view().state_hash().bytes()),
+        agent.state_hash()
+    );
+}
+
+fn nested_authority_digest(bytes: &[u8]) -> [u8; 32] {
+    let replay = starclock_replay::format_v3::decode_replay_v3(bytes).unwrap();
+    let mut hash = Sha256::new();
+    for record in replay.records() {
+        let payload = match record.kind() {
+            RecordKind::NestedBattleStart => &record.payload()[34..],
+            RecordKind::AcceptedBattleCommand
+            | RecordKind::ExpectedBattleState
+            | RecordKind::NestedBattleEnd => record.payload(),
+            RecordKind::AcceptedActivityCommand
+            | RecordKind::ExpectedActivityState
+            | RecordKind::ControllerDiagnostic => continue,
+        };
+        hash.update([record.kind() as u8]);
+        hash.update((payload.len() as u64).to_le_bytes());
+        hash.update(payload);
+    }
+    hash.finalize().into()
+}

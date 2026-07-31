@@ -532,6 +532,8 @@ pub enum StandardUniverseNegativeCurioCommandError {
 
 #[cfg(test)]
 mod tests {
+    use std::sync::OnceLock;
+
     use starclock_activity::{
         ActivityExternalOutcomeId, BattleOutcome, BattleResult, EventDigest,
         ParticipantBattleState, ProjectedValue, ProjectionField,
@@ -919,7 +921,9 @@ mod tests {
     }
 
     fn activity_from_seed(seed: u64) -> StandardUniverseActivity {
-        let factory = StandardUniverseRuntimeFactory::load(CORE, UNIVERSE).unwrap();
+        static FACTORY: OnceLock<StandardUniverseRuntimeFactory> = OnceLock::new();
+        let factory =
+            FACTORY.get_or_init(|| StandardUniverseRuntimeFactory::load(CORE, UNIVERSE).unwrap());
         let world = factory.catalog().worlds()[0].id().get();
         let instance = factory
             .start(

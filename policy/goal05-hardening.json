@@ -70,11 +70,11 @@
     }
   ],
   "source_targets": [
-    "crates/starclock-agent-api/tests/activity_session_loop.rs",
-    "crates/starclock-mode-universe/tests/battle_materialization.rs",
-    "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs",
-    "crates/starclock-mode-universe/tests/run_runtime.rs",
-    "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+    "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs",
+    "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs",
+    "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration.rs",
+    "crates/starclock-test-kit/tests/suites/universe/run_runtime.rs",
+    "crates/starclock-test-kit/tests/suites/universe/service_interaction_runtime.rs",
     "evidence/standard-universe-end-to-end-v1/coverage/seeded-matrix.json",
     "content-manifests/standard-universe-end-to-end-v1/integration-dispositions.json"
   ],

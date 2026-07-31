@@ -7,7 +7,7 @@ opaque token boundaries, idempotency conflicts, cursor representations,
 truncated/trailing/bit-flipped replay bytes, all six production Standard
 settlement paths and 16 two-contender mutation races.
 
-`crates/starclock-agent-api/tests/hardening_corpus.rs` executes the artifact
+`crates/starclock-test-kit/tests/suites/exhaustive/agent_api/hardening_corpus.rs` executes the artifact
 through public protocol-neutral APIs. Decode failures are total. Invalid
 tokens and cursors disclose no state. Conflicting idempotency reuse, corrupt
 replay verification and the losing side of each race preserve the live state

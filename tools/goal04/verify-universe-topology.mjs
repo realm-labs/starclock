@@ -12,7 +12,7 @@ const entry = text("crates/starclock-mode-universe/src/entry.rs");
 const runtime = text("crates/starclock-activity/src/graph_activity.rs");
 const program = text("crates/starclock-activity/src/program.rs");
 const transaction = text("crates/starclock-activity/src/transaction.rs");
-const tests = text("crates/starclock-mode-universe/tests/topology_runtime.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs");
 assert(topology.includes(`pub const STANDARD_UNIVERSE_TOPOLOGY_REVISION: &str = "${policy.topology_revision}";`), "topology revision differs");
 
 for (const marker of [
@@ -69,7 +69,7 @@ const evidence = {
     graph_activity: sha256("crates/starclock-activity/src/graph_activity.rs"),
     program: sha256("crates/starclock-activity/src/program.rs"),
     transaction: sha256("crates/starclock-activity/src/transaction.rs"),
-    tests: sha256("crates/starclock-mode-universe/tests/topology_runtime.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

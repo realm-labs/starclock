@@ -78,6 +78,11 @@ assert(progressDoc.includes("Progress: **104/104**; next: `None`."),
 
 const snapshots = json("policy/release-snapshots.json");
 const snapshotIds = new Set(snapshots.goals.map(({ goal_id: goalId }) => goalId));
+const completionCommit = snapshots.goals.find(
+  ({ goal_id: goalId }) => goalId === policy.goal_id,
+)?.completion_commit;
+assert(/^[0-9a-f]{40}$/u.test(completionCommit ?? ""),
+  "Goal 07 completion snapshot is missing");
 for (const goalId of policy.required_prior_contracts)
   assert(snapshotIds.has(goalId), `required prior release snapshot is missing ${goalId}`);
 
@@ -155,7 +160,7 @@ const report = {
   goal_id: policy.goal_id,
   released_on: policy.released_on,
   result: "complete",
-  policy_sha256: sha256(policyPath),
+  policy_sha256: gitSha256(policyPath),
   completion: {
     phases: policy.planned_phases,
     fixed_batches: policy.planned_fixed_batches,
@@ -186,9 +191,9 @@ const report = {
     native_profiles: native.native_profiles.map(({ id }) => id),
     compile_only_profiles: native.compile_only_profiles.map(({ id }) => id),
   },
-  policy_files_sha256: hashes(policy.policy_files),
-  evidence_files_sha256: hashes(policy.evidence_files),
-  documentation_files_sha256: hashes(policy.documentation_files),
+  policy_files_sha256: historicalHashes(policy.policy_files),
+  evidence_files_sha256: historicalHashes(policy.evidence_files),
+  documentation_files_sha256: historicalHashes(policy.documentation_files),
   prior_contracts: policy.required_prior_contracts,
   clean_checkout_command: policy.clean_checkout_command,
 };
@@ -209,8 +214,17 @@ console.log(
   `${requireClean ? ", clean" : ""}).`,
 );
 
-function hashes(files) {
-  return Object.fromEntries(files.map((file) => [file, sha256(file)]));
+function historicalHashes(files) {
+  return Object.fromEntries(files.map((file) => [file, gitSha256(file)]));
+}
+function gitSha256(relative) {
+  return crypto.createHash("sha256")
+    .update(execFileSync(
+      "git",
+      ["cat-file", "blob", `${completionCommit}:${relative}`],
+      { cwd: root, encoding: "buffer", maxBuffer: 64 * 1024 * 1024 },
+    ))
+    .digest("hex");
 }
 function run(command, commandArgs) {
   execFileSync(command, commandArgs, { cwd: root, stdio: "inherit" });

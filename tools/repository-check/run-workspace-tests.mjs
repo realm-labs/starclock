@@ -20,17 +20,37 @@ assert(quick === (packages.length > 0),
   "--quick requires at least one --package and package selection requires --quick");
 assert(new Set(packages).size === packages.length, "duplicate selected test package");
 const available = os.availableParallelism?.() ?? os.cpus().length;
-const jobs = Number(process.env.STARCLOCK_TEST_JOBS ?? Math.max(2, Math.min(8, Math.floor(available / 2))));
-const threads = Number(process.env.STARCLOCK_TEST_THREADS ?? "1");
+// The workspace has five coarse integration suites. Favor test-level parallelism
+// inside those suites and retain a second process for unit/CLI harness overlap.
+const defaultJobs = Math.max(1, Math.min(2, Math.ceil(available / 4)));
+const jobs = Number(process.env.STARCLOCK_TEST_JOBS ?? defaultJobs);
+const threads = Number(process.env.STARCLOCK_TEST_THREADS ?? Math.max(1, Math.floor(available / jobs)));
+const automaticScheduling = process.env.STARCLOCK_TEST_JOBS === undefined
+  && process.env.STARCLOCK_TEST_THREADS === undefined;
+const exclusiveThreads = Math.max(1, Math.min(16, available));
 assert(Number.isInteger(jobs) && jobs >= 1 && jobs <= 16, "STARCLOCK_TEST_JOBS must be from 1 through 16");
 assert(Number.isInteger(threads) && threads >= 1 && threads <= 16, "STARCLOCK_TEST_THREADS must be from 1 through 16");
 
 const started = Date.now();
 const buildStarted = Date.now();
+const quickSuites = quick ? suitesFor(packages) : [];
+const selectedPackages = quickSuites.length > 0
+  ? [...new Set([...packages, "starclock-test-kit"])]
+  : packages;
 const selection = quick
-  ? packages.flatMap((entry) => ["--package", entry])
+  ? selectedPackages.flatMap((entry) => ["--package", entry])
   : ["--workspace"];
-const targets = quick ? ["--lib", "--bins", "--tests"] : ["--all-targets"];
+const cliTests = packages.includes("starclock-cli")
+  ? ["cli_contract", "mcp_stdio", "standard_replay_smoke", "universe_cli", "workspace_boundaries"]
+  : [];
+const targets = quick
+  ? [
+      "--lib",
+      "--bins",
+      ...quickSuites.flatMap((entry) => ["--test", entry]),
+      ...cliTests.flatMap((entry) => ["--test", entry]),
+    ]
+  : ["--all-targets"];
 const build = spawnSync("cargo", [
   "test", ...selection, ...targets, "--all-features", "--no-run", "--message-format=json",
 ], {
@@ -48,21 +68,27 @@ const executables = [...new Set(build.stdout
   .map(parseJson)
   .filter((entry) => entry?.reason === "compiler-artifact" && entry.profile?.test && entry.executable)
   .map((entry) => path.resolve(entry.executable)))]
-  .sort();
+  .sort((left, right) => harnessWeight(right) - harnessWeight(left) || left.localeCompare(right));
 assert(
-  quick ? executables.length >= packages.length : executables.length >= 80,
-  `expected ${quick ? "at least one harness per selected package" : "at least 80 workspace test harnesses"}, found ${executables.length}`,
+  quick ? executables.length >= packages.length : executables.length >= 20,
+  `expected ${quick ? "at least one harness per selected package" : "at least 20 workspace test harnesses"}, found ${executables.length}`,
 );
 
-console.log(`Built ${executables.length} ${quick ? "selected" : "workspace"} test harnesses in ${(buildMs / 1_000).toFixed(1)}s; executing with ${jobs} processes x ${threads} test threads.`);
+const exclusiveExecutables = automaticScheduling
+  ? executables.filter((entry) => harnessWeight(entry) >= 80)
+  : [];
+const sharedExecutables = executables.filter((entry) => !exclusiveExecutables.includes(entry));
+console.log(`Built ${executables.length} ${quick ? "selected" : "workspace"} test harnesses in ${(buildMs / 1_000).toFixed(1)}s; executing ${exclusiveExecutables.length} memory-heavy harness${exclusiveExecutables.length === 1 ? "" : "es"} exclusively with ${exclusiveThreads} threads, then ${sharedExecutables.length} harnesses with ${jobs} processes x ${threads} threads.`);
 const executionStarted = Date.now();
-let cursor = 0;
 const results = [];
+for (const executable of exclusiveExecutables)
+  results.push(await execute(executable, exclusiveThreads));
+let cursor = 0;
 await Promise.all(Array.from({ length: jobs }, async () => {
-  while (cursor < executables.length) {
-    const executable = executables[cursor];
+  while (cursor < sharedExecutables.length) {
+    const executable = sharedExecutables[cursor];
     cursor += 1;
-    results.push(await execute(executable));
+    results.push(await execute(executable, threads));
   }
 }));
 
@@ -94,6 +120,8 @@ const report = {
   packages,
   jobs,
   test_threads_per_process: threads,
+  exclusive_harnesses: exclusiveExecutables.length,
+  exclusive_test_threads: exclusiveThreads,
   harnesses: results.length,
   build_ms: buildMs,
   execution_ms: executionMs,
@@ -114,10 +142,10 @@ for (const entry of slowest.slice(0, 5)) {
   console.log(`  ${(entry.elapsed_ms / 1_000).toFixed(1)}s  ${entry.name}`);
 }
 
-function execute(executable) {
+function execute(executable, testThreads) {
   return new Promise((resolve, reject) => {
     const began = Date.now();
-    const child = spawn(executable, ["--quiet", "--test-threads", String(threads)], {
+    const child = spawn(executable, ["--quiet", "--test-threads", String(testThreads)], {
       cwd: root,
       env: { ...process.env, RUST_BACKTRACE: process.env.RUST_BACKTRACE ?? "1" },
       windowsHide: true,
@@ -147,6 +175,43 @@ function parseJson(line) {
   } catch {
     return undefined;
   }
+}
+
+function harnessWeight(executable) {
+  const name = path.basename(executable);
+  if (name.startsWith("universe_suite-")) return 100;
+  if (name.startsWith("adapter_suite-")) return 90;
+  if (name.startsWith("starclock_mode_universe-")) return 80;
+  if (name.startsWith("exhaustive_suite-")) return 70;
+  if (name.startsWith("combat_suite-")) return 60;
+  if (name.startsWith("activity_suite-")) return 50;
+  return 0;
+}
+
+function suitesFor(selectedPackages) {
+  const suites = new Set();
+  for (const packageName of selectedPackages) {
+    for (const suite of ({
+      "starclock-activity": ["activity_suite"],
+      "starclock-agent-api": ["adapter_suite"],
+      "starclock-build": ["combat_suite"],
+      "starclock-combat": ["combat_suite"],
+      "starclock-data": ["combat_suite"],
+      "starclock-mcp": ["adapter_suite"],
+      "starclock-mode-standard": ["combat_suite"],
+      "starclock-mode-universe": ["universe_suite"],
+      "starclock-replay": ["activity_suite"],
+      "starclock-rules": ["combat_suite"],
+      "starclock-test-kit": [
+        "activity_suite",
+        "adapter_suite",
+        "combat_suite",
+        "exhaustive_suite",
+        "universe_suite",
+      ],
+    })[packageName] ?? []) suites.add(suite);
+  }
+  return [...suites].sort();
 }
 
 function nonEmpty(value) {

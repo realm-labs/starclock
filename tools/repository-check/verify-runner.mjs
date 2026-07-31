@@ -36,9 +36,16 @@ for (const marker of [
   "entry.profile?.test",
   "STARCLOCK_TEST_JOBS",
   "STARCLOCK_TEST_THREADS",
+  "os.availableParallelism",
+  '"starclock-test-kit"',
+  '"combat_suite"',
+  '"universe_suite"',
+  "automaticScheduling",
+  "exclusiveExecutables",
+  "exclusive_test_threads",
   '"--workspace", "--doc", "--all-features"',
   '"--package"',
-  'quick ? ["--lib", "--bins", "--tests"] : ["--all-targets"]',
+  'quickSuites.flatMap((entry) => ["--test", entry])',
   "quick-test-timings.json",
   "workspace-test-timings.json",
 ]) assert(workspaceTests.includes(marker), `workspace test runner omits ${marker}`);
@@ -50,6 +57,12 @@ for (const marker of ["inputFingerprint()", "universe-production-workbooks.json"
 for (const marker of ["completion_commit", "completion_tree", 'captureGit(["show"'])
   assert(releaseSnapshots.includes(marker), `release snapshot verifier omits ${marker}`);
 assert(cargoManifest.includes("[profile.test]") && cargoManifest.includes("opt-level = 1"), "simulation-heavy tests lack the bounded optimized profile");
+for (const profile of [
+  '[profile.dev]\ndebug = "line-tables-only"',
+  '[profile.dev.package."*"]\ndebug = false',
+  '[profile.dev-debug]\ninherits = "dev"\ndebug = "full"',
+  '[profile.dev-debug.package."*"]\ndebug = "full"',
+]) assert(cargoManifest.includes(profile), `workspace development profiles omit:\n${profile}`);
 assert(release.includes('STARCLOCK_REPOSITORY_PROFILE: "full"'), "isolated release acceptance does not force the full profile");
 for (const document of [readme, standards]) {
   assert(document.includes("node tools/repository-check/run.mjs"), "quick command is undocumented");

@@ -17,13 +17,12 @@ use super::{
     tests::{compiled_fixture, entry},
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_twenty_two_rules_lower_exact_policy_denominators_and_triggers() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(
         factory.knowledge.denominators(),
         (22, [15, 1, 5, 1], [4, 2, 11, 1, 4])
@@ -57,8 +56,8 @@ fn all_twenty_two_rules_lower_exact_policy_denominators_and_triggers() {
 
 #[test]
 fn every_knowledge_operation_builds_and_commits_an_activity_program() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     for (index, rule) in factory.unique.knowledge_rules.iter().enumerate() {
         let face = factory
             .unique
@@ -68,8 +67,8 @@ fn every_knowledge_operation_builds_and_commits_an_activity_program() {
             .unwrap();
         let source = face.identity.source_id.as_ref();
         let mut state = created_state(&instance, 14_350 + index as u64);
-        let active = candidates(&factory, &instance, &state, "SelectedDomain", None);
-        let nonboss = candidates(&factory, &instance, &state, "SelectedNonBossDomain", None);
+        let active = candidates(factory, &instance, &state, "SelectedDomain", None);
+        let nonboss = candidates(factory, &instance, &state, "SelectedNonBossDomain", None);
         seed_knowledge(&instance, &mut state, &active);
         seed_counters(
             &instance,
@@ -79,7 +78,7 @@ fn every_knowledge_operation_builds_and_commits_an_activity_program() {
                 (KNOWLEDGE_SLOT, node_key(active[1]), 3),
             ],
         );
-        seed_face(&factory, &instance, &mut state, source);
+        seed_face(factory, &instance, &mut state, source);
         let anchor = match source {
             "2007" | "2010" | "2030" | "2073" | "2077" => Some(nonboss[0]),
             _ => None,
@@ -101,11 +100,11 @@ fn every_knowledge_operation_builds_and_commits_an_activity_program() {
 
 #[test]
 fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_340);
-    let target = candidates(&factory, &instance, &state, "SelectedDomain", None)[0];
-    seed_face(&factory, &instance, &mut state, "2074");
+    let target = candidates(factory, &instance, &state, "SelectedDomain", None)[0];
+    seed_face(factory, &instance, &mut state, "2074");
     let mut rng = activity_rng(&instance, 14_341);
     let before = rng.snapshots();
     let apply = instance
@@ -117,7 +116,7 @@ fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
     assert_eq!(instance.knowledge_nodes(&state).as_ref(), [target]);
 
     let invalid = instance.graph_definition().nodes().last().unwrap().id();
-    seed_face(&factory, &instance, &mut state, "2074");
+    seed_face(factory, &instance, &mut state, "2074");
     let before = rng.snapshots();
     assert_eq!(
         instance.compile_knowledge_face_effect(&state, None, Some(invalid), &mut rng),
@@ -125,7 +124,7 @@ fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
     );
     assert_eq!(before, rng.snapshots());
 
-    seed_face(&factory, &instance, &mut state, "2027");
+    seed_face(factory, &instance, &mut state, "2027");
     let before_draws = draws(&rng, ActivityRngLabel::Spawn);
     let random = instance
         .compile_knowledge_face_effect(&state, None, None, &mut rng)
@@ -136,7 +135,7 @@ fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
     assert_eq!(instance.knowledge_nodes(&state).len(), 2);
 
     let mut empty = new_state(&instance);
-    seed_face(&factory, &instance, &mut empty, "2027");
+    seed_face(factory, &instance, &mut empty, "2027");
     let mut empty_rng = activity_rng(&instance, 14_342);
     let before = empty_rng.snapshots();
     let no_effect = instance
@@ -150,19 +149,19 @@ fn selected_and_random_placement_execute_with_transactional_spawn_draws() {
 
 #[test]
 fn query_consumption_and_preservation_mutate_only_owned_state() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_343);
-    let anchor = candidates(&factory, &instance, &state, "SelectedNonBossDomain", None)[0];
+    let anchor = candidates(factory, &instance, &state, "SelectedNonBossDomain", None)[0];
     let neighborhood = candidates(
-        &factory,
+        factory,
         &instance,
         &state,
         "SelectedDomainAndAllAdjacent",
         Some(anchor),
     );
     seed_knowledge(&instance, &mut state, &neighborhood);
-    let preserve_target = candidates(&factory, &instance, &state, "SelectedNonBossDomain", None)
+    let preserve_target = candidates(factory, &instance, &state, "SelectedNonBossDomain", None)
         .iter()
         .copied()
         .find(|candidate| !neighborhood.contains(candidate))
@@ -170,7 +169,7 @@ fn query_consumption_and_preservation_mutate_only_owned_state() {
     seed_knowledge(&instance, &mut state, &[preserve_target]);
     let knowledge_count = instance.knowledge_nodes(&state).len();
 
-    seed_face(&factory, &instance, &mut state, "2078");
+    seed_face(factory, &instance, &mut state, "2078");
     let fragments = counter(&state, RUN_RESOURCES_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY);
     let mut rng = activity_rng(&instance, 14_344);
     let query = instance
@@ -183,7 +182,7 @@ fn query_consumption_and_preservation_mutate_only_owned_state() {
         fragments + i64::try_from(knowledge_count).unwrap() * 30
     );
 
-    seed_face(&factory, &instance, &mut state, "2079");
+    seed_face(factory, &instance, &mut state, "2079");
     let preserve = instance
         .compile_knowledge_face_effect(&state, None, Some(preserve_target), &mut rng)
         .unwrap()
@@ -198,7 +197,7 @@ fn query_consumption_and_preservation_mutate_only_owned_state() {
         1
     );
 
-    seed_face(&factory, &instance, &mut state, "2077");
+    seed_face(factory, &instance, &mut state, "2077");
     let before_remove = counter(&state, RUN_RESOURCES_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY);
     let remove = instance
         .compile_knowledge_face_effect(&state, Some(anchor), None, &mut rng)
@@ -218,13 +217,13 @@ fn query_consumption_and_preservation_mutate_only_owned_state() {
 
 #[test]
 fn movement_override_exposes_only_stable_knowledge_targets() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_345);
-    let nodes = candidates(&factory, &instance, &state, "SelectedDomain", None);
+    let nodes = candidates(factory, &instance, &state, "SelectedDomain", None);
     let selected = [nodes[1], nodes[3]];
     seed_knowledge(&instance, &mut state, &selected);
-    seed_face(&factory, &instance, &mut state, "2047");
+    seed_face(factory, &instance, &mut state, "2047");
 
     assert_eq!(
         instance
@@ -245,7 +244,7 @@ fn movement_override_exposes_only_stable_knowledge_targets() {
 
 #[test]
 fn countdown_initial_reduction_and_knowledge_entry_recovery_execute() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let dice = factory
         .unique
         .dice
@@ -253,10 +252,10 @@ fn countdown_initial_reduction_and_knowledge_entry_recovery_execute() {
         .find(|dice| dice.identity.source_id.as_ref() == "301")
         .unwrap();
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, dice))
+        .compile_entry(entry(factory, AREA, PATH, dice))
         .unwrap();
     let mut state = created_state(&instance, 14_347);
-    let target = candidates(&factory, &instance, &state, "SelectedDomain", None)[0];
+    let target = candidates(factory, &instance, &state, "SelectedDomain", None)[0];
     seed_counters(
         &instance,
         &mut state,
@@ -281,7 +280,7 @@ fn countdown_initial_reduction_and_knowledge_entry_recovery_execute() {
 
 #[test]
 fn collapse_prevention_and_collapse_rewards_follow_selected_dice() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     for (source, preserved) in [("302", true), ("303", false)] {
         let dice = factory
             .unique
@@ -290,10 +289,10 @@ fn collapse_prevention_and_collapse_rewards_follow_selected_dice() {
             .find(|dice| dice.identity.source_id.as_ref() == source)
             .unwrap();
         let instance = factory
-            .compile_entry(entry(&factory, AREA, PATH, dice))
+            .compile_entry(entry(factory, AREA, PATH, dice))
             .unwrap();
         let mut state = created_state(&instance, 14_348 + u64::from(!preserved));
-        let target = candidates(&factory, &instance, &state, "SelectedNonBossDomain", None)[0];
+        let target = candidates(factory, &instance, &state, "SelectedNonBossDomain", None)[0];
         seed_knowledge(&instance, &mut state, &[target]);
         let mark = instance
             .compile_knowledge_mark_for_collapse(&state, target)

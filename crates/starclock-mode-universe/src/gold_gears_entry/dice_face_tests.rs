@@ -9,18 +9,17 @@ use starclock_activity::{
 
 use super::{
     GOLD_AND_GEARS_DICE_FACE_REVISION, GoldAndGearsEntry, GoldAndGearsEntryError,
-    GoldAndGearsRuntimeFactory, GoldAndGearsRuntimeInstance,
+    GoldAndGearsRuntimeInstance,
     state_layout::{DEFERRED_DICE_FACE_USE_BASE, DEFERRED_EFFECTS_SLOT},
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_eighty_faces_lower_exact_parameters_effects_tags_and_policies() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.dice_faces.denominators(), (80, 98, 112, 78));
     assert_eq!(
         factory.dice_faces.coverage(),
@@ -34,7 +33,7 @@ fn all_eighty_faces_lower_exact_parameters_effects_tags_and_policies() {
     let mut selected = BTreeSet::new();
     for dice in &factory.unique.dice {
         let instance = factory
-            .compile_entry(entry(&factory, AREA, PATH, dice))
+            .compile_entry(entry(factory, AREA, PATH, dice))
             .unwrap();
         for face in instance.dice_faces() {
             selected.insert(face.to_owned());
@@ -59,9 +58,9 @@ fn all_eighty_faces_lower_exact_parameters_effects_tags_and_policies() {
 
 #[test]
 fn global_face_activation_commits_exact_effect_marker_without_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, &factory.unique.dice[0]))
+        .compile_entry(entry(factory, AREA, PATH, &factory.unique.dice[0]))
         .unwrap();
     let (mut state, mut rng, face) =
         rolled_face_with_contract(&instance, "global-or-event-derived", 14_330);
@@ -92,9 +91,9 @@ fn global_face_activation_commits_exact_effect_marker_without_rng() {
 
 #[test]
 fn missing_roll_and_invalid_explicit_target_reject_before_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, &factory.unique.dice[0]))
+        .compile_entry(entry(factory, AREA, PATH, &factory.unique.dice[0]))
         .unwrap();
     let state = new_state(&instance);
     let mut rng = activity_rng(&instance, 14_331);
@@ -121,7 +120,7 @@ fn missing_roll_and_invalid_explicit_target_reject_before_rng() {
 
 #[test]
 fn authored_empty_content_face_commits_no_effect_without_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let target = factory
         .unique
         .dice_faces
@@ -134,7 +133,7 @@ fn authored_empty_content_face_commits_no_effect_without_rng() {
         .iter()
         .find(|dice| dice.identity.source_id.as_ref() == "403")
         .unwrap();
-    let template = entry(&factory, AREA, PATH, dice);
+    let template = entry(factory, AREA, PATH, dice);
     let mut faces = template.dice_faces().map(str::to_owned).collect::<Vec<_>>();
     let slot = target
         .allowed_slot_sources

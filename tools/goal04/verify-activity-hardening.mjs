@@ -12,7 +12,7 @@ const policy = json("policy/goal04-activity-hardening.json");
 assert(policy.schema_revision === "starclock.goal04-activity-hardening.v1", "unexpected Activity-hardening policy revision");
 const command = text("crates/starclock-activity/src/graph_command.rs");
 const replay = text("crates/starclock-replay/src/activity_v2.rs");
-const hardening = text("crates/starclock-activity/tests/activity_hardening.rs");
+const hardening = text("crates/starclock-test-kit/tests/suites/activity/activity/activity_hardening.rs");
 const benchmark = text("crates/starclock-activity/examples/g04_activity_benchmark.rs");
 assert(command.includes(`GRAPH_ACTIVITY_API_REVISION: &str = "${policy.revisions.activity_api}"`), "graph Activity API revision differs");
 assert(replay.includes(`GRAPH_ACTIVITY_COMMAND_PAYLOAD_VERSION: u16 = ${policy.revisions.command_payload}`), "graph command payload revision differs");
@@ -60,7 +60,7 @@ if (record) {
     source_sha256: {
       command: sha256("crates/starclock-activity/src/graph_command.rs"),
       replay: sha256("crates/starclock-replay/src/activity_v2.rs"),
-      hardening_tests: sha256("crates/starclock-activity/tests/activity_hardening.rs"),
+      hardening_tests: sha256("crates/starclock-test-kit/tests/suites/activity/activity/activity_hardening.rs"),
       benchmark: sha256("crates/starclock-activity/examples/g04_activity_benchmark.rs")
     },
     focused_tests: policy.focused_tests,
@@ -75,7 +75,7 @@ if (record) {
   assert(evidence.schema_revision === "starclock.goal04-activity-hardening-evidence.v1", "Activity-hardening evidence revision differs");
   assert(equal(evidence.claims, policy.claims) && equal(evidence.corpora, policy.corpora), "Activity-hardening evidence claims/corpora drifted");
   validateReport(evidence.report);
-  for (const [key, relativeSource] of Object.entries({ command: "crates/starclock-activity/src/graph_command.rs", replay: "crates/starclock-replay/src/activity_v2.rs", hardening_tests: "crates/starclock-activity/tests/activity_hardening.rs", benchmark: "crates/starclock-activity/examples/g04_activity_benchmark.rs" }))
+  for (const [key, relativeSource] of Object.entries({ command: "crates/starclock-activity/src/graph_command.rs", replay: "crates/starclock-replay/src/activity_v2.rs", hardening_tests: "crates/starclock-test-kit/tests/suites/activity/activity/activity_hardening.rs", benchmark: "crates/starclock-activity/examples/g04_activity_benchmark.rs" }))
     assert(evidence.source_sha256[key] === sha256(relativeSource), `Activity-hardening ${key} evidence is stale`);
   console.log(`Goal 04 Activity hardening verified (${policy.corpora.invalid_commands} invalid commands, ${policy.corpora.rng_streams} RNG streams, ${evidence.report.rows.length} provisional rows).`);
 }

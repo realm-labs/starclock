@@ -91,19 +91,19 @@ const provenanceEvidence = domainPartition
       { path: "content-reference/standard-universe-v1/sources.json" },
     ];
 const encounterTestPath =
-  `crates/starclock-mode-universe/tests/encounter_selection_${partitionId.slice(-3).toLowerCase()}.rs`;
+  `crates/starclock-test-kit/tests/suites/universe/encounter_selection_${partitionId.slice(-3).toLowerCase()}.rs`;
 const topologyTestPath =
-  `crates/starclock-mode-universe/tests/topology_map_${partitionId.slice(-3).toLowerCase()}.rs`;
+  `crates/starclock-test-kit/tests/suites/universe/topology_map_${partitionId.slice(-3).toLowerCase()}.rs`;
 const roomTestPath =
-  `crates/starclock-mode-universe/tests/room_content_${partitionId.slice(-3).toLowerCase()}.rs`;
+  `crates/starclock-test-kit/tests/suites/universe/room_content_${partitionId.slice(-3).toLowerCase()}.rs`;
 const worldTestPath =
-  `crates/starclock-mode-universe/tests/world_difficulty_${partitionId.slice(-3).toLowerCase()}.rs`;
+  `crates/starclock-test-kit/tests/suites/universe/world_difficulty_${partitionId.slice(-3).toLowerCase()}.rs`;
 const executionEvidence = domainPartition
   ? [
       { path: "crates/starclock-mode-universe/src/definition.rs" },
       { path: "crates/starclock-mode-universe/src/lowering.rs" },
       { path: "crates/starclock-mode-universe/src/topology.rs" },
-      { path: "crates/starclock-mode-universe/tests/domain_runtime.rs" },
+      { path: "crates/starclock-test-kit/tests/suites/universe/domain_runtime.rs" },
     ]
   : topologyPartition
   ? [
@@ -212,14 +212,14 @@ const authoringWorkbooks = domainPartition
       },
     ];
 const focusedTest = domainPartition
-  ? "cargo test -p starclock-mode-universe --test domain_runtime --all-features"
+  ? "cargo test -p starclock-test-kit --test universe_suite domain_runtime --all-features"
   : topologyPartition
-  ? `cargo test -p starclock-mode-universe --test topology_map_${partitionId.slice(-3).toLowerCase()} --all-features`
+  ? `cargo test -p starclock-test-kit --test universe_suite topology_map_${partitionId.slice(-3).toLowerCase()} --all-features`
   : roomPartition
-  ? `cargo test -p starclock-mode-universe --test room_content_${partitionId.slice(-3).toLowerCase()} --all-features`
+  ? `cargo test -p starclock-test-kit --test universe_suite room_content_${partitionId.slice(-3).toLowerCase()} --all-features`
   : worldPartition
-  ? `cargo test -p starclock-mode-universe --test world_difficulty_${partitionId.slice(-3).toLowerCase()} --all-features`
-  : `cargo test -p starclock-mode-universe --test encounter_selection_${partitionId.slice(-3).toLowerCase()} --all-features`;
+  ? `cargo test -p starclock-test-kit --test universe_suite world_difficulty_${partitionId.slice(-3).toLowerCase()} --all-features`
+  : `cargo test -p starclock-test-kit --test universe_suite encounter_selection_${partitionId.slice(-3).toLowerCase()} --all-features`;
 
 const receipt = {
   schema_revision: "starclock.goal07-content-partition-receipt.v1",

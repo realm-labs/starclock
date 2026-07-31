@@ -52,7 +52,9 @@ assert(resolved.every((entry) => entry.confidence === "AcceptedProjectPolicyPend
   && entry.resolution.evidence_paths.length >= 3
   && entry.resolution.validation_commands.length >= 3
   && entry.resolution.remaining_content_gate.includes("DataReady")
-  && entry.resolution.evidence_paths.every((relative) => fs.statSync(path.join(root, relative), { throwIfNoEntry: false })?.isFile())), "Phase 4 policy resolution is incomplete or references missing evidence");
+  && entry.resolution.evidence_paths.every((relative) =>
+    gitFileExists(`${completionCommit}:${relative}`))),
+"Phase 4 policy resolution is incomplete or references missing evidence");
 assert(fixtures.fixtures.filter((fixture) => fixture.state === "PolicyGoldenVerified").length === 31, "policy-golden fixture state differs");
 assert(cases.filter((entry) => entry.state === "Researching").length === 0, "all registered architecture blockers must be resolved");
 
@@ -80,5 +82,16 @@ function gitBytes(object) {
     encoding: "buffer",
     maxBuffer: 64 * 1024 * 1024,
   });
+}
+function gitFileExists(object) {
+  try {
+    execFileSync("git", ["cat-file", "-e", object], {
+      cwd: root,
+      stdio: "ignore",
+    });
+    return true;
+  } catch {
+    return false;
+  }
 }
 function assert(condition, message) { if (!condition) throw new Error(message); }

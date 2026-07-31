@@ -44,7 +44,7 @@ assert(sha256("evidence/standard-universe-runtime-v1/hardening/seeded-matrix.jso
 assert(seeded.matrix.coverage.worlds === 9 && seeded.matrix.coverage.difficulties === 33, "seeded matrix coverage drift");
 assert(seeded.matrix.coverage.distinct_path_options === 9 && seeded.matrix.coverage.complete_runs === 33, "seeded matrix Path/run coverage drift");
 
-const activitySource = text("crates/starclock-activity/tests/activity_hardening.rs");
+const activitySource = text("crates/starclock-test-kit/tests/suites/activity/activity/activity_hardening.rs");
 const rngSuite = policy.suites.find((suite) => suite.id === "activity-rng-isolation");
 assert(activitySource.includes(`0..${numberLiteral(rngSuite.invalid_commands)}_u32`), "invalid-command property denominator drift");
 assert(activitySource.includes("for perturbed_label in ActivityRngLabel::ALL"), "not every Activity RNG stream is perturbed");
@@ -52,9 +52,9 @@ assert(activitySource.includes(`1..=${rngSuite.draws_per_perturbation}_u16`), "R
 assert(json("policy/goal04-activity-hardening.json").corpora.rng_streams === rngSuite.streams, "RNG stream denominator drift");
 
 const replaySuite = policy.suites.find((suite) => suite.id === "replay-property-corpora");
-for (const target of ["crates/starclock-replay/tests/property_contract.rs", "crates/starclock-replay/tests/battle_property_contract.rs"])
+for (const target of ["crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs", "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs"])
   assert(text(target).includes(`cases: ${replaySuite.proptest_cases_per_property}`), `${target} property case denominator drift`);
-assert(text("crates/starclock-agent-api/tests/activity_session_loop.rs").includes(`CORPUS_CASES: usize = ${replaySuite.full_activity_corruption_cases}`), "full Activity replay corruption corpus drift");
+assert(text("crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs").includes(`CORPUS_CASES: usize = ${replaySuite.full_activity_corruption_cases}`), "full Activity replay corruption corpus drift");
 
 const generated = json("policy/generated-drift.json");
 const cleanSuite = policy.suites.find((suite) => suite.id === "clean-generated-drift");

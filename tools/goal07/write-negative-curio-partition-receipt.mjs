@@ -47,13 +47,13 @@ const executionEvidence = partitionId.endsWith("S03") ? [
   { path: "crates/starclock-mode-universe/src/topology/route_program.rs" },
   { path: "crates/starclock-mode-universe/src/service_interaction.rs" },
   { path: `crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_${slice}.rs` },
-  { path: `crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_${slice}.rs` },
+  { path: `crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_negative_${slice}.rs` },
 ] : [
   { path: "crates/starclock-mode-universe/src/curio_activity/negative.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
   { path: `crates/starclock-mode-universe/src/battle_rule_lowering/curio_negative_${slice}.rs` },
-  { path: `crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_${slice}.rs` },
+  { path: `crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_negative_${slice}.rs` },
 ];
 const reviewEvidence = [
   { path: `docs/goal-07-negative-curio-${slice}.md` },
@@ -144,14 +144,14 @@ const receipt = {
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
       ...(partitionId.endsWith("S03") ? [
-        "cargo test -p starclock-activity --test random_offer_policy --all-features",
+        "cargo test -p starclock-test-kit --test activity_suite random_offer_policy --all-features",
         "cargo test -p starclock-mode-universe --lib curio_activity::domain::tests --all-features",
-        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
-        "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite topology_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite service_interaction_runtime --all-features",
       ] : [
         "cargo test -p starclock-mode-universe --lib runtime::negative_curio_commands::tests --all-features",
       ]),
-      `cargo test -p starclock-mode-universe --test mechanic_battle_integration curio_negative_${slice} --all-features`,
+      `cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration curio_negative_${slice} --all-features`,
       "cargo test -p starclock-mode-universe --all-features",
     ],
     goldens: [evidence(golden)],
@@ -175,7 +175,7 @@ if (write) {
 function fixtureEvidence(id) {
   const runtime = "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs";
   const combat =
-    `crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_negative_${slice}.rs`;
+    `crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_negative_${slice}.rs`;
   return {
     "universe.fixture.curio-state.fixed": {
       test_path: combat,

@@ -34,7 +34,7 @@ for (const partition of policy.partitions) {
     assert(source.mechanic_family === fixture.mechanic_family, `${fixture.id}: mechanic family differs`);
     assert(canonical(source.input_ids) === canonical(fixture.input_ids), `${fixture.id}: input binding differs`);
   }
-  const relative = `crates/starclock-mode-universe/tests/${partition.test_target}.rs`;
+  const relative = `crates/starclock-test-kit/tests/suites/universe/${partition.test_target}.rs`;
   const testSource = text(relative);
   for (const marker of partition.markers)
     assert(testSource.includes(`fn ${marker}()`), `${partition.batch}: runtime fixture test omits ${marker}`);
@@ -43,9 +43,8 @@ for (const partition of policy.partitions) {
 }
 assert(seen.size === reference.length, "not every fixture is assigned to one tested partition");
 
-const cargoArgs = ["test", "-p", "starclock-mode-universe"];
-for (const target of testTargets) cargoArgs.push("--test", target);
-if (!artifactOnly) run("cargo", cargoArgs);
+if (!artifactOnly)
+  run("cargo", ["test", "-p", "starclock-test-kit", "--test", "universe_suite"]);
 
 const evidence = {
   schema_revision: "starclock.goal04-mechanic-fixture-audit-evidence.v1",

@@ -1,11 +1,9 @@
-use std::{collections::BTreeSet, sync::OnceLock};
+use std::collections::BTreeSet;
 
 use super::{
     GOLD_AND_GEARS_SEMANTIC_FIXTURE_EXECUTION_REVISION, GoldAndGearsRuntimeFactory,
     GoldAndGearsSemanticFixtureExecutionKind,
 };
-
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 
 #[test]
 fn all_18_semantic_fixture_families_bind_exactly_once() {
@@ -113,8 +111,7 @@ fn all_fixture_regressions_are_unique_and_production_runtime_backed() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    static FACTORY: OnceLock<GoldAndGearsRuntimeFactory> = OnceLock::new();
-    FACTORY.get_or_init(|| GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap())
+    super::tests::shared_factory()
 }
 
 fn hex(bytes: [u8; 32]) -> String {

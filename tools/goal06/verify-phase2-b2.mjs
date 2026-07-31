@@ -14,7 +14,7 @@ const access = read(
   "crates/starclock-mode-universe/src/runtime/battle_contribution_access.rs",
 );
 const activityView = read("crates/starclock-activity/src/view.rs");
-const tests = read("crates/starclock-mode-universe/tests/encounter_runtime.rs");
+const tests = read("crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");
 
 for (const [text, needle, label] of [

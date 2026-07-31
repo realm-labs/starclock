@@ -43,22 +43,22 @@ const supportTest = slice === "01"
     : "battle_materialization";
 const combatExecution = slice === "02"
   ? [
-      { path: "crates/starclock-combat/tests/damage_lifecycle.rs" },
-      { path: "crates/starclock-combat/tests/damage_lifecycle/damage_mitigation.rs" },
+      { path: "crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle.rs" },
+      { path: "crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle/damage_mitigation.rs" },
     ]
   : [];
 const activityExecution = slice === "03"
-  ? [{ path: "crates/starclock-activity/tests/battle_settlement.rs" }]
+  ? [{ path: "crates/starclock-test-kit/tests/suites/activity/activity/battle_settlement.rs" }]
   : [];
 const additionalModeExecution = slice === "03"
-  ? [{ path: "crates/starclock-mode-universe/tests/path_runtime.rs" }]
+  ? [{ path: "crates/starclock-test-kit/tests/suites/universe/path_runtime.rs" }]
   : [];
 const ruleExecution = [
   {
-    path: `crates/starclock-mode-universe/tests/${testStem}.rs`,
+    path: `crates/starclock-test-kit/tests/suites/universe/${testStem}.rs`,
   },
   {
-    path: `crates/starclock-mode-universe/tests/${supportTest}.rs`,
+    path: `crates/starclock-test-kit/tests/suites/universe/${supportTest}.rs`,
   },
   ...additionalModeExecution,
   ...activityExecution,
@@ -125,7 +125,7 @@ const receipt = {
       workbookEvidence("UniverseEvidence.xlsx"),
     ),
     execution_kind: "RustTest",
-    test_path: `crates/starclock-mode-universe/tests/${testStem}.rs`,
+    test_path: `crates/starclock-test-kit/tests/suites/universe/${testStem}.rs`,
     test_marker: fixtureMarker,
   })),
   enemy_variants: [],
@@ -136,17 +136,17 @@ const receipt = {
     commands: [
       `python tools/goal07/author-ability-tree-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      "cargo test -p starclock-activity --test activity_transaction --all-features",
-      `cargo test -p starclock-mode-universe --test ${testStem} --all-features`,
-      `cargo test -p starclock-mode-universe --test ${supportTest} --all-features`,
+      "cargo test -p starclock-test-kit --test activity_suite activity_transaction --all-features",
+      `cargo test -p starclock-test-kit --test universe_suite ${testStem} --all-features`,
+      `cargo test -p starclock-test-kit --test universe_suite ${supportTest} --all-features`,
       ...(slice === "03"
         ? [
-            "cargo test -p starclock-mode-universe --test path_runtime --all-features",
-            "cargo test -p starclock-activity --test battle_settlement --all-features",
+            "cargo test -p starclock-test-kit --test universe_suite path_runtime --all-features",
+            "cargo test -p starclock-test-kit --test activity_suite battle_settlement --all-features",
           ]
         : []),
       ...(slice === "02"
-        ? ["cargo test -p starclock-combat --test damage_lifecycle --all-features"]
+        ? ["cargo test -p starclock-test-kit --test combat_suite damage_lifecycle --all-features"]
         : []),
     ],
     goldens: [evidence(goldenPath)],

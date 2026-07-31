@@ -45,7 +45,7 @@ the exact fixed-point ATK/DEF contributions with checked six-place arithmetic.
 rule/modifier bindings; it contains no Light Cone ID, level, path,
 applicability or superimposition type.
 
-[`light_cone_compilation.rs`](../crates/starclock-build/tests/light_cone_compilation.rs)
+[`light_cone_compilation.rs`](../crates/starclock-test-kit/tests/suites/core/build/light_cone_compilation.rs)
 proves S1/S5 selection, order-independent catalog input, matching/invalid/always
 wearer policies, exact stat composition, missing rows, invalid bounds, duplicate
 definitions, incomplete S-ranks, unresolved passive references and fixed

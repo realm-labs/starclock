@@ -519,20 +519,20 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs",
-        "crates/starclock-mode-universe/tests/preservation_runtime.rs",
-        "crates/starclock-combat/tests/ability_program_execution.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration.rs",
+        "crates/starclock-test-kit/tests/suites/universe/preservation_runtime.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-preservation-s01.md",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
         "crates/starclock-combat/src/rule/model.rs",
       ],
-      fixturePath: "crates/starclock-mode-universe/tests/mechanic_battle_integration.rs",
+      fixturePath: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration.rs",
       fixtureMarker: "goal07_p2_m02_s01_executes_every_assigned_rule_and_operation_fixture",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
-        "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite preservation_runtime --all-features",
       ],
     };
   }
@@ -540,9 +540,9 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s02.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s02.rs",
-        "crates/starclock-mode-universe/tests/preservation_runtime.rs",
-        "crates/starclock-combat/tests/modifier_pipeline.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/preservation_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/preservation_runtime.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/modifier_pipeline.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-preservation-s02.md",
@@ -550,12 +550,12 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/modifier/resolve.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/preservation_s02.rs",
       fixtureMarker:
         "goal07_p2_m02_s02_executes_dynamic_stat_and_directional_shield_rules",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s02 --all-features",
-        "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration goal07_p2_m02_s02 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite preservation_runtime --all-features",
       ],
     };
   }
@@ -563,8 +563,8 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s03.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s03.rs",
-        "crates/starclock-combat/tests/ability_program_execution/cleanse.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/preservation_s03.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/cleanse.rs",
         "crates/starclock-combat/src/effect/state.rs",
       ],
       reviewEvidence: [
@@ -573,13 +573,13 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/preservation_s03.rs",
       fixtureMarker:
         "goal07_p2_m02_s03_executes_break_shields_and_rotation_chance_programs",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s03 --all-features",
-        "cargo test -p starclock-combat --test ability_program_execution rule_cleanse --all-features",
-        "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration goal07_p2_m02_s03 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite ability_program_execution rule_cleanse --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite preservation_runtime --all-features",
       ],
     };
   }
@@ -587,7 +587,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/preservation_s04.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/preservation_s04.rs",
         "crates/starclock-combat/src/resolver/operation.rs",
         "crates/starclock-combat/src/resolver/program.rs",
       ],
@@ -597,13 +597,13 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/effect/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/preservation_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/preservation_s04.rs",
       fixtureMarker:
         "goal07_p2_m02_s04_executes_shield_conditioned_critical_stats",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration goal07_p2_m02_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration goal07_p2_m02_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
-        "cargo test -p starclock-mode-universe --test preservation_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite preservation_runtime --all-features",
       ],
     };
   }
@@ -611,7 +611,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s01.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s01.rs",
         "crates/starclock-combat/src/resolver/effect_duration.rs",
         "crates/starclock-combat/src/resolver/program_effect.rs",
         "crates/starclock-combat/src/resolver/turn.rs",
@@ -622,11 +622,11 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s01.rs",
       fixtureMarker:
         "goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_ --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration remembrance_ --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -636,7 +636,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s02.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s02.rs",
         "crates/starclock-combat/src/resolver/toughness.rs",
         "crates/starclock-combat/src/resolver/target.rs",
         "crates/starclock-combat/src/resolver/program.rs",
@@ -647,12 +647,12 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s02.rs",
       fixtureMarker:
         "remembrance_shudder_selects_an_eligible_enemy_and_expires_after_two_target_turns",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s02 --all-features",
-        "cargo test -p starclock-combat --test effect_resource_pipeline --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration remembrance_s02 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite effect_resource_pipeline --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
     };
@@ -661,7 +661,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s03.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s03.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-combat/src/resolver/transaction.rs",
@@ -673,11 +673,11 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s03.rs",
       fixtureMarker:
         "lost_memory_freezes_on_the_first_attack_crossing_below_half_hp",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s03 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration remembrance_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -687,7 +687,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/remembrance_s04.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s04.rs",
         "crates/starclock-combat/src/resolver/program_effect.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-combat/src/catalog/rule_validate.rs",
@@ -698,11 +698,11 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/remembrance_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/remembrance_s04.rs",
       fixtureMarker:
         "remembrance_resonance_orders_total_eonian_damage_and_freeze",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration remembrance_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration remembrance_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -712,7 +712,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s01.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s01.rs",
         "crates/starclock-combat/src/resolver/program_effect.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-combat/src/catalog/rule_validate.rs",
@@ -723,11 +723,11 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s01.rs",
       fixtureMarker:
         "enhanced_suspicion_application_doubles_stacks_and_never_decays",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s01 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration nihility_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -737,7 +737,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s02.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s02.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
         "crates/starclock-combat/src/resolver/effect_operation.rs",
         "crates/starclock-combat/src/formula/toughness.rs",
@@ -748,12 +748,12 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s02.rs",
       fixtureMarker:
         "hell_spreads_the_triggering_break_and_random_dot_then_detonation_execute",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s02 --all-features",
-        "cargo test -p starclock-combat --test toughness_formula --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration nihility_s02 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite toughness_formula --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -763,7 +763,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s03.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s03.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
         "crates/starclock-combat/src/resolver/program_effect.rs",
         "crates/starclock-combat/src/modifier/resolve.rs",
@@ -774,13 +774,13 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s03.rs",
       fixtureMarker:
         "questioning_of_purpose_increases_a_production_initial_break_by_exactly_half",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s03 --all-features",
-        "cargo test -p starclock-combat --test modifier_pipeline --all-features",
-        "cargo test -p starclock-combat --test damage_lifecycle --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration nihility_s03 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite modifier_pipeline --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite damage_lifecycle --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
     };
@@ -789,7 +789,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/nihility_s04.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s04.rs",
         "crates/starclock-combat/src/resolver/turn.rs",
         "crates/starclock-combat/src/resolver/modifier_snapshot.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
@@ -800,11 +800,11 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/nihility_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/nihility_s04.rs",
       fixtureMarker:
         "enemy_dot_ticks_heal_the_team_restore_random_energy_and_charge_resonance",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration nihility_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration nihility_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -814,11 +814,11 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s01.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s01.rs",
         "crates/starclock-combat/src/resolver/target.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-replay/src/battle_event.rs",
-        "crates/starclock-replay/tests/battle_property_contract.rs",
+        "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-abundance-s01.md",
@@ -826,11 +826,11 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s01.rs",
       fixtureMarker:
         "goal07_p2_m05_s01_materializes_all_five_assigned_mechanics",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s01 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration abundance_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -840,11 +840,11 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s02.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s02.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/resolver/program.rs",
         "crates/starclock-combat/src/resolver/operation/sustain.rs",
-        "crates/starclock-mode-universe/tests/battle_materialization.rs",
+        "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-abundance-s02.md",
@@ -852,12 +852,12 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s02.rs",
       fixtureMarker:
         "enhanced_hp_additional_damage_executes_once_on_an_actual_attack_target",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s02 --all-features",
-        "cargo test -p starclock-mode-universe --test battle_materialization --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration abundance_s02 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite battle_materialization --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -867,7 +867,7 @@ function partitionProfile(id) {
     return {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s03.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s03.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
         "crates/starclock-combat/src/resolver/operation/sustain.rs",
         "crates/starclock-combat/src/rule/model.rs",
@@ -878,12 +878,12 @@ function partitionProfile(id) {
         "crates/starclock-combat/src/rule/model.rs",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s03.rs",
       fixtureMarker:
         "healing_action_triggers_provider_once_defense_and_break_healing",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s03 --all-features",
-        "cargo test -p starclock-mode-universe --test battle_materialization --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration abundance_s03 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite battle_materialization --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -907,9 +907,9 @@ function partitionProfile(id) {
       ],
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/abundance_s04.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s04.rs",
         "crates/starclock-combat/src/resolver/effect_operation.rs",
-        "crates/starclock-combat/tests/effect_guards.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/effect_guards.rs",
         "crates/starclock-mode-universe/src/battle_materialization.rs",
       ],
       reviewEvidence: [
@@ -919,12 +919,12 @@ function partitionProfile(id) {
         "docs/10-lifecycle-and-resolution.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/abundance_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/abundance_s04.rs",
       fixtureMarker:
         "goal07_p2_m05_s04_materializes_every_assigned_mechanic_without_native_handlers",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration abundance_s04 --all-features",
-        "cargo test -p starclock-combat --test effect_guards --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration abundance_s04 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite effect_guards --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -935,7 +935,7 @@ function partitionProfile(id) {
       completedOn: "2026-07-26",
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s01.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
         "crates/starclock-combat/src/rule/evaluate/helpers.rs",
@@ -949,11 +949,11 @@ function partitionProfile(id) {
         "docs/10-lifecycle-and-resolution.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s01.rs",
       fixtureMarker:
         "enhanced_radiant_advances_the_killer_and_grants_seven_stacks_next_turn",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s01 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration hunt_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -964,7 +964,7 @@ function partitionProfile(id) {
       completedOn: "2026-07-26",
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s02.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s01.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
@@ -977,11 +977,11 @@ function partitionProfile(id) {
         "docs/10-lifecycle-and-resolution.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s02.rs",
       fixtureMarker:
         "enhanced_starlit_and_rainbow_execute_exact_kill_energy_and_healing",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s02 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration hunt_s02 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -993,7 +993,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s03.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s03.rs",
         "crates/starclock-combat/src/resolver/turn.rs",
         "crates/starclock-combat/src/resolver/program.rs",
       ],
@@ -1004,11 +1004,11 @@ function partitionProfile(id) {
         "docs/10-lifecycle-and-resolution.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s03.rs",
       fixtureMarker:
         "thundering_chariot_and_astral_menace_use_exact_timeline_operations",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s03 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration hunt_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1020,7 +1020,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_s04.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/hunt_resonance.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s04.rs",
         "crates/starclock-combat/src/catalog/action.rs",
         "crates/starclock-combat/src/resolver/operation.rs",
         "crates/starclock-combat/src/resolver/program.rs",
@@ -1033,11 +1033,11 @@ function partitionProfile(id) {
         "docs/10-lifecycle-and-resolution.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/hunt_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/hunt_s04.rs",
       fixtureMarker:
         "complete_hunt_resonance_executes_without_fault_and_spends_one_charge",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration hunt_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration hunt_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1049,7 +1049,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s01.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/modifier/model.rs",
         "crates/starclock-combat/src/resolver/effect_operation.rs",
@@ -1062,11 +1062,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s01.rs",
       fixtureMarker:
         "enhanced_virtual_grit_and_hp_consumption_execute_in_a_real_battle",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s01 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration destruction_s01 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1125,7 +1125,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s02.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/modifier/model.rs",
       ],
@@ -1137,11 +1137,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s02.rs",
       fixtureMarker:
         "s02_rules_execute_without_fault_in_a_wounded_production_battle",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s02 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration destruction_s02 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1154,9 +1154,9 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s03.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s03.rs",
         "crates/starclock-combat/src/resolver/effect_operation.rs",
-        "crates/starclock-combat/tests/effect_guards.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/effect_guards.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-destruction-s03.md",
@@ -1166,12 +1166,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s03.rs",
       fixtureMarker:
         "defeat_guard_signals_and_heals_the_actual_lethal_target",
       testCommands: [
-        "cargo test -p starclock-combat --test effect_guards --all-features",
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s03 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite effect_guards --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration destruction_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1220,8 +1220,8 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/destruction_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
         "crates/starclock-mode-universe/src/battle_materialization/player.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s04.rs",
-        "crates/starclock-mode-universe/tests/battle_materialization.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-destruction-s04.md",
@@ -1232,12 +1232,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/destruction_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/destruction_s04.rs",
       fixtureMarker:
         "event_horizon_queues_a_free_resonance_after_a_low_hp_ally_is_attacked",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration destruction_s04 --all-features",
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration destruction_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1249,7 +1249,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s01.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
         "crates/starclock-combat/src/rule/evaluate/event_property.rs",
@@ -1271,12 +1271,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s01.rs",
       fixtureMarker:
         "random_repeated_damage_and_aftertaste_chain_execute_in_a_production_ultimate",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s01 --all-features",
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration elation_s01 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1288,7 +1288,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s02.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
@@ -1307,12 +1307,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s02.rs",
       fixtureMarker:
         "production_kafka_ultimate_drives_repeated_aoe_ramp_delay_and_skill_point_rules",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s02 --all-features",
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration elation_s02 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1325,7 +1325,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s03.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s03.rs",
         "crates/starclock-combat/src/catalog/rule_validate.rs",
         "crates/starclock-combat/src/resolver/action.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
@@ -1342,12 +1342,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s03.rs",
       fixtureMarker:
         "doctor_heals_and_lighthouse_scales_production_ultimate_energy_at_action_boundary",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s03 --all-features",
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration elation_s03 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1376,7 +1376,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/elation_s03.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/support.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s04.rs",
         "crates/starclock-combat/src/resolver/program/random_damage.rs",
         "crates/starclock-combat/src/resolver/program/resource.rs",
       ],
@@ -1391,12 +1391,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/elation_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/elation_s04.rs",
       fixtureMarker:
         "charged_complete_resonance_spends_all_energy_and_emits_repeated_elation_damage",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration elation_s04 --all-features",
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration elation_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1421,10 +1421,10 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s01.rs",
         "crates/starclock-combat/src/resolver/program/random_grouped_effect.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
-        "crates/starclock-combat/tests/ability_program_execution.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-propagation-s01.md",
@@ -1437,12 +1437,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s01.rs",
       fixtureMarker:
         "recovered_skill_point_applies_one_spore_to_each_of_two_random_enemies",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s01 --all-features",
-        "cargo test -p starclock-combat --test ability_program_execution random_grouped_effect::selects_without_replacement_inside_each_group --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration propagation_s01 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite ability_program_execution random_grouped_effect::selects_without_replacement_inside_each_group --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1469,7 +1469,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/support.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s02.rs",
         "crates/starclock-combat/src/catalog/selector.rs",
         "crates/starclock-combat/src/resolver/target.rs",
         "crates/starclock-combat/src/rule/model.rs",
@@ -1487,11 +1487,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s02.rs",
       fixtureMarker:
         "basic_attack_executes_one_random_adjacent_additional_damage_event",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s02 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration propagation_s02 --all-features",
         "cargo test -p starclock-mode-universe --lib battle_rule_lowering::support::tests --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
@@ -1506,7 +1506,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/support.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s03.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-propagation-s03.md",
@@ -1519,11 +1519,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s03.rs",
       fixtureMarker:
         "compound_eye_recovers_one_extra_team_skill_point_after_an_ally_turn",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s03 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration propagation_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1536,7 +1536,7 @@ function partitionProfile(id) {
         "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s04.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering/propagation_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s04.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate.rs",
         "crates/starclock-combat/src/resolver/program.rs",
@@ -1555,11 +1555,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/propagation_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/propagation_s04.rs",
       fixtureMarker:
         "charged_resonance_advances_one_ally_applies_latest_metamorphosis_and_recharges_from_sp_gain",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration propagation_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration propagation_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1584,12 +1584,12 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s01.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s01.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate/event_property.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-combat/src/resolver/operation_formula.rs",
-        "crates/starclock-combat/tests/damage_lifecycle.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-erudition-s01.md",
@@ -1602,12 +1602,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s01.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s01.rs",
       fixtureMarker:
         "gray_matter_grants_full_entry_charge_and_one_non_recursive_extra_ultimate",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s01 --all-features",
-        "cargo test -p starclock-combat --test damage_lifecycle source_resistance_stage_is_applied_as_ordinary_damage_penetration --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration erudition_s01 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite damage_lifecycle source_resistance_stage_is_applied_as_ordinary_damage_penetration --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1619,11 +1619,11 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s02.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s02.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/rule/evaluate/helpers.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
-        "crates/starclock-combat/tests/rule_ir_contract.rs",
+        "crates/starclock-test-kit/tests/suites/core/combat/rule_ir_contract.rs",
       ],
       reviewEvidence: [
         "docs/goal-07-erudition-s02.md",
@@ -1636,12 +1636,12 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s02.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s02.rs",
       fixtureMarker:
         "goal07_p2_m10_s02_materializes_all_assigned_rules_without_native_handlers",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s02 --all-features",
-        "cargo test -p starclock-combat --test rule_ir_contract --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration erudition_s02 --all-features",
+        "cargo test -p starclock-test-kit --test combat_suite rule_ir_contract --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1653,7 +1653,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s03.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s03.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-combat/src/effect/model.rs",
@@ -1669,11 +1669,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s03.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s03.rs",
       fixtureMarker:
         "ultimate_arms_exact_next_attack_boost_and_the_attack_consumes_it",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s03 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration erudition_s03 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],
@@ -1685,7 +1685,7 @@ function partitionProfile(id) {
       executionEvidence: [
         "crates/starclock-mode-universe/src/battle_rule_lowering/erudition_s04.rs",
         "crates/starclock-mode-universe/src/battle_rule_lowering.rs",
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s04.rs",
         "crates/starclock-combat/src/rule/model.rs",
         "crates/starclock-combat/src/resolver/rule.rs",
         "crates/starclock-combat/src/resolver/program.rs",
@@ -1702,11 +1702,11 @@ function partitionProfile(id) {
         "docs/12-modifier-and-snapshot-pipeline.md",
       ],
       fixturePath:
-        "crates/starclock-mode-universe/tests/mechanic_battle_integration/erudition_s04.rs",
+        "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/erudition_s04.rs",
       fixtureMarker:
         "complete_erudition_resonance_applies_fifteen_shared_synapse_triggers",
       testCommands: [
-        "cargo test -p starclock-mode-universe --test mechanic_battle_integration erudition_s04 --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration erudition_s04 --all-features",
         "cargo test -p starclock-combat --all-features",
         "cargo test -p starclock-replay --all-features",
       ],

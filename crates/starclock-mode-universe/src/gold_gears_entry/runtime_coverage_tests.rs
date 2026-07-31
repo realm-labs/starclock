@@ -1,11 +1,7 @@
-use std::sync::OnceLock;
-
 use super::{
     GOLD_AND_GEARS_RUNTIME_COVERAGE_REVISION, GoldAndGearsEntryError, GoldAndGearsRuntimeFactory,
     runtime_coverage::{category_contract, validate_exact_ids, validate_exact_rule_bindings},
 };
-
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 
 #[test]
 fn production_factory_closes_all_three_frozen_denominators_exactly_once() {
@@ -70,8 +66,7 @@ fn source_contract_rejects_unknown_categories_and_mixed_count_drift() {
 }
 
 fn factory() -> &'static GoldAndGearsRuntimeFactory {
-    static FACTORY: OnceLock<GoldAndGearsRuntimeFactory> = OnceLock::new();
-    FACTORY.get_or_init(|| GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap())
+    super::tests::shared_factory()
 }
 
 fn hex(bytes: [u8; 32]) -> String {

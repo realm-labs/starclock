@@ -19,19 +19,21 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn neural_partition_binds_exactly_forty_rules_to_production_executors() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, all_neural(&factory));
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, all_neural(factory));
     let bindings = instance.neural_rule_bindings();
     assert_eq!(bindings.len(), 40);
-    assert!(bindings.windows(2).all(
-        |pair| source(&factory, pair[0].owner_node()) < source(&factory, pair[1].owner_node())
-    ));
+    assert!(
+        bindings
+            .windows(2)
+            .all(|pair| source(factory, pair[0].owner_node())
+                < source(factory, pair[1].owner_node()))
+    );
     assert!(
         bindings
             .iter()
@@ -78,24 +80,21 @@ fn neural_partition_binds_exactly_forty_rules_to_production_executors() {
 
 #[test]
 fn all_forty_nodes_compile_exact_costs_and_immutable_battle_contributions() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.neural.denominators(), (40, 30, 31_250));
     assert_eq!(
         GOLD_AND_GEARS_NEURAL_RUNTIME_REVISION,
         "gold-and-gears-neural-runtime-v1"
     );
 
-    let mut selected = all_neural(&factory);
+    let mut selected = all_neural(factory);
     selected.reverse();
-    let instance = compile(&factory, selected);
+    let instance = compile(factory, selected);
     let contributions = instance.neural_battle_stat_contributions();
     assert_eq!(contributions.len(), 30);
-    assert!(
-        contributions
-            .windows(2)
-            .all(|pair| source(&factory, pair[0].source_node())
-                < source(&factory, pair[1].source_node()))
-    );
+    assert!(contributions.windows(2).all(
+        |pair| source(factory, pair[0].source_node()) < source(factory, pair[1].source_node())
+    ));
     assert!(
         contributions
             .iter()
@@ -128,7 +127,7 @@ fn all_forty_nodes_compile_exact_costs_and_immutable_battle_contributions() {
         ]
     );
 
-    let duplicate = compile(&factory, all_neural(&factory));
+    let duplicate = compile(factory, all_neural(factory));
     assert_eq!(
         instance.neural_contribution_digest(),
         duplicate.neural_contribution_digest(),
@@ -138,8 +137,8 @@ fn all_forty_nodes_compile_exact_costs_and_immutable_battle_contributions() {
 
 #[test]
 fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let root = key(&factory, "101");
+    let factory = super::tests::shared_factory();
+    let root = key(factory, "101");
     let root_plan = factory.compile_neural_acquisition(&[], &root, 500).unwrap();
     assert_eq!(root_plan.node(), root);
     assert_eq!(root_plan.source_item_id(), 281_013);
@@ -155,7 +154,7 @@ fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
         }
     );
 
-    let reboot = key(&factory, "201");
+    let reboot = key(factory, "201");
     assert!(matches!(
         factory
             .compile_neural_acquisition(&[], &reboot, 600)
@@ -163,7 +162,7 @@ fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
         GoldAndGearsEntryError::MissingNeuralPrerequisite { .. }
     ));
     let prerequisites = ["101", "102", "103"]
-        .map(|source| key(&factory, source))
+        .map(|source| key(factory, source))
         .to_vec();
     let reboot_plan = factory
         .compile_neural_acquisition(&prerequisites, &reboot, 1_000)
@@ -174,7 +173,7 @@ fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
     let duplicate = vec![root.clone(), root.clone()];
     assert_eq!(
         factory
-            .compile_neural_acquisition(&duplicate, &key(&factory, "102"), 250)
+            .compile_neural_acquisition(&duplicate, &key(factory, "102"), 250)
             .unwrap_err(),
         GoldAndGearsEntryError::DuplicateNeuralNode(root.clone().into())
     );
@@ -188,8 +187,8 @@ fn acquisition_plan_enforces_currency_prerequisites_closure_and_exact_cost() {
 
 #[test]
 fn activity_service_and_dice_effects_execute_at_their_declared_boundaries() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, all_neural(&factory));
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, all_neural(factory));
     assert_eq!(instance.neural_blessing_store_offer_count(), 3);
     assert_eq!(
         instance
@@ -233,18 +232,18 @@ fn activity_service_and_dice_effects_execute_at_their_declared_boundaries() {
         GoldAndGearsEntryError::InvalidPlaneLayer
     );
 
-    let baseline_bonus = bonus(&factory, "201");
+    let baseline_bonus = bonus(factory, "201");
     factory
         .compile_entry(
-            entry(&factory, AREA, PATH, &factory.unique.dice[0])
+            entry(factory, AREA, PATH, &factory.unique.dice[0])
                 .with_trailblaze_bonus(baseline_bonus),
         )
         .expect("three baseline bonuses require no Neural unlock");
-    let locked = bonus(&factory, "204");
+    let locked = bonus(factory, "204");
     assert_eq!(
         factory
             .compile_entry(
-                entry(&factory, AREA, PATH, &factory.unique.dice[0],)
+                entry(factory, AREA, PATH, &factory.unique.dice[0],)
                     .with_trailblaze_bonus(locked.clone()),
             )
             .unwrap_err(),
@@ -254,11 +253,11 @@ fn activity_service_and_dice_effects_execute_at_their_declared_boundaries() {
 
 #[test]
 fn reboot_plane_projects_four_non_boss_entries_and_rejects_stale_accounting() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let selected = ["101", "102", "103", "201"]
-        .map(|source| key(&factory, source))
+        .map(|source| key(factory, source))
         .to_vec();
-    let instance = compile(&factory, selected);
+    let instance = compile(factory, selected);
     let eligible = GoldAndGearsNeuralBattleEntryContext::new(1, false, true);
     let mut state = new_state(&instance);
     assert!(
@@ -294,7 +293,7 @@ fn reboot_plane_projects_four_non_boss_entries_and_rejects_stale_accounting() {
             .compile_neural_battle_entry(&state, eligible)
             .unwrap()
             .unwrap();
-        assert_eq!(effect.source_node(), key(&factory, "201"));
+        assert_eq!(effect.source_node(), key(factory, "201"));
         assert_eq!(effect.target_max_hp_ratio_scaled(), 990_000);
         commit(&instance, &mut state, effect.accounting_program().clone());
         assert_eq!(
@@ -332,11 +331,11 @@ fn reboot_plane_projects_four_non_boss_entries_and_rejects_stale_accounting() {
 
 #[test]
 fn production_program_matches_the_neural_network_effect_semantic_fixture() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let selected = ["101", "102", "103", "201"]
-        .map(|source| key(&factory, source))
+        .map(|source| key(factory, source))
         .to_vec();
-    let instance = compile(&factory, selected);
+    let instance = compile(factory, selected);
     let state = new_state(&instance);
     let effect = instance
         .compile_neural_battle_entry(
@@ -359,8 +358,8 @@ fn production_program_matches_the_neural_network_effect_semantic_fixture() {
 
 #[test]
 fn all_forty_neural_rules_execute_through_the_production_fixture() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, all_neural(&factory));
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, all_neural(factory));
     assert_eq!(instance.neural_rule_bindings().len(), 40);
     assert_eq!(instance.neural_battle_stat_contributions().len(), 30);
     assert_eq!(

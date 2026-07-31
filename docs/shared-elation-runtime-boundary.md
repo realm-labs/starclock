@@ -78,7 +78,7 @@ tables and grant zero production coverage:
 - `config/probes/v1a/yao-guang-elation/golden.json`
 
 `crates/starclock-data/src/probe_tests.rs` proves the typed Rule IR and generated
-lowering. `crates/starclock-combat/tests/elation_subsystem.rs` proves the
+lowering. `crates/starclock-test-kit/tests/suites/core/combat/elation_subsystem.rs` proves the
 authoritative provider/actor split, capped team resource, substitute/suppressed
 costs, forced Skill execution, independent tags/damage class and generic shared
 actor selection.

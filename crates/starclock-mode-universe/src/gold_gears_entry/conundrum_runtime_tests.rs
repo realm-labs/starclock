@@ -13,12 +13,11 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_twelve_levels_compile_with_independent_caps() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(factory.conundrum.denominators(), (12, 6, 6));
     assert_eq!(
         GOLD_AND_GEARS_CONUNDRUM_RUNTIME_REVISION,
@@ -30,12 +29,12 @@ fn all_twelve_levels_compile_with_independent_caps() {
     );
 
     for stats in 0..=6 {
-        let instance = compile(&factory, stats, 0);
+        let instance = compile(factory, stats, 0);
         assert_eq!(instance.stats_conundrum(), stats);
         assert_eq!(instance.auxiliary_conundrum(), 0);
     }
     for auxiliary in 0..=6 {
-        let instance = compile(&factory, 0, auxiliary);
+        let instance = compile(factory, 0, auxiliary);
         assert_eq!(instance.stats_conundrum(), 0);
         assert_eq!(instance.auxiliary_conundrum(), auxiliary);
         assert_eq!(
@@ -43,12 +42,12 @@ fn all_twelve_levels_compile_with_independent_caps() {
             usize::from(auxiliary)
         );
     }
-    assert_eq!(compile(&factory, 6, 6).conundrum_contributions().len(), 9);
+    assert_eq!(compile(factory, 6, 6).conundrum_contributions().len(), 9);
 }
 
 #[test]
 fn stats_replaces_only_the_prior_stat_tier() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let expected = [
         Vec::<&str>::new(),
         vec!["stats.1"],
@@ -59,7 +58,7 @@ fn stats_replaces_only_the_prior_stat_tier() {
         vec!["stats.3", "stats.5", "stats.6"],
     ];
     for (level, expected_suffixes) in expected.iter().enumerate() {
-        let instance = compile(&factory, u8::try_from(level).unwrap(), 0);
+        let instance = compile(factory, u8::try_from(level).unwrap(), 0);
         let actual = instance
             .conundrum_contributions()
             .iter()
@@ -74,7 +73,7 @@ fn stats_replaces_only_the_prior_stat_tier() {
         );
     }
 
-    let level_six = compile(&factory, 6, 0);
+    let level_six = compile(factory, 6, 0);
     assert!(matches!(
         level_six.conundrum_contributions()[0].effect(),
         GoldAndGearsConundrumEffect::EnhancedBerserk
@@ -92,12 +91,12 @@ fn stats_replaces_only_the_prior_stat_tier() {
 
 #[test]
 fn auxiliary_effects_are_cumulative_and_change_initial_state() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let level_three = compile(&factory, 0, 3);
+    let factory = super::tests::shared_factory();
+    let level_three = compile(factory, 0, 3);
     assert_eq!(level_three.conundrum_blessing_reset_cost_delta(), 20);
     assert_eq!(level_three.conundrum_initial_countdown_delta(), 0);
 
-    let level_six = compile(&factory, 0, 6);
+    let level_six = compile(factory, 0, 6);
     assert_eq!(level_six.conundrum_blessing_reset_cost_delta(), 20);
     assert_eq!(level_six.conundrum_initial_countdown_delta(), -1);
     assert_eq!(level_six.conundrum_negative_curios_per_plane(), 1);
@@ -115,7 +114,7 @@ fn auxiliary_effects_are_cumulative_and_change_initial_state() {
         0
     );
 
-    let level_two = compile(&factory, 0, 2);
+    let level_two = compile(factory, 0, 2);
     assert_eq!(
         initial_counter(
             &level_two,
@@ -132,9 +131,9 @@ fn auxiliary_effects_are_cumulative_and_change_initial_state() {
 
 #[test]
 fn berserk_policy_is_explicit_monotone_and_stored_in_activity_state() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let base = compile(&factory, 2, 0);
-    let enhanced = compile(&factory, 3, 0);
+    let factory = super::tests::shared_factory();
+    let base = compile(factory, 2, 0);
+    let enhanced = compile(factory, 3, 0);
     let base_policy = base.conundrum_berserk_policy();
     let enhanced_policy = enhanced.conundrum_berserk_policy();
 
@@ -162,9 +161,9 @@ fn berserk_policy_is_explicit_monotone_and_stored_in_activity_state() {
 
 #[test]
 fn policy_projection_and_composition_have_stable_digests() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let first = compile(&factory, 6, 6);
-    let second = compile(&factory, 6, 6);
+    let factory = super::tests::shared_factory();
+    let first = compile(factory, 6, 6);
+    let second = compile(factory, 6, 6);
     assert_eq!(
         first.conundrum_contribution_digest(),
         second.conundrum_contribution_digest()
@@ -178,7 +177,7 @@ fn policy_projection_and_composition_have_stable_digests() {
     );
     assert_ne!(
         first.conundrum_contribution_digest(),
-        compile(&factory, 5, 6).conundrum_contribution_digest()
+        compile(factory, 5, 6).conundrum_contribution_digest()
     );
 
     let enemy = first
@@ -196,7 +195,7 @@ fn policy_projection_and_composition_have_stable_digests() {
 
 #[test]
 fn numeric_policy_binds_every_unpublished_field_without_claiming_parity() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(
         GOLD_AND_GEARS_CONUNDRUM_POLICY_ACCURACY,
         "DeterministicProjectPolicyNotObservedParity"
@@ -233,7 +232,7 @@ fn numeric_policy_binds_every_unpublished_field_without_claiming_parity() {
             100_000,
         ),
     ] {
-        let instance = compile(&factory, level, 0);
+        let instance = compile(factory, level, 0);
         let policy = instance
             .conundrum_contributions()
             .iter()
@@ -253,7 +252,7 @@ fn numeric_policy_binds_every_unpublished_field_without_claiming_parity() {
         );
     }
 
-    let response = compile(&factory, 5, 0)
+    let response = compile(factory, 5, 0)
         .conundrum_contributions()
         .iter()
         .find_map(|contribution| match contribution.effect() {

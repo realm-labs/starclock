@@ -13,17 +13,17 @@
     {
       "id": "replay-property-and-malformed-corpora",
       "program": "cargo",
-      "args": ["test", "-p", "starclock-replay", "--test", "property_contract", "--test", "battle_property_contract", "--test", "activity_replay", "--test", "nested_identity_v3", "--test", "component_identity", "--all-features"]
+      "args": ["test", "-p", "starclock-test-kit", "--test", "exhaustive_suite", "replay", "--all-features"]
     },
     {
       "id": "agent-property-corruption-and-rollback",
       "program": "cargo",
-      "args": ["test", "-p", "starclock-agent-api", "--test", "schema_property_contract", "--test", "hardening_corpus", "--test", "activity_session_loop", "--all-features"]
+      "args": ["test", "-p", "starclock-test-kit", "--test", "exhaustive_suite", "agent_", "--all-features"]
     },
     {
       "id": "mcp-native-surface-parity",
       "program": "cargo",
-      "args": ["test", "-p", "starclock-mcp", "--test", "universe_surface_parity", "--test", "http_conformance", "--all-features"]
+      "args": ["test", "-p", "starclock-test-kit", "--test", "adapter_suite", "mcp", "--all-features"]
     }
   ],
   "matrix": {
@@ -59,15 +59,15 @@
     "macos-x64-compile"
   ],
   "source_targets": [
-    "crates/starclock-replay/tests/property_contract.rs",
-    "crates/starclock-replay/tests/battle_property_contract.rs",
-    "crates/starclock-replay/tests/activity_replay.rs",
-    "crates/starclock-agent-api/tests/schema_property_contract.rs",
-    "crates/starclock-agent-api/tests/hardening_corpus.rs",
-    "crates/starclock-agent-api/tests/activity_session_loop.rs",
-    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+    "crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs",
+    "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs",
+    "crates/starclock-test-kit/tests/suites/activity/replay/activity_replay.rs",
+    "crates/starclock-test-kit/tests/suites/exhaustive/agent_api/schema_property_contract.rs",
+    "crates/starclock-test-kit/tests/suites/exhaustive/agent_api/hardening_corpus.rs",
+    "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs",
+    "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
     "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs",
-    "crates/starclock-mcp/tests/universe_surface_parity.rs"
+    "crates/starclock-test-kit/tests/suites/adapter/mcp/universe_surface_parity.rs"
   ],
   "contracts": {
     "native_profiles_execute_the_same_goal07_gate": true,

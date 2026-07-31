@@ -263,19 +263,19 @@ const executionEvidence = [
   { path: "crates/starclock-combat/src/effect/model.rs" },
   { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
   { path: "crates/starclock-combat/src/resolver/turn.rs" },
-  { path: "crates/starclock-combat/tests/enemy_orchestration.rs" },
-  { path: "crates/starclock-combat/tests/forced_control.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/core/combat/enemy_orchestration.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/core/combat/forced_control.rs" },
   { path: "crates/starclock-mode-universe/src/battle_materialization.rs" },
   { path: "crates/starclock-mode-universe/src/battle_materialization/battle_spec.rs" },
   { path: "crates/starclock-mode-universe/src/battle_materialization/catalog_composition.rs" },
-  { path: "crates/starclock-mode-universe/tests/battle_materialization.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization.rs" },
 ];
 if (partitionId === "G07-P5-M15-S02") {
   executionEvidence.push(
     { path: "config/schema/selector.toml" },
     { path: "crates/starclock-data/src/selector_lower.rs" },
     { path: "crates/starclock-data/src/operation_lower.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/direwolf_s02.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/direwolf_s02.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S03") {
@@ -283,11 +283,11 @@ if (partitionId === "G07-P5-M15-S03") {
     { path: "crates/starclock-data/src/operation_lower.rs" },
     { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
     { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
-    { path: "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs" },
-    { path: "crates/starclock-mode-universe/tests/encounter_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/entry_compilation.rs" },
-    { path: "crates/starclock-mode-universe/tests/topology_runtime.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/grizzly_s03.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/entry_compilation.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/grizzly_s03.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S04") {
@@ -297,7 +297,7 @@ if (partitionId === "G07-P5-M15-S04") {
     { path: "crates/starclock-combat/src/resolver/effect_boundary.rs" },
     { path: "crates/starclock-combat/src/resolver/rule.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/blaze_s04.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/blaze_s04.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S05") {
@@ -307,7 +307,7 @@ if (partitionId === "G07-P5-M15-S05") {
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/yanqing_s05.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/yanqing_s05.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S06") {
@@ -316,7 +316,7 @@ if (partitionId === "G07-P5-M15-S06") {
     { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/cocolia_s06.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/cocolia_s06.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S07") {
@@ -326,7 +326,7 @@ if (partitionId === "G07-P5-M15-S07") {
     { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/gepard_s07.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/gepard_s07.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S08") {
@@ -337,7 +337,7 @@ if (partitionId === "G07-P5-M15-S08") {
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/ice_out_of_space_s08.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/ice_out_of_space_s08.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S09") {
@@ -348,7 +348,7 @@ if (partitionId === "G07-P5-M15-S09") {
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/something_unto_death_s09.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/something_unto_death_s09.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S10") {
@@ -359,7 +359,7 @@ if (partitionId === "G07-P5-M15-S10") {
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/rule.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/stellaron_hunter_kafka_s10.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/stellaron_hunter_kafka_s10.rs" },
   );
 }
 if (partitionId === "G07-P5-M15-S11") {
@@ -371,7 +371,7 @@ if (partitionId === "G07-P5-M15-S11") {
     { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
     { path: "crates/starclock-combat/src/resolver/program.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/svarog_s11.rs" },
+    { path: "crates/starclock-test-kit/tests/suites/universe/battle_materialization/svarog_s11.rs" },
   );
 }
 if (
@@ -388,7 +388,7 @@ if (
     { path: "crates/starclock-mode-universe/src/catalog.rs" },
     {
       path:
-        `crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_${partitionId.slice(-3).toLowerCase()}.rs`,
+        `crates/starclock-test-kit/tests/suites/universe/battle_materialization/ordinary_enemies_${partitionId.slice(-3).toLowerCase()}.rs`,
     },
   );
 }
@@ -548,7 +548,7 @@ const receipt = {
       provenance_evidence: encounterGroupEvidence,
       execution_kind: "RustTest",
       test_path:
-        `crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_${ordinaryBatchSlug}.rs`,
+        `crates/starclock-test-kit/tests/suites/universe/battle_materialization/ordinary_enemies_${ordinaryBatchSlug}.rs`,
       test_marker:
         `ordinary_enemy_batch_${ordinaryBatchSlug}_materializes_all_frozen_variants_and_level_rows`,
     };
@@ -623,9 +623,9 @@ const receipt = {
     commands: [
       `python tools/goal07/author-enemy-partition.py --partition ${partitionId} --check`,
       "node tools/config-production/verify.mjs",
-      "cargo test -p starclock-combat --test enemy_orchestration",
-      "cargo test -p starclock-combat --test forced_control",
-      "cargo test -p starclock-mode-universe --test battle_materialization",
+      "cargo test -p starclock-test-kit --test combat_suite enemy_orchestration",
+      "cargo test -p starclock-test-kit --test combat_suite forced_control",
+      "cargo test -p starclock-test-kit --test universe_suite battle_materialization",
       `node tools/goal07/verify-content-partition.mjs --partition ${partitionId}`,
       "node tools/repository-check/run.mjs",
     ],

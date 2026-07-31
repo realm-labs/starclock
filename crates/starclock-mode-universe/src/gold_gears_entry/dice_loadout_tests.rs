@@ -10,17 +10,16 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn all_default_loadouts_and_recommendation_pools_are_legal() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
 
     for dice in &factory.unique.dice {
         let instance = factory
-            .compile_entry(entry(&factory, AREA, PATH, dice))
+            .compile_entry(entry(factory, AREA, PATH, dice))
             .expect("released default loadout");
         assert_eq!(
             instance.dice_slot_max_rarities().collect::<Vec<_>>(),
@@ -51,7 +50,7 @@ fn all_default_loadouts_and_recommendation_pools_are_legal() {
 
 #[test]
 fn face_unlock_groups_fail_closed_until_their_dice_are_unlocked() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let default_dice = factory
         .unique
         .dice
@@ -59,7 +58,7 @@ fn face_unlock_groups_fail_closed_until_their_dice_are_unlocked() {
         .find(|dice| dice.available_by_default)
         .unwrap();
     factory
-        .compile_entry(entry(&factory, AREA, PATH, default_dice).with_unlocked_dice(vec![]))
+        .compile_entry(entry(factory, AREA, PATH, default_dice).with_unlocked_dice(vec![]))
         .expect("baseline dice and its face group are implicitly unlocked");
 
     let locked_dice = factory
@@ -73,14 +72,14 @@ fn face_unlock_groups_fail_closed_until_their_dice_are_unlocked() {
         default_dice.identity.source_id.as_ref(),
         locked_dice.identity.source_id.as_ref(),
     ]);
-    let locked_face = default_faces(&factory, locked_dice)
+    let locked_face = default_faces(factory, locked_dice)
         .into_iter()
         .find(|face| !unlocked_sources.contains(face.unlock_display_source.as_ref()))
         .expect("dice 102 proves cross-dice face unlock closure");
     assert_eq!(
         factory
             .compile_entry(
-                entry(&factory, AREA, PATH, locked_dice)
+                entry(factory, AREA, PATH, locked_dice)
                     .with_unlocked_dice(vec![locked_dice.identity.stable_key.to_string()])
             )
             .unwrap_err(),
@@ -88,13 +87,13 @@ fn face_unlock_groups_fail_closed_until_their_dice_are_unlocked() {
     );
 
     factory
-        .compile_entry(entry(&factory, AREA, PATH, locked_dice))
+        .compile_entry(entry(factory, AREA, PATH, locked_dice))
         .expect("all-released unlock profile closes every default face");
 }
 
 #[test]
 fn neural_nodes_upgrade_slots_five_three_then_six_in_policy_order() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let cases = [
         (0, vec![3, 3, 2, 2, 1, 1]),
@@ -112,7 +111,7 @@ fn neural_nodes_upgrade_slots_five_three_then_six_in_policy_order() {
             .map(|node| node.identity.stable_key.to_string())
             .collect();
         let instance = factory
-            .compile_entry(entry(&factory, AREA, PATH, dice).with_neural_network(neural))
+            .compile_entry(entry(factory, AREA, PATH, dice).with_neural_network(neural))
             .expect("topological Neural prefix");
         assert_eq!(
             instance.dice_slot_max_rarities().collect::<Vec<_>>(),
@@ -123,7 +122,7 @@ fn neural_nodes_upgrade_slots_five_three_then_six_in_policy_order() {
 
 #[test]
 fn upgraded_rarity_and_color_constraints_change_entry_legality_and_state() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     let dice = &factory.unique.dice[0];
     let all_neural = factory
         .unique
@@ -132,7 +131,7 @@ fn upgraded_rarity_and_color_constraints_change_entry_legality_and_state() {
         .map(|node| node.identity.stable_key.to_string())
         .collect::<Vec<_>>();
     let upgraded = factory
-        .compile_entry(entry(&factory, AREA, PATH, dice).with_neural_network(all_neural.clone()))
+        .compile_entry(entry(factory, AREA, PATH, dice).with_neural_network(all_neural.clone()))
         .unwrap();
     let selected = upgraded.dice_faces().map(str::to_owned).collect::<Vec<_>>();
     let rarity_three = upgraded
@@ -140,7 +139,7 @@ fn upgraded_rarity_and_color_constraints_change_entry_legality_and_state() {
         .unwrap()
         .find(|candidate| {
             !selected.iter().any(|selected| selected == candidate)
-                && face(&factory, candidate).rarity == 3
+                && face(factory, candidate).rarity == 3
         })
         .expect("upgraded third slot has an additional rarity-three face");
     let mut upgraded_faces = selected.clone();
@@ -148,14 +147,13 @@ fn upgraded_rarity_and_color_constraints_change_entry_legality_and_state() {
 
     assert_eq!(
         factory
-            .compile_entry(entry_with_faces(&factory, dice, upgraded_faces.clone()))
+            .compile_entry(entry_with_faces(factory, dice, upgraded_faces.clone()))
             .unwrap_err(),
         GoldAndGearsEntryError::DiceFaceRarityMismatch(rarity_three.into())
     );
     let accepted = factory
         .compile_entry(
-            entry_with_faces(&factory, dice, upgraded_faces)
-                .with_neural_network(all_neural.clone()),
+            entry_with_faces(factory, dice, upgraded_faces).with_neural_network(all_neural.clone()),
         )
         .expect("slot-three Neural upgrade raises the effective cap");
     let loadout = accepted
@@ -175,14 +173,14 @@ fn upgraded_rarity_and_color_constraints_change_entry_legality_and_state() {
             .collect::<Vec<_>>(),
         [3, 3, 3, 2, 2, 2]
     );
-    let color_limited = face(&factory, &selected[0]);
+    let color_limited = face(factory, &selected[0]);
     assert_eq!(color_limited.rarity, 3);
     let mut wrong_color = selected;
     wrong_color.swap(0, 3);
     assert_eq!(
         factory
             .compile_entry(
-                entry_with_faces(&factory, dice, wrong_color).with_neural_network(all_neural)
+                entry_with_faces(factory, dice, wrong_color).with_neural_network(all_neural)
             )
             .unwrap_err(),
         GoldAndGearsEntryError::DiceFaceRarityMismatch(color_limited.identity.stable_key.clone())

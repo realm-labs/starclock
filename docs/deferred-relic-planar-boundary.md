@@ -33,7 +33,7 @@ crate receives no relic/planar family, slot, set, affix, piece or boundary type.
 The workspace dependency verifier continues to enforce the one-way
 `starclock-build -> starclock-combat` edge.
 
-[`relic_boundary.rs`](../crates/starclock-build/tests/relic_boundary.rs) pins
+[`relic_boundary.rs`](../crates/starclock-test-kit/tests/suites/core/build/relic_boundary.rs) pins
 the empty revision, zero count, incompatible-revision rejection and complete
 six-slot family mapping. The existing build-identity golden proves the empty
 boundary participates in the normalized build digest.

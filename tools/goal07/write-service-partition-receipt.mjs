@@ -57,9 +57,9 @@ const executionEvidence = [
   { path: "crates/starclock-mode-universe/src/topology.rs" },
   { path: "crates/starclock-mode-universe/src/universe_replay_v2.rs" },
   { path: "crates/starclock-mode-universe/src/universe_replay_v3.rs" },
-  { path: "crates/starclock-mode-universe/tests/service_effect_runtime.rs" },
-  { path: "crates/starclock-mode-universe/tests/service_interaction_runtime.rs" },
-  { path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/service_effect_runtime.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/service_interaction_runtime.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/service_reviver_runtime.rs" },
 ];
 const commonMarker =
   "goal07_p4_m14_s01_executes_every_non_reviver_service_through_activity";
@@ -133,13 +133,13 @@ const receipt = {
     commands: [
       `python tools/goal07/author-service-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      "cargo test -p starclock-mode-universe --test service_effect_runtime --all-features",
-      "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
-      "cargo test -p starclock-mode-universe --test service_reviver_runtime --all-features",
+      "cargo test -p starclock-test-kit --test universe_suite service_effect_runtime --all-features",
+      "cargo test -p starclock-test-kit --test universe_suite service_interaction_runtime --all-features",
+      "cargo test -p starclock-test-kit --test universe_suite service_reviver_runtime --all-features",
       "cargo test -p starclock-mode-universe --all-features",
-      "cargo test -p starclock-agent-api --test activity_session_loop --all-features",
+      "cargo test -p starclock-test-kit --test adapter_suite activity_session_loop --all-features",
       "cargo test -p starclock-cli --test universe_cli --all-features",
-      "cargo test -p starclock-mcp --test universe_surface_parity --all-features",
+      "cargo test -p starclock-test-kit --test adapter_suite universe_surface_parity --all-features",
     ],
     goldens: [evidence(golden)],
   },
@@ -162,13 +162,13 @@ if (write) {
 function fixtureEvidence(id) {
   if (id === "universe.fixture.service.reviver") {
     return {
-      test_path: "crates/starclock-mode-universe/tests/service_reviver_runtime.rs",
+      test_path: "crates/starclock-test-kit/tests/suites/universe/service_reviver_runtime.rs",
       test_marker:
         "goal07_p4_m14_s01_reviver_restores_defeated_battle_carry_atomically",
     };
   }
   return {
-    test_path: "crates/starclock-mode-universe/tests/service_interaction_runtime.rs",
+    test_path: "crates/starclock-test-kit/tests/suites/universe/service_interaction_runtime.rs",
     test_marker: commonMarker,
   };
 }

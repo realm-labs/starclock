@@ -18,6 +18,12 @@ const policyPath = "policy/goal07-native-release.json";
 const evidencePath =
   "evidence/standard-universe-mechanics-complete-v1/hardening/native-release.json";
 const policy = json(policyPath);
+const completionCommit = json("policy/release-snapshots.json").goals.find(
+  ({ goal_id }) => goal_id === policy.goal_id,
+)?.completion_commit;
+assert(/^[0-9a-f]{40}$/u.test(completionCommit ?? ""),
+  "Goal 07 completion snapshot is missing");
+const historicalPolicy = JSON.parse(gitText(`${completionCommit}:${policyPath}`));
 assert(policy.schema_revision === "starclock.goal07-native-release.v1",
   "unexpected Goal 07 native-release policy revision");
 assert(policy.batch === "G07-P7-B2", "unexpected Goal 07 native-release batch");
@@ -109,15 +115,17 @@ assert(evidence.schema_revision ===
 assert(equal(evidence.corpora, policy.corpora)
   && equal(evidence.contracts, policy.contracts),
 "Goal 07 native corpus/contract evidence drift");
-assert(evidence.policy_sha256 === sha256(policyPath)
-  && evidence.workflow_sha256 === sha256(".github/workflows/ci.yml")
-  && evidence.matrix_evidence_sha256 === sha256(policy.matrix.evidence),
+assert(evidence.policy_sha256 === digest(gitBytes(`${completionCommit}:${policyPath}`))
+  && evidence.workflow_sha256 ===
+    digest(gitBytes(`${completionCommit}:.github/workflows/ci.yml`))
+  && evidence.matrix_evidence_sha256 ===
+    digest(gitBytes(`${completionCommit}:${historicalPolicy.matrix.evidence}`)),
 "Goal 07 native policy/workflow/matrix evidence drift");
 assert(evidence.local_execution.elapsed_ms <= policy.wall_budget_seconds * 1_000,
   "recorded Goal 07 native release exceeded its wall budget");
 validateMatrix(evidence.local_execution.matrix);
-for (const target of policy.source_targets)
-  assert(evidence.source_sha256[target] === sha256(target),
+for (const target of historicalPolicy.source_targets)
+  assert(evidence.source_sha256[target] === digest(gitBytes(`${completionCommit}:${target}`)),
     `Goal 07 native source evidence drift: ${target}`);
 assert(evidence.native_profiles.length === 3
   && evidence.compile_only_profiles.length === 3
@@ -153,12 +161,12 @@ function execute(command) {
   };
 }
 function verifyCorpusSources() {
-  const replay = text("crates/starclock-replay/tests/property_contract.rs");
-  const battle = text("crates/starclock-replay/tests/battle_property_contract.rs");
-  const schema = text("crates/starclock-agent-api/tests/schema_property_contract.rs");
-  const activity = text("crates/starclock-agent-api/tests/activity_session_loop.rs");
+  const replay = text("crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs");
+  const battle = text("crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs");
+  const schema = text("crates/starclock-test-kit/tests/suites/exhaustive/agent_api/schema_property_contract.rs");
+  const activity = text("crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs");
   const dynamic = text(
-    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+    "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
   );
   assert(replay.includes(`cases: ${policy.corpora.replay_property_cases_per_property}`)
     && battle.includes(`cases: ${policy.corpora.replay_property_cases_per_property}`),
@@ -220,6 +228,18 @@ function sha256(relative) {
 function digest(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
+function gitBytes(object) {
+  const result = spawnSync("git", ["cat-file", "blob", object], {
+    cwd: root,
+    encoding: "buffer",
+    maxBuffer: 64 * 1024 * 1024,
+    windowsHide: true,
+  });
+  if (result.error) throw result.error;
+  assert(result.status === 0, `missing immutable Goal 07 object: ${object}`);
+  return result.stdout;
+}
+function gitText(object) { return gitBytes(object).toString("utf8"); }
 function absolute(relative) { return path.join(root, relative); }
 function exists(relative) {
   return fs.statSync(absolute(relative), { throwIfNoEntry: false })?.isFile();

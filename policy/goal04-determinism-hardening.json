@@ -13,14 +13,14 @@
     },
     {
       "id": "activity-rng-isolation",
-      "targets": ["crates/starclock-activity/tests/activity_hardening.rs"],
+      "targets": ["crates/starclock-test-kit/tests/suites/activity/activity/activity_hardening.rs"],
       "streams": 8,
       "draws_per_perturbation": 257,
       "invalid_commands": 4096
     },
     {
       "id": "replay-property-corpora",
-      "targets": ["crates/starclock-replay/tests/property_contract.rs", "crates/starclock-replay/tests/battle_property_contract.rs", "crates/starclock-replay/tests/activity_replay.rs", "crates/starclock-agent-api/tests/activity_session_loop.rs"],
+      "targets": ["crates/starclock-test-kit/tests/suites/exhaustive/replay/property_contract.rs", "crates/starclock-test-kit/tests/suites/exhaustive/replay/battle_property_contract.rs", "crates/starclock-test-kit/tests/suites/activity/replay/activity_replay.rs", "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs"],
       "proptest_cases_per_property": 256,
       "full_activity_corruption_cases": 3
     },

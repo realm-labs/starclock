@@ -187,6 +187,28 @@ Unsafe Rust is forbidden unless a measured requirement cannot be satisfied safel
 
 Test code follows the same responsibility rules. Generated fixtures may be large, but large handwritten fixtures should move to data files or builders.
 
+### Integration-test architecture
+
+Cross-crate integration behavior is owned by `starclock-test-kit`. Its five
+explicit harnesses are `combat_suite`, `activity_suite`, `universe_suite`,
+`adapter_suite`, and `exhaustive_suite`; automatic Cargo test discovery is
+disabled in both the kit and migrated owner crates. Suite entry files contain
+only responsibility-based module declarations. Test implementations remain in
+subdirectories under `crates/starclock-test-kit/tests/suites/` and each
+handwritten file remains subject to the 1,200-line limit.
+
+Production crates must not depend on `starclock-test-kit`. The kit may depend
+downward on production crates and exposes process-local immutable fixtures for
+expensive compiled catalogs and runtime factories. Every test must still create
+fresh mutable battle, Activity, session, RNG and replay state. Cache-accounting
+tests construct isolated factories instead of using a shared fixture.
+
+Tests that require Cargo-provided executable paths remain in the crate that owns
+the executable. Consequently the five `starclock-cli` integration targets are
+the only owner-crate integration-test binaries outside the kit. Adding a new
+standalone integration harness requires a documented executable-boundary reason;
+ordinary growth belongs in a responsibility module inside an existing suite.
+
 ## Formatting and validation gates
 
 Daily iteration uses the pinned change-aware gate:
@@ -195,8 +217,9 @@ Daily iteration uses the pinned change-aware gate:
 node tools/repository-check/run.mjs
 ```
 
-It has a 180-second warm-cache budget. Direct-package lib, bin and integration
-test harnesses use the same bounded process-level dispatcher as the full gate,
+It has a 180-second warm-cache budget. Direct-package lib and bin harnesses plus
+the corresponding centralized integration suite use the same bounded
+process-level dispatcher as the full gate,
 while reverse dependants are compile-checked. It always checks formatting and static
 repository policies, runs Clippy plus library/integration tests for directly
 changed crates, and compiles their reverse dependants. It reuses the workspace
@@ -216,13 +239,22 @@ independent harness binaries with bounded process-level parallelism, and runs
 doctests separately. Artifact/evidence validators must not recursively execute
 Rust tests in this profile: the workspace runner owns that coverage exactly
 once. Standalone goal validators may still run their focused Rust tests when
-invoked directly. The current baseline contains 95 test harness processes,
-including 75 integration-test binaries, so harness scheduling is a material
-part of acceptance performance even when compilation is warm. The workspace
-uses `[profile.test] opt-level = 1`: simulation and replay hot loops must not
-pay `opt-level = 0` runtime costs, while daily builds avoid release-profile
-compile time. Expensive deterministic workbook regeneration may reuse an
-ignored content-addressed receipt only when every workbook input, schema,
+invoked directly. The workspace contains 10 integration-test targets: five
+centralized suite binaries and five executable-boundary CLI tests, down from the
+previous 75-target baseline. The dispatcher therefore favors in-harness test
+threads while retaining limited process overlap. Its automatic schedule runs
+the measured memory-heavy Universe integration, Universe unit, and adapter
+harnesses one at a time with an exclusive CPU budget before dispatching the
+remaining harnesses; explicit job/thread overrides opt out of that policy. The
+workspace uses `[profile.test] opt-level = 1`: simulation and replay hot loops
+must not pay `opt-level = 0` runtime costs, while daily builds avoid release-profile
+compile time. Default `[profile.dev]` builds retain line tables for source-level
+backtraces but omit full debug information, including all debug information for
+dependencies, to bound the shared incremental cache. Use
+`cargo build --profile dev-debug` only when full debugger inspection is needed;
+Cargo keeps those artifacts isolated under `target/dev-debug`. Expensive
+deterministic workbook regeneration may reuse an ignored content-addressed
+receipt only when every workbook input, schema,
 generated output, authoring/verification tool, Sora binary, loader, Python and
 openpyxl identity matches; `STARCLOCK_NO_ARTIFACT_CACHE=1` forces regeneration.
 CI and isolated release checkouts normally begin without that receipt. CI

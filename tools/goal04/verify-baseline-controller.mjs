@@ -12,7 +12,7 @@ assert(policy.schema_revision === "starclock.goal04-baseline-controller.v1", "un
 const controller = text("crates/starclock-mode-universe/src/baseline_controller.rs");
 const runner = text("crates/starclock-mode-universe/src/baseline_runner.rs");
 const preparation = text("crates/starclock-activity/src/battle_preparation.rs");
-const goldenTest = text("crates/starclock-mode-universe/tests/encounter_runtime.rs");
+const goldenTest = text("crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs");
 
 for (const marker of [
   `REVISION: &'static str = "${policy.controller_revision}"`,
@@ -36,14 +36,14 @@ for (const marker of [
 
 if (!artifactOnly) {
   execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--lib", "baseline_controller::tests"], { cwd: root, stdio: "inherit" });
-  execFileSync("cargo", ["test", "-p", "starclock-mode-universe", "--test", "encounter_runtime", "baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal"], { cwd: root, stdio: "inherit" });
+  execFileSync("cargo", ["test", "-p", "starclock-test-kit", "--test", "universe_suite", "baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal"], { cwd: root, stdio: "inherit" });
 }
 
 const sources = [
   "crates/starclock-activity/src/battle_preparation.rs",
   "crates/starclock-mode-universe/src/baseline_controller.rs",
   "crates/starclock-mode-universe/src/baseline_runner.rs",
-  "crates/starclock-mode-universe/tests/encounter_runtime.rs"
+  "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs"
 ];
 const evidence = {
   schema_revision: "starclock.goal04-baseline-controller-evidence.v1",

@@ -15,7 +15,7 @@ const assembler = read(
   "crates/starclock-mode-universe/src/dynamic_battle_assembler.rs",
 );
 const tests = read(
-  "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+  "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
 );
 const evidence = read("docs/goal-06-assembly-failure-and-cache-hardening.md");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");

@@ -65,7 +65,7 @@ target-invalidation policy; the reserved next wave cannot receive that hit.
 ## Evidence
 
 The black-box fixture in
-[`damage_lifecycle.rs`](../crates/starclock-combat/tests/damage_lifecycle.rs)
+[`damage_lifecycle.rs`](../crates/starclock-test-kit/tests/suites/core/combat/damage_lifecycle.rs)
 pins command-to-state hashes for damage/healing, one-wave victory, wave-two
 entry, final multi-wave victory and player loss. It also proves terminal command
 rejection preserves the complete state hash and RNG draw count. Calculator unit

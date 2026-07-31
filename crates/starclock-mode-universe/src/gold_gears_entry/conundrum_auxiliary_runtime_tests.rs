@@ -17,24 +17,23 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn auxiliary_partition_binds_exactly_six_cumulative_exact_public_rules() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
+    let factory = super::tests::shared_factory();
     assert_eq!(
         GOLD_AND_GEARS_AUXILIARY_CONUNDRUM_RULE_REVISION,
         "gold-and-gears-auxiliary-conundrum-rule-runtime-v1"
     );
     assert!(
-        compile(&factory, 0)
-            .compile_auxiliary_conundrum_rules(&new_state(&compile(&factory, 0)))
+        compile(factory, 0)
+            .compile_auxiliary_conundrum_rules(&new_state(&compile(factory, 0)))
             .unwrap()
             .is_none()
     );
     for level in 1..=6 {
-        let instance = compile(&factory, level);
+        let instance = compile(factory, level);
         let state = new_state(&instance);
         let execution = instance
             .compile_auxiliary_conundrum_rules(&state)
@@ -60,8 +59,8 @@ fn auxiliary_partition_binds_exactly_six_cumulative_exact_public_rules() {
 
 #[test]
 fn cumulative_start_program_executes_all_six_rule_payloads_without_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, 6);
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, 6);
     let mut state = new_state(&instance);
     let rng = activity_rng(&instance, 0);
     let before_rng = rng.snapshots();
@@ -132,8 +131,8 @@ fn cumulative_start_program_executes_all_six_rule_payloads_without_rng() {
 
 #[test]
 fn plane_entry_rule_grants_one_negative_curio_per_plane_on_reward_stream() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, 6);
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, 6);
     let mut state = new_state(&instance);
     let mut rng = activity_rng(&instance, 0);
     let before = rng.snapshots();
@@ -178,8 +177,8 @@ fn plane_entry_rule_grants_one_negative_curio_per_plane_on_reward_stream() {
 
 #[test]
 fn duplicate_and_stale_auxiliary_execution_preserve_state_and_rng() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compile(&factory, 6);
+    let factory = super::tests::shared_factory();
+    let instance = compile(factory, 6);
     let mut state = new_state(&instance);
     let mut rng = activity_rng(&instance, 23);
     let first = execute_plane(&instance, &mut state, 1, &[], &mut rng).unwrap();
@@ -191,7 +190,7 @@ fn duplicate_and_stale_auxiliary_execution_preserve_state_and_rng() {
     );
     assert_eq!(state_bytes(&instance, &state, &rng), before_duplicate);
 
-    let stale_instance = compile(&factory, 6);
+    let stale_instance = compile(factory, 6);
     let mut stale_state = new_state(&stale_instance);
     let mut selection_rng = activity_rng(&stale_instance, 7);
     let stale = stale_instance

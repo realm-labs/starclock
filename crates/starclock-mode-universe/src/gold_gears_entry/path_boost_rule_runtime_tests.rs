@@ -30,8 +30,6 @@ use super::{
     tests::{compiled_fixture, entry},
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn path_boost_partition_binds_exactly_495_terminal_rules() {
     let factory = factory();
@@ -93,7 +91,7 @@ fn path_boost_partition_binds_exactly_495_terminal_rules() {
 
 #[test]
 fn all_486_shared_blessing_rules_execute_through_the_released_runtime() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let blessing_ids = instance
         .content_runtime
         .blessings
@@ -189,7 +187,7 @@ fn all_nine_path_boost_rules_execute_through_combat_modifiers() {
     let mut modifier_definitions = 0;
     let mut combat_digests = Vec::new();
     for path in paths {
-        let instance = compile_path(&factory, &path);
+        let instance = compile_path(factory, &path);
         let state = state_with_boost_stacks(&instance, 3);
         let set = instance.compile_path_boost_combat_set(&state).unwrap();
         assert!(set.digest().iter().any(|byte| *byte != 0));
@@ -233,7 +231,7 @@ fn path_boost_rejections_and_filters_fail_closed() {
         .paths
         .iter()
         .find(|path| {
-            let instance = compile_path(&factory, &path.identity.stable_key);
+            let instance = compile_path(factory, &path.identity.stable_key);
             let state = state_with_boost_stacks(&instance, 1);
             instance
                 .compile_path_boost_combat_set(&state)
@@ -242,7 +240,7 @@ fn path_boost_rejections_and_filters_fail_closed() {
                 })
         })
         .unwrap();
-    let instance = compile_path(&factory, &follow_up_path.identity.stable_key);
+    let instance = compile_path(factory, &follow_up_path.identity.stable_key);
     assert!(try_state_with_boost_stacks(&instance, -1).is_none());
 
     let set = instance
@@ -427,8 +425,8 @@ fn registry_and_instances(
     (registry, instances)
 }
 
-fn factory() -> GoldAndGearsRuntimeFactory {
-    GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
+fn factory() -> &'static GoldAndGearsRuntimeFactory {
+    super::tests::shared_factory()
 }
 
 fn compile_path(factory: &GoldAndGearsRuntimeFactory, path: &str) -> GoldAndGearsRuntimeInstance {

@@ -75,9 +75,9 @@ assert(
 );
 
 const tests =
-  text("crates/starclock-combat/tests/ability_program_execution.rs")
+  text("crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution.rs")
   + text(
-    "crates/starclock-combat/tests/ability_program_execution/trigger_phases.rs",
+    "crates/starclock-test-kit/tests/suites/core/combat/ability_program_execution/trigger_phases.rs",
   );
 for (const marker of [
   "production_dispatches_each_supported_post_commit_phase_from_its_observed_event",

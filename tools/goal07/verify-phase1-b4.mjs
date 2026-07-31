@@ -57,8 +57,8 @@ assert(
     && lowerer.includes("source_stack_slot"),
   "source-effect stack binding is not lowered",
 );
-const tests = text("crates/starclock-combat/tests/effect_resource_pipeline.rs")
-  + text("crates/starclock-combat/tests/catalog_contract.rs")
+const tests = text("crates/starclock-test-kit/tests/suites/core/combat/effect_resource_pipeline.rs")
+  + text("crates/starclock-test-kit/tests/suites/core/combat/catalog_contract.rs")
   + text("crates/starclock-data/src/catalog_modifier_tests.rs");
 for (const marker of [
   "kafka_style_detonation_retains_source_snapshot_duration_and_stacks",

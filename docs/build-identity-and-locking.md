@@ -69,7 +69,7 @@ cannot hot-edit the upstream build.
 
 ## Evidence and production boundary
 
-[`build_identity.rs`](../crates/starclock-build/tests/build_identity.rs) pins
+[`build_identity.rs`](../crates/starclock-test-kit/tests/suites/core/build/build_identity.rs) pins
 exact SHA-256 goldens for character, Light Cone, catalog, selected build and
 resolved combatant scopes. It also proves input-order invariance, selected
 source attribution, direct/preset equality, expected-digest rejection, unknown

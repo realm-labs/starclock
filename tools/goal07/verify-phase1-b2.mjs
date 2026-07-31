@@ -64,9 +64,9 @@ assert(
   "Sora selector predicates/weights are not lowered",
 );
 const tests =
-  text("crates/starclock-combat/tests/rule_selector_runtime.rs")
-  + text("crates/starclock-combat/tests/catalog_contract.rs")
-  + text("crates/starclock-data/tests/production_hit_plans.rs");
+  text("crates/starclock-test-kit/tests/suites/core/combat/rule_selector_runtime.rs")
+  + text("crates/starclock-test-kit/tests/suites/core/combat/catalog_contract.rs")
+  + text("crates/starclock-test-kit/tests/suites/core/data/production_hit_plans.rs");
 for (const marker of [
   "action_snapshot_selector_observes_pre_hit_life_after_lethal_damage",
   "empty_pool_policies_have_distinct_runtime_control_flow",

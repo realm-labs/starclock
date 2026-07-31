@@ -40,15 +40,15 @@ assert(
 
 const sources = {
   dynamic:
-    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
-  agent: "crates/starclock-agent-api/tests/activity_session_loop.rs",
+    "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
+  agent: "crates/starclock-test-kit/tests/suites/adapter/agent_api/activity_session_loop.rs",
   cli: "crates/starclock-cli/tests/universe_cli.rs",
   cliContract: "crates/starclock-cli/tests/cli_contract.rs",
   cliMcpStdio: "crates/starclock-cli/tests/mcp_stdio.rs",
   cliStandardBattle: "crates/starclock-cli/tests/standard_replay_smoke.rs",
   cliRuntime: "crates/starclock-cli/src/universe_v1.rs",
-  mcp: "crates/starclock-mcp/tests/universe_surface_parity.rs",
-  mcpHttp: "crates/starclock-mcp/tests/http_conformance.rs",
+  mcp: "crates/starclock-test-kit/tests/suites/adapter/mcp/universe_surface_parity.rs",
+  mcpHttp: "crates/starclock-test-kit/tests/suites/adapter/mcp/http_conformance.rs",
 };
 const text = Object.fromEntries(
   Object.entries(sources).map(([key, relative]) => [key, read(relative)]),

@@ -12,8 +12,8 @@ const topology = text("crates/starclock-mode-universe/src/topology.rs");
 const activity = text("crates/starclock-activity/src/graph_activity.rs");
 const program = text("crates/starclock-activity/src/program.rs");
 const rng = text("crates/starclock-activity/src/activity_rng.rs");
-const tests = text("crates/starclock-mode-universe/tests/blessing_runtime.rs");
-const encounterTests = text("crates/starclock-mode-universe/tests/encounter_runtime.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/universe/blessing_runtime.rs");
+const encounterTests = text("crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs");
 
 for (const marker of [
   "BlessingOfferEligibility", "BlessingRuntimeCatalog", "enhancement_operations",
@@ -31,7 +31,7 @@ assert((tests.match(/^#\[test\]$/gm) ?? []).length === 2, "Blessing focused test
 assert(encounterTests.includes("reroll_blessing_offer"), "end-to-end Blessing reset test is missing");
 
 const catalogGolden = arrayGolden(tests, /runtime\.digest\(\),\s*\[([\s\S]*?)\]\s*\)/);
-const initialGolden = arrayGolden(text("crates/starclock-mode-universe/tests/topology_runtime.rs"), /view\.state_hash\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
+const initialGolden = arrayGolden(text("crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs"), /view\.state_hash\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const rewardGolden = arrayGolden(encounterTests, /settled\.state_hash\(\)\.bytes\(\),\s*\[([\s\S]*?)\]\s*\)/);
 const contributionGolden = arrayGolden(encounterTests, /contributions\.digest\(\),\s*\[([\s\S]*?)\]\s*\)/);
 assert(catalogGolden === policy.goldens.runtime_catalog_sha256, "Blessing runtime-catalog golden differs");
@@ -66,8 +66,8 @@ const evidence = {
     "crates/starclock-mode-universe/src/blessing_runtime.rs",
     "crates/starclock-mode-universe/src/topology.rs",
     "crates/starclock-mode-universe/src/runtime.rs",
-    "crates/starclock-mode-universe/tests/blessing_runtime.rs",
-    "crates/starclock-mode-universe/tests/encounter_runtime.rs"
+    "crates/starclock-test-kit/tests/suites/universe/blessing_runtime.rs",
+    "crates/starclock-test-kit/tests/suites/universe/encounter_runtime.rs"
   ].map((relative) => [relative, sha256(relative)])),
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

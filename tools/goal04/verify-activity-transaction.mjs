@@ -9,8 +9,8 @@ const policy = json("policy/goal04-activity-transaction.json");
 assert(policy.schema_revision === "starclock.goal04-activity-transaction.v1", "unexpected Activity transaction policy revision");
 const program = text("crates/starclock-activity/src/program.rs");
 const transaction = text("crates/starclock-activity/src/transaction.rs");
-const tests = text("crates/starclock-activity/tests/activity_transaction.rs");
-const boundaryTests = text("crates/starclock-activity/tests/activity_boundary.rs");
+const tests = text("crates/starclock-test-kit/tests/suites/activity/activity/activity_transaction.rs");
+const boundaryTests = text("crates/starclock-test-kit/tests/suites/activity/activity/activity_boundary.rs");
 
 for (const marker of [
   "pub enum ActivityExpression", "pub enum ActivityCondition", "pub enum ActivityOperation",
@@ -58,7 +58,7 @@ const evidence = {
   source_sha256: {
     program: sha256("crates/starclock-activity/src/program.rs"),
     transaction: sha256("crates/starclock-activity/src/transaction.rs"),
-    tests: sha256("crates/starclock-activity/tests/activity_transaction.rs")
+    tests: sha256("crates/starclock-test-kit/tests/suites/activity/activity/activity_transaction.rs")
   },
   focused_tests: policy.focused_tests,
   new_registry_packages: policy.new_registry_packages

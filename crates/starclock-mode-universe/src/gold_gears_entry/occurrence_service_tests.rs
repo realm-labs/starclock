@@ -17,8 +17,6 @@ use super::{
     tests::compiled_fixture,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn occurrence_service_and_adventure_catalogs_are_complete_and_revisioned() {
     let factory = factory();
@@ -123,7 +121,7 @@ fn occurrence_choices_preserve_authored_costs_operations_and_parameter_indices()
 
 #[test]
 fn occurrence_random_selection_is_labeled_canonical_and_fail_closed() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let random = instance
         .occurrence_choices()
         .iter()
@@ -166,7 +164,7 @@ fn occurrence_random_selection_is_labeled_canonical_and_fail_closed() {
 
 #[test]
 fn service_stocks_and_shop_offers_use_exact_pools_and_shop_rng() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let kinds = [
         GoldAndGearsServiceKind::BlessingShop,
         GoldAndGearsServiceKind::CurioShop,
@@ -241,7 +239,7 @@ fn service_stocks_and_shop_offers_use_exact_pools_and_shop_rng() {
 
 #[test]
 fn service_purchase_deducts_currency_and_stale_or_unfunded_use_is_atomic() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let mut state = ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),
@@ -284,7 +282,7 @@ fn service_purchase_deducts_currency_and_stale_or_unfunded_use_is_atomic() {
 
 #[test]
 fn adventure_accepts_external_results_and_resolves_cumulative_rewards_atomically() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let kinds = [
         GoldAndGearsAdventureType::CaptureMonster,
         GoldAndGearsAdventureType::DestroyProp,
@@ -373,8 +371,8 @@ fn adventure_accepts_external_results_and_resolves_cumulative_rewards_atomically
     assert_eq!(state_bytes(&instance, &state, &rng), before_repeat);
 }
 
-fn factory() -> GoldAndGearsRuntimeFactory {
-    GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
+fn factory() -> &'static GoldAndGearsRuntimeFactory {
+    super::tests::shared_factory()
 }
 
 fn commit(

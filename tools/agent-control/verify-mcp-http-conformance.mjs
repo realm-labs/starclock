@@ -7,7 +7,7 @@ const traceBytes = await readFile(evidence.trace.path);
 const trace = JSON.parse(traceBytes);
 const httpTest = await readFile(evidence.scripted_client.source, "utf8");
 const stdioTest = await readFile("crates/starclock-cli/tests/mcp_stdio.rs", "utf8");
-const inProcessTest = await readFile("crates/starclock-agent-api/tests/standard_session_loop.rs", "utf8");
+const inProcessTest = await readFile("crates/starclock-test-kit/tests/suites/adapter/agent_api/standard_session_loop.rs", "utf8");
 const stdioEvidence = JSON.parse(await readFile("evidence/agent-control-mcp-v1/protocol/mcp-stdio-conformance.json", "utf8"));
 const fail = (message) => { throw new Error(`MCP HTTP conformance: ${message}`); };
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");

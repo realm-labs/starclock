@@ -21,7 +21,7 @@ const replay = read(
 const cli = read("crates/starclock-cli/src/universe_v1.rs");
 const cliTest = read("crates/starclock-cli/tests/universe_cli.rs");
 const integration = read(
-  "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+  "crates/starclock-test-kit/tests/suites/universe/dynamic_battle_assembly.rs",
 );
 const evidence = read("docs/goal-06-dynamic-baseline-cli-replay-v3.md");
 const status = read("docs/goals/06-combat-identity-and-dynamic-assembly-status.md");

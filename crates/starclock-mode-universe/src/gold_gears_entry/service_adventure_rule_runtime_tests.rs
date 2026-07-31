@@ -15,7 +15,6 @@ use super::{
     tests::compiled_fixture,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const FIXTURE_FUNDING: i64 = 100_000;
 
 #[test]
@@ -110,7 +109,7 @@ fn service_bridges_resolve_every_released_rule_without_duplicate_semantics() {
 
 #[test]
 fn all_38_service_adventure_rules_execute_through_the_production_fixture() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let mut state = ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),
@@ -203,7 +202,7 @@ fn all_38_service_adventure_rules_execute_through_the_production_fixture() {
 
 #[test]
 fn service_and_adventure_rejections_preserve_state_and_rng() {
-    let instance = compiled_fixture(&factory());
+    let instance = compiled_fixture(factory());
     let service = instance
         .service_definitions()
         .iter()
@@ -243,8 +242,8 @@ fn service_and_adventure_rejections_preserve_state_and_rng() {
     assert_eq!(rng.snapshots(), before_rng);
 }
 
-fn factory() -> GoldAndGearsRuntimeFactory {
-    GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
+fn factory() -> &'static GoldAndGearsRuntimeFactory {
+    super::tests::shared_factory()
 }
 
 fn funding_program() -> ActivityProgramDefinition {

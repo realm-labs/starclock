@@ -7,11 +7,11 @@ node tools/repository-check/run.mjs
 ```
 
 It always checks dependency direction, source/visibility policy and formatting.
-For Rust changes it runs Clippy and every lib, bin and integration-test harness
-for directly changed workspace packages, then compiles their reverse
-dependants. The same bounded process-level harness dispatcher used by the full
-gate avoids Cargo's serial integration-binary loop while retaining the smaller
-change-aware package scope. Cargo uses the shared workspace `target` directory
+For Rust changes it runs Clippy and every lib/bin harness for directly changed
+workspace packages, maps those packages to the relevant centralized
+`starclock-test-kit` suite, then compiles reverse dependants. The same bounded
+dispatcher used by the full gate retains the smaller change-aware package
+scope. Cargo uses the shared workspace `target` directory
 and normal incremental compilation. A successful Rust scope is cached under
 ignored `.cache/repository-check/`; an identical source/toolchain fingerprint
 skips repeated Rust execution. Quick harness timings are written under ignored
@@ -34,15 +34,21 @@ node tools/repository-check/run.mjs --full
 
 The full profile compiles all test harnesses once and dispatches the independent
 binaries with bounded process-level parallelism instead of Cargo's serial
-target loop. `STARCLOCK_TEST_JOBS` and `STARCLOCK_TEST_THREADS` default to
-`8 x 1` on the reference 16-thread runner. The test profile uses `opt-level=1`
+target loop. Integration behavior is concentrated in five explicit test-kit
+suites (`combat`, `activity`, `universe`, `adapter`, and `exhaustive`) plus five
+CLI executable-boundary tests. `STARCLOCK_TEST_JOBS` defaults to at most two
+processes and `STARCLOCK_TEST_THREADS` receives the remaining CPU budget, so
+parallelism happens primarily inside the coarse suites. By default the
+three measured memory-heavy harnesses run first, one at a time, with the full
+thread budget; the remaining harnesses then use the bounded process pool. Explicit job/thread
+environment overrides disable this automatic exclusive phase. The test profile uses `opt-level=1`
 because deterministic simulation/replay tests are execution-heavy; this keeps
 hot loops fast without paying release-profile compile costs. Doctests remain a separate Cargo
 phase. Artifact validators run in artifact-only mode during this gate, so their
 embedded focused Cargo tests are not repeated after the complete workspace
-suite. Standalone goal validators retain their focused tests. The measured
-baseline is 95 harness processes (75 integration-test binaries); timing reports
-are written under ignored `.cache/repository-check/`.
+suite. Standalone goal validators retain their focused tests. The former
+75-integration-binary baseline is now 10 integration targets; timing reports are
+written under ignored `.cache/repository-check/`.
 
 The double-generation check for the three production Universe workbooks stores
 a content-addressed receipt in the same ignored cache. It is reusable only when

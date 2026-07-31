@@ -49,8 +49,8 @@ const executionEvidence = s06 ? [
   { path: "crates/starclock-mode-universe/src/topology/blessing_offer.rs" },
   { path: "crates/starclock-mode-universe/src/topology_reward.rs" },
   { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s06.rs" },
-  { path: "crates/starclock-activity/tests/random_offer_policy.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s06.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/activity/activity/random_offer_policy.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s06.rs" },
 ] : s05 ? [
   { path: "crates/starclock-activity/src/program.rs" },
   { path: "crates/starclock-activity/src/transaction/participant_carry.rs" },
@@ -60,15 +60,15 @@ const executionEvidence = s06 ? [
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
   { path: "crates/starclock-mode-universe/src/battle_materialization/player.rs" },
   { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s05.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s05.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s05.rs" },
 ] : s04 ? [
   { path: "crates/starclock-mode-universe/src/curio_activity/domain.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
   { path: "crates/starclock-mode-universe/src/topology/blessing_offer.rs" },
   { path: "crates/starclock-mode-universe/src/topology_reward.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s04.rs" },
-  { path: "crates/starclock-mode-universe/tests/topology_runtime.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s04.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/topology_runtime.rs" },
 ] : s03 ? [
   { path: "crates/starclock-activity/src/graph_activity/boundary.rs" },
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
@@ -78,8 +78,8 @@ const executionEvidence = s06 ? [
   { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
   { path: "crates/starclock-mode-universe/src/topology/route_program.rs" },
   { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s03.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s03.rs" },
-  { path: "crates/starclock-mode-universe/tests/service_interaction_runtime.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s03.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/service_interaction_runtime.rs" },
 ] : s02 ? [
   { path: "crates/starclock-activity/src/graph_activity/boundary.rs" },
   { path: "crates/starclock-activity/src/random_policy.rs" },
@@ -87,14 +87,14 @@ const executionEvidence = s06 ? [
   { path: "crates/starclock-mode-universe/src/runtime/curio_commands.rs" },
   { path: "crates/starclock-mode-universe/src/topology.rs" },
   { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s02.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s02.rs" },
 ] : [
   { path: "crates/starclock-mode-universe/src/curio_activity.rs" },
   { path: "crates/starclock-mode-universe/src/runtime.rs" },
   { path: "crates/starclock-mode-universe/src/topology_reward.rs" },
   { path: "crates/starclock-mode-universe/src/runtime/battle_execution_access.rs" },
   { path: "crates/starclock-mode-universe/src/battle_rule_lowering/curio_s01.rs" },
-  { path: "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs" },
+  { path: "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s01.rs" },
 ];
 const reviewEvidence = [
   { path: s06
@@ -163,15 +163,15 @@ const receipt = {
     test_path: s05
       ? id === "universe.fixture.curio-tag.destructible"
         ? "crates/starclock-mode-universe/src/runtime/curio_commands.rs"
-        : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s05.rs"
-      : s04 ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s04.rs"
+        : "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s05.rs"
+      : s04 ? "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s04.rs"
       : s03
       ? id === "universe.fixture.curio-tag.blessing"
         ? "crates/starclock-mode-universe/src/runtime/curio_commands.rs"
-        : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s03.rs"
+        : "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s03.rs"
       : s02
-      ? "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s02.rs"
-      : "crates/starclock-mode-universe/tests/mechanic_battle_integration/curio_s01.rs",
+      ? "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s02.rs"
+      : "crates/starclock-test-kit/tests/suites/universe/mechanic_battle_integration/curio_s01.rs",
     test_marker: s05
       ? id === "universe.fixture.curio-tag.destructible"
         ? "destructible_event_counts_once_and_capsule_exposes_exact_spatial_free_policy"
@@ -263,29 +263,29 @@ const receipt = {
     commands: [
       `python tools/goal07/author-curio-partition.py --partition ${partitionId} --check`,
       "node tools/universe-reference/verify_production_workbooks.mjs .",
-      `cargo test -p starclock-mode-universe --test mechanic_battle_integration ${s06 ? "curio_s06" : s05 ? "curio_s05" : s04 ? "curio_s04" : s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
+      `cargo test -p starclock-test-kit --test universe_suite mechanic_battle_integration ${s06 ? "curio_s06" : s05 ? "curio_s05" : s04 ? "curio_s04" : s03 ? "curio_s03" : s02 ? "curio_s02" : "curio_s01"} --all-features`,
       "cargo test -p starclock-mode-universe --lib curio_activity::tests --all-features",
       ...(s05 ? [
-        "cargo test -p starclock-activity --test battle_settlement --all-features",
+        "cargo test -p starclock-test-kit --test activity_suite battle_settlement --all-features",
         "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
       ] : []),
       ...(s06 ? [
-        "cargo test -p starclock-activity --test random_offer_policy --all-features",
-        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+        "cargo test -p starclock-test-kit --test activity_suite random_offer_policy --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite topology_runtime --all-features",
       ] : []),
       ...(s04 ? [
         "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
-        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite topology_runtime --all-features",
       ] : []),
       ...(s03 ? [
-        "cargo test -p starclock-activity --test random_boundary --all-features",
+        "cargo test -p starclock-test-kit --test activity_suite random_boundary --all-features",
         "cargo test -p starclock-mode-universe --lib runtime::curio_commands::tests --all-features",
-        "cargo test -p starclock-mode-universe --test service_interaction_runtime --all-features",
-        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite service_interaction_runtime --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite topology_runtime --all-features",
       ] : []),
       ...(s02 ? [
-        "cargo test -p starclock-activity --test random_boundary --all-features",
-        "cargo test -p starclock-mode-universe --test topology_runtime --all-features",
+        "cargo test -p starclock-test-kit --test activity_suite random_boundary --all-features",
+        "cargo test -p starclock-test-kit --test universe_suite topology_runtime --all-features",
       ] : []),
       "cargo test -p starclock-mode-universe --all-features",
     ],

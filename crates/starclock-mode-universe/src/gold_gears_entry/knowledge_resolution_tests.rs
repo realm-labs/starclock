@@ -18,19 +18,18 @@ use super::{
     tests::{compiled_fixture, entry},
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
 const AREA: &str = "gold-gears.area.401";
 const PATH: &str = "universe.path.preservation";
 
 #[test]
 fn six_tiers_relocate_then_mutate_callback_collapse_and_reward_atomically() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let dice = dice(&factory, "303");
+    let factory = super::tests::shared_factory();
+    let dice = dice(factory, "303");
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, dice))
+        .compile_entry(entry(factory, AREA, PATH, dice))
         .unwrap();
     let mut state = created_state(&instance, 14_500);
-    let active = candidates(&factory, &instance, &state, "SelectedDomain", None);
+    let active = candidates(factory, &instance, &state, "SelectedDomain", None);
     let outgoing = instance
         .graph_definition()
         .outgoing(state.current_node())
@@ -54,7 +53,7 @@ fn six_tiers_relocate_then_mutate_callback_collapse_and_reward_atomically() {
             (KNOWLEDGE_SLOT, node_key(collapse), 3),
         ],
     );
-    seed_face(&factory, &instance, &mut state, "2047");
+    seed_face(factory, &instance, &mut state, "2047");
     let fragments = counter(&state, RUN_RESOURCES_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY);
     let request = GoldAndGearsKnowledgeResolution::new()
         .with_movement_target(destination)
@@ -87,8 +86,8 @@ fn six_tiers_relocate_then_mutate_callback_collapse_and_reward_atomically() {
 
 #[test]
 fn after_movement_face_uses_destination_as_its_current_domain() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_502);
     let destination = instance
         .graph_definition()
@@ -97,13 +96,13 @@ fn after_movement_face_uses_destination_as_its_current_domain() {
         .unwrap()
         .to();
     let expected = candidates(
-        &factory,
+        factory,
         &instance,
         &state,
         "AllAdjacentToCurrentDomain",
         Some(destination),
     );
-    seed_face(&factory, &instance, &mut state, "2033");
+    seed_face(factory, &instance, &mut state, "2033");
     let request = GoldAndGearsKnowledgeResolution::new().with_movement_target(destination);
     let mut rng = activity_rng(&instance, 14_503);
     let program = instance
@@ -115,13 +114,13 @@ fn after_movement_face_uses_destination_as_its_current_domain() {
 
 #[test]
 fn face_protection_precedes_collapse_and_stable_targets_ignore_input_order() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let dice = dice(&factory, "302");
+    let factory = super::tests::shared_factory();
+    let dice = dice(factory, "302");
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, dice))
+        .compile_entry(entry(factory, AREA, PATH, dice))
         .unwrap();
     let mut state = created_state(&instance, 14_504);
-    let active = candidates(&factory, &instance, &state, "SelectedDomain", None);
+    let active = candidates(factory, &instance, &state, "SelectedDomain", None);
     let targets = [active[3], active[1]];
     seed_counters(
         &instance,
@@ -131,7 +130,7 @@ fn face_protection_precedes_collapse_and_stable_targets_ignore_input_order() {
             (KNOWLEDGE_SLOT, node_key(targets[1]), 3),
         ],
     );
-    seed_face(&factory, &instance, &mut state, "2034");
+    seed_face(factory, &instance, &mut state, "2034");
     let request =
         GoldAndGearsKnowledgeResolution::new().with_collapse_targets(targets.into_iter().collect());
     let mut rng = activity_rng(&instance, 14_505);
@@ -147,10 +146,10 @@ fn face_protection_precedes_collapse_and_stable_targets_ignore_input_order() {
 
 #[test]
 fn late_invalid_collapse_rolls_back_face_rng_and_stale_face_rejects_movement() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let instance = compiled_fixture(&factory);
+    let factory = super::tests::shared_factory();
+    let instance = compiled_fixture(factory);
     let mut state = created_state(&instance, 14_506);
-    let active = candidates(&factory, &instance, &state, "SelectedDomain", None);
+    let active = candidates(factory, &instance, &state, "SelectedDomain", None);
     seed_counters(
         &instance,
         &mut state,
@@ -159,7 +158,7 @@ fn late_invalid_collapse_rolls_back_face_rng_and_stale_face_rejects_movement() {
             (KNOWLEDGE_SLOT, node_key(active[1]), 1),
         ],
     );
-    seed_face(&factory, &instance, &mut state, "2031");
+    seed_face(factory, &instance, &mut state, "2031");
     let invalid = GoldAndGearsKnowledgeResolution::new().with_collapse_targets(vec![active[1]]);
     let mut rng = activity_rng(&instance, 14_507);
     let before_rng = rng.snapshots();
@@ -181,7 +180,7 @@ fn late_invalid_collapse_rolls_back_face_rng_and_stale_face_rejects_movement() {
     let program = instance
         .compile_knowledge_resolution(&state, &valid, &mut rng)
         .unwrap();
-    seed_face(&factory, &instance, &mut state, "2074");
+    seed_face(factory, &instance, &mut state, "2074");
     let before_sequence = state.command_sequence();
     let before_node = state.current_node();
     let cause = ActivityCause::new(before_sequence + 1, program.id(), before_node).unwrap();
@@ -195,10 +194,10 @@ fn late_invalid_collapse_rolls_back_face_rng_and_stale_face_rejects_movement() {
 
 #[test]
 fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
-    let factory = GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap();
-    let dice = dice(&factory, "301");
+    let factory = super::tests::shared_factory();
+    let dice = dice(factory, "301");
     let instance = factory
-        .compile_entry(entry(&factory, AREA, PATH, dice))
+        .compile_entry(entry(factory, AREA, PATH, dice))
         .unwrap();
     assert_eq!(
         factory.knowledge.denominators().1,
@@ -210,7 +209,7 @@ fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
         "knowledge-simultaneous-resolution-v1"
     );
     let mut state = created_state(&instance, 14_508);
-    let target = candidates(&factory, &instance, &state, "SelectedNonBossDomain", None)[0];
+    let target = candidates(factory, &instance, &state, "SelectedNonBossDomain", None)[0];
     seed_counters(
         &instance,
         &mut state,
@@ -218,7 +217,7 @@ fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
     );
     let mut rng = activity_rng(&instance, 14_509);
 
-    seed_face(&factory, &instance, &mut state, "2074");
+    seed_face(factory, &instance, &mut state, "2074");
     let apply = instance
         .compile_knowledge_resolution(
             &state,
@@ -229,7 +228,7 @@ fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
     commit(&instance, &mut state, apply);
 
     let fragments = counter(&state, RUN_RESOURCES_SLOT, RESOURCE_COSMIC_FRAGMENTS_KEY);
-    seed_face(&factory, &instance, &mut state, "2078");
+    seed_face(factory, &instance, &mut state, "2078");
     let query = instance
         .compile_knowledge_resolution(&state, &GoldAndGearsKnowledgeResolution::new(), &mut rng)
         .unwrap();
@@ -245,7 +244,7 @@ fn production_programs_match_the_knowledge_lifecycle_semantic_fixture() {
     commit(&instance, &mut state, entry);
     assert_eq!(instance.knowledge_countdown(&state), 6);
 
-    seed_face(&factory, &instance, &mut state, "2079");
+    seed_face(factory, &instance, &mut state, "2079");
     let preserve = instance
         .compile_knowledge_resolution(
             &state,

@@ -138,7 +138,7 @@ for (const relative of [
   "crates/starclock-activity/src/transaction.rs",
   "crates/starclock-activity/src/transaction/condition.rs",
   "crates/starclock-activity/src/transaction/ordered_id_set.rs",
-  "crates/starclock-activity/tests/activity_transaction.rs",
+  "crates/starclock-test-kit/tests/suites/activity/activity/activity_transaction.rs",
   "crates/starclock-mode-universe/src/gold_gears_entry/api.rs",
   "crates/starclock-mode-universe/src/gold_gears_entry/cognition.rs",
   "crates/starclock-mode-universe/src/gold_gears_entry/cognition_tests.rs",

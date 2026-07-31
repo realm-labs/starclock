@@ -16,8 +16,6 @@ use super::{
     tests::entry,
 };
 
-const BUNDLE: &[u8] = include_bytes!("../../../../config/gold-and-gears-generated/config.sora");
-
 #[test]
 fn profile_partition_binds_exactly_five_exact_public_activity_rules() {
     let factory = factory();
@@ -53,7 +51,7 @@ fn profile_partition_binds_exactly_five_exact_public_activity_rules() {
         ),
     ];
     for (bonus, rule, event) in expected {
-        let instance = compile(&factory, bonus);
+        let instance = compile(factory, bonus);
         let plan = instance.trailblaze_bonus_plan().unwrap();
         assert_eq!(
             (plan.source_bonus(), plan.source_rule(), plan.event_id()),
@@ -67,7 +65,7 @@ fn profile_entry_fixture_executes_all_five_rules_against_production_state() {
     let factory = factory();
     let mut observed = Vec::new();
     for source in 201..=205 {
-        let instance = compile(&factory, &format!("gold-gears.trailblaze-bonus.{source}"));
+        let instance = compile(factory, &format!("gold-gears.trailblaze-bonus.{source}"));
         let mut state = ActivityTransactionState::new(
             instance.state_definition().clone(),
             instance.graph_definition().entry(),
@@ -150,7 +148,7 @@ fn profile_entry_fixture_executes_all_five_rules_against_production_state() {
 #[test]
 fn duplicate_and_stale_profile_rule_execution_preserve_state_and_rng() {
     let factory = factory();
-    let instance = compile(&factory, "gold-gears.trailblaze-bonus.202");
+    let instance = compile(factory, "gold-gears.trailblaze-bonus.202");
     let mut state = ActivityTransactionState::new(
         instance.state_definition().clone(),
         instance.graph_definition().entry(),
@@ -165,7 +163,7 @@ fn duplicate_and_stale_profile_rule_execution_preserve_state_and_rng() {
     );
     assert_eq!(state_bytes(&instance, &state, &rng), before);
 
-    let stale_instance = compile(&factory, "gold-gears.trailblaze-bonus.202");
+    let stale_instance = compile(factory, "gold-gears.trailblaze-bonus.202");
     let mut stale_state = ActivityTransactionState::new(
         stale_instance.state_definition().clone(),
         stale_instance.graph_definition().entry(),
@@ -255,8 +253,8 @@ fn assert_rule_effect(
     }
 }
 
-fn factory() -> GoldAndGearsRuntimeFactory {
-    GoldAndGearsRuntimeFactory::load_candidate(BUNDLE).unwrap()
+fn factory() -> &'static GoldAndGearsRuntimeFactory {
+    super::tests::shared_factory()
 }
 
 fn compile(factory: &GoldAndGearsRuntimeFactory, bonus: &str) -> GoldAndGearsRuntimeInstance {
