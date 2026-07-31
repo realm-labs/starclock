@@ -1,0 +1,43 @@
+{
+  "schema_revision": "starclock.apocalyptic-shadow-normalized-file.v1",
+  "goal_id": "apocalyptic-shadow-reference-v1",
+  "profile": "apocalyptic-shadow-v1",
+  "file": "embers.json",
+  "record_kind": "ember",
+  "records": [
+    {
+      "id": "ember.3110006",
+      "schema_revision": "starclock.apocalyptic-shadow-row.v1",
+      "kind": "ember",
+      "name_en": "Ruinous Embers",
+      "name_zh_cn": "末法余烬",
+      "summary_en": "Breaking Steadfast Safeguard dispels allied control, restores Skill Points, activates Ultimates, and applies exact Skill/Ultimate taken multipliers.",
+      "summary_zh_cn": "击破坚防守备时解除我方控制、恢复战技点、激活终结技，并施加精确的战技/终结技易伤参数。",
+      "ownership": "ApocalypticShadow",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "buff.3110006"
+      ],
+      "source_refs": [
+        {
+          "source_id": "src.buff.3110006",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3110006",
+          "sha256": "e51e38f7b21c572b3edfde9a83419d4e5f5488b28da5dd22c5a663af6dbb175e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": ""
+        }
+      ],
+      "buff_id": 3110006,
+      "skill_damage_taken_ratio": "0.25",
+      "ultimate_damage_taken_ratio": "0.15",
+      "runtime_executable": false
+    }
+  ]
+}
