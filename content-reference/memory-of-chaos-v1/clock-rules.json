@@ -1,0 +1,521 @@
+{
+  "schema_revision": "starclock.memory-of-chaos-normalized-file.v1",
+  "goal_id": "memory-of-chaos-reference-v1",
+  "profile": "memory-of-chaos-v1",
+  "file": "clock-rules.json",
+  "record_kind": "ClockRule",
+  "records": [
+    {
+      "id": "clock.ordinary-stage-budget",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Ordinary stage cycle budget",
+      "name_zh_cn": "常规关卡轮次预算",
+      "summary_en": "Every active ordinary stage declares an initial remaining-cycle value of 30.",
+      "summary_zh_cn": "全部当前常规关卡均声明30轮初始剩余轮次。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:ordinary-cycle-budget"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:ordinary-cycle-budget",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:ordinary-cycle-budget",
+          "evidence_sha256": "7c3201e3bbb55afbda44293affef4bceb60db8291fc8aaad21d67302f6fcc7d4",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking ordinary-cycle-budget clock obligation."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5201",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5201",
+          "evidence_sha256": "4462c3ace91cdcbc48be173d8701ae8a232afaa1aa5de1606b338ed54be3e6fe",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5201."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5202",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5202",
+          "evidence_sha256": "ae94dd4f65d40d3df7289b049a9fc45e701e2872fa238395be9576d3c0d86289",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5202."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5203",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5203",
+          "evidence_sha256": "0cd5fed6be8f3aec9ca1d5ac2a93785eb8fcb8b1184f5e2a9258555854f72a40",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5203."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5204",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5204",
+          "evidence_sha256": "c95e5e75034c33dc9187933d318f81d5e7cfc82d26991c49b459ae42b81445c2",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5204."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5205",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5205",
+          "evidence_sha256": "dd4dc0eeb690812b189a8afd29daa655c586d24c511310b7e245cb76ac8d563a",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5205."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5206",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5206",
+          "evidence_sha256": "c4289b9e0352ba07a87ba68d9d4eafcb4ff6cdf8e24128013adfa44dbf56f14e",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5206."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5207",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5207",
+          "evidence_sha256": "06ac580130774ef49916cee2339f2b19ae4e85a99d9f4187ff3a2eb33a3fff61",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5207."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5208",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5208",
+          "evidence_sha256": "77b23690c60c50c5ce62d201abaefb34e9205bdacd639413500026db74dec672",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5208."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5209",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5209",
+          "evidence_sha256": "f72544ded6b2e2d5f97815e1ad971d475bcebb6c46a9ae0bd1fa7171dfe44575",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5209."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5210",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5210",
+          "evidence_sha256": "adaef4d94d561fa1ccff73d16f054b5a61e5d355ee6a5fa11c469c2d99c81452",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5210."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5211",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5211",
+          "evidence_sha256": "b78f2e8033f5fa395c9e4ba19f4dc6ac8ace8e6588aa026997e351aa7d86e5bf",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5211."
+        },
+        {
+          "id": "turnbasedgamedata:ExcelOutput/ChallengeMazeConfig.json:ID=5212",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengeMazeConfig.json",
+          "row_locator": "ID=5212",
+          "evidence_sha256": "2bc11dd7619b52e559584a52bc0dffdc27e326973fe70e21eca0e946bc4a7497",
+          "quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact ChallengeCountDown=30 on active ordinary stage 5212."
+        }
+      ],
+      "tags": [
+        "countdown",
+        "ordinary",
+        "section-clock"
+      ],
+      "evidence_quality": "ExactStructuredValueWithProjectPolicyScope",
+      "mechanism_quality": "PolicyBoundary",
+      "value_domain": "RemainingCycles",
+      "initial_value": 30,
+      "lower_bound": 0,
+      "ownership_scope": "OrdinaryStageSectionProjectPolicy",
+      "reset_on_accepted_stage_start": true,
+      "tierce_value": "DefinedSeparately",
+      "approximations": [
+        {
+          "known_facts": "All twelve active ChallengeMazeConfig rows carry ChallengeCountDown=30; the source rows do not encode Activity clock ownership.",
+          "selected_behavior": "Create one Section-owned remaining-cycle slot with initial value 30 for each accepted ordinary-stage attempt.",
+          "rejected_alternatives": [
+            "independent 30-cycle clocks per node",
+            "a hidden universal mode constant",
+            "inherit 30 for Tierce"
+          ],
+          "rationale": "The normative Memory profile requires stage-owned carry, while keeping the exact value snapshot-authored.",
+          "affected_fixture_ids": [
+            "fixture.cycle-node-wave-carry.stage-owned-budget"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace ownership with a released Version 4.4 clock trace or decoded challenge activity program if it differs."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.first-cycle-av-window",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ClockRule",
+      "name_en": "First-cycle Action Value window",
+      "name_zh_cn": "首轮行动值窗口",
+      "summary_en": "Each fresh node battle uses a 150-AV first cycle followed by 100-AV cycles as an explicit reference policy.",
+      "summary_zh_cn": "每个新节点战斗按明确参考策略使用150行动值首轮，后续轮次为100行动值。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:first-cycle-av-window"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:first-cycle-av-window",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:first-cycle-av-window",
+          "evidence_sha256": "a6d43b2ec16ce5bea2cdceaa7d2d048c051f40b05641754105c488bf38620a1c",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking first-cycle-av-window clock obligation."
+        }
+      ],
+      "tags": [
+        "action-value",
+        "first-cycle",
+        "project-policy"
+      ],
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "first_cycle_action_value": "150",
+      "later_cycle_action_value": "100",
+      "authoritative_decimal_encoding": "CanonicalString",
+      "selection_scope": "FreshNodeBattleTimeline",
+      "source_selector_found": false,
+      "parity_claim": false,
+      "approximations": [
+        {
+          "known_facts": "The challenge architecture records the commonly observed 150/100 cycle preset but requires each profile to select it; no active Version 4.4 row or program in the frozen closure explicitly selects the numeric preset.",
+          "selected_behavior": "Select 150 AV for the first cycle of each fresh node battle and 100 AV afterward as a deterministic Candidate reference policy.",
+          "rejected_alternatives": [
+            "100 AV for every cycle",
+            "carry a partial AV window across nodes",
+            "leave the battle scheduler without a window"
+          ],
+          "rationale": "The explicit preset is implementation-ready while the parity limitation and stronger-evidence trigger remain visible.",
+          "affected_fixture_ids": [
+            "fixture.cycle-first-av-window.150-then-100"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with a released Version 4.4 StageConfig/clock selector or reproducible action-gauge trace."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.cycle-tick-boundary",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Cycle tick boundary",
+      "name_zh_cn": "轮次计数边界",
+      "summary_en": "A cycle ticks after its AV window and reactions finish, before the next cycle's start rules.",
+      "summary_zh_cn": "行动值窗口及其反应处理完成后轮次计数，再执行下一轮开始规则。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:cycle-tick-boundary"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:cycle-tick-boundary",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:cycle-tick-boundary",
+          "evidence_sha256": "2a02eea73f802e06a743adf037960931df63a91635be73f828329d3a41da80a9",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking cycle-tick-boundary clock obligation."
+        }
+      ],
+      "tags": [
+        "cycle-end",
+        "cycle-start",
+        "tick"
+      ],
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "ordered_boundary": [
+        "DrainAcceptedActionAndBoundedReactions",
+        "EmitCycleEnded",
+        "DecrementRemainingCycles",
+        "EvaluateExpiry",
+        "InitializeNextCycleActionValue",
+        "EmitCycleStarted",
+        "ExecuteCycleStartRules"
+      ],
+      "consuming_actions": "SchedulerActionValueOnly",
+      "interrupts_consume_extra_cycle": false,
+      "approximations": [
+        {
+          "known_facts": "Memory Turbulence is described and programmed at cycle start; released rows do not encode its order relative to Activity clock decrement and reaction draining.",
+          "selected_behavior": "Commit the decrement after prior-cycle reactions drain and before any next-cycle Turbulence callback.",
+          "rejected_alternatives": [
+            "decrement during an action",
+            "execute Turbulence before expiry",
+            "let interrupts decrement cycles directly"
+          ],
+          "rationale": "A single typed boundary preserves command/event ordering and prevents expired clocks from producing another cycle-start effect.",
+          "affected_fixture_ids": [
+            "fixture.cycle-node-wave-carry.tick-before-cycle-start"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace ordering with a released event trace that identifies clock tick, expiry and OnPhase1 order."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.node-carry",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Node-to-node cycle carry",
+      "name_zh_cn": "节点间轮次携带",
+      "summary_en": "Node 2 receives Node 1's finalized remaining-cycle integer but starts a fresh battle timeline.",
+      "summary_zh_cn": "节点2接收节点1结算后的剩余轮次整数，但创建全新的战斗时间线。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:node-cycle-carry"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:node-cycle-carry",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:node-cycle-carry",
+          "evidence_sha256": "0ccbb70765fa44d707ea04d3353b04f14cf7177276a910a4720ed94a01045e03",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking node-cycle-carry clock obligation."
+        }
+      ],
+      "tags": [
+        "carry",
+        "node-1",
+        "node-2"
+      ],
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "from_node_index": 1,
+      "to_node_index": 2,
+      "carried_value": "RemainingCyclesAfterNode1Victory",
+      "carried_partial_action_value": false,
+      "node2_first_cycle_action_value": "150",
+      "battle_state_carry": "None",
+      "approximations": [
+        {
+          "known_facts": "The normative Memory profile owns one stage clock across nodes and creates a fresh battle/timeline for Node 2; released Version 4.4 rows do not expose partial-window carry.",
+          "selected_behavior": "Carry only the finalized integer remaining-cycle slot, then initialize Node 2 with the explicit first-cycle AV window.",
+          "rejected_alternatives": [
+            "reset Node 2 to 30",
+            "carry Node 1 partial AV",
+            "carry Node 1 battle state"
+          ],
+          "rationale": "Integer-only Activity projection keeps battle timelines independent and makes the unresolved client boundary explicit.",
+          "affected_fixture_ids": [
+            "fixture.cycle-node-wave-carry.node2-fresh-window"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace partial-window behavior with a released cross-node gauge/countdown trace."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.wave-carry",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Wave cycle carry",
+      "name_zh_cn": "波次间轮次携带",
+      "summary_en": "A wave transition preserves the current remaining cycles and current cycle AV position.",
+      "summary_zh_cn": "波次转移保持当前剩余轮次和本轮行动值位置。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:wave-cycle-carry"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:wave-cycle-carry",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:wave-cycle-carry",
+          "evidence_sha256": "69c034ec26d0e9fe5866fca43dcbb485497189a7ca41978f3319a87cc33313fa",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking wave-cycle-carry clock obligation."
+        }
+      ],
+      "tags": [
+        "carry",
+        "no-reset",
+        "wave"
+      ],
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "reset_remaining_cycles_on_wave": false,
+      "reset_cycle_action_value_on_wave": false,
+      "transition_order": "AfterActionAfterBoundedReactions",
+      "wave_start_rules_after_transition": true,
+      "approximations": [
+        {
+          "known_facts": "All selected StageConfig rows declare two waves; the generic wave lifecycle preserves surviving allied state unless authored otherwise, and no selected row declares a clock reset.",
+          "selected_behavior": "Carry both the Section cycle value and current per-battle AV position through an ordinary wave transition.",
+          "rejected_alternatives": [
+            "grant a new 150-AV cycle per wave",
+            "decrement once solely because a wave ended",
+            "reset the stage budget"
+          ],
+          "rationale": "Fail-closed no-reset semantics avoid inventing time and match the absence of a selected reset operation.",
+          "affected_fixture_ids": [
+            "fixture.cycle-node-wave-carry.wave-no-reset"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with a released StageCommonTemplate branch or wave transition trace selecting a reset."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.expiry-failure",
+      "schema_revision": "starclock.memory-of-chaos-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Clock expiry and failure",
+      "name_zh_cn": "轮次耗尽与失败",
+      "summary_en": "Reaching zero after a cycle tick fails the attempt before another cycle-start rule or transition can run.",
+      "summary_zh_cn": "轮次计数后到达零时，在下一轮开始规则或转移执行前判定尝试失败。",
+      "game_version": "4.4",
+      "ownership": "MemoryOfChaos",
+      "coverage_state": "DataReady",
+      "source_record_ids": [
+        "clock_and_resource_contracts:expiry-failure-order"
+      ],
+      "evidence_refs": [
+        {
+          "id": "starclock:docs/goals/17-memory-of-chaos-reference-data.md:included-content:expiry-failure-order",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-08-01",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/17-memory-of-chaos-reference-data.md",
+          "row_locator": "included-content:expiry-failure-order",
+          "evidence_sha256": "7d296b87e0721d103bc73a3ea7a50da492a5c3bb7ccab798b8569736274cbd36",
+          "quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Non-shrinking expiry-failure-order clock obligation."
+        }
+      ],
+      "tags": [
+        "expiry",
+        "failure",
+        "zero"
+      ],
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "expiry_predicate": "RemainingCyclesEqualsZeroAfterTick",
+      "expiry_order": [
+        "FinalizePreviousCycleEvents",
+        "EmitClockExpired",
+        "EmitNodeFailed",
+        "CloseStageAttempt",
+        "TeardownBattle"
+      ],
+      "allow_cycle_start_effect_after_expiry": false,
+      "allow_wave_or_node_transition_after_expiry": false,
+      "retry_reset_value": 30,
+      "approximations": [
+        {
+          "known_facts": "ChallengeCountDown is 30 and the challenge design states that a failed node terminates the attempt; the source closure does not expose the exact zero-boundary callback order.",
+          "selected_behavior": "Expire on the tick that produces zero, before cycle-start effects, wave transitions or Node 2 entry.",
+          "rejected_alternatives": [
+            "allow a full zero-labelled cycle",
+            "run Turbulence after expiry",
+            "transition nodes and then fail"
+          ],
+          "rationale": "Fail-before-new-work ordering is deterministic and prevents post-expiry mutations while remaining replaceable by stronger traces.",
+          "affected_fixture_ids": [
+            "fixture.cycle-node-wave-carry.expiry-before-start-rules"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with a released zero-cycle trace including the last action, reactions, Turbulence and failure UI boundary."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}
