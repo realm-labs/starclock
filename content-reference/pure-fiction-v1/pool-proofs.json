@@ -64,6 +64,35 @@
       "account_reward_tables_are_membership": false
     },
     {
+      "id": "pf.zero-proof.currency",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "currency exact-zero proof",
+      "name_zh_cn": "currency精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.currency"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.currency"
+      ],
+      "runtime_executable": false,
+      "family": "currency",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    },
+    {
       "id": "pf.zero-proof.event_choice",
       "schema_revision": "starclock.pure-fiction-row.v1",
       "kind": "pool-proof",
@@ -115,6 +144,64 @@
       ],
       "runtime_executable": false,
       "family": "occurrence",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    },
+    {
+      "id": "pf.zero-proof.service",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "service exact-zero proof",
+      "name_zh_cn": "service精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.service"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.service"
+      ],
+      "runtime_executable": false,
+      "family": "service",
+      "selected_profile_rows": 796,
+      "selector_count": 0,
+      "reachable_member_count": 0,
+      "conclusion": "ExactZero",
+      "account_reward_tables_are_membership": false
+    },
+    {
+      "id": "pf.zero-proof.shop",
+      "schema_revision": "starclock.pure-fiction-row.v1",
+      "kind": "pool-proof",
+      "name_en": "shop exact-zero proof",
+      "name_zh_cn": "shop精确零证明",
+      "summary_en": "The complete active selector closure exposes no mechanically reachable member selector for this family.",
+      "summary_zh_cn": "完整当前选择器闭包未暴露该家族的机械可达成员选择器。",
+      "game_version_snapshot": "4.4",
+      "ownership": "EvidenceOnly",
+      "release_state": "Released",
+      "enabled": true,
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "DeterministicProjectPolicyNotObservedParity",
+      "manifest_record_ids": [
+        "pf.zero-proof.shop"
+      ],
+      "source_record_ids": [
+        "source.pf.zero-proof.shop"
+      ],
+      "runtime_executable": false,
+      "family": "shop",
       "selected_profile_rows": 796,
       "selector_count": 0,
       "reachable_member_count": 0,
