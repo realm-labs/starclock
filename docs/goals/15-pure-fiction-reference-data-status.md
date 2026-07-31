@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 3 — Independent Sora and Excel |
 | Active batch | — |
-| Next unblocked batch | `G15-P4-B3` |
+| Next unblocked batch | `G15-P4-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 / planning audit 2026-07-30 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -35,7 +35,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Profile/season/Tierce, participants/loadouts/attempts, clocks/refill, score/objectives, Whimsicality/Grit/Fever, three Cacophonies and initial-resource policies regenerate byte-identically. |
 | Phase 2 — Content pools, services, events and enemies | `Complete` | Seven exact-zero pool proofs, active event/program bindings, all nine encounters/27 waves/63 slots, complete 596-row enemy mechanic closure, 25 rule families, 18 fixtures and exact-once 796-row coverage are machine-verified. |
 | Phase 3 — Independent Sora and Excel | `Complete` | Three workbooks regenerate byte-identically; 37 Sora exports load all 6,810 rows through isolated generated readers and every sheet/schema column passed rendered review. |
-| Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `InProgress` | Ownership audit and 18 semantic fixture families pass; shared reconciliation and terminal acceptance are next. |
+| Phase 4 — Ownership audit, fixtures, reconciliation and freeze | `InProgress` | Cross-goal reconciliation and full source-cache acceptance pass; final Candidate identity freeze is next. |
 
 ## Batch ledger
 
@@ -66,7 +66,7 @@
 | `G15-P3-B6` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `verify-authoring.mjs` proves byte-identical double workbook generation, normalized Sora templates, lock/readers, 37 debug tables and zstd bundle `d6602e68…02c3`; the isolated generated-reader crate loads all 37 tables/6,810 rows. LibreOffice/pdftoppm rendered 37 pages and five contact sheets; direct inspection of every page found consistent header bands, visible rows across A:P and no blank/clipped/broken required sheet, recorded in `workbook-visual-review.json`. |
 | `G15-P4-B1` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. `audit-release.mjs` verifies all 796 manifest obligations appear exactly once in coverage and sources, all 5,218 authored rows are bilingual/DataReady/non-runtime with valid manifest/provenance references, seven selector-backed pools are ExactZero, group `2025` remains excluded, all three gaps are nonblocking and 606 reconciliation rows report no conflict or peer mutation. The 6,014-row normalized pack audit is frozen in `ownership-audit.json`. |
 | `G15-P4-B2` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. The generated fixture pack now binds each of 18 lifecycle/spawn/score/Grit/Fever/Cacophony/encounter/Tierce families to its relevant normalized input and a closed `equals`/`contains`/`ordered_equals`/`absent` fact. `execute-semantic-fixtures.mjs` resolves and passes all 18 assertions, audits all three nonblocking ProjectPolicy replacement conditions and freezes result digest `17477b19…cad6`; regenerated workbooks/Sora bundle `c7960036…f9d0` remain deterministic and 37-page visual QA still passes. |
-| `G15-P4-B3` | `Pending` | — | Reconcile shared overlap and run full regeneration, drift, reader, dependency and clean-checkout acceptance. |
+| `G15-P4-B3` | `Complete` | This row's containing commit | Pushed and remotely resolved exactly on `origin/codex/goal15-pure-fiction-reference`. Reconciliation against Memory of Chaos `30ed7491…`, completed Apocalyptic Shadow `f9f70e20…` and Fate `982b6bc5…` inspects all 606 shared receipts, finds one exact triple overlap and zero digest conflicts or peer mutation. A discovered file-level-vs-row-level digest mismatch for shared enemy `2032010` was corrected at the manifest generator boundary; canonical row digest now exactly matches Goal 17. `verify-release.mjs` passes pinned source/pack/workbook/Sora/reader/fixture regeneration, and `node tools/repository-check/run.mjs --full --with-source-cache` passes in 371.8s including 32 generated checks, Clippy and 33 workspace harnesses. |
 | `G15-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
 
 For a completed batch, the result/evidence cell must record `remote`,
@@ -134,6 +134,7 @@ generated selector-closure proof.
 | 2026-07-30 | Exclude presentation, calendar behavior, quick-clear/account state and rewards while retaining mechanical locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-30 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full challenge runs require a later goal. |
 | 2026-07-30 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
+| 2026-08-01 | Canonicalize unique structured-table rows before hashing manifest evidence; retain whole-file digests only for file/program or non-unique policy locators. | Shared row `MonsterID=2032010` exposed that a whole-table digest is not comparable to peer row evidence even at the same path and locator; row-level canonical hashing removes the false conflict without changing source facts. |
 
 ## Research cases
 

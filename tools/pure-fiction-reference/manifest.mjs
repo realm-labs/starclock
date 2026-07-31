@@ -14,9 +14,34 @@ function parse(path) {
   return JSON.parse(text);
 }
 
-function sourceDigest(path) {
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  if (value !== null && typeof value === "object") return `{${Object.keys(value)
+    .sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
+  return JSON.stringify(value);
+}
+
+function locatorValue(value) {
+  if (/^-?\d+$/.test(value)) return Number(value);
+  if (value === "true" || value === "false") return value === "true";
+  return value;
+}
+
+function sourceDigest(path, locator) {
   const record = inventoryByPath.get(path);
   if (!record) throw new Error(`Source absent from inventory: ${path}`);
+  if (path.startsWith("ExcelOutput/") && path.endsWith(".json")) {
+    const rows = parse(path);
+    if (Array.isArray(rows)) {
+      const selectors = locator.split(":").map((part) => part.split("=", 2))
+        .filter(([key, value]) => key && value !== undefined
+          && rows.some((row) => Object.prototype.hasOwnProperty.call(row, key)));
+      const matches = rows.filter((row) => selectors.every(([key, value]) =>
+        row[key] === locatorValue(value)));
+      if (selectors.length && matches.length === 1)
+        return createHash("sha256").update(canonicalJson(matches[0])).digest("hex");
+    }
+  }
   return record.sha256;
 }
 
@@ -91,7 +116,7 @@ function add(id, category, sourcePath, locator, owner = "PureFiction", note = ""
     owner,
     source_path: sourcePath,
     source_locator: locator,
-    evidence_digest: sourceDigest(sourcePath),
+    evidence_digest: sourceDigest(sourcePath, locator),
     state: "Required",
     note
   });

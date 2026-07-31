@@ -1,0 +1,52 @@
+{
+  "schema_revision": "starclock.pure-fiction-peer-reconciliation.v1",
+  "goal_id": "pure-fiction-reference-v1",
+  "batch": "G15-P4-B3",
+  "reconciliation_key": [
+    "source_path",
+    "stable_row_locator",
+    "evidence_digest"
+  ],
+  "pure_fiction_shared_receipts": 606,
+  "peers": [
+    {
+      "name": "memory-of-chaos",
+      "commit": "30ed74918f7a60ba35b99583043fd344c385c662",
+      "manifest_path": "content-manifests/memory-of-chaos-v1/content-manifest.json",
+      "manifest_sha256": "0928632dc99c314e4a2a72b88f90ad76dd1371532882f24366ce15197c0230ce",
+      "comparable_records": 477
+    },
+    {
+      "name": "apocalyptic-shadow",
+      "commit": "f9f70e208b2b69f74e31f01eef0e5d620fc959bb",
+      "manifest_path": "content-manifests/apocalyptic-shadow-v1/content-manifest.json",
+      "manifest_sha256": "d64e4e3609f6818e5e0d072205010f3d39082ddaab260e0e5b1ca20e037c23b1",
+      "comparable_records": 129
+    },
+    {
+      "name": "fate-star-rail-night",
+      "commit": "982b6bc591420bb897b3c5df43686cc98eb4c52c",
+      "manifest_path": "content-manifests/fate-star-rail-night-v1/content-manifest.json",
+      "manifest_sha256": "7935951f5b14abf07f6cc1fdf37d70c1d60da12212586cee96bb3e6f787bb5b6",
+      "comparable_records": 1904
+    }
+  ],
+  "overlap_count": 1,
+  "exact_triple_match_count": 1,
+  "locator_variance_match_count": 0,
+  "conflict_count": 0,
+  "peer_artifact_mutation_count": 0,
+  "overlaps": [
+    {
+      "pure_fiction_id": "reconciliation.pf.enemy.2032010",
+      "peer": "memory-of-chaos",
+      "peer_id": "enemy-variant-2032010",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "pure_fiction_locator": "MonsterID=2032010",
+      "peer_locator": "MonsterID=2032010",
+      "digest": "8a2bb34af2bf0eb22d42ce31a6cbdd20526ac736ebed7e649dacee839e9fba81",
+      "outcome": "ExactTripleMatch"
+    }
+  ],
+  "result": "Passed"
+}
